@@ -4,7 +4,7 @@
 # shellcheck disable=SC2155
 declare cwd="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 declare root="$(cd "$cwd" && cd ../ && pwd)"
-declare executable="${root}/modules/openapi-generator-cli/target/openapi-generator-cli.jar"
+declare executable="${root}/modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar"
 
 if [ ! -f "$executable" ]; then
   (cd "${root}" && mvn -B --no-snapshot-updates clean package -DskipTests=true -Dmaven.javadoc.skip=true -Djacoco.skip=true)
