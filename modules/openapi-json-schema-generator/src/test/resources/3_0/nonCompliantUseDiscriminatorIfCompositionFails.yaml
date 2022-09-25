@@ -1,0 +1,78 @@
+openapi: 3.0.0
+x-stoplight:
+  id: mjnw03vw4ju5m
+info:
+  title: discriminator-test
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /operators:
+    post:
+      summary: ''
+      operationId: post-operators
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Operator'
+components:
+  schemas:
+    AdditionOperator:
+      type: object
+      title: AdditionOperator
+      x-stoplight:
+        id: qtffupdjxr76d
+      description: ''
+      additionalProperties: false
+      properties:
+        a:
+          type: number
+          format: double
+        b:
+          type: number
+          format: double
+        operator_id:
+          type: string
+          default: ADD
+      required:
+        - a
+        - b
+        - operator_id
+    Operator:
+      title: Operator
+      x-stoplight:
+        id: gz5qgm5j0vayg
+      oneOf:
+        - $ref: '#/components/schemas/AdditionOperator'
+        - $ref: '#/components/schemas/SubtractionOperator'
+      discriminator:
+        propertyName: operator_id
+        mapping:
+          ADD: '#/components/schemas/AdditionOperator'
+          SUB: '#/components/schemas/SubtractionOperator'
+      description: ''
+    SubtractionOperator:
+      type: object
+      title: SubtractionOperator
+      x-stoplight:
+        id: qtffupdjxr76d
+      description: ''
+      additionalProperties: false
+      properties:
+        a:
+          type: number
+          format: double
+        b:
+          type: number
+          format: double
+        operator_id:
+          type: string
+          default: SUB
+      required:
+        - a
+        - b
+        - operator_id

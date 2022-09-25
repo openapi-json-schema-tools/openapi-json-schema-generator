@@ -63,6 +63,7 @@ elif [ "$NODE_INDEX" = "4" ]; then
   #mvn --no-snapshot-updates --quiet verify -Psamples.circleci.node4 -Dorg.slf4j.simpleLogger.defaultLogLevel=error
   (cd samples/openapi3/client/petstore/python && make test)
   (cd samples/openapi3/client/3_0_3_unit_test/python && make test)
+  (cd samples/openapi3/client/features/nonCompliantUseDiscriminatorIfCompositionFails/python && make test)
 
 else
   echo "Running node $NODE_INDEX"
