@@ -412,8 +412,8 @@ public class CodegenConstants {
             "discriminator to validate the payload. " +
             "Note: setting this to true makes the generated client not comply with json schema because it ignores " +
             "composition validation errors. Please consider making your schemas more restrictive rather than " +
-            "setting this to true. You can do that by: " +
-            "- defining the propertyName as an enum with only one value in the schemas that are in your discriminator map" +
-            "- setting additionalProperties: false in your schemas";
+            "setting this to true. You can do that by:<ul>" +
+            "<li>defining the propertyName as an enum with only one value in the schemas that are in your discriminator map</li>" +
+            "<li>setting additionalProperties: false in your schemas</li></ul>";
 
 }
