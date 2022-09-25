@@ -105,6 +105,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     // for apis.tags tag api definition
     private Map<String, String> tagEnumToApiClassname = new LinkedHashMap<>();
 
+    private boolean nonCompliantUseDiscrIfCompositionFails = false;
+
     public PythonClientCodegen() {
         super();
         loadDeepObjectIntoItems = false;
@@ -368,6 +370,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             } catch (NumberFormatException | NullPointerException e) {
                 throw new IllegalArgumentException("recursionLimit must be an integer, e.g. 2000.");
             }
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS)) {
+            nonCompliantUseDiscrIfCompositionFails = Boolean.parseBoolean(
+                    additionalProperties.get(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS).toString()
+            );
         }
 
         String readmePath = "README.md";
@@ -2728,6 +2736,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String sanitizeTag(String tag) {
         return tag;
+    }
+
+    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
+        objs.put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, nonCompliantUseDiscrIfCompositionFails);
+        return objs;
     }
 
     @Override
