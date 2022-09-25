@@ -407,13 +407,13 @@ public class CodegenConstants {
     public static final String NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS = "nonCompliantUseDiscriminatorIfCompositionFails";
 
     public static final String NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS_DESC =
-            "When true, If the payload fails to validate against composed schemas (allOf/anyOf/oneOf/not) and a " +
+            "<p>When true, If the payload fails to validate against composed schemas (allOf/anyOf/oneOf/not) and a " +
             "discriminator is present, then ignore the composition validation errors and attempt to use the " +
-            "discriminator to validate the payload.<br/>" +
-            "Note: setting this to true makes the generated client not comply with json schema because it ignores " +
+            "discriminator to validate the payload.</p>" +
+            "<p>Note: setting this to true makes the generated client not comply with json schema because it ignores " +
             "composition validation errors. Please consider making your schemas more restrictive rather than " +
-            "setting this to true. You can do that by: <br/>" +
-            "- defining the propertyName as an enum with only one value in the schemas that are in your discriminator map<br/>" +
-            "- setting additionalProperties: false in your schemas";
+            "setting this to true. You can do that by:</p><ul>" +
+            "<li>defining the propertyName as an enum with only one value in the schemas that are in your discriminator map</li>" +
+            "<li>setting additionalProperties: false in your schemas</li></ul>";
 
 }
