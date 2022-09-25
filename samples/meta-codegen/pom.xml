@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>lib/</module>
-        <module>../../modules/openapi-generator</module>
-        <module>../../modules/openapi-generator-core</module>
+        <module>../../modules/openapi-json-schema-generator</module>
+        <module>../../modules/openapi-json-schema-generator-core</module>
     </modules>
 </project>

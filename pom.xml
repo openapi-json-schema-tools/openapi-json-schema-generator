@@ -1148,22 +1148,6 @@
                 <module>samples/client/petstore/spring-cloud</module>
             </modules>
         </profile>
-        <!-- node 3 tests in CircleCI -->
-        <profile>
-            <id>samples.circleci.node3</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.circleci.node3</value>
-                </property>
-            </activation>
-            <modules>
-                <!-- clients -->
-                <module>samples/client/petstore/python-prior</module>
-                <module>samples/client/petstore/python-prior_disallowAdditionalPropertiesIfNotPresent</module>
-                <!--<module>samples/openapi3/client/petstore/python-legacy</module>-->
-            </modules>
-        </profile>
         <!-- node 4 tests in CircleCI -->
         <profile>
             <id>samples.circleci.node4</id>
