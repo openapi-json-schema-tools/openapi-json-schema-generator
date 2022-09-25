@@ -28,10 +28,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |packageName|F# module name (convention: Title.Case).| |OpenAPI|
 |packageTitle|Specifies an AssemblyTitle for the .NET Framework global assembly attributes stored in the AssemblyInfo file.| |OpenAPI Library|
 |packageVersion|F# package version.| |1.0.0|
-|returnICollection|Return ICollection&lt;T&gt; instead of the concrete type.| |false|
+|returnICollection|Return ICollection<T> instead of the concrete type.| |false|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 |sourceFolder|source folder for generated code| |OpenAPI/src|
-|useCollection|Deserialize array types to Collection&lt;T&gt; instead of List&lt;T&gt;.| |false|
+|useCollection|Deserialize array types to Collection<T> instead of List<T>.| |false|
 |useDateTimeOffset|Use DateTimeOffset to model date-time properties| |false|
 |useSwashbuckle|Uses the Swashbuckle.AspNetCore NuGet package for documentation.| |false|
 

@@ -65,7 +65,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |scmConnection|SCM connection in generated pom.xml| |scm:git:git@github.com:openapitools/openapi-generator.git|
 |scmDeveloperConnection|SCM developer connection in generated pom.xml| |scm:git:git@github.com:openapitools/openapi-generator.git|
 |scmUrl|SCM URL in generated pom.xml| |https://github.com/openapitools/openapi-generator|
-|serializableModel|boolean - toggle &quot;implements Serializable&quot; for generated models| |false|
+|serializableModel|boolean - toggle "implements Serializable" for generated models| |false|
 |serverPort|The port on which the server should be started| |8080|
 |snapshotVersion|Uses a SNAPSHOT version.|<dl><dt>**true**</dt><dd>Use a SnapShot Version</dd><dt>**false**</dt><dd>Use a Release Version</dd></dl>|null|
 |sortModelPropertiesByRequiredFlag|Sort model properties to place required parameters before optional parameters.| |true|

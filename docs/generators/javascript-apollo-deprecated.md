@@ -31,16 +31,16 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |licenseName|name of the license the project uses (Default: using info.license.name)| |null|
 |modelPackage|package for generated models| |null|
 |modelPropertyNaming|Naming convention for the property: 'camelCase', 'PascalCase', 'snake_case' and 'original', which keeps the original name| |camelCase|
-|moduleName|module name for AMD, Node or globals (Default: generated from &lt;projectName&gt;)| |null|
+|moduleName|module name for AMD, Node or globals (Default: generated from <projectName>)| |null|
 |npmRepository|Use this property to set an url your private npmRepo in the package.json| |null|
 |prependFormOrBodyParameters|Add form or body parameters to the beginning of the parameter list.| |false|
-|projectDescription|description of the project (Default: using info.description or &quot;Client library of &lt;projectName&gt;&quot;)| |null|
-|projectName|name of the project (Default: generated from info.title or &quot;openapi-js-client&quot;)| |null|
-|projectVersion|version of the project (Default: using info.version or &quot;1.0.0&quot;)| |null|
+|projectDescription|description of the project (Default: using info.description or "Client library of <projectName>")| |null|
+|projectName|name of the project (Default: generated from info.title or "openapi-js-client")| |null|
+|projectVersion|version of the project (Default: using info.version or "1.0.0")| |null|
 |sortModelPropertiesByRequiredFlag|Sort model properties to place required parameters before optional parameters.| |true|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 |sourceFolder|source folder for generated code| |src|
-|useInheritance|use JavaScript prototype chains &amp; delegation for inheritance| |true|
+|useInheritance|use JavaScript prototype chains & delegation for inheritance| |true|
 |usePromises|use Promises as return values from the client API, instead of superagent callbacks| |false|
 
 ## IMPORT MAPPING

@@ -36,9 +36,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |modelMutable|Create mutable models| |false|
 |modelPackage|model package for generated code| |org.openapitools.model|
 |packageName|Generated artifact package name.| |org.openapitools|
-|parcelizeModels|toggle &quot;@Parcelize&quot; for generated models| |null|
+|parcelizeModels|toggle "@Parcelize" for generated models| |null|
 |reactive|use coroutines for reactive behavior| |false|
-|serializableModel|boolean - toggle &quot;implements Serializable&quot; for generated models| |null|
+|serializableModel|boolean - toggle "implements Serializable" for generated models| |null|
 |serializationLibrary|What serialization library to use: 'moshi' (default), or 'gson' or 'jackson'| |moshi|
 |serverPort|configuration the port in which the sever is to run on| |8080|
 |serviceImplementation|generate stub service implementations that extends service interfaces. If this is set to true service interfaces will also be generated| |false|

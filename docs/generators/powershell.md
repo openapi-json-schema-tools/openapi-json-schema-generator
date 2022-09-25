@@ -18,7 +18,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 
 | Option | Description | Values | Default |
 | ------ | ----------- | ------ | ------- |
-|apiNamePrefix|Prefix that will be appended to all PS objects. Default: empty string. e.g. Pet =&gt; PSPet.| |null|
+|apiNamePrefix|Prefix that will be appended to all PS objects. Default: empty string. e.g. Pet => PSPet.| |null|
 |commonVerbs|PS common verb mappings. e.g. Delete=Remove:Patch=Update to map Delete with Remove and Patch with Update accordingly.| |null|
 |disallowAdditionalPropertiesIfNotPresent|If false, the 'additionalProperties' implementation (set to true by default) is compliant with the OAS and JSON schema specifications. If true (default), keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.|<dl><dt>**false**</dt><dd>The 'additionalProperties' implementation is compliant with the OAS and JSON schema specifications.</dd><dt>**true**</dt><dd>Keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.</dd></dl>|true|
 |discardReadOnly|Set discardReadonly to true to generate the Initialize cmdlet without readonly parameters| |null|

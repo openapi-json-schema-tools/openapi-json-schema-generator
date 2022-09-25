@@ -33,11 +33,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |packageGuid|The GUID that will be associated with the C# project| |null|
 |packageName|C# package name (convention: Title.Case).| |Org.OpenAPITools|
 |packageVersion|C# package version.| |1.0.0|
-|returnICollection|Return ICollection&lt;T&gt; instead of the concrete type.| |false|
+|returnICollection|Return ICollection<T> instead of the concrete type.| |false|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 |sourceFolder|source folder for generated code| |src|
 |targetFramework|The target .NET framework version. To target multiple frameworks, use `;` as the separator, e.g. `netstandard2.1;netcoreapp3.1`|<dl><dt>**v3.5**</dt><dd>.NET Framework 3.5 compatible</dd><dt>**v4.0**</dt><dd>.NET Framework 4.0 compatible</dd><dt>**v4.5**</dt><dd>.NET Framework 4.5 compatible</dd><dt>**v4.5.2**</dt><dd>.NET Framework 4.5.2+ compatible</dd><dt>**netstandard1.3**</dt><dd>.NET Standard 1.3 compatible (DEPRECATED. Please use `csharp-netcore` generator instead)</dd><dt>**uwp**</dt><dd>Universal Windows Platform (DEPRECATED. Please use `csharp-netcore` generator instead)</dd></dl>|v4.5|
-|useCollection|Deserialize array types to Collection&lt;T&gt; instead of List&lt;T&gt;.| |false|
+|useCollection|Deserialize array types to Collection<T> instead of List<T>.| |false|
 |useCompareNetObjects|Use KellermanSoftware.CompareNetObjects for deep recursive object comparison. WARNING: this option incurs potential performance impact.| |false|
 |useDateTimeOffset|Use DateTimeOffset to model date-time properties| |false|
 |validatable|Generates self-validatable models.| |true|
