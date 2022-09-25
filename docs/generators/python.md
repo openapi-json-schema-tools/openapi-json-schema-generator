@@ -22,6 +22,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |generateSourceCodeOnly|Specifies that only a library source code is to be generated.| |false|
 |hideGenerationTimestamp|Hides the generation timestamp when files are generated.| |true|
 |library|library template (sub-template) to use: urllib3| |urllib3|
+|nonCompliantUseDiscriminatorIfCompositionFails|When true, If the payload fails to validate against composed schemas (allOf/anyOf/oneOf/not) and a discriminator is present, then ignore the compostion validation errors and attempt to use the discriminator to validate the payload. Note: setting this to true makes the generated client not comply with json schema because it ignores compotion validation errors . Please consider making your schemas more restrictive rather than setting this to true. You can do that by: - defining the propertyName as an enum with only one value in the schemas that are in your discriminator map- setting additionalProperties: false in your schemas| |false|
 |packageName|python package name (convention: snake_case).| |openapi_client|
 |packageUrl|python package URL.| |null|
 |packageVersion|python package version.| |1.0.0|

@@ -12,6 +12,7 @@ else
     exit 1;
 fi
 
-executable="./modules/openapi-generator-cli/target/openapi-generator-cli.jar"
+executable="./modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar"
+
 
 java -jar ${executable} config-help -g "${NAME}" --full-details --named-header --format markdown --markdown-header -o "docs/generators/${NAME}.md"
