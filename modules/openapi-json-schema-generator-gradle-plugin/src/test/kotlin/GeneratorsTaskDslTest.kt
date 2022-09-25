@@ -15,7 +15,7 @@ class GeneratorsTaskDslTest : TestBase() {
         // Arrange
         withProject("""
             | plugins {
-            |   id 'org.openapi.generator'
+            |   id 'org.openapi.json-schema-generator'
             | }
         """.trimMargin())
 

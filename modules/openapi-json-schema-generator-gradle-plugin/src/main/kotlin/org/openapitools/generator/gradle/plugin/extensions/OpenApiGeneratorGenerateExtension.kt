@@ -191,7 +191,7 @@ open class OpenApiGeneratorGenerateExtension(project: Project) {
     val gitUserId = project.objects.property<String?>()
 
     /**
-     * Git repo ID, e.g. openapi-generator.
+     * Git repo ID, e.g. openapi-json-schema-generator.
      */
     val gitRepoId = project.objects.property<String?>()
 

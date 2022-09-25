@@ -14,7 +14,7 @@ class GenerateTaskDslTest : TestBase() {
 
     private val defaultBuildGradle = """
         plugins {
-          id 'org.openapi.generator'
+          id 'org.openapi.json-schema-generator'
         }
         openApiGenerate {
             generatorName = "kotlin"
@@ -77,7 +77,7 @@ class GenerateTaskDslTest : TestBase() {
         )
         withProject("""
         plugins {
-          id 'org.openapi.generator'
+          id 'org.openapi.json-schema-generator'
         }
         openApiGenerate {
             generatorName = "java"
@@ -213,7 +213,7 @@ class GenerateTaskDslTest : TestBase() {
 
         withProject("""
         plugins {
-          id 'org.openapi.generator'
+          id 'org.openapi.json-schema-generator'
         }
         openApiGenerate {
             generatorName = "kotlin"
@@ -251,7 +251,7 @@ class GenerateTaskDslTest : TestBase() {
 
         withProject("""
         plugins {
-          id 'org.openapi.generator'
+          id 'org.openapi.json-schema-generator'
         }
         openApiGenerate {
             generatorName = "kotlin"
@@ -288,7 +288,7 @@ class GenerateTaskDslTest : TestBase() {
 
         withProject("""
         plugins {
-          id 'org.openapi.generator'
+          id 'org.openapi.json-schema-generator'
         }
         openApiGenerate {
             generatorName = "kotlin"

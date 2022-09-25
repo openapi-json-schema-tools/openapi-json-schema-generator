@@ -97,7 +97,7 @@ task validateGoodSpec(type: org.openapitools.generator.gradle.plugin.tasks.Valid
 [source,group]
 ----
 plugins {
-  id "org.openapi.generator" version "6.1.0"
+  id "org.openapi.json-schema-generator" version "1.0.0"
 }
 ----
 
@@ -113,11 +113,11 @@ buildscript {
     // url "https://plugins.gradle.org/m2/"
   }
   dependencies {
-    classpath "org.openapitools:openapi-generator-gradle-plugin:6.1.0"
+    classpath "org.openapitools:openapi-json-schema-generator-gradle-plugin:6.1.0"
   }
 }
 
-apply plugin: 'org.openapi.generator'
+apply plugin: 'org.openapi.json-schema-generator'
 ----
 //# /RELEASE_VERSION
 
@@ -272,7 +272,7 @@ apply plugin: 'org.openapi.generator'
 |gitRepoId
 |String
 |None
-|Git repo ID, e.g. openapi-generator.
+|Git repo ID, e.g. openapi-json-schema-generator.
 
 |releaseNote
 |String
@@ -347,7 +347,7 @@ apply plugin: 'org.openapi.generator'
 |configOptions
 |Map(String,String)
 |None
-|A map of options specific to a generator. To see the full list of generator-specified parameters, please refer to [generators docs](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators.md). Note that any config options from a generator specific document may go here, and some generators may duplicate other options which are siblings to `configOptions`.
+|A map of options specific to a generator. To see the full list of generator-specified parameters, please refer to [generators docs](https://github.com/OpenAPITools/openapi-json-schema-generator/blob/master/docs/generators.md). Note that any config options from a generator specific document may go here, and some generators may duplicate other options which are siblings to `configOptions`.
 
 |logToStderr
 |Boolean
@@ -565,7 +565,7 @@ BUILD SUCCESSFUL in 0s
 [source,groovy]
 ----
 openApiValidate {
-   inputSpec = "/src/openapi-generator/modules/openapi-generator/src/test/resources/3_0/petstore.yaml"
+   inputSpec = "/src/openapi-json-schema-generator/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml"
    recommend = true
 }
 ----
@@ -573,10 +573,10 @@ openApiValidate {
 .Example output of openApiValidate task (success)
 [source,terminal]
 ----
-$ ./gradlew openApiValidate --input=/Users/jim/projects/openapi-generator/modules/openapi-generator/src/test/resources/3_0/ping.yaml
+$ ./gradlew openApiValidate --input=/Users/jim/projects/openapi-json-schema-generator/modules/openapi-json-schema-generator/src/test/resources/3_0/ping.yaml
 
 > Task :openApiValidate
-Validating spec /Users/jim/projects/openapi-generator/modules/openapi-generator/src/test/resources/3_0/ping.yaml
+Validating spec /Users/jim/projects/openapi-json-schema-generator/modules/openapi-json-schema-generator/src/test/resources/3_0/ping.yaml
 Spec is valid.
 
 BUILD SUCCESSFUL in 0s
@@ -589,7 +589,7 @@ BUILD SUCCESSFUL in 0s
 $ ./gradlew openApiValidate
 
 > Task :openApiValidate FAILED
-Validating spec /Users/jim/projects/openapi-generator/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
+Validating spec /Users/jim/projects/openapi-json-schema-generator/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml
 
 Spec is invalid.
 Issues:
@@ -613,13 +613,13 @@ Run with --stacktrace option to get the stack trace. Run with --info or --debug 
 .in terminal (alternate)
 [source,terminal]
 ----
-$ ./gradlew openApiValidate --input=/Users/jim/projects/openapi-generator/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
+$ ./gradlew openApiValidate --input=/Users/jim/projects/openapi-json-schema-generator/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml
 ----
 
 === Generate multiple sources
 
 If you want to perform multiple generation tasks, you'd want to create a task that inherits from the `GenerateTask`.
-Examples can be found in https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-gradle-plugin/samples/local-spec/build.gradle[samples/local-spec/build.gradle].
+Examples can be found in https://github.com/OpenAPITools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator-gradle-plugin/samples/local-spec/build.gradle[samples/local-spec/build.gradle].
 
 You can define any number of generator tasks; the generated code does _not_ need to be a JVM language.
 
@@ -682,7 +682,7 @@ You can run `gradle tasks --debug` to see this registration.
 
 === Android Studio
 
-Android Studio may experience a Windows-specific Guava dependency conflict with openapi-generator-gradle-plugin versions greater than 3.0.0.
+Android Studio may experience a Windows-specific Guava dependency conflict with openapi-json-schema-generator-gradle-plugin versions greater than 3.0.0.
 
 As a workaround, you may force exclude conflicting Guava dependencies.
 
@@ -695,7 +695,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath('org.openapitools:openapi-generator-gradle-plugin:6.1.0') {
+        classpath('org.openapitools:openapi-json-schema-generator-gradle-plugin:1.0.0') {
             exclude group: 'com.google.guava'
         }
     }
@@ -706,7 +706,7 @@ configurations {
     compile.exclude module: 'guava-jdk5'
 }
 // …
-apply plugin: 'org.openapi.generator'
+apply plugin: 'org.openapi.json-schema-generator'
 ```
 //# /RELEASE_VERSION
 

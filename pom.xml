@@ -1135,24 +1135,6 @@
                 <module>samples/openapi3/client/petstore/python-legacy</module>
             </modules>
         </profile>
-        <!-- test with JDK8 in CircleCI -->
-        <profile>
-            <id>samples.circleci</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.circleci</value>
-                </property>
-            </activation>
-            <modules>
-                <!-- servers -->
-                <module>samples/server/petstore/java-camel</module>
-                <module>samples/server/petstore/java-vertx-web</module>
-                <module>samples/server/petstore/java-inflector</module>
-                <module>samples/server/petstore/java-pkmst</module>
-                <module>samples/server/petstore/java-undertow</module>
-            </modules>
-        </profile>
         <profile>
             <id>samples.circleci.spring</id>
             <activation>
@@ -1180,36 +1162,6 @@
                 <module>samples/client/petstore/python-prior</module>
                 <module>samples/client/petstore/python-prior_disallowAdditionalPropertiesIfNotPresent</module>
                 <!--<module>samples/openapi3/client/petstore/python-legacy</module>-->
-                <!-- TODO comment out below when the test for typescript-nestjs is ready
-                <module>samples/client/petstore/typescript-nestjs-v6-provided-in-root</module>-->
-                <!-- comment out due to error `npm run build`
-                <module>samples/client/petstore/typescript-jquery/npm</module>-->
-                <module>samples/client/petstore/typescript-angular-v12-provided-in-root</module>
-                <module>samples/client/petstore/typescript-angular-v13-provided-in-root</module>
-                <module>samples/client/petstore/typescript-angular-v14-provided-in-root</module>
-                <module>samples/openapi3/client/petstore/typescript/builds/default</module>
-                <module>samples/openapi3/client/petstore/typescript/tests/default</module>
-                <module>samples/openapi3/client/petstore/typescript/builds/jquery</module>
-                <module>samples/openapi3/client/petstore/typescript/tests/jquery</module>
-                <module>samples/openapi3/client/petstore/typescript/builds/object_params</module>
-                <module>samples/openapi3/client/petstore/typescript/tests/object_params</module>
-                <module>samples/openapi3/client/petstore/typescript/builds/inversify</module>
-                <!-- comment out due to failure in travis ci
-                <module>samples/openapi3/client/petstore/typescript/tests/inversify</module>
-                <module>samples/openapi3/client/petstore/typescript/tests/deno</module>-->
-                <module>samples/openapi3/client/petstore/typescript/builds/browser</module>
-                <module>samples/openapi3/client/petstore/typescript/tests/browser</module>
-                <module>samples/client/petstore/typescript-fetch/builds/default</module>
-                <module>samples/client/petstore/typescript-fetch/builds/es6-target</module>
-                <module>samples/client/petstore/typescript-fetch/builds/with-npm-version</module>
-                <module>samples/client/petstore/typescript-fetch/tests/default</module>
-                <module>samples/client/petstore/typescript-node/npm</module>
-                <module>samples/client/petstore/typescript-rxjs/builds/with-npm-version</module>
-                <module>samples/client/petstore/typescript-axios/builds/with-npm-version</module>
-                <module>samples/client/petstore/typescript-axios/tests/default</module>
-                <module>samples/client/petstore/javascript-flowtyped</module>
-                <module>samples/client/petstore/javascript-es6</module>
-                <module>samples/client/petstore/javascript-promise-es6</module>
             </modules>
         </profile>
         <!-- node 4 tests in CircleCI -->
@@ -1225,132 +1177,6 @@
                 <!-- python clients which don't need the server running -->
                 <module>samples/openapi3/client/petstore/python</module>
                 <module>samples/openapi3/client/petstore/python-prior</module>
-            </modules>
-        </profile>
-        <!-- other tests in CircleCI -->
-        <profile>
-            <id>samples.circleci.others</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.circleci.others</value>
-                </property>
-            </activation>
-            <modules>
-                <!-- clients -->
-                <!-- test java-related projects -->
-                <module>samples/client/petstore/scala-akka</module>
-                <module>samples/client/petstore/scala-sttp</module>
-                <module>samples/client/petstore/clojure</module>
-                <module>samples/client/petstore/java/jersey2-java8</module>
-                <module>samples/openapi3/client/petstore/java/jersey2-java8</module>
-                <module>samples/client/petstore/java/jersey3</module>
-                <module>samples/client/others/java/okhttp-gson-streaming</module>
-                <module>samples/client/petstore/java/okhttp-gson</module>
-            </modules>
-        </profile>
-        <!-- test with JDK9 in Shippable CI -->
-        <profile>
-            <id>samples.shippable</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.shippable</value>
-                </property>
-            </activation>
-            <modules>
-                <!-- clients -->
-                <module>samples/openapi3/client/elm</module>
-                <!--<module>samples/client/petstore/elixir</module>-->
-                <module>samples/client/petstore/erlang-client</module>
-                <module>samples/client/petstore/erlang-proper</module>
-                <!--<module>samples/server/petstore/erlang-server</module>-->
-            </modules>
-        </profile>
-        <!-- test with Haskell -->
-        <profile>
-            <id>samples.misc</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.misc</value>
-                </property>
-            </activation>
-            <modules>
-                <!-- clients -->
-                <!--<module>samples/client/petstore/haskell-http-client</module>-->
-                <!-- servers -->
-                <!--<module>samples/server/petstore/haskell-servant</module>-->
-                <!-- test Go projects -->
-                <module>samples/client/petstore/go</module>
-                <module>samples/openapi3/client/petstore/go</module>
-                <module>samples/server/petstore/go-api-server</module>
-                <!-- comment out due to Go version
-                <module>samples/server/petstore/go-gin-api-server</module>-->
-                <module>samples/server/petstore/go-echo-server</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>samples.dart</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.dart</value>
-                </property>
-            </activation>
-            <modules>
-                <module>samples/openapi3/client/petstore/dart2/petstore_client_lib</module>
-                <module>samples/openapi3/client/petstore/dart-dio/oneof</module>
-                <module>samples/openapi3/client/petstore/dart-dio/oneof_polymorphism_and_inheritance</module>
-                <module>samples/openapi3/client/petstore/dart-dio/oneof_primitive</module>
-                <module>samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake</module>
-                <module>samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>samples.ios</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>samples.ios</value>
-                </property>
-            </activation>
-            <modules>
-                <!-- swift 5 samples -->
-                <module>samples/client/petstore/swift5/alamofireLibrary</module>
-                <module>samples/client/petstore/swift5/combineLibrary</module>
-                <module>samples/client/petstore/swift5/default</module>
-                <module>samples/client/petstore/swift5/deprecated</module>
-                <module>samples/client/petstore/swift5/frozenEnums</module>
-                <module>samples/client/petstore/swift5/nonPublicApi</module>
-                <module>samples/client/petstore/swift5/objcCompatible</module>
-                <module>samples/client/petstore/swift5/promisekitLibrary</module>
-                <module>samples/client/petstore/swift5/readonlyProperties</module>
-                <module>samples/client/petstore/swift5/resultLibrary</module>
-                <module>samples/client/petstore/swift5/rxswiftLibrary</module>
-                <module>samples/client/petstore/swift5/urlsessionLibrary</module>
-                <!-- swift 5 tests -->
-                <!-- temporarily comment them because they are flaky
-                <module>samples/client/petstore/swift5/alamofireLibrary/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift5/combineLibrary/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift5/default/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift5/promisekitLibrary/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift5/rxswiftLibrary/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift5/urlsessionLibrary/SwaggerClientTests</module>
-                -->
-                <!-- swift 1.x, 3.x, 4.x client generators have been deprecated
-                <module>samples/client/petstore/swift4/default/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift4/promisekit/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift4/rxswift/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift3/default/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift3/promisekit/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift3/rxswift/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift/default/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift/promisekit/SwaggerClientTests</module>
-                <module>samples/client/petstore/swift/rxswift/SwaggerClientTests</module>-->
-                <!-- comment out objc tests as it's timing out
-                <module>samples/client/petstore/objc/default/SwaggerClientTests</module>
-                <module>samples/client/petstore/objc/core-data/SwaggerClientTests</module>-->
             </modules>
         </profile>
         <profile>

@@ -2,7 +2,7 @@
 
 This example assumes you have Gradle 6.8.3+ installed. No gradle wrapper is provided in samples.
 
-First, publish the openapi-generator-gradle-plugin locally via `./gradlew assemble publishToMavenLocal` in the module directory.
+First, publish the openapi-json-schema-generator-gradle-plugin locally via `./gradlew assemble publishToMavenLocal` in the module directory.
 
 Then, run the following tasks in this example directory.
 

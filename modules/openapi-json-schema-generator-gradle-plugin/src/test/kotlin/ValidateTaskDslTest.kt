@@ -38,7 +38,7 @@ class ValidateTaskDslTest : TestBase() {
         withProject(
             """
             | plugins {
-            |   id 'org.openapi.generator'
+            |   id 'org.openapi.json-schema-generator'
             | }
             |
             | openApiValidate {
@@ -83,7 +83,7 @@ class ValidateTaskDslTest : TestBase() {
         withProject(
             """
             | plugins {
-            |   id 'org.openapi.generator'
+            |   id 'org.openapi.json-schema-generator'
             | }
             |
             | openApiValidate {
@@ -119,7 +119,7 @@ class ValidateTaskDslTest : TestBase() {
         withProject(
             """
             | plugins {
-            |   id 'org.openapi.generator'
+            |   id 'org.openapi.json-schema-generator'
             | }
             |
             | openApiValidate {

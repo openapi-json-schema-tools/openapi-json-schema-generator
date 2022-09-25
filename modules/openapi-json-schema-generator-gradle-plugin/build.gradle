@@ -59,7 +59,7 @@ repositories {
 dependencies {
     compile gradleApi()
     // Shared OpenAPI Generator version be passed via command line arg as -PopenApiGeneratorVersion=VERSION
-    compile "org.openapitools:openapi-generator:$openApiGeneratorVersion"
+    compile "org.openapitools:openapi-json-schema-generator:$openApiGeneratorVersion"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     testCompile 'org.testng:testng:6.9.6',
@@ -109,9 +109,9 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
             pom {
-                name = 'OpenAPI-Generator Contributors'
+                name = 'openapi-json-schema-generator Contributors'
                 description = project.description
-                url = 'https://openapi-generator.tech'
+                url = 'https://github.com/OpenAPITools/openapi-json-schema-generator'
                 organization {
                     name = 'org.openapitools'
                     url = 'https://github.com/OpenAPITools'
@@ -126,18 +126,18 @@ publishing {
                 developers {
                     developer {
                         id = "openapitools"
-                        name = "OpenAPI-Generator Contributors"
+                        name = "openapi-json-schema-generator Contributors"
                         email = "team@openapitools.org"
                     }
                 }
                 scm {
-                    url = 'https://github.com/OpenAPITools/openapi-generator'
-                    connection = 'scm:git:git://github.com/OpenAPITools/openapi-generator.git'
-                    developerConnection = 'scm:git:ssh://git@github.com:OpenAPITools/openapi-generator.git'
+                    url = 'https://github.com/OpenAPITools/openapi-json-schema-generator'
+                    connection = 'scm:git:git://github.com/OpenAPITools/openapi-json-schema-generator.git'
+                    developerConnection = 'scm:git:ssh://git@github.com:OpenAPITools/openapi-json-schema-generator.git'
                 }
                 issueManagement {
                     system = 'GitHub'
-                    url = 'https://github.com/OpenAPITools/openapi-generator/issues'
+                    url = 'https://github.com/OpenAPITools/openapi-json-schema-generator/issues'
                 }
             }
         }
@@ -157,7 +157,7 @@ nexusPublishing {
 gradlePlugin {
     plugins {
         openApiGenerator {
-            id = 'org.openapi.generator'
+            id = 'org.openapi.json-schema-generator'
             implementationClass = 'org.openapitools.generator.gradle.plugin.OpenApiGeneratorPlugin'
         }
     }
@@ -165,15 +165,15 @@ gradlePlugin {
 
 pluginBundle {
     // These settings are set for the whole plugin bundle
-    website = 'https://openapi-generator.tech/'
-    vcsUrl = 'https://github.com/OpenAPITools/openapi-generator'
+    website = 'https://github.com/OpenAPITools/openapi-json-schema-generator'
+    vcsUrl = 'https://github.com/OpenAPITools/openapi-json-schema-generator'
     description = 'OpenAPI Generator allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec (v2, v3)'
 
     plugins {
         // first plugin
         openApiGenerator {
-            id = 'org.openapi.generator'
-            displayName = 'OpenAPI Generator Gradle Plugin'
+            id = 'org.openapi.json-schema-generator'
+            displayName = 'OpenAPI Json Sshema Generator Gradle Plugin'
             tags = ['openapi-3.0', 'openapi-2.0', 'openapi', 'swagger', 'codegen', 'sdk']
             version = "$openApiGeneratorVersion"
             group = "org.openapitools"

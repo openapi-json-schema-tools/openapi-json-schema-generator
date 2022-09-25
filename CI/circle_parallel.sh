@@ -19,31 +19,11 @@ function cleanup {
 trap cleanup EXIT
 
 if [ "$NODE_INDEX" = "1" ]; then
-  echo "Running node $NODE_INDEX to test 'samples.circleci' defined in pom.xml ..."
-  java -version
-
-  mvn --no-snapshot-updates --quiet verify -Psamples.circleci -Dorg.slf4j.simpleLogger.defaultLogLevel=error
+  echo "Running node $NODE_INDEX"
 
 elif [ "$NODE_INDEX" = "2" ]; then
-  echo "Running node $NODE_INDEX to test Go"
-  # install haskell
-  #curl -sSLk https://get.haskellstack.org/ | sh
-  #stack upgrade
-  #stack --version
+  echo "Running node $NODE_INDEX"
 
-  # install curl
-  #sudo apt-get -y build-dep libcurl4-gnutls-dev
-  #sudo apt-get -y install libcurl4-gnutls-dev
-
-  # Install golang version 1.14
-  go version
-  sudo mkdir /usr/local/go1.14
-  wget -c https://dl.google.com/go/go1.14.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local/go1.14
-  export PATH="/usr/local/go1.14/go/bin:$PATH"
-  go version
-
-  # run integration tests
-  mvn --no-snapshot-updates --quiet verify -Psamples.misc -Dorg.slf4j.simpleLogger.defaultLogLevel=error
 elif [ "$NODE_INDEX" = "3" ]; then
 
   echo "Running node $NODE_INDEX to test 'samples.circleci.node3' defined in pom.xml ..."
@@ -83,11 +63,8 @@ elif [ "$NODE_INDEX" = "4" ]; then
   (cd samples/openapi3/client/3_0_3_unit_test/python && make test)
 
 else
-  echo "Running node $NODE_INDEX to test 'samples.circleci.others' defined in pom.xml ..."
-  java -version
+  echo "Running node $NODE_INDEX"
 
-  mvn --no-snapshot-updates --quiet verify -Psamples.circleci.others -Dorg.slf4j.simpleLogger.defaultLogLevel=error
-  mvn --no-snapshot-updates --quiet javadoc:javadoc -Psamples.circleci -Dorg.slf4j.simpleLogger.defaultLogLevel=error
 fi
 
 

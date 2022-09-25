@@ -14,11 +14,11 @@ buildscript {
     }
     dependencies {
         // Updated version can be passed via command line arg as -PopenApiGeneratorVersion=VERSION
-        classpath "org.openapitools:openapi-generator-gradle-plugin:$openApiGeneratorVersion"
+        classpath "org.openapitools:openapi-json-schema-generator-gradle-plugin:$openApiGeneratorVersion"
     }
 }
 
-apply plugin: 'org.openapi.generator'
+apply plugin: 'org.openapi.json-schema-generator'
 
 openApiMeta {
     generatorName = "Sample"
