@@ -216,6 +216,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         cliOptions.add(CliOption.newBoolean(USE_INLINE_MODEL_RESOLVER, "use the inline model resolver, if true inline complex models will be extracted into components and $refs to them will be used").
                 defaultValue(Boolean.FALSE.toString()));
         CliOption nonCompliantUseDiscrIfCompositionFails = CliOption.newBoolean(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS_DESC);
+        Map<String, String> nonCompliantUseDiscrIfCompositionFailsOpts = new HashMap<>();
+        nonCompliantUseDiscrIfCompositionFailsOpts.put("true", "If composition fails and a discriminator exists, the composition errors will be ignored and validation will be attempted with the discriminator");
+        nonCompliantUseDiscrIfCompositionFailsOpts.put("false", "Composition validation must succeed. Discriminator validation must succeed.");
+        nonCompliantUseDiscrIfCompositionFails.setEnum(nonCompliantUseDiscrIfCompositionFailsOpts);
+
         cliOptions.add(nonCompliantUseDiscrIfCompositionFails);
 
         supportedLibraries.put("urllib3", "urllib3-based client");
