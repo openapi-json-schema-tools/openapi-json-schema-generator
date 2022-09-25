@@ -1883,6 +1883,7 @@ class ComposedBase(Discriminable):
                 "Invalid inputs given to generate an instance of {}. Multiple "
                 "oneOf schemas {} matched the inputs, but a max of one is allowed.".format(cls, oneof_classes)
             )
+        # exactly one class matches
         return path_to_schemas
 
     @classmethod
