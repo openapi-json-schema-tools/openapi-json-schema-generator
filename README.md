@@ -26,14 +26,14 @@ OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SD
 
 
 ## Why this repo exists
-From 2019 to now, 2022, I (@spacether) have been focused on making the python client code generator and added:
+From 2019 to now, 2022, I (@spacether) focused on improving the python client code generator in openapi-generator and added:
 - code to always check schema constraints defined in specs
 - multiple request and response body content type handling
 - parameter style handling
 - type hints everywhere
 
 In openapi v3.0.0 and onward, schemas are in components, and schemas define request bodies, response bodies, and parameter values.
-Those contributions that I made allow the user to bring any spec to the generator, and the schema constraints and
+The contributions that I made allow the user to bring any spec to the generator, and the schema constraints and
 validations will always be checked. In other generators when payload types != object/array constraints are
 sometimes omitted and not checked.
 The python generator checks schema constraints when:
