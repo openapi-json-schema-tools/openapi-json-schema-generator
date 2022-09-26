@@ -1,1 +1,0 @@
-{{#required}}encode{{/required}}{{^required}}maybeEncode{{/required}}{{#isNullable}}Nullable{{/isNullable}} "{{baseName}}" {{>recordFieldValueEncoder}} {{#isCircularReference}}<| unwrap{{classname}}{{nameInCamelCase}} {{/isCircularReference}}model.{{name}}
