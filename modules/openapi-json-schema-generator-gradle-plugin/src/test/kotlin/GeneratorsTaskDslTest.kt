@@ -29,9 +29,9 @@ class GeneratorsTaskDslTest : TestBase() {
         // Assert
         assertTrue(result.output.contains("The following generators are available:"), "User-friendly generator notice is missing.")
         assertTrue(result.output.contains("CLIENT generators:"), "Expected client generator header is missing.")
-        assertTrue(result.output.contains("android"), "Spot-checking listed client generators is missing a client generator.")
+        assertTrue(result.output.contains("kotlin"), "Spot-checking listed client generators is missing a client generator.")
         assertTrue(result.output.contains("SERVER generators:"), "Expected server generator header is missing.")
-        assertTrue(result.output.contains("kotlin-server"), "Spot-checking listed server generators is missing a server generator.")
+        assertTrue(result.output.contains("jaxrs-jersey"), "Spot-checking listed server generators is missing a server generator.")
         assertEquals(TaskOutcome.SUCCESS, result.task(":openApiGenerators")?.outcome,
                 "Expected a successful run, but found ${result.task(":openApiGenerators")?.outcome}")
     }
