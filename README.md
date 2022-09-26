@@ -43,10 +43,10 @@ The python generator checks schema constraints when:
 - and I verified that by [creating a v3.0.3 unit test spec that contains most json schema tests](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml) that has [auto generated positive and negative model and enpoint tests](https://github.com/OpenAPITools/openapi-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python/test) which are [passing](https://app.circleci.com/pipelines/github/OpenAPITools/openapi-generator/19756/workflows/55132a87-a1b7-46f2-975c-509730833eab/jobs/50107)
 
 Recently though, @wing328 decided that because the python generator is focused on checking all json schema constraints,
-which differs from how the other generators work, that the python should not be in the openapi-generator repo.
+which differs from how the other generators work, that the python generator should not be in the openapi-generator repo.
 So he is requiring that I move the python generator into a separate repo.
-My preference is to keep the generator in openapi-generator. I think that devs should be
-allowed to build generators that fully conform to openapi + json schema constraints there.
+My preference is to keep it in openapi-generator. I think that devs should be
+allowed to build generators there that fully conform to openapi + json schema constraints.
 If you have thoughts on this, please let the openapi-generator community know at:
 - In the [openapi-generator general Slack channel](https://join.slack.com/t/openapi-generator/shared_invite/zt-12jxxd7p2-XUeQM~4pzsU9x~eGLQqX2g)
 - As comments in [The PR making python-experimental the primary python generator, and mentioning the new project](https://github.com/OpenAPITools/openapi-generator/pull/13501)
