@@ -1,6 +1,5 @@
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/apis/tags/DefaultApi.md
@@ -14,9 +13,6 @@ setup.py
 test-requirements.txt
 test/__init__.py
 test/test_models/__init__.py
-test/test_models/test_addition_operator.py
-test/test_models/test_operator.py
-test/test_models/test_subtraction_operator.py
 this_package/__init__.py
 this_package/api_client.py
 this_package/apis/__init__.py
