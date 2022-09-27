@@ -30,7 +30,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |sortModelPropertiesByRequiredFlag|Sort model properties to place required parameters before optional parameters.| |true|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 |unrealModuleName|Name of the generated unreal module (optional)| |OpenAPI|
-|variableNameFirstCharacterUppercase|Make first character of variable name uppercase (eg. value -&gt; Value)| |true|
+|variableNameFirstCharacterUppercase|Make first character of variable name uppercase (eg. value -> Value)| |true|
 
 ## IMPORT MAPPING
 

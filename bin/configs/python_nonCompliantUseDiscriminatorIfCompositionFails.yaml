@@ -1,0 +1,6 @@
+generatorName: python
+outputDir: samples/openapi3/client/features/nonCompliantUseDiscriminatorIfCompositionFails/python
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/nonCompliantUseDiscriminatorIfCompositionFails.yaml
+additionalProperties:
+  packageName: this_package
+  nonCompliantUseDiscriminatorIfCompositionFails: true

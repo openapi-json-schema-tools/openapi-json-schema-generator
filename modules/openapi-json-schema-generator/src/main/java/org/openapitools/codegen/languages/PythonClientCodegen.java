@@ -105,6 +105,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     // for apis.tags tag api definition
     private Map<String, String> tagEnumToApiClassname = new LinkedHashMap<>();
 
+    private boolean nonCompliantUseDiscrIfCompositionFails = false;
+
     public PythonClientCodegen() {
         super();
         loadDeepObjectIntoItems = false;
@@ -215,6 +217,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         cliOptions.add(new CliOption(RECURSION_LIMIT, "Set the recursion limit. If not set, use the system default value."));
         cliOptions.add(CliOption.newBoolean(USE_INLINE_MODEL_RESOLVER, "use the inline model resolver, if true inline complex models will be extracted into components and $refs to them will be used").
                 defaultValue(Boolean.FALSE.toString()));
+        CliOption nonCompliantUseDiscrIfCompositionFails = CliOption.newBoolean(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS_DESC);
+        Map<String, String> nonCompliantUseDiscrIfCompositionFailsOpts = new HashMap<>();
+        nonCompliantUseDiscrIfCompositionFailsOpts.put("true", "If composition fails and a discriminator exists, the composition errors will be ignored and validation will be attempted with the discriminator");
+        nonCompliantUseDiscrIfCompositionFailsOpts.put("false", "Composition validation must succeed. Discriminator validation must succeed.");
+        nonCompliantUseDiscrIfCompositionFails.setEnum(nonCompliantUseDiscrIfCompositionFailsOpts);
+
+        cliOptions.add(nonCompliantUseDiscrIfCompositionFails);
 
         supportedLibraries.put("urllib3", "urllib3-based client");
         CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY, "library template (sub-template) to use: urllib3");
@@ -361,6 +370,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             } catch (NumberFormatException | NullPointerException e) {
                 throw new IllegalArgumentException("recursionLimit must be an integer, e.g. 2000.");
             }
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS)) {
+            nonCompliantUseDiscrIfCompositionFails = Boolean.parseBoolean(
+                    additionalProperties.get(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS).toString()
+            );
         }
 
         String readmePath = "README.md";
@@ -2721,6 +2736,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String sanitizeTag(String tag) {
         return tag;
+    }
+
+    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
+        objs.put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, nonCompliantUseDiscrIfCompositionFails);
+        return objs;
     }
 
     @Override

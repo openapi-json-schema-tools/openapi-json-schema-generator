@@ -32,7 +32,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |nullableReferenceTypes|Use nullable annotations in the project. Only supported on C# 8 / ASP.NET Core 3.1 or newer.| |false|
 |operationIsAsync|Set methods to async or sync (default).| |false|
 |operationModifier|Operation Modifier can be virtual or abstract|<dl><dt>**virtual**</dt><dd>Keep method virtual</dd><dt>**abstract**</dt><dd>Make method abstract</dd></dl>|virtual|
-|operationResultTask|Set methods result to Task&lt;&gt;.| |false|
+|operationResultTask|Set methods result to Task<>.| |false|
 |packageAuthors|Specifies Authors property in the .NET Core project file.| |OpenAPI|
 |packageCopyright|Specifies an AssemblyCopyright for the .NET Framework global assembly attributes stored in the AssemblyInfo file.| |No Copyright|
 |packageDescription|Specifies a AssemblyDescription for the .NET Framework global assembly attributes stored in the AssemblyInfo file.| |A library generated from a OpenAPI doc|
@@ -40,10 +40,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |packageName|C# package name (convention: Title.Case).| |Org.OpenAPITools|
 |packageTitle|Specifies an AssemblyTitle for the .NET Framework global assembly attributes stored in the AssemblyInfo file.| |OpenAPI Library|
 |packageVersion|C# package version.| |1.0.0|
-|returnICollection|Return ICollection&lt;T&gt; instead of the concrete type.| |false|
+|returnICollection|Return ICollection<T> instead of the concrete type.| |false|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 |sourceFolder|source folder for generated code| |src|
-|useCollection|Deserialize array types to Collection&lt;T&gt; instead of List&lt;T&gt;.| |false|
+|useCollection|Deserialize array types to Collection<T> instead of List<T>.| |false|
 |useDateTimeOffset|Use DateTimeOffset to model date-time properties| |false|
 |useNewtonsoft|Uses the Newtonsoft JSON library.| |true|
 

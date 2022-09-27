@@ -22,7 +22,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |helpersPackage|Specify the package name to be used for the helpers (e.g. org.openapitools.server.helpers).| |org.openapitools.server.helpers|
 |reservedWordPrefix|Prefix to prepend to reserved words in order to avoid conflicts| |r_|
 |useStructModel|Use struct-based model template instead of get/set-based model template| |false|
-|variableNameFirstCharacterUppercase|Make first character of variable name uppercase (eg. value -&gt; Value)| |true|
+|variableNameFirstCharacterUppercase|Make first character of variable name uppercase (eg. value -> Value)| |true|
 
 ## IMPORT MAPPING
 

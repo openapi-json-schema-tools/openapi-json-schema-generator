@@ -34,7 +34,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |library|library template (sub-template) to use|<dl><dt>**volley**</dt><dd>HTTP client: Volley 1.0.19 (default)</dd><dt>**httpclient**</dt><dd>HTTP client: Apache HttpClient 4.3.6. JSON processing: Gson 2.3.1. IMPORTANT: Android client using HttpClient is not actively maintained and will be deprecated in the next major release.</dd></dl>|null|
 |modelPackage|package for generated models| |null|
 |prependFormOrBodyParameters|Add form or body parameters to the beginning of the parameter list.| |false|
-|serializableModel|boolean - toggle &quot;implements Serializable&quot; for generated models| |false|
+|serializableModel|boolean - toggle "implements Serializable" for generated models| |false|
 |sortModelPropertiesByRequiredFlag|Sort model properties to place required parameters before optional parameters.| |true|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 |sourceFolder|source folder for generated code| |null|

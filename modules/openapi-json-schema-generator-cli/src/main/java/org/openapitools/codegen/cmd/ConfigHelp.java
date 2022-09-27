@@ -190,7 +190,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
             // option
             sb.append(escapeHtml4(key)).append("|");
             // description
-            sb.append(escapeHtml4(langCliOption.getDescription())).append("|");
+            sb.append(langCliOption.getDescription()).append("|");
 
             // values
             Map<String, String> enums = langCliOption.getEnum();
