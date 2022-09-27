@@ -1948,7 +1948,9 @@ class ComposedBase(Discriminable):
         )
 
         # process composed schema
-        discriminator = getattr(cls, 'discriminator', None)
+        discriminator = None
+        if hasattr(cls, 'MetaOapg') and hasattr(cls.MetaOapg, 'discriminator'):
+            discriminator = cls.MetaOapg.discriminator()
         discriminated_cls = None
         if discriminator and arg and isinstance(arg, frozendict.frozendict):
             disc_property_name = list(discriminator.keys())[0]
