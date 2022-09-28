@@ -148,9 +148,6 @@ class FormatTest(
                 class MetaOapg:
                     regex=[{
                         'pattern': r'[a-z]',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
                     }]
             binary = schemas.BinarySchema
             dateTime = schemas.DateTimeSchema
@@ -177,9 +174,6 @@ class FormatTest(
                 class MetaOapg:
                     regex=[{
                         'pattern': r'^image_\d{1,3}$',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
                     }]
             noneProp = schemas.NoneSchema
             __annotations__ = {

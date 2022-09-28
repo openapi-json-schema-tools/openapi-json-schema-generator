@@ -1485,7 +1485,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public CodegenModel fromModel(String name, Schema sc) {
         CodegenModel cm = super.fromModel(name, sc);
-
+        if (sc.getPattern() != null) {
+            postProcessPattern(sc.getPattern(), cm.vendorExtensions);
+            String pattern = (String) cm.vendorExtensions.get("x-regex");
+            cm.setPattern(pattern);
+        }
         if (cm.isNullable) {
             cm.setIsNull(true);
             cm.isNullable = false;
