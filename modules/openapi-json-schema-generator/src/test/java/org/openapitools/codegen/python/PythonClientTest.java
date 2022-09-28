@@ -21,13 +21,20 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.*;
 import org.openapitools.codegen.*;
+import org.openapitools.codegen.config.CodegenConfigurator;
 import org.openapitools.codegen.languages.PythonClientCodegen;
 import org.openapitools.codegen.utils.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("static-method")
 public class PythonClientTest {
@@ -116,4 +123,45 @@ public class PythonClientTest {
 
     }
 
+    @Test
+    public void testApiTestsNotGenerated() throws Exception {
+        File output = Files.createTempDirectory("test").toFile();
+
+        Map<String, String> globalProperties = Collections.singletonMap("apiTests", "false");
+        final CodegenConfigurator configurator = new CodegenConfigurator()
+                .setGlobalProperties(globalProperties)
+                .setGeneratorName("python")
+                .setInputSpec("src/test/resources/3_0/petstore.yaml")
+                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
+
+        final ClientOptInput clientOptInput = configurator.toClientOptInput();
+        DefaultGenerator generator = new DefaultGenerator();
+        List<File> files = generator.opts(clientOptInput).generate();
+        Assert.assertTrue(files.size() > 0);
+
+        Path pathThatShouldNotExist = output.toPath().resolve("openapi_client/test/test_paths");
+        Assert.assertFalse(Files.isDirectory(pathThatShouldNotExist));
+        output.deleteOnExit();
+    }
+
+    @Test
+    public void testApisNotGenerated() throws Exception {
+        File output = Files.createTempDirectory("test").toFile();
+
+        Map<String, String> globalProperties = Collections.singletonMap("models", "");
+        final CodegenConfigurator configurator = new CodegenConfigurator()
+                .setGlobalProperties(globalProperties)
+                .setGeneratorName("python")
+                .setInputSpec("src/test/resources/3_0/petstore.yaml")
+                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
+
+        final ClientOptInput clientOptInput = configurator.toClientOptInput();
+        DefaultGenerator generator = new DefaultGenerator();
+        List<File> files = generator.opts(clientOptInput).generate();
+        Assert.assertTrue(files.size() > 0);
+
+        Path pathThatShouldNotExist = output.toPath().resolve("openapi_client/paths");
+        Assert.assertFalse(Files.isDirectory(pathThatShouldNotExist));
+        output.deleteOnExit();
+    }
 }
