@@ -494,13 +494,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return apiFileFolder() + File.separator + toApiFilename(tag) + suffix;
     }
 
-    private void generateFiles(List<List<Object>> processTemplateToFileInfos, String skippedByOption) {
+    private void generateFiles(List<List<Object>> processTemplateToFileInfos, boolean shouldGenerate, String skippedByOption) {
         for (List<Object> processTemplateToFileInfo: processTemplateToFileInfos) {
             Map<String, Object> templateData = (Map<String, Object>) processTemplateToFileInfo.get(0);
             String templateName = (String) processTemplateToFileInfo.get(1);
             String outputFilename = (String) processTemplateToFileInfo.get(2);
             try {
-                processTemplateToFile(templateData, templateName, outputFilename, true, skippedByOption);
+                processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
             } catch (IOException e) {
                 LOGGER.error("Error when writing template file {}", e.toString());
             }
@@ -664,9 +664,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             outputFilename = packageFilename(Arrays.asList("apis", "paths", pathModule + ".py"));
             apisFiles.add(Arrays.asList(operationMap, "apis_path_module.handlebars", outputFilename));
         }
-        generateFiles(pathsFiles, CodegenConstants.APIS);
-        generateFiles(apisFiles, CodegenConstants.APIS);
-        generateFiles(testFiles, CodegenConstants.API_TESTS);
+        boolean shouldGenerateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
+        boolean shouldGenerateApiTests = (boolean) additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
+        generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS);
+        generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS);
+        generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS);
     }
 
     /*
