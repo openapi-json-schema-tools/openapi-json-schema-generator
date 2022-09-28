@@ -1891,34 +1891,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 example = "2";
             } else if (StringUtils.isNotBlank(schema.getPattern())) {
                 String pattern = schema.getPattern();
+                List<Object> results = getPatternAndModifiers(pattern);
+                String extractedPattern = (String) results.get(0);
+                List<String> regexFlags = (List<String>) results.get(1);
                 /*
                 RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
                 So strip off the leading / and trailing / and turn on ignore case if we have it
                  */
-                Pattern valueExtractor = Pattern.compile("^/?(.+?)/?([gim]?)$");
-                Matcher m = valueExtractor.matcher(pattern);
                 RgxGen rgxGen = null;
-                if (m.find()) {
-                    int groupCount = m.groupCount();
-                    if (groupCount == 1) {
-                        // only pattern found
-                        String isolatedPattern = m.group(1);
-                        rgxGen = new RgxGen(isolatedPattern);
-                    } else if (groupCount == 2) {
-                        // patterns and flag found
-                        String isolatedPattern = m.group(1);
-                        String flags = m.group(2);
-                        if (flags.contains("i")) {
-                            rgxGen = new RgxGen(isolatedPattern);
-                            RgxGenProperties properties = new RgxGenProperties();
-                            RgxGenOption.CASE_INSENSITIVE.setInProperties(properties, true);
-                            rgxGen.setProperties(properties);
-                        } else {
-                            rgxGen = new RgxGen(isolatedPattern);
-                        }
-                    }
+                if (regexFlags.size() > 0 && regexFlags.contains("i")) {
+                    rgxGen = new RgxGen(extractedPattern);
+                    RgxGenProperties properties = new RgxGenProperties();
+                    RgxGenOption.CASE_INSENSITIVE.setInProperties(properties, true);
+                    rgxGen.setProperties(properties);
                 } else {
-                    rgxGen = new RgxGen(pattern);
+                    rgxGen = new RgxGen(extractedPattern);
                 }
 
                 // this seed makes it so if we have [a-z] we pick a
@@ -2358,6 +2345,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         property.pattern = toRegularExpression(p.getPattern());
     }
 
+    @Override
+    public String toRegularExpression(String pattern) {
+        if (pattern == null) {
+            return null;
+        }
+        List<Object> results = getPatternAndModifiers(pattern);
+        String extractedPattern = (String) results.get(0);
+        return extractedPattern;
+    }
+
     protected void updatePropertyForNumber(CodegenProperty property, Schema p) {
         property.setIsNumber(true);
         // float and double differentiation is determined with format info
@@ -2482,6 +2479,46 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return postProcessModelsEnum(objs);
     }
 
+    /**
+     * @param pattern the regex pattern
+     * @return List<String pattern, List<String modifer>>
+     */
+    private List<Object> getPatternAndModifiers(String pattern) {
+        /*
+        Notes:
+        RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
+        So strip off the leading / and trailing / and turn on ignore case if we have it
+
+        json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
+         */
+        Pattern valueExtractor = Pattern.compile("^/?(.+?)/?([sim]?)$");
+        Matcher m = valueExtractor.matcher(pattern);
+        if (m.find()) {
+            int groupCount = m.groupCount();
+            if (groupCount == 1) {
+                // only pattern found
+                String isolatedPattern = m.group(1);
+                return Arrays.asList(isolatedPattern, null);
+            } else if (groupCount == 2) {
+                List<String> modifiers = new ArrayList<String>();
+                // patterns and flag found
+                String isolatedPattern = m.group(1);
+                String flags = m.group(2);
+                if (flags.contains("s")) {
+                    modifiers.add("DOTALL");
+                }
+                if (flags.contains("i")) {
+                    modifiers.add("IGNORECASE");
+                }
+                if (flags.contains("m")) {
+                    modifiers.add("MULTILINE");
+                }
+                return Arrays.asList(isolatedPattern, modifiers);
+            }
+        }
+        return Arrays.asList(pattern, new ArrayList<String>());
+    }
+
     /*
      * The OpenAPI pattern spec follows the Perl convention and style of modifiers. Python
      * does not support this in as natural a way so it needs to convert it. See
@@ -2489,28 +2526,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      */
     public void postProcessPattern(String pattern, Map<String, Object> vendorExtensions) {
         if (pattern != null) {
-            int regexLength = pattern.length();
-            String regex = pattern;
-            int i = pattern.lastIndexOf('/');
-            if (regexLength >= 2 && pattern.charAt(0) == '/' && i != -1) {
-                // json schema tests do not include the leading and trailing slashes
-                // so I do not think that they are required
-                regex = pattern.substring(1, i);
-            }
-            regex = regex.replace("'", "\\'");
-            List<String> modifiers = new ArrayList<String>();
+            List<Object> results = getPatternAndModifiers(pattern);
+            String extractedPattern = (String) results.get(0);
+            List<String> modifiers = (List<String>) results.get(1);
 
-            if (i != -1) {
-                for (char c : pattern.substring(i).toCharArray()) {
-                    if (regexModifiers.containsKey(c)) {
-                        String modifier = regexModifiers.get(c);
-                        modifiers.add(modifier);
-                    }
-                }
+            vendorExtensions.put("x-regex", extractedPattern);
+            if (modifiers.size() > 0) {
+                vendorExtensions.put("x-modifiers", modifiers);
             }
-
-            vendorExtensions.put("x-regex", regex);
-            vendorExtensions.put("x-modifiers", modifiers);
         }
     }
 
