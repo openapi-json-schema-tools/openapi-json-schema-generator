@@ -2497,7 +2497,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
          */
-        Pattern valueExtractor = Pattern.compile("^/?(.+?)/?([sim]?)$");
+        Pattern valueExtractor = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
         Matcher m = valueExtractor.matcher(pattern);
         if (m.find()) {
             int groupCount = m.groupCount();
@@ -2511,13 +2511,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String isolatedPattern = m.group(1);
                 String flags = m.group(2);
                 if (flags.contains("s")) {
-                    modifiers.add("DOTALL");
+                    modifiers.add("s");
                 }
                 if (flags.contains("i")) {
-                    modifiers.add("IGNORECASE");
+                    modifiers.add("i");
                 }
                 if (flags.contains("m")) {
-                    modifiers.add("MULTILINE");
+                    modifiers.add("m");
                 }
                 return Arrays.asList(isolatedPattern, modifiers);
             }
