@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -163,5 +164,37 @@ public class PythonClientTest {
         Path pathThatShouldNotExist = output.toPath().resolve("openapi_client/paths");
         Assert.assertFalse(Files.isDirectory(pathThatShouldNotExist));
         output.deleteOnExit();
+    }
+
+    @Test
+    public void testRegexWithoutTrailingSlashWorks() {
+        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/11_regex.yaml");
+        PythonClientCodegen codegen = new PythonClientCodegen();
+        codegen.setOpenAPI(openAPI);
+
+        String modelName = "UUID";
+        Schema schema = openAPI.getComponents().getSchemas().get(modelName);
+
+        CodegenModel cm = codegen.fromModel(modelName, schema);
+        String expectedRegexPattern = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
+        Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
+        Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
+        Assert.assertFalse(cm.vendorExtensions.containsKey("x-modifiers"));
+    }
+
+    @Test
+    public void testRegexWithMultipleFlagsWorks() {
+        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/11_regex.yaml");
+        PythonClientCodegen codegen = new PythonClientCodegen();
+        codegen.setOpenAPI(openAPI);
+
+        String modelName = "StringWithRegexWithThreeFlags";
+        Schema schema = openAPI.getComponents().getSchemas().get(modelName);
+
+        CodegenModel cm = codegen.fromModel(modelName, schema);
+        String expectedRegexPattern = "a.";
+        Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
+        Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
+        Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("DOTALL", "IGNORECASE", "MULTILINE"));
     }
 }
