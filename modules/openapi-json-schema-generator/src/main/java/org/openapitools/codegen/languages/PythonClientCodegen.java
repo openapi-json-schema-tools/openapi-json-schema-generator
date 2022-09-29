@@ -2511,13 +2511,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String isolatedPattern = m.group(1);
                 String flags = m.group(2);
                 if (flags.contains("s")) {
-                    modifiers.add("s");
+                    modifiers.add("DOTALL");
                 }
                 if (flags.contains("i")) {
-                    modifiers.add("i");
+                    modifiers.add("IGNORECASE");
                 }
                 if (flags.contains("m")) {
-                    modifiers.add("m");
+                    modifiers.add("MULTILINE");
                 }
                 return Arrays.asList(isolatedPattern, modifiers);
             }

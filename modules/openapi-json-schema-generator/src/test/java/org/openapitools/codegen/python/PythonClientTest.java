@@ -195,6 +195,6 @@ public class PythonClientTest {
         String expectedRegexPattern = "a.";
         Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("s", "i", "m"));
+        Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("DOTALL", "IGNORECASE", "MULTILINE"));
     }
 }
