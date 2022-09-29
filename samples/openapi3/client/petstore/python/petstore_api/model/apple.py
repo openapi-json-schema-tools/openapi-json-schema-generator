@@ -63,6 +63,9 @@ class Apple(
                 class MetaOapg:
                     regex=[{
                         'pattern': r'^[A-Z\s]*$',  # noqa: E501
+                        'flags': (
+                            re.IGNORECASE
+                        )
                     }]
             __annotations__ = {
                 "cultivar": cultivar,

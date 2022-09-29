@@ -1041,7 +1041,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             cp.isNullable = false;
             cp.setHasMultipleTypes(true);
         }
-        postProcessPattern(cp.pattern, cp.vendorExtensions);
+        if (p.getPattern() != null) {
+            postProcessPattern(p.getPattern(), cp.vendorExtensions);
+        }
         // if we have a property that has a difficult name, either:
         // 1. name is reserved, like class int float
         // 2. name is invalid in python like '3rd' or 'Content-Type'

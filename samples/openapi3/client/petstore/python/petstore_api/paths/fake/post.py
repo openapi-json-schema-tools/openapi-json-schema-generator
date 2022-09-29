@@ -107,6 +107,9 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
                 class MetaOapg:
                     regex=[{
                         'pattern': r'[a-z]',  # noqa: E501
+                        'flags': (
+                            re.IGNORECASE
+                        )
                     }]
             
             
