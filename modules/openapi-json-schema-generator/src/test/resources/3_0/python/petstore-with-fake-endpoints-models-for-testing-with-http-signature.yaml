@@ -2942,3 +2942,20 @@ components:
           format: double
         float:
           format: float
+    FromSchema:
+      type: object
+      properties:
+        data:
+          type: string
+        id:
+          type: integer
+    ObjectWithInvalidNamedRefedProperties:
+      type: object
+      properties:
+        from:
+          $ref: "#/components/schemas/FromSchema"
+        "!reference":
+          $ref: "#/components/schemas/ArrayWithValidationsInItems"
+      required:
+        - from
+        - "!reference"
