@@ -814,9 +814,10 @@ class JSONDetector:
 
 Response_T = typing.TypeVar("Response_T", bound=ApiResponse)
 
-class OpenApiResponse(JSONDetector):
-    __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
+class OpenApiResponse(JSONDetector, typing.Generic[Response_T]):
     response_cls: typing.Type[Response_T]
+
+    __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
 
     def __init__(
         self,
