@@ -30,6 +30,29 @@ IdSchema = schemas.StrSchema
 
 class BaseApi(api_client.Api):
 
+    @typing.overload
+    def _delete_coffee_oapg(
+        self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        ApiResponseForDefault,
+    ]:
+        ...
+
+    @typing.overload
+    def _delete_coffee_oapg(
+        self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def _delete_coffee_oapg(
         self: api_client.Api,
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -37,7 +60,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        ApiResponseFor200,
+        api_client.ApiResponse,
         ApiResponseForDefault,
         api_client.ApiResponseWithoutDeserialization
     ]:
@@ -93,6 +116,29 @@ class BaseApi(api_client.Api):
 class DeleteCoffee(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
+    def delete_coffee(
+        self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        ApiResponseForDefault,
+    ]:
+        ...
+
+    @typing.overload
+    def delete_coffee(
+        self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def delete_coffee(
         self: BaseApi,
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -100,7 +146,7 @@ class DeleteCoffee(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        ApiResponseFor200,
+        api_client.ApiResponse,
         ApiResponseForDefault,
         api_client.ApiResponseWithoutDeserialization
     ]:
@@ -115,6 +161,29 @@ class DeleteCoffee(BaseApi):
 class ApiFordelete(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
+    @typing.overload
+    def delete(
+        self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        ApiResponseForDefault,
+    ]:
+        ...
+
+    @typing.overload
+    def delete(
+        self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def delete(
         self: BaseApi,
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -122,7 +191,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        ApiResponseFor200,
+        api_client.ApiResponse,
         ApiResponseForDefault,
         api_client.ApiResponseWithoutDeserialization
     ]:

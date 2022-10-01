@@ -45,6 +45,26 @@ _status_code_to_response = {
 
 class BaseApi(api_client.Api):
 
+    @typing.overload
+    def _logout_user_oapg(
+        self: api_client.Api,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]:
+        ...
+
+    @typing.overload
+    def _logout_user_oapg(
+        self: api_client.Api,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def _logout_user_oapg(
         self: api_client.Api,
         stream: bool = False,
@@ -92,6 +112,26 @@ class BaseApi(api_client.Api):
 class LogoutUser(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
+    def logout_user(
+        self: api_client.Api,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]:
+        ...
+
+    @typing.overload
+    def logout_user(
+        self: api_client.Api,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def logout_user(
         self: BaseApi,
         stream: bool = False,
@@ -110,6 +150,26 @@ class LogoutUser(BaseApi):
 
 class ApiForget(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
+
+    @typing.overload
+    def get(
+        self: api_client.Api,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]:
+        ...
+
+    @typing.overload
+    def get(
+        self: api_client.Api,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
 
     def get(
         self: BaseApi,

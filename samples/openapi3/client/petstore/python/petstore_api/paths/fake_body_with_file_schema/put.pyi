@@ -33,6 +33,30 @@ SchemaForRequestBodyApplicationJson = FileSchemaTestClass
 
 class BaseApi(api_client.Api):
 
+    @typing.overload
+    def _body_with_file_schema_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+    ]:
+        ...
+
+    @typing.overload
+    def _body_with_file_schema_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def _body_with_file_schema_oapg(
         self: api_client.Api,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
@@ -41,7 +65,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        ApiResponseFor200,
+        api_client.ApiResponse,
         api_client.ApiResponseWithoutDeserialization
     ]:
         """
@@ -93,6 +117,30 @@ class BaseApi(api_client.Api):
 class BodyWithFileSchema(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
+    def body_with_file_schema(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+    ]:
+        ...
+
+    @typing.overload
+    def body_with_file_schema(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def body_with_file_schema(
         self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
@@ -101,7 +149,7 @@ class BodyWithFileSchema(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        ApiResponseFor200,
+        api_client.ApiResponse,
         api_client.ApiResponseWithoutDeserialization
     ]:
         return self._body_with_file_schema_oapg(
@@ -116,6 +164,30 @@ class BodyWithFileSchema(BaseApi):
 class ApiForput(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
+    @typing.overload
+    def put(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+    ]:
+        ...
+
+    @typing.overload
+    def put(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = True,
+    ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
     def put(
         self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
@@ -124,7 +196,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        ApiResponseFor200,
+        api_client.ApiResponse,
         api_client.ApiResponseWithoutDeserialization
     ]:
         return self._body_with_file_schema_oapg(

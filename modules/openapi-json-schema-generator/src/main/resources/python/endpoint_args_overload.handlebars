@@ -31,7 +31,10 @@
 {{/if}}
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    skip_deserialization: bool = False,
+    skip_deserialization: typing_extensions.Literal[{{#if isSkip}}True{{else}}False{{/if}}] = {{#if isSkip}}True{{else}}False{{/if}},
+{{#if isSkip}}
+) -> api_client.ApiResponseWithoutDeserialization:
+{{else}}
 ) -> typing.Union[
 {{#each responses}}
     {{#if isDefault}}
@@ -44,5 +47,6 @@
     api_client.ApiResponse,
     {{/if}}
 {{/each}}
-    api_client.ApiResponseWithoutDeserialization
 ]:
+{{/if}}
+    ...

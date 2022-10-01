@@ -386,6 +386,14 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
 
+    @typing.overload
+    def _{{operationId}}_oapg(
+    {{> endpoint_args_overload selfType="api_client.Api" isSkip=false}}
+
+    @typing.overload
+    def _{{operationId}}_oapg(
+    {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
+
     def _{{operationId}}_oapg(
     {{> endpoint_args selfType="api_client.Api" }}
         """
@@ -533,6 +541,14 @@ class BaseApi(api_client.Api):
 class {{operationIdCamelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
+    def {{operationId}}(
+    {{> endpoint_args_overload selfType="api_client.Api" isSkip=false}}
+
+    @typing.overload
+    def {{operationId}}(
+    {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
+
     def {{operationId}}(
     {{> endpoint_args selfType="BaseApi" }}
         return self._{{operationId}}_oapg(
@@ -542,6 +558,14 @@ class {{operationIdCamelCase}}(BaseApi):
 
 class ApiFor{{httpMethod}}(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
+
+    @typing.overload
+    def {{httpMethod}}(
+    {{> endpoint_args_overload selfType="api_client.Api" isSkip=false}}
+
+    @typing.overload
+    def {{httpMethod}}(
+    {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
 
     def {{httpMethod}}(
     {{> endpoint_args selfType="BaseApi" }}
