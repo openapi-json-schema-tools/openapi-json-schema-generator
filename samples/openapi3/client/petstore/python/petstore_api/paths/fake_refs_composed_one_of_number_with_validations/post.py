@@ -94,6 +94,21 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _composed_one_of_different_types_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _composed_one_of_different_types_oapg(
         self: api_client.Api,
         body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
@@ -158,7 +173,7 @@ class ComposedOneOfDifferentTypes(BaseApi):
 
     @typing.overload
     def composed_one_of_different_types(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -172,7 +187,7 @@ class ComposedOneOfDifferentTypes(BaseApi):
 
     @typing.overload
     def composed_one_of_different_types(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -180,6 +195,21 @@ class ComposedOneOfDifferentTypes(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def composed_one_of_different_types(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def composed_one_of_different_types(
@@ -209,7 +239,7 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -223,7 +253,7 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -231,6 +261,21 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def post(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def post(

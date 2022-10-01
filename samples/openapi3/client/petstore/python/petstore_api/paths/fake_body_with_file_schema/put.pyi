@@ -57,6 +57,20 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _body_with_file_schema_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _body_with_file_schema_oapg(
         self: api_client.Api,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
@@ -119,7 +133,7 @@ class BodyWithFileSchema(BaseApi):
 
     @typing.overload
     def body_with_file_schema(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
         content_type: str = 'application/json',
         stream: bool = False,
@@ -132,13 +146,27 @@ class BodyWithFileSchema(BaseApi):
 
     @typing.overload
     def body_with_file_schema(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def body_with_file_schema(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def body_with_file_schema(
@@ -166,7 +194,7 @@ class ApiForput(BaseApi):
 
     @typing.overload
     def put(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
         content_type: str = 'application/json',
         stream: bool = False,
@@ -179,13 +207,27 @@ class ApiForput(BaseApi):
 
     @typing.overload
     def put(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def put(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, ],
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def put(

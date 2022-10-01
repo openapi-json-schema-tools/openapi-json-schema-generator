@@ -394,6 +394,11 @@ class BaseApi(api_client.Api):
     def _{{operationId}}_oapg(
     {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
 
+    @typing.overload
+    def _{{operationId}}_oapg(
+    {{> endpoint_args selfType="api_client.Api" }}
+        ...
+
     def _{{operationId}}_oapg(
     {{> endpoint_args selfType="api_client.Api" }}
         """
@@ -543,11 +548,16 @@ class {{operationIdCamelCase}}(BaseApi):
 
     @typing.overload
     def {{operationId}}(
-    {{> endpoint_args_overload selfType="api_client.Api" isSkip=false}}
+    {{> endpoint_args_overload selfType="BaseApi" isSkip=false}}
 
     @typing.overload
     def {{operationId}}(
-    {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
+    {{> endpoint_args_overload selfType="BaseApi" isSkip=true}}
+
+    @typing.overload
+    def {{operationId}}(
+    {{> endpoint_args selfType="BaseApi" }}
+        ...
 
     def {{operationId}}(
     {{> endpoint_args selfType="BaseApi" }}
@@ -561,11 +571,16 @@ class ApiFor{{httpMethod}}(BaseApi):
 
     @typing.overload
     def {{httpMethod}}(
-    {{> endpoint_args_overload selfType="api_client.Api" isSkip=false}}
+    {{> endpoint_args_overload selfType="BaseApi" isSkip=false}}
 
     @typing.overload
     def {{httpMethod}}(
-    {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
+    {{> endpoint_args_overload selfType="BaseApi" isSkip=true}}
+
+    @typing.overload
+    def {{httpMethod}}(
+    {{> endpoint_args selfType="BaseApi" }}
+        ...
 
     def {{httpMethod}}(
     {{> endpoint_args selfType="BaseApi" }}

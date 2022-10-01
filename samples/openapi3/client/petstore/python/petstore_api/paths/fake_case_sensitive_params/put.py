@@ -112,6 +112,19 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _case_sensitive_params_oapg(
+        self: api_client.Api,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _case_sensitive_params_oapg(
         self: api_client.Api,
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -173,7 +186,7 @@ class CaseSensitiveParams(BaseApi):
 
     @typing.overload
     def case_sensitive_params(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -185,12 +198,25 @@ class CaseSensitiveParams(BaseApi):
 
     @typing.overload
     def case_sensitive_params(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def case_sensitive_params(
+        self: BaseApi,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def case_sensitive_params(
@@ -216,7 +242,7 @@ class ApiForput(BaseApi):
 
     @typing.overload
     def put(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -228,12 +254,25 @@ class ApiForput(BaseApi):
 
     @typing.overload
     def put(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def put(
+        self: BaseApi,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def put(

@@ -130,6 +130,23 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _update_pet_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
+        content_type: str = 'application/json',
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponse,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _update_pet_oapg(
         self: api_client.Api,
         body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
@@ -200,7 +217,7 @@ class UpdatePet(BaseApi):
 
     @typing.overload
     def update_pet(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
@@ -216,7 +233,7 @@ class UpdatePet(BaseApi):
 
     @typing.overload
     def update_pet(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
@@ -224,6 +241,23 @@ class UpdatePet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def update_pet(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
+        content_type: str = 'application/json',
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponse,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def update_pet(
@@ -255,7 +289,7 @@ class ApiForput(BaseApi):
 
     @typing.overload
     def put(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
@@ -271,7 +305,7 @@ class ApiForput(BaseApi):
 
     @typing.overload
     def put(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
@@ -279,6 +313,23 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def put(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml, ],
+        content_type: str = 'application/json',
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponse,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def put(

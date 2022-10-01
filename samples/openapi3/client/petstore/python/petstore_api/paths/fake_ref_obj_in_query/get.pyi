@@ -54,6 +54,19 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _ref_object_in_query_oapg(
+        self: api_client.Api,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _ref_object_in_query_oapg(
         self: api_client.Api,
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -114,7 +127,7 @@ class RefObjectInQuery(BaseApi):
 
     @typing.overload
     def ref_object_in_query(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -126,12 +139,25 @@ class RefObjectInQuery(BaseApi):
 
     @typing.overload
     def ref_object_in_query(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def ref_object_in_query(
+        self: BaseApi,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def ref_object_in_query(
@@ -157,7 +183,7 @@ class ApiForget(BaseApi):
 
     @typing.overload
     def get(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -169,12 +195,25 @@ class ApiForget(BaseApi):
 
     @typing.overload
     def get(
-        self: api_client.Api,
+        self: BaseApi,
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def get(
+        self: BaseApi,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def get(

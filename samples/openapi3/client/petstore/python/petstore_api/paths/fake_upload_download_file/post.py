@@ -93,6 +93,21 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _upload_download_file_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = 'application/octet-stream',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _upload_download_file_oapg(
         self: api_client.Api,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
@@ -160,7 +175,7 @@ class UploadDownloadFile(BaseApi):
 
     @typing.overload
     def upload_download_file(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -174,7 +189,7 @@ class UploadDownloadFile(BaseApi):
 
     @typing.overload
     def upload_download_file(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -182,6 +197,21 @@ class UploadDownloadFile(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def upload_download_file(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = 'application/octet-stream',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def upload_download_file(
@@ -211,7 +241,7 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -225,7 +255,7 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -233,6 +263,21 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def post(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream, bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = 'application/octet-stream',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def post(

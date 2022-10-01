@@ -57,6 +57,20 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization:
         ...
 
+    @typing.overload
+    def _json_patch_oapg(
+        self: api_client.Api,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json-patch+json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
+        ...
+
     def _json_patch_oapg(
         self: api_client.Api,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
@@ -118,7 +132,7 @@ class JsonPatch(BaseApi):
 
     @typing.overload
     def json_patch(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
@@ -131,13 +145,27 @@ class JsonPatch(BaseApi):
 
     @typing.overload
     def json_patch(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def json_patch(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json-patch+json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def json_patch(
@@ -165,7 +193,7 @@ class ApiForpatch(BaseApi):
 
     @typing.overload
     def patch(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
@@ -178,13 +206,27 @@ class ApiForpatch(BaseApi):
 
     @typing.overload
     def patch(
-        self: api_client.Api,
+        self: BaseApi,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization:
+        ...
+
+    @typing.overload
+    def patch(
+        self: BaseApi,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json-patch+json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization
+    ]:
         ...
 
     def patch(
