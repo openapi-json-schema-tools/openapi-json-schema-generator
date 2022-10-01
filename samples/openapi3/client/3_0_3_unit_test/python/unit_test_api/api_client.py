@@ -816,13 +816,16 @@ class JSONDetector:
             return True
         return False
 
+Response_T = typing.TypeVar("Response_T", bound=ApiResponse)
 
-class OpenApiResponse(JSONDetector):
+class OpenApiResponse(JSONDetector, typing.Generic[Response_T]):
+    response_cls: typing.Type[Response_T]
+
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
 
     def __init__(
         self,
-        response_cls: typing.Type[ApiResponse] = ApiResponse,
+        response_cls: typing.Type[Response_T] = ApiResponse,
         content: typing.Optional[typing.Dict[str, MediaType]] = None,
         headers: typing.Optional[typing.List[HeaderParameter]] = None,
     ):
@@ -907,7 +910,7 @@ class OpenApiResponse(JSONDetector):
             for part in msg.get_payload()
         }
 
-    def deserialize(self, response: urllib3.HTTPResponse, configuration: Configuration) -> ApiResponse:
+    def deserialize(self, response: urllib3.HTTPResponse, configuration: Configuration) -> Response_T:
         content_type = response.getheader('content-type')
         deserialized_body = unset
         streamed = response.supports_chunked_reads()
