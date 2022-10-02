@@ -46,22 +46,20 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _get_order_by_id_oapg(
-        self: api_client.Api,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def _get_order_by_id_oapg(
-        self: api_client.Api,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -72,33 +70,26 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _get_order_by_id_oapg(
-        self: api_client.Api,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def _get_order_by_id_oapg(
-        self: api_client.Api,
-        path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        path_params = frozendict.frozendict(),
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         """
         Find purchase order by ID
         :param skip_deserialization: If true then api_response.response will be set but
@@ -155,22 +146,20 @@ class GetOrderById(BaseApi):
 
     @typing.overload
     def get_order_by_id(
-        self: BaseApi,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def get_order_by_id(
-        self: BaseApi,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -181,33 +170,26 @@ class GetOrderById(BaseApi):
 
     @typing.overload
     def get_order_by_id(
-        self: BaseApi,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def get_order_by_id(
-        self: BaseApi,
-        path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        path_params = frozendict.frozendict(),
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._get_order_by_id_oapg(
             path_params=path_params,
             accept_content_types=accept_content_types,
@@ -222,22 +204,20 @@ class ApiForget(BaseApi):
 
     @typing.overload
     def get(
-        self: BaseApi,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def get(
-        self: BaseApi,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -248,33 +228,26 @@ class ApiForget(BaseApi):
 
     @typing.overload
     def get(
-        self: BaseApi,
+        self,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def get(
-        self: BaseApi,
-        path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        path_params = frozendict.frozendict(),
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._get_order_by_id_oapg(
             path_params=path_params,
             accept_content_types=accept_content_types,

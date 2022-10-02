@@ -158,8 +158,8 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _upload_image_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -167,14 +167,14 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def _upload_image_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -186,8 +186,8 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _upload_image_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -195,24 +195,21 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def _upload_image_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParams = frozendict.frozendict(),
-        content_type: str = 'multipart/form-data',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        body,
+        path_params = frozendict.frozendict(),
+        content_type = 'multipart/form-data',
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         """
         uploads an image
         :param skip_deserialization: If true then api_response.response will be set but
@@ -281,8 +278,8 @@ class UploadImage(BaseApi):
 
     @typing.overload
     def upload_image(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -290,14 +287,14 @@ class UploadImage(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def upload_image(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -309,8 +306,8 @@ class UploadImage(BaseApi):
 
     @typing.overload
     def upload_image(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -318,24 +315,21 @@ class UploadImage(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def upload_image(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParams = frozendict.frozendict(),
-        content_type: str = 'multipart/form-data',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        body,
+        path_params = frozendict.frozendict(),
+        content_type = 'multipart/form-data',
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._upload_image_oapg(
             body=body,
             path_params=path_params,
@@ -352,8 +346,8 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -361,14 +355,14 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -380,8 +374,8 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        self,
+        body: typing.Union[SchemaForRequestBodyMultipartFormData,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -389,24 +383,21 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParams = frozendict.frozendict(),
-        content_type: str = 'multipart/form-data',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        body,
+        path_params = frozendict.frozendict(),
+        content_type = 'multipart/form-data',
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._upload_image_oapg(
             body=body,
             path_params=path_params,

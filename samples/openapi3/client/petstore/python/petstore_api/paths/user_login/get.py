@@ -135,21 +135,20 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _login_user_oapg(
-        self: api_client.Api,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def _login_user_oapg(
-        self: api_client.Api,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -160,31 +159,26 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _login_user_oapg(
-        self: api_client.Api,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def _login_user_oapg(
-        self: api_client.Api,
-        query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        query_params = frozendict.frozendict(),
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         """
         Logs user into the system
         :param skip_deserialization: If true then api_response.response will be set but
@@ -242,21 +236,20 @@ class LoginUser(BaseApi):
 
     @typing.overload
     def login_user(
-        self: BaseApi,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def login_user(
-        self: BaseApi,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -267,31 +260,26 @@ class LoginUser(BaseApi):
 
     @typing.overload
     def login_user(
-        self: BaseApi,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def login_user(
-        self: BaseApi,
-        query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        query_params = frozendict.frozendict(),
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._login_user_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,
@@ -306,21 +294,20 @@ class ApiForget(BaseApi):
 
     @typing.overload
     def get(
-        self: BaseApi,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def get(
-        self: BaseApi,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -331,31 +318,26 @@ class ApiForget(BaseApi):
 
     @typing.overload
     def get(
-        self: BaseApi,
+        self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def get(
-        self: BaseApi,
-        query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        query_params = frozendict.frozendict(),
+        accept_content_types = _all_accept_content_types,
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._login_user_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,

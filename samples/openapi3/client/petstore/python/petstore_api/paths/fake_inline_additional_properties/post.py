@@ -87,21 +87,21 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _inline_additional_properties_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def _inline_additional_properties_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -111,29 +111,26 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _inline_additional_properties_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def _inline_additional_properties_oapg(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
-        content_type: str = 'application/json',
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        body,
+        content_type = 'application/json',
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         """
         test inline additionalProperties
         :param skip_deserialization: If true then api_response.response will be set but
@@ -186,21 +183,21 @@ class InlineAdditionalProperties(BaseApi):
 
     @typing.overload
     def inline_additional_properties(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def inline_additional_properties(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -210,29 +207,26 @@ class InlineAdditionalProperties(BaseApi):
 
     @typing.overload
     def inline_additional_properties(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def inline_additional_properties(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
-        content_type: str = 'application/json',
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        body,
+        content_type = 'application/json',
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._inline_additional_properties_oapg(
             body=body,
             content_type=content_type,
@@ -247,21 +241,21 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
+        ApiResponseFor200,
     ]:
         ...
 
     @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -271,29 +265,26 @@ class ApiForpost(BaseApi):
 
     @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
     ]:
         ...
 
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, dict, frozendict.frozendict, ],
-        content_type: str = 'application/json',
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+        self,
+        body,
+        content_type = 'application/json',
+        stream = False,
+        timeout = None,
+        skip_deserialization = False,
+    ):
         return self._inline_additional_properties_oapg(
             body=body,
             content_type=content_type,
