@@ -46,9 +46,7 @@ Definitely!
     - [1.2 - Artifacts on Maven Central](#12---artifacts-on-maven-central)
     - [1.3 - Download JAR](#13---download-jar)
     - [1.4 - Build Projects](#14---build-projects)
-    - [1.5 - Homebrew](#15---homebrew)
-    - [1.6 - Docker](#16---docker)
-    - [1.7 - NPM](#17---npm)
+    - [1.5 - Docker](#15---docker)
   - [2 - Getting Started](#2---getting-started)
   - [3 - Usage](#3---usage)
     - [3.1 - Customization](#31---customization)
@@ -168,12 +166,11 @@ The default build contains minimal static analysis (via CheckStyle). To run your
 mvn -Pstatic-analysis clean install
 ```
 
-### [1.6 - Docker](#table-of-contents)
+### [1.5 - Docker](#table-of-contents)
 
 #### Public Pre-built Docker images
 
- - [https://hub.docker.com/r/openapitools/openapi-json-schema-generator-cli/](https://hub.docker.com/r/openapitools/openapi-json-schema-generator-cli/) (official CLI)
- - [https://hub.docker.com/r/openapitools/openapi-json-schema-generator-online/](https://hub.docker.com/r/openapitools/openapi-json-schema-generator-online/) (official web service)
+ - [https://hub.docker.com/r/openapjsonschematools/openapi-json-schema-generator-cli/](https://hub.docker.com/r/openapjsonschematools/openapi-json-schema-generator-cli/) (official CLI)
 
 #### OpenAPI JSON Schema Generator CLI Docker Image
 
@@ -184,8 +181,8 @@ To generate code with this image, you'll need to mount a local location as a vol
 Example:
 
 ```sh
-docker run --rm -v "${PWD}:/local" openapitools/openapi-json-schema-generator-cli generate \
-    -i https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+docker run --rm -v "${PWD}:/local" openapjsonschematools/openapi-json-schema-generator-cli generate \
+    -i https://raw.githubusercontent.com/openapjsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
     -g python \
     -o /local/out/python
 ```
@@ -233,7 +230,7 @@ in the docker container. It also maps `~/.m2/repository` to the appropriate cont
 To execute `mvn package`:
 
 ```sh
-git clone https://github.com/openapitools/openapi-json-schema-generator
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-json-schema-generator
 ./run-in-docker.sh mvn package
 ```
@@ -267,7 +264,7 @@ Right now: no solution for this one :|
 #### Run Docker in Vagrant
 Prerequisite: install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
  ```sh
-git clone https://github.com/openapitools/openapi-json-schema-generator.git
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
 cd openapi-json-schema-generator
 vagrant up
 vagrant ssh
@@ -275,30 +272,6 @@ cd /vagrant
 ./run-in-docker.sh mvn package
 ```
 
-### [1.7 - NPM](#table-of-contents)
-
-There is also an [NPM package wrapper](https://www.npmjs.com/package/@openapitools/openapi-json-schema-generator-cli) available for different platforms (e.g. Linux, Mac, Windows). (JVM is still required)
-Please see the [project's README](https://github.com/openapitools/openapi-json-schema-generator-cli) there for more information.
-
-Install it globally to get the CLI available on the command line:
-
-```sh
-npm install @openapitools/openapi-json-schema-generator-cli -g
-openapi-json-schema-generator-cli version
-```
-
-<!-- RELEASE_VERSION -->
-To use a specific version of "openapi-json-schema-generator-cli"
-
-```sh
-openapi-json-schema-generator-cli version-manager set 6.1.0
-```
-
-Or install it as dev-dependency:
-
-```sh
-npm install @openapitools/openapi-json-schema-generator-cli -D
-```
 <!-- /RELEASE_VERSION -->
 ## [2 - Getting Started](#table-of-contents)
 
