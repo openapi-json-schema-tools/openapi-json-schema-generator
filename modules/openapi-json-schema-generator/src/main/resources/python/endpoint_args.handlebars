@@ -4,7 +4,7 @@
         {{#if isOverload}}
     body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}{{#unless required}}schemas.Unset] = schemas.unset{{else}}]{{/unless}},
         {{else}}
-    body,
+    body{{#unless required}} = schemas.unset{{/unless}},
         {{/if}}
     {{/with}}
 {{/if}}
@@ -52,17 +52,7 @@
 ) -> api_client.ApiResponseWithoutDeserialization:
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> typing.Union[
-    {{#each responses}}
-        {{#if isDefault}}
-    ApiResponseForDefault,
-        {{else}}
-            {{#if is2xx}}
-    ApiResponseFor{{code}},
-            {{/if}}
-        {{/if}}
-    {{/each}}
-]:
+) -> typing.Union[{{#each responses}}{{#if isDefault}}ApiResponseForDefault,{{else}}{{#if is2xx}}ApiResponseFor{{code}},{{/if}}{{/if}}{{/each}}api_client.ApiResponse,]:
 {{/eq}}
 {{#eq skipDeserialization "null"}}
     {{#if isOverload}}
