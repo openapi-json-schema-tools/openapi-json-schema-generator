@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![CI Tests](https://circleci.com/gh/OpenAPITools/openapi-json-schema-generator.svg?style=shield)](https://circleci.com/gh/OpenAPITools/openapi-json-schema-generator) [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE) 
+[![CI Tests](https://circleci.com/gh/openapi-json-schema-tools/openapi-json-schema-generator.svg?style=shield)](https://circleci.com/gh/openapi-json-schema-tools/openapi-json-schema-generator) [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE) 
 
 </div>
 
@@ -28,6 +28,13 @@ OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SD
 ## Why this repo exists
 
 This repo is based on v6.2.0 of OpenAPI Generator. This project focuses on making the output 100% compliant with JSON schema as part of the OpenAPI 3.1 specification with a focus on complex cases (top-down approach). The goal is to fully support everything defined in JSON schema so that developers can leverage JSON schema as well as OpenAPI specification in their API design. Building here allows for more rapid progress supporting new features in OpenAPI 3.X without having to support many older generators which don't use the new features.
+
+## Can I build here?
+
+Yes! Contributions are welcome.
+If you want to build a server or client or documentation generator you are welcome to here.
+Can I write a python generator based on the pydantic or jsonschema libraries?
+Definitely!
 
 ## Table of contents
 
