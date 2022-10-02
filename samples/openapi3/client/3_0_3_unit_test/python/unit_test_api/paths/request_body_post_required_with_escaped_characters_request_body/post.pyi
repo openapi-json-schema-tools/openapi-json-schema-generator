@@ -69,9 +69,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -164,9 +162,7 @@ class PostRequiredWithEscapedCharactersRequestBody(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -222,9 +218,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload

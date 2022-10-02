@@ -34,9 +34,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseForDefault,
-    ]:
+    ) -> typing.Union[ApiResponseForDefault,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -110,9 +108,7 @@ class LogoutUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseForDefault,
-    ]:
+    ) -> typing.Union[ApiResponseForDefault,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -158,9 +154,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseForDefault,
-    ]:
+    ) -> typing.Union[ApiResponseForDefault,api_client.ApiResponse,]:
         ...
 
     @typing.overload

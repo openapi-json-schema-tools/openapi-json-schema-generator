@@ -142,8 +142,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]:
+    ) -> typing.Union[api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -251,8 +250,7 @@ class GroupParameters(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]:
+    ) -> typing.Union[api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -307,8 +305,7 @@ class ApiFordelete(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]:
+    ) -> typing.Union[api_client.ApiResponse,]:
         ...
 
     @typing.overload

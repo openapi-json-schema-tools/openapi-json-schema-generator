@@ -77,9 +77,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -111,7 +109,7 @@ class BaseApi(api_client.Api):
 
     def _composed_one_of_different_types_oapg(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
@@ -177,9 +175,7 @@ class ComposedOneOfDifferentTypes(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -211,7 +207,7 @@ class ComposedOneOfDifferentTypes(BaseApi):
 
     def composed_one_of_different_types(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
@@ -240,9 +236,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -274,7 +268,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,

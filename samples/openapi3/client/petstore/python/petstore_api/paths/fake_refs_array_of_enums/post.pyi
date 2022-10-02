@@ -46,9 +46,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -80,7 +78,7 @@ class BaseApi(api_client.Api):
 
     def _array_of_enums_oapg(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
@@ -147,9 +145,7 @@ class ArrayOfEnums(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -181,7 +177,7 @@ class ArrayOfEnums(BaseApi):
 
     def array_of_enums(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
@@ -210,9 +206,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -244,7 +238,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,

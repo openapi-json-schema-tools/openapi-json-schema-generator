@@ -101,8 +101,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]:
+    ) -> typing.Union[api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -133,7 +132,7 @@ class BaseApi(api_client.Api):
 
     def _update_pet_with_form_oapg(
         self,
-        body,
+        body = schemas.unset,
         path_params = frozendict.frozendict(),
         content_type = 'application/x-www-form-urlencoded',
         stream = False,
@@ -212,8 +211,7 @@ class UpdatePetWithForm(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]:
+    ) -> typing.Union[api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -244,7 +242,7 @@ class UpdatePetWithForm(BaseApi):
 
     def update_pet_with_form(
         self,
-        body,
+        body = schemas.unset,
         path_params = frozendict.frozendict(),
         content_type = 'application/x-www-form-urlencoded',
         stream = False,
@@ -273,8 +271,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]:
+    ) -> typing.Union[api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -305,7 +302,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body,
+        body = schemas.unset,
         path_params = frozendict.frozendict(),
         content_type = 'application/x-www-form-urlencoded',
         stream = False,

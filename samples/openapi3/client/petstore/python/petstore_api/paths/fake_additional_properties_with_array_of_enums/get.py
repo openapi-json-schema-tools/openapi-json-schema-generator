@@ -77,9 +77,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -111,7 +109,7 @@ class BaseApi(api_client.Api):
 
     def _additional_properties_with_array_of_enums_oapg(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
@@ -178,9 +176,7 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -212,7 +208,7 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
 
     def additional_properties_with_array_of_enums(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
@@ -241,9 +237,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-    ]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
         ...
 
     @typing.overload
@@ -275,7 +269,7 @@ class ApiForget(BaseApi):
 
     def get(
         self,
-        body,
+        body = schemas.unset,
         content_type = 'application/json',
         accept_content_types = _all_accept_content_types,
         stream = False,
