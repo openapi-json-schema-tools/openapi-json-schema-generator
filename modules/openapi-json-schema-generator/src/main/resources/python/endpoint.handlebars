@@ -388,19 +388,18 @@ class BaseApi(api_client.Api):
 
     @typing.overload
     def _{{operationId}}_oapg(
-    {{> endpoint_args_overload selfType="api_client.Api" isSkip=false}}
+    {{> endpoint_args isOverload=true skipDeserialization="False"}}
 
     @typing.overload
     def _{{operationId}}_oapg(
-    {{> endpoint_args_overload selfType="api_client.Api" isSkip=true}}
+    {{> endpoint_args isOverload=true skipDeserialization="True"}}
 
     @typing.overload
     def _{{operationId}}_oapg(
-    {{> endpoint_args selfType="api_client.Api" }}
-        ...
+    {{> endpoint_args isOverload=true skipDeserialization="null"}}
 
     def _{{operationId}}_oapg(
-    {{> endpoint_args selfType="api_client.Api" }}
+    {{> endpoint_args isOverload=false skipDeserialization="null"}}
         """
     {{#if summary}}
         {{summary}}
@@ -548,19 +547,18 @@ class {{operationIdCamelCase}}(BaseApi):
 
     @typing.overload
     def {{operationId}}(
-    {{> endpoint_args_overload selfType="BaseApi" isSkip=false}}
+    {{> endpoint_args isOverload=true skipDeserialization="False"}}
 
     @typing.overload
     def {{operationId}}(
-    {{> endpoint_args_overload selfType="BaseApi" isSkip=true}}
+    {{> endpoint_args isOverload=true skipDeserialization="True"}}
 
     @typing.overload
     def {{operationId}}(
-    {{> endpoint_args selfType="BaseApi" }}
-        ...
+    {{> endpoint_args isOverload=true skipDeserialization="null"}}
 
     def {{operationId}}(
-    {{> endpoint_args selfType="BaseApi" }}
+    {{> endpoint_args isOverload=false skipDeserialization="null"}}
         return self._{{operationId}}_oapg(
             {{> endpoint_args_passed }}
         )
@@ -571,19 +569,18 @@ class ApiFor{{httpMethod}}(BaseApi):
 
     @typing.overload
     def {{httpMethod}}(
-    {{> endpoint_args_overload selfType="BaseApi" isSkip=false}}
+    {{> endpoint_args isOverload=true skipDeserialization="False"}}
 
     @typing.overload
     def {{httpMethod}}(
-    {{> endpoint_args_overload selfType="BaseApi" isSkip=true}}
+    {{> endpoint_args isOverload=true skipDeserialization="True"}}
 
     @typing.overload
     def {{httpMethod}}(
-    {{> endpoint_args selfType="BaseApi" }}
-        ...
+    {{> endpoint_args isOverload=true skipDeserialization="null"}}
 
     def {{httpMethod}}(
-    {{> endpoint_args selfType="BaseApi" }}
+    {{> endpoint_args isOverload=false skipDeserialization="null"}}
         return self._{{operationId}}_oapg(
             {{> endpoint_args_passed }}
         )
