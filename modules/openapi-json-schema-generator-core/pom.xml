@@ -5,6 +5,7 @@
   <parent>
     <artifactId>openapi-json-schema-generator-project</artifactId>
     <groupId>org.openapitools</groupId>
+    <version>${revision}</version>
     <relativePath>../..</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>

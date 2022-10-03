@@ -12,7 +12,10 @@
     <packaging>pom</packaging>
     <name>openapi-json-schema-generator-project</name>
     <!-- RELEASE_VERSION -->
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
+    <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
+    </properties>
     <!-- /RELEASE_VERSION -->
     <url>https://github.com/openapitools/openapi-json-schema-generator</url>
     <scm>
