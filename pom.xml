@@ -14,7 +14,7 @@
     <!-- RELEASE_VERSION -->
     <version>${revision}</version>
     <properties>
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>0.9.9</revision>
     </properties>
     <!-- /RELEASE_VERSION -->
     <url>https://github.com/openapitools/openapi-json-schema-generator</url>
