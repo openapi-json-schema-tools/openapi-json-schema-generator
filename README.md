@@ -43,10 +43,9 @@ Definitely!
   - [Table of Contents](#table-of-contents)
   - [1 - Installation](#1---installation)
     - [1.1 - Compatibility](#11---compatibility)
-    - [1.2 - Artifacts on Maven Central](#12---artifacts-on-maven-central)
-    - [1.3 - Download JAR](#13---download-jar)
-    - [1.4 - Build Projects](#14---build-projects)
-    - [1.5 - Docker](#15---docker)
+    - [1.2 - Download JAR](#12---download-jar)
+    - [1.3 - Build Projects](#13---build-projects)
+    - [1.4 - Docker](#14---docker)
   - [2 - Getting Started](#2---getting-started)
   - [3 - Usage](#3---usage)
     - [3.1 - Customization](#31---customization)
@@ -71,53 +70,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 OpenAPI Spec compatibility: 3.0
 
 
-## [1.2 - Artifacts on Maven Central](#table-of-contents)
-
-You can find our released artifacts on maven central:
-
-**Core:**
-```xml
-<dependency>
-    <groupId>org.openapitools</groupId>
-    <artifactId>openapi-json-schema-generator</artifactId>
-    <version>${openapi-json-schema-generator-version}</version>
-</dependency>
-```
-See the different versions of the [openapi-json-schema-generator](https://search.maven.org/artifact/org.openapitools/openapi-json-schema-generator) artifact available on maven central.
-
-**Cli:**
-```xml
-<dependency>
-    <groupId>org.openapitools</groupId>
-    <artifactId>openapi-json-schema-generator-cli</artifactId>
-    <version>${openapi-json-schema-generator-version}</version>
-</dependency>
-```
-See the different versions of the [openapi-json-schema-generator-cli](https://search.maven.org/artifact/org.openapitools/openapi-json-schema-generator-cli) artifact available on maven central.
-
-**Maven plugin:**
-```xml
-<dependency>
-    <groupId>org.openapitools</groupId>
-    <artifactId>openapi-json-schema-generator-maven-plugin</artifactId>
-    <version>${openapi-json-schema-generator-version}</version>
-</dependency>
-```
-* See the different versions of the [openapi-json-schema-generator-maven-plugin](https://search.maven.org/artifact/org.openapitools/openapi-json-schema-generator-maven-plugin) artifact available on maven central.
-* [Readme](https://github.com/OpenAPITools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator-maven-plugin/README.md)
-
-**Gradle plugin:**
-```xml
-<dependency>
-    <groupId>org.openapitools</groupId>
-    <artifactId>openapi-json-schema-generator-gradle-plugin</artifactId>
-    <version>${openapi-json-schema-generator-version}</version>
-</dependency>
-```
-* See the different versions of the [openapi-json-schema-generator-gradle-plugin](https://search.maven.org/artifact/org.openapitools/openapi-json-schema-generator-gradle-plugin) artifact available on maven central.
-* [Readme](https://github.com/OpenAPITools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator-gradle-plugin/README.adoc)
-
-### [1.3 - Download JAR](#table-of-contents)
+### [1.2 - Download JAR](#table-of-contents)
 <!-- RELEASE_VERSION -->
 If you're looking for the latest stable version, you can grab it directly from Maven.org (Java 8 runtime at a minimum):
 
@@ -142,7 +95,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 ```
 <!-- /RELEASE_VERSION -->
 
-### [1.4 - Build Projects](#table-of-contents)
+### [1.3 - Build Projects](#table-of-contents)
 
 To build from source, you need the following installed and available in your `$PATH:`
 
@@ -166,7 +119,7 @@ The default build contains minimal static analysis (via CheckStyle). To run your
 mvn -Pstatic-analysis clean install
 ```
 
-### [1.5 - Docker](#table-of-contents)
+### [1.4 - Docker](#table-of-contents)
 
 #### Public Pre-built Docker images
 

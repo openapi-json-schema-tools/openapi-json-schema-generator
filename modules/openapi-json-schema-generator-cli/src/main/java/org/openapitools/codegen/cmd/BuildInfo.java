@@ -31,7 +31,7 @@ public class BuildInfo {
             }
         } catch (IOException ignored) {
         }
-        try (InputStream is = BuildInfo.class.getResourceAsStream("/openapi-generator-git.properties")) {
+        try (InputStream is = BuildInfo.class.getResourceAsStream("/openapi-json-schema-generator-git.properties")) {
             if (is != null) {
                 Properties gitProps = new Properties();
                 gitProps.load(is);
