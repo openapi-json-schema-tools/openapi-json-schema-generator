@@ -43,9 +43,8 @@ Definitely!
   - [Table of Contents](#table-of-contents)
   - [1 - Installation](#1---installation)
     - [1.1 - Compatibility](#11---compatibility)
-    - [1.2 - Download JAR](#12---download-jar)
-    - [1.3 - Build Projects](#13---build-projects)
-    - [1.4 - Docker](#14---docker)
+    - [1.2 - Build Projects](#12---build-projects)
+    - [1.3 - Docker](#13---docker)
   - [2 - Getting Started](#2---getting-started)
   - [3 - Usage](#3---usage)
     - [3.1 - Customization](#31---customization)
@@ -55,7 +54,7 @@ Definitely!
     - [3.5 - IDE Integration](#35---ide-integration)
   - [4 - Companies/Projects using OpenAPI JSON Schema Generator](#4---companiesprojects-using-openapi-json-schema-generator)
   - [5 - About Us](#5---about-us)
-    - [5.3 - History of OpenAPI JSON Schema Generator](#53---history-of-openapi-json-schema-generator)
+    - [5.1 - History of OpenAPI JSON Schema Generator](#53---history-of-openapi-json-schema-generator)
   - [6 - License](#6---license)
 
 ## [1 - Installation](#table-of-contents)
@@ -69,33 +68,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 | 1.0.0 (first stable release) [SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/openapitools/openapi-json-schema-generator-cli/1.0.0-SNAPSHOT/) | TBD   | First release |
 OpenAPI Spec compatibility: 3.0
 
-
-### [1.2 - Download JAR](#table-of-contents)
-<!-- RELEASE_VERSION -->
-If you're looking for the latest stable version, you can grab it directly from Maven.org (Java 8 runtime at a minimum):
-
-JAR location: `https://repo1.maven.org/maven2/org/openapitools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar`
-
-For **Mac/Linux** users:
-```sh
-wget https://repo1.maven.org/maven2/org/openapitools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar -O openapi-json-schema-generator-cli.jar
-```
-
-For **Windows** users, you will need to install [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) or you can use Invoke-WebRequest in PowerShell (3.0+), e.g.
-```
-Invoke-WebRequest -OutFile openapi-json-schema-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar
-```
-
-After downloading the JAR, run `java -jar openapi-json-schema-generator-cli.jar help` to show the usage.
-
-For Mac users, please make sure Java 8 is installed (Tips: run `java -version` to check the version), and export `JAVA_HOME` in order to use the supported Java version:
-```sh
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH=${JAVA_HOME}/bin:$PATH
-```
-<!-- /RELEASE_VERSION -->
-
-### [1.3 - Build Projects](#table-of-contents)
+### [1.2 - Build Projects](#table-of-contents)
 
 To build from source, you need the following installed and available in your `$PATH:`
 
@@ -119,7 +92,7 @@ The default build contains minimal static analysis (via CheckStyle). To run your
 mvn -Pstatic-analysis clean install
 ```
 
-### [1.4 - Docker](#table-of-contents)
+### [1.3 - Docker](#table-of-contents)
 
 #### Public Pre-built Docker images
 
@@ -228,17 +201,17 @@ cd /vagrant
 <!-- /RELEASE_VERSION -->
 ## [2 - Getting Started](#table-of-contents)
 
-To generate a PHP client for [petstore.yaml](https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml), please run the following
+To generate a python client for [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml), please run the following
 ```sh
-git clone https://github.com/openapitools/openapi-json-schema-generator
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-json-schema-generator
 mvn clean package
 java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar generate \
-   -i https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
-   -g php \
-   -o /var/tmp/php_api_client
+   -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+   -g python \
+   -o /var/tmp/python_api_client
 ```
-(if you're on Windows, replace the last command with `java -jar modules\openapi-json-schema-generator-cli\target\openapi-json-schema-generator-cli.jar generate -i https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml -g php -o c:\temp\php_api_client`)
+(if you're on Windows, replace the last command with `java -jar modules\openapi-json-schema-generator-cli\target\openapi-json-schema-generator-cli.jar generate -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml -g python -o c:\temp\python_api_client`)
 
 <!-- RELEASE_VERSION -->
 You can also download the JAR (latest release) directly from [maven.org](https://repo1.maven.org/maven2/org/openapitools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar)
@@ -350,11 +323,16 @@ The OpenAPI JSON Schema Generator project is intended as a benefit for users of 
 
 When code is generated from this project, it shall be considered **AS IS** and owned by the user of the software.  There are no warranties--expressed or implied--for generated code.  You can do what you wish with it, and once generated, the code is your responsibility and subject to the licensing terms that you deem appropriate.
 
-### [6 - History of OpenAPI JSON Schema Generator](#table-of-contents)
+## [4 - Companies/Projects using OpenAPI JSON Schema Generator](#table-of-contents)
+
+## [5 - About Us](#table-of-contents)
+
+## [6 - History of OpenAPI JSON Schema Generator](#table-of-contents)
 
 OpenAPI JSON Schema Generator is based on OpenAPI Generator v6.2.0. It focuses on JSON schema support and the output is designed to be 100% compliance with JSON Schema.
 
 ## [7 - License](#table-of-contents)
+
 -------
 
 Copyright 2018 OpenAPI-Generator Contributors (https://openapi-generator.tech)
