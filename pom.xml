@@ -13,9 +13,6 @@
     <name>openapi-json-schema-generator-project</name>
     <!-- RELEASE_VERSION -->
     <version>${revision}</version>
-    <properties>
-        <revision>0.9.9</revision>
-    </properties>
     <!-- /RELEASE_VERSION -->
     <url>https://github.com/openapitools/openapi-json-schema-generator</url>
     <scm>
@@ -1178,8 +1175,6 @@
                 <module>modules/openapi-json-schema-generator-core</module>
                 <module>modules/openapi-json-schema-generator</module>
                 <module>modules/openapi-json-schema-generator-cli</module>
-                <module>modules/openapi-json-schema-generator-maven-plugin</module>
-                <module>modules/openapi-json-schema-generator-gradle-plugin</module>
                 <module>modules/openapi-json-schema-generator-online</module>
             </modules>
         </profile>
@@ -1246,9 +1241,11 @@
         </repository>
     </repositories>
     <properties>
+        <!-- RELEASE_VERSION -->
+        <revision>0.9.9</revision>
+        <!-- /RELEASE_VERSION -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-
         <archunit.version>0.23.1</archunit.version>
         <checkstyle.plugin.version>3.1.0</checkstyle.plugin.version>
         <commons-cli.version>1.4</commons-cli.version>
