@@ -107,7 +107,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -138,13 +138,16 @@ class BaseApi(api_client.Api):
 
     def _update_user_oapg(
         self,
-        body,
-        path_params = frozendict.frozendict(),
-        content_type = 'application/json',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        path_params: RequestPathParams = frozendict.frozendict(),
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         """
         Updated user
         :param skip_deserialization: If true then api_response.response will be set but
@@ -218,7 +221,7 @@ class UpdateUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -249,13 +252,16 @@ class UpdateUser(BaseApi):
 
     def update_user(
         self,
-        body,
-        path_params = frozendict.frozendict(),
-        content_type = 'application/json',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        path_params: RequestPathParams = frozendict.frozendict(),
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._update_user_oapg(
             body=body,
             path_params=path_params,
@@ -278,7 +284,7 @@ class ApiForput(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -309,13 +315,16 @@ class ApiForput(BaseApi):
 
     def put(
         self,
-        body,
-        path_params = frozendict.frozendict(),
-        content_type = 'application/json',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        path_params: RequestPathParams = frozendict.frozendict(),
+        content_type: str = 'application/json',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._update_user_oapg(
             body=body,
             path_params=path_params,

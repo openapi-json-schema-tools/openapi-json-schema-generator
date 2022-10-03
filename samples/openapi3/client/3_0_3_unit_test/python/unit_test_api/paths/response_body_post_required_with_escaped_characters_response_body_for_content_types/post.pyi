@@ -70,7 +70,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -98,11 +98,15 @@ class BaseApi(api_client.Api):
 
     def _post_required_with_escaped_characters_response_body_for_content_types_oapg(
         self,
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         """
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
@@ -149,7 +153,7 @@ class PostRequiredWithEscapedCharactersResponseBodyForContentTypes(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -177,11 +181,15 @@ class PostRequiredWithEscapedCharactersResponseBodyForContentTypes(BaseApi):
 
     def post_required_with_escaped_characters_response_body_for_content_types(
         self,
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._post_required_with_escaped_characters_response_body_for_content_types_oapg(
             accept_content_types=accept_content_types,
             stream=stream,
@@ -200,7 +208,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -228,11 +236,15 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._post_required_with_escaped_characters_response_body_for_content_types_oapg(
             accept_content_types=accept_content_types,
             stream=stream,

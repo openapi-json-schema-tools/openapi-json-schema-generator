@@ -46,7 +46,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -78,13 +78,17 @@ class BaseApi(api_client.Api):
 
     def _additional_properties_with_array_of_enums_oapg(
         self,
-        body = schemas.unset,
-        content_type = 'application/json',
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         """
         Additional Properties with Array of Enums
         :param skip_deserialization: If true then api_response.response will be set but
@@ -145,7 +149,7 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -177,13 +181,17 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
 
     def additional_properties_with_array_of_enums(
         self,
-        body = schemas.unset,
-        content_type = 'application/json',
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._additional_properties_with_array_of_enums_oapg(
             body=body,
             content_type=content_type,
@@ -206,7 +214,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -238,13 +246,17 @@ class ApiForget(BaseApi):
 
     def get(
         self,
-        body = schemas.unset,
-        content_type = 'application/json',
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._additional_properties_with_array_of_enums_oapg(
             body=body,
             content_type=content_type,

@@ -44,7 +44,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -76,13 +76,17 @@ class BaseApi(api_client.Api):
 
     def _upload_download_file_oapg(
         self,
-        body,
-        content_type = 'application/octet-stream',
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = 'application/octet-stream',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         """
         uploads a file and downloads a file using application/octet-stream
         :param skip_deserialization: If true then api_response.response will be set but
@@ -145,7 +149,7 @@ class UploadDownloadFile(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -177,13 +181,17 @@ class UploadDownloadFile(BaseApi):
 
     def upload_download_file(
         self,
-        body,
-        content_type = 'application/octet-stream',
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = 'application/octet-stream',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._upload_download_file_oapg(
             body=body,
             content_type=content_type,
@@ -206,7 +214,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse,]:
+    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -238,13 +246,17 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body,
-        content_type = 'application/octet-stream',
-        accept_content_types = _all_accept_content_types,
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = 'application/octet-stream',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._upload_download_file_oapg(
             body=body,
             content_type=content_type,

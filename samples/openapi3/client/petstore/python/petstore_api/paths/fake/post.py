@@ -348,7 +348,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -377,12 +377,15 @@ class BaseApi(api_client.Api):
 
     def _endpoint_parameters_oapg(
         self,
-        body = schemas.unset,
-        content_type = 'application/x-www-form-urlencoded',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/x-www-form-urlencoded',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         """
         Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
         :param skip_deserialization: If true then api_response.response will be set but
@@ -440,7 +443,7 @@ class EndpointParameters(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -469,12 +472,15 @@ class EndpointParameters(BaseApi):
 
     def endpoint_parameters(
         self,
-        body = schemas.unset,
-        content_type = 'application/x-www-form-urlencoded',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/x-www-form-urlencoded',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._endpoint_parameters_oapg(
             body=body,
             content_type=content_type,
@@ -495,7 +501,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -524,12 +530,15 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body = schemas.unset,
-        content_type = 'application/x-www-form-urlencoded',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/x-www-form-urlencoded',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._endpoint_parameters_oapg(
             body=body,
             content_type=content_type,

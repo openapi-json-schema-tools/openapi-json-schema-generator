@@ -101,7 +101,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -132,13 +132,16 @@ class BaseApi(api_client.Api):
 
     def _update_pet_with_form_oapg(
         self,
-        body = schemas.unset,
-        path_params = frozendict.frozendict(),
-        content_type = 'application/x-www-form-urlencoded',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        content_type: str = 'application/x-www-form-urlencoded',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         """
         Updates a pet in the store with form data
         :param skip_deserialization: If true then api_response.response will be set but
@@ -211,7 +214,7 @@ class UpdatePetWithForm(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -242,13 +245,16 @@ class UpdatePetWithForm(BaseApi):
 
     def update_pet_with_form(
         self,
-        body = schemas.unset,
-        path_params = frozendict.frozendict(),
-        content_type = 'application/x-www-form-urlencoded',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        content_type: str = 'application/x-www-form-urlencoded',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._update_pet_with_form_oapg(
             body=body,
             path_params=path_params,
@@ -271,7 +277,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse,]:
+    ) -> typing.Union[api_client.ApiResponse]:
         ...
 
     @typing.overload
@@ -302,13 +308,16 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body = schemas.unset,
-        path_params = frozendict.frozendict(),
-        content_type = 'application/x-www-form-urlencoded',
-        stream = False,
-        timeout = None,
-        skip_deserialization = False,
-    ):
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        content_type: str = 'application/x-www-form-urlencoded',
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = False,
+    ) -> typing.Union[
+        api_client.ApiResponse,
+        api_client.ApiResponseWithoutDeserialization,
+    ]:
         return self._update_pet_with_form_oapg(
             body=body,
             path_params=path_params,
