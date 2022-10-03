@@ -19,14 +19,18 @@ function cleanup {
 trap cleanup EXIT
 
 if [ "$NODE_INDEX" = "1" ]; then
+  # node1
+  # ensures samples + docs up to date
   echo "Running node $NODE_INDEX"
 
   ./bin/utils/ensure-up-to-date
 
 elif [ "$NODE_INDEX" = "2" ]; then
+  # node2
   echo "Running node $NODE_INDEX"
 
 elif [ "$NODE_INDEX" = "3" ]; then
+  # node3
 
   echo "Running node $NODE_INDEX to test 'samples.circleci.node3' defined in pom.xml ..."
   #wget https://www.python.org/ftp/python/3.8.9/Python-3.8.9.tgz
@@ -58,6 +62,8 @@ elif [ "$NODE_INDEX" = "3" ]; then
   #mvn --no-snapshot-updates --quiet verify -Psamples.circleci.node3 -Dorg.slf4j.simpleLogger.defaultLogLevel=error
 
 elif [ "$NODE_INDEX" = "4" ]; then
+  # node4
+
   echo "Running node $NODE_INDEX to test 'samples.circleci.node4' defined in pom.xml ..."
 
   #mvn --no-snapshot-updates --quiet verify -Psamples.circleci.node4 -Dorg.slf4j.simpleLogger.defaultLogLevel=error
