@@ -1,40 +1,36 @@
     self,
 {{#if bodyParam}}
     {{#with bodyParam}}
-        {{#if isOverload}}
     body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}{{#unless required}}schemas.Unset] = schemas.unset{{else}}]{{/unless}},
-        {{else}}
-    body{{#unless required}} = schemas.unset{{/unless}},
-        {{/if}}
     {{/with}}
 {{/if}}
 {{#if queryParams}}
-    query_params{{#if isOverload}}: RequestQueryParams{{/if}} = frozendict.frozendict(),
+    query_params: RequestQueryParams = frozendict.frozendict(),
 {{/if}}
 {{#if headerParams}}
-    header_params{{#if isOverload}}: RequestHeaderParams{{/if}} = frozendict.frozendict(),
+    header_params: RequestHeaderParams = frozendict.frozendict(),
 {{/if}}
 {{#if pathParams}}
-    path_params{{#if isOverload}}: RequestPathParams{{/if}} = frozendict.frozendict(),
+    path_params: RequestPathParams = frozendict.frozendict(),
 {{/if}}
 {{#if cookieParams}}
-    cookie_params{{#if isOverload}}: RequestCookieParams{{/if}} = frozendict.frozendict(),
+    cookie_params: RequestCookieParams = frozendict.frozendict(),
 {{/if}}
 {{#with bodyParam}}
     {{#each content}}
         {{#if @first}}
-    content_type{{#if isOverload}}: str{{/if}} = '{{{@key}}}',
+    content_type: str = '{{{@key}}}',
         {{/if}}
     {{/each}}
 {{/with}}
 {{#if produces}}
-    accept_content_types{{#if isOverload}}: typing.Tuple[str]{{/if}} = _all_accept_content_types,
+    accept_content_types: typing.Tuple[str] = _all_accept_content_types,
 {{/if}}
 {{#if servers}}
-    host_index{{#if isOverload}}: typing.Optional[int]{{/if}} = None,
+    host_index: typing.Optional[int] = None,
 {{/if}}
-    stream{{#if isOverload}}: bool{{/if}} = False,
-    timeout{{#if isOverload}}: typing.Optional[typing.Union[int, typing.Tuple]]{{/if}} = None,
+    stream: bool = False,
+    timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     {{#if isOverload}}
         {{#eq skipDeserialization "True"}}
     skip_deserialization: typing_extensions.Literal[True] = True,
@@ -46,16 +42,16 @@
     skip_deserialization: bool = False,
         {{/eq}}
     {{else}}
-    skip_deserialization = False,
+    skip_deserialization: bool = False,
     {{/if}}
 {{#eq skipDeserialization "True"}}
 ) -> api_client.ApiResponseWithoutDeserialization:
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> typing.Union[{{#each responses}}{{#if isDefault}}ApiResponseForDefault,{{else}}{{#if is2xx}}ApiResponseFor{{code}},{{/if}}{{/if}}{{/each}}api_client.ApiResponse,]:
+) -> typing.Union[{{#each responses}}{{#if isDefault}}ApiResponseForDefault,{{else}}{{#if is2xx}}ApiResponseFor{{code}},{{/if}}{{/if}}{{/each}}api_client.ApiResponse]:
 {{/eq}}
 {{#eq skipDeserialization "null"}}
-    {{#if isOverload}}
+{{#if isOverload}}
 ) -> typing.Union[
         {{#each responses}}
             {{#if isDefault}}
@@ -68,9 +64,21 @@
         {{/each}}
     api_client.ApiResponseWithoutDeserialization,
 ]:
-    {{else}}
-):
-    {{/if}}
+{{else}}
+) -> typing.Union[
+        {{#each responses}}
+            {{#if isDefault}}
+    ApiResponseForDefault,
+            {{else}}
+                {{#if is2xx}}
+    ApiResponseFor{{code}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    api_client.ApiResponse,
+    api_client.ApiResponseWithoutDeserialization,
+]:
+{{/if}}
 {{/eq}}
 {{#if isOverload}}
     ...
