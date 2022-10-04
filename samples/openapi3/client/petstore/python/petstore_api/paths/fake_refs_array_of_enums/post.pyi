@@ -62,12 +62,11 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-    contentType="application/json"
     @typing.overload
     def _array_of_enums_oapg(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -80,8 +79,8 @@ class BaseApi(api_client.Api):
     def _array_of_enums_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -90,8 +89,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _array_of_enums_oapg(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -103,8 +102,8 @@ class BaseApi(api_client.Api):
 
     def _array_of_enums_oapg(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -164,8 +163,8 @@ class ArrayOfEnums(BaseApi):
     @typing.overload
     def array_of_enums(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -178,8 +177,8 @@ class ArrayOfEnums(BaseApi):
     def array_of_enums(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -188,8 +187,8 @@ class ArrayOfEnums(BaseApi):
     @typing.overload
     def array_of_enums(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -201,8 +200,8 @@ class ArrayOfEnums(BaseApi):
 
     def array_of_enums(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -224,8 +223,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -238,8 +237,8 @@ class ApiForpost(BaseApi):
     def post(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -248,8 +247,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -261,8 +260,8 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

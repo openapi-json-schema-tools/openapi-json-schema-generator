@@ -131,12 +131,11 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-    contentType="multipart/form-data"
     @typing.overload
     def _upload_file_oapg(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -149,8 +148,8 @@ class BaseApi(api_client.Api):
     def _upload_file_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -159,8 +158,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _upload_file_oapg(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -172,8 +171,8 @@ class BaseApi(api_client.Api):
 
     def _upload_file_oapg(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -233,8 +232,8 @@ class UploadFile(BaseApi):
     @typing.overload
     def upload_file(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -247,8 +246,8 @@ class UploadFile(BaseApi):
     def upload_file(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -257,8 +256,8 @@ class UploadFile(BaseApi):
     @typing.overload
     def upload_file(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -270,8 +269,8 @@ class UploadFile(BaseApi):
 
     def upload_file(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -293,8 +292,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -307,8 +306,8 @@ class ApiForpost(BaseApi):
     def post(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -317,8 +316,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -330,8 +329,8 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[schemas.Unset] = schemas.unset,
-        content_type: typing_extensions.Literal[""] = '',
+        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        content_type: str = 'multipart/form-data',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

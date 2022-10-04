@@ -33,12 +33,22 @@
     cookie_params: RequestCookieParams = frozendict.frozendict(),
 {{/if}}
 {{#if bodyParam}}
-{{#if isOverload}}
-{{else}}
-    content_type: typing_extensions.Literal["{{contentType}}"] = '{{contentType}}',
+    {{#if isOverload}}
+        {{#eq contentType "null"}}
+    content_type: str = ...,
+        {{else}}
+    content_type: typing_extensions.Literal["{{{contentType}}}"] = "{{{contentType}}}",
+        {{/eq}}
+    {{else}}
+        {{#with bodyParam}}
+            {{#each content}}
+                {{#if @first}}
+    content_type: str = '{{{@key}}}',
+                {{/if}}
+            {{/each}}
+        {{/with}}
+    {{/if}}
 {{/if}}
-    content_type: typing_extensions.Literal["{{contentType}}"] = '{{contentType}}',
-{{/with}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str] = _all_accept_content_types,
 {{/if}}
