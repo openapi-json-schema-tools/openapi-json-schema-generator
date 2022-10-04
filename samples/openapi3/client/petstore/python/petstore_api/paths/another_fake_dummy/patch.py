@@ -68,12 +68,12 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
+    contentType="application/json"
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -85,9 +85,9 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        body: typing.Union[],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -96,8 +96,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -109,8 +109,8 @@ class BaseApi(api_client.Api):
 
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -172,8 +172,8 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -185,9 +185,9 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        body: typing.Union[],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -196,8 +196,8 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -209,8 +209,8 @@ class Call123TestSpecialTags(BaseApi):
 
     def call_123_test_special_tags(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -232,8 +232,8 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -245,9 +245,9 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        body: typing.Union[],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -256,8 +256,8 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -269,8 +269,8 @@ class ApiForpatch(BaseApi):
 
     def patch(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        body: typing.Union[],
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

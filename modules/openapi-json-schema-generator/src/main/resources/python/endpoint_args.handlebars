@@ -2,7 +2,7 @@
 {{#if bodyParam}}
     {{#if bodyParam.required}}
         {{#with bodyParam}}
-    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each content}}{{#eq key contentType }}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/with}}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
@@ -16,7 +16,7 @@
             {{/eq}}
         {{/if}}
         {{#with bodyParam}}
-    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each content}}{{#eq key contentType }}{{#with this.schema}}{{baseName}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/with}}
     {{/if}}
 {{/if}}
@@ -32,12 +32,12 @@
 {{#if cookieParams}}
     cookie_params: RequestCookieParams = frozendict.frozendict(),
 {{/if}}
-{{#with bodyParam}}
-    {{#each content}}
-        {{#if @first}}
-    content_type: str = '{{{@key}}}',
-        {{/if}}
-    {{/each}}
+{{#if bodyParam}}
+{{#if isOverload}}
+{{else}}
+    content_type: typing_extensions.Literal["{{contentType}}"] = '{{contentType}}',
+{{/if}}
+    content_type: typing_extensions.Literal["{{contentType}}"] = '{{contentType}}',
 {{/with}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str] = _all_accept_content_types,

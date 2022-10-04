@@ -89,7 +89,6 @@ _status_code_to_response = {
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _case_sensitive_params_oapg(
         self,

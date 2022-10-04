@@ -114,7 +114,6 @@ _response_for_200 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _object_in_query_oapg(
         self,

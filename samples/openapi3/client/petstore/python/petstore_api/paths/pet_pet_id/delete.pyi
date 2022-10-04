@@ -91,7 +91,6 @@ _response_for_400 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _delete_pet_oapg(
         self,

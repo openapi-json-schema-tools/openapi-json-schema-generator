@@ -65,12 +65,12 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
+    contentType="application/json"
     @typing.overload
     def _boolean_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -83,8 +83,8 @@ class BaseApi(api_client.Api):
     def _boolean_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -93,8 +93,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _boolean_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -106,8 +106,8 @@ class BaseApi(api_client.Api):
 
     def _boolean_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -166,8 +166,8 @@ class Boolean(BaseApi):
     @typing.overload
     def boolean(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -180,8 +180,8 @@ class Boolean(BaseApi):
     def boolean(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -190,8 +190,8 @@ class Boolean(BaseApi):
     @typing.overload
     def boolean(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -203,8 +203,8 @@ class Boolean(BaseApi):
 
     def boolean(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -226,8 +226,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -240,8 +240,8 @@ class ApiForpost(BaseApi):
     def post(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -250,8 +250,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -263,8 +263,8 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, bool, schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
+        body: typing.Union[schemas.Unset] = schemas.unset,
+        content_type: typing_extensions.Literal[""] = '',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

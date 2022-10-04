@@ -133,7 +133,6 @@ _status_code_to_response = {
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _group_parameters_oapg(
         self,

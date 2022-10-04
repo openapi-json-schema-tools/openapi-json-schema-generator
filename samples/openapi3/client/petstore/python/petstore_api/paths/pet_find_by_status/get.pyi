@@ -184,7 +184,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _find_pets_by_status_oapg(
         self,

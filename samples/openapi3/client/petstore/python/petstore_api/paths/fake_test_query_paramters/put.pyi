@@ -220,7 +220,6 @@ _response_for_200 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _query_parameter_collection_format_oapg(
         self,

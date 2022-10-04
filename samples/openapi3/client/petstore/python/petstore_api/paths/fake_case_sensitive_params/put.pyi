@@ -84,7 +84,6 @@ _response_for_200 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _case_sensitive_params_oapg(
         self,
