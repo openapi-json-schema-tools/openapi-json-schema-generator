@@ -56,7 +56,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_operators_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -68,8 +68,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_operators_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -78,7 +78,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_operators_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -90,7 +90,7 @@ class BaseApi(api_client.Api):
 
     def _post_operators_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -146,7 +146,7 @@ class PostOperators(BaseApi):
     @typing.overload
     def post_operators(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -158,8 +158,8 @@ class PostOperators(BaseApi):
     @typing.overload
     def post_operators(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -168,7 +168,7 @@ class PostOperators(BaseApi):
     @typing.overload
     def post_operators(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -180,7 +180,7 @@ class PostOperators(BaseApi):
 
     def post_operators(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -201,7 +201,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -213,8 +213,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -223,7 +223,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -235,7 +235,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

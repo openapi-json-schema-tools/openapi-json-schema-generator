@@ -16,7 +16,7 @@
             {{/eq}}
         {{/if}}
         {{#with bodyParam}}
-    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{/with}}
     {{/if}}
 {{/if}}
