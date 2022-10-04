@@ -108,7 +108,7 @@ Example:
 
 ```sh
 docker run --rm -v "${PWD}:/local" openapjsonschematools/openapi-json-schema-generator-cli generate \
-    -i https://raw.githubusercontent.com/openapjsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
     -g python \
     -o /local/out/python
 ```

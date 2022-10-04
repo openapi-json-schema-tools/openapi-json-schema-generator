@@ -1075,12 +1075,7 @@ public class ModelUtils {
             return null;
         }
         Map.Entry<String, MediaType> entry = content.entrySet().iterator().next();
-        if (content.size() > 1) {
-            // Other content types are currently ignored by codegen. If you see this warning,
-            // reorder the OAS spec to put the desired content type first.
-            once(LOGGER).warn("Multiple schemas found in the OAS 'content' section, returning only the first one ({})",
-                    entry.getKey());
-        }
+        // TODO remove this because content schemas are store elsewhere
         return entry.getValue().getSchema();
     }
 

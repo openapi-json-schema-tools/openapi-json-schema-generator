@@ -11,8 +11,6 @@ COPY ./LICENSE ${GEN_DIR}
 COPY ./google_checkstyle.xml ${GEN_DIR}
 
 # Modules are copied individually here to allow for caching of docker layers between major.minor versions
-COPY ./modules/openapi-json-schema-generator-gradle-plugin ${GEN_DIR}/modules/openapi-json-schema-generator-gradle-plugin
-COPY ./modules/openapi-json-schema-generator-maven-plugin ${GEN_DIR}/modules/openapi-json-schema-generator-maven-plugin
 COPY ./modules/openapi-json-schema-generator-online ${GEN_DIR}/modules/openapi-json-schema-generator-online
 COPY ./modules/openapi-json-schema-generator-cli ${GEN_DIR}/modules/openapi-json-schema-generator-cli
 COPY ./modules/openapi-json-schema-generator-core ${GEN_DIR}/modules/openapi-json-schema-generator-core
