@@ -140,9 +140,10 @@ class BaseApi(api_client.Api):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def _login_user_oapg(
@@ -151,9 +152,7 @@ class BaseApi(api_client.Api):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _login_user_oapg(
@@ -162,12 +161,11 @@ class BaseApi(api_client.Api):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def _login_user_oapg(
         self,
@@ -176,11 +174,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         """
         Logs user into the system
         :param skip_deserialization: If true then api_response.response will be set but
@@ -243,9 +237,10 @@ class LoginUser(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def login_user(
@@ -254,9 +249,7 @@ class LoginUser(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def login_user(
@@ -265,12 +258,11 @@ class LoginUser(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def login_user(
         self,
@@ -279,11 +271,7 @@ class LoginUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._login_user_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,
@@ -303,9 +291,10 @@ class ApiForget(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def get(
@@ -314,9 +303,7 @@ class ApiForget(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def get(
@@ -325,12 +312,11 @@ class ApiForget(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def get(
         self,
@@ -339,11 +325,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._login_user_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,

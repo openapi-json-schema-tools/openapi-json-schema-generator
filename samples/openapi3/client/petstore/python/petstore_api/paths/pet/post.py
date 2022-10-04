@@ -97,9 +97,21 @@ class BaseApi(api_client.Api):
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def _add_pet_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = 'application/json',
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _add_pet_oapg(
@@ -109,24 +121,11 @@ class BaseApi(api_client.Api):
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
-
-    @typing.overload
-    def _add_pet_oapg(
-        self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: str = 'application/json',
-        host_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def _add_pet_oapg(
         self,
@@ -136,11 +135,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         """
         Add a new pet to the store
         :param skip_deserialization: If true then api_response.response will be set but
@@ -203,9 +198,21 @@ class AddPet(BaseApi):
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def add_pet(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = 'application/json',
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def add_pet(
@@ -215,24 +222,11 @@ class AddPet(BaseApi):
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
-
-    @typing.overload
-    def add_pet(
-        self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: str = 'application/json',
-        host_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def add_pet(
         self,
@@ -242,11 +236,7 @@ class AddPet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._add_pet_oapg(
             body=body,
             content_type=content_type,
@@ -268,9 +258,21 @@ class ApiForpost(BaseApi):
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = 'application/json',
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def post(
@@ -280,24 +282,11 @@ class ApiForpost(BaseApi):
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
-
-    @typing.overload
-    def post(
-        self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: str = 'application/json',
-        host_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def post(
         self,
@@ -307,11 +296,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._add_pet_oapg(
             body=body,
             content_type=content_type,

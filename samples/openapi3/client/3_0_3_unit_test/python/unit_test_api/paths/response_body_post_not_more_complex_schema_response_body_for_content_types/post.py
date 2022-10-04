@@ -133,9 +133,10 @@ class BaseApi(api_client.Api):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def _post_not_more_complex_schema_response_body_for_content_types_oapg(
@@ -143,9 +144,7 @@ class BaseApi(api_client.Api):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _post_not_more_complex_schema_response_body_for_content_types_oapg(
@@ -153,12 +152,11 @@ class BaseApi(api_client.Api):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def _post_not_more_complex_schema_response_body_for_content_types_oapg(
         self,
@@ -166,11 +164,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         """
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
@@ -216,9 +210,10 @@ class PostNotMoreComplexSchemaResponseBodyForContentTypes(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def post_not_more_complex_schema_response_body_for_content_types(
@@ -226,9 +221,7 @@ class PostNotMoreComplexSchemaResponseBodyForContentTypes(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def post_not_more_complex_schema_response_body_for_content_types(
@@ -236,12 +229,11 @@ class PostNotMoreComplexSchemaResponseBodyForContentTypes(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def post_not_more_complex_schema_response_body_for_content_types(
         self,
@@ -249,11 +241,7 @@ class PostNotMoreComplexSchemaResponseBodyForContentTypes(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._post_not_more_complex_schema_response_body_for_content_types_oapg(
             accept_content_types=accept_content_types,
             stream=stream,
@@ -271,9 +259,10 @@ class ApiForpost(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def post(
@@ -281,9 +270,7 @@ class ApiForpost(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def post(
@@ -291,12 +278,11 @@ class ApiForpost(BaseApi):
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def post(
         self,
@@ -304,11 +290,7 @@ class ApiForpost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._post_not_more_complex_schema_response_body_for_content_types_oapg(
             accept_content_types=accept_content_types,
             stream=stream,

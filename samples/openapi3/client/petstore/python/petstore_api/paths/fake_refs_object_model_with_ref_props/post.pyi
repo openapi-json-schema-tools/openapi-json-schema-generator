@@ -66,55 +66,50 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _object_model_with_ref_props_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def _object_model_with_ref_props_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _object_model_with_ref_props_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def _object_model_with_ref_props_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
-
-    def _object_model_with_ref_props_oapg(
-        self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         """
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
@@ -168,55 +163,50 @@ class ObjectModelWithRefProps(BaseApi):
     @typing.overload
     def object_model_with_ref_props(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def object_model_with_ref_props(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def object_model_with_ref_props(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def object_model_with_ref_props(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
-
-    def object_model_with_ref_props(
-        self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._object_model_with_ref_props_oapg(
             body=body,
             content_type=content_type,
@@ -233,55 +223,50 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseFor200,api_client.ApiResponse]:
-        ...
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
+        content_type: str = 'application/json',
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
-
-    def post(
-        self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
-        content_type: str = 'application/json',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._object_model_with_ref_props_oapg(
             body=body,
             content_type=content_type,
