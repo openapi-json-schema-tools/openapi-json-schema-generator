@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master) [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master) [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
 
 </div>
 
