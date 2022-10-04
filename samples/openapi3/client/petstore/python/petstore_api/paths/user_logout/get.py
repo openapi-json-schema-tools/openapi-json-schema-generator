@@ -51,8 +51,9 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseForDefault,api_client.ApiResponse]:
-        ...
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]: ...
 
     @typing.overload
     def _logout_user_oapg(
@@ -60,8 +61,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _logout_user_oapg(
@@ -72,19 +72,14 @@ class BaseApi(api_client.Api):
     ) -> typing.Union[
         ApiResponseForDefault,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def _logout_user_oapg(
         self,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseForDefault,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         """
         Logs out current logged in user session
         :param skip_deserialization: If true then api_response.response will be set but
@@ -129,8 +124,9 @@ class LogoutUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseForDefault,api_client.ApiResponse]:
-        ...
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]: ...
 
     @typing.overload
     def logout_user(
@@ -138,8 +134,7 @@ class LogoutUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def logout_user(
@@ -150,19 +145,14 @@ class LogoutUser(BaseApi):
     ) -> typing.Union[
         ApiResponseForDefault,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def logout_user(
         self,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseForDefault,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._logout_user_oapg(
             stream=stream,
             timeout=timeout,
@@ -179,8 +169,9 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[ApiResponseForDefault,api_client.ApiResponse]:
-        ...
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]: ...
 
     @typing.overload
     def get(
@@ -188,8 +179,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def get(
@@ -200,19 +190,14 @@ class ApiForget(BaseApi):
     ) -> typing.Union[
         ApiResponseForDefault,
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def get(
         self,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseForDefault,
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._logout_user_oapg(
             stream=stream,
             timeout=timeout,

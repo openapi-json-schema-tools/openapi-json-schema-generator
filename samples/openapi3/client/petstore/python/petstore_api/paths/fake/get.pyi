@@ -396,8 +396,8 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse]:
-        ...
+    ) -> typing.Union[
+    ]: ...
 
     @typing.overload
     def _enum_parameters_oapg(
@@ -409,8 +409,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _enum_parameters_oapg(
@@ -424,8 +423,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: bool = False,
     ) -> typing.Union[
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def _enum_parameters_oapg(
         self,
@@ -436,10 +434,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         """
         To test enum parameters
         :param skip_deserialization: If true then api_response.response will be set but
@@ -525,8 +520,8 @@ class EnumParameters(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse]:
-        ...
+    ) -> typing.Union[
+    ]: ...
 
     @typing.overload
     def enum_parameters(
@@ -538,8 +533,7 @@ class EnumParameters(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def enum_parameters(
@@ -553,8 +547,7 @@ class EnumParameters(BaseApi):
         skip_deserialization: bool = False,
     ) -> typing.Union[
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def enum_parameters(
         self,
@@ -565,10 +558,7 @@ class EnumParameters(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._enum_parameters_oapg(
             body=body,
             query_params=query_params,
@@ -593,8 +583,8 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[api_client.ApiResponse]:
-        ...
+    ) -> typing.Union[
+    ]: ...
 
     @typing.overload
     def get(
@@ -606,8 +596,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[True] = True,
-    ) -> api_client.ApiResponseWithoutDeserialization:
-        ...
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def get(
@@ -621,8 +610,7 @@ class ApiForget(BaseApi):
         skip_deserialization: bool = False,
     ) -> typing.Union[
         api_client.ApiResponseWithoutDeserialization,
-    ]:
-        ...
+    ]: ...
 
     def get(
         self,
@@ -633,10 +621,7 @@ class ApiForget(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        api_client.ApiResponse,
-        api_client.ApiResponseWithoutDeserialization,
-    ]:
+    ):
         return self._enum_parameters_oapg(
             body=body,
             query_params=query_params,

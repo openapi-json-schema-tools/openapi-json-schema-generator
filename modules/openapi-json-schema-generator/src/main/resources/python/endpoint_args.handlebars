@@ -45,41 +45,36 @@
     skip_deserialization: bool = False,
     {{/if}}
 {{#eq skipDeserialization "True"}}
-) -> api_client.ApiResponseWithoutDeserialization:
+) -> api_client.ApiResponseWithoutDeserialization: ...
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> typing.Union[{{#each responses}}{{#if isDefault}}ApiResponseForDefault,{{else}}{{#if is2xx}}ApiResponseFor{{code}},{{/if}}{{/if}}{{/each}}api_client.ApiResponse]:
+) -> typing.Union[
+    {{#each responses}}
+        {{#if isDefault}}
+    ApiResponseForDefault,
+        {{else}}
+            {{#if is2xx}}
+    ApiResponseFor{{code}},
+            {{/if}}
+        {{/if}}
+    {{/each}}
+]: ...
 {{/eq}}
 {{#eq skipDeserialization "null"}}
 {{#if isOverload}}
 ) -> typing.Union[
-        {{#each responses}}
-            {{#if isDefault}}
+    {{#each responses}}
+        {{#if isDefault}}
     ApiResponseForDefault,
-            {{else}}
-                {{#if is2xx}}
+        {{else}}
+            {{#if is2xx}}
     ApiResponseFor{{code}},
-                {{/if}}
             {{/if}}
-        {{/each}}
+        {{/if}}
+    {{/each}}
     api_client.ApiResponseWithoutDeserialization,
-]:
+]: ...
 {{else}}
-) -> typing.Union[
-        {{#each responses}}
-            {{#if isDefault}}
-    ApiResponseForDefault,
-            {{else}}
-                {{#if is2xx}}
-    ApiResponseFor{{code}},
-                {{/if}}
-            {{/if}}
-        {{/each}}
-    api_client.ApiResponse,
-    api_client.ApiResponseWithoutDeserialization,
-]:
+):
 {{/if}}
 {{/eq}}
-{{#if isOverload}}
-    ...
-{{/if}}
