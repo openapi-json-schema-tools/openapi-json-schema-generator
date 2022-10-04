@@ -545,8 +545,8 @@ paths:
           schema:
             type: string
       responses:
-        '400':
-          description: Invalid username supplied
+        '200':
+          description: Success
         '404':
           description: User not found
   /fake_classname_test:
