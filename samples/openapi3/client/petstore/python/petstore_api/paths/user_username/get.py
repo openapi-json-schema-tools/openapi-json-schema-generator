@@ -130,7 +130,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_user_by_name_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -227,7 +226,6 @@ class GetUserByName(BaseApi):
     @typing.overload
     def get_user_by_name(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -282,7 +280,6 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

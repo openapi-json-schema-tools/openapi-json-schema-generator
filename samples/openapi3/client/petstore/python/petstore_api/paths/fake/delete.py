@@ -149,7 +149,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _group_parameters_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         header_params: RequestHeaderParams = frozendict.frozendict(),
         stream: bool = False,
@@ -257,7 +256,6 @@ class GroupParameters(BaseApi):
     @typing.overload
     def group_parameters(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         header_params: RequestHeaderParams = frozendict.frozendict(),
         stream: bool = False,
@@ -312,7 +310,6 @@ class ApiFordelete(BaseApi):
     @typing.overload
     def delete(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         header_params: RequestHeaderParams = frozendict.frozendict(),
         stream: bool = False,

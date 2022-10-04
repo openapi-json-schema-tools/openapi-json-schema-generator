@@ -1,14 +1,25 @@
     self,
 {{#if bodyParam}}
-    {{#with bodyParam}}
-    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}{{#unless required}}schemas.Unset] = schemas.unset{{else}}]{{/unless}},
-    {{/with}}
-{{/if}}
-    {{#if isOverload}}
-        {{#eq skipDeserialization "True"}}
+    {{#if bodyParam.required}}
+        {{#with bodyParam}}
+    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+        {{/with}}
+        {{#if isOverload}}
+            {{#eq skipDeserialization "True"}}
     skip_deserialization: typing_extensions.Literal[True],
-        {{/eq}}
+            {{/eq}}
+        {{/if}}
+    {{else}}
+        {{#if isOverload}}
+            {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+            {{/eq}}
+        {{/if}}
+        {{#with bodyParam}}
+    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+        {{/with}}
     {{/if}}
+{{/if}}
 {{#if queryParams}}
     query_params: RequestQueryParams = frozendict.frozendict(),
 {{/if}}

@@ -200,7 +200,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _find_pets_by_status_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -298,7 +297,6 @@ class FindPetsByStatus(BaseApi):
     @typing.overload
     def find_pets_by_status(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -353,7 +351,6 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

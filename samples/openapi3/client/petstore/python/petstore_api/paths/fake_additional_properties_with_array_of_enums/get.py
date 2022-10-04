@@ -84,8 +84,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _additional_properties_with_array_of_enums_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -182,8 +182,8 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
     @typing.overload
     def additional_properties_with_array_of_enums(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -242,8 +242,8 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         skip_deserialization: typing_extensions.Literal[True],
+        body: typing.Union[SchemaForRequestBodyApplicationJson,schemas.Unset] = schemas.unset,
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

@@ -123,7 +123,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_pet_by_id_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -221,7 +220,6 @@ class GetPetById(BaseApi):
     @typing.overload
     def get_pet_by_id(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -276,7 +274,6 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

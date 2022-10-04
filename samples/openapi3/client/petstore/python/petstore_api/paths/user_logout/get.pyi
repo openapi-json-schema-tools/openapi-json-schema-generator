@@ -53,7 +53,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _logout_user_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -126,7 +125,6 @@ class LogoutUser(BaseApi):
     @typing.overload
     def logout_user(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -171,7 +169,6 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...

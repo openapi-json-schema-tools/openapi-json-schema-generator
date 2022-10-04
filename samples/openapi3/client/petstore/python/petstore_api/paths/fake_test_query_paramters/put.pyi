@@ -235,7 +235,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _query_parameter_collection_format_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -326,7 +325,6 @@ class QueryParameterCollectionFormat(BaseApi):
     @typing.overload
     def query_parameter_collection_format(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -376,7 +374,6 @@ class ApiForput(BaseApi):
     @typing.overload
     def put(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

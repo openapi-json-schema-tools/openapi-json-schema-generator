@@ -99,7 +99,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _case_sensitive_params_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -187,7 +186,6 @@ class CaseSensitiveParams(BaseApi):
     @typing.overload
     def case_sensitive_params(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -237,7 +235,6 @@ class ApiForput(BaseApi):
     @typing.overload
     def put(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

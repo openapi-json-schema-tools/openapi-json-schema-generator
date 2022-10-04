@@ -119,7 +119,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _foo_get_oapg(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -201,7 +200,6 @@ class FooGet(BaseApi):
     @typing.overload
     def foo_get(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -251,7 +249,6 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
