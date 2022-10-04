@@ -60,7 +60,7 @@ class BaseApi(api_client.Api):
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
@@ -69,10 +69,10 @@ class BaseApi(api_client.Api):
     def _json_patch_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,schemas.Unset] = schemas.unset,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
@@ -82,7 +82,7 @@ class BaseApi(api_client.Api):
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
@@ -151,7 +151,7 @@ class JsonPatch(BaseApi):
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
@@ -160,10 +160,10 @@ class JsonPatch(BaseApi):
     def json_patch(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,schemas.Unset] = schemas.unset,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
@@ -173,7 +173,7 @@ class JsonPatch(BaseApi):
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,
@@ -206,7 +206,7 @@ class ApiForpatch(BaseApi):
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
@@ -215,10 +215,10 @@ class ApiForpatch(BaseApi):
     def patch(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,schemas.Unset] = schemas.unset,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = True,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
@@ -228,7 +228,7 @@ class ApiForpatch(BaseApi):
         content_type: str = 'application/json-patch+json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = ...,
     ) -> typing.Union[
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization,

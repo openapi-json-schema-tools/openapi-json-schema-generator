@@ -4,6 +4,11 @@
     body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}{{#unless required}}schemas.Unset] = schemas.unset{{else}}]{{/unless}},
     {{/with}}
 {{/if}}
+    {{#if isOverload}}
+        {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+        {{/eq}}
+    {{/if}}
 {{#if queryParams}}
     query_params: RequestQueryParams = frozendict.frozendict(),
 {{/if}}
@@ -32,14 +37,11 @@
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     {{#if isOverload}}
-        {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True] = True,
-        {{/eq}}
         {{#eq skipDeserialization "False"}}
-    skip_deserialization: typing_extensions.Literal[False] = False,
+    skip_deserialization: typing_extensions.Literal[False] = ...,
         {{/eq}}
         {{#eq skipDeserialization "null"}}
-    skip_deserialization: bool = False,
+    skip_deserialization: bool = ...,
         {{/eq}}
     {{else}}
     skip_deserialization: bool = False,
