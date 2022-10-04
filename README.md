@@ -1,8 +1,5 @@
 <h1 align="center">OpenAPI JSON Schema Generator</h1>
 
-| **IMPORTANT: before the first release, one will need to build the project locally to use the enhancements, bug fixes in the latest master** |
-| --- |
-
 <div align="center">
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master) [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
