@@ -193,6 +193,10 @@ public class CodegenOperation {
         return responses.stream().anyMatch(response -> response.isDefault);
     }
 
+    public boolean getAllResponsesAreErrors() {
+        return responses.stream().allMatch(response -> response.is4xx || response.is5xx);
+    }
+
     /**
      * Check if there's at least one vendor extension
      *

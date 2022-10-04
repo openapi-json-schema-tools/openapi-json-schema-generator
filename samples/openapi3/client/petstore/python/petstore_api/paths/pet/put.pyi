@@ -90,9 +90,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]: ...
-
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def _update_pet_oapg(
         self,
@@ -189,9 +187,7 @@ class UpdatePet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]: ...
-
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def update_pet(
         self,
@@ -247,9 +243,7 @@ class ApiForput(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False,
-    ) -> typing.Union[
-    ]: ...
-
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def put(
         self,

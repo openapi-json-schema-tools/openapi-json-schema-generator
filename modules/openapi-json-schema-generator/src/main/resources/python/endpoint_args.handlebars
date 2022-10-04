@@ -48,7 +48,7 @@
 ) -> api_client.ApiResponseWithoutDeserialization: ...
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> typing.Union[
+) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}typing.Union[
     {{#each responses}}
         {{#if isDefault}}
     ApiResponseForDefault,
@@ -59,6 +59,7 @@
         {{/if}}
     {{/each}}
 ]: ...
+    {{/if}}
 {{/eq}}
 {{#eq skipDeserialization "null"}}
 {{#if isOverload}}
