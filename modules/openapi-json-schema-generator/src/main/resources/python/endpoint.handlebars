@@ -374,8 +374,20 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
 
+    @typing.overload
     def _{{operationId}}_oapg(
-    {{> endpoint_args selfType="api_client.Api" }}
+    {{> endpoint_args isOverload=true skipDeserialization="False"}}
+
+    @typing.overload
+    def _{{operationId}}_oapg(
+    {{> endpoint_args isOverload=true skipDeserialization="True"}}
+
+    @typing.overload
+    def _{{operationId}}_oapg(
+    {{> endpoint_args isOverload=true skipDeserialization="null"}}
+
+    def _{{operationId}}_oapg(
+    {{> endpoint_args isOverload=false skipDeserialization="null"}}
         """
     {{#if summary}}
         {{summary}}
@@ -521,8 +533,20 @@ class BaseApi(api_client.Api):
 class {{operationIdCamelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
     def {{operationId}}(
-    {{> endpoint_args selfType="BaseApi" }}
+    {{> endpoint_args isOverload=true skipDeserialization="False"}}
+
+    @typing.overload
+    def {{operationId}}(
+    {{> endpoint_args isOverload=true skipDeserialization="True"}}
+
+    @typing.overload
+    def {{operationId}}(
+    {{> endpoint_args isOverload=true skipDeserialization="null"}}
+
+    def {{operationId}}(
+    {{> endpoint_args isOverload=false skipDeserialization="null"}}
         return self._{{operationId}}_oapg(
             {{> endpoint_args_passed }}
         )
@@ -531,8 +555,20 @@ class {{operationIdCamelCase}}(BaseApi):
 class ApiFor{{httpMethod}}(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
+    @typing.overload
     def {{httpMethod}}(
-    {{> endpoint_args selfType="BaseApi" }}
+    {{> endpoint_args isOverload=true skipDeserialization="False"}}
+
+    @typing.overload
+    def {{httpMethod}}(
+    {{> endpoint_args isOverload=true skipDeserialization="True"}}
+
+    @typing.overload
+    def {{httpMethod}}(
+    {{> endpoint_args isOverload=true skipDeserialization="null"}}
+
+    def {{httpMethod}}(
+    {{> endpoint_args isOverload=false skipDeserialization="null"}}
         return self._{{operationId}}_oapg(
             {{> endpoint_args_passed }}
         )

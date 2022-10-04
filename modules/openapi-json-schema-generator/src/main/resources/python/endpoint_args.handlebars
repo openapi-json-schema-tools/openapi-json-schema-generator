@@ -1,8 +1,8 @@
-    self: {{selfType}},
+    self,
 {{#if bodyParam}}
-{{#with bodyParam}}
-    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}{{#unless required}}schemas.Unset] = schemas.unset{{else}}]{{/unless}},
-{{/with}}
+    {{#with bodyParam}}
+    body: typing.Union[{{#each content}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}{{#unless required}}schemas.Unset] = schemas.unset{{else}}]{{/unless}},
+    {{/with}}
 {{/if}}
 {{#if queryParams}}
     query_params: RequestQueryParams = frozendict.frozendict(),
@@ -17,11 +17,11 @@
     cookie_params: RequestCookieParams = frozendict.frozendict(),
 {{/if}}
 {{#with bodyParam}}
-{{#each content}}
-{{#if @first}}
+    {{#each content}}
+        {{#if @first}}
     content_type: str = '{{{@key}}}',
-{{/if}}
-{{/each}}
+        {{/if}}
+    {{/each}}
 {{/with}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -31,16 +31,55 @@
 {{/if}}
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    {{#if isOverload}}
+        {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True] = True,
+        {{/eq}}
+        {{#eq skipDeserialization "False"}}
+    skip_deserialization: typing_extensions.Literal[False] = False,
+        {{/eq}}
+        {{#eq skipDeserialization "null"}}
     skip_deserialization: bool = False,
-) -> typing.Union[
-{{#each responses}}
-    {{#if isDefault}}
-    ApiResponseForDefault,
+        {{/eq}}
     {{else}}
-        {{#if is2xx}}
-    ApiResponseFor{{code}},
-        {{/if}}
+    skip_deserialization: bool = False,
     {{/if}}
-{{/each}}
-    api_client.ApiResponseWithoutDeserialization
+{{#eq skipDeserialization "True"}}
+) -> api_client.ApiResponseWithoutDeserialization:
+{{/eq}}
+{{#eq skipDeserialization "False"}}
+) -> typing.Union[{{#each responses}}{{#if isDefault}}ApiResponseForDefault,{{else}}{{#if is2xx}}ApiResponseFor{{code}},{{/if}}{{/if}}{{/each}}api_client.ApiResponse]:
+{{/eq}}
+{{#eq skipDeserialization "null"}}
+{{#if isOverload}}
+) -> typing.Union[
+        {{#each responses}}
+            {{#if isDefault}}
+    ApiResponseForDefault,
+            {{else}}
+                {{#if is2xx}}
+    ApiResponseFor{{code}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    api_client.ApiResponseWithoutDeserialization,
 ]:
+{{else}}
+) -> typing.Union[
+        {{#each responses}}
+            {{#if isDefault}}
+    ApiResponseForDefault,
+            {{else}}
+                {{#if is2xx}}
+    ApiResponseFor{{code}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    api_client.ApiResponse,
+    api_client.ApiResponseWithoutDeserialization,
+]:
+{{/if}}
+{{/eq}}
+{{#if isOverload}}
+    ...
+{{/if}}
