@@ -52,7 +52,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _post_nested_anyof_to_check_validation_semantics_response_body_for_content_types_oapg(
         self,

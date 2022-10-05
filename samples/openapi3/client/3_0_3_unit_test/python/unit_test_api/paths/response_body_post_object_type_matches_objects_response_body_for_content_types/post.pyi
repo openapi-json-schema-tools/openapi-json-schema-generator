@@ -50,7 +50,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _post_object_type_matches_objects_response_body_for_content_types_oapg(
         self,

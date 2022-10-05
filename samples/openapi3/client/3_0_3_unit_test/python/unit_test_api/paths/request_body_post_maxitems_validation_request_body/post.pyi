@@ -53,12 +53,11 @@ _response_for_200 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _post_maxitems_validation_request_body_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -70,8 +69,21 @@ class BaseApi(api_client.Api):
     def _post_maxitems_validation_request_body_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: str = ...,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+
+    @typing.overload
+    def _post_maxitems_validation_request_body_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/json',
+        content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -80,7 +92,7 @@ class BaseApi(api_client.Api):
     def _post_maxitems_validation_request_body_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -150,7 +162,7 @@ class PostMaxitemsValidationRequestBody(BaseApi):
     def post_maxitems_validation_request_body(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -162,8 +174,21 @@ class PostMaxitemsValidationRequestBody(BaseApi):
     def post_maxitems_validation_request_body(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: str = ...,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+
+    @typing.overload
+    def post_maxitems_validation_request_body(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/json',
+        content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -172,7 +197,7 @@ class PostMaxitemsValidationRequestBody(BaseApi):
     def post_maxitems_validation_request_body(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -205,7 +230,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -217,8 +242,21 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: str = ...,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/json',
+        content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -227,7 +265,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
-        content_type: str = 'application/json',
+        content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,

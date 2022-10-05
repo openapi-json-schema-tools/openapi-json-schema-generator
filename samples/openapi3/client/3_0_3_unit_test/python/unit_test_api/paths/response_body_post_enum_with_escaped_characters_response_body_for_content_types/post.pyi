@@ -52,7 +52,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _post_enum_with_escaped_characters_response_body_for_content_types_oapg(
         self,
