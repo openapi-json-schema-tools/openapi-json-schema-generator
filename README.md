@@ -8,28 +8,23 @@
 
 <div align="center">
 
-:star::star::star: If you would like to contribute, please refer to [guidelines](CONTRIBUTING.md) and a list of [open tasks](https://github.com/openapitools/openapi-json-schema-generator/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).:star::star::star:
+:star::star::star: If you would like to contribute, please refer to [guidelines](CONTRIBUTING.md) and a list of [open tasks](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).:star::star::star:
 
 :warning: If the OpenAPI spec, templates or any input (e.g. options, environment variables) is obtained from an untrusted source or environment, please make sure you've reviewed these inputs before using OpenAPI JSON Schema Generator to generate the API client, server stub or documentation to avoid potential security issues (e.g. [code injection](https://en.wikipedia.org/wiki/Code_injection)). For security vulnerabilities, please contact [team@openapitools.org](mailto:team@openapitools.org). :warning:
 
-:bangbang: Both "OpenAPI Tools" (https://OpenAPITools.org - the parent organization of OpenAPI JSON Schema Generator) and "OpenAPI JSON Schema Generator" are not affiliated with OpenAPI Initiative (OAI) :bangbang:
+:bangbang: Both "openapi-json-schema-tools" (the parent organization of OpenAPI JSON Schema Generator) and "OpenAPI JSON Schema Generator" are not affiliated with OpenAPI Initiative (OAI) :bangbang:
 
 </div>
 
 ## Overview
-OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SDK generation) with a focus on JSON Schema given an [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) (3.0 are supported). Currently, the following languages/frameworks are supported:
+OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SDK generation) with a focus on JSON Schema given an [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) (3.0.0-3.0.3 are supported). Currently, the following languages/frameworks are supported:
 
 - python
-
-
-## Why this repo exists
-
-This repo is based on v6.2.0 of OpenAPI Generator. This project focuses on making the output 100% compliant with JSON schema as part of the OpenAPI 3.1 specification with a focus on complex cases (top-down approach). The goal is to fully support everything defined in JSON schema so that developers can leverage JSON schema as well as OpenAPI specification in their API design. Building here allows for more rapid progress supporting new features in OpenAPI 3.X without having to support many older generators which don't use the new features.
 
 ## Can I build here?
 
 Yes! Contributions are welcome.
-If you want to build a server or client or documentation generator you are welcome to here.
+If you want to build a new server or client or documentation generator you are welcome to here.
 Can I write a python generator based on the pydantic or jsonschema libraries?
 Definitely!
 
@@ -51,7 +46,7 @@ Definitely!
     - [3.5 - IDE Integration](#35---ide-integration)
   - [4 - Companies/Projects using OpenAPI JSON Schema Generator](#4---companiesprojects-using-openapi-json-schema-generator)
   - [5 - About Us](#5---about-us)
-    - [5.1 - History of OpenAPI JSON Schema Generator](#53---history-of-openapi-json-schema-generator)
+    - [5.1 - History of OpenAPI JSON Schema Generator](#51---history-of-openapi-json-schema-generator)
   - [6 - License](#6---license)
 
 ## [1 - Installation](#table-of-contents)
@@ -60,10 +55,10 @@ Definitely!
 
 The OpenAPI Specification has undergone 3 revisions since initial creation in 2010.  The openapi-json-schema-generator project has the following compatibilities with the OpenAPI Specification:
 
-| OpenAPI JSON Schema Generator Version                                                                                                                                 | Release Date | Notes                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------- |
-| 1.0.0 (first stable release) [SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/openapitools/openapi-json-schema-generator-cli/1.0.0-SNAPSHOT/) | TBD   | First release |
-OpenAPI Spec compatibility: 3.0
+| OpenAPI JSON Schema Generator Version  | Release Date | Notes                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- |--------------| ------------------------------------------------- |
+| 1.0.0 | 2022-10-04   | First release |
+OpenAPI Spec compatibility: 3.0.0 - 3.0.3
 
 ### [1.2 - Build Projects](#table-of-contents)
 
@@ -324,9 +319,30 @@ When code is generated from this project, it shall be considered **AS IS** and o
 
 ## [5 - About Us](#table-of-contents)
 
-## [6 - History of OpenAPI JSON Schema Generator](#table-of-contents)
+This repo is based on v6.2.0 of OpenAPI Generator. This project focuses on making the output 100% compliant with JSON schema as part of the OpenAPI 3.1 specification with a focus on complex cases (top-down approach). The goal is to fully support everything defined in JSON schema so that developers can leverage JSON schema as well as OpenAPI specification in their API design. Building here allows for more rapid progress supporting new features in OpenAPI 3.X without having to support many older generators which don't use the new features.
 
-OpenAPI JSON Schema Generator is based on OpenAPI Generator v6.2.0. It focuses on JSON schema support and the output is designed to be 100% compliance with JSON Schema.
+### [5.1 - History of OpenAPI JSON Schema Generator](#table-of-contents)
+
+OpenAPI JSON Schema Generator is based on OpenAPI Generator v6.2.0.
+The project was created here because the openapi-generator core team required the removal of the python generator 
+from their project. The author of the python generator (@spacether) preferred to keep building 
+in the openapi-generator repo, but core team refused to consider keeping python in openapi-generator.
+Below is a timeline of those events and some of their reasons:
+
+#### Timeline of python generator development
+- June 28, 2019 (v4.0.3) - [old python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/3244)
+- Dec 20, 2020 (v5.0.0) [old python-experimental becomes python](https://github.com/OpenAPITools/openapi-generator/pull/7965)
+- Jan 5, 2022 (v5.4.0) [new python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/8325)
+- Sept 19, 2022 - meeting to discuss openapi 3.1.0 + python client, removal of python client mentioned as an option, not a requirement
+- Sept 22, 2022 (v6.2.0) - [new python-experimental switched in as the primary python client](https://github.com/OpenAPITools/openapi-generator/pull/13501)
+- Sept 23, 2022 - communication clarified that removal of the python generator is required
+
+#### Removal Reasons
+- Core team and @wing328 felt adoption of the python client was reduced from 5.0.0 and onward due to python-prior + python generators
+- Some python users in the community did not prefer the new python code
+- The fact that other users + companies are using it does not warrant keeping it in the repo
+- The fact that it is more fully passing json schema tests (including the feature keywords oneOf/anyOf/allOf/additionalProperties) does not warrant keeping it in the repo
+- The openapi-generator core team refused to consider the option of keeping the python generator as another generator option in their repo, and building another python generator that looks more conventional and making that generator primary
 
 ## [7 - License](#table-of-contents)
 
