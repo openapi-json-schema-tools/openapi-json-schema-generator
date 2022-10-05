@@ -82,13 +82,26 @@ class BaseApi(api_client.Api):
     def _create_users_with_array_input_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,list, tuple, ],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         ApiResponseForDefault,
     ]: ...
+
+    @typing.overload
+    def _create_users_with_array_input_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,list, tuple, ],
+        content_type: str = ...,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]: ...
+
 
     @typing.overload
     def _create_users_with_array_input_oapg(
@@ -179,13 +192,26 @@ class CreateUsersWithArrayInput(BaseApi):
     def create_users_with_array_input(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,list, tuple, ],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         ApiResponseForDefault,
     ]: ...
+
+    @typing.overload
+    def create_users_with_array_input(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,list, tuple, ],
+        content_type: str = ...,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]: ...
+
 
     @typing.overload
     def create_users_with_array_input(
@@ -234,13 +260,26 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,list, tuple, ],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         ApiResponseForDefault,
     ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,list, tuple, ],
+        content_type: str = ...,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseForDefault,
+    ]: ...
+
 
     @typing.overload
     def post(

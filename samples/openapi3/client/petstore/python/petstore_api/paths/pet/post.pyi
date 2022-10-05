@@ -71,8 +71,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -80,11 +80,25 @@ class BaseApi(api_client.Api):
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
+
+    @typing.overload
+    def _add_pet_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationXml,],
+        content_type: typing_extensions.Literal["application/xml"],
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
     @typing.overload
     def _add_pet_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: typing_extensions.Literal["application/xml"] = "application/xml",
+        content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -92,6 +106,7 @@ class BaseApi(api_client.Api):
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
+
 
     @typing.overload
     def _add_pet_oapg(
@@ -184,8 +199,8 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -193,11 +208,25 @@ class AddPet(BaseApi):
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
+
+    @typing.overload
+    def add_pet(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationXml,],
+        content_type: typing_extensions.Literal["application/xml"],
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
     @typing.overload
     def add_pet(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: typing_extensions.Literal["application/xml"] = "application/xml",
+        content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -205,6 +234,7 @@ class AddPet(BaseApi):
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
+
 
     @typing.overload
     def add_pet(
@@ -256,8 +286,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -265,11 +295,25 @@ class ApiForpost(BaseApi):
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationXml,],
+        content_type: typing_extensions.Literal["application/xml"],
+        host_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
     @typing.overload
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXml,],
-        content_type: typing_extensions.Literal["application/xml"] = "application/xml",
+        content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -277,6 +321,7 @@ class ApiForpost(BaseApi):
     ) -> typing.Union[
         ApiResponseFor200,
     ]: ...
+
 
     @typing.overload
     def post(

@@ -376,7 +376,10 @@ class BaseApi(api_client.Api):
 {{#if bodyParam}}
     {{#each getContentTypeToOperation}}
     {{> endpoint_args_baseapi_wrapper contentType=@key this=this}}
+
     {{/each}}
+    {{> endpoint_args_baseapi_wrapper contentType="null" this=this}}
+
 {{else}}
     @typing.overload
     def _{{operationId}}_oapg(
@@ -541,7 +544,10 @@ class {{operationIdCamelCase}}(BaseApi):
 {{#if bodyParam}}
     {{#each getContentTypeToOperation}}
     {{> endpoint_args_operationid_wrapper contentType=@key this=this}}
+
     {{/each}}
+    {{> endpoint_args_operationid_wrapper contentType="null" this=this}}
+
 {{else}}
     @typing.overload
     def {{operationId}}(
@@ -569,7 +575,10 @@ class ApiFor{{httpMethod}}(BaseApi):
 {{#if bodyParam}}
     {{#each getContentTypeToOperation}}
     {{> endpoint_args_httpmethod_wrapper contentType=@key this=this}}
+
     {{/each}}
+    {{> endpoint_args_httpmethod_wrapper contentType="null" this=this}}
+
 {{else}}
     @typing.overload
     def {{httpMethod}}(
