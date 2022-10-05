@@ -199,7 +199,7 @@ public class CodegenOperation {
 
     /**
      * @return contentTypeToOperation
-     * returns a mof where the key is the request body content type and the value is the current CodegenOperation
+     * returns a map where the key is the request body content type and the value is the current CodegenOperation
      * this is needed by templates when a different signature is needed for each request body content type
      */
     public Map<String, CodegenOperation> getContentTypeToOperation() {
