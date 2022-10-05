@@ -114,7 +114,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _get_user_by_name_oapg(
         self,

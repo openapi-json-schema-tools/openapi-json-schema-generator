@@ -57,7 +57,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types_oapg(
         self,

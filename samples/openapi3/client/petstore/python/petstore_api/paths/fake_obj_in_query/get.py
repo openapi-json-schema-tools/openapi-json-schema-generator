@@ -119,7 +119,6 @@ _status_code_to_response = {
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _object_in_query_oapg(
         self,

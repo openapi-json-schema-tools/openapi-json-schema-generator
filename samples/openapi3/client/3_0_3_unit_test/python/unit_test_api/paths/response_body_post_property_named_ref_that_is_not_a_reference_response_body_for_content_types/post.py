@@ -57,7 +57,6 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _post_property_named_ref_that_is_not_a_reference_response_body_for_content_types_oapg(
         self,

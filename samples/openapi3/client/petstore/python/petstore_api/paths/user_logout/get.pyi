@@ -39,7 +39,6 @@ _response_for_default = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _logout_user_oapg(
         self,

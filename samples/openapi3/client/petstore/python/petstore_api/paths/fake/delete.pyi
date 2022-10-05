@@ -125,7 +125,6 @@ _response_for_200 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _group_parameters_oapg(
         self,

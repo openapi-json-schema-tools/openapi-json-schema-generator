@@ -77,7 +77,6 @@ _response_for_404 = api_client.OpenApiResponse(
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _delete_user_oapg(
         self,

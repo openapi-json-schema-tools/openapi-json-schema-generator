@@ -66,12 +66,11 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-
     @typing.overload
     def _upload_download_file_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
-        content_type: str = 'application/octet-stream',
+        content_type: typing_extensions.Literal["application/octet-stream"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -84,8 +83,22 @@ class BaseApi(api_client.Api):
     def _upload_download_file_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = ...,
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+
+    @typing.overload
+    def _upload_download_file_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/octet-stream',
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -95,7 +108,7 @@ class BaseApi(api_client.Api):
     def _upload_download_file_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
-        content_type: str = 'application/octet-stream',
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -171,7 +184,7 @@ class UploadDownloadFile(BaseApi):
     def upload_download_file(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
-        content_type: str = 'application/octet-stream',
+        content_type: typing_extensions.Literal["application/octet-stream"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -184,8 +197,22 @@ class UploadDownloadFile(BaseApi):
     def upload_download_file(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = ...,
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+
+    @typing.overload
+    def upload_download_file(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/octet-stream',
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -195,7 +222,7 @@ class UploadDownloadFile(BaseApi):
     def upload_download_file(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
-        content_type: str = 'application/octet-stream',
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -231,7 +258,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
-        content_type: str = 'application/octet-stream',
+        content_type: typing_extensions.Literal["application/octet-stream"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -244,8 +271,22 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
+        content_type: str = ...,
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = 'application/octet-stream',
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -255,7 +296,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationOctetStream,bytes, io.FileIO, io.BufferedReader, ],
-        content_type: str = 'application/octet-stream',
+        content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
