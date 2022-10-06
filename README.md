@@ -42,7 +42,7 @@ Currently, the following languages/frameworks are supported:
   - accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
   - endpoint inputs + responses
 - Format support for: int32, int64, float, double, binary, date, datetime, uuid
-- Invalid (in python) property names supported like from, 1var, hi-there etc in
+- Invalid (in python) property names supported like `from`, `1var`, `hi-there` etc in
   - schema property names
   - endpoint parameter names
 - Openapi spec inline schemas supported at any depth
