@@ -40,7 +40,7 @@ Currently, the following languages/frameworks are supported:
   - all model inputs in `__new__`
   - accessing properties in object instances so some_val in some_val = some_inst['someKey'] will have the correct type hint
   - accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
-  - endpoint inputs + response
+  - endpoint inputs + responses
 - Format support for: int32, int64, float, double, binary, date, datetime, uuid
 - Invalid (in python) property names supported like from, 1var, hi-there etc in
   - schema property names
