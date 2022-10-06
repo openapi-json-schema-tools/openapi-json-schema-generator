@@ -40,7 +40,7 @@ Currently, the following languages/frameworks are supported:
 - Type hints for accessing properties in object instances so some_val in some_val = some_inst['someKey'] will have the correct type hint
 - Type hints for accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
 - Endpoints have input and response type hints
-- Openapi spec inline schemas supported of any depth
+- Openapi spec inline schemas supported at any depth
 - If needed, validation of some json schema keywords can be deactivated via a configuration class
 - Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string
 - String transmission of numbers supported with type: string, format: number, value can be accessed as a Decimal with inst.as_decimal_oapg
