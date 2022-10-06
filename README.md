@@ -21,7 +21,39 @@ OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SD
 
 - python
 
-## Can I build here?
+### Mission Statement
+
+This repo is based on v6.2.0 of OpenAPI Generator.
+This project focuses on making the output 100% compliant with JSON schema as part of the
+OpenAPI 3.1 specification with a focus on complex cases (top-down approach). The goal is
+to fully support everything defined in JSON schema so that developers can leverage JSON
+schema as well as OpenAPI specification in their API design. Building here allows for
+more rapid progress supporting new features in OpenAPI 3.X without having to support
+many older generators which don't use the new features.
+
+### Reasons To Use the Python Generator
+
+- [Thorough testing of json schema keyword features in models and endpoints](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python/test) which come from the [json schema test suite](https://github.com/json-schema-org/JSON-Schema-Test-Suite) 
+- [Tests are passing in CI](https://app.circleci.com/pipelines/github/openapi-json-schema-tools/openapi-json-schema-generator?branch=master)
+- [Test endpoints are tagged by the relevant keyword like type/format/allOf 25+ keywords and counting](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python/docs/apis/tags)
+- Run time type checking and validation checking
+- If needed, validation of some json schema keywords can be deactivated via a configuration class
+- Openapi spec inline schemas supported of any depth
+- Type hints for all model inputs
+- Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string
+- Type hints for accessing properties in object instances so some_val in some_val = some_inst['someKey'] will have the correct type hint
+- Type hints for accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
+- Endpoints have input and response type hints
+- String transmission of numbers supported with type: string, format: number, value can be accessed as a Decimal with inst.as_decimal_oapg
+- Format support for: int32, int64, float, double, binary, date, datetime
+- Multiple content types supported for request and response bodies
+- Endpoint response always also includes the urllib3.HTTPResponse
+- Endpoint response deserialization can be skipped with the skip_deserialization argument
+- Invalid (in python) property names supported like self, from etc
+
+And many more! The docs for that generator are [here](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/docs/generators/python.md) 
+
+### Can I build here?
 
 Yes! Contributions are welcome.
 If you want to build a new server or client or documentation generator you are welcome to here.
