@@ -26,10 +26,11 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 # Query params
+SchemaForRequestParameterSomeParamApplicationJson = schemas.AnyTypeSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
-        'someParam': 
+        'someParam': typing.Union[SchemaForRequestParameterSomeParamApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
     }
 )
 RequestOptionalQueryParams = typing_extensions.TypedDict(
@@ -46,6 +47,9 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
 
 request_query_some_param = api_client.QueryParameter(
     name="someParam",
+    content={
+        "application/json": SchemaForRequestParameterSomeParamApplicationJson,
+    },
     required=True,
 )
 SchemaFor200ResponseBodyApplicationJson = schemas.AnyTypeSchema

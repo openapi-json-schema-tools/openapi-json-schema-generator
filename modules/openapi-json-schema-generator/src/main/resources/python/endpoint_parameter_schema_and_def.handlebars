@@ -1,15 +1,31 @@
 # {{xParamsName}} params
 {{#each xParams}}
-{{#with schema}}
+    {{#if schema}}
+        {{#with schema}}
 {{> model_templates/schema }}
-{{/with}}
+        {{/with}}
+    {{else}}
+        {{#if getContent}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+{{> model_templates/schema }}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/if}}
 {{/each}}
 RequestRequired{{xParamsName}}Params = typing_extensions.TypedDict(
     'RequestRequired{{xParamsName}}Params',
     {
 {{#each xParams}}
 {{#if required}}
+{{#if schema}}
         '{{baseName}}': {{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{else}}
+        '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+{{/if}}
 {{/if}}
 {{/each}}
     }
@@ -19,7 +35,11 @@ RequestOptional{{xParamsName}}Params = typing_extensions.TypedDict(
     {
 {{#each xParams}}
 {{#unless required}}
+{{#if schema}}
         '{{baseName}}': {{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{else}}
+        '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+{{/if}}
 {{/unless}}
 {{/each}}
     },
