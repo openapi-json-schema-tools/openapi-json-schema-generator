@@ -13,7 +13,7 @@ import collections
 
 from petstore_api import api_client, exceptions, schemas
 
-ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serialization explode', defaults=[False])
+from . import ParamTestCase
 
 
 class TestParameter(unittest.TestCase):
