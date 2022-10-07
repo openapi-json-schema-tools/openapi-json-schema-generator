@@ -28,7 +28,7 @@ from petstore_api.model.string_with_validation import StringWithValidation
 
 from . import path
 
-# query params
+# Query params
 
 
 class PipeSchema(

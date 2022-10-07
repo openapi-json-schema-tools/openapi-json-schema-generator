@@ -1,0 +1,36 @@
+# {{xParamsName}} params
+{{#each xParams}}
+{{#with schema}}
+{{> model_templates/schema }}
+{{/with}}
+{{/each}}
+RequestRequired{{xParamsName}}Params = typing_extensions.TypedDict(
+    'RequestRequired{{xParamsName}}Params',
+    {
+{{#each xParams}}
+{{#if required}}
+        '{{baseName}}': {{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{/if}}
+{{/each}}
+    }
+)
+RequestOptional{{xParamsName}}Params = typing_extensions.TypedDict(
+    'RequestOptional{{xParamsName}}Params',
+    {
+{{#each xParams}}
+{{#unless required}}
+        '{{baseName}}': {{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{/unless}}
+{{/each}}
+    },
+    total=False
+)
+
+
+class Request{{xParamsName}}Params(RequestRequired{{xParamsName}}Params, RequestOptional{{xParamsName}}Params):
+    pass
+
+
+{{#each xParams}}
+{{> endpoint_parameter }}
+{{/each}}

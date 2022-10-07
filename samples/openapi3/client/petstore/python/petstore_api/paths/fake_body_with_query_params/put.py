@@ -29,7 +29,7 @@ from petstore_api.model.user import User
 
 from . import path
 
-# query params
+# Query params
 QuerySchema = schemas.StrSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',

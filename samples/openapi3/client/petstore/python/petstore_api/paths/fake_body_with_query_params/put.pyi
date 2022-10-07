@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.user import User
 
-# query params
+# Query params
 QuerySchema = schemas.StrSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',

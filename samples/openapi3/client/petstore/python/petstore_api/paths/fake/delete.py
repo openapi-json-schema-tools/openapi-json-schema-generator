@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from . import path
 
-# query params
+# Query params
 RequiredStringGroupSchema = schemas.IntSchema
 RequiredInt64GroupSchema = schemas.Int64Schema
 StringGroupSchema = schemas.IntSchema
@@ -79,7 +79,7 @@ request_query_int64_group = api_client.QueryParameter(
     schema=Int64GroupSchema,
     explode=True,
 )
-# header params
+# Header params
 RequiredBooleanGroupSchema = schemas.BoolSchema
 BooleanGroupSchema = schemas.BoolSchema
 RequestRequiredHeaderParams = typing_extensions.TypedDict(

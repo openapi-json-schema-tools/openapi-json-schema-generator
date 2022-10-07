@@ -29,7 +29,7 @@ from petstore_api.model.user import User
 
 from . import path
 
-# path params
+# Path params
 UsernameSchema = schemas.StrSchema
 RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',

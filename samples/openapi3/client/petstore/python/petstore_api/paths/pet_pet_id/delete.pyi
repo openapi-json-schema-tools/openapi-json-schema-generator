@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-# header params
+# Header params
 ApiKeySchema = schemas.StrSchema
 RequestRequiredHeaderParams = typing_extensions.TypedDict(
     'RequestRequiredHeaderParams',
@@ -50,7 +50,7 @@ request_header_api_key = api_client.HeaderParameter(
     style=api_client.ParameterStyle.SIMPLE,
     schema=ApiKeySchema,
 )
-# path params
+# Path params
 PetIdSchema = schemas.Int64Schema
 RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',
