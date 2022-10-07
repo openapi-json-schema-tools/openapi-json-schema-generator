@@ -29,7 +29,7 @@ from petstore_api.model.pet import Pet
 
 from . import path
 
-# query params
+# Query params
 
 
 class StatusSchema(

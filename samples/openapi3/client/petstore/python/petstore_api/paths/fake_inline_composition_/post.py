@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from . import path
 
-# query params
+# Query params
 
 
 class CompositionAtRootSchema(

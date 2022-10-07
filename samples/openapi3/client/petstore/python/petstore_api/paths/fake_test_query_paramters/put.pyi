@@ -26,7 +26,7 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.string_with_validation import StringWithValidation
 
-# query params
+# Query params
 
 
 class PipeSchema(

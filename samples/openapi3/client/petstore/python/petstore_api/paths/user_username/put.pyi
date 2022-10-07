@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.user import User
 
-# path params
+# Path params
 UsernameSchema = schemas.StrSchema
 RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',

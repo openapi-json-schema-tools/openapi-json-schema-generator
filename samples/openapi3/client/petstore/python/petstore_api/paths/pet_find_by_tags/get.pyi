@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.pet import Pet
 
-# query params
+# Query params
 
 
 class TagsSchema(

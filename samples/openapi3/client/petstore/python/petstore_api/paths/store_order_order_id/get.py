@@ -29,7 +29,7 @@ from petstore_api.model.order import Order
 
 from . import path
 
-# path params
+# Path params
 
 
 class OrderIdSchema(

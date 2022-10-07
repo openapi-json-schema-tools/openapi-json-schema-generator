@@ -26,7 +26,7 @@ from petstore_api import schemas  # noqa: F401
 
 from . import path
 
-# path params
+# Path params
 IdSchema = schemas.StrSchema
 RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',

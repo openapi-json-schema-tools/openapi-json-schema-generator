@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from . import path
 
-# query params
+# Query params
 Model1Schema = schemas.StrSchema
 ABSchema = schemas.StrSchema
 AbSchema = schemas.StrSchema
@@ -85,7 +85,7 @@ request_query_a_b2 = api_client.QueryParameter(
     schema=ABSchema,
     explode=True,
 )
-# header params
+# Header params
 Model1Schema = schemas.StrSchema
 ABSchema = schemas.StrSchema
 ModelSelfSchema = schemas.StrSchema
@@ -131,7 +131,7 @@ request_header_a_b4 = api_client.HeaderParameter(
     style=api_client.ParameterStyle.SIMPLE,
     schema=ABSchema,
 )
-# path params
+# Path params
 Model1Schema = schemas.StrSchema
 ABSchema = schemas.StrSchema
 AbSchema = schemas.StrSchema
@@ -189,7 +189,7 @@ request_path_a_b6 = api_client.PathParameter(
     schema=ABSchema,
     required=True,
 )
-# cookie params
+# Cookie params
 Model1Schema = schemas.StrSchema
 ABSchema = schemas.StrSchema
 AbSchema = schemas.StrSchema

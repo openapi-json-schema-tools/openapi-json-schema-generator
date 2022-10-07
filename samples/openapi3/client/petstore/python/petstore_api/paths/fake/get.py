@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from . import path
 
-# query params
+# Query params
 
 
 class EnumQueryStringArraySchema(
@@ -186,7 +186,7 @@ request_query_enum_query_double = api_client.QueryParameter(
     schema=EnumQueryDoubleSchema,
     explode=True,
 )
-# header params
+# Header params
 
 
 class EnumHeaderStringArraySchema(

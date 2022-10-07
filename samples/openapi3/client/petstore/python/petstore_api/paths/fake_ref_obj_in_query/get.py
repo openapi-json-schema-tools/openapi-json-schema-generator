@@ -28,7 +28,7 @@ from petstore_api.model.foo import Foo
 
 from . import path
 
-# query params
+# Query params
 MapBeanSchema = Foo
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',

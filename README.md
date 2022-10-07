@@ -36,19 +36,23 @@ Currently, the following languages/frameworks are supported:
   - instantiating models
   - sending to endpoints
   - receiving from endpoints
-- Type hints for all model inputs
-- Type hints for accessing properties in object instances so some_val in some_val = some_inst['someKey'] will have the correct type hint
-- Type hints for accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
-- Endpoints have input and response type hints
+- Type hints on
+  - all model inputs in `__new__`
+  - accessing properties in object instances so some_val in some_val = some_inst['someKey'] will have the correct type hint
+  - accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
+  - endpoint inputs + responses
+- Format support for: int32, int64, float, double, binary, date, datetime, uuid
+- Invalid (in python) property names supported like `from`, `1var`, `hi-there` etc in
+  - schema property names
+  - endpoint parameter names
 - Openapi spec inline schemas supported at any depth
 - If needed, validation of some json schema keywords can be deactivated via a configuration class
 - Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string
 - String transmission of numbers supported with type: string, format: number, value can be accessed as a Decimal with inst.as_decimal_oapg
-- Format support for: int32, int64, float, double, binary, date, datetime
 - Multiple content types supported for request and response bodies
 - Endpoint response always also includes the urllib3.HTTPResponse
 - Endpoint response deserialization can be skipped with the skip_deserialization argument
-- Invalid (in python) property names supported like self, from etc
+- Validated payload instances subclass all validated schemas so no need to run validate twice, just use isinstance(some_inst, SomeSchemaClass)
 
 And many more!
 - [Docs for the python generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/docs/generators/python.md)

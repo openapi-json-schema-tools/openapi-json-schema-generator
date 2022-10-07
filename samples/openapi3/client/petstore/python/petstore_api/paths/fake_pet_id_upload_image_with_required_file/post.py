@@ -29,7 +29,7 @@ from petstore_api.model.api_response import ApiResponse
 
 from . import path
 
-# path params
+# Path params
 PetIdSchema = schemas.Int64Schema
 RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',

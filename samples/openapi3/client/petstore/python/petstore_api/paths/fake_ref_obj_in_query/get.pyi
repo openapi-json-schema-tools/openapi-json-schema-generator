@@ -26,7 +26,7 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.foo import Foo
 
-# query params
+# Query params
 MapBeanSchema = Foo
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
