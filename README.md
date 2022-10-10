@@ -57,9 +57,9 @@ Currently, the following languages/frameworks are supported:
 And many more!
 - [Docs for the python generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/docs/generators/python.md)
 - [Openapi json schema v3.0.3 unit test spec](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
-  - [genrated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python)
+  - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python)
 - [Openapi v3.0.3 general petstore spec, general features](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator/src/test/resources/3_0/python/petstore-with-fake-endpoints-models-for-testing-with-http-signature.yaml)
-  - [genrated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/petstore/python)
+  - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/petstore/python)
 
 ### Can I build here?
 
@@ -95,9 +95,10 @@ Definitely!
 
 The OpenAPI Specification has undergone 3 revisions since initial creation in 2010.  The openapi-json-schema-generator project has the following compatibilities with the OpenAPI Specification:
 
-| OpenAPI JSON Schema Generator Version  | Release Date | Notes                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- |--------------| ------------------------------------------------- |
-| 1.0.0 | 2022-10-04   | First release |
+| OpenAPI JSON Schema Generator Version | Release Date | Notes       |
+|---------------------------------------|--------------|-------------|
+| 1.0.1                                 | 2022-10-10   | 2nd release |
+| 1.0.0                                 | 2022-10-04   | 1st release |
 OpenAPI Spec compatibility: 3.0.0 - 3.0.3
 
 ### [1.2 - Build Projects](#table-of-contents)
