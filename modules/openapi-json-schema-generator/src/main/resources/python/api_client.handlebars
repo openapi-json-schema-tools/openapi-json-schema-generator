@@ -1055,14 +1055,16 @@ class ApiClient:
 
         # header parameters
         used_headers = HTTPHeaderDict(self.default_headers)
-        if headers:
-            used_headers.extend(headers)
         if self.cookie:
             headers['Cookie'] = self.cookie
 
         # auth setting
-        self.update_params_for_auth(headers,
+        self.update_params_for_auth(used_headers,
                                     auth_settings, resource_path, method, body)
+
+        # must happen after cookie setting and auth setting in case user is overriding those
+        if headers:
+            used_headers.update(headers)
 
         # request url
         if host is None:
