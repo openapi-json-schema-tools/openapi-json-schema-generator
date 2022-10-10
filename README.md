@@ -95,9 +95,10 @@ Definitely!
 
 The OpenAPI Specification has undergone 3 revisions since initial creation in 2010.  The openapi-json-schema-generator project has the following compatibilities with the OpenAPI Specification:
 
-| OpenAPI JSON Schema Generator Version  | Release Date | Notes                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- |--------------| ------------------------------------------------- |
-| 1.0.0 | 2022-10-04   | First release |
+| OpenAPI JSON Schema Generator Version | Release Date | Notes       |
+|---------------------------------------|--------------|-------------|
+| 1.0.1                                 | 2022-10-10   | 2nd release |
+| 1.0.0                                 | 2022-10-04   | 1st release |
 OpenAPI Spec compatibility: 3.0.0 - 3.0.3
 
 ### [1.2 - Build Projects](#table-of-contents)
