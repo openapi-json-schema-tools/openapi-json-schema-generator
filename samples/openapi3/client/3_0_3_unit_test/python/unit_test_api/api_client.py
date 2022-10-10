@@ -998,7 +998,7 @@ class ApiClient:
         self.pool_threads = pool_threads
 
         self.rest_client = rest.RESTClientObject(configuration)
-        self.default_headers = {}
+        self.default_headers = HTTPHeaderDict()
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
@@ -1055,8 +1055,9 @@ class ApiClient:
     ) -> urllib3.HTTPResponse:
 
         # header parameters
-        headers = headers or HTTPHeaderDict()
-        headers.update(self.default_headers)
+        used_headers = HTTPHeaderDict(self.default_headers)
+        if headers:
+            used_headers.extend(headers)
         if self.cookie:
             headers['Cookie'] = self.cookie
 
@@ -1075,7 +1076,7 @@ class ApiClient:
         response = self.request(
             method,
             url,
-            headers=headers,
+            headers=used_headers,
             fields=fields,
             body=body,
             stream=stream,
