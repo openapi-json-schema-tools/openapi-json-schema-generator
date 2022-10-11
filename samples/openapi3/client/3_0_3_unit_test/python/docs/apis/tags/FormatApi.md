@@ -35,6 +35,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.date_time_format import DateTimeFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -48,7 +49,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = DateTimeFormat(None)
     try:
         api_response = api_instance.post_date_time_format_request_body(
             body=body,
@@ -60,7 +61,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -68,12 +69,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**DateTimeFormat**](../../models/DateTimeFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | value must conform to RFC-3339 date-time
 
 ### Return Types, Responses
 
@@ -97,7 +97,7 @@ No authorization required
 
 # **post_date_time_format_response_body_for_content_types**
 <a name="post_date_time_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_date_time_format_response_body_for_content_types()
+> DateTimeFormat post_date_time_format_response_body_for_content_types()
 
 
 
@@ -139,15 +139,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**DateTimeFormat**](../../models/DateTimeFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | value must conform to RFC-3339 date-time
 
 ### Authorization
 
@@ -166,6 +165,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.email_format import EmailFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -179,7 +179,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = EmailFormat(None)
     try:
         api_response = api_instance.post_email_format_request_body(
             body=body,
@@ -191,7 +191,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -199,12 +199,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**EmailFormat**](../../models/EmailFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -228,7 +227,7 @@ No authorization required
 
 # **post_email_format_response_body_for_content_types**
 <a name="post_email_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_email_format_response_body_for_content_types()
+> EmailFormat post_email_format_response_body_for_content_types()
 
 
 
@@ -270,15 +269,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**EmailFormat**](../../models/EmailFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -297,6 +295,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.hostname_format import HostnameFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -310,7 +309,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = HostnameFormat(None)
     try:
         api_response = api_instance.post_hostname_format_request_body(
             body=body,
@@ -322,7 +321,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -330,12 +329,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HostnameFormat**](../../models/HostnameFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -359,7 +357,7 @@ No authorization required
 
 # **post_hostname_format_response_body_for_content_types**
 <a name="post_hostname_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_hostname_format_response_body_for_content_types()
+> HostnameFormat post_hostname_format_response_body_for_content_types()
 
 
 
@@ -401,15 +399,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HostnameFormat**](../../models/HostnameFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -428,6 +425,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.ipv4_format import Ipv4Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -441,7 +439,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = Ipv4Format(None)
     try:
         api_response = api_instance.post_ipv4_format_request_body(
             body=body,
@@ -453,7 +451,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -461,12 +459,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv4Format**](../../models/Ipv4Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -490,7 +487,7 @@ No authorization required
 
 # **post_ipv4_format_response_body_for_content_types**
 <a name="post_ipv4_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_ipv4_format_response_body_for_content_types()
+> Ipv4Format post_ipv4_format_response_body_for_content_types()
 
 
 
@@ -532,15 +529,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv4Format**](../../models/Ipv4Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -559,6 +555,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.ipv6_format import Ipv6Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -572,7 +569,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = Ipv6Format(None)
     try:
         api_response = api_instance.post_ipv6_format_request_body(
             body=body,
@@ -584,7 +581,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -592,12 +589,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv6Format**](../../models/Ipv6Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -621,7 +617,7 @@ No authorization required
 
 # **post_ipv6_format_response_body_for_content_types**
 <a name="post_ipv6_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_ipv6_format_response_body_for_content_types()
+> Ipv6Format post_ipv6_format_response_body_for_content_types()
 
 
 
@@ -663,15 +659,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv6Format**](../../models/Ipv6Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -690,6 +685,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.json_pointer_format import JsonPointerFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -703,7 +699,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = JsonPointerFormat(None)
     try:
         api_response = api_instance.post_json_pointer_format_request_body(
             body=body,
@@ -715,7 +711,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -723,12 +719,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**JsonPointerFormat**](../../models/JsonPointerFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -752,7 +747,7 @@ No authorization required
 
 # **post_json_pointer_format_response_body_for_content_types**
 <a name="post_json_pointer_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_json_pointer_format_response_body_for_content_types()
+> JsonPointerFormat post_json_pointer_format_response_body_for_content_types()
 
 
 
@@ -794,15 +789,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**JsonPointerFormat**](../../models/JsonPointerFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -821,6 +815,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.uri_format import UriFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -834,7 +829,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = UriFormat(None)
     try:
         api_response = api_instance.post_uri_format_request_body(
             body=body,
@@ -846,7 +841,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -854,12 +849,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriFormat**](../../models/UriFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -883,7 +877,7 @@ No authorization required
 
 # **post_uri_format_response_body_for_content_types**
 <a name="post_uri_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_uri_format_response_body_for_content_types()
+> UriFormat post_uri_format_response_body_for_content_types()
 
 
 
@@ -925,15 +919,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriFormat**](../../models/UriFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -952,6 +945,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.uri_reference_format import UriReferenceFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -965,7 +959,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = UriReferenceFormat(None)
     try:
         api_response = api_instance.post_uri_reference_format_request_body(
             body=body,
@@ -977,7 +971,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -985,12 +979,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriReferenceFormat**](../../models/UriReferenceFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -1014,7 +1007,7 @@ No authorization required
 
 # **post_uri_reference_format_response_body_for_content_types**
 <a name="post_uri_reference_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_uri_reference_format_response_body_for_content_types()
+> UriReferenceFormat post_uri_reference_format_response_body_for_content_types()
 
 
 
@@ -1056,15 +1049,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriReferenceFormat**](../../models/UriReferenceFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -1083,6 +1075,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
+from unit_test_api.model.uri_template_format import UriTemplateFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1096,7 +1089,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = UriTemplateFormat(None)
     try:
         api_response = api_instance.post_uri_template_format_request_body(
             body=body,
@@ -1108,7 +1101,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -1116,12 +1109,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriTemplateFormat**](../../models/UriTemplateFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -1145,7 +1137,7 @@ No authorization required
 
 # **post_uri_template_format_response_body_for_content_types**
 <a name="post_uri_template_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_uri_template_format_response_body_for_content_types()
+> UriTemplateFormat post_uri_template_format_response_body_for_content_types()
 
 
 
@@ -1187,15 +1179,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriTemplateFormat**](../../models/UriTemplateFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 

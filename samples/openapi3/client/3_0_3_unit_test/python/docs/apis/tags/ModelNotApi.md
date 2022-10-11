@@ -49,7 +49,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -57,7 +57,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
@@ -94,7 +94,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.forbidden_property import ForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -128,10 +127,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
@@ -154,6 +153,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
+from unit_test_api.model.not_more_complex_schema import NotMoreComplexSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,7 +167,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = model_not_api.ModelNotApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = NotMoreComplexSchema(None)
     try:
         api_response = api_instance.post_not_more_complex_schema_request_body(
             body=body,
@@ -179,7 +179,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -187,31 +187,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**foo** | str,  | str,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### Return Types, Responses
 
@@ -235,7 +215,7 @@ No authorization required
 
 # **post_not_more_complex_schema_response_body_for_content_types**
 <a name="post_not_more_complex_schema_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_not_more_complex_schema_response_body_for_content_types()
+> NotMoreComplexSchema post_not_more_complex_schema_response_body_for_content_types()
 
 
 
@@ -277,34 +257,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**foo** | str,  | str,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### Authorization
 
@@ -323,6 +283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
+from unit_test_api.model.model_not import ModelNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -336,7 +297,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = model_not_api.ModelNotApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = ModelNot(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
@@ -348,7 +309,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -356,25 +317,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ModelNot**](../../models/ModelNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | decimal.Decimal, int,  | decimal.Decimal,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Return Types, Responses
 
@@ -398,7 +345,7 @@ No authorization required
 
 # **post_not_response_body_for_content_types**
 <a name="post_not_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_not_response_body_for_content_types()
+> ModelNot post_not_response_body_for_content_types()
 
 
 
@@ -440,28 +387,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ModelNot**](../../models/ModelNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | decimal.Decimal, int,  | decimal.Decimal,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Authorization
 

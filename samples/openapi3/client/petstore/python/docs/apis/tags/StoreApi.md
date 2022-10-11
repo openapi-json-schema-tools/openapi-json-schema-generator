@@ -156,10 +156,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -190,7 +190,6 @@ For valid response try integer IDs with value <= 5 or > 10. Other values will ge
 ```python
 import petstore_api
 from petstore_api.apis.tags import store_api
-from petstore_api.model.order import Order
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -253,16 +252,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/xml, application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# application/xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
@@ -334,7 +333,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -343,7 +342,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
@@ -361,16 +360,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/xml, application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# application/xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 

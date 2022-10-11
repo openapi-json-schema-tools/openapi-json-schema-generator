@@ -18,7 +18,6 @@ Method | HTTP request | Description
 ```python
 import petstore_api
 from petstore_api.apis.tags import default_api
-from petstore_api.model.foo import Foo
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -52,10 +51,10 @@ default | [ApiResponseForDefault](#foo_get.ApiResponseForDefault) | response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor0ResponseBodyApplicationJson
+# application/json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

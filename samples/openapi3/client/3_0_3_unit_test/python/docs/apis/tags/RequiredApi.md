@@ -51,7 +51,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -59,7 +59,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
@@ -96,7 +96,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_default_validation import RequiredDefaultValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -130,10 +129,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
@@ -182,7 +181,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -190,7 +189,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredValidation**](../../models/RequiredValidation.md) |  | 
@@ -227,7 +226,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_validation import RequiredValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -261,10 +259,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredValidation**](../../models/RequiredValidation.md) |  | 
@@ -313,7 +311,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -321,7 +319,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
@@ -358,7 +356,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_with_empty_array import RequiredWithEmptyArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -392,10 +389,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
@@ -418,6 +415,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
+from unit_test_api.model.required_with_escaped_characters import RequiredWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -431,7 +429,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = required_api.RequiredApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = RequiredWithEscapedCharacters(None)
     try:
         api_response = api_instance.post_required_with_escaped_characters_request_body(
             body=body,
@@ -443,7 +441,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+body | typing.Union[application/json] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -451,12 +449,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
@@ -480,7 +477,7 @@ No authorization required
 
 # **post_required_with_escaped_characters_response_body_for_content_types**
 <a name="post_required_with_escaped_characters_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_required_with_escaped_characters_response_body_for_content_types()
+> RequiredWithEscapedCharacters post_required_with_escaped_characters_response_body_for_content_types()
 
 
 
@@ -522,15 +519,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 

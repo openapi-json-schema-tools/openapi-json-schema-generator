@@ -104,7 +104,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -138,10 +137,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../models/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
@@ -164,7 +163,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -198,10 +196,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalpropertiesAreAllowedByDefault**](../../models/AdditionalpropertiesAreAllowedByDefault.md) |  | 
@@ -224,7 +222,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,10 +255,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalpropertiesCanExistByItself**](../../models/AdditionalpropertiesCanExistByItself.md) |  | 
@@ -284,7 +281,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -318,10 +314,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalpropertiesShouldNotLookInApplicators**](../../models/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
@@ -344,7 +340,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -378,10 +373,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
@@ -404,7 +399,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof import Allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -438,10 +432,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Allof**](../../models/Allof.md) |  | 
@@ -464,7 +458,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -498,10 +491,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
@@ -524,7 +517,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_with_base_schema import AllofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -558,10 +550,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
@@ -584,7 +576,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_with_one_empty_schema import AllofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -618,10 +609,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
@@ -644,7 +635,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -678,10 +668,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
@@ -704,7 +694,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -738,10 +727,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
@@ -764,7 +753,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -798,10 +786,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
@@ -824,7 +812,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.anyof_complex_types import AnyofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -858,10 +845,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnyofComplexTypes**](../../models/AnyofComplexTypes.md) |  | 
@@ -884,7 +871,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.anyof import Anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -918,10 +904,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Anyof**](../../models/Anyof.md) |  | 
@@ -944,7 +930,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.anyof_with_base_schema import AnyofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -978,10 +963,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnyofWithBaseSchema**](../../models/AnyofWithBaseSchema.md) |  | 
@@ -1004,7 +989,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1038,10 +1022,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnyofWithOneEmptySchema**](../../models/AnyofWithOneEmptySchema.md) |  | 
@@ -1064,7 +1048,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.array_type_matches_arrays import ArrayTypeMatchesArrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1098,10 +1081,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
@@ -1115,7 +1098,7 @@ No authorization required
 
 # **post_boolean_type_matches_booleans_response_body_for_content_types**
 <a name="post_boolean_type_matches_booleans_response_body_for_content_types"></a>
-> bool post_boolean_type_matches_booleans_response_body_for_content_types()
+> BooleanTypeMatchesBooleans post_boolean_type_matches_booleans_response_body_for_content_types()
 
 
 
@@ -1157,15 +1140,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool,  | BoolClass,  |  | 
 
 ### Authorization
 
@@ -1184,7 +1166,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.by_int import ByInt
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1218,10 +1199,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ByInt**](../../models/ByInt.md) |  | 
@@ -1244,7 +1225,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.by_number import ByNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1278,10 +1258,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ByNumber**](../../models/ByNumber.md) |  | 
@@ -1304,7 +1284,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.by_small_number import BySmallNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1338,10 +1317,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**BySmallNumber**](../../models/BySmallNumber.md) |  | 
@@ -1355,7 +1334,7 @@ No authorization required
 
 # **post_date_time_format_response_body_for_content_types**
 <a name="post_date_time_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_date_time_format_response_body_for_content_types()
+> DateTimeFormat post_date_time_format_response_body_for_content_types()
 
 
 
@@ -1397,15 +1376,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**DateTimeFormat**](../../models/DateTimeFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | value must conform to RFC-3339 date-time
 
 ### Authorization
 
@@ -1415,7 +1393,7 @@ No authorization required
 
 # **post_email_format_response_body_for_content_types**
 <a name="post_email_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_email_format_response_body_for_content_types()
+> EmailFormat post_email_format_response_body_for_content_types()
 
 
 
@@ -1457,15 +1435,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**EmailFormat**](../../models/EmailFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -1484,7 +1461,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1518,10 +1494,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWith0DoesNotMatchFalse**](../../models/EnumWith0DoesNotMatchFalse.md) |  | 
@@ -1544,7 +1520,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1578,10 +1553,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWith1DoesNotMatchTrue**](../../models/EnumWith1DoesNotMatchTrue.md) |  | 
@@ -1604,7 +1579,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.enum_with_escaped_characters import EnumWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1638,10 +1612,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWithEscapedCharacters**](../../models/EnumWithEscapedCharacters.md) |  | 
@@ -1664,7 +1638,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1698,10 +1671,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWithFalseDoesNotMatch0**](../../models/EnumWithFalseDoesNotMatch0.md) |  | 
@@ -1724,7 +1697,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1758,10 +1730,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWithTrueDoesNotMatch1**](../../models/EnumWithTrueDoesNotMatch1.md) |  | 
@@ -1784,7 +1756,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.enums_in_properties import EnumsInProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1818,10 +1789,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumsInProperties**](../../models/EnumsInProperties.md) |  | 
@@ -1844,7 +1815,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.forbidden_property import ForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1878,10 +1848,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
@@ -1895,7 +1865,7 @@ No authorization required
 
 # **post_hostname_format_response_body_for_content_types**
 <a name="post_hostname_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_hostname_format_response_body_for_content_types()
+> HostnameFormat post_hostname_format_response_body_for_content_types()
 
 
 
@@ -1937,15 +1907,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HostnameFormat**](../../models/HostnameFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -1955,7 +1924,7 @@ No authorization required
 
 # **post_integer_type_matches_integers_response_body_for_content_types**
 <a name="post_integer_type_matches_integers_response_body_for_content_types"></a>
-> int post_integer_type_matches_integers_response_body_for_content_types()
+> IntegerTypeMatchesIntegers post_integer_type_matches_integers_response_body_for_content_types()
 
 
 
@@ -1997,15 +1966,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Authorization
 
@@ -2024,7 +1992,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2058,10 +2025,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
@@ -2084,7 +2051,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.invalid_string_value_for_default import InvalidStringValueForDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2118,10 +2084,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**InvalidStringValueForDefault**](../../models/InvalidStringValueForDefault.md) |  | 
@@ -2135,7 +2101,7 @@ No authorization required
 
 # **post_ipv4_format_response_body_for_content_types**
 <a name="post_ipv4_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_ipv4_format_response_body_for_content_types()
+> Ipv4Format post_ipv4_format_response_body_for_content_types()
 
 
 
@@ -2177,15 +2143,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv4Format**](../../models/Ipv4Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -2195,7 +2160,7 @@ No authorization required
 
 # **post_ipv6_format_response_body_for_content_types**
 <a name="post_ipv6_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_ipv6_format_response_body_for_content_types()
+> Ipv6Format post_ipv6_format_response_body_for_content_types()
 
 
 
@@ -2237,15 +2202,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv6Format**](../../models/Ipv6Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -2255,7 +2219,7 @@ No authorization required
 
 # **post_json_pointer_format_response_body_for_content_types**
 <a name="post_json_pointer_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_json_pointer_format_response_body_for_content_types()
+> JsonPointerFormat post_json_pointer_format_response_body_for_content_types()
 
 
 
@@ -2297,15 +2261,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**JsonPointerFormat**](../../models/JsonPointerFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -2324,7 +2287,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.maximum_validation import MaximumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2358,10 +2320,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MaximumValidation**](../../models/MaximumValidation.md) |  | 
@@ -2384,7 +2346,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2418,10 +2379,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MaximumValidationWithUnsignedInteger**](../../models/MaximumValidationWithUnsignedInteger.md) |  | 
@@ -2444,7 +2405,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.maxitems_validation import MaxitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2478,10 +2438,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MaxitemsValidation**](../../models/MaxitemsValidation.md) |  | 
@@ -2504,7 +2464,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2538,10 +2497,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MaxlengthValidation**](../../models/MaxlengthValidation.md) |  | 
@@ -2564,7 +2523,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2598,10 +2556,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Maxproperties0MeansTheObjectIsEmpty**](../../models/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
@@ -2624,7 +2582,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.maxproperties_validation import MaxpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2658,10 +2615,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MaxpropertiesValidation**](../../models/MaxpropertiesValidation.md) |  | 
@@ -2684,7 +2641,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.minimum_validation import MinimumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2718,10 +2674,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinimumValidation**](../../models/MinimumValidation.md) |  | 
@@ -2744,7 +2700,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2778,10 +2733,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinimumValidationWithSignedInteger**](../../models/MinimumValidationWithSignedInteger.md) |  | 
@@ -2804,7 +2759,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.minitems_validation import MinitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2838,10 +2792,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinitemsValidation**](../../models/MinitemsValidation.md) |  | 
@@ -2864,7 +2818,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.minlength_validation import MinlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2898,10 +2851,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinlengthValidation**](../../models/MinlengthValidation.md) |  | 
@@ -2924,7 +2877,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.minproperties_validation import MinpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2958,10 +2910,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinpropertiesValidation**](../../models/MinpropertiesValidation.md) |  | 
@@ -2984,7 +2936,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3018,10 +2969,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
@@ -3044,7 +2995,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3078,10 +3028,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedAnyofToCheckValidationSemantics**](../../models/NestedAnyofToCheckValidationSemantics.md) |  | 
@@ -3104,7 +3054,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.nested_items import NestedItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3138,10 +3087,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedItems**](../../models/NestedItems.md) |  | 
@@ -3164,7 +3113,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3198,10 +3146,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
@@ -3215,7 +3163,7 @@ No authorization required
 
 # **post_not_more_complex_schema_response_body_for_content_types**
 <a name="post_not_more_complex_schema_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_not_more_complex_schema_response_body_for_content_types()
+> NotMoreComplexSchema post_not_more_complex_schema_response_body_for_content_types()
 
 
 
@@ -3257,34 +3205,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**foo** | str,  | str,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### Authorization
 
@@ -3294,7 +3222,7 @@ No authorization required
 
 # **post_not_response_body_for_content_types**
 <a name="post_not_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_not_response_body_for_content_types()
+> ModelNot post_not_response_body_for_content_types()
 
 
 
@@ -3336,28 +3264,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ModelNot**](../../models/ModelNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | decimal.Decimal, int,  | decimal.Decimal,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Authorization
 
@@ -3376,7 +3290,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.nul_characters_in_strings import NulCharactersInStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3410,10 +3323,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NulCharactersInStrings**](../../models/NulCharactersInStrings.md) |  | 
@@ -3427,7 +3340,7 @@ No authorization required
 
 # **post_null_type_matches_only_the_null_object_response_body_for_content_types**
 <a name="post_null_type_matches_only_the_null_object_response_body_for_content_types"></a>
-> none_type post_null_type_matches_only_the_null_object_response_body_for_content_types()
+> NullTypeMatchesOnlyTheNullObject post_null_type_matches_only_the_null_object_response_body_for_content_types()
 
 
 
@@ -3469,15 +3382,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None,  | NoneClass,  |  | 
 
 ### Authorization
 
@@ -3487,7 +3399,7 @@ No authorization required
 
 # **post_number_type_matches_numbers_response_body_for_content_types**
 <a name="post_number_type_matches_numbers_response_body_for_content_types"></a>
-> int, float post_number_type_matches_numbers_response_body_for_content_types()
+> NumberTypeMatchesNumbers post_number_type_matches_numbers_response_body_for_content_types()
 
 
 
@@ -3529,15 +3441,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int, float,  | decimal.Decimal,  |  | 
 
 ### Authorization
 
@@ -3556,7 +3467,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.object_properties_validation import ObjectPropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3590,10 +3500,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectPropertiesValidation**](../../models/ObjectPropertiesValidation.md) |  | 
@@ -3607,7 +3517,7 @@ No authorization required
 
 # **post_object_type_matches_objects_response_body_for_content_types**
 <a name="post_object_type_matches_objects_response_body_for_content_types"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} post_object_type_matches_objects_response_body_for_content_types()
+> ObjectTypeMatchesObjects post_object_type_matches_objects_response_body_for_content_types()
 
 
 
@@ -3649,15 +3559,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 ### Authorization
 
@@ -3676,7 +3585,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.oneof_complex_types import OneofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3710,10 +3618,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
@@ -3736,7 +3644,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.oneof import Oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3770,10 +3677,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Oneof**](../../models/Oneof.md) |  | 
@@ -3796,7 +3703,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.oneof_with_base_schema import OneofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3830,10 +3736,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
@@ -3856,7 +3762,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.oneof_with_empty_schema import OneofWithEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3890,10 +3795,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
@@ -3916,7 +3821,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.oneof_with_required import OneofWithRequired
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3950,10 +3854,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
@@ -3976,7 +3880,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.pattern_is_not_anchored import PatternIsNotAnchored
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4010,10 +3913,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PatternIsNotAnchored**](../../models/PatternIsNotAnchored.md) |  | 
@@ -4036,7 +3939,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.pattern_validation import PatternValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4070,10 +3972,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PatternValidation**](../../models/PatternValidation.md) |  | 
@@ -4096,7 +3998,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.properties_with_escaped_characters import PropertiesWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4130,10 +4031,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PropertiesWithEscapedCharacters**](../../models/PropertiesWithEscapedCharacters.md) |  | 
@@ -4156,7 +4057,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4190,10 +4090,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PropertyNamedRefThatIsNotAReference**](../../models/PropertyNamedRefThatIsNotAReference.md) |  | 
@@ -4216,7 +4116,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4250,10 +4149,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInAdditionalproperties**](../../models/RefInAdditionalproperties.md) |  | 
@@ -4276,7 +4175,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.ref_in_allof import RefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4310,10 +4208,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInAllof**](../../models/RefInAllof.md) |  | 
@@ -4336,7 +4234,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.ref_in_anyof import RefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4370,10 +4267,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInAnyof**](../../models/RefInAnyof.md) |  | 
@@ -4396,7 +4293,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.ref_in_items import RefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4430,10 +4326,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInItems**](../../models/RefInItems.md) |  | 
@@ -4447,7 +4343,7 @@ No authorization required
 
 # **post_ref_in_not_response_body_for_content_types**
 <a name="post_ref_in_not_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_ref_in_not_response_body_for_content_types()
+> RefInNot post_ref_in_not_response_body_for_content_types()
 
 
 
@@ -4456,7 +4352,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4490,21 +4385,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RefInNot**](../../models/RefInNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[PropertyNamedRefThatIsNotAReference]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) |  | 
 
 ### Authorization
 
@@ -4523,7 +4411,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.ref_in_oneof import RefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4557,10 +4444,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInOneof**](../../models/RefInOneof.md) |  | 
@@ -4583,7 +4470,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.ref_in_property import RefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4617,10 +4503,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInProperty**](../../models/RefInProperty.md) |  | 
@@ -4643,7 +4529,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.required_default_validation import RequiredDefaultValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4677,10 +4562,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
@@ -4703,7 +4588,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.required_validation import RequiredValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4737,10 +4621,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredValidation**](../../models/RequiredValidation.md) |  | 
@@ -4763,7 +4647,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.required_with_empty_array import RequiredWithEmptyArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4797,10 +4680,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
@@ -4814,7 +4697,7 @@ No authorization required
 
 # **post_required_with_escaped_characters_response_body_for_content_types**
 <a name="post_required_with_escaped_characters_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_required_with_escaped_characters_response_body_for_content_types()
+> RequiredWithEscapedCharacters post_required_with_escaped_characters_response_body_for_content_types()
 
 
 
@@ -4856,15 +4739,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -4883,7 +4765,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.simple_enum_validation import SimpleEnumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4917,10 +4798,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**SimpleEnumValidation**](../../models/SimpleEnumValidation.md) |  | 
@@ -4934,7 +4815,7 @@ No authorization required
 
 # **post_string_type_matches_strings_response_body_for_content_types**
 <a name="post_string_type_matches_strings_response_body_for_content_types"></a>
-> str post_string_type_matches_strings_response_body_for_content_types()
+> StringTypeMatchesStrings post_string_type_matches_strings_response_body_for_content_types()
 
 
 
@@ -4976,15 +4857,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
 
 ### Authorization
 
@@ -5003,7 +4883,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5037,10 +4916,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
@@ -5063,7 +4942,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.uniqueitems_false_validation import UniqueitemsFalseValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5097,10 +4975,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**UniqueitemsFalseValidation**](../../models/UniqueitemsFalseValidation.md) |  | 
@@ -5123,7 +5001,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import response_content_content_type_schema_api
-from unit_test_api.model.uniqueitems_validation import UniqueitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5157,10 +5034,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**UniqueitemsValidation**](../../models/UniqueitemsValidation.md) |  | 
@@ -5174,7 +5051,7 @@ No authorization required
 
 # **post_uri_format_response_body_for_content_types**
 <a name="post_uri_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_uri_format_response_body_for_content_types()
+> UriFormat post_uri_format_response_body_for_content_types()
 
 
 
@@ -5216,15 +5093,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriFormat**](../../models/UriFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -5234,7 +5110,7 @@ No authorization required
 
 # **post_uri_reference_format_response_body_for_content_types**
 <a name="post_uri_reference_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_uri_reference_format_response_body_for_content_types()
+> UriReferenceFormat post_uri_reference_format_response_body_for_content_types()
 
 
 
@@ -5276,15 +5152,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriReferenceFormat**](../../models/UriReferenceFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
@@ -5294,7 +5169,7 @@ No authorization required
 
 # **post_uri_template_format_response_body_for_content_types**
 <a name="post_uri_template_format_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_uri_template_format_response_body_for_content_types()
+> UriTemplateFormat post_uri_template_format_response_body_for_content_types()
 
 
 
@@ -5336,15 +5211,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriTemplateFormat**](../../models/UriTemplateFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Authorization
 
