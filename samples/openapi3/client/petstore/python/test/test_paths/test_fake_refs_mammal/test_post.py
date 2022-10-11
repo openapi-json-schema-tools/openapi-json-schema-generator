@@ -32,6 +32,7 @@ class TestFakeRefsMammal(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.application_json
 
 
 

@@ -37,6 +37,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.HashSet;
 import java.util.List;
 
 public class JavaModelTest {
@@ -326,7 +327,7 @@ public class JavaModelTest {
 
         final CodegenProperty property = cm.vars.get(0);
         Assert.assertEquals(property.baseName, "children");
-        Assert.assertEquals(property.complexType, "Children");
+        Assert.assertEquals(property.refClass, "Children");
         Assert.assertEquals(property.getter, "getChildren");
         Assert.assertEquals(property.setter, "setChildren");
         Assert.assertEquals(property.dataType, "List<Children>");
@@ -357,7 +358,7 @@ public class JavaModelTest {
 
         final CodegenProperty property = cm.vars.get(0);
         Assert.assertEquals(property.baseName, "children");
-        Assert.assertEquals(property.complexType, "Children");
+        Assert.assertEquals(property.refClass, "Children");
         Assert.assertEquals(property.getter, "getChildren");
         Assert.assertEquals(property.setter, "setChildren");
         Assert.assertEquals(property.dataType, "Map<String, Children>");
@@ -389,7 +390,7 @@ public class JavaModelTest {
 
         final CodegenProperty property = cm.vars.get(0);
         Assert.assertEquals(property.baseName, "children");
-        Assert.assertEquals(property.complexType, "Children");
+        Assert.assertEquals(property.refClass, "Children");
         Assert.assertEquals(property.getter, "getChildren");
         Assert.assertEquals(property.setter, "setChildren");
         Assert.assertEquals(property.dataType, "List<Children>");
@@ -422,7 +423,7 @@ public class JavaModelTest {
 
         final CodegenProperty property = cm.vars.get(0);
         Assert.assertEquals(property.baseName, "children");
-        Assert.assertEquals(property.complexType, "Children");
+        Assert.assertEquals(property.refClass, "Children");
         Assert.assertEquals(property.getter, "getChildren");
         Assert.assertEquals(property.setter, "setChildren");
         Assert.assertEquals(property.dataType, "Set<Children>");
@@ -459,7 +460,7 @@ public class JavaModelTest {
 
         final CodegenProperty property = cm.vars.get(0);
         Assert.assertEquals(property.baseName, "children");
-        Assert.assertEquals(property.complexType, "Child");
+        Assert.assertEquals(property.refClass, "Child");
         Assert.assertEquals(property.getter, "getChildren");
         Assert.assertEquals(property.setter, "setChildren");
         Assert.assertEquals(property.dataType, "List<Child>");
@@ -471,8 +472,8 @@ public class JavaModelTest {
         Assert.assertTrue(property.isContainer);
 
         final CodegenProperty itemsProperty = property.items;
-        Assert.assertEquals(itemsProperty.baseName, "child");
-        Assert.assertEquals(itemsProperty.name, "child");
+        Assert.assertEquals(itemsProperty.baseName, "items");
+        Assert.assertEquals(itemsProperty.name, "items");
     }
 
     @Test(description = "convert an array model")
@@ -773,7 +774,7 @@ public class JavaModelTest {
                 .required(true);
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenParameter cm = codegen.fromParameter(parameter, null);
+        final CodegenParameter cm = codegen.fromParameter(parameter, new HashSet<>(), "0");
 
         Assert.assertNull(cm.allowableValues);
         Assert.assertEquals(cm.description, "this is a description");
@@ -978,7 +979,7 @@ public class JavaModelTest {
         Assert.assertNotNull(property2.items);
         CodegenProperty items = property2.items;
         Assert.assertEquals(items.xmlName, "i");
-        Assert.assertEquals(items.baseName, "array");
+        Assert.assertEquals(items.baseName, "items");
     }
 
     @Test(description = "convert a boolean parameter")
@@ -1231,7 +1232,7 @@ public class JavaModelTest {
         Assert.assertTrue(cp1.isArray);
         Assert.assertFalse(cp1.isMap);
         Assert.assertEquals(cp1.items.baseType, "Pet");
-        Assert.assertEquals(cp1.items.complexType, "Pet");
+        Assert.assertEquals(cp1.items.refClass, "Pet");
         Assert.assertEquals(cp1.items.dataType, "Pet");
 
         Assert.assertEquals(co.responses.size(), 1);
@@ -1311,10 +1312,10 @@ public class JavaModelTest {
         Assert.assertTrue(cp1.isArray);
         Assert.assertFalse(cp1.isMap);
         Assert.assertEquals(cp1.items.baseType, "List");
-        Assert.assertEquals(cp1.items.complexType, "Pet");
+        Assert.assertEquals(cp1.items.refClass, "Pet");
         Assert.assertEquals(cp1.items.dataType, "List<Pet>");
         Assert.assertEquals(cp1.items.items.baseType, "Pet");
-        Assert.assertEquals(cp1.items.items.complexType, "Pet");
+        Assert.assertEquals(cp1.items.items.refClass, "Pet");
         Assert.assertEquals(cp1.items.items.dataType, "Pet");
 
         Assert.assertEquals(co.responses.size(), 1);

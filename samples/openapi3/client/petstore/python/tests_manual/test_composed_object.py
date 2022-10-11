@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_object import ComposedObject
+from petstore_api.components.schema.composed_object import ComposedObject
 
 
 class TestComposedObject(unittest.TestCase):

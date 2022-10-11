@@ -241,17 +241,6 @@ public class JavaClientCodegenTest {
     }
 
     @Test
-    public void testGetSchemaTypeWithComposedSchemaWithAllOf() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/composed-allof.yaml");
-        final JavaClientCodegen codegen = new JavaClientCodegen();
-
-        Operation operation = openAPI.getPaths().get("/ping").getPost();
-        CodegenOperation co = codegen.fromOperation("/ping", "POST", operation, null);
-        Assert.assertEquals(co.allParams.size(), 1);
-        Assert.assertEquals(co.allParams.get(0).baseType, "MessageEventCoreWithTimeListEntries");
-    }
-
-    @Test
     public void updateCodegenPropertyEnum() {
         final JavaClientCodegen codegen = new JavaClientCodegen();
         CodegenProperty array = codegenPropertyWithArrayOfIntegerValues();
@@ -1125,37 +1114,6 @@ public class JavaClientCodegenTest {
                 .findFirst();
     }
 
-    @Test
-    public void testCustomMethodParamsAreCamelizedWhenUsingFeign() throws IOException {
-
-        File output = Files.createTempDirectory("test").toFile();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.FEIGN)
-                .setInputSpec("src/test/resources/3_0/issue_7791.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/DefaultApi.java");
-
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/org/openapitools/client/api/DefaultApi.java"),
-                "@RequestLine(\"POST /events/{eventId}:undelete\")");
-        TestUtils.assertFileNotContains(Paths.get(output + "/src/main/java/org/openapitools/client/api/DefaultApi.java"),
-                "event_id");
-
-        // baseName is kept for form parameters
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/org/openapitools/client/api/DefaultApi.java"),
-                "@Param(\"some_file\") File someFile");
-
-        output.deleteOnExit();
-    }
-
     /**
      * See https://github.com/OpenAPITools/openapi-generator/issues/6715
      *
@@ -1289,39 +1247,6 @@ public class JavaClientCodegenTest {
 
         TestUtils.assertFileContains(Paths.get(output + "/src/main/java/xyz/abcdef/ApiClient.java"),
                 "public static String urlEncode(String s) { return URLEncoder.encode(s, UTF_8).replaceAll(\"\\\\+\", \"%20\"); }");
-    }
-
-    /**
-     * See https://github.com/OpenAPITools/openapi-generator/issues/4808
-     */
-    @Test
-    public void testNativeClientExplodedQueryParamObject() throws IOException {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(CodegenConstants.API_PACKAGE, "xyz.abcdef.api");
-
-        File output = Files.createTempDirectory("test").toFile();
-        output.deleteOnExit();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.NATIVE)
-                .setAdditionalProperties(properties)
-                .setInputSpec("src/test/resources/3_0/issue4808.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        Assert.assertEquals(files.size(), 38);
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/xyz/abcdef/api/DefaultApi.java"),
-                "localVarQueryParams.addAll(ApiClient.parameterToPairs(\"since\", queryObject.getSince()));",
-                "localVarQueryParams.addAll(ApiClient.parameterToPairs(\"sinceBuild\", queryObject.getSinceBuild()));",
-                "localVarQueryParams.addAll(ApiClient.parameterToPairs(\"maxBuilds\", queryObject.getMaxBuilds()));",
-                "localVarQueryParams.addAll(ApiClient.parameterToPairs(\"maxWaitSecs\", queryObject.getMaxWaitSecs()));"
-        );
     }
 
     @Test
@@ -1632,37 +1557,5 @@ public class JavaClientCodegenTest {
 
         TestUtils.assertExtraAnnotationFiles(outputPath + "/src/main/java/org/openapitools/client/model");
 
-    }
-
-    /**
-     * See https://github.com/OpenAPITools/openapi-generator/issues/11340
-     */
-    @Test
-    public void testReferencedHeader2() throws Exception {
-        File output = Files.createTempDirectory("test").toFile().getCanonicalFile();
-        output.deleteOnExit();
-        Map<String, Object> additionalProperties = new HashMap<>();
-        additionalProperties.put(BeanValidationFeatures.USE_BEANVALIDATION, "true");
-        final CodegenConfigurator configurator = new CodegenConfigurator().setGeneratorName("java")
-                .setAdditionalProperties(additionalProperties)
-                .setInputSpec("src/test/resources/3_0/issue-11340.yaml")
-                .setOutputDir(output.getAbsolutePath()
-                        .replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-
-        Map<String, File> files = generator.opts(clientOptInput).generate().stream()
-                .collect(Collectors.toMap(File::getName, Function.identity()));
-
-        JavaFileAssert.assertThat(files.get("DefaultApi.java"))
-                .assertMethod("operationWithHttpInfo")
-                    .hasParameter("requestBody")
-                    .assertParameterAnnotations()
-                    .containsWithName("NotNull")
-                .toParameter().toMethod()
-                    .hasParameter("xNonNullHeaderParameter")
-                    .assertParameterAnnotations()
-                    .containsWithName("NotNull");
     }
 }

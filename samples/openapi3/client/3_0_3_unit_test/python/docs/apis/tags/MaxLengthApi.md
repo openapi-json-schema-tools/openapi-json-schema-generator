@@ -10,8 +10,6 @@ Method | HTTP request | Description
 
 # **post_maxlength_validation_request_body**
 <a name="post_maxlength_validation_request_body"></a>
-> post_maxlength_validation_request_body(body)
-
 
 
 ### Example
@@ -19,7 +17,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_length_api
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,18 +43,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maxlength_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_maxlength_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maxlength_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maxlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxlengthValidation**](../../models/MaxlengthValidation.md) |  | 
+[**MaxlengthValidation**](../../components/schema/MaxlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -64,9 +62,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maxlength_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maxlength_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_maxlength_validation_request_body.ApiResponseFor200
+#### <a id="post_maxlength_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -81,8 +79,6 @@ No authorization required
 
 # **post_maxlength_validation_response_body_for_content_types**
 <a name="post_maxlength_validation_response_body_for_content_types"></a>
-> MaxlengthValidation post_maxlength_validation_response_body_for_content_types()
-
 
 
 ### Example
@@ -90,7 +86,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_length_api
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -118,19 +113,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maxlength_validation_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maxlength_validation_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_maxlength_validation_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_maxlength_validation_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_maxlength_validation_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_maxlength_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxlengthValidation**](../../models/MaxlengthValidation.md) |  | 
+[**MaxlengthValidation**](../../components/schema/MaxlengthValidation.md) |  | 
 
 
 ### Authorization

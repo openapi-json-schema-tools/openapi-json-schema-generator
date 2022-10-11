@@ -66,7 +66,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/ping");
         CodegenOperation operation = codegen.fromOperation("/ping", "post", path.getPost(), path.getServers());
-        Assert.assertEquals(Sets.intersection(operation.imports, Sets.newHashSet("Person")).size(), 1);
+        Assert.assertEquals(Sets.intersection(operation.responses.get(0).imports, Sets.newHashSet("Person")).size(), 1);
     }
 
     @Test
@@ -582,42 +582,6 @@ public class DefaultCodegenTest {
 
         Assert.assertEquals(co.produces.size(), 1);
         Assert.assertEquals(co.produces.get(0).get("mediaType"), "application/json");
-    }
-
-    @Test
-    public void testConsistentParameterNameAfterUniquenessRename() throws Exception {
-        OpenAPI openAPI = TestUtils.createOpenAPI();
-        Operation operation = new Operation()
-                .operationId("opId")
-                .addParametersItem(new QueryParameter().name("myparam").schema(new StringSchema()))
-                .addParametersItem(new QueryParameter().name("myparam").schema(new StringSchema()))
-                .responses(new ApiResponses().addApiResponse("200", new ApiResponse().description("OK")));
-
-        DefaultCodegen codegen = new DefaultCodegen();
-        codegen.setOpenAPI(openAPI);
-        CodegenOperation co = codegen.fromOperation("/some/path", "get", operation, null);
-        Assert.assertEquals(co.path, "/some/path");
-        Assert.assertEquals(co.allParams.size(), 2);
-        List<String> allParamsNames = co.allParams.stream().map(p -> p.paramName).collect(Collectors.toList());
-        Assert.assertTrue(allParamsNames.contains("myparam"));
-        Assert.assertTrue(allParamsNames.contains("myparam2"));
-        List<String> queryParamsNames = co.queryParams.stream().map(p -> p.paramName).collect(Collectors.toList());
-        Assert.assertTrue(queryParamsNames.contains("myparam"));
-        Assert.assertTrue(queryParamsNames.contains("myparam2"));
-    }
-
-    @Test
-    public void testUniquenessRenameOfFormParameters() throws Exception {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/form-duplicated-parameter.yaml");
-        DefaultCodegen codegen = new DefaultCodegen();
-        codegen.setOpenAPI(openAPI);
-        Operation operation = openAPI.getPaths().get("/form-param-poc/{id}").getPut();
-        CodegenOperation co = codegen.fromOperation("/form-param-poc/{id}", "put", operation, null);
-        Assert.assertEquals(co.path, "/form-param-poc/{id}");
-        Assert.assertEquals(co.allParams.size(), 2);
-        List<String> allParamsNames = co.allParams.stream().map(p -> p.paramName).collect(Collectors.toList());
-        Assert.assertTrue(allParamsNames.contains("id"));
-        Assert.assertTrue(allParamsNames.contains("id2"));
     }
 
     @Test
@@ -2068,7 +2032,8 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         Set<String> imports = new HashSet<>();
-        CodegenParameter parameter = codegen.fromParameter(openAPI.getPaths().get("/pony").getGet().getParameters().get(0), imports);
+        CodegenParameter parameter = codegen.fromParameter(
+                openAPI.getPaths().get("/pony").getGet().getParameters().get(0), imports, "0");
 
         // TODO: This must be updated to work with flattened inline models
         Assert.assertEquals(parameter.dataType, "ListPageQueryParameter");
@@ -2253,7 +2218,8 @@ public class DefaultCodegenTest {
                                     .getGet()
                                     .getParameters()
                                     .get(0),
-                            new HashSet<>()
+                            new HashSet<>(),
+                            "0"
                     );
         }
 
@@ -3206,7 +3172,7 @@ public class DefaultCodegenTest {
         cm = codegen.fromModel(modelName, sc);
         CodegenProperty cp = cm.getVars().get(0);
         assertTrue(cp.isModel);
-        assertEquals(cp.complexType, "objectWithOptionalAndRequiredProps_request");
+        assertEquals(cp.refClass, "objectWithOptionalAndRequiredProps_request");
     }
 
     @Test
@@ -4031,11 +3997,10 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get("application/json");
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
-        // TODO need to revise the test below
         assertTrue(cp.isMap);
         assertTrue(cp.isModel);
-        assertEquals(cp.complexType, "object");
-        assertEquals(cp.baseName, "SchemaForRequestParameterCoordinatesInlineSchemaApplicationJson");
+        assertEquals(cp.refClass, "object");
+        assertEquals(cp.baseName, "schema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
         content = coordinatesReferencedSchema.getContent();
@@ -4043,8 +4008,8 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
-        assertEquals(cp.complexType, "coordinates");
-        assertEquals(cp.baseName, "SchemaForRequestParameterCoordinatesReferencedSchemaApplicationJson");
+        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.baseName, "schema");
     }
 
     @Test
@@ -4064,13 +4029,13 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get("application/json");
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyApplicationJson");
+        assertEquals(cp.baseName, "application/json");
         assertNotNull(cp);
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertNotNull(cp);
         // Note: the inline model resolver has a bug for this use case; it extracts an inline request body into a component
         // but the schema it references is not string type
@@ -4084,13 +4049,13 @@ public class DefaultCodegenTest {
         mt = content.get("application/json");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyApplicationJson");
-        assertEquals(cp.complexType, "coordinates");
+        assertEquals(cp.baseName, "application/json");
+        assertEquals(cp.refClass, "coordinates");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertTrue(cp.isString);
 
         path = "/requestBodyWithEncodingTypes";
@@ -4148,7 +4113,7 @@ public class DefaultCodegenTest {
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json")));
 
         CodegenParameter schemaParam = co.queryParams.get(2);
-        assertEquals(schemaParam.getSchema().baseName, "stringWithMinLength");
+        assertEquals(schemaParam.getSchema().baseName, "schema");
 
 
         CodegenResponse cr = co.responses.get(0);
@@ -4157,12 +4122,12 @@ public class DefaultCodegenTest {
         CodegenParameter header1 = responseHeaders.get(0);
         assertEquals("X-Rate-Limit", header1.baseName);
         assertTrue(header1.isUnboundedInteger);
-        assertEquals(header1.getSchema().baseName, "X-Rate-Limit");
+        assertEquals(header1.getSchema().baseName, "schema");
 
         CodegenParameter header2 = responseHeaders.get(1);
         assertEquals("X-Rate-Limit-Ref", header2.baseName);
         assertTrue(header2.isUnboundedInteger);
-        assertEquals(header2.getSchema().baseName, "X-Rate-Limit-Ref");
+        assertEquals(header2.getSchema().baseName, "schema");
 
         content = cr.getContent();
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json", "text/plain")));
@@ -4170,13 +4135,13 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
-        assertEquals(cp.complexType, "coordinates");
-        assertEquals(cp.baseName, "SchemaFor200ResponseBodyApplicationJson");
+        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.baseName, "application/json");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaFor200ResponseBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertTrue(cp.isString);
 
         cr = co.responses.get(1);
@@ -4186,13 +4151,13 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
-        assertEquals(cp.complexType, "coordinates");
-        assertEquals(cp.baseName, "SchemaFor201ResponseBodyApplicationJson");
+        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.baseName, "application/json");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaFor201ResponseBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertTrue(cp.isString);
     }
 

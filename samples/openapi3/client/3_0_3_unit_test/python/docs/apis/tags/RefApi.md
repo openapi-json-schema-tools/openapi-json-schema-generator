@@ -24,8 +24,6 @@ Method | HTTP request | Description
 
 # **post_property_named_ref_that_is_not_a_reference_request_body**
 <a name="post_property_named_ref_that_is_not_a_reference_request_body"></a>
-> post_property_named_ref_that_is_not_a_reference_request_body(property_named_ref_that_is_not_a_reference)
-
 
 
 ### Example
@@ -33,7 +31,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,18 +57,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_property_named_ref_that_is_not_a_reference_request_body.request_body) | typing.Union[[request_body.application_json](#post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../models/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses
@@ -78,9 +76,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_property_named_ref_that_is_not_a_reference_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_property_named_ref_that_is_not_a_reference_request_body.response_for_200.ApiResponse) | success
 
-#### post_property_named_ref_that_is_not_a_reference_request_body.ApiResponseFor200
+#### <a id="post_property_named_ref_that_is_not_a_reference_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -95,8 +93,6 @@ No authorization required
 
 # **post_property_named_ref_that_is_not_a_reference_response_body_for_content_types**
 <a name="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types"></a>
-> PropertyNamedRefThatIsNotAReference post_property_named_ref_that_is_not_a_reference_response_body_for_content_types()
-
 
 
 ### Example
@@ -104,7 +100,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -132,19 +127,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../models/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Authorization
@@ -155,8 +150,6 @@ No authorization required
 
 # **post_ref_in_additionalproperties_request_body**
 <a name="post_ref_in_additionalproperties_request_body"></a>
-> post_ref_in_additionalproperties_request_body(ref_in_additionalproperties)
-
 
 
 ### Example
@@ -164,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -192,18 +185,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_additionalproperties_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_additionalproperties_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_additionalproperties_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_additionalproperties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../models/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -211,9 +204,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_additionalproperties_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_additionalproperties_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_additionalproperties_request_body.ApiResponseFor200
+#### <a id="post_ref_in_additionalproperties_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -228,8 +221,6 @@ No authorization required
 
 # **post_ref_in_additionalproperties_response_body_for_content_types**
 <a name="post_ref_in_additionalproperties_response_body_for_content_types"></a>
-> RefInAdditionalproperties post_ref_in_additionalproperties_response_body_for_content_types()
-
 
 
 ### Example
@@ -237,7 +228,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -265,19 +255,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_additionalproperties_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_additionalproperties_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../models/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
 
 
 ### Authorization
@@ -288,8 +278,6 @@ No authorization required
 
 # **post_ref_in_allof_request_body**
 <a name="post_ref_in_allof_request_body"></a>
-> post_ref_in_allof_request_body(ref_in_allof)
-
 
 
 ### Example
@@ -297,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_allof import RefInAllof
+from unit_test_api.components.schema.ref_in_allof import RefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -323,18 +311,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_allof_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_allof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_allof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../models/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
 
 
 ### Return Types, Responses
@@ -342,9 +330,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_allof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_allof_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_allof_request_body.ApiResponseFor200
+#### <a id="post_ref_in_allof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -359,8 +347,6 @@ No authorization required
 
 # **post_ref_in_allof_response_body_for_content_types**
 <a name="post_ref_in_allof_response_body_for_content_types"></a>
-> RefInAllof post_ref_in_allof_response_body_for_content_types()
-
 
 
 ### Example
@@ -368,7 +354,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_allof import RefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -396,19 +381,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_allof_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_allof_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_allof_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_allof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../models/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
 
 
 ### Authorization
@@ -419,8 +404,6 @@ No authorization required
 
 # **post_ref_in_anyof_request_body**
 <a name="post_ref_in_anyof_request_body"></a>
-> post_ref_in_anyof_request_body(ref_in_anyof)
-
 
 
 ### Example
@@ -428,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -454,18 +437,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_anyof_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_anyof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_anyof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../models/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -473,9 +456,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_anyof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_anyof_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_anyof_request_body.ApiResponseFor200
+#### <a id="post_ref_in_anyof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -490,8 +473,6 @@ No authorization required
 
 # **post_ref_in_anyof_response_body_for_content_types**
 <a name="post_ref_in_anyof_response_body_for_content_types"></a>
-> RefInAnyof post_ref_in_anyof_response_body_for_content_types()
-
 
 
 ### Example
@@ -499,7 +480,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_anyof import RefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -527,19 +507,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_anyof_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_anyof_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_anyof_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../models/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
 
 
 ### Authorization
@@ -550,8 +530,6 @@ No authorization required
 
 # **post_ref_in_items_request_body**
 <a name="post_ref_in_items_request_body"></a>
-> post_ref_in_items_request_body(ref_in_items)
-
 
 
 ### Example
@@ -559,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_items import RefInItems
+from unit_test_api.components.schema.ref_in_items import RefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -587,18 +565,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_items_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_items_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_items_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../models/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/RefInItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -606,9 +584,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_items_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_items_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_items_request_body.ApiResponseFor200
+#### <a id="post_ref_in_items_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -623,8 +601,6 @@ No authorization required
 
 # **post_ref_in_items_response_body_for_content_types**
 <a name="post_ref_in_items_response_body_for_content_types"></a>
-> RefInItems post_ref_in_items_response_body_for_content_types()
-
 
 
 ### Example
@@ -632,7 +608,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_items import RefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -660,19 +635,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_items_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_items_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_items_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_items_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_items_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_items_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../models/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/RefInItems.md) |  | 
 
 
 ### Authorization
@@ -683,8 +658,6 @@ No authorization required
 
 # **post_ref_in_not_request_body**
 <a name="post_ref_in_not_request_body"></a>
-> post_ref_in_not_request_body(body)
-
 
 
 ### Example
@@ -692,7 +665,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.ref_in_not import RefInNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -706,7 +679,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = RefInNot(None)
     try:
         api_response = api_instance.post_ref_in_not_request_body(
             body=body,
@@ -718,35 +691,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_not_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_not_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_not_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_not_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RefInNot**](../../components/schema/RefInNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[PropertyNamedRefThatIsNotAReference]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_not_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_not_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_not_request_body.ApiResponseFor200
+#### <a id="post_ref_in_not_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -761,8 +727,6 @@ No authorization required
 
 # **post_ref_in_not_response_body_for_content_types**
 <a name="post_ref_in_not_response_body_for_content_types"></a>
-> bool, date, datetime, dict, float, int, list, str, none_type post_ref_in_not_response_body_for_content_types()
-
 
 
 ### Example
@@ -770,7 +734,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -798,27 +761,20 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_not_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_not_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_not_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_not_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_not_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RefInNot**](../../components/schema/RefInNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[PropertyNamedRefThatIsNotAReference]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) |  | 
 
 ### Authorization
 
@@ -828,8 +784,6 @@ No authorization required
 
 # **post_ref_in_oneof_request_body**
 <a name="post_ref_in_oneof_request_body"></a>
-> post_ref_in_oneof_request_body(ref_in_oneof)
-
 
 
 ### Example
@@ -837,7 +791,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema.ref_in_oneof import RefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -863,18 +817,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_oneof_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_oneof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_oneof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../models/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -882,9 +836,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_oneof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_oneof_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_oneof_request_body.ApiResponseFor200
+#### <a id="post_ref_in_oneof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -899,8 +853,6 @@ No authorization required
 
 # **post_ref_in_oneof_response_body_for_content_types**
 <a name="post_ref_in_oneof_response_body_for_content_types"></a>
-> RefInOneof post_ref_in_oneof_response_body_for_content_types()
-
 
 
 ### Example
@@ -908,7 +860,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_oneof import RefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -936,19 +887,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_oneof_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_oneof_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_oneof_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../models/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
 
 
 ### Authorization
@@ -959,8 +910,6 @@ No authorization required
 
 # **post_ref_in_property_request_body**
 <a name="post_ref_in_property_request_body"></a>
-> post_ref_in_property_request_body(ref_in_property)
-
 
 
 ### Example
@@ -968,7 +917,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_property import RefInProperty
+from unit_test_api.components.schema.ref_in_property import RefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -994,18 +943,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_property_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_property_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_property_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../models/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -1013,9 +962,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_property_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_property_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_property_request_body.ApiResponseFor200
+#### <a id="post_ref_in_property_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1030,8 +979,6 @@ No authorization required
 
 # **post_ref_in_property_response_body_for_content_types**
 <a name="post_ref_in_property_response_body_for_content_types"></a>
-> RefInProperty post_ref_in_property_response_body_for_content_types()
-
 
 
 ### Example
@@ -1039,7 +986,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_property import RefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1067,19 +1013,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_property_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_property_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_ref_in_property_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_ref_in_property_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_property_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_ref_in_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../models/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
 
 
 ### Authorization

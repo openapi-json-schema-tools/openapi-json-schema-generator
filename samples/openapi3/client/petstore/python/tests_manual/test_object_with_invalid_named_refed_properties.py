@@ -12,9 +12,9 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.object_with_invalid_named_refed_properties import ObjectWithInvalidNamedRefedProperties
-from petstore_api.model.array_with_validations_in_items import ArrayWithValidationsInItems
-from petstore_api.model.from_schema import FromSchema
+from petstore_api.components.schema.object_with_invalid_named_refed_properties import ObjectWithInvalidNamedRefedProperties
+from petstore_api.components.schema.array_with_validations_in_items import ArrayWithValidationsInItems
+from petstore_api.components.schema.from_schema import FromSchema
 
 
 class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):

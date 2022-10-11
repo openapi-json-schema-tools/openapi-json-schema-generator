@@ -95,8 +95,6 @@ Method | HTTP request | Description
 
 # **post_additionalproperties_allows_a_schema_which_should_validate_request_body**
 <a name="post_additionalproperties_allows_a_schema_which_should_validate_request_body"></a>
-> post_additionalproperties_allows_a_schema_which_should_validate_request_body(additionalproperties_allows_a_schema_which_should_validate)
-
 
 
 ### Example
@@ -104,7 +102,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -133,18 +131,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body) | typing.Union[[request_body.application_json](#post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../models/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
+[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
 
 
 ### Return Types, Responses
@@ -152,9 +150,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_additionalproperties_allows_a_schema_which_should_validate_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_additionalproperties_allows_a_schema_which_should_validate_request_body.response_for_200.ApiResponse) | success
 
-#### post_additionalproperties_allows_a_schema_which_should_validate_request_body.ApiResponseFor200
+#### <a id="post_additionalproperties_allows_a_schema_which_should_validate_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -169,8 +167,6 @@ No authorization required
 
 # **post_additionalproperties_are_allowed_by_default_request_body**
 <a name="post_additionalproperties_are_allowed_by_default_request_body"></a>
-> post_additionalproperties_are_allowed_by_default_request_body(additionalproperties_are_allowed_by_default)
-
 
 
 ### Example
@@ -178,7 +174,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -204,18 +200,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_additionalproperties_are_allowed_by_default_request_body.request_body) | typing.Union[[request_body.application_json](#post_additionalproperties_are_allowed_by_default_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_additionalproperties_are_allowed_by_default_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_additionalproperties_are_allowed_by_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAreAllowedByDefault**](../../models/AdditionalpropertiesAreAllowedByDefault.md) |  | 
+[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/AdditionalpropertiesAreAllowedByDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -223,9 +219,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_additionalproperties_are_allowed_by_default_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_additionalproperties_are_allowed_by_default_request_body.response_for_200.ApiResponse) | success
 
-#### post_additionalproperties_are_allowed_by_default_request_body.ApiResponseFor200
+#### <a id="post_additionalproperties_are_allowed_by_default_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -240,8 +236,6 @@ No authorization required
 
 # **post_additionalproperties_can_exist_by_itself_request_body**
 <a name="post_additionalproperties_can_exist_by_itself_request_body"></a>
-> post_additionalproperties_can_exist_by_itself_request_body(additionalproperties_can_exist_by_itself)
-
 
 
 ### Example
@@ -249,7 +243,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
+from unit_test_api.components.schema.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -277,18 +271,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_additionalproperties_can_exist_by_itself_request_body.request_body) | typing.Union[[request_body.application_json](#post_additionalproperties_can_exist_by_itself_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_additionalproperties_can_exist_by_itself_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_additionalproperties_can_exist_by_itself_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../models/AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../components/schema/AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Return Types, Responses
@@ -296,9 +290,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_additionalproperties_can_exist_by_itself_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_additionalproperties_can_exist_by_itself_request_body.response_for_200.ApiResponse) | success
 
-#### post_additionalproperties_can_exist_by_itself_request_body.ApiResponseFor200
+#### <a id="post_additionalproperties_can_exist_by_itself_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -313,8 +307,6 @@ No authorization required
 
 # **post_additionalproperties_should_not_look_in_applicators_request_body**
 <a name="post_additionalproperties_should_not_look_in_applicators_request_body"></a>
-> post_additionalproperties_should_not_look_in_applicators_request_body(additionalproperties_should_not_look_in_applicators)
-
 
 
 ### Example
@@ -322,7 +314,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
+from unit_test_api.components.schema.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -348,18 +340,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_additionalproperties_should_not_look_in_applicators_request_body.request_body) | typing.Union[[request_body.application_json](#post_additionalproperties_should_not_look_in_applicators_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_additionalproperties_should_not_look_in_applicators_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_additionalproperties_should_not_look_in_applicators_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesShouldNotLookInApplicators**](../../models/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
+[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
 
 
 ### Return Types, Responses
@@ -367,9 +359,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_additionalproperties_should_not_look_in_applicators_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_additionalproperties_should_not_look_in_applicators_request_body.response_for_200.ApiResponse) | success
 
-#### post_additionalproperties_should_not_look_in_applicators_request_body.ApiResponseFor200
+#### <a id="post_additionalproperties_should_not_look_in_applicators_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -384,8 +376,6 @@ No authorization required
 
 # **post_allof_combined_with_anyof_oneof_request_body**
 <a name="post_allof_combined_with_anyof_oneof_request_body"></a>
-> post_allof_combined_with_anyof_oneof_request_body(allof_combined_with_anyof_oneof)
-
 
 
 ### Example
@@ -393,7 +383,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
+from unit_test_api.components.schema.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -419,18 +409,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_combined_with_anyof_oneof_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_combined_with_anyof_oneof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_combined_with_anyof_oneof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_combined_with_anyof_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -438,9 +428,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_combined_with_anyof_oneof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_combined_with_anyof_oneof_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_combined_with_anyof_oneof_request_body.ApiResponseFor200
+#### <a id="post_allof_combined_with_anyof_oneof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -455,8 +445,6 @@ No authorization required
 
 # **post_allof_request_body**
 <a name="post_allof_request_body"></a>
-> post_allof_request_body(allof)
-
 
 
 ### Example
@@ -464,7 +452,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof import Allof
+from unit_test_api.components.schema.allof import Allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -490,18 +478,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../models/Allof.md) |  | 
+[**Allof**](../../components/schema/Allof.md) |  | 
 
 
 ### Return Types, Responses
@@ -509,9 +497,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_request_body.ApiResponseFor200
+#### <a id="post_allof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -526,8 +514,6 @@ No authorization required
 
 # **post_allof_simple_types_request_body**
 <a name="post_allof_simple_types_request_body"></a>
-> post_allof_simple_types_request_body(allof_simple_types)
-
 
 
 ### Example
@@ -535,7 +521,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema.allof_simple_types import AllofSimpleTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -561,18 +547,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_simple_types_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_simple_types_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_simple_types_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_simple_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/AllofSimpleTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -580,9 +566,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_simple_types_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_simple_types_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_simple_types_request_body.ApiResponseFor200
+#### <a id="post_allof_simple_types_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -597,8 +583,6 @@ No authorization required
 
 # **post_allof_with_base_schema_request_body**
 <a name="post_allof_with_base_schema_request_body"></a>
-> post_allof_with_base_schema_request_body(allof_with_base_schema)
-
 
 
 ### Example
@@ -606,7 +590,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_base_schema import AllofWithBaseSchema
+from unit_test_api.components.schema.allof_with_base_schema import AllofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -632,18 +616,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_base_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_with_base_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_base_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/AllofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -651,9 +635,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_base_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_base_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_base_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_base_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -668,8 +652,6 @@ No authorization required
 
 # **post_allof_with_one_empty_schema_request_body**
 <a name="post_allof_with_one_empty_schema_request_body"></a>
-> post_allof_with_one_empty_schema_request_body(allof_with_one_empty_schema)
-
 
 
 ### Example
@@ -677,7 +659,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_one_empty_schema import AllofWithOneEmptySchema
+from unit_test_api.components.schema.allof_with_one_empty_schema import AllofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -703,18 +685,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_one_empty_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_with_one_empty_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_one_empty_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/AllofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -722,9 +704,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_one_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_one_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_one_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_one_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -739,8 +721,6 @@ No authorization required
 
 # **post_allof_with_the_first_empty_schema_request_body**
 <a name="post_allof_with_the_first_empty_schema_request_body"></a>
-> post_allof_with_the_first_empty_schema_request_body(allof_with_the_first_empty_schema)
-
 
 
 ### Example
@@ -748,7 +728,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -774,18 +754,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_the_first_empty_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_with_the_first_empty_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_the_first_empty_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_the_first_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -793,9 +773,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_the_first_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_the_first_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_the_first_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_the_first_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -810,8 +790,6 @@ No authorization required
 
 # **post_allof_with_the_last_empty_schema_request_body**
 <a name="post_allof_with_the_last_empty_schema_request_body"></a>
-> post_allof_with_the_last_empty_schema_request_body(allof_with_the_last_empty_schema)
-
 
 
 ### Example
@@ -819,7 +797,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -845,18 +823,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_the_last_empty_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_with_the_last_empty_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_the_last_empty_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_the_last_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -864,9 +842,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_the_last_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_the_last_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_the_last_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_the_last_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -881,8 +859,6 @@ No authorization required
 
 # **post_allof_with_two_empty_schemas_request_body**
 <a name="post_allof_with_two_empty_schemas_request_body"></a>
-> post_allof_with_two_empty_schemas_request_body(allof_with_two_empty_schemas)
-
 
 
 ### Example
@@ -890,7 +866,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
+from unit_test_api.components.schema.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -916,18 +892,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_two_empty_schemas_request_body.request_body) | typing.Union[[request_body.application_json](#post_allof_with_two_empty_schemas_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_two_empty_schemas_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_two_empty_schemas_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Return Types, Responses
@@ -935,9 +911,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_two_empty_schemas_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_two_empty_schemas_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_two_empty_schemas_request_body.ApiResponseFor200
+#### <a id="post_allof_with_two_empty_schemas_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -952,8 +928,6 @@ No authorization required
 
 # **post_anyof_complex_types_request_body**
 <a name="post_anyof_complex_types_request_body"></a>
-> post_anyof_complex_types_request_body(anyof_complex_types)
-
 
 
 ### Example
@@ -961,7 +935,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -987,18 +961,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_anyof_complex_types_request_body.request_body) | typing.Union[[request_body.application_json](#post_anyof_complex_types_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_anyof_complex_types_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_anyof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofComplexTypes**](../../models/AnyofComplexTypes.md) |  | 
+[**AnyofComplexTypes**](../../components/schema/AnyofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -1006,9 +980,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_anyof_complex_types_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_anyof_complex_types_request_body.response_for_200.ApiResponse) | success
 
-#### post_anyof_complex_types_request_body.ApiResponseFor200
+#### <a id="post_anyof_complex_types_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1023,8 +997,6 @@ No authorization required
 
 # **post_anyof_request_body**
 <a name="post_anyof_request_body"></a>
-> post_anyof_request_body(anyof)
-
 
 
 ### Example
@@ -1032,7 +1004,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof import Anyof
+from unit_test_api.components.schema.anyof import Anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1058,18 +1030,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_anyof_request_body.request_body) | typing.Union[[request_body.application_json](#post_anyof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_anyof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Anyof**](../../models/Anyof.md) |  | 
+[**Anyof**](../../components/schema/Anyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -1077,9 +1049,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_anyof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_anyof_request_body.response_for_200.ApiResponse) | success
 
-#### post_anyof_request_body.ApiResponseFor200
+#### <a id="post_anyof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1094,8 +1066,6 @@ No authorization required
 
 # **post_anyof_with_base_schema_request_body**
 <a name="post_anyof_with_base_schema_request_body"></a>
-> post_anyof_with_base_schema_request_body(body)
-
 
 
 ### Example
@@ -1103,7 +1073,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof_with_base_schema import AnyofWithBaseSchema
+from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1117,7 +1087,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithBaseSchema("body_example")
+    body = AnyofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_anyof_with_base_schema_request_body(
             body=body,
@@ -1129,18 +1099,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_anyof_with_base_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_anyof_with_base_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_anyof_with_base_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_anyof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithBaseSchema**](../../models/AnyofWithBaseSchema.md) |  | 
+[**AnyofWithBaseSchema**](../../components/schema/AnyofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1148,9 +1118,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_anyof_with_base_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_anyof_with_base_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_anyof_with_base_schema_request_body.ApiResponseFor200
+#### <a id="post_anyof_with_base_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1165,8 +1135,6 @@ No authorization required
 
 # **post_anyof_with_one_empty_schema_request_body**
 <a name="post_anyof_with_one_empty_schema_request_body"></a>
-> post_anyof_with_one_empty_schema_request_body(anyof_with_one_empty_schema)
-
 
 
 ### Example
@@ -1174,7 +1142,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1200,18 +1168,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_anyof_with_one_empty_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_anyof_with_one_empty_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_anyof_with_one_empty_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_anyof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithOneEmptySchema**](../../models/AnyofWithOneEmptySchema.md) |  | 
+[**AnyofWithOneEmptySchema**](../../components/schema/AnyofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1219,9 +1187,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_anyof_with_one_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_anyof_with_one_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_anyof_with_one_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_anyof_with_one_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1236,8 +1204,6 @@ No authorization required
 
 # **post_array_type_matches_arrays_request_body**
 <a name="post_array_type_matches_arrays_request_body"></a>
-> post_array_type_matches_arrays_request_body(array_type_matches_arrays)
-
 
 
 ### Example
@@ -1245,7 +1211,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1273,18 +1239,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_array_type_matches_arrays_request_body.request_body) | typing.Union[[request_body.application_json](#post_array_type_matches_arrays_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_array_type_matches_arrays_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_array_type_matches_arrays_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Return Types, Responses
@@ -1292,9 +1258,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_array_type_matches_arrays_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_array_type_matches_arrays_request_body.response_for_200.ApiResponse) | success
 
-#### post_array_type_matches_arrays_request_body.ApiResponseFor200
+#### <a id="post_array_type_matches_arrays_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1309,8 +1275,6 @@ No authorization required
 
 # **post_boolean_type_matches_booleans_request_body**
 <a name="post_boolean_type_matches_booleans_request_body"></a>
-> post_boolean_type_matches_booleans_request_body(body)
-
 
 
 ### Example
@@ -1318,6 +1282,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1331,7 +1296,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = True
+    body = BooleanTypeMatchesBooleans(True)
     try:
         api_response = api_instance.post_boolean_type_matches_booleans_request_body(
             body=body,
@@ -1343,29 +1308,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_boolean_type_matches_booleans_request_body.request_body) | typing.Union[[request_body.application_json](#post_boolean_type_matches_booleans_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_boolean_type_matches_booleans_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_boolean_type_matches_booleans_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool,  | BoolClass,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_boolean_type_matches_booleans_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_boolean_type_matches_booleans_request_body.response_for_200.ApiResponse) | success
 
-#### post_boolean_type_matches_booleans_request_body.ApiResponseFor200
+#### <a id="post_boolean_type_matches_booleans_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1380,8 +1344,6 @@ No authorization required
 
 # **post_by_int_request_body**
 <a name="post_by_int_request_body"></a>
-> post_by_int_request_body(body)
-
 
 
 ### Example
@@ -1389,7 +1351,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.by_int import ByInt
+from unit_test_api.components.schema.by_int import ByInt
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1415,18 +1377,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_by_int_request_body.request_body) | typing.Union[[request_body.application_json](#post_by_int_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_by_int_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_by_int_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../models/ByInt.md) |  | 
+[**ByInt**](../../components/schema/ByInt.md) |  | 
 
 
 ### Return Types, Responses
@@ -1434,9 +1396,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_int_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_int_request_body.response_for_200.ApiResponse) | success
 
-#### post_by_int_request_body.ApiResponseFor200
+#### <a id="post_by_int_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1451,8 +1413,6 @@ No authorization required
 
 # **post_by_number_request_body**
 <a name="post_by_number_request_body"></a>
-> post_by_number_request_body(body)
-
 
 
 ### Example
@@ -1460,7 +1420,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.by_number import ByNumber
+from unit_test_api.components.schema.by_number import ByNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1486,18 +1446,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_by_number_request_body.request_body) | typing.Union[[request_body.application_json](#post_by_number_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_by_number_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_by_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../models/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/ByNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -1505,9 +1465,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_number_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_number_request_body.response_for_200.ApiResponse) | success
 
-#### post_by_number_request_body.ApiResponseFor200
+#### <a id="post_by_number_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1522,8 +1482,6 @@ No authorization required
 
 # **post_by_small_number_request_body**
 <a name="post_by_small_number_request_body"></a>
-> post_by_small_number_request_body(body)
-
 
 
 ### Example
@@ -1531,7 +1489,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.by_small_number import BySmallNumber
+from unit_test_api.components.schema.by_small_number import BySmallNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1557,18 +1515,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_by_small_number_request_body.request_body) | typing.Union[[request_body.application_json](#post_by_small_number_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_by_small_number_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_by_small_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../models/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -1576,9 +1534,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_small_number_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_small_number_request_body.response_for_200.ApiResponse) | success
 
-#### post_by_small_number_request_body.ApiResponseFor200
+#### <a id="post_by_small_number_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1593,8 +1551,6 @@ No authorization required
 
 # **post_date_time_format_request_body**
 <a name="post_date_time_format_request_body"></a>
-> post_date_time_format_request_body(body)
-
 
 
 ### Example
@@ -1602,6 +1558,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.date_time_format import DateTimeFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1615,7 +1572,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = DateTimeFormat(None)
     try:
         api_response = api_instance.post_date_time_format_request_body(
             body=body,
@@ -1627,29 +1584,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_date_time_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_date_time_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_date_time_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_date_time_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | value must conform to RFC-3339 date-time
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_date_time_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_date_time_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_date_time_format_request_body.ApiResponseFor200
+#### <a id="post_date_time_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1664,8 +1620,6 @@ No authorization required
 
 # **post_email_format_request_body**
 <a name="post_email_format_request_body"></a>
-> post_email_format_request_body(body)
-
 
 
 ### Example
@@ -1673,6 +1627,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.email_format import EmailFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1686,7 +1641,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = EmailFormat(None)
     try:
         api_response = api_instance.post_email_format_request_body(
             body=body,
@@ -1698,29 +1653,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_email_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_email_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_email_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_email_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_email_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_email_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_email_format_request_body.ApiResponseFor200
+#### <a id="post_email_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1735,8 +1689,6 @@ No authorization required
 
 # **post_enum_with0_does_not_match_false_request_body**
 <a name="post_enum_with0_does_not_match_false_request_body"></a>
-> post_enum_with0_does_not_match_false_request_body(body)
-
 
 
 ### Example
@@ -1744,7 +1696,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1770,18 +1722,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with0_does_not_match_false_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with0_does_not_match_false_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with0_does_not_match_false_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with0_does_not_match_false_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../models/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Return Types, Responses
@@ -1789,9 +1741,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with0_does_not_match_false_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with0_does_not_match_false_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with0_does_not_match_false_request_body.ApiResponseFor200
+#### <a id="post_enum_with0_does_not_match_false_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1806,8 +1758,6 @@ No authorization required
 
 # **post_enum_with1_does_not_match_true_request_body**
 <a name="post_enum_with1_does_not_match_true_request_body"></a>
-> post_enum_with1_does_not_match_true_request_body(body)
-
 
 
 ### Example
@@ -1815,7 +1765,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
+from unit_test_api.components.schema.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1841,18 +1791,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with1_does_not_match_true_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with1_does_not_match_true_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with1_does_not_match_true_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with1_does_not_match_true_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../models/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Return Types, Responses
@@ -1860,9 +1810,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with1_does_not_match_true_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with1_does_not_match_true_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with1_does_not_match_true_request_body.ApiResponseFor200
+#### <a id="post_enum_with1_does_not_match_true_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1877,8 +1827,6 @@ No authorization required
 
 # **post_enum_with_escaped_characters_request_body**
 <a name="post_enum_with_escaped_characters_request_body"></a>
-> post_enum_with_escaped_characters_request_body(body)
-
 
 
 ### Example
@@ -1886,7 +1834,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1912,18 +1860,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with_escaped_characters_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with_escaped_characters_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with_escaped_characters_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../models/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/EnumWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -1931,9 +1879,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_escaped_characters_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_escaped_characters_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with_escaped_characters_request_body.ApiResponseFor200
+#### <a id="post_enum_with_escaped_characters_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1948,8 +1896,6 @@ No authorization required
 
 # **post_enum_with_false_does_not_match0_request_body**
 <a name="post_enum_with_false_does_not_match0_request_body"></a>
-> post_enum_with_false_does_not_match0_request_body(body)
-
 
 
 ### Example
@@ -1957,7 +1903,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
+from unit_test_api.components.schema.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1983,18 +1929,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with_false_does_not_match0_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with_false_does_not_match0_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with_false_does_not_match0_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with_false_does_not_match0_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../models/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Return Types, Responses
@@ -2002,9 +1948,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_false_does_not_match0_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_false_does_not_match0_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with_false_does_not_match0_request_body.ApiResponseFor200
+#### <a id="post_enum_with_false_does_not_match0_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2019,8 +1965,6 @@ No authorization required
 
 # **post_enum_with_true_does_not_match1_request_body**
 <a name="post_enum_with_true_does_not_match1_request_body"></a>
-> post_enum_with_true_does_not_match1_request_body(body)
-
 
 
 ### Example
@@ -2028,7 +1972,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
+from unit_test_api.components.schema.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2054,18 +1998,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with_true_does_not_match1_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with_true_does_not_match1_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with_true_does_not_match1_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with_true_does_not_match1_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../models/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Return Types, Responses
@@ -2073,9 +2017,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_true_does_not_match1_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_true_does_not_match1_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with_true_does_not_match1_request_body.ApiResponseFor200
+#### <a id="post_enum_with_true_does_not_match1_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2090,8 +2034,6 @@ No authorization required
 
 # **post_enums_in_properties_request_body**
 <a name="post_enums_in_properties_request_body"></a>
-> post_enums_in_properties_request_body(enums_in_properties)
-
 
 
 ### Example
@@ -2099,7 +2041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2128,18 +2070,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enums_in_properties_request_body.request_body) | typing.Union[[request_body.application_json](#post_enums_in_properties_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enums_in_properties_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enums_in_properties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../models/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/EnumsInProperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -2147,9 +2089,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enums_in_properties_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enums_in_properties_request_body.response_for_200.ApiResponse) | success
 
-#### post_enums_in_properties_request_body.ApiResponseFor200
+#### <a id="post_enums_in_properties_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2164,8 +2106,6 @@ No authorization required
 
 # **post_forbidden_property_request_body**
 <a name="post_forbidden_property_request_body"></a>
-> post_forbidden_property_request_body(forbidden_property)
-
 
 
 ### Example
@@ -2173,7 +2113,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2199,18 +2139,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_forbidden_property_request_body.request_body) | typing.Union[[request_body.application_json](#post_forbidden_property_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_forbidden_property_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -2218,9 +2158,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_forbidden_property_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_forbidden_property_request_body.response_for_200.ApiResponse) | success
 
-#### post_forbidden_property_request_body.ApiResponseFor200
+#### <a id="post_forbidden_property_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2235,8 +2175,6 @@ No authorization required
 
 # **post_hostname_format_request_body**
 <a name="post_hostname_format_request_body"></a>
-> post_hostname_format_request_body(body)
-
 
 
 ### Example
@@ -2244,6 +2182,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.hostname_format import HostnameFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2257,7 +2196,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = HostnameFormat(None)
     try:
         api_response = api_instance.post_hostname_format_request_body(
             body=body,
@@ -2269,29 +2208,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_hostname_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_hostname_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_hostname_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_hostname_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_hostname_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_hostname_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_hostname_format_request_body.ApiResponseFor200
+#### <a id="post_hostname_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2306,8 +2244,6 @@ No authorization required
 
 # **post_integer_type_matches_integers_request_body**
 <a name="post_integer_type_matches_integers_request_body"></a>
-> post_integer_type_matches_integers_request_body(body)
-
 
 
 ### Example
@@ -2315,6 +2251,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2328,7 +2265,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = 1
+    body = IntegerTypeMatchesIntegers(1)
     try:
         api_response = api_instance.post_integer_type_matches_integers_request_body(
             body=body,
@@ -2340,29 +2277,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_integer_type_matches_integers_request_body.request_body) | typing.Union[[request_body.application_json](#post_integer_type_matches_integers_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_integer_type_matches_integers_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_integer_type_matches_integers_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_integer_type_matches_integers_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_integer_type_matches_integers_request_body.response_for_200.ApiResponse) | success
 
-#### post_integer_type_matches_integers_request_body.ApiResponseFor200
+#### <a id="post_integer_type_matches_integers_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2377,8 +2313,6 @@ No authorization required
 
 # **post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body**
 <a name="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body"></a>
-> post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body(body)
-
 
 
 ### Example
@@ -2386,7 +2320,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+from unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2412,18 +2346,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body) | typing.Union[[request_body.application_json](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Return Types, Responses
@@ -2431,9 +2365,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.response_for_200.ApiResponse) | success
 
-#### post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.ApiResponseFor200
+#### <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2448,8 +2382,6 @@ No authorization required
 
 # **post_invalid_string_value_for_default_request_body**
 <a name="post_invalid_string_value_for_default_request_body"></a>
-> post_invalid_string_value_for_default_request_body(invalid_string_value_for_default)
-
 
 
 ### Example
@@ -2457,7 +2389,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.invalid_string_value_for_default import InvalidStringValueForDefault
+from unit_test_api.components.schema.invalid_string_value_for_default import InvalidStringValueForDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2483,18 +2415,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_invalid_string_value_for_default_request_body.request_body) | typing.Union[[request_body.application_json](#post_invalid_string_value_for_default_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_invalid_string_value_for_default_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_invalid_string_value_for_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../models/InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../components/schema/InvalidStringValueForDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -2502,9 +2434,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_invalid_string_value_for_default_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_invalid_string_value_for_default_request_body.response_for_200.ApiResponse) | success
 
-#### post_invalid_string_value_for_default_request_body.ApiResponseFor200
+#### <a id="post_invalid_string_value_for_default_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2519,8 +2451,6 @@ No authorization required
 
 # **post_ipv4_format_request_body**
 <a name="post_ipv4_format_request_body"></a>
-> post_ipv4_format_request_body(body)
-
 
 
 ### Example
@@ -2528,6 +2458,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.ipv4_format import Ipv4Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2541,7 +2472,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = Ipv4Format(None)
     try:
         api_response = api_instance.post_ipv4_format_request_body(
             body=body,
@@ -2553,29 +2484,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ipv4_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_ipv4_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ipv4_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ipv4_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ipv4_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ipv4_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_ipv4_format_request_body.ApiResponseFor200
+#### <a id="post_ipv4_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2590,8 +2520,6 @@ No authorization required
 
 # **post_ipv6_format_request_body**
 <a name="post_ipv6_format_request_body"></a>
-> post_ipv6_format_request_body(body)
-
 
 
 ### Example
@@ -2599,6 +2527,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.ipv6_format import Ipv6Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2612,7 +2541,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = Ipv6Format(None)
     try:
         api_response = api_instance.post_ipv6_format_request_body(
             body=body,
@@ -2624,29 +2553,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ipv6_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_ipv6_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ipv6_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ipv6_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ipv6_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ipv6_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_ipv6_format_request_body.ApiResponseFor200
+#### <a id="post_ipv6_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2661,8 +2589,6 @@ No authorization required
 
 # **post_json_pointer_format_request_body**
 <a name="post_json_pointer_format_request_body"></a>
-> post_json_pointer_format_request_body(body)
-
 
 
 ### Example
@@ -2670,6 +2596,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2683,7 +2610,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = JsonPointerFormat(None)
     try:
         api_response = api_instance.post_json_pointer_format_request_body(
             body=body,
@@ -2695,29 +2622,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_json_pointer_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_json_pointer_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_json_pointer_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_json_pointer_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_json_pointer_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_json_pointer_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_json_pointer_format_request_body.ApiResponseFor200
+#### <a id="post_json_pointer_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2732,8 +2658,6 @@ No authorization required
 
 # **post_maximum_validation_request_body**
 <a name="post_maximum_validation_request_body"></a>
-> post_maximum_validation_request_body(body)
-
 
 
 ### Example
@@ -2741,7 +2665,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maximum_validation import MaximumValidation
+from unit_test_api.components.schema.maximum_validation import MaximumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2767,18 +2691,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maximum_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_maximum_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maximum_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maximum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidation**](../../models/MaximumValidation.md) |  | 
+[**MaximumValidation**](../../components/schema/MaximumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2786,9 +2710,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maximum_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maximum_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_maximum_validation_request_body.ApiResponseFor200
+#### <a id="post_maximum_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2803,8 +2727,6 @@ No authorization required
 
 # **post_maximum_validation_with_unsigned_integer_request_body**
 <a name="post_maximum_validation_with_unsigned_integer_request_body"></a>
-> post_maximum_validation_with_unsigned_integer_request_body(body)
-
 
 
 ### Example
@@ -2812,7 +2734,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
+from unit_test_api.components.schema.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2838,18 +2760,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maximum_validation_with_unsigned_integer_request_body.request_body) | typing.Union[[request_body.application_json](#post_maximum_validation_with_unsigned_integer_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maximum_validation_with_unsigned_integer_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maximum_validation_with_unsigned_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidationWithUnsignedInteger**](../../models/MaximumValidationWithUnsignedInteger.md) |  | 
+[**MaximumValidationWithUnsignedInteger**](../../components/schema/MaximumValidationWithUnsignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -2857,9 +2779,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maximum_validation_with_unsigned_integer_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maximum_validation_with_unsigned_integer_request_body.response_for_200.ApiResponse) | success
 
-#### post_maximum_validation_with_unsigned_integer_request_body.ApiResponseFor200
+#### <a id="post_maximum_validation_with_unsigned_integer_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2874,8 +2796,6 @@ No authorization required
 
 # **post_maxitems_validation_request_body**
 <a name="post_maxitems_validation_request_body"></a>
-> post_maxitems_validation_request_body(body)
-
 
 
 ### Example
@@ -2883,7 +2803,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxitems_validation import MaxitemsValidation
+from unit_test_api.components.schema.maxitems_validation import MaxitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2909,18 +2829,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maxitems_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_maxitems_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maxitems_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maxitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxitemsValidation**](../../models/MaxitemsValidation.md) |  | 
+[**MaxitemsValidation**](../../components/schema/MaxitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2928,9 +2848,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maxitems_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maxitems_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_maxitems_validation_request_body.ApiResponseFor200
+#### <a id="post_maxitems_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -2945,8 +2865,6 @@ No authorization required
 
 # **post_maxlength_validation_request_body**
 <a name="post_maxlength_validation_request_body"></a>
-> post_maxlength_validation_request_body(body)
-
 
 
 ### Example
@@ -2954,7 +2872,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2980,18 +2898,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maxlength_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_maxlength_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maxlength_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maxlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxlengthValidation**](../../models/MaxlengthValidation.md) |  | 
+[**MaxlengthValidation**](../../components/schema/MaxlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2999,9 +2917,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maxlength_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maxlength_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_maxlength_validation_request_body.ApiResponseFor200
+#### <a id="post_maxlength_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3016,8 +2934,6 @@ No authorization required
 
 # **post_maxproperties0_means_the_object_is_empty_request_body**
 <a name="post_maxproperties0_means_the_object_is_empty_request_body"></a>
-> post_maxproperties0_means_the_object_is_empty_request_body(body)
-
 
 
 ### Example
@@ -3025,7 +2941,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
+from unit_test_api.components.schema.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3051,18 +2967,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maxproperties0_means_the_object_is_empty_request_body.request_body) | typing.Union[[request_body.application_json](#post_maxproperties0_means_the_object_is_empty_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maxproperties0_means_the_object_is_empty_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maxproperties0_means_the_object_is_empty_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../models/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Return Types, Responses
@@ -3070,9 +2986,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maxproperties0_means_the_object_is_empty_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maxproperties0_means_the_object_is_empty_request_body.response_for_200.ApiResponse) | success
 
-#### post_maxproperties0_means_the_object_is_empty_request_body.ApiResponseFor200
+#### <a id="post_maxproperties0_means_the_object_is_empty_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3087,8 +3003,6 @@ No authorization required
 
 # **post_maxproperties_validation_request_body**
 <a name="post_maxproperties_validation_request_body"></a>
-> post_maxproperties_validation_request_body(body)
-
 
 
 ### Example
@@ -3096,7 +3010,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxproperties_validation import MaxpropertiesValidation
+from unit_test_api.components.schema.maxproperties_validation import MaxpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3122,18 +3036,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_maxproperties_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_maxproperties_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_maxproperties_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_maxproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../models/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3141,9 +3055,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_maxproperties_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_maxproperties_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_maxproperties_validation_request_body.ApiResponseFor200
+#### <a id="post_maxproperties_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3158,8 +3072,6 @@ No authorization required
 
 # **post_minimum_validation_request_body**
 <a name="post_minimum_validation_request_body"></a>
-> post_minimum_validation_request_body(body)
-
 
 
 ### Example
@@ -3167,7 +3079,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minimum_validation import MinimumValidation
+from unit_test_api.components.schema.minimum_validation import MinimumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3193,18 +3105,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_minimum_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_minimum_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_minimum_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_minimum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../models/MinimumValidation.md) |  | 
+[**MinimumValidation**](../../components/schema/MinimumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3212,9 +3124,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minimum_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minimum_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_minimum_validation_request_body.ApiResponseFor200
+#### <a id="post_minimum_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3229,8 +3141,6 @@ No authorization required
 
 # **post_minimum_validation_with_signed_integer_request_body**
 <a name="post_minimum_validation_with_signed_integer_request_body"></a>
-> post_minimum_validation_with_signed_integer_request_body(body)
-
 
 
 ### Example
@@ -3238,7 +3148,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3264,18 +3174,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_minimum_validation_with_signed_integer_request_body.request_body) | typing.Union[[request_body.application_json](#post_minimum_validation_with_signed_integer_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_minimum_validation_with_signed_integer_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_minimum_validation_with_signed_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../models/MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../components/schema/MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -3283,9 +3193,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minimum_validation_with_signed_integer_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minimum_validation_with_signed_integer_request_body.response_for_200.ApiResponse) | success
 
-#### post_minimum_validation_with_signed_integer_request_body.ApiResponseFor200
+#### <a id="post_minimum_validation_with_signed_integer_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3300,8 +3210,6 @@ No authorization required
 
 # **post_minitems_validation_request_body**
 <a name="post_minitems_validation_request_body"></a>
-> post_minitems_validation_request_body(body)
-
 
 
 ### Example
@@ -3309,7 +3217,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minitems_validation import MinitemsValidation
+from unit_test_api.components.schema.minitems_validation import MinitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3335,18 +3243,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_minitems_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_minitems_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_minitems_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_minitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinitemsValidation**](../../models/MinitemsValidation.md) |  | 
+[**MinitemsValidation**](../../components/schema/MinitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3354,9 +3262,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minitems_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minitems_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_minitems_validation_request_body.ApiResponseFor200
+#### <a id="post_minitems_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3371,8 +3279,6 @@ No authorization required
 
 # **post_minlength_validation_request_body**
 <a name="post_minlength_validation_request_body"></a>
-> post_minlength_validation_request_body(body)
-
 
 
 ### Example
@@ -3380,7 +3286,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minlength_validation import MinlengthValidation
+from unit_test_api.components.schema.minlength_validation import MinlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3406,18 +3312,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_minlength_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_minlength_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_minlength_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_minlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinlengthValidation**](../../models/MinlengthValidation.md) |  | 
+[**MinlengthValidation**](../../components/schema/MinlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3425,9 +3331,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minlength_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minlength_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_minlength_validation_request_body.ApiResponseFor200
+#### <a id="post_minlength_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3442,8 +3348,6 @@ No authorization required
 
 # **post_minproperties_validation_request_body**
 <a name="post_minproperties_validation_request_body"></a>
-> post_minproperties_validation_request_body(body)
-
 
 
 ### Example
@@ -3451,7 +3355,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minproperties_validation import MinpropertiesValidation
+from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3477,18 +3381,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_minproperties_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_minproperties_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_minproperties_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_minproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinpropertiesValidation**](../../models/MinpropertiesValidation.md) |  | 
+[**MinpropertiesValidation**](../../components/schema/MinpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3496,9 +3400,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minproperties_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minproperties_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_minproperties_validation_request_body.ApiResponseFor200
+#### <a id="post_minproperties_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3513,8 +3417,6 @@ No authorization required
 
 # **post_nested_allof_to_check_validation_semantics_request_body**
 <a name="post_nested_allof_to_check_validation_semantics_request_body"></a>
-> post_nested_allof_to_check_validation_semantics_request_body(nested_allof_to_check_validation_semantics)
-
 
 
 ### Example
@@ -3522,7 +3424,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3548,18 +3450,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nested_allof_to_check_validation_semantics_request_body.request_body) | typing.Union[[request_body.application_json](#post_nested_allof_to_check_validation_semantics_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nested_allof_to_check_validation_semantics_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nested_allof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -3567,9 +3469,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_allof_to_check_validation_semantics_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_allof_to_check_validation_semantics_request_body.response_for_200.ApiResponse) | success
 
-#### post_nested_allof_to_check_validation_semantics_request_body.ApiResponseFor200
+#### <a id="post_nested_allof_to_check_validation_semantics_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3584,8 +3486,6 @@ No authorization required
 
 # **post_nested_anyof_to_check_validation_semantics_request_body**
 <a name="post_nested_anyof_to_check_validation_semantics_request_body"></a>
-> post_nested_anyof_to_check_validation_semantics_request_body(nested_anyof_to_check_validation_semantics)
-
 
 
 ### Example
@@ -3593,7 +3493,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3619,18 +3519,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nested_anyof_to_check_validation_semantics_request_body.request_body) | typing.Union[[request_body.application_json](#post_nested_anyof_to_check_validation_semantics_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nested_anyof_to_check_validation_semantics_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nested_anyof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAnyofToCheckValidationSemantics**](../../models/NestedAnyofToCheckValidationSemantics.md) |  | 
+[**NestedAnyofToCheckValidationSemantics**](../../components/schema/NestedAnyofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -3638,9 +3538,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_anyof_to_check_validation_semantics_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_anyof_to_check_validation_semantics_request_body.response_for_200.ApiResponse) | success
 
-#### post_nested_anyof_to_check_validation_semantics_request_body.ApiResponseFor200
+#### <a id="post_nested_anyof_to_check_validation_semantics_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3655,8 +3555,6 @@ No authorization required
 
 # **post_nested_items_request_body**
 <a name="post_nested_items_request_body"></a>
-> post_nested_items_request_body(nested_items)
-
 
 
 ### Example
@@ -3664,7 +3562,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_items import NestedItems
+from unit_test_api.components.schema.nested_items import NestedItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3698,18 +3596,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nested_items_request_body.request_body) | typing.Union[[request_body.application_json](#post_nested_items_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nested_items_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nested_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedItems**](../../models/NestedItems.md) |  | 
+[**NestedItems**](../../components/schema/NestedItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -3717,9 +3615,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_items_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_items_request_body.response_for_200.ApiResponse) | success
 
-#### post_nested_items_request_body.ApiResponseFor200
+#### <a id="post_nested_items_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3734,8 +3632,6 @@ No authorization required
 
 # **post_nested_oneof_to_check_validation_semantics_request_body**
 <a name="post_nested_oneof_to_check_validation_semantics_request_body"></a>
-> post_nested_oneof_to_check_validation_semantics_request_body(nested_oneof_to_check_validation_semantics)
-
 
 
 ### Example
@@ -3743,7 +3639,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3769,18 +3665,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nested_oneof_to_check_validation_semantics_request_body.request_body) | typing.Union[[request_body.application_json](#post_nested_oneof_to_check_validation_semantics_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nested_oneof_to_check_validation_semantics_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nested_oneof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -3788,9 +3684,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_oneof_to_check_validation_semantics_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_oneof_to_check_validation_semantics_request_body.response_for_200.ApiResponse) | success
 
-#### post_nested_oneof_to_check_validation_semantics_request_body.ApiResponseFor200
+#### <a id="post_nested_oneof_to_check_validation_semantics_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3805,8 +3701,6 @@ No authorization required
 
 # **post_not_more_complex_schema_request_body**
 <a name="post_not_more_complex_schema_request_body"></a>
-> post_not_more_complex_schema_request_body(body)
-
 
 
 ### Example
@@ -3814,6 +3708,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3827,7 +3722,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = NotMoreComplexSchema(None)
     try:
         api_response = api_instance.post_not_more_complex_schema_request_body(
             body=body,
@@ -3839,48 +3734,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_not_more_complex_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_not_more_complex_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_not_more_complex_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**foo** | str,  | str,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_not_more_complex_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_not_more_complex_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_not_more_complex_schema_request_body.ApiResponseFor200
+#### <a id="post_not_more_complex_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3895,8 +3770,6 @@ No authorization required
 
 # **post_not_request_body**
 <a name="post_not_request_body"></a>
-> post_not_request_body(body)
-
 
 
 ### Example
@@ -3904,6 +3777,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.model_not import ModelNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3917,7 +3791,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = ModelNot(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
@@ -3929,42 +3803,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_not_request_body.request_body) | typing.Union[[request_body.application_json](#post_not_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_not_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ModelNot**](../../components/schema/ModelNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | decimal.Decimal, int,  | decimal.Decimal,  |  | 
-
-# not_schema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_not_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_not_request_body.response_for_200.ApiResponse) | success
 
-#### post_not_request_body.ApiResponseFor200
+#### <a id="post_not_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -3979,8 +3839,6 @@ No authorization required
 
 # **post_nul_characters_in_strings_request_body**
 <a name="post_nul_characters_in_strings_request_body"></a>
-> post_nul_characters_in_strings_request_body(body)
-
 
 
 ### Example
@@ -3988,7 +3846,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4014,18 +3872,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nul_characters_in_strings_request_body.request_body) | typing.Union[[request_body.application_json](#post_nul_characters_in_strings_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nul_characters_in_strings_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nul_characters_in_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../models/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/NulCharactersInStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -4033,9 +3891,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nul_characters_in_strings_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nul_characters_in_strings_request_body.response_for_200.ApiResponse) | success
 
-#### post_nul_characters_in_strings_request_body.ApiResponseFor200
+#### <a id="post_nul_characters_in_strings_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4050,8 +3908,6 @@ No authorization required
 
 # **post_null_type_matches_only_the_null_object_request_body**
 <a name="post_null_type_matches_only_the_null_object_request_body"></a>
-> post_null_type_matches_only_the_null_object_request_body(body)
-
 
 
 ### Example
@@ -4059,6 +3915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4072,7 +3929,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = NullTypeMatchesOnlyTheNullObject(None)
     try:
         api_response = api_instance.post_null_type_matches_only_the_null_object_request_body(
             body=body,
@@ -4084,29 +3941,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_null_type_matches_only_the_null_object_request_body.request_body) | typing.Union[[request_body.application_json](#post_null_type_matches_only_the_null_object_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_null_type_matches_only_the_null_object_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_null_type_matches_only_the_null_object_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None,  | NoneClass,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_null_type_matches_only_the_null_object_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_null_type_matches_only_the_null_object_request_body.response_for_200.ApiResponse) | success
 
-#### post_null_type_matches_only_the_null_object_request_body.ApiResponseFor200
+#### <a id="post_null_type_matches_only_the_null_object_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4121,8 +3977,6 @@ No authorization required
 
 # **post_number_type_matches_numbers_request_body**
 <a name="post_number_type_matches_numbers_request_body"></a>
-> post_number_type_matches_numbers_request_body(body)
-
 
 
 ### Example
@@ -4130,6 +3984,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4143,7 +3998,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = 3.14
+    body = NumberTypeMatchesNumbers(3.14)
     try:
         api_response = api_instance.post_number_type_matches_numbers_request_body(
             body=body,
@@ -4155,29 +4010,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_number_type_matches_numbers_request_body.request_body) | typing.Union[[request_body.application_json](#post_number_type_matches_numbers_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_number_type_matches_numbers_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_number_type_matches_numbers_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int, float,  | decimal.Decimal,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_number_type_matches_numbers_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_number_type_matches_numbers_request_body.response_for_200.ApiResponse) | success
 
-#### post_number_type_matches_numbers_request_body.ApiResponseFor200
+#### <a id="post_number_type_matches_numbers_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4192,8 +4046,6 @@ No authorization required
 
 # **post_object_properties_validation_request_body**
 <a name="post_object_properties_validation_request_body"></a>
-> post_object_properties_validation_request_body(object_properties_validation)
-
 
 
 ### Example
@@ -4201,7 +4053,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4227,18 +4079,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_object_properties_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_object_properties_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_object_properties_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_object_properties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectPropertiesValidation**](../../models/ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../components/schema/ObjectPropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -4246,9 +4098,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_object_properties_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_object_properties_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_object_properties_validation_request_body.ApiResponseFor200
+#### <a id="post_object_properties_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4263,8 +4115,6 @@ No authorization required
 
 # **post_object_type_matches_objects_request_body**
 <a name="post_object_type_matches_objects_request_body"></a>
-> post_object_type_matches_objects_request_body(body)
-
 
 
 ### Example
@@ -4272,6 +4122,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4285,7 +4136,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = dict()
+    body = ObjectTypeMatchesObjects()
     try:
         api_response = api_instance.post_object_type_matches_objects_request_body(
             body=body,
@@ -4297,29 +4148,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_object_type_matches_objects_request_body.request_body) | typing.Union[[request_body.application_json](#post_object_type_matches_objects_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_object_type_matches_objects_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_object_type_matches_objects_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_object_type_matches_objects_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_object_type_matches_objects_request_body.response_for_200.ApiResponse) | success
 
-#### post_object_type_matches_objects_request_body.ApiResponseFor200
+#### <a id="post_object_type_matches_objects_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4334,8 +4184,6 @@ No authorization required
 
 # **post_oneof_complex_types_request_body**
 <a name="post_oneof_complex_types_request_body"></a>
-> post_oneof_complex_types_request_body(oneof_complex_types)
-
 
 
 ### Example
@@ -4343,7 +4191,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_complex_types import OneofComplexTypes
+from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4369,18 +4217,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_oneof_complex_types_request_body.request_body) | typing.Union[[request_body.application_json](#post_oneof_complex_types_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_complex_types_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_oneof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -4388,9 +4236,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_complex_types_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_complex_types_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_complex_types_request_body.ApiResponseFor200
+#### <a id="post_oneof_complex_types_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4405,8 +4253,6 @@ No authorization required
 
 # **post_oneof_request_body**
 <a name="post_oneof_request_body"></a>
-> post_oneof_request_body(oneof)
-
 
 
 ### Example
@@ -4414,7 +4260,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof import Oneof
+from unit_test_api.components.schema.oneof import Oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4440,18 +4286,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_oneof_request_body.request_body) | typing.Union[[request_body.application_json](#post_oneof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../models/Oneof.md) |  | 
+[**Oneof**](../../components/schema/Oneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -4459,9 +4305,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_request_body.ApiResponseFor200
+#### <a id="post_oneof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4476,8 +4322,6 @@ No authorization required
 
 # **post_oneof_with_base_schema_request_body**
 <a name="post_oneof_with_base_schema_request_body"></a>
-> post_oneof_with_base_schema_request_body(body)
-
 
 
 ### Example
@@ -4485,7 +4329,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_with_base_schema import OneofWithBaseSchema
+from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4499,7 +4343,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithBaseSchema("body_example")
+    body = OneofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_oneof_with_base_schema_request_body(
             body=body,
@@ -4511,18 +4355,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_oneof_with_base_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_oneof_with_base_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_with_base_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_oneof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -4530,9 +4374,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_base_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_base_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_base_schema_request_body.ApiResponseFor200
+#### <a id="post_oneof_with_base_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4547,8 +4391,6 @@ No authorization required
 
 # **post_oneof_with_empty_schema_request_body**
 <a name="post_oneof_with_empty_schema_request_body"></a>
-> post_oneof_with_empty_schema_request_body(oneof_with_empty_schema)
-
 
 
 ### Example
@@ -4556,7 +4398,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4582,18 +4424,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_oneof_with_empty_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_oneof_with_empty_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_with_empty_schema_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_oneof_with_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -4601,9 +4443,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_oneof_with_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4618,8 +4460,6 @@ No authorization required
 
 # **post_oneof_with_required_request_body**
 <a name="post_oneof_with_required_request_body"></a>
-> post_oneof_with_required_request_body(oneof_with_required)
-
 
 
 ### Example
@@ -4627,7 +4467,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_with_required import OneofWithRequired
+from unit_test_api.components.schema.oneof_with_required import OneofWithRequired
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4653,18 +4493,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_oneof_with_required_request_body.request_body) | typing.Union[[request_body.application_json](#post_oneof_with_required_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_with_required_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_oneof_with_required_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
 
 
 ### Return Types, Responses
@@ -4672,9 +4512,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_required_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_required_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_required_request_body.ApiResponseFor200
+#### <a id="post_oneof_with_required_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4689,8 +4529,6 @@ No authorization required
 
 # **post_pattern_is_not_anchored_request_body**
 <a name="post_pattern_is_not_anchored_request_body"></a>
-> post_pattern_is_not_anchored_request_body(body)
-
 
 
 ### Example
@@ -4698,7 +4536,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4724,18 +4562,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_pattern_is_not_anchored_request_body.request_body) | typing.Union[[request_body.application_json](#post_pattern_is_not_anchored_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_pattern_is_not_anchored_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_pattern_is_not_anchored_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternIsNotAnchored**](../../models/PatternIsNotAnchored.md) |  | 
+[**PatternIsNotAnchored**](../../components/schema/PatternIsNotAnchored.md) |  | 
 
 
 ### Return Types, Responses
@@ -4743,9 +4581,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_pattern_is_not_anchored_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_pattern_is_not_anchored_request_body.response_for_200.ApiResponse) | success
 
-#### post_pattern_is_not_anchored_request_body.ApiResponseFor200
+#### <a id="post_pattern_is_not_anchored_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4760,8 +4598,6 @@ No authorization required
 
 # **post_pattern_validation_request_body**
 <a name="post_pattern_validation_request_body"></a>
-> post_pattern_validation_request_body(body)
-
 
 
 ### Example
@@ -4769,7 +4605,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.pattern_validation import PatternValidation
+from unit_test_api.components.schema.pattern_validation import PatternValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4795,18 +4631,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_pattern_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_pattern_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_pattern_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_pattern_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternValidation**](../../models/PatternValidation.md) |  | 
+[**PatternValidation**](../../components/schema/PatternValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -4814,9 +4650,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_pattern_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_pattern_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_pattern_validation_request_body.ApiResponseFor200
+#### <a id="post_pattern_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4831,8 +4667,6 @@ No authorization required
 
 # **post_properties_with_escaped_characters_request_body**
 <a name="post_properties_with_escaped_characters_request_body"></a>
-> post_properties_with_escaped_characters_request_body(properties_with_escaped_characters)
-
 
 
 ### Example
@@ -4840,7 +4674,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4866,18 +4700,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_properties_with_escaped_characters_request_body.request_body) | typing.Union[[request_body.application_json](#post_properties_with_escaped_characters_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_properties_with_escaped_characters_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_properties_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../models/PropertiesWithEscapedCharacters.md) |  | 
+[**PropertiesWithEscapedCharacters**](../../components/schema/PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -4885,9 +4719,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_properties_with_escaped_characters_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_properties_with_escaped_characters_request_body.response_for_200.ApiResponse) | success
 
-#### post_properties_with_escaped_characters_request_body.ApiResponseFor200
+#### <a id="post_properties_with_escaped_characters_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4902,8 +4736,6 @@ No authorization required
 
 # **post_property_named_ref_that_is_not_a_reference_request_body**
 <a name="post_property_named_ref_that_is_not_a_reference_request_body"></a>
-> post_property_named_ref_that_is_not_a_reference_request_body(property_named_ref_that_is_not_a_reference)
-
 
 
 ### Example
@@ -4911,7 +4743,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4937,18 +4769,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_property_named_ref_that_is_not_a_reference_request_body.request_body) | typing.Union[[request_body.application_json](#post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../models/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses
@@ -4956,9 +4788,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_property_named_ref_that_is_not_a_reference_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_property_named_ref_that_is_not_a_reference_request_body.response_for_200.ApiResponse) | success
 
-#### post_property_named_ref_that_is_not_a_reference_request_body.ApiResponseFor200
+#### <a id="post_property_named_ref_that_is_not_a_reference_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -4973,8 +4805,6 @@ No authorization required
 
 # **post_ref_in_additionalproperties_request_body**
 <a name="post_ref_in_additionalproperties_request_body"></a>
-> post_ref_in_additionalproperties_request_body(ref_in_additionalproperties)
-
 
 
 ### Example
@@ -4982,7 +4812,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5010,18 +4840,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_additionalproperties_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_additionalproperties_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_additionalproperties_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_additionalproperties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../models/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -5029,9 +4859,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_additionalproperties_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_additionalproperties_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_additionalproperties_request_body.ApiResponseFor200
+#### <a id="post_ref_in_additionalproperties_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5046,8 +4876,6 @@ No authorization required
 
 # **post_ref_in_allof_request_body**
 <a name="post_ref_in_allof_request_body"></a>
-> post_ref_in_allof_request_body(ref_in_allof)
-
 
 
 ### Example
@@ -5055,7 +4883,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_allof import RefInAllof
+from unit_test_api.components.schema.ref_in_allof import RefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5081,18 +4909,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_allof_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_allof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_allof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../models/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
 
 
 ### Return Types, Responses
@@ -5100,9 +4928,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_allof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_allof_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_allof_request_body.ApiResponseFor200
+#### <a id="post_ref_in_allof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5117,8 +4945,6 @@ No authorization required
 
 # **post_ref_in_anyof_request_body**
 <a name="post_ref_in_anyof_request_body"></a>
-> post_ref_in_anyof_request_body(ref_in_anyof)
-
 
 
 ### Example
@@ -5126,7 +4952,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5152,18 +4978,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_anyof_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_anyof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_anyof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../models/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -5171,9 +4997,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_anyof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_anyof_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_anyof_request_body.ApiResponseFor200
+#### <a id="post_ref_in_anyof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5188,8 +5014,6 @@ No authorization required
 
 # **post_ref_in_items_request_body**
 <a name="post_ref_in_items_request_body"></a>
-> post_ref_in_items_request_body(ref_in_items)
-
 
 
 ### Example
@@ -5197,7 +5021,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_items import RefInItems
+from unit_test_api.components.schema.ref_in_items import RefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5225,18 +5049,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_items_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_items_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_items_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../models/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/RefInItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -5244,9 +5068,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_items_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_items_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_items_request_body.ApiResponseFor200
+#### <a id="post_ref_in_items_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5261,8 +5085,6 @@ No authorization required
 
 # **post_ref_in_not_request_body**
 <a name="post_ref_in_not_request_body"></a>
-> post_ref_in_not_request_body(body)
-
 
 
 ### Example
@@ -5270,7 +5092,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.ref_in_not import RefInNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5284,7 +5106,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = RefInNot(None)
     try:
         api_response = api_instance.post_ref_in_not_request_body(
             body=body,
@@ -5296,35 +5118,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_not_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_not_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_not_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_not_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RefInNot**](../../components/schema/RefInNot.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
-
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[PropertyNamedRefThatIsNotAReference]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**]({{complexTypePrefix}}PropertyNamedRefThatIsNotAReference.md) |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_not_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_not_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_not_request_body.ApiResponseFor200
+#### <a id="post_ref_in_not_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5339,8 +5154,6 @@ No authorization required
 
 # **post_ref_in_oneof_request_body**
 <a name="post_ref_in_oneof_request_body"></a>
-> post_ref_in_oneof_request_body(ref_in_oneof)
-
 
 
 ### Example
@@ -5348,7 +5161,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema.ref_in_oneof import RefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5374,18 +5187,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_oneof_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_oneof_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_oneof_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../models/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -5393,9 +5206,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_oneof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_oneof_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_oneof_request_body.ApiResponseFor200
+#### <a id="post_ref_in_oneof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5410,8 +5223,6 @@ No authorization required
 
 # **post_ref_in_property_request_body**
 <a name="post_ref_in_property_request_body"></a>
-> post_ref_in_property_request_body(ref_in_property)
-
 
 
 ### Example
@@ -5419,7 +5230,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_property import RefInProperty
+from unit_test_api.components.schema.ref_in_property import RefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5445,18 +5256,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_ref_in_property_request_body.request_body) | typing.Union[[request_body.application_json](#post_ref_in_property_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_ref_in_property_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_ref_in_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../models/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -5464,9 +5275,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_ref_in_property_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_ref_in_property_request_body.response_for_200.ApiResponse) | success
 
-#### post_ref_in_property_request_body.ApiResponseFor200
+#### <a id="post_ref_in_property_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5481,8 +5292,6 @@ No authorization required
 
 # **post_required_default_validation_request_body**
 <a name="post_required_default_validation_request_body"></a>
-> post_required_default_validation_request_body(required_default_validation)
-
 
 
 ### Example
@@ -5490,7 +5299,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5516,18 +5325,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_required_default_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_default_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_required_default_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5535,9 +5344,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_required_default_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_required_default_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_required_default_validation_request_body.ApiResponseFor200
+#### <a id="post_required_default_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5552,8 +5361,6 @@ No authorization required
 
 # **post_required_validation_request_body**
 <a name="post_required_validation_request_body"></a>
-> post_required_validation_request_body(required_validation)
-
 
 
 ### Example
@@ -5561,7 +5368,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_validation import RequiredValidation
+from unit_test_api.components.schema.required_validation import RequiredValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5587,18 +5394,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_required_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_required_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../models/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5606,9 +5413,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_required_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_required_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_required_validation_request_body.ApiResponseFor200
+#### <a id="post_required_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5623,8 +5430,6 @@ No authorization required
 
 # **post_required_with_empty_array_request_body**
 <a name="post_required_with_empty_array_request_body"></a>
-> post_required_with_empty_array_request_body(required_with_empty_array)
-
 
 
 ### Example
@@ -5632,7 +5437,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5658,18 +5463,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_required_with_empty_array_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_with_empty_array_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_required_with_empty_array_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses
@@ -5677,9 +5482,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_required_with_empty_array_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_required_with_empty_array_request_body.response_for_200.ApiResponse) | success
 
-#### post_required_with_empty_array_request_body.ApiResponseFor200
+#### <a id="post_required_with_empty_array_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5694,8 +5499,6 @@ No authorization required
 
 # **post_required_with_escaped_characters_request_body**
 <a name="post_required_with_escaped_characters_request_body"></a>
-> post_required_with_escaped_characters_request_body(body)
-
 
 
 ### Example
@@ -5703,6 +5506,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.required_with_escaped_characters import RequiredWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5716,7 +5520,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = RequiredWithEscapedCharacters(None)
     try:
         api_response = api_instance.post_required_with_escaped_characters_request_body(
             body=body,
@@ -5728,29 +5532,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_required_with_escaped_characters_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_with_escaped_characters_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_required_with_escaped_characters_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_required_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_required_with_escaped_characters_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_required_with_escaped_characters_request_body.response_for_200.ApiResponse) | success
 
-#### post_required_with_escaped_characters_request_body.ApiResponseFor200
+#### <a id="post_required_with_escaped_characters_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5765,8 +5568,6 @@ No authorization required
 
 # **post_simple_enum_validation_request_body**
 <a name="post_simple_enum_validation_request_body"></a>
-> post_simple_enum_validation_request_body(body)
-
 
 
 ### Example
@@ -5774,7 +5575,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.simple_enum_validation import SimpleEnumValidation
+from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5800,18 +5601,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_simple_enum_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_simple_enum_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_simple_enum_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_simple_enum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../models/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/SimpleEnumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5819,9 +5620,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_simple_enum_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_simple_enum_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_simple_enum_validation_request_body.ApiResponseFor200
+#### <a id="post_simple_enum_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5836,8 +5637,6 @@ No authorization required
 
 # **post_string_type_matches_strings_request_body**
 <a name="post_string_type_matches_strings_request_body"></a>
-> post_string_type_matches_strings_request_body(body)
-
 
 
 ### Example
@@ -5845,6 +5644,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5858,7 +5658,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = "body_example"
+    body = StringTypeMatchesStrings("parameter_body_example")
     try:
         api_response = api_instance.post_string_type_matches_strings_request_body(
             body=body,
@@ -5870,29 +5670,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_string_type_matches_strings_request_body.request_body) | typing.Union[[request_body.application_json](#post_string_type_matches_strings_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_string_type_matches_strings_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_string_type_matches_strings_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_string_type_matches_strings_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_string_type_matches_strings_request_body.response_for_200.ApiResponse) | success
 
-#### post_string_type_matches_strings_request_body.ApiResponseFor200
+#### <a id="post_string_type_matches_strings_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5907,8 +5706,6 @@ No authorization required
 
 # **post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body**
 <a name="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body"></a>
-> post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body(the_default_keyword_does_not_do_anything_if_the_property_is_missing)
-
 
 
 ### Example
@@ -5916,7 +5713,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+from unit_test_api.components.schema.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5944,18 +5741,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body) | typing.Union[[request_body.application_json](#post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
+[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
 
 
 ### Return Types, Responses
@@ -5963,9 +5760,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.response_for_200.ApiResponse) | success
 
-#### post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.ApiResponseFor200
+#### <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -5980,8 +5777,6 @@ No authorization required
 
 # **post_uniqueitems_false_validation_request_body**
 <a name="post_uniqueitems_false_validation_request_body"></a>
-> post_uniqueitems_false_validation_request_body(body)
-
 
 
 ### Example
@@ -5989,7 +5784,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uniqueitems_false_validation import UniqueitemsFalseValidation
+from unit_test_api.components.schema.uniqueitems_false_validation import UniqueitemsFalseValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6015,18 +5810,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_uniqueitems_false_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_uniqueitems_false_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_uniqueitems_false_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_uniqueitems_false_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../models/UniqueitemsFalseValidation.md) |  | 
+[**UniqueitemsFalseValidation**](../../components/schema/UniqueitemsFalseValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -6034,9 +5829,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_uniqueitems_false_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_uniqueitems_false_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_uniqueitems_false_validation_request_body.ApiResponseFor200
+#### <a id="post_uniqueitems_false_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -6051,8 +5846,6 @@ No authorization required
 
 # **post_uniqueitems_validation_request_body**
 <a name="post_uniqueitems_validation_request_body"></a>
-> post_uniqueitems_validation_request_body(body)
-
 
 
 ### Example
@@ -6060,7 +5853,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uniqueitems_validation import UniqueitemsValidation
+from unit_test_api.components.schema.uniqueitems_validation import UniqueitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6086,18 +5879,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_uniqueitems_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_uniqueitems_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_uniqueitems_validation_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_uniqueitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../models/UniqueitemsValidation.md) |  | 
+[**UniqueitemsValidation**](../../components/schema/UniqueitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -6105,9 +5898,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_uniqueitems_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_uniqueitems_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_uniqueitems_validation_request_body.ApiResponseFor200
+#### <a id="post_uniqueitems_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -6122,8 +5915,6 @@ No authorization required
 
 # **post_uri_format_request_body**
 <a name="post_uri_format_request_body"></a>
-> post_uri_format_request_body(body)
-
 
 
 ### Example
@@ -6131,6 +5922,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.uri_format import UriFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6144,7 +5936,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = UriFormat(None)
     try:
         api_response = api_instance.post_uri_format_request_body(
             body=body,
@@ -6156,29 +5948,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_uri_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_uri_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_uri_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_uri_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriFormat**](../../components/schema/UriFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_uri_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_uri_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_uri_format_request_body.ApiResponseFor200
+#### <a id="post_uri_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -6193,8 +5984,6 @@ No authorization required
 
 # **post_uri_reference_format_request_body**
 <a name="post_uri_reference_format_request_body"></a>
-> post_uri_reference_format_request_body(body)
-
 
 
 ### Example
@@ -6202,6 +5991,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6215,7 +6005,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = UriReferenceFormat(None)
     try:
         api_response = api_instance.post_uri_reference_format_request_body(
             body=body,
@@ -6227,29 +6017,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_uri_reference_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_uri_reference_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_uri_reference_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_uri_reference_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_uri_reference_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_uri_reference_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_uri_reference_format_request_body.ApiResponseFor200
+#### <a id="post_uri_reference_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -6264,8 +6053,6 @@ No authorization required
 
 # **post_uri_template_format_request_body**
 <a name="post_uri_template_format_request_body"></a>
-> post_uri_template_format_request_body(body)
-
 
 
 ### Example
@@ -6273,6 +6060,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.components.schema.uri_template_format import UriTemplateFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6286,7 +6074,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = None
+    body = UriTemplateFormat(None)
     try:
         api_response = api_instance.post_uri_template_format_request_body(
             body=body,
@@ -6298,29 +6086,28 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_uri_template_format_request_body.request_body) | typing.Union[[request_body.application_json](#post_uri_template_format_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_uri_template_format_request_body.request_body" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_uri_template_format_request_body.request_body.application_json" >request_body.application_json</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_uri_template_format_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_uri_template_format_request_body.response_for_200.ApiResponse) | success
 
-#### post_uri_template_format_request_body.ApiResponseFor200
+#### <a id="post_uri_template_format_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
