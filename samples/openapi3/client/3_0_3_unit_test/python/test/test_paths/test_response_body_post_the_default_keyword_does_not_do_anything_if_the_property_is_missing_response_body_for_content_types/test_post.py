@@ -32,6 +32,7 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.BodySchemas.application_json
 
     def test_missing_properties_are_not_filled_in_with_the_default_passes(self):
         # missing properties are not filled in with the default
@@ -57,8 +58,8 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -90,8 +91,8 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

@@ -143,7 +143,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml] | required |
+body | typing.Union[application/json, application/xml] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -152,13 +152,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# SchemaForRequestBodyApplicationXml
+# application/xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -329,7 +329,6 @@ Multiple status values can be provided with comma separated strings
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -469,10 +468,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/xml, application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# application/xml
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -484,7 +483,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -523,7 +522,6 @@ Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -663,10 +661,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/xml, application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# application/xml
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -678,7 +676,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -717,7 +715,6 @@ Returns a single pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -790,16 +787,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/xml, application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# application/xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -951,7 +948,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml] | required |
+body | typing.Union[application/json, application/xml] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -960,13 +957,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# SchemaForRequestBodyApplicationXml
+# application/xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -1075,7 +1072,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded, Unset] | optional, default is unset |
+body | typing.Union[application/x-www-form-urlencoded, Unset] | optional, default is unset |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -1084,7 +1081,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyApplicationXWwwFormUrlencoded
+# application/x-www-form-urlencoded
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1144,7 +1141,6 @@ uploads an image (required)
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.api_response import ApiResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1202,7 +1198,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyMultipartFormData, Unset] | optional, default is unset |
+body | typing.Union[multipart/form-data, Unset] | optional, default is unset |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -1212,7 +1208,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyMultipartFormData
+# multipart/form-data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1251,10 +1247,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 
@@ -1278,7 +1274,6 @@ uploads an image
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.api_response import ApiResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1336,7 +1331,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyMultipartFormData, Unset] | optional, default is unset |
+body | typing.Union[multipart/form-data, Unset] | optional, default is unset |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -1346,7 +1341,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-# SchemaForRequestBodyMultipartFormData
+# multipart/form-data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1385,10 +1380,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[application/json, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# application/json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 

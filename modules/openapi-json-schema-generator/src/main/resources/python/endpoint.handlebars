@@ -16,46 +16,63 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schemas }}
 
 {{#unless isStub}}
-from . import path
-
+from .. import path
 {{/unless}}
 {{#with operation}}
-{{#if queryParams}}
-{{> endpoint_parameter_schema_and_def xParams=queryParams xParamsName="Query" }}
-{{/if}}
-{{#if headerParams}}
-{{> endpoint_parameter_schema_and_def xParams=headerParams xParamsName="Header" }}
-{{/if}}
-{{#if pathParams}}
-{{> endpoint_parameter_schema_and_def xParams=pathParams xParamsName="Path" }}
-{{/if}}
-{{#if cookieParams}}
-{{> endpoint_parameter_schema_and_def xParams=cookieParams xParamsName="Cookie" }}
-{{/if}}
+{{#each responses}}
+from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
+{{/each}}
+
+{{#or queryParams headerParams pathParams cookieParams}}
+    {{#if queryParams}}
+{{> endpoint_parameter_schema_and_def xParams=queryParams xParamsName="RequestQueryParameters" }}
+    {{/if}}
+    {{#if headerParams}}
+{{> endpoint_parameter_schema_and_def xParams=headerParams xParamsName="RequestHeaderParameters" }}
+    {{/if}}
+    {{#if pathParams}}
+{{> endpoint_parameter_schema_and_def xParams=pathParams xParamsName="RequestPathParameters" }}
+    {{/if}}
+    {{#if cookieParams}}
+{{> endpoint_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
+    {{/if}}
+{{/or}}
+{{#if bodyParam}}
 {{#with bodyParam}}
-# body param
-{{#each content}}
-{{#with this.schema}}
-{{> model_templates/schema }}
+
+
+class RequestBody:
+    class Schemas:
+    {{#each content}}
+        {{#with this}}
+            {{#with schema}}
+        {{> model_templates/schema }}
+            {{/with}}
+        {{/with}}
+    {{/each}}
+
+    parameter = api_client.RequestBody(
+        content={
+    {{#each content}}
+            '{{{@key}}}': api_client.MediaType(
+        {{#with this}}
+            {{#with schema}}
+                schema=Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}
+            {{/with}}
+        {{/with}}
+            ),
+    {{/each}}
+        },
+    {{#if required}}
+        required=True,
+    {{/if}}
+    )
 {{/with}}
-{{/each}}
-
-
-request_body_{{paramName}} = api_client.RequestBody(
-    content={
-{{#each content}}
-        '{{{@key}}}': api_client.MediaType({{#if this.schema}}
-            schema={{this.schema.baseName}}{{/if}}),
-{{/each}}
-    },
-{{#if required}}
-    required=True,
 {{/if}}
-)
-{{/with}}
 {{#unless isStub}}
 {{#each authMethods}}
 {{#if @first}}
+
 _auth = [
 {{/if}}
     '{{name}}',
@@ -65,6 +82,7 @@ _auth = [
 {{/each}}
 {{#each servers}}
 {{#if @first}}
+
 _servers = (
 {{/if}}
     {
@@ -97,126 +115,14 @@ _servers = (
 {{/if}}
 {{/each}}
 {{/unless}}
-{{#each responses}}
-{{#each responseHeaders}}
-{{#with schema}}
-{{> model_templates/schema }}
-{{/with}}
 {{#unless isStub}}
-{{paramName}}_parameter = api_client.HeaderParameter(
-    name="{{baseName}}",
-{{#if style}}
-    style=api_client.ParameterStyle.{{style}},
-{{/if}}
-{{#if schema}}
-{{#with schema}}
-    schema={{baseName}},
-{{/with}}
-{{/if}}
-{{#if required}}
-    required=True,
-{{/if}}
-{{#if isExplode}}
-    explode=True,
-{{/if}}
-)
-{{/unless}}
-{{/each}}
-{{#each content}}
-{{#with this.schema}}
-{{> model_templates/schema }}
-{{/with}}
-{{/each}}
-{{#if responseHeaders}}
-ResponseHeadersFor{{code}} = typing_extensions.TypedDict(
-    'ResponseHeadersFor{{code}}',
-    {
-{{#each responseHeaders}}
-        '{{baseName}}': {{#with schema}}{{baseName}},{{/with}}
-{{/each}}
-    }
-)
-{{/if}}
 
-
-@dataclass
-{{#if isDefault}}
-class ApiResponseForDefault(api_client.ApiResponse):
-{{else}}
-class ApiResponseFor{{code}}(api_client.ApiResponse):
-{{/if}}
-    response: urllib3.HTTPResponse
-{{#and responseHeaders content}}
-    body: typing.Union[
-{{#each content}}
-{{#if this.schema}}
-        {{this.schema.baseName}},
-{{else}}
-        schemas.Unset,
-{{/if}}
-{{/each}}
-    ]
-    headers: ResponseHeadersFor{{code}}
-{{else}}
-{{#or responseHeaders content}}
-{{#if responseHeaders}}
-    headers: ResponseHeadersFor{{code}}
-    body: schemas.Unset = schemas.unset
-{{else}}
-    body: typing.Union[
-{{#each content}}
-{{#if this.schema}}
-        {{this.schema.baseName}},
-{{else}}
-        schemas.Unset,
-{{/if}}
-{{/each}}
-    ]
-    headers: schemas.Unset = schemas.unset
-{{/if}}
-{{/or}}
-{{/and}}
-{{#unless responseHeaders}}
-{{#unless content}}
-    body: schemas.Unset = schemas.unset
-    headers: schemas.Unset = schemas.unset
-{{/unless}}
-{{/unless}}
-
-
-{{#if isDefault}}
-_response_for_default = api_client.OpenApiResponse(
-    response_cls=ApiResponseForDefault,
-{{else}}
-_response_for_{{code}} = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor{{code}},
-{{/if}}
-{{#each content}}
-{{#if @first}}
-    content={
-{{/if}}
-        '{{{@key}}}': api_client.MediaType({{#if this.schema}}
-            schema={{this.schema.baseName}}{{/if}}),
-{{#if @last}}
-    },
-{{/if}}
-{{/each}}
-{{#if responseHeaders}}
-    headers=[
-{{#each responseHeaders}}
-        {{paramName}}_parameter,
-{{/each}}
-    ]
-{{/if}}
-)
-{{/each}}
-{{#unless isStub}}
 _status_code_to_response = {
 {{#each responses}}
 {{#if isDefault}}
-    'default': _response_for_default,
+    'default': response_for_default.response,
 {{else}}
-    '{{code}}': _response_for_{{code}},
+    '{{code}}': response_for_{{code}}.response,
 {{/if}}
 {{/each}}
 }
@@ -265,26 +171,22 @@ class BaseApi(api_client.Api):
             class instances
         """
     {{#if queryParams}}
-        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
+        self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
     {{/if}}
     {{#if headerParams}}
-        self._verify_typed_dict_inputs_oapg(RequestHeaderParams, header_params)
+        self._verify_typed_dict_inputs_oapg(RequestHeaderParameters.Params, header_params)
     {{/if}}
     {{#if pathParams}}
-        self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
+        self._verify_typed_dict_inputs_oapg(RequestPathParameters.Params, path_params)
     {{/if}}
     {{#if cookieParams}}
-        self._verify_typed_dict_inputs_oapg(RequestCookieParams, cookie_params)
+        self._verify_typed_dict_inputs_oapg(RequestCookieParameters.Params, cookie_params)
     {{/if}}
         used_path = path.value
     {{#if pathParams}}
 
         _path_params = {}
-        for parameter in (
-    {{#each pathParams}}
-            request_path_{{paramName}},
-    {{/each}}
-        ):
+        for parameter in RequestPathParameters.parameters:
             parameter_data = path_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:
                 continue
@@ -297,11 +199,7 @@ class BaseApi(api_client.Api):
     {{#if queryParams}}
 
         prefix_separator_iterator = None
-        for parameter in (
-    {{#each queryParams}}
-            request_query_{{paramName}},
-    {{/each}}
-        ):
+        for parameter in RequestQueryParameters.parameters:
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:
                 continue
@@ -317,11 +215,7 @@ class BaseApi(api_client.Api):
     {{else}}
     {{/or}}
     {{#if headerParams}}
-        for parameter in (
-    {{#each headerParams}}
-            request_header_{{paramName}},
-    {{/each}}
-        ):
+        for parameter in RequestHeaderParameters.parameters:
             parameter_data = header_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:
                 continue
