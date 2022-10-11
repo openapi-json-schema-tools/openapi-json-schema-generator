@@ -290,21 +290,18 @@ public interface IJsonSchemaValidationProperties {
     };
 
     /**
-     * @return complex type that can contain type parameters - like {@code List<Items>} for Java
+     * @return ref class that can contain type parameters - like {@code List<Items>} for Java
      */
-    default String getComplexType() {
-        return getBaseType();
-    };
+    String getRefClass();
 
     /**
      * Recursively collect all necessary imports to include so that the type may be resolved.
      *
      * @param importContainerType whether or not to include the container types in the returned imports.
-     * @param importBaseType whether or not to include the base types in the returned imports.
      * @param featureSet the generator feature set, used to determine if composed schemas should be added
      * @return all of the imports
      */
-    default Set<String> getImports(boolean importContainerType, boolean importBaseType, FeatureSet featureSet) {
+    default Set<String> getImports(boolean importContainerType, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
         if (this.getComposedSchemas() != null) {
             CodegenComposedSchemas composed = this.getComposedSchemas();
@@ -327,49 +324,37 @@ public interface IJsonSchemaValidationProperties {
             Stream<CodegenProperty> innerTypes = Stream.of(
                             allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
                     .flatMap(i -> i);
-            innerTypes.flatMap(cp -> cp.getImports(importContainerType, importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+            innerTypes.flatMap(cp -> cp.getImports(importContainerType, featureSet).stream()).forEach(s -> imports.add(s));
         }
         // items can exist for AnyType and type array
         if (this.getItems() != null && this.getIsArray()) {
-            imports.addAll(this.getItems().getImports(importContainerType, importBaseType, featureSet));
+            imports.addAll(this.getItems().getImports(importContainerType, featureSet));
         }
         // additionalProperties can exist for AnyType and type object
         if (this.getAdditionalProperties() != null) {
-            imports.addAll(this.getAdditionalProperties().getImports(importContainerType, importBaseType, featureSet));
+            imports.addAll(this.getAdditionalProperties().getImports(importContainerType, featureSet));
         }
         // vars can exist for AnyType and type object
         if (this.getVars() != null && !this.getVars().isEmpty()) {
-            this.getVars().stream().flatMap(v -> v.getImports(importContainerType, importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+            this.getVars().stream().flatMap(v -> v.getImports(importContainerType, featureSet).stream()).forEach(s -> imports.add(s));
         }
         if (this.getIsArray() || this.getIsMap()) {
             if (importContainerType) {
                 /*
-                use-case for this complexType block:
+                use-case for this refClass block:
                 DefaultCodegenTest.objectQueryParamIdentifyAsObject
                 DefaultCodegenTest.mapParamImportInnerObject
                 */
-                String complexType = this.getComplexType();
-                if (complexType != null) {
-                    imports.add(complexType);
-                }
-                /*
-                use-case:
-                Adding List/Map etc, Java uses this
-                 */
-                String baseType = this.getBaseType();
-                if (importBaseType && baseType != null) {
-                    imports.add(baseType);
+                String refClass = this.getRefClass();
+                if (refClass != null) {
+                    imports.add(refClass);
                 }
             }
         } else {
             // referenced or inline schemas
-            String complexType = this.getComplexType();
-            if (complexType != null) {
-                imports.add(complexType);
-            }
-            String baseType = this.getBaseType();
-            if (importBaseType && baseType != null) {
-                imports.add(baseType);
+            String refClass = this.getRefClass();
+            if (refClass != null) {
+                imports.add(refClass);
             }
             return imports;
         }

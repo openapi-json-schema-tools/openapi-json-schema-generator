@@ -12,9 +12,9 @@
 import unittest
 
 import petstore_api
-from petstore_api.model import apple
-from petstore_api.model import banana
-from petstore_api.model.fruit import Fruit
+from petstore_api.components.schema import apple_oapg
+from petstore_api.components.schema import banana_oapg
+from petstore_api.components.schema.fruit_oapg import Fruit
 from petstore_api import schemas
 
 
@@ -57,8 +57,8 @@ class TestFruit(unittest.TestCase):
         self.assertEqual(
             Fruit.MetaOapg.one_of(),
             [
-                apple.Apple,
-                banana.Banana,
+                apple_oapg.Apple,
+                banana_oapg.Banana,
             ],
         )
 
@@ -111,21 +111,21 @@ class TestFruit(unittest.TestCase):
 
     def testFruitNullValue(self):
         # Since 'apple' is nullable, validate we can create an apple with the 'null' value.
-        fruit = apple.Apple(None)
+        fruit = apple_oapg.Apple(None)
         assert isinstance(fruit, schemas.Singleton)
-        assert isinstance(fruit, apple.Apple)
+        assert isinstance(fruit, apple_oapg.Apple)
         assert fruit.is_none_oapg() is True
 
         # 'banana' is not nullable.
         # TODO cast this into ApiTypeError?
         with self.assertRaises(TypeError):
-            banana.Banana(None)
+            banana_oapg.Banana(None)
 
         # Since 'fruit' has oneOf 'apple', 'banana' and 'apple' is nullable,
         # validate we can create a fruit with the 'null' value.
         fruit = Fruit(None)
         assert isinstance(fruit, schemas.Singleton)
-        assert isinstance(fruit, apple.Apple)
+        assert isinstance(fruit, apple_oapg.Apple)
         assert isinstance(fruit, Fruit)
         assert fruit.is_none_oapg() is True
 

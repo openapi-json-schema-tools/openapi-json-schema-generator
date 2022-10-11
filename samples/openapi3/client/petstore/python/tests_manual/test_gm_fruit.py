@@ -14,9 +14,9 @@ import unittest
 
 import frozendict
 
-from petstore_api.model import apple
-from petstore_api.model import banana
-from petstore_api.model.gm_fruit import GmFruit
+from petstore_api.components.schema import apple_oapg
+from petstore_api.components.schema import banana_oapg
+from petstore_api.components.schema.gm_fruit_oapg import GmFruit
 from petstore_api import schemas
 
 class TestGmFruit(unittest.TestCase):
@@ -37,8 +37,8 @@ class TestGmFruit(unittest.TestCase):
         color = 'yellow'
         cultivar = 'banaple'
         fruit = GmFruit(lengthCm=length_cm, color=color, cultivar=cultivar)
-        assert isinstance(fruit, banana.Banana)
-        assert isinstance(fruit, apple.Apple)
+        assert isinstance(fruit, banana_oapg.Banana)
+        assert isinstance(fruit, apple_oapg.Apple)
         assert isinstance(fruit, frozendict.frozendict)
         assert isinstance(fruit, GmFruit)
         # check its properties
@@ -72,8 +72,8 @@ class TestGmFruit(unittest.TestCase):
         self.assertEqual(
             GmFruit.MetaOapg.any_of(),
             [
-                apple.Apple,
-                banana.Banana,
+                apple_oapg.Apple,
+                banana_oapg.Banana,
             ],
         )
 

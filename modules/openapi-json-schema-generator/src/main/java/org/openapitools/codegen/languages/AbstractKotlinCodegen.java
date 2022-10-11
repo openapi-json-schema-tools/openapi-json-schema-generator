@@ -1081,7 +1081,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema) {
+    protected void updateModelForObject(CodegenModel m, Schema schema, String updateModelForObject) {
         /**
          * we have a custom version of this function so we only set isMap to true if
          * ModelUtils.isMapSchema
@@ -1103,6 +1103,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
             }
         }
         // process 'additionalProperties'
-        setAddProps(schema, m);
+        setAddProps(schema, m, updateModelForObject);
     }
 }

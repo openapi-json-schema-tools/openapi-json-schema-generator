@@ -53,7 +53,7 @@ class TestUserApi(ApiTestMixin):
         pass
 
     def test_get_user_by_name(self):
-        from petstore_api.model import user
+        from petstore_api.components.schema import user_oapg
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
@@ -63,7 +63,7 @@ class TestUserApi(ApiTestMixin):
                 firstName='first',
                 lastName='last'
             )
-            body = user.User(**value_simple)
+            body = user_oapg.User(**value_simple)
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
             )
@@ -79,7 +79,7 @@ class TestUserApi(ApiTestMixin):
                 content_type=None
             )
 
-            assert isinstance(api_response.body, user.User)
+            assert isinstance(api_response.body, user_oapg.User)
             assert api_response.body == body
 
     def test_login_user(self):

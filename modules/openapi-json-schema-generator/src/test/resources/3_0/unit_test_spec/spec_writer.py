@@ -172,7 +172,7 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         '$ref to boolean schema false': ExclusionReason.v303_does_not_support_definitions,
         'remote ref, containing refs itself': ExclusionReason.swagger_parser_exception,
         'relative pointer ref to object': ExclusionReason.ref_location_not_the_same_for_json_and_openapi,
-        'root pointer ref': ExclusionReason.ref_location_not_the_same_for_json_and_openapi,
+        'root pointer ref': ExclusionReason.swagger_parser_anytype_bug,
     },
     (openapi_additions, 'ref.json'): {
         'property refs adjacent property': ExclusionReason.ref_to_adjacent_property_bug,
@@ -407,6 +407,19 @@ def get_test_case_name(test: JsonSchemaTestSchema) -> str:
     res = ''.join(test.description.title().split())
     return re.sub(r'[^A-Za-z0-9 ]+', '', res)
 
+def replace_root_ref_with_component_ref(schema: JsonSchema, component_name: str):
+    if isinstance(schema, bool):
+        return
+    if 'properties' in schema:
+        for propertyName, propertySchema in schema['properties'].items():
+            ref_value = propertySchema.get('$ref')
+            if ref_value and ref_value.startswith("#") and not ref_value.startswith("#/components"):
+                schema['properties'][propertyName]['$ref'] = f"#/components/schemas/{component_name}{ref_value[1:]}"
+    if 'items' in schema:
+        ref_value = schema['items'].get('$ref')
+        if ref_value and ref_value.startswith("#") and not ref_value.startswith("#/components"):
+            schema['items']['$ref'] = f"#/components/schemas/{component_name}{ref_value[1:]}"
+
 def get_component_schemas_and_test_examples(
     json_schema_test_file: str,
     folders: typing.Tuple[str]
@@ -423,6 +436,7 @@ def get_component_schemas_and_test_examples(
             if isinstance(test_schema.schema, bool):
                 component_schemas[component_name] = test_schema.schema
             else:
+                replace_root_ref_with_component_ref(test_schema.schema, component_name)
                 component_schemas[component_name] = OpenApiSchema(**test_schema.schema)
             for test in test_schema.tests:
                 if component_name not in component_name_to_test_examples:

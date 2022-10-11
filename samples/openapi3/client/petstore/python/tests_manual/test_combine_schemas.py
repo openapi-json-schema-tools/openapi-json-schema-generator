@@ -14,16 +14,10 @@ import decimal
 import unittest
 
 import petstore_api
-from petstore_api.model.date_with_validations import DateWithValidations
-from petstore_api.model.date_time_with_validations import DateTimeWithValidations
-from petstore_api.model.string_with_validation import StringWithValidation
-from petstore_api.model.integer_enum_one_value import IntegerEnumOneValue
-from petstore_api.model.integer_enum import IntegerEnum
-from petstore_api.model.integer_enum_big import IntegerEnumBig
-from petstore_api.model.integer_max10 import IntegerMax10
-from petstore_api.model.integer_min15 import IntegerMin15
-from petstore_api.model.nullable_string import NullableString
-from petstore_api.schemas import AnyTypeSchema, Schema, NoneSchema, StrSchema, none_type, Singleton
+from petstore_api.components.schema.integer_enum_one_value_oapg import IntegerEnumOneValue
+from petstore_api.components.schema.integer_enum_oapg import IntegerEnum
+from petstore_api.components.schema.integer_max10_oapg import IntegerMax10
+from petstore_api.schemas import Singleton
 
 
 class TestCombineNonObjectSchemas(unittest.TestCase):

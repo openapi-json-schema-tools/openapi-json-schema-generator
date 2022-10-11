@@ -68,6 +68,17 @@ Python {{generatorLanguageVersion}}
         - path apis are at your_package.apis.paths.some_path
     - Those apis will only load their needed models, which is less to load than all of the resources needed in a tag api
     - So you will need to update your import paths to the api classes
+9. The test directory has been changed from test to tests
+   Submodules preserve the same name as the package directory names.
+   Tested submodules have test_ added as a prefix to test models and path endpoints
+   - So you may need to update your testing code to use use the tests folder
+10. Models are now stored in your_package.components.schema
+    For a model import one should use from your_package.components.schema import pet_oapg
+    And then use pet_oapg.Pet
+    This was done:
+    - to make $ref paths convertible to python path modules
+    - to allow future imports of shared code from other components
+
 
 ### Why are Oapg and _oapg used in class and method names?
 Classes can have arbitrarily named properties set on them

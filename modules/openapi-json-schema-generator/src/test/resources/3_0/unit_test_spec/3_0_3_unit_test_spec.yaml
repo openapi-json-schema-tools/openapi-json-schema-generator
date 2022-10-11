@@ -2700,6 +2700,42 @@ paths:
       - path.post
       - contentType_json
       - $ref
+  /requestBody/postRootPointerRefRequestBody:
+    post:
+      operationId: postRootPointerRefRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RootPointerRef'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RootPointerRef'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - $ref
+  /responseBody/postRootPointerRefResponseBodyForContentTypes:
+    post:
+      operationId: postRootPointerRefResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RootPointerRef'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RootPointerRef'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - $ref
   /requestBody/postRequiredValidationRequestBody:
     post:
       operationId: postRequiredValidationRequestBody
@@ -3489,6 +3525,12 @@ components:
     RefInNot:
       not:
         $ref: '#/components/schemas/PropertyNamedRefThatIsNotAReference'
+    RootPointerRef:
+      type: object
+      properties:
+        foo:
+          $ref: '#/components/schemas/RootPointerRef'
+      additionalProperties: false
     RequiredValidation:
       properties:
         foo: {}
@@ -4791,6 +4833,29 @@ components:
         data:
           $ref: 2
         valid: true
+    RootPointerRef:
+      Match:
+        description: match
+        data:
+          foo: {}
+        valid: true
+      RecursiveMatch:
+        description: recursive match
+        data:
+          foo:
+            foo: {}
+        valid: true
+      Mismatch:
+        description: mismatch
+        data:
+          bar: false
+        valid: false
+      RecursiveMismatch:
+        description: recursive mismatch
+        data:
+          foo:
+            bar: false
+        valid: false
     RequiredValidation:
       PresentRequiredPropertyIsValid:
         description: present required property is valid

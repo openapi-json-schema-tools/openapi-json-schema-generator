@@ -330,4 +330,8 @@ public interface CodegenConfig {
     boolean getUseInlineModelResolver();
 
     boolean getAddSuffixToDuplicateOperationNicknames();
+
+    String toRefClass(String ref, String sourceJsonPath);
+
+    String refClassToModelName(String refClass);
 }

@@ -13,9 +13,9 @@
 import unittest
 
 import petstore_api
-from petstore_api.model import apple_req
-from petstore_api.model import banana_req
-from petstore_api.model.fruit_req import FruitReq
+from petstore_api.components.schema import apple_req_oapg
+from petstore_api.components.schema import banana_req_oapg
+from petstore_api.components.schema.fruit_req_oapg import FruitReq
 from petstore_api import schemas
 
 
@@ -73,8 +73,8 @@ class TestFruitReq(unittest.TestCase):
             FruitReq.MetaOapg.one_of(),
             [
                 schemas.NoneSchema,
-                apple_req.AppleReq,
-                banana_req.BananaReq,
+                apple_req_oapg.AppleReq,
+                banana_req_oapg.BananaReq,
             ],
         )
 

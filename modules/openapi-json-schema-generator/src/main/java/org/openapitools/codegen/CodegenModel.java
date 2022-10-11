@@ -118,6 +118,8 @@ public class CodegenModel implements IJsonSchemaValidationProperties {
     private LinkedHashMap<String, List<String>> dependentRequired;
     private CodegenProperty contains;
 
+    public String refClass;
+
     /**
      * The type of the value for the additionalProperties keyword in the OAS document.
      * Used in map like objects, including composed schemas.
@@ -1018,6 +1020,7 @@ public class CodegenModel implements IJsonSchemaValidationProperties {
                 getUniqueItems() == that.getUniqueItems() &&
                 getExclusiveMinimum() == that.getExclusiveMinimum() &&
                 getExclusiveMaximum() == that.getExclusiveMaximum() &&
+                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
@@ -1098,7 +1101,7 @@ public class CodegenModel implements IJsonSchemaValidationProperties {
                 getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, getComposedSchemas(), hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
                 uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains);
+                format, dependentRequired, contains, refClass);
     }
 
     @Override
@@ -1204,19 +1207,9 @@ public class CodegenModel implements IJsonSchemaValidationProperties {
         sb.append(", format=").append(format);
         sb.append(", dependentRequired=").append(dependentRequired);
         sb.append(", contains=").append(contains);
+        sb.append(", refClass=").append(refClass);
         sb.append('}');
         return sb.toString();
-    }
-
-    public void addDiscriminatorMappedModelsImports() {
-        if (discriminator == null || discriminator.getMappedModels() == null) {
-            return;
-        }
-        for (CodegenDiscriminator.MappedModel mm : discriminator.getMappedModels()) {
-            if (!"".equals(mm.getModelName())) {
-                imports.add(mm.getModelName());
-            }
-        }
     }
 
     public boolean isEmptyVars() {
@@ -1236,6 +1229,11 @@ public class CodegenModel implements IJsonSchemaValidationProperties {
 
     @Override
     public void setRequiredVarsMap(Map<String, CodegenProperty> requiredVarsMap) { this.requiredVarsMap=requiredVarsMap; }
+
+    @Override
+    public String getRefClass() {
+        return refClass;
+    }
 
     /**
      * Remove duplicated properties in all variable list

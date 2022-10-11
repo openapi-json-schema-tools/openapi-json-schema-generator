@@ -9,7 +9,6 @@ Method | HTTP request | Description
 
 # **classname**
 <a name="classname"></a>
-> Client classname(client)
 
 To test class name in snake case
 
@@ -21,7 +20,7 @@ To test class name in snake case
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_classname_tags123_api
-from petstore_api.model.client import Client
+from petstore_api.components.schema import client_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,7 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_classname_tags123_api.FakeClassnameTags123Api(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Client(
+    body = client_oapg.Client(
         client="client_example",
     )
     try:
@@ -61,19 +60,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#classname.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#classname.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="classname.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="classname.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**client_oapg.Client**](../../components/schema/client_oapg.Client.md) |  | 
 
 
 ### Return Types, Responses
@@ -81,19 +80,19 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#classname.ApiResponseFor200) | successful operation
+200 | [response_for_200.ApiResponse](#classname.response_for_200.ApiResponse) | successful operation
 
-#### classname.ApiResponseFor200
+#### <a id="classname.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#classname.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="classname.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**client_oapg.Client**](../../components/schema/client_oapg.Client.md) |  | 
 
 
 ### Authorization

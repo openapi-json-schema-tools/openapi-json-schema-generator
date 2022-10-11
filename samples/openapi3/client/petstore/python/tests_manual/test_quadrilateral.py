@@ -14,9 +14,9 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model import complex_quadrilateral
-from petstore_api.model import simple_quadrilateral
-from petstore_api.model.quadrilateral import Quadrilateral
+from petstore_api.components.schema import complex_quadrilateral_oapg
+from petstore_api.components.schema import simple_quadrilateral_oapg
+from petstore_api.components.schema.quadrilateral_oapg import Quadrilateral
 
 
 class TestQuadrilateral(unittest.TestCase):
@@ -31,9 +31,9 @@ class TestQuadrilateral(unittest.TestCase):
     def testQuadrilateral(self):
         """Test Quadrilateral"""
         instance = Quadrilateral(shapeType="Quadrilateral", quadrilateralType="ComplexQuadrilateral")
-        assert isinstance(instance, complex_quadrilateral.ComplexQuadrilateral)
+        assert isinstance(instance, complex_quadrilateral_oapg.ComplexQuadrilateral)
         instance = Quadrilateral(shapeType="Quadrilateral", quadrilateralType="SimpleQuadrilateral")
-        assert isinstance(instance, simple_quadrilateral.SimpleQuadrilateral)
+        assert isinstance(instance, simple_quadrilateral_oapg.SimpleQuadrilateral)
 
 
 if __name__ == '__main__':

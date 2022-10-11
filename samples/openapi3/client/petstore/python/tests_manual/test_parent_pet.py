@@ -14,8 +14,8 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.grandparent_animal import GrandparentAnimal
-from petstore_api.model.parent_pet import ParentPet
+from petstore_api.components.schema.grandparent_animal_oapg import GrandparentAnimal
+from petstore_api.components.schema.parent_pet_oapg import ParentPet
 
 
 class TestParentPet(unittest.TestCase):

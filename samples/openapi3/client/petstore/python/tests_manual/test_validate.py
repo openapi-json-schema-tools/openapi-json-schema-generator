@@ -6,22 +6,22 @@ import unittest
 
 import frozendict
 
-from petstore_api.model.string_with_validation import StringWithValidation
-from petstore_api.model.string_enum import StringEnum
-from petstore_api.model.number_with_validations import NumberWithValidations
-from petstore_api.model.array_holding_any_type import ArrayHoldingAnyType
-from petstore_api.model.array_with_validations_in_items import (
+from petstore_api.components.schema.string_with_validation_oapg import StringWithValidation
+from petstore_api.components.schema.string_enum_oapg import StringEnum
+from petstore_api.components.schema.number_with_validations_oapg import NumberWithValidations
+from petstore_api.components.schema.array_holding_any_type_oapg import ArrayHoldingAnyType
+from petstore_api.components.schema.array_with_validations_in_items_oapg import (
     ArrayWithValidationsInItems,
 )
-from petstore_api.model.foo import Foo
-from petstore_api.model.animal import Animal
-from petstore_api.model.dog import Dog
-from petstore_api.model.boolean_enum import BooleanEnum
-from petstore_api.model.pig import Pig
-from petstore_api.model.danish_pig import DanishPig
-from petstore_api.model.gm_fruit import GmFruit
-from petstore_api.model.apple import Apple
-from petstore_api.model.banana import Banana
+from petstore_api.components.schema.foo_oapg import Foo
+from petstore_api.components.schema.animal_oapg import Animal
+from petstore_api.components.schema.dog_oapg import Dog
+from petstore_api.components.schema.boolean_enum_oapg import BooleanEnum
+from petstore_api.components.schema.pig_oapg import Pig
+from petstore_api.components.schema.danish_pig_oapg import DanishPig
+from petstore_api.components.schema.gm_fruit_oapg import GmFruit
+from petstore_api.components.schema.apple_oapg import Apple
+from petstore_api.components.schema.banana_oapg import Banana
 from petstore_api import schemas
 
 from petstore_api.schemas import (

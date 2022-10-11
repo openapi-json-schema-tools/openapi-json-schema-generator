@@ -1,15 +1,15 @@
 dict(
-        trees=Tree(
+        trees=tree_oapg.Tree(
             id=1,
             name="name_example",
             description="description_example",
             children=[
-                Tree()
+                tree_oapg.Tree()
             ],
-            parent=Tree(),
-            forest=Forest(),
+            parent=tree_oapg.Tree(),
+            forest=forest_oapg.Forest(),
             additional=dict(
-                "key": Tree(),
+                "key": tree_oapg.Tree(),
             ),
         ),
     )

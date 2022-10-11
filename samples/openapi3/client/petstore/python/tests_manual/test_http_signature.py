@@ -1,7 +1,7 @@
 # # coding: utf-8
-#
+
 # # flake8: noqa
-#
+
 # """
 # Run the tests.
 # $ docker pull swaggerapi/petstore
@@ -10,44 +10,35 @@
 # $ cd petstore_api-python
 # $ nosetests -v
 # """
-#
-# from collections import namedtuple
-# from datetime import datetime, timedelta
+
+# from datetime import timedelta
 # import base64
 # import json
 # import os
+# import random
 # import re
-# import shutil
 # import unittest
-# from urllib.parse import urlencode, urlparse
-#
+# from unittest.mock import patch
+# from urllib.parse import urlparse
+
 # from Crypto.Hash import SHA256, SHA512
 # from Crypto.PublicKey import ECC, RSA
 # from Crypto.Signature import pkcs1_15, pss, DSS
-#
-# import petstore_api
-# from petstore_api.model import category, tag, pet
-# from petstore_api.apis.tags.pet_api import PetApi
-# from petstore_api import Configuration, signing
-# from petstore_api.rest import (
-#     RESTClientObject,
-#     RESTResponse
-# )
-#
-# from petstore_api.exceptions import (
-#     ApiException,
-#     ApiValueError,
-#     ApiTypeError,
-# )
-#
-# from .util import id_gen
-#
 # import urllib3
-#
-# from unittest.mock import patch
-#
+
+# import petstore_api
+# from petstore_api.components.schema import category_oapg, tag_oapg, pet_oapg
+# from petstore_api.apis.tags.pet_api import PetApi
+# from petstore_api import Configuration, signing, api_client
+
+
+# def id_gen(bits=32):
+#     """ Returns a n-bit randomly generated int """
+#     return int(random.getrandbits(bits))
+
+
 # HOST = 'http://localhost/v2'
-#
+
 # # This test RSA private key below is published in Appendix C 'Test Values' of
 # # https://www.ietf.org/id/draft-cavage-http-signatures-12.txt
 # RSA_TEST_PRIVATE_KEY = """-----BEGIN RSA PRIVATE KEY-----
@@ -65,29 +56,29 @@
 # G6aFKaqQfOXKCyWoUiVknQJAXrlgySFci/2ueKlIE1QqIiLSZ8V8OlpFLRnb1pzI
 # 7U1yQXnTAEFYM560yJlzUpOb1V4cScGd365tiSMvxLOvTA==
 # -----END RSA PRIVATE KEY-----"""
-#
-#
+
+
 # class TimeoutWithEqual(urllib3.Timeout):
 #     def __init__(self, *arg, **kwargs):
 #         super(TimeoutWithEqual, self).__init__(*arg, **kwargs)
-#
+
 #     def __eq__(self, other):
 #         return self._read == other._read and self._connect == other._connect and self.total == other.total
-#
+
 # class MockPoolManager(object):
 #     def __init__(self, tc):
 #         self._tc = tc
 #         self._reqs = []
-#
+
 #     def expect_request(self, *args, **kwargs):
 #         self._reqs.append((args, kwargs))
-#
+
 #     def set_signing_config(self, signing_cfg):
 #         self.signing_cfg = signing_cfg
 #         self._tc.assertIsNotNone(self.signing_cfg)
 #         self.pubkey = self.signing_cfg.get_public_key()
 #         self._tc.assertIsNotNone(self.pubkey)
-#
+
 #     def request(self, *actual_request_target, **actual_request_headers_and_body):
 #         self._tc.assertTrue(len(self._reqs) > 0)
 #         expected_results = self._reqs.pop(0)
@@ -118,7 +109,7 @@
 #             elif k == 'timeout':
 #                 self._tc.assertEqual(expected, actual_request_headers_and_body[k])
 #         return urllib3.HTTPResponse(status=200, body=b'test')
-#
+
 #     def _validate_authorization_header(self, request_target, actual_headers, authorization_header):
 #         """Validate the signature.
 #         """
@@ -127,7 +118,7 @@
 #         m1 = r1.search(authorization_header)
 #         self._tc.assertIsNotNone(m1)
 #         created = m1.group(1)
-#
+
 #         # Extract list of signed headers
 #         r1 = re.compile(r'headers="([^"]+)"')
 #         m1 = r1.search(authorization_header)
@@ -157,7 +148,7 @@
 #             self._tc.fail("Unsupported hash algorithm: {0}".format(self.signing_cfg.hash_algorithm))
 #         digest.update(string_to_sign.encode())
 #         b64_body_digest = base64.b64encode(digest.digest()).decode()
-#
+
 #         # Extract the signature
 #         r2 = re.compile(r'signature="([^"]+)"')
 #         m2 = r2.search(authorization_header)
@@ -174,7 +165,7 @@
 #                 signing_alg = signing.ALGORITHM_ECDSA_MODE_FIPS_186_3
 #             else:
 #                 self._tc.fail("Unsupported key: {0}".format(type(self.pubkey)))
-#
+
 #         if signing_alg == signing.ALGORITHM_RSASSA_PKCS1v15:
 #             pkcs1_15.new(self.pubkey).verify(digest, signature)
 #         elif signing_alg == signing.ALGORITHM_RSASSA_PSS:
@@ -189,14 +180,19 @@
 #             verifier.verify(digest, signature)
 #         else:
 #             self._tc.fail("Unsupported signing algorithm: {0}".format(signing_alg))
-#
+
 # class PetApiTests(unittest.TestCase):
-#
+#     json_encoder = api_client.JSONEncoder()
+
+#     @classmethod
+#     def model_to_json(cls,model):
+#         return cls.json_encoder.default(model)
+
 #     @classmethod
 #     def setUpClass(cls):
 #         cls.setUpModels()
 #         cls.setUpFiles()
-#
+
 #     @classmethod
 #     def tearDownClass(cls):
 #         file_paths = [
@@ -206,24 +202,26 @@
 #         ]
 #         for file_path in file_paths:
 #             os.unlink(file_path)
-#
+
 #     @classmethod
 #     def setUpModels(cls):
-#         cls.category = category.Category()
-#         cls.category.id = id_gen()
-#         cls.category.name = "dog"
-#         cls.tag = tag.Tag()
-#         cls.tag.id = id_gen()
-#         cls.tag.name = "python-pet-tag"
-#         cls.pet = pet.Pet(
-#             name="hello kity",
-#             photo_urls=["http://foo.bar.com/1", "http://foo.bar.com/2"]
+#         cls.category = category_oapg.Category(
+#             name="dog",
+#             id=id_gen(),
 #         )
-#         cls.pet.id = id_gen()
-#         cls.pet.status = "sold"
-#         cls.pet.category = cls.category
-#         cls.pet.tags = [cls.tag]
-#
+#         cls.tag = tag_oapg.Tag(
+#             name="python-pet-tag",
+#             id=id_gen(),
+#         )
+#         cls.pet = pet_oapg.Pet(
+#             name="hello kity",
+#             photoUrls=["http://foo.bar.com/1", "http://foo.bar.com/2"],
+#             id=id_gen(),
+#             status="sold",
+#             category=cls.category,
+#             tags=[cls.tag]
+#         )
+
 #     @classmethod
 #     def setUpFiles(cls):
 #         cls.test_file_dir = os.path.join(
@@ -231,16 +229,16 @@
 #         cls.test_file_dir = os.path.realpath(cls.test_file_dir)
 #         if not os.path.exists(cls.test_file_dir):
 #             os.mkdir(cls.test_file_dir)
-#
+
 #         cls.private_key_passphrase = 'test-passphrase'
 #         cls.rsa_key_path = os.path.join(cls.test_file_dir, 'rsa.pem')
 #         cls.rsa4096_key_path = os.path.join(cls.test_file_dir, 'rsa4096.pem')
 #         cls.ec_p521_key_path = os.path.join(cls.test_file_dir, 'ecP521.pem')
-#
+
 #         if not os.path.exists(cls.rsa_key_path):
 #             with open(cls.rsa_key_path, 'w') as f:
 #                 f.write(RSA_TEST_PRIVATE_KEY)
-#
+
 #         if not os.path.exists(cls.rsa4096_key_path):
 #             key = RSA.generate(4096)
 #             private_key = key.export_key(
@@ -249,7 +247,7 @@
 #             )
 #             with open(cls.rsa4096_key_path, "wb") as f:
 #                 f.write(private_key)
-#
+
 #         if not os.path.exists(cls.ec_p521_key_path):
 #             key = ECC.generate(curve='P-521')
 #             private_key = key.export_key(
@@ -260,7 +258,7 @@
 #             )
 #             with open(cls.ec_p521_key_path, "wt") as f:
 #                 f.write(private_key)
-#
+
 #     def test_valid_http_signature(self):
 #         privkey_path = self.rsa_key_path
 #         signing_cfg = signing.HttpSigningConfiguration(
@@ -282,25 +280,25 @@
 #         # Set the OAuth2 acces_token to None. Here we are interested in testing
 #         # the HTTP signature scheme.
 #         config.access_token = None
-#
-#         api_client = petstore_api.ApiClient(config)
-#         pet_api = PetApi(api_client)
-#
+
+#         used_api_client = petstore_api.ApiClient(config)
+#         pet_api = PetApi(used_api_client)
+
 #         mock_pool = MockPoolManager(self)
-#         api_client.rest_client.pool_manager = mock_pool
-#
+#         used_api_client.rest_client.pool_manager = mock_pool
+
 #         mock_pool.set_signing_config(signing_cfg)
 #         mock_pool.expect_request('POST', HOST + '/pet',
-#                                  body=json.dumps(api_client.sanitize_for_serialization(self.pet)),
+#                                  body=json.dumps(self.model_to_json(self.pet)),
 #                                  headers={'Content-Type': r'application/json',
 #                                           'Authorization': r'Signature keyId="my-key-id",algorithm="hs2019",created=[0-9]+,'
 #                                                 r'headers="\(request-target\) \(created\) host date digest content-type",'
 #                                                 r'signature="[a-zA-Z0-9+/=]+"',
 #                                           'User-Agent': r'OpenAPI-Generator/1.0.0/python'},
 #                                  preload_content=True, timeout=None)
-#
+
 #         pet_api.add_pet(self.pet)
-#
+
 #     def test_valid_http_signature_with_defaults(self):
 #         privkey_path = self.rsa4096_key_path
 #         signing_cfg = signing.HttpSigningConfiguration(
@@ -313,25 +311,25 @@
 #         # Set the OAuth2 acces_token to None. Here we are interested in testing
 #         # the HTTP signature scheme.
 #         config.access_token = None
-#
-#         api_client = petstore_api.ApiClient(config)
-#         pet_api = PetApi(api_client)
-#
+
+#         used_api_client = petstore_api.ApiClient(config)
+#         pet_api = PetApi(used_api_client)
+
 #         mock_pool = MockPoolManager(self)
-#         api_client.rest_client.pool_manager = mock_pool
-#
+#         used_api_client.rest_client.pool_manager = mock_pool
+
 #         mock_pool.set_signing_config(signing_cfg)
 #         mock_pool.expect_request('POST', HOST + '/pet',
-#                                  body=json.dumps(api_client.sanitize_for_serialization(self.pet)),
+#                                  body=json.dumps(self.model_to_json(self.pet)),
 #                                  headers={'Content-Type': r'application/json',
 #                                           'Authorization': r'Signature keyId="my-key-id",algorithm="hs2019",created=[0-9]+,'
 #                                                 r'headers="\(created\)",'
 #                                                 r'signature="[a-zA-Z0-9+/=]+"',
 #                                           'User-Agent': r'OpenAPI-Generator/1.0.0/python'},
 #                                  preload_content=True, timeout=None)
-#
+
 #         pet_api.add_pet(self.pet)
-#
+
 #     def test_valid_http_signature_rsassa_pkcs1v15(self):
 #         privkey_path = self.rsa4096_key_path
 #         signing_cfg = signing.HttpSigningConfiguration(
@@ -349,25 +347,25 @@
 #         # Set the OAuth2 acces_token to None. Here we are interested in testing
 #         # the HTTP signature scheme.
 #         config.access_token = None
-#
-#         api_client = petstore_api.ApiClient(config)
-#         pet_api = PetApi(api_client)
-#
+
+#         used_api_client = petstore_api.ApiClient(config)
+#         pet_api = PetApi(used_api_client)
+
 #         mock_pool = MockPoolManager(self)
-#         api_client.rest_client.pool_manager = mock_pool
-#
+#         used_api_client.rest_client.pool_manager = mock_pool
+
 #         mock_pool.set_signing_config(signing_cfg)
 #         mock_pool.expect_request('POST', HOST + '/pet',
-#                                  body=json.dumps(api_client.sanitize_for_serialization(self.pet)),
+#                                  body=json.dumps(self.model_to_json(self.pet)),
 #                                  headers={'Content-Type': r'application/json',
 #                                           'Authorization': r'Signature keyId="my-key-id",algorithm="hs2019",created=[0-9]+,'
 #                                                 r'headers="\(request-target\) \(created\)",'
 #                                                 r'signature="[a-zA-Z0-9+/=]+"',
 #                                           'User-Agent': r'OpenAPI-Generator/1.0.0/python'},
 #                                  preload_content=True, timeout=None)
-#
+
 #         pet_api.add_pet(self.pet)
-#
+
 #     def test_valid_http_signature_rsassa_pss(self):
 #         privkey_path = self.rsa4096_key_path
 #         signing_cfg = signing.HttpSigningConfiguration(
@@ -385,25 +383,25 @@
 #         # Set the OAuth2 acces_token to None. Here we are interested in testing
 #         # the HTTP signature scheme.
 #         config.access_token = None
-#
-#         api_client = petstore_api.ApiClient(config)
-#         pet_api = PetApi(api_client)
-#
+
+#         used_api_client = petstore_api.ApiClient(config)
+#         pet_api = PetApi(used_api_client)
+
 #         mock_pool = MockPoolManager(self)
-#         api_client.rest_client.pool_manager = mock_pool
-#
+#         used_api_client.rest_client.pool_manager = mock_pool
+
 #         mock_pool.set_signing_config(signing_cfg)
 #         mock_pool.expect_request('POST', HOST + '/pet',
-#                                  body=json.dumps(api_client.sanitize_for_serialization(self.pet)),
+#                                  body=json.dumps(self.model_to_json(self.pet)),
 #                                  headers={'Content-Type': r'application/json',
 #                                           'Authorization': r'Signature keyId="my-key-id",algorithm="hs2019",created=[0-9]+,'
 #                                                 r'headers="\(request-target\) \(created\)",'
 #                                                 r'signature="[a-zA-Z0-9+/=]+"',
 #                                           'User-Agent': r'OpenAPI-Generator/1.0.0/python'},
 #                                  preload_content=True, timeout=None)
-#
+
 #         pet_api.add_pet(self.pet)
-#
+
 #     def test_valid_http_signature_ec_p521(self):
 #         privkey_path = self.ec_p521_key_path
 #         signing_cfg = signing.HttpSigningConfiguration(
@@ -421,25 +419,25 @@
 #         # Set the OAuth2 acces_token to None. Here we are interested in testing
 #         # the HTTP signature scheme.
 #         config.access_token = None
-#
-#         api_client = petstore_api.ApiClient(config)
-#         pet_api = PetApi(api_client)
-#
+
+#         used_api_client = petstore_api.ApiClient(config)
+#         pet_api = PetApi(used_api_client)
+
 #         mock_pool = MockPoolManager(self)
-#         api_client.rest_client.pool_manager = mock_pool
-#
+#         used_api_client.rest_client.pool_manager = mock_pool
+
 #         mock_pool.set_signing_config(signing_cfg)
 #         mock_pool.expect_request('POST', HOST + '/pet',
-#                                  body=json.dumps(api_client.sanitize_for_serialization(self.pet)),
+#                                  body=json.dumps(self.model_to_json(self.pet)),
 #                                  headers={'Content-Type': r'application/json',
 #                                           'Authorization': r'Signature keyId="my-key-id",algorithm="hs2019",created=[0-9]+,'
 #                                                 r'headers="\(request-target\) \(created\)",'
 #                                                 r'signature="[a-zA-Z0-9+/=]+"',
 #                                           'User-Agent': r'OpenAPI-Generator/1.0.0/python'},
 #                                  preload_content=True, timeout=None)
-#
+
 #         pet_api.add_pet(self.pet)
-#
+
 #     def test_invalid_configuration(self):
 #         # Signing scheme must be valid.
 #         with self.assertRaises(Exception) as cm:
@@ -450,7 +448,7 @@
 #             )
 #         self.assertTrue(re.match('Unsupported security scheme', str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+
 #         # Signing scheme must be specified.
 #         with self.assertRaises(Exception) as cm:
 #             signing_cfg = signing.HttpSigningConfiguration(
@@ -460,7 +458,7 @@
 #             )
 #         self.assertTrue(re.match('Unsupported security scheme', str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+
 #         # Private key passphrase is missing but key is encrypted.
 #         with self.assertRaises(Exception) as cm:
 #             signing_cfg = signing.HttpSigningConfiguration(
@@ -470,7 +468,7 @@
 #             )
 #         self.assertTrue(re.match('Not a valid clear PKCS#8 structure', str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+
 #         # File containing private key must exist.
 #         with self.assertRaises(Exception) as cm:
 #             signing_cfg = signing.HttpSigningConfiguration(
@@ -480,7 +478,7 @@
 #             )
 #         self.assertTrue(re.match('Private key file does not exist', str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+
 #         # The max validity must be a positive value.
 #         with self.assertRaises(Exception) as cm:
 #             signing_cfg = signing.HttpSigningConfiguration(
@@ -492,7 +490,7 @@
 #         self.assertTrue(re.match('The signature max validity must be a positive value',
 #                                 str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+
 #         # Cannot include the 'Authorization' header.
 #         with self.assertRaises(Exception) as cm:
 #             signing_cfg = signing.HttpSigningConfiguration(
@@ -503,7 +501,7 @@
 #             )
 #         self.assertTrue(re.match("'Authorization' header cannot be included", str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+
 #         # Cannot specify duplicate headers.
 #         with self.assertRaises(Exception) as cm:
 #             signing_cfg = signing.HttpSigningConfiguration(
@@ -515,4 +513,4 @@
 #         self.assertTrue(re.match('Cannot have duplicates in the signed_headers parameter',
 #                                 str(cm.exception)),
 #             'Exception message: {0}'.format(str(cm.exception)))
-#
+

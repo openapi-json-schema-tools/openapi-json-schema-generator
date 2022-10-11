@@ -19,7 +19,7 @@ from {{packageName}}.{{apiPackage}}.tags import {{classFilename}}
 with {{{packageName}}}.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = {{classFilename}}.{{{classname}}}(api_client)
-    {{#each allParams}}{{paramName}} = {{{example}}} # {{{dataType}}} | {{{description}}}{{#unless required}} (optional){{/unless}}{{#if defaultValue}} (default to {{{.}}}){{/if}}
+    {{#each allParams}}{{paramName}} = {{{example}}} # {{{refClass}}} | {{{description}}}{{#unless required}} (optional){{/unless}}{{#if defaultValue}} (default to {{{.}}}){{/if}}
     {{/each}}
 
     try:
@@ -47,8 +47,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
-{{#each models}}{{#with model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
-{{/with}}{{/each}}
+{{#each models}}
+{{#with model}}
+ - [{{{classname}}}]({{modelDocPath}}{{classFilename}}.{{{classname}}}.md)
+{{/with}}
+{{/each}}
 
 ## Documentation For Authorization
 

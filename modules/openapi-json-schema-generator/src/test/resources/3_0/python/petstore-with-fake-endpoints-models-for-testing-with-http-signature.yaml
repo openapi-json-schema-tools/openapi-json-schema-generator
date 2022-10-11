@@ -1612,6 +1612,34 @@ paths:
           content:
             application/json:
               schema: {}
+  /fake/selfReferencingObjectModel:
+    post:
+      operationId: selfReferencingObjectModel
+      summary: self referencing object model
+      tags:
+        - fake
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                selfProp:
+                  $ref: "#/paths/~1fake~1selfReferencingObjectModel/post/requestBody/content/application~1json/schema"
+              additionalProperties:
+                $ref: "#/paths/~1fake~1selfReferencingObjectModel/post/requestBody/content/application~1json/schema"
+      responses:
+        200:
+          description: success
+          content:
+            application/json: {}
+#              schema:
+#                type: object
+#                properties:
+#                  selfProp:
+#                    $ref: "#/paths/~1fake~1selfReferencingObjectModel/post/responses/200/content/application~1json/schema"
+#                additionalProperties:
+#                  $ref: "#/paths/~1fake~1selfReferencingObjectModel/post/responses/200/content/application~1json/schema"
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server
@@ -2283,11 +2311,11 @@ components:
       type: object
       properties:
         myNumber:
-          $ref: '#/definitions/NumberWithValidations'
+          $ref: '#/components/schemas/NumberWithValidations'
         myString:
-          $ref: '#/definitions/String'
+          $ref: '#/components/schemas/String'
         myBoolean:
-          $ref: '#/definitions/Boolean'
+          $ref: '#/components/schemas/Boolean'
     NumberWithValidations:
       type: number
       minimum: 10
@@ -2979,3 +3007,44 @@ components:
       required:
         - from
         - "!reference"
+    ObjHere:
+      allOf:
+        - $ref: "#/components/schemas/ObjectHasDiscWithValueThatIsARefFragment"
+    ObjThere:
+      allOf:
+        - $ref: "#/components/schemas/ObjectHasDiscWithValueThatIsARefFragment"
+    ObjectHasDiscWithValueThatIsARefFragment:
+      type: object
+      properties:
+        objType:
+          type: string
+      required:
+        - objType
+      discriminator:
+        propertyName: objType
+        mapping:
+          ThisObjHere: ObjHere
+          ThisObjThere: ObjThere
+    ObjectHasDiscWithValueThatIsARef:
+      type: object
+      properties:
+        objType:
+          type: string
+      required:
+        - objType
+      discriminator:
+        propertyName: objType
+        mapping:
+          ThisObjHere: "#/components/schemas/ObjHere"
+          ThisObjThere: "#/components/schemas/ObjThere"
+    SelfReferencingObjectModel:
+      type: object
+      properties:
+        selfProp:
+          $ref: "#/components/schemas/SelfReferencingObjectModel"
+      additionalProperties:
+        $ref: "#/components/schemas/SelfReferencingObjectModel"
+    SelfReferencingArrayModel:
+      type: array
+      items:
+        $ref: "#/components/schemas/SelfReferencingArrayModel"

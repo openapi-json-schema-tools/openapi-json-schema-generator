@@ -38,7 +38,7 @@ class TestFakeApi(ApiTestMixin):
     api = FakeApi(api_client=api_client.ApiClient(configuration=configuration))
 
     def test_array_model(self):
-        from petstore_api.model import animal_farm, animal
+        from petstore_api.components.schema import animal_farm_oapg, animal_oapg
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
@@ -47,8 +47,8 @@ class TestFakeApi(ApiTestMixin):
                 self.json_bytes(json_data)
             )
 
-            cat = animal.Animal(className="Cat", color="black")
-            body = animal_farm.AnimalFarm([cat])
+            cat = animal_oapg.Animal(className="Cat", color="black")
+            body = animal_farm_oapg.AnimalFarm([cat])
             api_response = self.api.array_model(body=body)
             self.assert_request_called_with(
                 mock_request,
@@ -56,7 +56,7 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(json_data)
             )
 
-            assert isinstance(api_response.body, animal_farm.AnimalFarm)
+            assert isinstance(api_response.body, animal_farm_oapg.AnimalFarm)
             assert api_response.body == body
 
     def test_recursionlimit(self):
@@ -66,12 +66,12 @@ class TestFakeApi(ApiTestMixin):
         assert sys.getrecursionlimit() == 1234
 
     def test_array_of_enums(self):
-        from petstore_api.model import array_of_enums, string_enum
+        from petstore_api.components.schema import array_of_enums_oapg, string_enum_oapg
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
-            value = [string_enum.StringEnum("placed")]
-            body = array_of_enums.ArrayOfEnums(value)
+            value = [string_enum_oapg.StringEnum("placed")]
+            body = array_of_enums_oapg.ArrayOfEnums(value)
             value_simple = ["placed"]
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
@@ -84,16 +84,16 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value_simple)
             )
 
-            assert isinstance(api_response.body, array_of_enums.ArrayOfEnums)
+            assert isinstance(api_response.body, array_of_enums_oapg.ArrayOfEnums)
             assert api_response.body == body
 
     def test_number_with_validations(self):
-        from petstore_api.model import number_with_validations
+        from petstore_api.components.schema import number_with_validations_oapg
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
             value = 10.0
-            body = number_with_validations.NumberWithValidations(value)
+            body = number_with_validations_oapg.NumberWithValidations(value)
             mock_request.return_value = self.response(
                 self.json_bytes(value)
             )
@@ -105,19 +105,19 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value)
             )
 
-            assert isinstance(api_response.body, number_with_validations.NumberWithValidations)
+            assert isinstance(api_response.body, number_with_validations_oapg.NumberWithValidations)
             assert api_response.body == value
 
     def test_composed_one_of_different_types(self):
-        from petstore_api.model import composed_one_of_different_types
+        from petstore_api.components.schema import composed_one_of_different_types_oapg
 
         # serialization + deserialization works
-        number = composed_one_of_different_types.ComposedOneOfDifferentTypes(10.0)
-        cat = composed_one_of_different_types.ComposedOneOfDifferentTypes(
+        number = composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes(10.0)
+        cat = composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes(
             className="Cat", color="black"
         )
-        none_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes(None)
-        date_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes('1970-01-01')
+        none_instance = composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes(None)
+        date_instance = composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes('1970-01-01')
         cast_to_simple_value = [
             (number, 10.0),
             (cat, {"className": "Cat", "color": "black"}),
@@ -137,7 +137,7 @@ class TestFakeApi(ApiTestMixin):
                     body=self.json_bytes(value_simple)
                 )
 
-                assert isinstance(api_response.body, composed_one_of_different_types.ComposedOneOfDifferentTypes)
+                assert isinstance(api_response.body, composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes)
                 assert api_response.body == body
 
         # inputting the uncast values into the endpoint also works
@@ -154,7 +154,7 @@ class TestFakeApi(ApiTestMixin):
                     body=self.json_bytes(value_simple)
                 )
 
-                assert isinstance(api_response.body, composed_one_of_different_types.ComposedOneOfDifferentTypes)
+                assert isinstance(api_response.body, composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes)
                 assert api_response.body == body
 
     def test_string(self):
@@ -177,11 +177,11 @@ class TestFakeApi(ApiTestMixin):
             assert api_response.body == value_simple
 
     def test_string_enum(self):
-        from petstore_api.model import string_enum
+        from petstore_api.components.schema import string_enum_oapg
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
             value = "placed"
-            body = string_enum.StringEnum(value)
+            body = string_enum_oapg.StringEnum(value)
             mock_request.return_value = self.response(
                 self.json_bytes(value)
             )
@@ -193,12 +193,12 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value)
             )
 
-            assert isinstance(api_response.body, string_enum.StringEnum)
+            assert isinstance(api_response.body, string_enum_oapg.StringEnum)
             assert api_response.body == value
 
     def test_mammal(self):
         # serialization + deserialization works
-        from petstore_api.model.mammal import Mammal
+        from petstore_api.components.schema.mammal_oapg import Mammal
         with patch.object(RESTClientObject, 'request') as mock_request:
             body = Mammal(className="BasquePig")
             value_simple = dict(className='BasquePig')
@@ -225,7 +225,7 @@ class TestFakeApi(ApiTestMixin):
             self.api.mammal(body=schemas.unset)
 
     def test_missing_or_unset_required_query_parameter(self):
-        from petstore_api.model.user import User
+        from petstore_api.components.schema.user_oapg import User
         user = User({})
         # missing required query param
         with self.assertRaises(petstore_api.ApiTypeError):
@@ -235,7 +235,7 @@ class TestFakeApi(ApiTestMixin):
             self.api.body_with_query_params(body=schemas.unset, query_params=dict(query=schemas.unset))
 
     def test_body_with_query_params(self):
-        from petstore_api.model import user
+        from petstore_api.components.schema import user_oapg
         with patch.object(RESTClientObject, 'request') as mock_request:
 
             value_simple = dict(
@@ -244,7 +244,7 @@ class TestFakeApi(ApiTestMixin):
                 firstName='first',
                 lastName='last'
             )
-            body = user.User(**value_simple)
+            body = user_oapg.User(**value_simple)
             mock_request.return_value = self.response(
                 b''
             )
@@ -765,13 +765,13 @@ class TestFakeApi(ApiTestMixin):
 
     def test_json_patch(self):
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
-            from petstore_api.model import json_patch_request
-            from petstore_api.model import json_patch_request_add_replace_test
+            from petstore_api.components.schema import json_patch_request_oapg
+            from petstore_api.components.schema import json_patch_request_add_replace_test_oapg
 
             mock_request.return_value = self.response("")
-            body = json_patch_request.JSONPatchRequest(
+            body = json_patch_request_oapg.JSONPatchRequest(
                 [
-                    json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest(
+                    json_patch_request_add_replace_test_oapg.JSONPatchRequestAddReplaceTest(
                         op='add',
                         path='/a/b/c',
                         value='foo',

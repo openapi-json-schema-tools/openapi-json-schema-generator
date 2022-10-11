@@ -873,6 +873,67 @@ public class ModelUtils {
         return schema;
     }
 
+    public static Schema getSchemaFromRef(OpenAPI openAPI, String ref) {
+        if (ref.startsWith("#/components/schemas/")) {
+            return getSchema(openAPI, getSimpleRef(ref));
+        } else if (ref.startsWith("#/paths/")) {
+            String[] refPieces = ref.split("/");
+            if (refPieces.length < 8) {
+                // 8 is the length for requestBody schema, 9 is the length for a response schema
+                return null;
+            }
+            String pathPiece = unescapeEncodedSlashes(refPieces[2]);
+            PathItem pathItem = openAPI.getPaths().get(pathPiece);
+            String httpmethod = refPieces[3];
+            Operation op = null;
+            switch(httpmethod) {
+                case "get":
+                    op = pathItem.getGet();
+                    break;
+                case "put":
+                    op = pathItem.getPut();
+                    break;
+                case "post":
+                    op = pathItem.getPost();
+                    break;
+                case "patch":
+                    op = pathItem.getPatch();
+                    break;
+                case "delete":
+                    op = pathItem.getDelete();
+                    break;
+                case "head":
+                    op = pathItem.getHead();
+                    break;
+                case "options":
+                    op = pathItem.getOptions();
+                    break;
+                case "trace":
+                    op = pathItem.getTrace();
+                    break;
+            }
+            if (op == null) {
+                return null;
+            }
+            if (refPieces[4].equals("requestBody") && refPieces[5].equals("content") && refPieces[7].equals("schema")) {
+                Content content = op.getRequestBody().getContent();
+                String contentType = unescapeEncodedSlashes(refPieces[6]);
+                MediaType mediaType = content.get(contentType);
+                Schema schema = mediaType.getSchema();
+                return schema;
+            }
+        }
+        return null;
+    }
+
+    public static String unescapeEncodedSlashes(String fragment) {
+        return fragment.replace("~1", "/");
+    }
+
+    public static String encodeSlashes(String fragment) {
+        return fragment.replace("/", "~1");
+    }
+
     public static Schema getSchema(OpenAPI openAPI, String name) {
         if (name == null) {
             return null;

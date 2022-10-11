@@ -60,6 +60,17 @@ Python &gt;&#x3D;3.7
         - path apis are at your_package.apis.paths.some_path
     - Those apis will only load their needed models, which is less to load than all of the resources needed in a tag api
     - So you will need to update your import paths to the api classes
+9. The test directory has been changed from test to tests
+   Submodules preserve the same name as the package directory names.
+   Tested submodules have test_ added as a prefix to test models and path endpoints
+   - So you may need to update your testing code to use use the tests folder
+10. Models are now stored in your_package.components.schema
+    For a model import one should use from your_package.components.schema import pet_oapg
+    And then use pet_oapg.Pet
+    This was done:
+    - to make $ref paths convertible to python path modules
+    - to allow future imports of shared code from other components
+
 
 ### Why are Oapg and _oapg used in class and method names?
 Classes can have arbitrarily named properties set on them
@@ -141,13 +152,6 @@ import time
 import unit_test_api
 from pprint import pprint
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
-from unit_test_api.model.ref_in_allof import RefInAllof
-from unit_test_api.model.ref_in_anyof import RefInAnyof
-from unit_test_api.model.ref_in_items import RefInItems
-from unit_test_api.model.ref_in_oneof import RefInOneof
-from unit_test_api.model.ref_in_property import RefInProperty
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = unit_test_api.Configuration(
@@ -189,6 +193,8 @@ Class | Method | HTTP request | Description
 *RefApi* | [**post_ref_in_oneof_response_body_for_content_types**](docs/apis/tags/RefApi.md#post_ref_in_oneof_response_body_for_content_types) | **post** /responseBody/postRefInOneofResponseBodyForContentTypes | 
 *RefApi* | [**post_ref_in_property_request_body**](docs/apis/tags/RefApi.md#post_ref_in_property_request_body) | **post** /requestBody/postRefInPropertyRequestBody | 
 *RefApi* | [**post_ref_in_property_response_body_for_content_types**](docs/apis/tags/RefApi.md#post_ref_in_property_response_body_for_content_types) | **post** /responseBody/postRefInPropertyResponseBodyForContentTypes | 
+*RefApi* | [**post_root_pointer_ref_request_body**](docs/apis/tags/RefApi.md#post_root_pointer_ref_request_body) | **post** /requestBody/postRootPointerRefRequestBody | 
+*RefApi* | [**post_root_pointer_ref_response_body_for_content_types**](docs/apis/tags/RefApi.md#post_root_pointer_ref_response_body_for_content_types) | **post** /responseBody/postRootPointerRefResponseBodyForContentTypes | 
 *AdditionalPropertiesApi* | [**post_additionalproperties_allows_a_schema_which_should_validate_request_body**](docs/apis/tags/AdditionalPropertiesApi.md#post_additionalproperties_allows_a_schema_which_should_validate_request_body) | **post** /requestBody/postAdditionalpropertiesAllowsASchemaWhichShouldValidateRequestBody | 
 *AdditionalPropertiesApi* | [**post_additionalproperties_allows_a_schema_which_should_validate_response_body_for_content_types**](docs/apis/tags/AdditionalPropertiesApi.md#post_additionalproperties_allows_a_schema_which_should_validate_response_body_for_content_types) | **post** /responseBody/postAdditionalpropertiesAllowsASchemaWhichShouldValidateResponseBodyForContentTypes | 
 *AdditionalPropertiesApi* | [**post_additionalproperties_are_allowed_by_default_request_body**](docs/apis/tags/AdditionalPropertiesApi.md#post_additionalproperties_are_allowed_by_default_request_body) | **post** /requestBody/postAdditionalpropertiesAreAllowedByDefaultRequestBody | 
@@ -383,6 +389,8 @@ Class | Method | HTTP request | Description
 *ContentTypeJsonApi* | [**post_required_with_empty_array_response_body_for_content_types**](docs/apis/tags/ContentTypeJsonApi.md#post_required_with_empty_array_response_body_for_content_types) | **post** /responseBody/postRequiredWithEmptyArrayResponseBodyForContentTypes | 
 *ContentTypeJsonApi* | [**post_required_with_escaped_characters_request_body**](docs/apis/tags/ContentTypeJsonApi.md#post_required_with_escaped_characters_request_body) | **post** /requestBody/postRequiredWithEscapedCharactersRequestBody | 
 *ContentTypeJsonApi* | [**post_required_with_escaped_characters_response_body_for_content_types**](docs/apis/tags/ContentTypeJsonApi.md#post_required_with_escaped_characters_response_body_for_content_types) | **post** /responseBody/postRequiredWithEscapedCharactersResponseBodyForContentTypes | 
+*ContentTypeJsonApi* | [**post_root_pointer_ref_request_body**](docs/apis/tags/ContentTypeJsonApi.md#post_root_pointer_ref_request_body) | **post** /requestBody/postRootPointerRefRequestBody | 
+*ContentTypeJsonApi* | [**post_root_pointer_ref_response_body_for_content_types**](docs/apis/tags/ContentTypeJsonApi.md#post_root_pointer_ref_response_body_for_content_types) | **post** /responseBody/postRootPointerRefResponseBodyForContentTypes | 
 *ContentTypeJsonApi* | [**post_simple_enum_validation_request_body**](docs/apis/tags/ContentTypeJsonApi.md#post_simple_enum_validation_request_body) | **post** /requestBody/postSimpleEnumValidationRequestBody | 
 *ContentTypeJsonApi* | [**post_simple_enum_validation_response_body_for_content_types**](docs/apis/tags/ContentTypeJsonApi.md#post_simple_enum_validation_response_body_for_content_types) | **post** /responseBody/postSimpleEnumValidationResponseBodyForContentTypes | 
 *ContentTypeJsonApi* | [**post_string_type_matches_strings_request_body**](docs/apis/tags/ContentTypeJsonApi.md#post_string_type_matches_strings_request_body) | **post** /requestBody/postStringTypeMatchesStringsRequestBody | 
@@ -566,6 +574,7 @@ Class | Method | HTTP request | Description
 *OperationRequestBodyApi* | [**post_required_validation_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_required_validation_request_body) | **post** /requestBody/postRequiredValidationRequestBody | 
 *OperationRequestBodyApi* | [**post_required_with_empty_array_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_required_with_empty_array_request_body) | **post** /requestBody/postRequiredWithEmptyArrayRequestBody | 
 *OperationRequestBodyApi* | [**post_required_with_escaped_characters_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_required_with_escaped_characters_request_body) | **post** /requestBody/postRequiredWithEscapedCharactersRequestBody | 
+*OperationRequestBodyApi* | [**post_root_pointer_ref_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_root_pointer_ref_request_body) | **post** /requestBody/postRootPointerRefRequestBody | 
 *OperationRequestBodyApi* | [**post_simple_enum_validation_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_simple_enum_validation_request_body) | **post** /requestBody/postSimpleEnumValidationRequestBody | 
 *OperationRequestBodyApi* | [**post_string_type_matches_strings_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_string_type_matches_strings_request_body) | **post** /requestBody/postStringTypeMatchesStringsRequestBody | 
 *OperationRequestBodyApi* | [**post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body**](docs/apis/tags/OperationRequestBodyApi.md#post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body) | **post** /requestBody/postTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingRequestBody | 
@@ -732,6 +741,8 @@ Class | Method | HTTP request | Description
 *PathPostApi* | [**post_required_with_empty_array_response_body_for_content_types**](docs/apis/tags/PathPostApi.md#post_required_with_empty_array_response_body_for_content_types) | **post** /responseBody/postRequiredWithEmptyArrayResponseBodyForContentTypes | 
 *PathPostApi* | [**post_required_with_escaped_characters_request_body**](docs/apis/tags/PathPostApi.md#post_required_with_escaped_characters_request_body) | **post** /requestBody/postRequiredWithEscapedCharactersRequestBody | 
 *PathPostApi* | [**post_required_with_escaped_characters_response_body_for_content_types**](docs/apis/tags/PathPostApi.md#post_required_with_escaped_characters_response_body_for_content_types) | **post** /responseBody/postRequiredWithEscapedCharactersResponseBodyForContentTypes | 
+*PathPostApi* | [**post_root_pointer_ref_request_body**](docs/apis/tags/PathPostApi.md#post_root_pointer_ref_request_body) | **post** /requestBody/postRootPointerRefRequestBody | 
+*PathPostApi* | [**post_root_pointer_ref_response_body_for_content_types**](docs/apis/tags/PathPostApi.md#post_root_pointer_ref_response_body_for_content_types) | **post** /responseBody/postRootPointerRefResponseBodyForContentTypes | 
 *PathPostApi* | [**post_simple_enum_validation_request_body**](docs/apis/tags/PathPostApi.md#post_simple_enum_validation_request_body) | **post** /requestBody/postSimpleEnumValidationRequestBody | 
 *PathPostApi* | [**post_simple_enum_validation_response_body_for_content_types**](docs/apis/tags/PathPostApi.md#post_simple_enum_validation_response_body_for_content_types) | **post** /responseBody/postSimpleEnumValidationResponseBodyForContentTypes | 
 *PathPostApi* | [**post_string_type_matches_strings_request_body**](docs/apis/tags/PathPostApi.md#post_string_type_matches_strings_request_body) | **post** /requestBody/postStringTypeMatchesStringsRequestBody | 
@@ -843,6 +854,7 @@ Class | Method | HTTP request | Description
 *ResponseContentContentTypeSchemaApi* | [**post_required_validation_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_required_validation_response_body_for_content_types) | **post** /responseBody/postRequiredValidationResponseBodyForContentTypes | 
 *ResponseContentContentTypeSchemaApi* | [**post_required_with_empty_array_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_required_with_empty_array_response_body_for_content_types) | **post** /responseBody/postRequiredWithEmptyArrayResponseBodyForContentTypes | 
 *ResponseContentContentTypeSchemaApi* | [**post_required_with_escaped_characters_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_required_with_escaped_characters_response_body_for_content_types) | **post** /responseBody/postRequiredWithEscapedCharactersResponseBodyForContentTypes | 
+*ResponseContentContentTypeSchemaApi* | [**post_root_pointer_ref_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_root_pointer_ref_response_body_for_content_types) | **post** /responseBody/postRootPointerRefResponseBodyForContentTypes | 
 *ResponseContentContentTypeSchemaApi* | [**post_simple_enum_validation_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_simple_enum_validation_response_body_for_content_types) | **post** /responseBody/postSimpleEnumValidationResponseBodyForContentTypes | 
 *ResponseContentContentTypeSchemaApi* | [**post_string_type_matches_strings_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_string_type_matches_strings_response_body_for_content_types) | **post** /responseBody/postStringTypeMatchesStringsResponseBodyForContentTypes | 
 *ResponseContentContentTypeSchemaApi* | [**post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_response_body_for_content_types**](docs/apis/tags/ResponseContentContentTypeSchemaApi.md#post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_response_body_for_content_types) | **post** /responseBody/postTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingResponseBodyForContentTypes | 
@@ -872,92 +884,94 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionalpropertiesAllowsASchemaWhichShouldValidate](docs/models/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md)
- - [AdditionalpropertiesAreAllowedByDefault](docs/models/AdditionalpropertiesAreAllowedByDefault.md)
- - [AdditionalpropertiesCanExistByItself](docs/models/AdditionalpropertiesCanExistByItself.md)
- - [AdditionalpropertiesShouldNotLookInApplicators](docs/models/AdditionalpropertiesShouldNotLookInApplicators.md)
- - [Allof](docs/models/Allof.md)
- - [AllofCombinedWithAnyofOneof](docs/models/AllofCombinedWithAnyofOneof.md)
- - [AllofSimpleTypes](docs/models/AllofSimpleTypes.md)
- - [AllofWithBaseSchema](docs/models/AllofWithBaseSchema.md)
- - [AllofWithOneEmptySchema](docs/models/AllofWithOneEmptySchema.md)
- - [AllofWithTheFirstEmptySchema](docs/models/AllofWithTheFirstEmptySchema.md)
- - [AllofWithTheLastEmptySchema](docs/models/AllofWithTheLastEmptySchema.md)
- - [AllofWithTwoEmptySchemas](docs/models/AllofWithTwoEmptySchemas.md)
- - [Anyof](docs/models/Anyof.md)
- - [AnyofComplexTypes](docs/models/AnyofComplexTypes.md)
- - [AnyofWithBaseSchema](docs/models/AnyofWithBaseSchema.md)
- - [AnyofWithOneEmptySchema](docs/models/AnyofWithOneEmptySchema.md)
- - [ArrayTypeMatchesArrays](docs/models/ArrayTypeMatchesArrays.md)
- - [BooleanTypeMatchesBooleans](docs/models/BooleanTypeMatchesBooleans.md)
- - [ByInt](docs/models/ByInt.md)
- - [ByNumber](docs/models/ByNumber.md)
- - [BySmallNumber](docs/models/BySmallNumber.md)
- - [DateTimeFormat](docs/models/DateTimeFormat.md)
- - [EmailFormat](docs/models/EmailFormat.md)
- - [EnumWith0DoesNotMatchFalse](docs/models/EnumWith0DoesNotMatchFalse.md)
- - [EnumWith1DoesNotMatchTrue](docs/models/EnumWith1DoesNotMatchTrue.md)
- - [EnumWithEscapedCharacters](docs/models/EnumWithEscapedCharacters.md)
- - [EnumWithFalseDoesNotMatch0](docs/models/EnumWithFalseDoesNotMatch0.md)
- - [EnumWithTrueDoesNotMatch1](docs/models/EnumWithTrueDoesNotMatch1.md)
- - [EnumsInProperties](docs/models/EnumsInProperties.md)
- - [ForbiddenProperty](docs/models/ForbiddenProperty.md)
- - [HostnameFormat](docs/models/HostnameFormat.md)
- - [IntegerTypeMatchesIntegers](docs/models/IntegerTypeMatchesIntegers.md)
- - [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](docs/models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md)
- - [InvalidStringValueForDefault](docs/models/InvalidStringValueForDefault.md)
- - [Ipv4Format](docs/models/Ipv4Format.md)
- - [Ipv6Format](docs/models/Ipv6Format.md)
- - [JsonPointerFormat](docs/models/JsonPointerFormat.md)
- - [MaximumValidation](docs/models/MaximumValidation.md)
- - [MaximumValidationWithUnsignedInteger](docs/models/MaximumValidationWithUnsignedInteger.md)
- - [MaxitemsValidation](docs/models/MaxitemsValidation.md)
- - [MaxlengthValidation](docs/models/MaxlengthValidation.md)
- - [Maxproperties0MeansTheObjectIsEmpty](docs/models/Maxproperties0MeansTheObjectIsEmpty.md)
- - [MaxpropertiesValidation](docs/models/MaxpropertiesValidation.md)
- - [MinimumValidation](docs/models/MinimumValidation.md)
- - [MinimumValidationWithSignedInteger](docs/models/MinimumValidationWithSignedInteger.md)
- - [MinitemsValidation](docs/models/MinitemsValidation.md)
- - [MinlengthValidation](docs/models/MinlengthValidation.md)
- - [MinpropertiesValidation](docs/models/MinpropertiesValidation.md)
- - [ModelNot](docs/models/ModelNot.md)
- - [NestedAllofToCheckValidationSemantics](docs/models/NestedAllofToCheckValidationSemantics.md)
- - [NestedAnyofToCheckValidationSemantics](docs/models/NestedAnyofToCheckValidationSemantics.md)
- - [NestedItems](docs/models/NestedItems.md)
- - [NestedOneofToCheckValidationSemantics](docs/models/NestedOneofToCheckValidationSemantics.md)
- - [NotMoreComplexSchema](docs/models/NotMoreComplexSchema.md)
- - [NulCharactersInStrings](docs/models/NulCharactersInStrings.md)
- - [NullTypeMatchesOnlyTheNullObject](docs/models/NullTypeMatchesOnlyTheNullObject.md)
- - [NumberTypeMatchesNumbers](docs/models/NumberTypeMatchesNumbers.md)
- - [ObjectPropertiesValidation](docs/models/ObjectPropertiesValidation.md)
- - [Oneof](docs/models/Oneof.md)
- - [OneofComplexTypes](docs/models/OneofComplexTypes.md)
- - [OneofWithBaseSchema](docs/models/OneofWithBaseSchema.md)
- - [OneofWithEmptySchema](docs/models/OneofWithEmptySchema.md)
- - [OneofWithRequired](docs/models/OneofWithRequired.md)
- - [PatternIsNotAnchored](docs/models/PatternIsNotAnchored.md)
- - [PatternValidation](docs/models/PatternValidation.md)
- - [PropertiesWithEscapedCharacters](docs/models/PropertiesWithEscapedCharacters.md)
- - [PropertyNamedRefThatIsNotAReference](docs/models/PropertyNamedRefThatIsNotAReference.md)
- - [RefInAdditionalproperties](docs/models/RefInAdditionalproperties.md)
- - [RefInAllof](docs/models/RefInAllof.md)
- - [RefInAnyof](docs/models/RefInAnyof.md)
- - [RefInItems](docs/models/RefInItems.md)
- - [RefInNot](docs/models/RefInNot.md)
- - [RefInOneof](docs/models/RefInOneof.md)
- - [RefInProperty](docs/models/RefInProperty.md)
- - [RequiredDefaultValidation](docs/models/RequiredDefaultValidation.md)
- - [RequiredValidation](docs/models/RequiredValidation.md)
- - [RequiredWithEmptyArray](docs/models/RequiredWithEmptyArray.md)
- - [RequiredWithEscapedCharacters](docs/models/RequiredWithEscapedCharacters.md)
- - [SimpleEnumValidation](docs/models/SimpleEnumValidation.md)
- - [StringTypeMatchesStrings](docs/models/StringTypeMatchesStrings.md)
- - [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](docs/models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md)
- - [UniqueitemsFalseValidation](docs/models/UniqueitemsFalseValidation.md)
- - [UniqueitemsValidation](docs/models/UniqueitemsValidation.md)
- - [UriFormat](docs/models/UriFormat.md)
- - [UriReferenceFormat](docs/models/UriReferenceFormat.md)
- - [UriTemplateFormat](docs/models/UriTemplateFormat.md)
+ - [AdditionalpropertiesAllowsASchemaWhichShouldValidate](docs/components/schema/additionalproperties_allows_a_schema_which_should_validate_oapg.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md)
+ - [AdditionalpropertiesAreAllowedByDefault](docs/components/schema/additionalproperties_are_allowed_by_default_oapg.AdditionalpropertiesAreAllowedByDefault.md)
+ - [AdditionalpropertiesCanExistByItself](docs/components/schema/additionalproperties_can_exist_by_itself_oapg.AdditionalpropertiesCanExistByItself.md)
+ - [AdditionalpropertiesShouldNotLookInApplicators](docs/components/schema/additionalproperties_should_not_look_in_applicators_oapg.AdditionalpropertiesShouldNotLookInApplicators.md)
+ - [Allof](docs/components/schema/allof_oapg.Allof.md)
+ - [AllofCombinedWithAnyofOneof](docs/components/schema/allof_combined_with_anyof_oneof_oapg.AllofCombinedWithAnyofOneof.md)
+ - [AllofSimpleTypes](docs/components/schema/allof_simple_types_oapg.AllofSimpleTypes.md)
+ - [AllofWithBaseSchema](docs/components/schema/allof_with_base_schema_oapg.AllofWithBaseSchema.md)
+ - [AllofWithOneEmptySchema](docs/components/schema/allof_with_one_empty_schema_oapg.AllofWithOneEmptySchema.md)
+ - [AllofWithTheFirstEmptySchema](docs/components/schema/allof_with_the_first_empty_schema_oapg.AllofWithTheFirstEmptySchema.md)
+ - [AllofWithTheLastEmptySchema](docs/components/schema/allof_with_the_last_empty_schema_oapg.AllofWithTheLastEmptySchema.md)
+ - [AllofWithTwoEmptySchemas](docs/components/schema/allof_with_two_empty_schemas_oapg.AllofWithTwoEmptySchemas.md)
+ - [Anyof](docs/components/schema/anyof_oapg.Anyof.md)
+ - [AnyofComplexTypes](docs/components/schema/anyof_complex_types_oapg.AnyofComplexTypes.md)
+ - [AnyofWithBaseSchema](docs/components/schema/anyof_with_base_schema_oapg.AnyofWithBaseSchema.md)
+ - [AnyofWithOneEmptySchema](docs/components/schema/anyof_with_one_empty_schema_oapg.AnyofWithOneEmptySchema.md)
+ - [ArrayTypeMatchesArrays](docs/components/schema/array_type_matches_arrays_oapg.ArrayTypeMatchesArrays.md)
+ - [BooleanTypeMatchesBooleans](docs/components/schema/boolean_type_matches_booleans_oapg.BooleanTypeMatchesBooleans.md)
+ - [ByInt](docs/components/schema/by_int_oapg.ByInt.md)
+ - [ByNumber](docs/components/schema/by_number_oapg.ByNumber.md)
+ - [BySmallNumber](docs/components/schema/by_small_number_oapg.BySmallNumber.md)
+ - [DateTimeFormat](docs/components/schema/date_time_format_oapg.DateTimeFormat.md)
+ - [EmailFormat](docs/components/schema/email_format_oapg.EmailFormat.md)
+ - [EnumWith0DoesNotMatchFalse](docs/components/schema/enum_with0_does_not_match_false_oapg.EnumWith0DoesNotMatchFalse.md)
+ - [EnumWith1DoesNotMatchTrue](docs/components/schema/enum_with1_does_not_match_true_oapg.EnumWith1DoesNotMatchTrue.md)
+ - [EnumWithEscapedCharacters](docs/components/schema/enum_with_escaped_characters_oapg.EnumWithEscapedCharacters.md)
+ - [EnumWithFalseDoesNotMatch0](docs/components/schema/enum_with_false_does_not_match0_oapg.EnumWithFalseDoesNotMatch0.md)
+ - [EnumWithTrueDoesNotMatch1](docs/components/schema/enum_with_true_does_not_match1_oapg.EnumWithTrueDoesNotMatch1.md)
+ - [EnumsInProperties](docs/components/schema/enums_in_properties_oapg.EnumsInProperties.md)
+ - [ForbiddenProperty](docs/components/schema/forbidden_property_oapg.ForbiddenProperty.md)
+ - [HostnameFormat](docs/components/schema/hostname_format_oapg.HostnameFormat.md)
+ - [IntegerTypeMatchesIntegers](docs/components/schema/integer_type_matches_integers_oapg.IntegerTypeMatchesIntegers.md)
+ - [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](docs/components/schema/invalid_instance_should_not_raise_error_when_float_division_inf_oapg.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md)
+ - [InvalidStringValueForDefault](docs/components/schema/invalid_string_value_for_default_oapg.InvalidStringValueForDefault.md)
+ - [Ipv4Format](docs/components/schema/ipv4_format_oapg.Ipv4Format.md)
+ - [Ipv6Format](docs/components/schema/ipv6_format_oapg.Ipv6Format.md)
+ - [JsonPointerFormat](docs/components/schema/json_pointer_format_oapg.JsonPointerFormat.md)
+ - [MaximumValidation](docs/components/schema/maximum_validation_oapg.MaximumValidation.md)
+ - [MaximumValidationWithUnsignedInteger](docs/components/schema/maximum_validation_with_unsigned_integer_oapg.MaximumValidationWithUnsignedInteger.md)
+ - [MaxitemsValidation](docs/components/schema/maxitems_validation_oapg.MaxitemsValidation.md)
+ - [MaxlengthValidation](docs/components/schema/maxlength_validation_oapg.MaxlengthValidation.md)
+ - [Maxproperties0MeansTheObjectIsEmpty](docs/components/schema/maxproperties0_means_the_object_is_empty_oapg.Maxproperties0MeansTheObjectIsEmpty.md)
+ - [MaxpropertiesValidation](docs/components/schema/maxproperties_validation_oapg.MaxpropertiesValidation.md)
+ - [MinimumValidation](docs/components/schema/minimum_validation_oapg.MinimumValidation.md)
+ - [MinimumValidationWithSignedInteger](docs/components/schema/minimum_validation_with_signed_integer_oapg.MinimumValidationWithSignedInteger.md)
+ - [MinitemsValidation](docs/components/schema/minitems_validation_oapg.MinitemsValidation.md)
+ - [MinlengthValidation](docs/components/schema/minlength_validation_oapg.MinlengthValidation.md)
+ - [MinpropertiesValidation](docs/components/schema/minproperties_validation_oapg.MinpropertiesValidation.md)
+ - [ModelNot](docs/components/schema/model_not_oapg.ModelNot.md)
+ - [NestedAllofToCheckValidationSemantics](docs/components/schema/nested_allof_to_check_validation_semantics_oapg.NestedAllofToCheckValidationSemantics.md)
+ - [NestedAnyofToCheckValidationSemantics](docs/components/schema/nested_anyof_to_check_validation_semantics_oapg.NestedAnyofToCheckValidationSemantics.md)
+ - [NestedItems](docs/components/schema/nested_items_oapg.NestedItems.md)
+ - [NestedOneofToCheckValidationSemantics](docs/components/schema/nested_oneof_to_check_validation_semantics_oapg.NestedOneofToCheckValidationSemantics.md)
+ - [NotMoreComplexSchema](docs/components/schema/not_more_complex_schema_oapg.NotMoreComplexSchema.md)
+ - [NulCharactersInStrings](docs/components/schema/nul_characters_in_strings_oapg.NulCharactersInStrings.md)
+ - [NullTypeMatchesOnlyTheNullObject](docs/components/schema/null_type_matches_only_the_null_object_oapg.NullTypeMatchesOnlyTheNullObject.md)
+ - [NumberTypeMatchesNumbers](docs/components/schema/number_type_matches_numbers_oapg.NumberTypeMatchesNumbers.md)
+ - [ObjectPropertiesValidation](docs/components/schema/object_properties_validation_oapg.ObjectPropertiesValidation.md)
+ - [ObjectTypeMatchesObjects](docs/components/schema/object_type_matches_objects_oapg.ObjectTypeMatchesObjects.md)
+ - [Oneof](docs/components/schema/oneof_oapg.Oneof.md)
+ - [OneofComplexTypes](docs/components/schema/oneof_complex_types_oapg.OneofComplexTypes.md)
+ - [OneofWithBaseSchema](docs/components/schema/oneof_with_base_schema_oapg.OneofWithBaseSchema.md)
+ - [OneofWithEmptySchema](docs/components/schema/oneof_with_empty_schema_oapg.OneofWithEmptySchema.md)
+ - [OneofWithRequired](docs/components/schema/oneof_with_required_oapg.OneofWithRequired.md)
+ - [PatternIsNotAnchored](docs/components/schema/pattern_is_not_anchored_oapg.PatternIsNotAnchored.md)
+ - [PatternValidation](docs/components/schema/pattern_validation_oapg.PatternValidation.md)
+ - [PropertiesWithEscapedCharacters](docs/components/schema/properties_with_escaped_characters_oapg.PropertiesWithEscapedCharacters.md)
+ - [PropertyNamedRefThatIsNotAReference](docs/components/schema/property_named_ref_that_is_not_a_reference_oapg.PropertyNamedRefThatIsNotAReference.md)
+ - [RefInAdditionalproperties](docs/components/schema/ref_in_additionalproperties_oapg.RefInAdditionalproperties.md)
+ - [RefInAllof](docs/components/schema/ref_in_allof_oapg.RefInAllof.md)
+ - [RefInAnyof](docs/components/schema/ref_in_anyof_oapg.RefInAnyof.md)
+ - [RefInItems](docs/components/schema/ref_in_items_oapg.RefInItems.md)
+ - [RefInNot](docs/components/schema/ref_in_not_oapg.RefInNot.md)
+ - [RefInOneof](docs/components/schema/ref_in_oneof_oapg.RefInOneof.md)
+ - [RefInProperty](docs/components/schema/ref_in_property_oapg.RefInProperty.md)
+ - [RequiredDefaultValidation](docs/components/schema/required_default_validation_oapg.RequiredDefaultValidation.md)
+ - [RequiredValidation](docs/components/schema/required_validation_oapg.RequiredValidation.md)
+ - [RequiredWithEmptyArray](docs/components/schema/required_with_empty_array_oapg.RequiredWithEmptyArray.md)
+ - [RequiredWithEscapedCharacters](docs/components/schema/required_with_escaped_characters_oapg.RequiredWithEscapedCharacters.md)
+ - [RootPointerRef](docs/components/schema/root_pointer_ref_oapg.RootPointerRef.md)
+ - [SimpleEnumValidation](docs/components/schema/simple_enum_validation_oapg.SimpleEnumValidation.md)
+ - [StringTypeMatchesStrings](docs/components/schema/string_type_matches_strings_oapg.StringTypeMatchesStrings.md)
+ - [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](docs/components/schema/the_default_keyword_does_not_do_anything_if_the_property_is_missing_oapg.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md)
+ - [UniqueitemsFalseValidation](docs/components/schema/uniqueitems_false_validation_oapg.UniqueitemsFalseValidation.md)
+ - [UniqueitemsValidation](docs/components/schema/uniqueitems_validation_oapg.UniqueitemsValidation.md)
+ - [UriFormat](docs/components/schema/uri_format_oapg.UriFormat.md)
+ - [UriReferenceFormat](docs/components/schema/uri_reference_format_oapg.UriReferenceFormat.md)
+ - [UriTemplateFormat](docs/components/schema/uri_template_format_oapg.UriTemplateFormat.md)
 
 ## Documentation For Authorization
 
@@ -1001,7 +1015,7 @@ RecursionError indicating the maximum recursion limit has been exceeded. In that
 Solution 1:
 Use specific imports for apis and models like:
 - `from unit_test_api.apis.default_api import DefaultApi`
-- `from unit_test_api.model.pet import Pet`
+- `from unit_test_api.components.schema.pet import Pet`
 
 Solution 1:
 Before importing the package, adjust the maximum recursion limit as shown below:

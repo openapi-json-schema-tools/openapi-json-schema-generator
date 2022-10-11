@@ -17,10 +17,10 @@ from dateutil.tz import tzutc
 import frozendict
 
 from petstore_api.schemas import DateSchema, DateTimeSchema, Singleton, NoneClass
-from petstore_api.model.animal import Animal
-from petstore_api.model.cat import Cat
-from petstore_api.model.composed_one_of_different_types import ComposedOneOfDifferentTypes
-from petstore_api.model.number_with_validations import NumberWithValidations
+from petstore_api.components.schema.animal_oapg import Animal
+from petstore_api.components.schema.cat_oapg import Cat
+from petstore_api.components.schema.composed_one_of_different_types_oapg import ComposedOneOfDifferentTypes
+from petstore_api.components.schema.number_with_validations_oapg import NumberWithValidations
 
 class TestComposedOneOfDifferentTypes(unittest.TestCase):
     """ComposedOneOfDifferentTypes unit test stubs"""

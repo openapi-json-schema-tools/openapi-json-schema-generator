@@ -1,0 +1,14 @@
+# unit_test_api.components.schema.ref_in_additionalproperties_oapg.RefInAdditionalproperties
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference_oapg.PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference_oapg.PropertyNamedRefThatIsNotAReference.md) | any string name can be used but the value must be the correct type | [optional] 
+
+[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
+

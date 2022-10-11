@@ -60,6 +60,17 @@ Python &gt;&#x3D;3.7
         - path apis are at your_package.apis.paths.some_path
     - Those apis will only load their needed models, which is less to load than all of the resources needed in a tag api
     - So you will need to update your import paths to the api classes
+9. The test directory has been changed from test to tests
+   Submodules preserve the same name as the package directory names.
+   Tested submodules have test_ added as a prefix to test models and path endpoints
+   - So you may need to update your testing code to use use the tests folder
+10. Models are now stored in your_package.components.schema
+    For a model import one should use from your_package.components.schema import pet_oapg
+    And then use pet_oapg.Pet
+    This was done:
+    - to make $ref paths convertible to python path modules
+    - to allow future imports of shared code from other components
+
 
 ### Why are Oapg and _oapg used in class and method names?
 Classes can have arbitrarily named properties set on them
@@ -141,7 +152,6 @@ import time
 import petstore_api
 from pprint import pprint
 from petstore_api.apis.tags import another_fake_api
-from petstore_api.model.client import Client
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = petstore_api.Configuration(
@@ -153,9 +163,9 @@ configuration = petstore_api.Configuration(
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = another_fake_api.AnotherFakeApi(api_client)
-    client = Client(
+    client = client_oapg.Client(
         client="client_example",
-    ) # Client | client model
+    ) #  | client model
 
     try:
         # To test special tags
@@ -201,6 +211,7 @@ Class | Method | HTTP request | Description
 *FakeApi* | [**query_parameter_collection_format**](docs/apis/tags/FakeApi.md#query_parameter_collection_format) | **put** /fake/test-query-paramters | 
 *FakeApi* | [**ref_object_in_query**](docs/apis/tags/FakeApi.md#ref_object_in_query) | **get** /fake/refObjInQuery | user list
 *FakeApi* | [**response_without_schema**](docs/apis/tags/FakeApi.md#response_without_schema) | **get** /fake/responseWithoutSchema | receives a response without schema
+*FakeApi* | [**self_referencing_object_model**](docs/apis/tags/FakeApi.md#self_referencing_object_model) | **post** /fake/selfReferencingObjectModel | self referencing object model
 *FakeApi* | [**string**](docs/apis/tags/FakeApi.md#string) | **post** /fake/refs/string | 
 *FakeApi* | [**string_enum**](docs/apis/tags/FakeApi.md#string_enum) | **post** /fake/refs/enum | 
 *FakeApi* | [**upload_download_file**](docs/apis/tags/FakeApi.md#upload_download_file) | **post** /fake/uploadDownloadFile | uploads a file and downloads a file using application/octet-stream
@@ -231,125 +242,131 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionalPropertiesClass](docs/models/AdditionalPropertiesClass.md)
- - [AdditionalPropertiesValidator](docs/models/AdditionalPropertiesValidator.md)
- - [AdditionalPropertiesWithArrayOfEnums](docs/models/AdditionalPropertiesWithArrayOfEnums.md)
- - [Address](docs/models/Address.md)
- - [Animal](docs/models/Animal.md)
- - [AnimalFarm](docs/models/AnimalFarm.md)
- - [AnyTypeAndFormat](docs/models/AnyTypeAndFormat.md)
- - [AnyTypeNotString](docs/models/AnyTypeNotString.md)
- - [ApiResponse](docs/models/ApiResponse.md)
- - [Apple](docs/models/Apple.md)
- - [AppleReq](docs/models/AppleReq.md)
- - [ArrayHoldingAnyType](docs/models/ArrayHoldingAnyType.md)
- - [ArrayOfArrayOfNumberOnly](docs/models/ArrayOfArrayOfNumberOnly.md)
- - [ArrayOfEnums](docs/models/ArrayOfEnums.md)
- - [ArrayOfNumberOnly](docs/models/ArrayOfNumberOnly.md)
- - [ArrayTest](docs/models/ArrayTest.md)
- - [ArrayWithValidationsInItems](docs/models/ArrayWithValidationsInItems.md)
- - [Banana](docs/models/Banana.md)
- - [BananaReq](docs/models/BananaReq.md)
- - [Bar](docs/models/Bar.md)
- - [BasquePig](docs/models/BasquePig.md)
- - [Boolean](docs/models/Boolean.md)
- - [BooleanEnum](docs/models/BooleanEnum.md)
- - [Capitalization](docs/models/Capitalization.md)
- - [Cat](docs/models/Cat.md)
- - [Category](docs/models/Category.md)
- - [ChildCat](docs/models/ChildCat.md)
- - [ClassModel](docs/models/ClassModel.md)
- - [Client](docs/models/Client.md)
- - [ComplexQuadrilateral](docs/models/ComplexQuadrilateral.md)
- - [ComposedAnyOfDifferentTypesNoValidations](docs/models/ComposedAnyOfDifferentTypesNoValidations.md)
- - [ComposedArray](docs/models/ComposedArray.md)
- - [ComposedBool](docs/models/ComposedBool.md)
- - [ComposedNone](docs/models/ComposedNone.md)
- - [ComposedNumber](docs/models/ComposedNumber.md)
- - [ComposedObject](docs/models/ComposedObject.md)
- - [ComposedOneOfDifferentTypes](docs/models/ComposedOneOfDifferentTypes.md)
- - [ComposedString](docs/models/ComposedString.md)
- - [Currency](docs/models/Currency.md)
- - [DanishPig](docs/models/DanishPig.md)
- - [DateTimeTest](docs/models/DateTimeTest.md)
- - [DateTimeWithValidations](docs/models/DateTimeWithValidations.md)
- - [DateWithValidations](docs/models/DateWithValidations.md)
- - [DecimalPayload](docs/models/DecimalPayload.md)
- - [Dog](docs/models/Dog.md)
- - [Drawing](docs/models/Drawing.md)
- - [EnumArrays](docs/models/EnumArrays.md)
- - [EnumClass](docs/models/EnumClass.md)
- - [EnumTest](docs/models/EnumTest.md)
- - [EquilateralTriangle](docs/models/EquilateralTriangle.md)
- - [File](docs/models/File.md)
- - [FileSchemaTestClass](docs/models/FileSchemaTestClass.md)
- - [Foo](docs/models/Foo.md)
- - [FormatTest](docs/models/FormatTest.md)
- - [FromSchema](docs/models/FromSchema.md)
- - [Fruit](docs/models/Fruit.md)
- - [FruitReq](docs/models/FruitReq.md)
- - [GmFruit](docs/models/GmFruit.md)
- - [GrandparentAnimal](docs/models/GrandparentAnimal.md)
- - [HasOnlyReadOnly](docs/models/HasOnlyReadOnly.md)
- - [HealthCheckResult](docs/models/HealthCheckResult.md)
- - [IntegerEnum](docs/models/IntegerEnum.md)
- - [IntegerEnumBig](docs/models/IntegerEnumBig.md)
- - [IntegerEnumOneValue](docs/models/IntegerEnumOneValue.md)
- - [IntegerEnumWithDefaultValue](docs/models/IntegerEnumWithDefaultValue.md)
- - [IntegerMax10](docs/models/IntegerMax10.md)
- - [IntegerMin15](docs/models/IntegerMin15.md)
- - [IsoscelesTriangle](docs/models/IsoscelesTriangle.md)
- - [JSONPatchRequest](docs/models/JSONPatchRequest.md)
- - [JSONPatchRequestAddReplaceTest](docs/models/JSONPatchRequestAddReplaceTest.md)
- - [JSONPatchRequestMoveCopy](docs/models/JSONPatchRequestMoveCopy.md)
- - [JSONPatchRequestRemove](docs/models/JSONPatchRequestRemove.md)
- - [Mammal](docs/models/Mammal.md)
- - [MapTest](docs/models/MapTest.md)
- - [MixedPropertiesAndAdditionalPropertiesClass](docs/models/MixedPropertiesAndAdditionalPropertiesClass.md)
- - [Model200Response](docs/models/Model200Response.md)
- - [ModelReturn](docs/models/ModelReturn.md)
- - [Money](docs/models/Money.md)
- - [Name](docs/models/Name.md)
- - [NoAdditionalProperties](docs/models/NoAdditionalProperties.md)
- - [NullableClass](docs/models/NullableClass.md)
- - [NullableShape](docs/models/NullableShape.md)
- - [NullableString](docs/models/NullableString.md)
- - [Number](docs/models/Number.md)
- - [NumberOnly](docs/models/NumberOnly.md)
- - [NumberWithValidations](docs/models/NumberWithValidations.md)
- - [ObjectInterface](docs/models/ObjectInterface.md)
- - [ObjectModelWithRefProps](docs/models/ObjectModelWithRefProps.md)
- - [ObjectWithDecimalProperties](docs/models/ObjectWithDecimalProperties.md)
- - [ObjectWithDifficultlyNamedProps](docs/models/ObjectWithDifficultlyNamedProps.md)
- - [ObjectWithInlineCompositionProperty](docs/models/ObjectWithInlineCompositionProperty.md)
- - [ObjectWithInvalidNamedRefedProperties](docs/models/ObjectWithInvalidNamedRefedProperties.md)
- - [ObjectWithValidations](docs/models/ObjectWithValidations.md)
- - [Order](docs/models/Order.md)
- - [ParentPet](docs/models/ParentPet.md)
- - [Pet](docs/models/Pet.md)
- - [Pig](docs/models/Pig.md)
- - [Player](docs/models/Player.md)
- - [Quadrilateral](docs/models/Quadrilateral.md)
- - [QuadrilateralInterface](docs/models/QuadrilateralInterface.md)
- - [ReadOnlyFirst](docs/models/ReadOnlyFirst.md)
- - [ScaleneTriangle](docs/models/ScaleneTriangle.md)
- - [Shape](docs/models/Shape.md)
- - [ShapeOrNull](docs/models/ShapeOrNull.md)
- - [SimpleQuadrilateral](docs/models/SimpleQuadrilateral.md)
- - [SomeObject](docs/models/SomeObject.md)
- - [SpecialModelName](docs/models/SpecialModelName.md)
- - [String](docs/models/String.md)
- - [StringBooleanMap](docs/models/StringBooleanMap.md)
- - [StringEnum](docs/models/StringEnum.md)
- - [StringEnumWithDefaultValue](docs/models/StringEnumWithDefaultValue.md)
- - [StringWithValidation](docs/models/StringWithValidation.md)
- - [Tag](docs/models/Tag.md)
- - [Triangle](docs/models/Triangle.md)
- - [TriangleInterface](docs/models/TriangleInterface.md)
- - [UUIDString](docs/models/UUIDString.md)
- - [User](docs/models/User.md)
- - [Whale](docs/models/Whale.md)
- - [Zebra](docs/models/Zebra.md)
+ - [AdditionalPropertiesClass](docs/components/schema/additional_properties_class_oapg.AdditionalPropertiesClass.md)
+ - [AdditionalPropertiesValidator](docs/components/schema/additional_properties_validator_oapg.AdditionalPropertiesValidator.md)
+ - [AdditionalPropertiesWithArrayOfEnums](docs/components/schema/additional_properties_with_array_of_enums_oapg.AdditionalPropertiesWithArrayOfEnums.md)
+ - [Address](docs/components/schema/address_oapg.Address.md)
+ - [Animal](docs/components/schema/animal_oapg.Animal.md)
+ - [AnimalFarm](docs/components/schema/animal_farm_oapg.AnimalFarm.md)
+ - [AnyTypeAndFormat](docs/components/schema/any_type_and_format_oapg.AnyTypeAndFormat.md)
+ - [AnyTypeNotString](docs/components/schema/any_type_not_string_oapg.AnyTypeNotString.md)
+ - [ApiResponse](docs/components/schema/api_response_oapg.ApiResponse.md)
+ - [Apple](docs/components/schema/apple_oapg.Apple.md)
+ - [AppleReq](docs/components/schema/apple_req_oapg.AppleReq.md)
+ - [ArrayHoldingAnyType](docs/components/schema/array_holding_any_type_oapg.ArrayHoldingAnyType.md)
+ - [ArrayOfArrayOfNumberOnly](docs/components/schema/array_of_array_of_number_only_oapg.ArrayOfArrayOfNumberOnly.md)
+ - [ArrayOfEnums](docs/components/schema/array_of_enums_oapg.ArrayOfEnums.md)
+ - [ArrayOfNumberOnly](docs/components/schema/array_of_number_only_oapg.ArrayOfNumberOnly.md)
+ - [ArrayTest](docs/components/schema/array_test_oapg.ArrayTest.md)
+ - [ArrayWithValidationsInItems](docs/components/schema/array_with_validations_in_items_oapg.ArrayWithValidationsInItems.md)
+ - [Banana](docs/components/schema/banana_oapg.Banana.md)
+ - [BananaReq](docs/components/schema/banana_req_oapg.BananaReq.md)
+ - [Bar](docs/components/schema/bar_oapg.Bar.md)
+ - [BasquePig](docs/components/schema/basque_pig_oapg.BasquePig.md)
+ - [Boolean](docs/components/schema/boolean_oapg.Boolean.md)
+ - [BooleanEnum](docs/components/schema/boolean_enum_oapg.BooleanEnum.md)
+ - [Capitalization](docs/components/schema/capitalization_oapg.Capitalization.md)
+ - [Cat](docs/components/schema/cat_oapg.Cat.md)
+ - [Category](docs/components/schema/category_oapg.Category.md)
+ - [ChildCat](docs/components/schema/child_cat_oapg.ChildCat.md)
+ - [ClassModel](docs/components/schema/class_model_oapg.ClassModel.md)
+ - [Client](docs/components/schema/client_oapg.Client.md)
+ - [ComplexQuadrilateral](docs/components/schema/complex_quadrilateral_oapg.ComplexQuadrilateral.md)
+ - [ComposedAnyOfDifferentTypesNoValidations](docs/components/schema/composed_any_of_different_types_no_validations_oapg.ComposedAnyOfDifferentTypesNoValidations.md)
+ - [ComposedArray](docs/components/schema/composed_array_oapg.ComposedArray.md)
+ - [ComposedBool](docs/components/schema/composed_bool_oapg.ComposedBool.md)
+ - [ComposedNone](docs/components/schema/composed_none_oapg.ComposedNone.md)
+ - [ComposedNumber](docs/components/schema/composed_number_oapg.ComposedNumber.md)
+ - [ComposedObject](docs/components/schema/composed_object_oapg.ComposedObject.md)
+ - [ComposedOneOfDifferentTypes](docs/components/schema/composed_one_of_different_types_oapg.ComposedOneOfDifferentTypes.md)
+ - [ComposedString](docs/components/schema/composed_string_oapg.ComposedString.md)
+ - [Currency](docs/components/schema/currency_oapg.Currency.md)
+ - [DanishPig](docs/components/schema/danish_pig_oapg.DanishPig.md)
+ - [DateTimeTest](docs/components/schema/date_time_test_oapg.DateTimeTest.md)
+ - [DateTimeWithValidations](docs/components/schema/date_time_with_validations_oapg.DateTimeWithValidations.md)
+ - [DateWithValidations](docs/components/schema/date_with_validations_oapg.DateWithValidations.md)
+ - [DecimalPayload](docs/components/schema/decimal_payload_oapg.DecimalPayload.md)
+ - [Dog](docs/components/schema/dog_oapg.Dog.md)
+ - [Drawing](docs/components/schema/drawing_oapg.Drawing.md)
+ - [EnumArrays](docs/components/schema/enum_arrays_oapg.EnumArrays.md)
+ - [EnumClass](docs/components/schema/enum_class_oapg.EnumClass.md)
+ - [EnumTest](docs/components/schema/enum_test_oapg.EnumTest.md)
+ - [EquilateralTriangle](docs/components/schema/equilateral_triangle_oapg.EquilateralTriangle.md)
+ - [File](docs/components/schema/file_oapg.File.md)
+ - [FileSchemaTestClass](docs/components/schema/file_schema_test_class_oapg.FileSchemaTestClass.md)
+ - [Foo](docs/components/schema/foo_oapg.Foo.md)
+ - [FormatTest](docs/components/schema/format_test_oapg.FormatTest.md)
+ - [FromSchema](docs/components/schema/from_schema_oapg.FromSchema.md)
+ - [Fruit](docs/components/schema/fruit_oapg.Fruit.md)
+ - [FruitReq](docs/components/schema/fruit_req_oapg.FruitReq.md)
+ - [GmFruit](docs/components/schema/gm_fruit_oapg.GmFruit.md)
+ - [GrandparentAnimal](docs/components/schema/grandparent_animal_oapg.GrandparentAnimal.md)
+ - [HasOnlyReadOnly](docs/components/schema/has_only_read_only_oapg.HasOnlyReadOnly.md)
+ - [HealthCheckResult](docs/components/schema/health_check_result_oapg.HealthCheckResult.md)
+ - [IntegerEnum](docs/components/schema/integer_enum_oapg.IntegerEnum.md)
+ - [IntegerEnumBig](docs/components/schema/integer_enum_big_oapg.IntegerEnumBig.md)
+ - [IntegerEnumOneValue](docs/components/schema/integer_enum_one_value_oapg.IntegerEnumOneValue.md)
+ - [IntegerEnumWithDefaultValue](docs/components/schema/integer_enum_with_default_value_oapg.IntegerEnumWithDefaultValue.md)
+ - [IntegerMax10](docs/components/schema/integer_max10_oapg.IntegerMax10.md)
+ - [IntegerMin15](docs/components/schema/integer_min15_oapg.IntegerMin15.md)
+ - [IsoscelesTriangle](docs/components/schema/isosceles_triangle_oapg.IsoscelesTriangle.md)
+ - [JSONPatchRequest](docs/components/schema/json_patch_request_oapg.JSONPatchRequest.md)
+ - [JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test_oapg.JSONPatchRequestAddReplaceTest.md)
+ - [JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy_oapg.JSONPatchRequestMoveCopy.md)
+ - [JSONPatchRequestRemove](docs/components/schema/json_patch_request_remove_oapg.JSONPatchRequestRemove.md)
+ - [Mammal](docs/components/schema/mammal_oapg.Mammal.md)
+ - [MapTest](docs/components/schema/map_test_oapg.MapTest.md)
+ - [MixedPropertiesAndAdditionalPropertiesClass](docs/components/schema/mixed_properties_and_additional_properties_class_oapg.MixedPropertiesAndAdditionalPropertiesClass.md)
+ - [Model200Response](docs/components/schema/model200_response_oapg.Model200Response.md)
+ - [ModelReturn](docs/components/schema/model_return_oapg.ModelReturn.md)
+ - [Money](docs/components/schema/money_oapg.Money.md)
+ - [Name](docs/components/schema/name_oapg.Name.md)
+ - [NoAdditionalProperties](docs/components/schema/no_additional_properties_oapg.NoAdditionalProperties.md)
+ - [NullableClass](docs/components/schema/nullable_class_oapg.NullableClass.md)
+ - [NullableShape](docs/components/schema/nullable_shape_oapg.NullableShape.md)
+ - [NullableString](docs/components/schema/nullable_string_oapg.NullableString.md)
+ - [Number](docs/components/schema/number_oapg.Number.md)
+ - [NumberOnly](docs/components/schema/number_only_oapg.NumberOnly.md)
+ - [NumberWithValidations](docs/components/schema/number_with_validations_oapg.NumberWithValidations.md)
+ - [ObjHere](docs/components/schema/obj_here_oapg.ObjHere.md)
+ - [ObjThere](docs/components/schema/obj_there_oapg.ObjThere.md)
+ - [ObjectHasDiscWithValueThatIsARef](docs/components/schema/object_has_disc_with_value_that_is_a_ref_oapg.ObjectHasDiscWithValueThatIsARef.md)
+ - [ObjectHasDiscWithValueThatIsARefFragment](docs/components/schema/object_has_disc_with_value_that_is_a_ref_fragment_oapg.ObjectHasDiscWithValueThatIsARefFragment.md)
+ - [ObjectInterface](docs/components/schema/object_interface_oapg.ObjectInterface.md)
+ - [ObjectModelWithRefProps](docs/components/schema/object_model_with_ref_props_oapg.ObjectModelWithRefProps.md)
+ - [ObjectWithDecimalProperties](docs/components/schema/object_with_decimal_properties_oapg.ObjectWithDecimalProperties.md)
+ - [ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props_oapg.ObjectWithDifficultlyNamedProps.md)
+ - [ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property_oapg.ObjectWithInlineCompositionProperty.md)
+ - [ObjectWithInvalidNamedRefedProperties](docs/components/schema/object_with_invalid_named_refed_properties_oapg.ObjectWithInvalidNamedRefedProperties.md)
+ - [ObjectWithValidations](docs/components/schema/object_with_validations_oapg.ObjectWithValidations.md)
+ - [Order](docs/components/schema/order_oapg.Order.md)
+ - [ParentPet](docs/components/schema/parent_pet_oapg.ParentPet.md)
+ - [Pet](docs/components/schema/pet_oapg.Pet.md)
+ - [Pig](docs/components/schema/pig_oapg.Pig.md)
+ - [Player](docs/components/schema/player_oapg.Player.md)
+ - [Quadrilateral](docs/components/schema/quadrilateral_oapg.Quadrilateral.md)
+ - [QuadrilateralInterface](docs/components/schema/quadrilateral_interface_oapg.QuadrilateralInterface.md)
+ - [ReadOnlyFirst](docs/components/schema/read_only_first_oapg.ReadOnlyFirst.md)
+ - [ScaleneTriangle](docs/components/schema/scalene_triangle_oapg.ScaleneTriangle.md)
+ - [SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model_oapg.SelfReferencingArrayModel.md)
+ - [SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model_oapg.SelfReferencingObjectModel.md)
+ - [Shape](docs/components/schema/shape_oapg.Shape.md)
+ - [ShapeOrNull](docs/components/schema/shape_or_null_oapg.ShapeOrNull.md)
+ - [SimpleQuadrilateral](docs/components/schema/simple_quadrilateral_oapg.SimpleQuadrilateral.md)
+ - [SomeObject](docs/components/schema/some_object_oapg.SomeObject.md)
+ - [SpecialModelName](docs/components/schema/special_model_name_oapg.SpecialModelName.md)
+ - [String](docs/components/schema/string_oapg.String.md)
+ - [StringBooleanMap](docs/components/schema/string_boolean_map_oapg.StringBooleanMap.md)
+ - [StringEnum](docs/components/schema/string_enum_oapg.StringEnum.md)
+ - [StringEnumWithDefaultValue](docs/components/schema/string_enum_with_default_value_oapg.StringEnumWithDefaultValue.md)
+ - [StringWithValidation](docs/components/schema/string_with_validation_oapg.StringWithValidation.md)
+ - [Tag](docs/components/schema/tag_oapg.Tag.md)
+ - [Triangle](docs/components/schema/triangle_oapg.Triangle.md)
+ - [TriangleInterface](docs/components/schema/triangle_interface_oapg.TriangleInterface.md)
+ - [UUIDString](docs/components/schema/uuid_string_oapg.UUIDString.md)
+ - [User](docs/components/schema/user_oapg.User.md)
+ - [Whale](docs/components/schema/whale_oapg.Whale.md)
+ - [Zebra](docs/components/schema/zebra_oapg.Zebra.md)
 
 ## Documentation For Authorization
 
@@ -410,7 +427,7 @@ RecursionError indicating the maximum recursion limit has been exceeded. In that
 Solution 1:
 Use specific imports for apis and models like:
 - `from petstore_api.apis.default_api import DefaultApi`
-- `from petstore_api.model.pet import Pet`
+- `from petstore_api.components.schema.pet import Pet`
 
 Solution 1:
 Before importing the package, adjust the maximum recursion limit as shown below:

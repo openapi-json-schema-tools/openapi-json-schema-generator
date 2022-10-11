@@ -216,5 +216,37 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "root pointer ref",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "foo": {"$ref": "#"}
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "match",
+                "data": {"foo": {}},
+                "valid": true
+            },
+            {
+                "description": "recursive match",
+                "data": {"foo": {"foo": {}}},
+                "valid": true
+            },
+            {
+                "description": "mismatch",
+                "data": {"bar": false},
+                "valid": false
+            },
+            {
+                "description": "recursive mismatch",
+                "data": {"foo": {"bar": false}},
+                "valid": false
+            }
+        ]
     }
 ]

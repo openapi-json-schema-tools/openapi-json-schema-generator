@@ -17,14 +17,14 @@ import frozendict
 
 import petstore_api
 from petstore_api.schemas import Singleton
-from petstore_api.model.shape import Shape
-from petstore_api.model import complex_quadrilateral
-from petstore_api.model import simple_quadrilateral
-from petstore_api.model import triangle
-from petstore_api.model import triangle_interface
-from petstore_api.model import equilateral_triangle
-from petstore_api.model import isosceles_triangle
-from petstore_api.model import scalene_triangle
+from petstore_api.components.schema.shape_oapg import Shape
+from petstore_api.components.schema import complex_quadrilateral_oapg
+from petstore_api.components.schema import simple_quadrilateral_oapg
+from petstore_api.components.schema import triangle_oapg
+from petstore_api.components.schema import triangle_interface_oapg
+from petstore_api.components.schema import equilateral_triangle_oapg
+from petstore_api.components.schema import isosceles_triangle_oapg
+from petstore_api.components.schema import scalene_triangle_oapg
 
 
 class TestShape(unittest.TestCase):
@@ -49,9 +49,9 @@ class TestShape(unittest.TestCase):
             shapeType="Triangle",
             triangleType="EquilateralTriangle"
         )
-        assert isinstance(tri, equilateral_triangle.EquilateralTriangle)
-        assert isinstance(tri, triangle.Triangle)
-        assert isinstance(tri, triangle_interface.TriangleInterface)
+        assert isinstance(tri, equilateral_triangle_oapg.EquilateralTriangle)
+        assert isinstance(tri, triangle_oapg.Triangle)
+        assert isinstance(tri, triangle_interface_oapg.TriangleInterface)
         assert isinstance(tri, Shape)
         assert isinstance(tri, frozendict.frozendict)
         assert isinstance(tri.shapeType, str)
@@ -61,25 +61,25 @@ class TestShape(unittest.TestCase):
             shapeType="Triangle",
             triangleType="IsoscelesTriangle"
         )
-        assert isinstance(tri, isosceles_triangle.IsoscelesTriangle)
+        assert isinstance(tri, isosceles_triangle_oapg.IsoscelesTriangle)
 
         tri = Shape(
             shapeType="Triangle",
             triangleType="ScaleneTriangle"
         )
-        assert isinstance(tri, scalene_triangle.ScaleneTriangle)
+        assert isinstance(tri, scalene_triangle_oapg.ScaleneTriangle)
 
         quad = Shape(
             shapeType="Quadrilateral",
             quadrilateralType="ComplexQuadrilateral"
         )
-        assert isinstance(quad, complex_quadrilateral.ComplexQuadrilateral)
+        assert isinstance(quad, complex_quadrilateral_oapg.ComplexQuadrilateral)
 
         quad = Shape(
             shapeType="Quadrilateral",
             quadrilateralType="SimpleQuadrilateral"
         )
-        assert isinstance(quad, simple_quadrilateral.SimpleQuadrilateral)
+        assert isinstance(quad, simple_quadrilateral_oapg.SimpleQuadrilateral)
 
         # data missing
         with self.assertRaisesRegex(
@@ -113,6 +113,7 @@ class TestShape(unittest.TestCase):
                 shapeType="Quadrilateral",
                 quadrilateralType="Triangle"
             )
+
 
 if __name__ == '__main__':
     unittest.main()

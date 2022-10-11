@@ -1245,14 +1245,7 @@ public class DefaultGenerator implements Generator {
      */
     private Map<String, String> getAllImportsMappings(Set<String> allImports) {
         Map<String, String> result = new HashMap<>();
-        allImports.forEach(nextImport -> {
-            String mapping = config.importMapping().get(nextImport);
-            if (mapping != null) {
-                result.put(mapping, nextImport);
-            } else {
-                result.putAll(config.toModelImportMap(nextImport));
-            }
-        });
+        // TODO add this if needed later
         return result;
     }
 
@@ -1290,7 +1283,7 @@ public class DefaultGenerator implements Generator {
             CodegenModel cm = config.fromModel(key, schema);
             ModelMap mo = new ModelMap();
             mo.setModel(cm);
-            mo.put("importPath", config.toModelImport(cm.classname));
+            mo.put("importPath", config.toModelImport(config.toRefClass("#/components/schemas/" + cm.name, "")));
             modelMaps.add(mo);
 
             cm.removeSelfReferenceImport();
@@ -1301,17 +1294,7 @@ public class DefaultGenerator implements Generator {
         Set<String> importSet = new ConcurrentSkipListSet<>();
         for (String nextImport : allImports) {
             String mapping = config.importMapping().get(nextImport);
-            if (mapping == null) {
-                mapping = config.toModelImport(nextImport);
-            }
-            if (mapping != null && !config.defaultIncludes().contains(mapping)) {
-                importSet.add(mapping);
-            }
-            // add instantiation types
-            mapping = config.instantiationTypes().get(nextImport);
-            if (mapping != null && !config.defaultIncludes().contains(mapping)) {
-                importSet.add(mapping);
-            }
+            // TODO add importMapping/instantiationTypes here in the future if needed
         }
         List<Map<String, String>> imports = new ArrayList<>();
         for (String s : importSet) {

@@ -262,7 +262,7 @@ class HttpSigningConfiguration(object):
         :param resource_path : A string representation of the HTTP request resource path.
         :param method: A string representation of the HTTP request method, e.g. GET, POST.
         :param headers: A dict containing the HTTP request headers.
-        :param body: The object (e.g. a dict) representing the HTTP request body.
+        :param body: The str or bytes representing the HTTP request body.
         :param query_params: A string representing the HTTP request query parameters.
         :return: A tuple containing two dict objects:
             The first dict contains the HTTP headers that are used to calculate
@@ -273,8 +273,6 @@ class HttpSigningConfiguration(object):
 
         if body is None:
             body = ''
-        else:
-            body = json.dumps(body)
 
         # Build the '(request-target)' HTTP signature parameter.
         target_host = urlparse(self.host).netloc

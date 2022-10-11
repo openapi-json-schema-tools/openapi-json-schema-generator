@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.mammal import Mammal
+from petstore_api.components.schema.mammal_oapg import Mammal
 
 
 class TestMammal(unittest.TestCase):
@@ -31,24 +31,24 @@ class TestMammal(unittest.TestCase):
 
         # tests that we can make a BasquePig by traveling through discriminator in Pig
         m = Mammal(className="BasquePig")
-        from petstore_api.model import pig
-        from petstore_api.model import basque_pig
+        from petstore_api.components.schema import pig_oapg
+        from petstore_api.components.schema import basque_pig_oapg
         assert isinstance(m, Mammal)
-        assert isinstance(m, basque_pig.BasquePig)
-        assert isinstance(m, pig.Pig)
+        assert isinstance(m, basque_pig_oapg.BasquePig)
+        assert isinstance(m, pig_oapg.Pig)
 
         # can make a Whale
         m = Mammal(className="whale")
-        from petstore_api.model import whale
-        assert isinstance(m, whale.Whale)
+        from petstore_api.components.schema import whale_oapg
+        assert isinstance(m, whale_oapg.Whale)
 
         # can use the enum value
-        m = Mammal(className=whale.Whale.MetaOapg.properties.className.WHALE)
-        assert isinstance(m, whale.Whale)
+        m = Mammal(className=whale_oapg.Whale.MetaOapg.properties.className.WHALE)
+        assert isinstance(m, whale_oapg.Whale)
 
-        from petstore_api.model import zebra
+        from petstore_api.components.schema import zebra_oapg
         m = Mammal(className='zebra')
-        assert isinstance(m, zebra.Zebra)
+        assert isinstance(m, zebra_oapg.Zebra)
 
 
 if __name__ == '__main__':

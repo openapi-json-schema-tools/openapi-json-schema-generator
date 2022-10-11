@@ -48,10 +48,10 @@ class DeserializationTests(unittest.TestCase):
         - SimpleQuadrilateral
         by traveling through 2 discriminators
         """
-        from petstore_api.model import shape, equilateral_triangle
+        from petstore_api.components.schema import shape_oapg, equilateral_triangle_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=shape.Shape),
+                self.json_content_type: api_client.MediaType(schema=shape_oapg.Shape),
             },
         )
         data = {
@@ -61,7 +61,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, equilateral_triangle.EquilateralTriangle))
+        self.assertTrue(isinstance(body, equilateral_triangle_oapg.EquilateralTriangle))
         self.assertEqual(body['shapeType'], 'Triangle')
         self.assertEqual(body['triangleType'], 'EquilateralTriangle')
 
@@ -86,10 +86,10 @@ class DeserializationTests(unittest.TestCase):
         that inherrit from Animal
         This is the swagger (v2) way of doing something like oneOf composition
         """
-        from petstore_api.model import animal, dog
+        from petstore_api.components.schema import animal_oapg, dog_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=animal.Animal),
+                self.json_content_type: api_client.MediaType(schema=animal_oapg.Animal),
             },
         )
         data = {
@@ -100,7 +100,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, dog.Dog))
+        self.assertTrue(isinstance(body, dog_oapg.Dog))
         self.assertEqual(body['className'], 'Dog')
         self.assertEqual(body['color'], 'white')
         self.assertEqual(body['breed'], 'Jack Russel Terrier')
@@ -109,19 +109,19 @@ class DeserializationTests(unittest.TestCase):
         """
         Test regex pattern validation.
         """
-        from petstore_api.model import apple
+        from petstore_api.components.schema import apple_oapg
 
         # Test with valid regex pattern.
-        inst = apple.Apple(
+        inst = apple_oapg.Apple(
             cultivar="Akane"
         )
-        assert isinstance(inst, apple.Apple)
+        assert isinstance(inst, apple_oapg.Apple)
 
-        inst = apple.Apple(
+        inst = apple_oapg.Apple(
             cultivar="Golden Delicious",
             origin="cHiLe"
         )
-        assert isinstance(inst, apple.Apple)
+        assert isinstance(inst, apple_oapg.Apple)
 
         # Test with invalid regex pattern.
         err_regex = r"Invalid value `.+?`, must match regular expression `.+?` at \('args\[0\]', 'cultivar'\)"
@@ -129,7 +129,7 @@ class DeserializationTests(unittest.TestCase):
             petstore_api.ApiValueError,
             err_regex
         ):
-            inst = apple.Apple(
+            inst = apple_oapg.Apple(
                 cultivar="!@#%@$#Akane"
             )
 
@@ -138,7 +138,7 @@ class DeserializationTests(unittest.TestCase):
             petstore_api.ApiValueError,
             err_regex
         ):
-            inst = apple.Apple(
+            inst = apple_oapg.Apple(
                 cultivar="Golden Delicious",
                 origin="!@#%@$#Chile"
             )
@@ -150,10 +150,10 @@ class DeserializationTests(unittest.TestCase):
         """
 
         # whale test
-        from petstore_api.model import mammal, zebra, whale
+        from petstore_api.components.schema import mammal_oapg, zebra_oapg, whale_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
+                self.json_content_type: api_client.MediaType(schema=mammal_oapg.Mammal),
             },
         )
         has_baleen = True
@@ -167,7 +167,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, whale.Whale))
+        self.assertTrue(isinstance(body, whale_oapg.Whale))
         self.assertEqual(bool(body['hasBaleen']), has_baleen)
         self.assertEqual(bool(body['hasTeeth']), has_teeth)
         self.assertEqual(body.className, class_name)
@@ -182,7 +182,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, zebra.Zebra))
+        self.assertTrue(isinstance(body, zebra_oapg.Zebra))
         self.assertEqual(body['type'], zebra_type)
         self.assertEqual(body.className, class_name)
 
@@ -190,10 +190,10 @@ class DeserializationTests(unittest.TestCase):
         """
         Deserialize floating point values.
         """
-        from petstore_api.model import banana
+        from petstore_api.components.schema import banana_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=banana.Banana),
+                self.json_content_type: api_client.MediaType(schema=banana_oapg.Banana),
             },
         )
         data = {
@@ -202,7 +202,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, banana.Banana))
+        self.assertTrue(isinstance(body, banana_oapg.Banana))
         self.assertTrue(isinstance(body.lengthCm, Decimal))
         self.assertEqual(body.lengthCm, 3.1415)
 
@@ -217,7 +217,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, banana.Banana))
+        self.assertTrue(isinstance(body, banana_oapg.Banana))
         self.assertTrue(isinstance(body.lengthCm, Decimal))
         self.assertEqual(body.lengthCm, 3)
 
@@ -226,16 +226,16 @@ class DeserializationTests(unittest.TestCase):
         deserialize fruit with null value.
         fruitReq is a oneOf composed schema model with discriminator, including 'null' type.
         """
-        from petstore_api.model import fruit_req
+        from petstore_api.components.schema import fruit_req_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=fruit_req.FruitReq),
+                self.json_content_type: api_client.MediaType(schema=fruit_req_oapg.FruitReq),
             },
         )
         data = None
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
-        self.assertTrue(isinstance(deserialized.body, fruit_req.FruitReq))
+        self.assertTrue(isinstance(deserialized.body, fruit_req_oapg.FruitReq))
         self.assertTrue(isinstance(deserialized.body, NoneClass))
 
     def test_deserialize_with_additional_properties(self):
@@ -251,7 +251,7 @@ class DeserializationTests(unittest.TestCase):
         # The additionalProperties keyword is used to control the handling of extra stuff,
         # that is, properties whose names are not listed in the properties keyword.
         # By default any additional properties are allowed.
-        from petstore_api.model import dog, mammal, zebra, banana_req
+        from petstore_api.components.schema import dog_oapg, mammal_oapg, zebra_oapg, banana_req_oapg
         data = {
             'className': 'Dog',
             'color': 'brown',
@@ -263,12 +263,12 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=dog.Dog),
+                self.json_content_type: api_client.MediaType(schema=dog_oapg.Dog),
             },
         )
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, dog.Dog))
+        self.assertTrue(isinstance(body, dog_oapg.Dog))
         self.assertEqual(body['className'], 'Dog')
         self.assertEqual(body['color'], 'brown')
         self.assertEqual(body['breed'], 'golden retriever')
@@ -290,12 +290,12 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
+                self.json_content_type: api_client.MediaType(schema=mammal_oapg.Mammal),
             },
         )
         deserialized = _response_for_200.deserialize(response, self.configuration)
         body = deserialized.body
-        self.assertTrue(isinstance(body, zebra.Zebra))
+        self.assertTrue(isinstance(body, zebra_oapg.Zebra))
         self.assertEqual(body['className'], 'zebra')
         self.assertEqual(body['type'], 'plains')
         self.assertEqual(bool(body['p1']), True)
@@ -304,7 +304,7 @@ class DeserializationTests(unittest.TestCase):
         # additionalProperties: false
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=banana_req.BananaReq),
+                self.json_content_type: api_client.MediaType(schema=banana_req_oapg.BananaReq),
             },
         )
         with self.assertRaisesRegex(
@@ -326,10 +326,10 @@ class DeserializationTests(unittest.TestCase):
         Deserialize data with schemas that has the additionalProperties keyword
         and the schema is specified as a reference ($ref).
         """
-        from petstore_api.model import drawing
+        from petstore_api.components.schema import drawing_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=drawing.Drawing),
+                self.json_content_type: api_client.MediaType(schema=drawing_oapg.Drawing),
             },
         )
         data = {
@@ -356,35 +356,35 @@ class DeserializationTests(unittest.TestCase):
         _response_for_200.deserialize(response, self.configuration)
 
     def test_deserialize_NumberWithValidations(self):
-        from petstore_api.model.number_with_validations import NumberWithValidations
-        from petstore_api.paths.fake_refs_number.post import _response_for_200
+        from petstore_api.components.schema.number_with_validations_oapg import NumberWithValidations
+        from petstore_api.paths.fake_refs_number.post import response_for_200
 
         # make sure that an exception is thrown on an invalid type value
         with self.assertRaises(petstore_api.ApiTypeError):
             response = self.__response('test str')
-            _response_for_200.deserialize(response, self.configuration)
+            response_for_200.response.deserialize(response, self.configuration)
 
         # make sure that an exception is thrown on an invalid value
         with self.assertRaises(petstore_api.ApiValueError):
             response = self.__response(21.0)
-            _response_for_200.deserialize(response, self.configuration)
+            response_for_200.response.deserialize(response, self.configuration)
 
         # valid value works
         number_val = 11.0
         response = self.__response(number_val)
-        response = _response_for_200.deserialize(response, self.configuration)
+        response = response_for_200.response.deserialize(response, self.configuration)
         self.assertTrue(isinstance(response.body, NumberWithValidations))
         self.assertEqual(response.body, number_val)
 
     def test_array_of_enums(self):
-        from petstore_api.model.array_of_enums import ArrayOfEnums
-        from petstore_api.paths.fake_refs_array_of_enums.post import _response_for_200
-        from petstore_api.model import string_enum
+        from petstore_api.components.schema.array_of_enums_oapg import ArrayOfEnums
+        from petstore_api.paths.fake_refs_array_of_enums.post import response_for_200
+        from petstore_api.components.schema import string_enum_oapg
         data = ["placed", None]
         response = self.__response(data)
-        deserialized = _response_for_200.deserialize(response, self.configuration)
+        deserialized = response_for_200.response.deserialize(response, self.configuration)
         assert isinstance(deserialized.body, ArrayOfEnums)
-        expected_results = ArrayOfEnums([string_enum.StringEnum(v) for v in data])
+        expected_results = ArrayOfEnums([string_enum_oapg.StringEnum(v) for v in data])
         assert expected_results == deserialized.body
 
     def test_multiple_of_deserialization(self):
@@ -396,15 +396,15 @@ class DeserializationTests(unittest.TestCase):
             'number': 65.0,
             'float': 62.4,
         }
-        from petstore_api.model import format_test
+        from petstore_api.components.schema import format_test_oapg
         _response_for_200 = api_client.OpenApiResponse(
             content={
-                self.json_content_type: api_client.MediaType(schema=format_test.FormatTest),
+                self.json_content_type: api_client.MediaType(schema=format_test_oapg.FormatTest),
             },
         )
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, self.configuration)
-        self.assertTrue(isinstance(deserialized.body, format_test.FormatTest))
+        self.assertTrue(isinstance(deserialized.body, format_test_oapg.FormatTest))
 
         with self.assertRaisesRegex(
             petstore_api.exceptions.ApiValueError,
@@ -435,7 +435,7 @@ class DeserializationTests(unittest.TestCase):
         }
         response = self.__response(data)
         deserialized = _response_for_200.deserialize(response, configuration)
-        self.assertTrue(isinstance(deserialized.body, format_test.FormatTest))
+        self.assertTrue(isinstance(deserialized.body, format_test_oapg.FormatTest))
 
         # Disable JSON schema validation but for a different keyword.
         # An error should be raised during deserialization.

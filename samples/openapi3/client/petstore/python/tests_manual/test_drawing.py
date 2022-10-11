@@ -15,9 +15,8 @@ import unittest
 
 import petstore_api
 from petstore_api.schemas import NoneClass
-from petstore_api.model import shape
-from petstore_api.model import shape_or_null
-from petstore_api.model.drawing import Drawing
+from petstore_api.components.schema import shape_oapg
+from petstore_api.components.schema.drawing_oapg import Drawing
 
 
 class TestDrawing(unittest.TestCase):
@@ -34,11 +33,11 @@ class TestDrawing(unittest.TestCase):
         Validate instance can be created
         """
 
-        inst = shape.Shape(
+        inst = shape_oapg.Shape(
             shapeType="Triangle",
             triangleType="IsoscelesTriangle"
         )
-        from petstore_api.model.isosceles_triangle import IsoscelesTriangle
+        from petstore_api.components.schema.isosceles_triangle_oapg import IsoscelesTriangle
         assert isinstance(inst, IsoscelesTriangle)
 
     def test_deserialize_oneof_reference(self):
@@ -46,30 +45,30 @@ class TestDrawing(unittest.TestCase):
         Validate the scenario when the type of a OAS property is 'oneOf', and the 'oneOf'
         schema is specified as a reference ($ref), not an inline 'oneOf' schema.
         """
-        isosceles_triangle = shape.Shape(
+        isosceles_triangle = shape_oapg.Shape(
             shapeType="Triangle",
             triangleType="IsoscelesTriangle"
         )
-        from petstore_api.model.isosceles_triangle import IsoscelesTriangle
+        from petstore_api.components.schema.isosceles_triangle_oapg import IsoscelesTriangle
         assert isinstance(isosceles_triangle, IsoscelesTriangle)
-        from petstore_api.model.equilateral_triangle import EquilateralTriangle
+        from petstore_api.components.schema.equilateral_triangle_oapg import EquilateralTriangle
 
         inst = Drawing(
             mainShape=isosceles_triangle,
             shapes=[
-                shape.Shape(
+                shape_oapg.Shape(
                     shapeType="Triangle",
                     triangleType="EquilateralTriangle"
                 ),
-                shape.Shape(
+                shape_oapg.Shape(
                     shapeType="Triangle",
                     triangleType="IsoscelesTriangle"
                 ),
-                shape.Shape(
+                shape_oapg.Shape(
                     shapeType="Triangle",
                     triangleType="EquilateralTriangle"
                 ),
-                shape.Shape(
+                shape_oapg.Shape(
                     shapeType="Quadrilateral",
                     quadrilateralType="ComplexQuadrilateral"
                 )
@@ -78,7 +77,7 @@ class TestDrawing(unittest.TestCase):
         assert isinstance(inst, Drawing)
         assert isinstance(inst["mainShape"], IsoscelesTriangle)
         self.assertEqual(len(inst["shapes"]), 4)
-        from petstore_api.model.complex_quadrilateral import ComplexQuadrilateral
+        from petstore_api.components.schema.complex_quadrilateral_oapg import ComplexQuadrilateral
         assert isinstance(inst["shapes"][0], EquilateralTriangle)
         assert isinstance(inst["shapes"][1], IsoscelesTriangle)
         assert isinstance(inst["shapes"][2], EquilateralTriangle)
@@ -103,7 +102,7 @@ class TestDrawing(unittest.TestCase):
         Under the hood it is converted into a dict, and that dict payload
         does validate as a Shape, so this works
         """
-        from petstore_api.model.triangle import Triangle
+        from petstore_api.components.schema.triangle_oapg import Triangle
         inst = Drawing(
             mainShape=isosceles_triangle,
             shapes=[
@@ -114,9 +113,9 @@ class TestDrawing(unittest.TestCase):
             ]
         )
         self.assertEqual(len(inst["shapes"]), 1)
-        from petstore_api.model.triangle_interface import TriangleInterface
+        from petstore_api.components.schema.triangle_interface_oapg import TriangleInterface
         shapes = inst["shapes"]
-        assert isinstance(shapes[0], shape.Shape)
+        assert isinstance(shapes[0], shape_oapg.Shape)
         assert isinstance(shapes[0], Triangle)
         assert isinstance(shapes[0], EquilateralTriangle)
         assert isinstance(shapes[0], TriangleInterface)

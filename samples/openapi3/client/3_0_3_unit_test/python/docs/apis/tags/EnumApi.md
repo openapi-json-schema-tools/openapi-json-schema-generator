@@ -24,8 +24,6 @@ Method | HTTP request | Description
 
 # **post_enum_with0_does_not_match_false_request_body**
 <a name="post_enum_with0_does_not_match_false_request_body"></a>
-> post_enum_with0_does_not_match_false_request_body(body)
-
 
 
 ### Example
@@ -33,7 +31,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema import enum_with0_does_not_match_false_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,18 +57,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with0_does_not_match_false_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with0_does_not_match_false_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with0_does_not_match_false_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with0_does_not_match_false_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../models/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/enum_with0_does_not_match_false_oapg.EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Return Types, Responses
@@ -78,9 +76,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with0_does_not_match_false_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with0_does_not_match_false_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with0_does_not_match_false_request_body.ApiResponseFor200
+#### <a id="post_enum_with0_does_not_match_false_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -95,8 +93,6 @@ No authorization required
 
 # **post_enum_with0_does_not_match_false_response_body_for_content_types**
 <a name="post_enum_with0_does_not_match_false_response_body_for_content_types"></a>
-> EnumWith0DoesNotMatchFalse post_enum_with0_does_not_match_false_response_body_for_content_types()
-
 
 
 ### Example
@@ -104,7 +100,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -132,19 +127,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with0_does_not_match_false_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with0_does_not_match_false_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_enum_with0_does_not_match_false_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_enum_with0_does_not_match_false_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_enum_with0_does_not_match_false_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_enum_with0_does_not_match_false_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../models/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/enum_with0_does_not_match_false_oapg.EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Authorization
@@ -155,8 +150,6 @@ No authorization required
 
 # **post_enum_with1_does_not_match_true_request_body**
 <a name="post_enum_with1_does_not_match_true_request_body"></a>
-> post_enum_with1_does_not_match_true_request_body(body)
-
 
 
 ### Example
@@ -164,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
+from unit_test_api.components.schema import enum_with1_does_not_match_true_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -190,18 +183,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with1_does_not_match_true_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with1_does_not_match_true_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with1_does_not_match_true_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with1_does_not_match_true_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../models/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/enum_with1_does_not_match_true_oapg.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Return Types, Responses
@@ -209,9 +202,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with1_does_not_match_true_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with1_does_not_match_true_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with1_does_not_match_true_request_body.ApiResponseFor200
+#### <a id="post_enum_with1_does_not_match_true_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -226,8 +219,6 @@ No authorization required
 
 # **post_enum_with1_does_not_match_true_response_body_for_content_types**
 <a name="post_enum_with1_does_not_match_true_response_body_for_content_types"></a>
-> EnumWith1DoesNotMatchTrue post_enum_with1_does_not_match_true_response_body_for_content_types()
-
 
 
 ### Example
@@ -235,7 +226,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -263,19 +253,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with1_does_not_match_true_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with1_does_not_match_true_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_enum_with1_does_not_match_true_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_enum_with1_does_not_match_true_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_enum_with1_does_not_match_true_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_enum_with1_does_not_match_true_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../models/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/enum_with1_does_not_match_true_oapg.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Authorization
@@ -286,8 +276,6 @@ No authorization required
 
 # **post_enum_with_escaped_characters_request_body**
 <a name="post_enum_with_escaped_characters_request_body"></a>
-> post_enum_with_escaped_characters_request_body(body)
-
 
 
 ### Example
@@ -295,7 +283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema import enum_with_escaped_characters_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -321,18 +309,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with_escaped_characters_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with_escaped_characters_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with_escaped_characters_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with_escaped_characters_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../models/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters_oapg.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -340,9 +328,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_escaped_characters_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_escaped_characters_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with_escaped_characters_request_body.ApiResponseFor200
+#### <a id="post_enum_with_escaped_characters_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -357,8 +345,6 @@ No authorization required
 
 # **post_enum_with_escaped_characters_response_body_for_content_types**
 <a name="post_enum_with_escaped_characters_response_body_for_content_types"></a>
-> EnumWithEscapedCharacters post_enum_with_escaped_characters_response_body_for_content_types()
-
 
 
 ### Example
@@ -366,7 +352,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with_escaped_characters import EnumWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -394,19 +379,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_escaped_characters_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_escaped_characters_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_enum_with_escaped_characters_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_enum_with_escaped_characters_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_enum_with_escaped_characters_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_enum_with_escaped_characters_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../models/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters_oapg.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Authorization
@@ -417,8 +402,6 @@ No authorization required
 
 # **post_enum_with_false_does_not_match0_request_body**
 <a name="post_enum_with_false_does_not_match0_request_body"></a>
-> post_enum_with_false_does_not_match0_request_body(body)
-
 
 
 ### Example
@@ -426,7 +409,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
+from unit_test_api.components.schema import enum_with_false_does_not_match0_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -452,18 +435,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with_false_does_not_match0_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with_false_does_not_match0_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with_false_does_not_match0_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with_false_does_not_match0_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../models/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/enum_with_false_does_not_match0_oapg.EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Return Types, Responses
@@ -471,9 +454,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_false_does_not_match0_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_false_does_not_match0_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with_false_does_not_match0_request_body.ApiResponseFor200
+#### <a id="post_enum_with_false_does_not_match0_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -488,8 +471,6 @@ No authorization required
 
 # **post_enum_with_false_does_not_match0_response_body_for_content_types**
 <a name="post_enum_with_false_does_not_match0_response_body_for_content_types"></a>
-> EnumWithFalseDoesNotMatch0 post_enum_with_false_does_not_match0_response_body_for_content_types()
-
 
 
 ### Example
@@ -497,7 +478,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -525,19 +505,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_false_does_not_match0_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_false_does_not_match0_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_enum_with_false_does_not_match0_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_enum_with_false_does_not_match0_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_enum_with_false_does_not_match0_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_enum_with_false_does_not_match0_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../models/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/enum_with_false_does_not_match0_oapg.EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Authorization
@@ -548,8 +528,6 @@ No authorization required
 
 # **post_enum_with_true_does_not_match1_request_body**
 <a name="post_enum_with_true_does_not_match1_request_body"></a>
-> post_enum_with_true_does_not_match1_request_body(body)
-
 
 
 ### Example
@@ -557,7 +535,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
+from unit_test_api.components.schema import enum_with_true_does_not_match1_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -583,18 +561,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enum_with_true_does_not_match1_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with_true_does_not_match1_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enum_with_true_does_not_match1_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enum_with_true_does_not_match1_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../models/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/enum_with_true_does_not_match1_oapg.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Return Types, Responses
@@ -602,9 +580,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_true_does_not_match1_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_true_does_not_match1_request_body.response_for_200.ApiResponse) | success
 
-#### post_enum_with_true_does_not_match1_request_body.ApiResponseFor200
+#### <a id="post_enum_with_true_does_not_match1_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -619,8 +597,6 @@ No authorization required
 
 # **post_enum_with_true_does_not_match1_response_body_for_content_types**
 <a name="post_enum_with_true_does_not_match1_response_body_for_content_types"></a>
-> EnumWithTrueDoesNotMatch1 post_enum_with_true_does_not_match1_response_body_for_content_types()
-
 
 
 ### Example
@@ -628,7 +604,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -656,19 +631,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enum_with_true_does_not_match1_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enum_with_true_does_not_match1_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_enum_with_true_does_not_match1_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_enum_with_true_does_not_match1_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_enum_with_true_does_not_match1_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_enum_with_true_does_not_match1_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../models/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/enum_with_true_does_not_match1_oapg.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Authorization
@@ -679,8 +654,6 @@ No authorization required
 
 # **post_enums_in_properties_request_body**
 <a name="post_enums_in_properties_request_body"></a>
-> post_enums_in_properties_request_body(enums_in_properties)
-
 
 
 ### Example
@@ -688,7 +661,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema import enums_in_properties_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -717,18 +690,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_enums_in_properties_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enums_in_properties_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_enums_in_properties_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_enums_in_properties_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../models/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/enums_in_properties_oapg.EnumsInProperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -736,9 +709,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enums_in_properties_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enums_in_properties_request_body.response_for_200.ApiResponse) | success
 
-#### post_enums_in_properties_request_body.ApiResponseFor200
+#### <a id="post_enums_in_properties_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -753,8 +726,6 @@ No authorization required
 
 # **post_enums_in_properties_response_body_for_content_types**
 <a name="post_enums_in_properties_response_body_for_content_types"></a>
-> EnumsInProperties post_enums_in_properties_response_body_for_content_types()
-
 
 
 ### Example
@@ -762,7 +733,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.enums_in_properties import EnumsInProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -790,19 +760,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_enums_in_properties_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_enums_in_properties_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_enums_in_properties_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_enums_in_properties_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_enums_in_properties_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_enums_in_properties_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../models/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/enums_in_properties_oapg.EnumsInProperties.md) |  | 
 
 
 ### Authorization
@@ -813,8 +783,6 @@ No authorization required
 
 # **post_nul_characters_in_strings_request_body**
 <a name="post_nul_characters_in_strings_request_body"></a>
-> post_nul_characters_in_strings_request_body(body)
-
 
 
 ### Example
@@ -822,7 +790,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema import nul_characters_in_strings_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -848,18 +816,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nul_characters_in_strings_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_nul_characters_in_strings_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nul_characters_in_strings_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nul_characters_in_strings_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../models/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/nul_characters_in_strings_oapg.NulCharactersInStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -867,9 +835,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nul_characters_in_strings_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nul_characters_in_strings_request_body.response_for_200.ApiResponse) | success
 
-#### post_nul_characters_in_strings_request_body.ApiResponseFor200
+#### <a id="post_nul_characters_in_strings_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -884,8 +852,6 @@ No authorization required
 
 # **post_nul_characters_in_strings_response_body_for_content_types**
 <a name="post_nul_characters_in_strings_response_body_for_content_types"></a>
-> NulCharactersInStrings post_nul_characters_in_strings_response_body_for_content_types()
-
 
 
 ### Example
@@ -893,7 +859,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.nul_characters_in_strings import NulCharactersInStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -921,19 +886,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nul_characters_in_strings_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nul_characters_in_strings_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_nul_characters_in_strings_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_nul_characters_in_strings_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_nul_characters_in_strings_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_nul_characters_in_strings_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../models/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/nul_characters_in_strings_oapg.NulCharactersInStrings.md) |  | 
 
 
 ### Authorization
@@ -944,8 +909,6 @@ No authorization required
 
 # **post_simple_enum_validation_request_body**
 <a name="post_simple_enum_validation_request_body"></a>
-> post_simple_enum_validation_request_body(body)
-
 
 
 ### Example
@@ -953,7 +916,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.simple_enum_validation import SimpleEnumValidation
+from unit_test_api.components.schema import simple_enum_validation_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -979,18 +942,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_simple_enum_validation_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_simple_enum_validation_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_simple_enum_validation_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_simple_enum_validation_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../models/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/simple_enum_validation_oapg.SimpleEnumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -998,9 +961,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_simple_enum_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_simple_enum_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_simple_enum_validation_request_body.ApiResponseFor200
+#### <a id="post_simple_enum_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1015,8 +978,6 @@ No authorization required
 
 # **post_simple_enum_validation_response_body_for_content_types**
 <a name="post_simple_enum_validation_response_body_for_content_types"></a>
-> SimpleEnumValidation post_simple_enum_validation_response_body_for_content_types()
-
 
 
 ### Example
@@ -1024,7 +985,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.model.simple_enum_validation import SimpleEnumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1052,19 +1012,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_simple_enum_validation_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_simple_enum_validation_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_simple_enum_validation_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_simple_enum_validation_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_simple_enum_validation_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_simple_enum_validation_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../models/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/simple_enum_validation_oapg.SimpleEnumValidation.md) |  | 
 
 
 ### Authorization

@@ -37,6 +37,7 @@ from petstore_api.paths.fake_query_param_with_json_content_type.get import Query
 from petstore_api.paths.fake_test_query_paramters.put import QueryParameterCollectionFormat
 from petstore_api.paths.fake_ref_obj_in_query.get import RefObjectInQuery
 from petstore_api.paths.fake_response_without_schema.get import ResponseWithoutSchema
+from petstore_api.paths.fake_self_referencing_object_model.post import SelfReferencingObjectModel
 from petstore_api.paths.fake_refs_string.post import String
 from petstore_api.paths.fake_refs_enum.post import StringEnum
 from petstore_api.paths.fake_upload_download_file.post import UploadDownloadFile
@@ -73,6 +74,7 @@ class FakeApi(
     QueryParameterCollectionFormat,
     RefObjectInQuery,
     ResponseWithoutSchema,
+    SelfReferencingObjectModel,
     String,
     StringEnum,
     UploadDownloadFile,

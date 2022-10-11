@@ -26,8 +26,6 @@ Method | HTTP request | Description
 
 # **post_allof_combined_with_anyof_oneof_request_body**
 <a name="post_allof_combined_with_anyof_oneof_request_body"></a>
-> post_allof_combined_with_anyof_oneof_request_body(allof_combined_with_anyof_oneof)
-
 
 
 ### Example
@@ -35,7 +33,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
+from unit_test_api.components.schema import allof_combined_with_anyof_oneof_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,18 +59,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_combined_with_anyof_oneof_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_combined_with_anyof_oneof_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_combined_with_anyof_oneof_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_combined_with_anyof_oneof_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/allof_combined_with_anyof_oneof_oapg.AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -80,9 +78,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_combined_with_anyof_oneof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_combined_with_anyof_oneof_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_combined_with_anyof_oneof_request_body.ApiResponseFor200
+#### <a id="post_allof_combined_with_anyof_oneof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -97,8 +95,6 @@ No authorization required
 
 # **post_allof_combined_with_anyof_oneof_response_body_for_content_types**
 <a name="post_allof_combined_with_anyof_oneof_response_body_for_content_types"></a>
-> AllofCombinedWithAnyofOneof post_allof_combined_with_anyof_oneof_response_body_for_content_types()
-
 
 
 ### Example
@@ -106,7 +102,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -134,19 +129,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_combined_with_anyof_oneof_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_combined_with_anyof_oneof_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/allof_combined_with_anyof_oneof_oapg.AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Authorization
@@ -157,8 +152,6 @@ No authorization required
 
 # **post_allof_request_body**
 <a name="post_allof_request_body"></a>
-> post_allof_request_body(allof)
-
 
 
 ### Example
@@ -166,7 +159,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof import Allof
+from unit_test_api.components.schema import allof_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -192,18 +185,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../models/Allof.md) |  | 
+[**Allof**](../../components/schema/allof_oapg.Allof.md) |  | 
 
 
 ### Return Types, Responses
@@ -211,9 +204,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_request_body.ApiResponseFor200
+#### <a id="post_allof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -228,8 +221,6 @@ No authorization required
 
 # **post_allof_response_body_for_content_types**
 <a name="post_allof_response_body_for_content_types"></a>
-> Allof post_allof_response_body_for_content_types()
-
 
 
 ### Example
@@ -237,7 +228,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof import Allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -265,19 +255,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../models/Allof.md) |  | 
+[**Allof**](../../components/schema/allof_oapg.Allof.md) |  | 
 
 
 ### Authorization
@@ -288,8 +278,6 @@ No authorization required
 
 # **post_allof_simple_types_request_body**
 <a name="post_allof_simple_types_request_body"></a>
-> post_allof_simple_types_request_body(allof_simple_types)
-
 
 
 ### Example
@@ -297,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema import allof_simple_types_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -323,18 +311,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_simple_types_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_simple_types_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_simple_types_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_simple_types_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/allof_simple_types_oapg.AllofSimpleTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -342,9 +330,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_simple_types_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_simple_types_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_simple_types_request_body.ApiResponseFor200
+#### <a id="post_allof_simple_types_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -359,8 +347,6 @@ No authorization required
 
 # **post_allof_simple_types_response_body_for_content_types**
 <a name="post_allof_simple_types_response_body_for_content_types"></a>
-> AllofSimpleTypes post_allof_simple_types_response_body_for_content_types()
-
 
 
 ### Example
@@ -368,7 +354,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -396,19 +381,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_simple_types_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_simple_types_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_simple_types_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_simple_types_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_simple_types_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_simple_types_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/allof_simple_types_oapg.AllofSimpleTypes.md) |  | 
 
 
 ### Authorization
@@ -419,8 +404,6 @@ No authorization required
 
 # **post_allof_with_base_schema_request_body**
 <a name="post_allof_with_base_schema_request_body"></a>
-> post_allof_with_base_schema_request_body(allof_with_base_schema)
-
 
 
 ### Example
@@ -428,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_base_schema import AllofWithBaseSchema
+from unit_test_api.components.schema import allof_with_base_schema_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -454,18 +437,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_base_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_with_base_schema_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_base_schema_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_base_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/allof_with_base_schema_oapg.AllofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -473,9 +456,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_base_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_base_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_base_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_base_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -490,8 +473,6 @@ No authorization required
 
 # **post_allof_with_base_schema_response_body_for_content_types**
 <a name="post_allof_with_base_schema_response_body_for_content_types"></a>
-> AllofWithBaseSchema post_allof_with_base_schema_response_body_for_content_types()
-
 
 
 ### Example
@@ -499,7 +480,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_base_schema import AllofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -527,19 +507,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_base_schema_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_base_schema_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_with_base_schema_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_with_base_schema_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/allof_with_base_schema_oapg.AllofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -550,8 +530,6 @@ No authorization required
 
 # **post_allof_with_one_empty_schema_request_body**
 <a name="post_allof_with_one_empty_schema_request_body"></a>
-> post_allof_with_one_empty_schema_request_body(allof_with_one_empty_schema)
-
 
 
 ### Example
@@ -559,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_one_empty_schema import AllofWithOneEmptySchema
+from unit_test_api.components.schema import allof_with_one_empty_schema_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -585,18 +563,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_one_empty_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_with_one_empty_schema_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_one_empty_schema_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_one_empty_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/allof_with_one_empty_schema_oapg.AllofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -604,9 +582,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_one_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_one_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_one_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_one_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -621,8 +599,6 @@ No authorization required
 
 # **post_allof_with_one_empty_schema_response_body_for_content_types**
 <a name="post_allof_with_one_empty_schema_response_body_for_content_types"></a>
-> AllofWithOneEmptySchema post_allof_with_one_empty_schema_response_body_for_content_types()
-
 
 
 ### Example
@@ -630,7 +606,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_one_empty_schema import AllofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -658,19 +633,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_one_empty_schema_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_with_one_empty_schema_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/allof_with_one_empty_schema_oapg.AllofWithOneEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -681,8 +656,6 @@ No authorization required
 
 # **post_allof_with_the_first_empty_schema_request_body**
 <a name="post_allof_with_the_first_empty_schema_request_body"></a>
-> post_allof_with_the_first_empty_schema_request_body(allof_with_the_first_empty_schema)
-
 
 
 ### Example
@@ -690,7 +663,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema import allof_with_the_first_empty_schema_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -716,18 +689,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_the_first_empty_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_with_the_first_empty_schema_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_the_first_empty_schema_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_the_first_empty_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/allof_with_the_first_empty_schema_oapg.AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -735,9 +708,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_the_first_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_the_first_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_the_first_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_the_first_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -752,8 +725,6 @@ No authorization required
 
 # **post_allof_with_the_first_empty_schema_response_body_for_content_types**
 <a name="post_allof_with_the_first_empty_schema_response_body_for_content_types"></a>
-> AllofWithTheFirstEmptySchema post_allof_with_the_first_empty_schema_response_body_for_content_types()
-
 
 
 ### Example
@@ -761,7 +732,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -789,19 +759,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_the_first_empty_schema_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_with_the_first_empty_schema_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/allof_with_the_first_empty_schema_oapg.AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -812,8 +782,6 @@ No authorization required
 
 # **post_allof_with_the_last_empty_schema_request_body**
 <a name="post_allof_with_the_last_empty_schema_request_body"></a>
-> post_allof_with_the_last_empty_schema_request_body(allof_with_the_last_empty_schema)
-
 
 
 ### Example
@@ -821,7 +789,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema import allof_with_the_last_empty_schema_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -847,18 +815,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_the_last_empty_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_with_the_last_empty_schema_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_the_last_empty_schema_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_the_last_empty_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/allof_with_the_last_empty_schema_oapg.AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -866,9 +834,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_the_last_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_the_last_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_the_last_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_allof_with_the_last_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -883,8 +851,6 @@ No authorization required
 
 # **post_allof_with_the_last_empty_schema_response_body_for_content_types**
 <a name="post_allof_with_the_last_empty_schema_response_body_for_content_types"></a>
-> AllofWithTheLastEmptySchema post_allof_with_the_last_empty_schema_response_body_for_content_types()
-
 
 
 ### Example
@@ -892,7 +858,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -920,19 +885,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_the_last_empty_schema_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_with_the_last_empty_schema_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/allof_with_the_last_empty_schema_oapg.AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -943,8 +908,6 @@ No authorization required
 
 # **post_allof_with_two_empty_schemas_request_body**
 <a name="post_allof_with_two_empty_schemas_request_body"></a>
-> post_allof_with_two_empty_schemas_request_body(allof_with_two_empty_schemas)
-
 
 
 ### Example
@@ -952,7 +915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
+from unit_test_api.components.schema import allof_with_two_empty_schemas_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -978,18 +941,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_allof_with_two_empty_schemas_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_allof_with_two_empty_schemas_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_allof_with_two_empty_schemas_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_allof_with_two_empty_schemas_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/allof_with_two_empty_schemas_oapg.AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Return Types, Responses
@@ -997,9 +960,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_two_empty_schemas_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_two_empty_schemas_request_body.response_for_200.ApiResponse) | success
 
-#### post_allof_with_two_empty_schemas_request_body.ApiResponseFor200
+#### <a id="post_allof_with_two_empty_schemas_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1014,8 +977,6 @@ No authorization required
 
 # **post_allof_with_two_empty_schemas_response_body_for_content_types**
 <a name="post_allof_with_two_empty_schemas_response_body_for_content_types"></a>
-> AllofWithTwoEmptySchemas post_allof_with_two_empty_schemas_response_body_for_content_types()
-
 
 
 ### Example
@@ -1023,7 +984,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1051,19 +1011,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_allof_with_two_empty_schemas_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_allof_with_two_empty_schemas_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/allof_with_two_empty_schemas_oapg.AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Authorization
@@ -1074,8 +1034,6 @@ No authorization required
 
 # **post_nested_allof_to_check_validation_semantics_request_body**
 <a name="post_nested_allof_to_check_validation_semantics_request_body"></a>
-> post_nested_allof_to_check_validation_semantics_request_body(nested_allof_to_check_validation_semantics)
-
 
 
 ### Example
@@ -1083,7 +1041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_allof_to_check_validation_semantics_oapg
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1109,18 +1067,18 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_nested_allof_to_check_validation_semantics_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_nested_allof_to_check_validation_semantics_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nested_allof_to_check_validation_semantics_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_nested_allof_to_check_validation_semantics_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/nested_allof_to_check_validation_semantics_oapg.NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -1128,9 +1086,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_allof_to_check_validation_semantics_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_allof_to_check_validation_semantics_request_body.response_for_200.ApiResponse) | success
 
-#### post_nested_allof_to_check_validation_semantics_request_body.ApiResponseFor200
+#### <a id="post_nested_allof_to_check_validation_semantics_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1145,8 +1103,6 @@ No authorization required
 
 # **post_nested_allof_to_check_validation_semantics_response_body_for_content_types**
 <a name="post_nested_allof_to_check_validation_semantics_response_body_for_content_types"></a>
-> NestedAllofToCheckValidationSemantics post_nested_allof_to_check_validation_semantics_response_body_for_content_types()
-
 
 
 ### Example
@@ -1154,7 +1110,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1182,19 +1137,19 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_allof_to_check_validation_semantics_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_nested_allof_to_check_validation_semantics_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/nested_allof_to_check_validation_semantics_oapg.NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization

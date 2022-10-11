@@ -921,5 +921,9 @@ public class CodegenParameter implements IJsonSchemaValidationProperties {
     public void setSchemaIsFromAdditionalProperties(boolean schemaIsFromAdditionalProperties) {
         this.schemaIsFromAdditionalProperties = schemaIsFromAdditionalProperties;
     }
+
+    public String getRefClass() {
+        return null;
+    }
 }
 
