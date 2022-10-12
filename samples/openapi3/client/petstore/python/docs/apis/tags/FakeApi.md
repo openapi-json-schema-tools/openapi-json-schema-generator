@@ -842,19 +842,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParameters.Params | |
+[path_params](#delete_coffee.RequestPathParameters) | [RequestPathParameters.Params](#delete_coffee.RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="delete_coffee.RequestPathParameters" >path_params</a>
+#### <a id="delete_coffee.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | id | | 
+id | [RequestPathParameters.Schemas.id](#delete_coffee.RequestPathParameters.Schemas.id) | | 
 
-# id
+# <a id="delete_coffee.RequestPathParameters.Schemas.id" >RequestPathParameters.Schemas.id</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2416,7 +2416,7 @@ Name | Type | Description  | Notes
 [body](#parameter_collisions.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#parameter_collisions.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
 [query_params](#parameter_collisions.RequestQueryParameters) | [RequestQueryParameters.Params](#parameter_collisions.RequestQueryParameters.Params) | |
 [header_params](#parameter_collisions.RequestHeaderParameters) | [RequestHeaderParameters.Params](#parameter_collisions.RequestHeaderParameters.Params) | |
-path_params | RequestPathParameters.Params | |
+[path_params](#parameter_collisions.RequestPathParameters) | [RequestPathParameters.Params](#parameter_collisions.RequestPathParameters.Params) | |
 cookie_params | RequestCookieParameters.Params | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -2518,46 +2518,46 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="parameter_collisions.RequestPathParameters" >path_params</a>
+#### <a id="parameter_collisions.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | 1 | | 
-aB | aB | | 
-Ab | Ab | | 
-self | self | | 
-A-B | A-B | | 
+1 | [RequestPathParameters.Schemas._1](#parameter_collisions.RequestPathParameters.Schemas._1) | | 
+aB | [RequestPathParameters.Schemas.aB](#parameter_collisions.RequestPathParameters.Schemas.aB) | | 
+Ab | [RequestPathParameters.Schemas.Ab](#parameter_collisions.RequestPathParameters.Schemas.Ab) | | 
+self | [RequestPathParameters.Schemas._self](#parameter_collisions.RequestPathParameters.Schemas._self) | | 
+A-B | [RequestPathParameters.Schemas.a_b](#parameter_collisions.RequestPathParameters.Schemas.a_b) | | 
 
-# 1
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# aB
+# <a id="parameter_collisions.RequestPathParameters.Schemas._1" >RequestPathParameters.Schemas._1</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# Ab
+# <a id="parameter_collisions.RequestPathParameters.Schemas.aB" >RequestPathParameters.Schemas.aB</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# self
+# <a id="parameter_collisions.RequestPathParameters.Schemas.Ab" >RequestPathParameters.Schemas.Ab</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# A-B
+# <a id="parameter_collisions.RequestPathParameters.Schemas._self" >RequestPathParameters.Schemas._self</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.RequestPathParameters.Schemas.a_b" >RequestPathParameters.Schemas.a_b</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
