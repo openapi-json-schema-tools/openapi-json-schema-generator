@@ -66,7 +66,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/ping");
         CodegenOperation operation = codegen.fromOperation("/ping", "post", path.getPost(), path.getServers());
-        Assert.assertEquals(Sets.intersection(operation.imports, Sets.newHashSet("Person")).size(), 1);
+        Assert.assertEquals(Sets.intersection(operation.responses.get(0).imports, Sets.newHashSet("Person")).size(), 1);
     }
 
     @Test
@@ -4031,11 +4031,10 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get("application/json");
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
-        // TODO need to revise the test below
         assertTrue(cp.isMap);
         assertTrue(cp.isModel);
         assertEquals(cp.complexType, "object");
-        assertEquals(cp.baseName, "SchemaForRequestParameterCoordinatesInlineSchemaApplicationJson");
+        assertEquals(cp.baseName, "coordinatesInlineSchema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
         content = coordinatesReferencedSchema.getContent();
@@ -4044,7 +4043,7 @@ public class DefaultCodegenTest {
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.complexType, "coordinates");
-        assertEquals(cp.baseName, "SchemaForRequestParameterCoordinatesReferencedSchemaApplicationJson");
+        assertEquals(cp.baseName, "coordinatesReferencedSchema");
     }
 
     @Test
@@ -4064,13 +4063,13 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get("application/json");
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyApplicationJson");
+        assertEquals(cp.baseName, "application/json");
         assertNotNull(cp);
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertNotNull(cp);
         // Note: the inline model resolver has a bug for this use case; it extracts an inline request body into a component
         // but the schema it references is not string type
@@ -4084,13 +4083,13 @@ public class DefaultCodegenTest {
         mt = content.get("application/json");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyApplicationJson");
+        assertEquals(cp.baseName, "application/json");
         assertEquals(cp.complexType, "coordinates");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaForRequestBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertTrue(cp.isString);
 
         path = "/requestBodyWithEncodingTypes";
@@ -4171,12 +4170,12 @@ public class DefaultCodegenTest {
         CodegenProperty cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.complexType, "coordinates");
-        assertEquals(cp.baseName, "SchemaFor200ResponseBodyApplicationJson");
+        assertEquals(cp.baseName, "application/json");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaFor200ResponseBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertTrue(cp.isString);
 
         cr = co.responses.get(1);
@@ -4187,12 +4186,12 @@ public class DefaultCodegenTest {
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.complexType, "coordinates");
-        assertEquals(cp.baseName, "SchemaFor201ResponseBodyApplicationJson");
+        assertEquals(cp.baseName, "application/json");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "SchemaFor201ResponseBodyTextPlain");
+        assertEquals(cp.baseName, "text/plain");
         assertTrue(cp.isString);
     }
 
