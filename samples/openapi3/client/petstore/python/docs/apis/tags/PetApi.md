@@ -17,7 +17,6 @@ Method | HTTP request | Description
 
 # **add_pet**
 <a name="add_pet"></a>
-> add_pet(pet)
 
 Add a new pet to the store
 
@@ -143,22 +142,22 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml] | required |
+[body](#add_pet.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#add_pet.RequestBody.Schemas.application_json), [RequestBody.Schemas.application_xml](#add_pet.RequestBody.Schemas.application_xml)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="add_pet.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="add_pet.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# SchemaForRequestBodyApplicationXml
+# <a id="add_pet.RequestBody.Schemas.application_xml" >RequestBody.Schemas.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -169,17 +168,17 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#add_pet.ApiResponseFor200) | Ok
-405 | [ApiResponseFor405](#add_pet.ApiResponseFor405) | Invalid input
+200 | [response_for_200.ApiResponse](#add_pet.response_for_200.ApiResponse) | Ok
+405 | [response_for_405.ApiResponse](#add_pet.response_for_405.ApiResponse) | Invalid input
 
-#### add_pet.ApiResponseFor200
+#### <a id="add_pet.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### add_pet.ApiResponseFor405
+#### <a id="add_pet.response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -194,7 +193,6 @@ headers | Unset | headers were not defined |
 
 # **delete_pet**
 <a name="delete_pet"></a>
-> delete_pet(pet_id)
 
 Deletes a pet
 
@@ -261,34 +259,34 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-header_params | RequestHeaderParams | |
-path_params | RequestPathParams | |
+[header_params](#delete_pet.RequestHeaderParameters) | [RequestHeaderParameters.Params](#delete_pet.RequestHeaderParameters.Params) | |
+[path_params](#delete_pet.RequestPathParameters) | [RequestPathParameters.Params](#delete_pet.RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### header_params
-#### RequestHeaderParams
+### <a id="delete_pet.RequestHeaderParameters" >header_params</a>
+#### <a id="delete_pet.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | ApiKeySchema | | optional
+api_key | [RequestHeaderParameters.Schemas.api_key](#delete_pet.RequestHeaderParameters.Schemas.api_key) | | optional
 
-# ApiKeySchema
+# <a id="delete_pet.RequestHeaderParameters.Schemas.api_key" >RequestHeaderParameters.Schemas.api_key</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### path_params
-#### RequestPathParams
+### <a id="delete_pet.RequestPathParameters" >path_params</a>
+#### <a id="delete_pet.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | PetIdSchema | | 
+petId | [RequestPathParameters.Schemas.petId](#delete_pet.RequestPathParameters.Schemas.petId) | | 
 
-# PetIdSchema
+# <a id="delete_pet.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -300,9 +298,9 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ApiResponseFor400](#delete_pet.ApiResponseFor400) | Invalid pet value
+400 | [response_for_400.ApiResponse](#delete_pet.response_for_400.ApiResponse) | Invalid pet value
 
-#### delete_pet.ApiResponseFor400
+#### <a id="delete_pet.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -317,7 +315,6 @@ headers | Unset | headers were not defined |
 
 # **find_pets_by_status**
 <a name="find_pets_by_status"></a>
-> [Pet] find_pets_by_status(status)
 
 Finds Pets by status
 
@@ -329,7 +326,6 @@ Multiple status values can be provided with comma separated strings
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -431,21 +427,21 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query_params | RequestQueryParams | |
+[query_params](#find_pets_by_status.RequestQueryParameters) | [RequestQueryParameters.Params](#find_pets_by_status.RequestQueryParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### query_params
-#### RequestQueryParams
+### <a id="find_pets_by_status.RequestQueryParameters" >query_params</a>
+#### <a id="find_pets_by_status.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | StatusSchema | | 
+status | [RequestQueryParameters.Schemas.status](#find_pets_by_status.RequestQueryParameters.Schemas.status) | | 
 
 
-# StatusSchema
+# <a id="find_pets_by_status.RequestQueryParameters.Schemas.status" >RequestQueryParameters.Schemas.status</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -462,17 +458,17 @@ items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#find_pets_by_status.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#find_pets_by_status.ApiResponseFor400) | Invalid status value
+200 | [response_for_200.ApiResponse](#find_pets_by_status.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#find_pets_by_status.response_for_400.ApiResponse) | Invalid status value
 
-#### find_pets_by_status.ApiResponseFor200
+#### <a id="find_pets_by_status.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#find_pets_by_status.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#find_pets_by_status.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# <a id="find_pets_by_status.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -484,7 +480,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="find_pets_by_status.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -496,7 +492,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-#### find_pets_by_status.ApiResponseFor400
+#### <a id="find_pets_by_status.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -511,7 +507,6 @@ headers | Unset | headers were not defined |
 
 # **find_pets_by_tags**
 <a name="find_pets_by_tags"></a>
-> [Pet] find_pets_by_tags(tags)
 
 Finds Pets by tags
 
@@ -523,7 +518,6 @@ Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -625,21 +619,21 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query_params | RequestQueryParams | |
+[query_params](#find_pets_by_tags.RequestQueryParameters) | [RequestQueryParameters.Params](#find_pets_by_tags.RequestQueryParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### query_params
-#### RequestQueryParams
+### <a id="find_pets_by_tags.RequestQueryParameters" >query_params</a>
+#### <a id="find_pets_by_tags.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-tags | TagsSchema | | 
+tags | [RequestQueryParameters.Schemas.tags](#find_pets_by_tags.RequestQueryParameters.Schemas.tags) | | 
 
 
-# TagsSchema
+# <a id="find_pets_by_tags.RequestQueryParameters.Schemas.tags" >RequestQueryParameters.Schemas.tags</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -656,17 +650,17 @@ items | str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#find_pets_by_tags.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#find_pets_by_tags.ApiResponseFor400) | Invalid tag value
+200 | [response_for_200.ApiResponse](#find_pets_by_tags.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#find_pets_by_tags.response_for_400.ApiResponse) | Invalid tag value
 
-#### find_pets_by_tags.ApiResponseFor200
+#### <a id="find_pets_by_tags.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#find_pets_by_tags.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#find_pets_by_tags.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# <a id="find_pets_by_tags.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -678,7 +672,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="find_pets_by_tags.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -690,7 +684,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-#### find_pets_by_tags.ApiResponseFor400
+#### <a id="find_pets_by_tags.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -705,7 +699,6 @@ headers | Unset | headers were not defined |
 
 # **get_pet_by_id**
 <a name="get_pet_by_id"></a>
-> Pet get_pet_by_id(pet_id)
 
 Find pet by ID
 
@@ -717,7 +710,6 @@ Returns a single pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -757,20 +749,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
+[path_params](#get_pet_by_id.RequestPathParameters) | [RequestPathParameters.Params](#get_pet_by_id.RequestPathParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParams
+### <a id="get_pet_by_id.RequestPathParameters" >path_params</a>
+#### <a id="get_pet_by_id.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | PetIdSchema | | 
+petId | [RequestPathParameters.Schemas.petId](#get_pet_by_id.RequestPathParameters.Schemas.petId) | | 
 
-# PetIdSchema
+# <a id="get_pet_by_id.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -782,37 +774,37 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_pet_by_id.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#get_pet_by_id.ApiResponseFor400) | Invalid ID supplied
-404 | [ApiResponseFor404](#get_pet_by_id.ApiResponseFor404) | Pet not found
+200 | [response_for_200.ApiResponse](#get_pet_by_id.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#get_pet_by_id.response_for_400.ApiResponse) | Invalid ID supplied
+404 | [response_for_404.ApiResponse](#get_pet_by_id.response_for_404.ApiResponse) | Pet not found
 
-#### get_pet_by_id.ApiResponseFor200
+#### <a id="get_pet_by_id.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_pet_by_id.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_pet_by_id.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# <a id="get_pet_by_id.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="get_pet_by_id.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-#### get_pet_by_id.ApiResponseFor400
+#### <a id="get_pet_by_id.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### get_pet_by_id.ApiResponseFor404
+#### <a id="get_pet_by_id.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -827,7 +819,6 @@ headers | Unset | headers were not defined |
 
 # **update_pet**
 <a name="update_pet"></a>
-> update_pet(pet)
 
 Update an existing pet
 
@@ -951,22 +942,22 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXml] | required |
+[body](#update_pet.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#update_pet.RequestBody.Schemas.application_json), [RequestBody.Schemas.application_xml](#update_pet.RequestBody.Schemas.application_xml)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="update_pet.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="update_pet.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# SchemaForRequestBodyApplicationXml
+# <a id="update_pet.RequestBody.Schemas.application_xml" >RequestBody.Schemas.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -977,25 +968,25 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ApiResponseFor400](#update_pet.ApiResponseFor400) | Invalid ID supplied
-404 | [ApiResponseFor404](#update_pet.ApiResponseFor404) | Pet not found
-405 | [ApiResponseFor405](#update_pet.ApiResponseFor405) | Validation exception
+400 | [response_for_400.ApiResponse](#update_pet.response_for_400.ApiResponse) | Invalid ID supplied
+404 | [response_for_404.ApiResponse](#update_pet.response_for_404.ApiResponse) | Pet not found
+405 | [response_for_405.ApiResponse](#update_pet.response_for_405.ApiResponse) | Validation exception
 
-#### update_pet.ApiResponseFor400
+#### <a id="update_pet.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### update_pet.ApiResponseFor404
+#### <a id="update_pet.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### update_pet.ApiResponseFor405
+#### <a id="update_pet.response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1010,7 +1001,6 @@ headers | Unset | headers were not defined |
 
 # **update_pet_with_form**
 <a name="update_pet_with_form"></a>
-> update_pet_with_form(pet_id)
 
 Updates a pet in the store with form data
 
@@ -1075,16 +1065,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded, Unset] | optional, default is unset |
-path_params | RequestPathParams | |
+[body](#update_pet_with_form.RequestBody) | typing.Union[[RequestBody.Schemas.application_x_www_form_urlencoded](#update_pet_with_form.RequestBody.Schemas.application_x_www_form_urlencoded), Unset] | optional, default is unset |
+[path_params](#update_pet_with_form.RequestPathParameters) | [RequestPathParameters.Params](#update_pet_with_form.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="update_pet_with_form.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationXWwwFormUrlencoded
+# <a id="update_pet_with_form.RequestBody.Schemas.application_x_www_form_urlencoded" >RequestBody.Schemas.application_x_www_form_urlencoded</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1098,14 +1088,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **status** | str,  | str,  | Updated status of the pet | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### path_params
-#### RequestPathParams
+### <a id="update_pet_with_form.RequestPathParameters" >path_params</a>
+#### <a id="update_pet_with_form.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | PetIdSchema | | 
+petId | [RequestPathParameters.Schemas.petId](#update_pet_with_form.RequestPathParameters.Schemas.petId) | | 
 
-# PetIdSchema
+# <a id="update_pet_with_form.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1117,9 +1107,9 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-405 | [ApiResponseFor405](#update_pet_with_form.ApiResponseFor405) | Invalid input
+405 | [response_for_405.ApiResponse](#update_pet_with_form.response_for_405.ApiResponse) | Invalid input
 
-#### update_pet_with_form.ApiResponseFor405
+#### <a id="update_pet_with_form.response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1134,7 +1124,6 @@ headers | Unset | headers were not defined |
 
 # **upload_file_with_required_file**
 <a name="upload_file_with_required_file"></a>
-> ApiResponse upload_file_with_required_file(pet_id)
 
 uploads an image (required)
 
@@ -1144,7 +1133,6 @@ uploads an image (required)
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.api_response import ApiResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1202,17 +1190,17 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyMultipartFormData, Unset] | optional, default is unset |
-path_params | RequestPathParams | |
+[body](#upload_file_with_required_file.RequestBody) | typing.Union[[RequestBody.Schemas.multipart_form_data](#upload_file_with_required_file.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
+[path_params](#upload_file_with_required_file.RequestPathParameters) | [RequestPathParameters.Params](#upload_file_with_required_file.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="upload_file_with_required_file.RequestBody" >body</a>
 
-# SchemaForRequestBodyMultipartFormData
+# <a id="upload_file_with_required_file.RequestBody.Schemas.multipart_form_data" >RequestBody.Schemas.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1226,14 +1214,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **additionalMetadata** | str,  | str,  | Additional data to pass to server | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### path_params
-#### RequestPathParams
+### <a id="upload_file_with_required_file.RequestPathParameters" >path_params</a>
+#### <a id="upload_file_with_required_file.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | PetIdSchema | | 
+petId | [RequestPathParameters.Schemas.petId](#upload_file_with_required_file.RequestPathParameters.Schemas.petId) | | 
 
-# PetIdSchema
+# <a id="upload_file_with_required_file.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1245,16 +1233,16 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#upload_file_with_required_file.ApiResponseFor200) | successful operation
+200 | [response_for_200.ApiResponse](#upload_file_with_required_file.response_for_200.ApiResponse) | successful operation
 
-#### upload_file_with_required_file.ApiResponseFor200
+#### <a id="upload_file_with_required_file.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#upload_file_with_required_file.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="upload_file_with_required_file.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 
@@ -1268,7 +1256,6 @@ Type | Description  | Notes
 
 # **upload_image**
 <a name="upload_image"></a>
-> ApiResponse upload_image(pet_id)
 
 uploads an image
 
@@ -1278,7 +1265,6 @@ uploads an image
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.api_response import ApiResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1336,17 +1322,17 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyMultipartFormData, Unset] | optional, default is unset |
-path_params | RequestPathParams | |
+[body](#upload_image.RequestBody) | typing.Union[[RequestBody.Schemas.multipart_form_data](#upload_image.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
+[path_params](#upload_image.RequestPathParameters) | [RequestPathParameters.Params](#upload_image.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="upload_image.RequestBody" >body</a>
 
-# SchemaForRequestBodyMultipartFormData
+# <a id="upload_image.RequestBody.Schemas.multipart_form_data" >RequestBody.Schemas.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1360,14 +1346,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **file** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### path_params
-#### RequestPathParams
+### <a id="upload_image.RequestPathParameters" >path_params</a>
+#### <a id="upload_image.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | PetIdSchema | | 
+petId | [RequestPathParameters.Schemas.petId](#upload_image.RequestPathParameters.Schemas.petId) | | 
 
-# PetIdSchema
+# <a id="upload_image.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1379,16 +1365,16 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#upload_image.ApiResponseFor200) | successful operation
+200 | [response_for_200.ApiResponse](#upload_image.response_for_200.ApiResponse) | successful operation
 
-#### upload_image.ApiResponseFor200
+#### <a id="upload_image.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#upload_image.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="upload_image.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 

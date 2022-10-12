@@ -16,7 +16,6 @@ Method | HTTP request | Description
 
 # **create_user**
 <a name="create_user"></a>
-> create_user(user)
 
 Create user
 
@@ -68,15 +67,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#create_user.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#create_user.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="create_user.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="create_user.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -87,9 +86,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [ApiResponseForDefault](#create_user.ApiResponseForDefault) | successful operation
+default | [response_for_default.ApiResponse](#create_user.response_for_default.ApiResponse) | successful operation
 
-#### create_user.ApiResponseForDefault
+#### <a id="create_user.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -104,7 +103,6 @@ No authorization required
 
 # **create_users_with_array_input**
 <a name="create_users_with_array_input"></a>
-> create_users_with_array_input(user)
 
 Creates list of users with given input array
 
@@ -156,15 +154,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#create_users_with_array_input.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#create_users_with_array_input.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="create_users_with_array_input.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="create_users_with_array_input.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -181,9 +179,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [ApiResponseForDefault](#create_users_with_array_input.ApiResponseForDefault) | successful operation
+default | [response_for_default.ApiResponse](#create_users_with_array_input.response_for_default.ApiResponse) | successful operation
 
-#### create_users_with_array_input.ApiResponseForDefault
+#### <a id="create_users_with_array_input.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -198,7 +196,6 @@ No authorization required
 
 # **create_users_with_list_input**
 <a name="create_users_with_list_input"></a>
-> create_users_with_list_input(user)
 
 Creates list of users with given input array
 
@@ -250,15 +247,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#create_users_with_list_input.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#create_users_with_list_input.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="create_users_with_list_input.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="create_users_with_list_input.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -275,9 +272,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [ApiResponseForDefault](#create_users_with_list_input.ApiResponseForDefault) | successful operation
+default | [response_for_default.ApiResponse](#create_users_with_list_input.response_for_default.ApiResponse) | successful operation
 
-#### create_users_with_list_input.ApiResponseForDefault
+#### <a id="create_users_with_list_input.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -292,7 +289,6 @@ No authorization required
 
 # **delete_user**
 <a name="delete_user"></a>
-> delete_user(username)
 
 Delete user
 
@@ -331,19 +327,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
+[path_params](#delete_user.RequestPathParameters) | [RequestPathParameters.Params](#delete_user.RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParams
+### <a id="delete_user.RequestPathParameters" >path_params</a>
+#### <a id="delete_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | UsernameSchema | | 
+username | [RequestPathParameters.Schemas.username](#delete_user.RequestPathParameters.Schemas.username) | | 
 
-# UsernameSchema
+# <a id="delete_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -355,17 +351,17 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#delete_user.ApiResponseFor200) | Success
-404 | [ApiResponseFor404](#delete_user.ApiResponseFor404) | User not found
+200 | [response_for_200.ApiResponse](#delete_user.response_for_200.ApiResponse) | Success
+404 | [response_for_404.ApiResponse](#delete_user.response_for_404.ApiResponse) | User not found
 
-#### delete_user.ApiResponseFor200
+#### <a id="delete_user.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### delete_user.ApiResponseFor404
+#### <a id="delete_user.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -380,7 +376,6 @@ No authorization required
 
 # **get_user_by_name**
 <a name="get_user_by_name"></a>
-> User get_user_by_name(username)
 
 Get user by user name
 
@@ -389,7 +384,6 @@ Get user by user name
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.model.user import User
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -419,20 +413,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
+[path_params](#get_user_by_name.RequestPathParameters) | [RequestPathParameters.Params](#get_user_by_name.RequestPathParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParams
+### <a id="get_user_by_name.RequestPathParameters" >path_params</a>
+#### <a id="get_user_by_name.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | UsernameSchema | | 
+username | [RequestPathParameters.Schemas.username](#get_user_by_name.RequestPathParameters.Schemas.username) | | 
 
-# UsernameSchema
+# <a id="get_user_by_name.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -444,37 +438,37 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_user_by_name.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#get_user_by_name.ApiResponseFor400) | Invalid username supplied
-404 | [ApiResponseFor404](#get_user_by_name.ApiResponseFor404) | User not found
+200 | [response_for_200.ApiResponse](#get_user_by_name.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#get_user_by_name.response_for_400.ApiResponse) | Invalid username supplied
+404 | [response_for_404.ApiResponse](#get_user_by_name.response_for_404.ApiResponse) | User not found
 
-#### get_user_by_name.ApiResponseFor200
+#### <a id="get_user_by_name.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_user_by_name.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_user_by_name.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationXml
+# <a id="get_user_by_name.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
 
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="get_user_by_name.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
 
 
-#### get_user_by_name.ApiResponseFor400
+#### <a id="get_user_by_name.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### get_user_by_name.ApiResponseFor404
+#### <a id="get_user_by_name.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -489,7 +483,6 @@ No authorization required
 
 # **login_user**
 <a name="login_user"></a>
-> str login_user(usernamepassword)
 
 Logs user into the system
 
@@ -528,29 +521,29 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query_params | RequestQueryParams | |
+[query_params](#login_user.RequestQueryParameters) | [RequestQueryParameters.Params](#login_user.RequestQueryParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### query_params
-#### RequestQueryParams
+### <a id="login_user.RequestQueryParameters" >query_params</a>
+#### <a id="login_user.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | UsernameSchema | | 
-password | PasswordSchema | | 
+username | [RequestQueryParameters.Schemas.username](#login_user.RequestQueryParameters.Schemas.username) | | 
+password | [RequestQueryParameters.Schemas.password](#login_user.RequestQueryParameters.Schemas.password) | | 
 
 
-# UsernameSchema
+# <a id="login_user.RequestQueryParameters.Schemas.username" >RequestQueryParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# PasswordSchema
+# <a id="login_user.RequestQueryParameters.Schemas.password" >RequestQueryParameters.Schemas.password</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -562,24 +555,24 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#login_user.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#login_user.ApiResponseFor400) | Invalid username/password supplied
+200 | [response_for_200.ApiResponse](#login_user.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#login_user.response_for_400.ApiResponse) | Invalid username/password supplied
 
-#### login_user.ApiResponseFor200
+#### <a id="login_user.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationXml, SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#login_user.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#login_user.response_for_200.BodySchemas.application_json), ] |  |
 headers | ResponseHeadersFor200 |  |
 
-# SchemaFor200ResponseBodyApplicationXml
+# <a id="login_user.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="login_user.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -589,10 +582,10 @@ str,  | str,  |  |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-X-Rate-Limit | XRateLimitSchema | | optional
-X-Expires-After | XExpiresAfterSchema | | optional
+X-Rate-Limit | X-Rate-Limit | | optional
+X-Expires-After | X-Expires-After | | optional
 
-# XRateLimitSchema
+# X-Rate-Limit
 
 calls per hour allowed by the user
 
@@ -601,7 +594,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  | calls per hour allowed by the user | value must be a 32 bit integer
 
-# XExpiresAfterSchema
+# X-Expires-After
 
 date in UTC when token expires
 
@@ -611,7 +604,7 @@ Input Type | Accessed Type | Description | Notes
 str, datetime,  | str,  | date in UTC when token expires | value must conform to RFC-3339 date-time
 
 
-#### login_user.ApiResponseFor400
+#### <a id="login_user.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -626,7 +619,6 @@ No authorization required
 
 # **logout_user**
 <a name="logout_user"></a>
-> logout_user()
 
 Logs out current logged in user session
 
@@ -662,9 +654,9 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [ApiResponseForDefault](#logout_user.ApiResponseForDefault) | successful operation
+default | [response_for_default.ApiResponse](#logout_user.response_for_default.ApiResponse) | successful operation
 
-#### logout_user.ApiResponseForDefault
+#### <a id="logout_user.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -679,7 +671,6 @@ No authorization required
 
 # **update_user**
 <a name="update_user"></a>
-> update_user(usernameuser)
 
 Updated user
 
@@ -735,29 +726,29 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
-path_params | RequestPathParams | |
+[body](#update_user.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#update_user.RequestBody.Schemas.application_json)] | required |
+[path_params](#update_user.RequestPathParameters) | [RequestPathParameters.Params](#update_user.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="update_user.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="update_user.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
 
 
-### path_params
-#### RequestPathParams
+### <a id="update_user.RequestPathParameters" >path_params</a>
+#### <a id="update_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | UsernameSchema | | 
+username | [RequestPathParameters.Schemas.username](#update_user.RequestPathParameters.Schemas.username) | | 
 
-# UsernameSchema
+# <a id="update_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -769,17 +760,17 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ApiResponseFor400](#update_user.ApiResponseFor400) | Invalid user supplied
-404 | [ApiResponseFor404](#update_user.ApiResponseFor404) | User not found
+400 | [response_for_400.ApiResponse](#update_user.response_for_400.ApiResponse) | Invalid user supplied
+404 | [response_for_404.ApiResponse](#update_user.response_for_404.ApiResponse) | User not found
 
-#### update_user.ApiResponseFor400
+#### <a id="update_user.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### update_user.ApiResponseFor404
+#### <a id="update_user.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

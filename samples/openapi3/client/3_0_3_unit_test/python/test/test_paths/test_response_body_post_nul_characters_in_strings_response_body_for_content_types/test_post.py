@@ -32,6 +32,7 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.BodySchemas.application_json
 
     def test_match_string_with_nul_passes(self):
         # match string with nul
@@ -56,8 +57,8 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
