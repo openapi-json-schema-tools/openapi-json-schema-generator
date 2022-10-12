@@ -335,7 +335,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="delete_user.RequestPathParameters" >path_params</a>
 #### <a id="delete_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [RequestPathParameters.Schemas.username](#delete_user.RequestPathParameters.Schemas.username) | | 
 
@@ -422,7 +422,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="get_user_by_name.RequestPathParameters" >path_params</a>
 #### <a id="get_user_by_name.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [RequestPathParameters.Schemas.username](#get_user_by_name.RequestPathParameters.Schemas.username) | | 
 
@@ -530,7 +530,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="login_user.RequestQueryParameters" >query_params</a>
 #### <a id="login_user.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [RequestQueryParameters.Schemas.username](#login_user.RequestQueryParameters.Schemas.username) | | 
 password | [RequestQueryParameters.Schemas.password](#login_user.RequestQueryParameters.Schemas.password) | | 
@@ -744,7 +744,7 @@ Type | Description  | Notes
 ### <a id="update_user.RequestPathParameters" >path_params</a>
 #### <a id="update_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [RequestPathParameters.Schemas.username](#update_user.RequestPathParameters.Schemas.username) | | 
 

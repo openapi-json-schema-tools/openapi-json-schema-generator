@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 [path_params](#{{operationId}}.RequestPathParameters) | [RequestPathParameters.Params](#{{operationId}}.RequestPathParameters.Params) | |
     {{/if}}
     {{#if cookieParams}}
-cookie_params | RequestCookieParameters.Params | |
+[cookie_params](#{{operationId}}.RequestCookieParameters) | [RequestCookieParameters.Params](#{{operationId}}.RequestCookieParameters.Params) | |
     {{/if}}
     {{#with bodyParam}}
         {{#each content}}
@@ -93,7 +93,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="{{operationId}}.RequestQueryParameters" >query_params</a>
 #### <a id="{{operationId}}.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
 {{baseName}} | {{#with schema}}[RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 ### <a id="{{operationId}}.RequestHeaderParameters" >header_params</a>
 #### <a id="{{operationId}}.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
 {{baseName}} | {{#with schema}}[RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 ### <a id="{{operationId}}.RequestPathParameters" >path_params</a>
 #### <a id="{{operationId}}.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
 {{baseName}} | {{#with schema}}[RequestPathParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestPathParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
@@ -139,17 +139,17 @@ Name | Type | Description  | Notes
     {{/if}}
     {{#if cookieParams}}
 
-### cookie_params
-#### RequestCookieParameters.Params
+### <a id="{{operationId}}.RequestCookieParameters" >cookie_params</a>
+#### <a id="{{operationId}}.RequestCookieParameters.Params" >RequestCookieParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
-{{baseName}} | {{#with schema}}{{baseName}}{{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | {{#with schema}}[RequestCookieParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestCookieParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each cookieParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestCookieParameters.Schemas." complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
