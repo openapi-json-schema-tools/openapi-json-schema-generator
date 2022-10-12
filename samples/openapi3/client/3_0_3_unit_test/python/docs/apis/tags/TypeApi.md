@@ -22,8 +22,6 @@ Method | HTTP request | Description
 
 # **post_array_type_matches_arrays_request_body**
 <a name="post_array_type_matches_arrays_request_body"></a>
-> post_array_type_matches_arrays_request_body(array_type_matches_arrays)
-
 
 
 ### Example
@@ -59,15 +57,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_array_type_matches_arrays_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_array_type_matches_arrays_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_array_type_matches_arrays_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_array_type_matches_arrays_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
@@ -78,9 +76,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_array_type_matches_arrays_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_array_type_matches_arrays_request_body.response_for_200.ApiResponse) | success
 
-#### post_array_type_matches_arrays_request_body.ApiResponseFor200
+#### <a id="post_array_type_matches_arrays_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -95,8 +93,6 @@ No authorization required
 
 # **post_array_type_matches_arrays_response_body_for_content_types**
 <a name="post_array_type_matches_arrays_response_body_for_content_types"></a>
-> ArrayTypeMatchesArrays post_array_type_matches_arrays_response_body_for_content_types()
-
 
 
 ### Example
@@ -131,16 +127,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_array_type_matches_arrays_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_array_type_matches_arrays_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_array_type_matches_arrays_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_array_type_matches_arrays_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_array_type_matches_arrays_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_array_type_matches_arrays_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
@@ -154,8 +150,6 @@ No authorization required
 
 # **post_boolean_type_matches_booleans_request_body**
 <a name="post_boolean_type_matches_booleans_request_body"></a>
-> post_boolean_type_matches_booleans_request_body(body)
-
 
 
 ### Example
@@ -189,15 +183,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_boolean_type_matches_booleans_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_boolean_type_matches_booleans_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_boolean_type_matches_booleans_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_boolean_type_matches_booleans_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
@@ -208,9 +202,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_boolean_type_matches_booleans_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_boolean_type_matches_booleans_request_body.response_for_200.ApiResponse) | success
 
-#### post_boolean_type_matches_booleans_request_body.ApiResponseFor200
+#### <a id="post_boolean_type_matches_booleans_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -225,8 +219,6 @@ No authorization required
 
 # **post_boolean_type_matches_booleans_response_body_for_content_types**
 <a name="post_boolean_type_matches_booleans_response_body_for_content_types"></a>
-> BooleanTypeMatchesBooleans post_boolean_type_matches_booleans_response_body_for_content_types()
-
 
 
 ### Example
@@ -261,16 +253,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_boolean_type_matches_booleans_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_boolean_type_matches_booleans_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
@@ -284,8 +276,6 @@ No authorization required
 
 # **post_integer_type_matches_integers_request_body**
 <a name="post_integer_type_matches_integers_request_body"></a>
-> post_integer_type_matches_integers_request_body(body)
-
 
 
 ### Example
@@ -319,15 +309,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_integer_type_matches_integers_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_integer_type_matches_integers_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_integer_type_matches_integers_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_integer_type_matches_integers_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
@@ -338,9 +328,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_integer_type_matches_integers_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_integer_type_matches_integers_request_body.response_for_200.ApiResponse) | success
 
-#### post_integer_type_matches_integers_request_body.ApiResponseFor200
+#### <a id="post_integer_type_matches_integers_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -355,8 +345,6 @@ No authorization required
 
 # **post_integer_type_matches_integers_response_body_for_content_types**
 <a name="post_integer_type_matches_integers_response_body_for_content_types"></a>
-> IntegerTypeMatchesIntegers post_integer_type_matches_integers_response_body_for_content_types()
-
 
 
 ### Example
@@ -391,16 +379,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_integer_type_matches_integers_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_integer_type_matches_integers_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_integer_type_matches_integers_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_integer_type_matches_integers_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_integer_type_matches_integers_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_integer_type_matches_integers_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
@@ -414,8 +402,6 @@ No authorization required
 
 # **post_null_type_matches_only_the_null_object_request_body**
 <a name="post_null_type_matches_only_the_null_object_request_body"></a>
-> post_null_type_matches_only_the_null_object_request_body(body)
-
 
 
 ### Example
@@ -449,15 +435,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_null_type_matches_only_the_null_object_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_null_type_matches_only_the_null_object_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_null_type_matches_only_the_null_object_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_null_type_matches_only_the_null_object_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
@@ -468,9 +454,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_null_type_matches_only_the_null_object_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_null_type_matches_only_the_null_object_request_body.response_for_200.ApiResponse) | success
 
-#### post_null_type_matches_only_the_null_object_request_body.ApiResponseFor200
+#### <a id="post_null_type_matches_only_the_null_object_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -485,8 +471,6 @@ No authorization required
 
 # **post_null_type_matches_only_the_null_object_response_body_for_content_types**
 <a name="post_null_type_matches_only_the_null_object_response_body_for_content_types"></a>
-> NullTypeMatchesOnlyTheNullObject post_null_type_matches_only_the_null_object_response_body_for_content_types()
-
 
 
 ### Example
@@ -521,16 +505,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_null_type_matches_only_the_null_object_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_null_type_matches_only_the_null_object_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
@@ -544,8 +528,6 @@ No authorization required
 
 # **post_number_type_matches_numbers_request_body**
 <a name="post_number_type_matches_numbers_request_body"></a>
-> post_number_type_matches_numbers_request_body(body)
-
 
 
 ### Example
@@ -579,15 +561,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_number_type_matches_numbers_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_number_type_matches_numbers_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_number_type_matches_numbers_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_number_type_matches_numbers_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
@@ -598,9 +580,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_number_type_matches_numbers_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_number_type_matches_numbers_request_body.response_for_200.ApiResponse) | success
 
-#### post_number_type_matches_numbers_request_body.ApiResponseFor200
+#### <a id="post_number_type_matches_numbers_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -615,8 +597,6 @@ No authorization required
 
 # **post_number_type_matches_numbers_response_body_for_content_types**
 <a name="post_number_type_matches_numbers_response_body_for_content_types"></a>
-> NumberTypeMatchesNumbers post_number_type_matches_numbers_response_body_for_content_types()
-
 
 
 ### Example
@@ -651,16 +631,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_number_type_matches_numbers_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_number_type_matches_numbers_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_number_type_matches_numbers_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_number_type_matches_numbers_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_number_type_matches_numbers_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_number_type_matches_numbers_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
@@ -674,8 +654,6 @@ No authorization required
 
 # **post_object_type_matches_objects_request_body**
 <a name="post_object_type_matches_objects_request_body"></a>
-> post_object_type_matches_objects_request_body(body)
-
 
 
 ### Example
@@ -709,15 +687,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_object_type_matches_objects_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_object_type_matches_objects_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_object_type_matches_objects_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_object_type_matches_objects_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
@@ -728,9 +706,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_object_type_matches_objects_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_object_type_matches_objects_request_body.response_for_200.ApiResponse) | success
 
-#### post_object_type_matches_objects_request_body.ApiResponseFor200
+#### <a id="post_object_type_matches_objects_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -745,8 +723,6 @@ No authorization required
 
 # **post_object_type_matches_objects_response_body_for_content_types**
 <a name="post_object_type_matches_objects_response_body_for_content_types"></a>
-> ObjectTypeMatchesObjects post_object_type_matches_objects_response_body_for_content_types()
-
 
 
 ### Example
@@ -781,16 +757,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_object_type_matches_objects_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_object_type_matches_objects_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_object_type_matches_objects_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_object_type_matches_objects_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_object_type_matches_objects_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_object_type_matches_objects_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
@@ -804,8 +780,6 @@ No authorization required
 
 # **post_string_type_matches_strings_request_body**
 <a name="post_string_type_matches_strings_request_body"></a>
-> post_string_type_matches_strings_request_body(body)
-
 
 
 ### Example
@@ -839,15 +813,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_string_type_matches_strings_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_string_type_matches_strings_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_string_type_matches_strings_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_string_type_matches_strings_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 
@@ -858,9 +832,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_string_type_matches_strings_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_string_type_matches_strings_request_body.response_for_200.ApiResponse) | success
 
-#### post_string_type_matches_strings_request_body.ApiResponseFor200
+#### <a id="post_string_type_matches_strings_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -875,8 +849,6 @@ No authorization required
 
 # **post_string_type_matches_strings_response_body_for_content_types**
 <a name="post_string_type_matches_strings_response_body_for_content_types"></a>
-> StringTypeMatchesStrings post_string_type_matches_strings_response_body_for_content_types()
-
 
 
 ### Example
@@ -911,16 +883,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_string_type_matches_strings_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_string_type_matches_strings_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_string_type_matches_strings_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_string_type_matches_strings_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_string_type_matches_strings_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_string_type_matches_strings_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 

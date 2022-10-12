@@ -20,8 +20,6 @@ Method | HTTP request | Description
 
 # **post_nested_oneof_to_check_validation_semantics_request_body**
 <a name="post_nested_oneof_to_check_validation_semantics_request_body"></a>
-> post_nested_oneof_to_check_validation_semantics_request_body(nested_oneof_to_check_validation_semantics)
-
 
 
 ### Example
@@ -55,15 +53,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_nested_oneof_to_check_validation_semantics_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_nested_oneof_to_check_validation_semantics_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_nested_oneof_to_check_validation_semantics_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_nested_oneof_to_check_validation_semantics_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
@@ -74,9 +72,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_oneof_to_check_validation_semantics_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_oneof_to_check_validation_semantics_request_body.response_for_200.ApiResponse) | success
 
-#### post_nested_oneof_to_check_validation_semantics_request_body.ApiResponseFor200
+#### <a id="post_nested_oneof_to_check_validation_semantics_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -91,8 +89,6 @@ No authorization required
 
 # **post_nested_oneof_to_check_validation_semantics_response_body_for_content_types**
 <a name="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types"></a>
-> NestedOneofToCheckValidationSemantics post_nested_oneof_to_check_validation_semantics_response_body_for_content_types()
-
 
 
 ### Example
@@ -127,16 +123,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
@@ -150,8 +146,6 @@ No authorization required
 
 # **post_oneof_complex_types_request_body**
 <a name="post_oneof_complex_types_request_body"></a>
-> post_oneof_complex_types_request_body(oneof_complex_types)
-
 
 
 ### Example
@@ -185,15 +179,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_oneof_complex_types_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_oneof_complex_types_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_complex_types_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_oneof_complex_types_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
@@ -204,9 +198,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_complex_types_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_complex_types_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_complex_types_request_body.ApiResponseFor200
+#### <a id="post_oneof_complex_types_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -221,8 +215,6 @@ No authorization required
 
 # **post_oneof_complex_types_response_body_for_content_types**
 <a name="post_oneof_complex_types_response_body_for_content_types"></a>
-> OneofComplexTypes post_oneof_complex_types_response_body_for_content_types()
-
 
 
 ### Example
@@ -257,16 +249,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_complex_types_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_complex_types_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_oneof_complex_types_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_complex_types_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
@@ -280,8 +272,6 @@ No authorization required
 
 # **post_oneof_request_body**
 <a name="post_oneof_request_body"></a>
-> post_oneof_request_body(oneof)
-
 
 
 ### Example
@@ -315,15 +305,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_oneof_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_oneof_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_oneof_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Oneof**](../../models/Oneof.md) |  | 
@@ -334,9 +324,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_request_body.ApiResponseFor200
+#### <a id="post_oneof_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -351,8 +341,6 @@ No authorization required
 
 # **post_oneof_response_body_for_content_types**
 <a name="post_oneof_response_body_for_content_types"></a>
-> Oneof post_oneof_response_body_for_content_types()
-
 
 
 ### Example
@@ -387,16 +375,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_oneof_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_oneof_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Oneof**](../../models/Oneof.md) |  | 
@@ -410,8 +398,6 @@ No authorization required
 
 # **post_oneof_with_base_schema_request_body**
 <a name="post_oneof_with_base_schema_request_body"></a>
-> post_oneof_with_base_schema_request_body(body)
-
 
 
 ### Example
@@ -445,15 +431,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_oneof_with_base_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_oneof_with_base_schema_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_with_base_schema_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_oneof_with_base_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
@@ -464,9 +450,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_base_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_base_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_base_schema_request_body.ApiResponseFor200
+#### <a id="post_oneof_with_base_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -481,8 +467,6 @@ No authorization required
 
 # **post_oneof_with_base_schema_response_body_for_content_types**
 <a name="post_oneof_with_base_schema_response_body_for_content_types"></a>
-> OneofWithBaseSchema post_oneof_with_base_schema_response_body_for_content_types()
-
 
 
 ### Example
@@ -517,16 +501,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_base_schema_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_base_schema_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_base_schema_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
@@ -540,8 +524,6 @@ No authorization required
 
 # **post_oneof_with_empty_schema_request_body**
 <a name="post_oneof_with_empty_schema_request_body"></a>
-> post_oneof_with_empty_schema_request_body(oneof_with_empty_schema)
-
 
 
 ### Example
@@ -575,15 +557,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_oneof_with_empty_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_oneof_with_empty_schema_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_with_empty_schema_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_oneof_with_empty_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
@@ -594,9 +576,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_empty_schema_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_empty_schema_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_empty_schema_request_body.ApiResponseFor200
+#### <a id="post_oneof_with_empty_schema_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -611,8 +593,6 @@ No authorization required
 
 # **post_oneof_with_empty_schema_response_body_for_content_types**
 <a name="post_oneof_with_empty_schema_response_body_for_content_types"></a>
-> OneofWithEmptySchema post_oneof_with_empty_schema_response_body_for_content_types()
-
 
 
 ### Example
@@ -647,16 +627,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_empty_schema_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_empty_schema_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
@@ -670,8 +650,6 @@ No authorization required
 
 # **post_oneof_with_required_request_body**
 <a name="post_oneof_with_required_request_body"></a>
-> post_oneof_with_required_request_body(oneof_with_required)
-
 
 
 ### Example
@@ -705,15 +683,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_oneof_with_required_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_oneof_with_required_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_oneof_with_required_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_oneof_with_required_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
@@ -724,9 +702,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_required_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_required_request_body.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_required_request_body.ApiResponseFor200
+#### <a id="post_oneof_with_required_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -741,8 +719,6 @@ No authorization required
 
 # **post_oneof_with_required_response_body_for_content_types**
 <a name="post_oneof_with_required_response_body_for_content_types"></a>
-> OneofWithRequired post_oneof_with_required_response_body_for_content_types()
-
 
 
 ### Example
@@ -777,16 +753,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_oneof_with_required_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_oneof_with_required_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_oneof_with_required_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_with_required_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
