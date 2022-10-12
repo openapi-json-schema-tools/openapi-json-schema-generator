@@ -34,7 +34,7 @@ class RequestQueryParameters:
     class Schemas:
         
         
-        class TagsSchema(
+        class tags(
             schemas.ListSchema
         ):
         
@@ -46,7 +46,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'TagsSchema':
+            ) -> 'tags':
                 return super().__new__(
                     cls,
                     arg,
@@ -60,7 +60,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'tags': typing.Union[Schemas.TagsSchema, list, tuple, ],
+            'tags': typing.Union[Schemas.tags, list, tuple, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -79,7 +79,7 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="tags",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.TagsSchema,
+            schema=Schemas.tags,
             required=True,
         ),
     ]_all_accept_content_types = (

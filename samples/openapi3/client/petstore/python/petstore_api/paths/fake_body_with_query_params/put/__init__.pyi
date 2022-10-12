@@ -33,13 +33,13 @@ from . import response_for_200
 
 class RequestQueryParameters:
     class Schemas:
-        QuerySchema = schemas.StrSchema
+        query = schemas.StrSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'query': typing.Union[Schemas.QuerySchema, str, ],
+            'query': typing.Union[Schemas.query, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -58,7 +58,7 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="query",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.QuerySchema,
+            schema=Schemas.query,
             required=True,
             explode=True,
         ),

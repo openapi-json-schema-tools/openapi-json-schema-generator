@@ -33,7 +33,7 @@ class RequestQueryParameters:
     class Schemas:
         
         
-        class MapBeanSchema(
+        class mapBean(
             schemas.DictSchema
         ):
         
@@ -73,7 +73,7 @@ class RequestQueryParameters:
                 keyword: typing.Union[MetaOapg.properties.keyword, str, schemas.Unset] = schemas.unset,
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'MapBeanSchema':
+            ) -> 'mapBean':
                 return super().__new__(
                     cls,
                     *args,
@@ -91,7 +91,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[Schemas.MapBeanSchema, dict, frozendict.frozendict, ],
+            'mapBean': typing.Union[Schemas.mapBean, dict, frozendict.frozendict, ],
         },
         total=False
     )
@@ -105,7 +105,7 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="mapBean",
             style=api_client.ParameterStyle.DEEP_OBJECT,
-            schema=Schemas.MapBeanSchema,
+            schema=Schemas.mapBean,
             explode=True,
         ),
     ]

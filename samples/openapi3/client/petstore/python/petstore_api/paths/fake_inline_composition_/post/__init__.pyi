@@ -33,7 +33,7 @@ class RequestQueryParameters:
     class Schemas:
         
         
-        class CompositionAtRootSchema(
+        class compositionAtRoot(
             schemas.ComposedSchema,
         ):
         
@@ -66,7 +66,7 @@ class RequestQueryParameters:
                 *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'CompositionAtRootSchema':
+            ) -> 'compositionAtRoot':
                 return super().__new__(
                     cls,
                     *args,
@@ -75,7 +75,7 @@ class RequestQueryParameters:
                 )
         
         
-        class CompositionInPropertySchema(
+        class compositionInProperty(
             schemas.DictSchema
         ):
         
@@ -156,7 +156,7 @@ class RequestQueryParameters:
                 someProp: typing.Union[MetaOapg.properties.someProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'CompositionInPropertySchema':
+            ) -> 'compositionInProperty':
                 return super().__new__(
                     cls,
                     *args,
@@ -174,8 +174,8 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'compositionAtRoot': typing.Union[Schemas.CompositionAtRootSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'compositionInProperty': typing.Union[Schemas.CompositionInPropertySchema, dict, frozendict.frozendict, ],
+            'compositionAtRoot': typing.Union[Schemas.compositionAtRoot, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+            'compositionInProperty': typing.Union[Schemas.compositionInProperty, dict, frozendict.frozendict, ],
         },
         total=False
     )
@@ -189,13 +189,13 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="compositionAtRoot",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.CompositionAtRootSchema,
+            schema=Schemas.compositionAtRoot,
             explode=True,
         ),
         api_client.QueryParameter(
             name="compositionInProperty",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.CompositionInPropertySchema,
+            schema=Schemas.compositionInProperty,
             explode=True,
         ),
     ]

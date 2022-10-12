@@ -30,17 +30,17 @@ from . import response_for_200
 
 class RequestQueryParameters:
     class Schemas:
-        SomeVarSchema = schemas.StrSchema
-        SomeVarSchema = schemas.StrSchema
-        SomeVarSchema = schemas.StrSchema
+        someVar = schemas.StrSchema
+        SomeVar = schemas.StrSchema
+        some_var = schemas.StrSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'someVar': typing.Union[Schemas.SomeVarSchema, str, ],
-            'SomeVar': typing.Union[Schemas.SomeVarSchema, str, ],
-            'some_var': typing.Union[Schemas.SomeVarSchema, str, ],
+            'someVar': typing.Union[Schemas.someVar, str, ],
+            'SomeVar': typing.Union[Schemas.SomeVar, str, ],
+            'some_var': typing.Union[Schemas.some_var, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -59,21 +59,21 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="someVar",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.SomeVarSchema,
+            schema=Schemas.someVar,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="SomeVar",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.SomeVarSchema,
+            schema=Schemas.SomeVar,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="some_var",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.SomeVarSchema,
+            schema=Schemas.some_var,
             required=True,
             explode=True,
         ),

@@ -13,11 +13,14 @@ Method | HTTP request | Description
 {{#each operation}}
 # **{{{operationId}}}**
 <a name="{{{operationId}}}"></a>
-> {{#if returnType}}{{{returnType}}} {{/if}}{{{operationId}}}({{#each requiredParams}}{{#unless defaultValue}}{{paramName}}{{#if hasMore}}, {{/if}}{{/unless}}{{/each}})
 
-{{#if summary}}{{{summary}}}{{/if}}{{#if notes}}
+{{#if summary}}
+{{{summary}}}
+{{/if}}
+{{#if notes}}
 
-{{{notes}}}{{/if}}
+{{{notes}}}
+{{/if}}
 
 ### Example
 
@@ -46,19 +49,19 @@ Method | HTTP request | Description
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with bodyParam}}
-{{baseName}} | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{this.schema.baseName}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[{{baseName}}](#{{operationId}}.RequestBody) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../operationId}}.RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/with}}
     {{#if queryParams}}
-query_params | RequestQueryParams | |
+[query_params](#{{operationId}}.RequestQueryParameters) | [RequestQueryParameters.Params](#{{operationId}}.RequestQueryParameters.Params) | |
     {{/if}}
     {{#if headerParams}}
-header_params | RequestHeaderParams | |
+header_params | RequestHeaderParameters.Params | |
     {{/if}}
     {{#if pathParams}}
-path_params | RequestPathParams | |
+path_params | RequestPathParameters.Params | |
     {{/if}}
     {{#if cookieParams}}
-cookie_params | RequestCookieParams | |
+cookie_params | RequestCookieParameters.Params | |
     {{/if}}
     {{#with bodyParam}}
         {{#each content}}
@@ -78,34 +81,34 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
     {{#with bodyParam}}
 
-### body
+### <a id="{{operationId}}.RequestBody" >body</a>
         {{#each content}}
         {{#with this.schema}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="RequestBody.Schemas." complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/with}}
     {{#if queryParams}}
 
-### query_params
-#### RequestQueryParams
+### <a id="{{operationId}}.RequestQueryParameters" >query_params</a>
+#### <a id="{{operationId}}.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
-{{baseName}} | {{#with schema}}{{baseName}}{{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | {{#with schema}}[RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
         {{/each}}
 
         {{#each queryParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestQueryParameters.Schemas." complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
     {{#if headerParams}}
 
 ### header_params
-#### RequestHeaderParams
+#### RequestHeaderParameters.Params
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -121,7 +124,7 @@ Name | Type | Description  | Notes
     {{#if pathParams}}
 
 ### path_params
-#### RequestPathParams
+#### RequestPathParameters.Params
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -137,7 +140,7 @@ Name | Type | Description  | Notes
     {{#if cookieParams}}
 
 ### cookie_params
-#### RequestCookieParams
+#### RequestCookieParameters.Params
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -161,27 +164,27 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#each responses}}
 {{#if isDefault}}
-default | [ApiResponseForDefault](#{{operationId}}.ApiResponseForDefault) | {{message}}
+default | [response_for_default.ApiResponse](#{{operationId}}.response_for_default.ApiResponse) | {{message}}
 {{else}}
-{{code}} | [ApiResponseFor{{code}}](#{{operationId}}.ApiResponseFor{{code}}) | {{message}}
+{{code}} | [response_for_{{code}}.ApiResponse](#{{operationId}}.response_for_{{code}}.ApiResponse) | {{message}}
 {{/if}}
 {{/each}}
 {{#each responses}}
 {{#if isDefault}}
 
-#### {{operationId}}.ApiResponseForDefault
+#### <a id="{{operationId}}.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 {{else}}
 
-#### {{operationId}}.ApiResponseFor{{code}}
+#### <a id="{{operationId}}.response_for_{{code}}.ApiResponse" >response_for_{{code}}.ApiResponse</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}{{this.schema.baseName}}{{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{code}}.BodySchemas.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#{{operationId}}.response_for_{{code}}.BodySchemas.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless responseHeaders}}Unset{{else}}ResponseHeadersFor{{code}}{{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
 {{#each content}}
 {{#with this.schema}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3=".BodySchemas." complexTypePrefix="../../models/" }}
 {{/with}}
 {{/each}}
 {{#if responseHeaders}}

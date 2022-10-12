@@ -9,8 +9,6 @@ Method | HTTP request | Description
 
 # **foo_get**
 <a name="foo_get"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} foo_get()
-
 
 
 ### Example
@@ -45,16 +43,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [ApiResponseForDefault](#foo_get.ApiResponseForDefault) | response
+default | [response_for_default.ApiResponse](#foo_get.response_for_default.ApiResponse) | response
 
-#### foo_get.ApiResponseForDefault
+#### <a id="foo_get.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_0.BodySchemas.application_json](#foo_get.response_for_0.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="foo_get.response_for_0.BodySchemas.application_json" >response_for_0.BodySchemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -35,7 +35,7 @@ class RequestPathParameters:
     class Schemas:
         
         
-        class OrderIdSchema(
+        class order_id(
             schemas.Int64Schema
         ):
             pass
@@ -44,7 +44,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'order_id': typing.Union[Schemas.OrderIdSchema, decimal.Decimal, int, ],
+            'order_id': typing.Union[Schemas.order_id, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -63,7 +63,7 @@ class RequestPathParameters:
         api_client.PathParameter(
             name="order_id",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.OrderIdSchema,
+            schema=Schemas.order_id,
             required=True,
         ),
     ]_all_accept_content_types = (

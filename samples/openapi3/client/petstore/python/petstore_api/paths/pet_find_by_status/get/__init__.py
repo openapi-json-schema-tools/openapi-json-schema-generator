@@ -35,7 +35,7 @@ class RequestQueryParameters:
     class Schemas:
         
         
-        class StatusSchema(
+        class status(
             schemas.ListSchema
         ):
         
@@ -72,7 +72,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'StatusSchema':
+            ) -> 'status':
                 return super().__new__(
                     cls,
                     arg,
@@ -86,7 +86,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'status': typing.Union[Schemas.StatusSchema, list, tuple, ],
+            'status': typing.Union[Schemas.status, list, tuple, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -105,7 +105,7 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="status",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.StatusSchema,
+            schema=Schemas.status,
             required=True,
         ),
     ]
