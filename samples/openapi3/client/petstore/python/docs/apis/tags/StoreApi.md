@@ -58,7 +58,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="delete_order.RequestPathParameters" >path_params</a>
 #### <a id="delete_order.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 order_id | [RequestPathParameters.Schemas.order_id](#delete_order.RequestPathParameters.Schemas.order_id) | | 
 
@@ -225,7 +225,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="get_order_by_id.RequestPathParameters" >path_params</a>
 #### <a id="get_order_by_id.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 order_id | [RequestPathParameters.Schemas.order_id](#get_order_by_id.RequestPathParameters.Schemas.order_id) | | 
 

@@ -433,7 +433,7 @@ Type | Description  | Notes
 ### <a id="body_with_query_params.RequestQueryParameters" >query_params</a>
 #### <a id="body_with_query_params.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query | [RequestQueryParameters.Schemas.query](#body_with_query_params.RequestQueryParameters.Schemas.query) | | 
 
@@ -592,7 +592,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="case_sensitive_params.RequestQueryParameters" >query_params</a>
 #### <a id="case_sensitive_params.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 someVar | [RequestQueryParameters.Schemas.someVar](#case_sensitive_params.RequestQueryParameters.Schemas.someVar) | | 
 SomeVar | [RequestQueryParameters.Schemas.SomeVar](#case_sensitive_params.RequestQueryParameters.Schemas.SomeVar) | | 
@@ -850,7 +850,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="delete_coffee.RequestPathParameters" >path_params</a>
 #### <a id="delete_coffee.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 id | [RequestPathParameters.Schemas.id](#delete_coffee.RequestPathParameters.Schemas.id) | | 
 
@@ -1115,7 +1115,7 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 ### <a id="enum_parameters.RequestQueryParameters" >query_params</a>
 #### <a id="enum_parameters.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 enum_query_string_array | [RequestQueryParameters.Schemas.enum_query_string_array](#enum_parameters.RequestQueryParameters.Schemas.enum_query_string_array) | | optional
 enum_query_string | [RequestQueryParameters.Schemas.enum_query_string](#enum_parameters.RequestQueryParameters.Schemas.enum_query_string) | | optional
@@ -1159,7 +1159,7 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 ### <a id="enum_parameters.RequestHeaderParameters" >header_params</a>
 #### <a id="enum_parameters.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 enum_header_string_array | [RequestHeaderParameters.Schemas.enum_header_string_array](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array) | | optional
 enum_header_string | [RequestHeaderParameters.Schemas.enum_header_string](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string) | | optional
@@ -1354,7 +1354,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="group_parameters.RequestQueryParameters" >query_params</a>
 #### <a id="group_parameters.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 required_string_group | [RequestQueryParameters.Schemas.required_string_group](#group_parameters.RequestQueryParameters.Schemas.required_string_group) | | 
 required_int64_group | [RequestQueryParameters.Schemas.required_int64_group](#group_parameters.RequestQueryParameters.Schemas.required_int64_group) | | 
@@ -1393,7 +1393,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 ### <a id="group_parameters.RequestHeaderParameters" >header_params</a>
 #### <a id="group_parameters.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 required_boolean_group | [RequestHeaderParameters.Schemas.required_boolean_group](#group_parameters.RequestHeaderParameters.Schemas.required_boolean_group) | | 
 boolean_group | [RequestHeaderParameters.Schemas.boolean_group](#group_parameters.RequestHeaderParameters.Schemas.boolean_group) | | optional
@@ -1620,7 +1620,7 @@ str,  | str,  |  |
 ### <a id="inline_composition.RequestQueryParameters" >query_params</a>
 #### <a id="inline_composition.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 compositionAtRoot | [RequestQueryParameters.Schemas.compositionAtRoot](#inline_composition.RequestQueryParameters.Schemas.compositionAtRoot) | | optional
 compositionInProperty | [RequestQueryParameters.Schemas.compositionInProperty](#inline_composition.RequestQueryParameters.Schemas.compositionInProperty) | | optional
@@ -2198,7 +2198,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="object_in_query.RequestQueryParameters" >query_params</a>
 #### <a id="object_in_query.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 mapBean | [RequestQueryParameters.Schemas.mapBean](#object_in_query.RequestQueryParameters.Schemas.mapBean) | | optional
 
@@ -2417,7 +2417,7 @@ Name | Type | Description  | Notes
 [query_params](#parameter_collisions.RequestQueryParameters) | [RequestQueryParameters.Params](#parameter_collisions.RequestQueryParameters.Params) | |
 [header_params](#parameter_collisions.RequestHeaderParameters) | [RequestHeaderParameters.Params](#parameter_collisions.RequestHeaderParameters.Params) | |
 [path_params](#parameter_collisions.RequestPathParameters) | [RequestPathParameters.Params](#parameter_collisions.RequestPathParameters.Params) | |
-cookie_params | RequestCookieParameters.Params | |
+[cookie_params](#parameter_collisions.RequestCookieParameters) | [RequestCookieParameters.Params](#parameter_collisions.RequestCookieParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -2436,7 +2436,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 ### <a id="parameter_collisions.RequestQueryParameters" >query_params</a>
 #### <a id="parameter_collisions.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 1 | [RequestQueryParameters.Schemas._1](#parameter_collisions.RequestQueryParameters.Schemas._1) | | optional
 aB | [RequestQueryParameters.Schemas.aB](#parameter_collisions.RequestQueryParameters.Schemas.aB) | | optional
@@ -2483,7 +2483,7 @@ str,  | str,  |  |
 ### <a id="parameter_collisions.RequestHeaderParameters" >header_params</a>
 #### <a id="parameter_collisions.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 1 | [RequestHeaderParameters.Schemas._1](#parameter_collisions.RequestHeaderParameters.Schemas._1) | | optional
 aB | [RequestHeaderParameters.Schemas.aB](#parameter_collisions.RequestHeaderParameters.Schemas.aB) | | optional
@@ -2521,7 +2521,7 @@ str,  | str,  |  |
 ### <a id="parameter_collisions.RequestPathParameters" >path_params</a>
 #### <a id="parameter_collisions.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 1 | [RequestPathParameters.Schemas._1](#parameter_collisions.RequestPathParameters.Schemas._1) | | 
 aB | [RequestPathParameters.Schemas.aB](#parameter_collisions.RequestPathParameters.Schemas.aB) | | 
@@ -2564,46 +2564,46 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### cookie_params
-#### RequestCookieParameters.Params
+### <a id="parameter_collisions.RequestCookieParameters" >cookie_params</a>
+#### <a id="parameter_collisions.RequestCookieParameters.Params" >RequestCookieParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | 1 | | optional
-aB | aB | | optional
-Ab | Ab | | optional
-self | self | | optional
-A-B | A-B | | optional
+1 | [RequestCookieParameters.Schemas._1](#parameter_collisions.RequestCookieParameters.Schemas._1) | | optional
+aB | [RequestCookieParameters.Schemas.aB](#parameter_collisions.RequestCookieParameters.Schemas.aB) | | optional
+Ab | [RequestCookieParameters.Schemas.Ab](#parameter_collisions.RequestCookieParameters.Schemas.Ab) | | optional
+self | [RequestCookieParameters.Schemas._self](#parameter_collisions.RequestCookieParameters.Schemas._self) | | optional
+A-B | [RequestCookieParameters.Schemas.a_b](#parameter_collisions.RequestCookieParameters.Schemas.a_b) | | optional
 
-# 1
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# aB
+# <a id="parameter_collisions.RequestCookieParameters.Schemas._1" >RequestCookieParameters.Schemas._1</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# Ab
+# <a id="parameter_collisions.RequestCookieParameters.Schemas.aB" >RequestCookieParameters.Schemas.aB</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# self
+# <a id="parameter_collisions.RequestCookieParameters.Schemas.Ab" >RequestCookieParameters.Schemas.Ab</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# A-B
+# <a id="parameter_collisions.RequestCookieParameters.Schemas._self" >RequestCookieParameters.Schemas._self</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.RequestCookieParameters.Schemas.a_b" >RequestCookieParameters.Schemas.a_b</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2685,7 +2685,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="query_param_with_json_content_type.RequestQueryParameters" >query_params</a>
 #### <a id="query_param_with_json_content_type.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 someParam |  | | 
 
@@ -2779,7 +2779,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="query_parameter_collection_format.RequestQueryParameters" >query_params</a>
 #### <a id="query_parameter_collection_format.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 pipe | [RequestQueryParameters.Schemas.pipe](#query_parameter_collection_format.RequestQueryParameters.Schemas.pipe) | | 
 ioutil | [RequestQueryParameters.Schemas.ioutil](#query_parameter_collection_format.RequestQueryParameters.Schemas.ioutil) | | 
@@ -2924,7 +2924,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="ref_object_in_query.RequestQueryParameters" >query_params</a>
 #### <a id="ref_object_in_query.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 mapBean | [RequestQueryParameters.Schemas.mapBean](#ref_object_in_query.RequestQueryParameters.Schemas.mapBean) | | optional
 

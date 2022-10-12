@@ -268,7 +268,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="delete_pet.RequestHeaderParameters" >header_params</a>
 #### <a id="delete_pet.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 api_key | [RequestHeaderParameters.Schemas.api_key](#delete_pet.RequestHeaderParameters.Schemas.api_key) | | optional
 
@@ -282,7 +282,7 @@ str,  | str,  |  |
 ### <a id="delete_pet.RequestPathParameters" >path_params</a>
 #### <a id="delete_pet.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [RequestPathParameters.Schemas.petId](#delete_pet.RequestPathParameters.Schemas.petId) | | 
 
@@ -436,7 +436,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="find_pets_by_status.RequestQueryParameters" >query_params</a>
 #### <a id="find_pets_by_status.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 status | [RequestQueryParameters.Schemas.status](#find_pets_by_status.RequestQueryParameters.Schemas.status) | | 
 
@@ -628,7 +628,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="find_pets_by_tags.RequestQueryParameters" >query_params</a>
 #### <a id="find_pets_by_tags.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 tags | [RequestQueryParameters.Schemas.tags](#find_pets_by_tags.RequestQueryParameters.Schemas.tags) | | 
 
@@ -758,7 +758,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="get_pet_by_id.RequestPathParameters" >path_params</a>
 #### <a id="get_pet_by_id.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [RequestPathParameters.Schemas.petId](#get_pet_by_id.RequestPathParameters.Schemas.petId) | | 
 
@@ -1091,7 +1091,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ### <a id="update_pet_with_form.RequestPathParameters" >path_params</a>
 #### <a id="update_pet_with_form.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [RequestPathParameters.Schemas.petId](#update_pet_with_form.RequestPathParameters.Schemas.petId) | | 
 
@@ -1217,7 +1217,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ### <a id="upload_file_with_required_file.RequestPathParameters" >path_params</a>
 #### <a id="upload_file_with_required_file.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [RequestPathParameters.Schemas.petId](#upload_file_with_required_file.RequestPathParameters.Schemas.petId) | | 
 
@@ -1349,7 +1349,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ### <a id="upload_image.RequestPathParameters" >path_params</a>
 #### <a id="upload_image.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
-Name | Type | Description  | Notes
+Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [RequestPathParameters.Schemas.petId](#upload_image.RequestPathParameters.Schemas.petId) | | 
 
