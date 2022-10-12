@@ -1076,7 +1076,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#enum_parameters.RequestBody) | typing.Union[[RequestBody.Schemas.application_x_www_form_urlencoded](#enum_parameters.RequestBody.Schemas.application_x_www_form_urlencoded), Unset] | optional, default is unset |
 [query_params](#enum_parameters.RequestQueryParameters) | [RequestQueryParameters.Params](#enum_parameters.RequestQueryParameters.Params) | |
-header_params | RequestHeaderParameters.Params | |
+[header_params](#enum_parameters.RequestHeaderParameters) | [RequestHeaderParameters.Params](#enum_parameters.RequestHeaderParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -1156,15 +1156,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2, ] value must be a 64 bit float
 
-### header_params
-#### RequestHeaderParameters.Params
+### <a id="enum_parameters.RequestHeaderParameters" >header_params</a>
+#### <a id="enum_parameters.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | enum_header_string_array | | optional
-enum_header_string | enum_header_string | | optional
+enum_header_string_array | [RequestHeaderParameters.Schemas.enum_header_string_array](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array) | | optional
+enum_header_string | [RequestHeaderParameters.Schemas.enum_header_string](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string) | | optional
 
-# enum_header_string_array
+# <a id="enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array" >RequestHeaderParameters.Schemas.enum_header_string_array</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1176,7 +1176,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# enum_header_string
+# <a id="enum_parameters.RequestHeaderParameters.Schemas.enum_header_string" >RequestHeaderParameters.Schemas.enum_header_string</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1346,7 +1346,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [query_params](#group_parameters.RequestQueryParameters) | [RequestQueryParameters.Params](#group_parameters.RequestQueryParameters.Params) | |
-header_params | RequestHeaderParameters.Params | |
+[header_params](#group_parameters.RequestHeaderParameters) | [RequestHeaderParameters.Params](#group_parameters.RequestHeaderParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1390,22 +1390,22 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-### header_params
-#### RequestHeaderParameters.Params
+### <a id="group_parameters.RequestHeaderParameters" >header_params</a>
+#### <a id="group_parameters.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | required_boolean_group | | 
-boolean_group | boolean_group | | optional
+required_boolean_group | [RequestHeaderParameters.Schemas.required_boolean_group](#group_parameters.RequestHeaderParameters.Schemas.required_boolean_group) | | 
+boolean_group | [RequestHeaderParameters.Schemas.boolean_group](#group_parameters.RequestHeaderParameters.Schemas.boolean_group) | | optional
 
-# required_boolean_group
+# <a id="group_parameters.RequestHeaderParameters.Schemas.required_boolean_group" >RequestHeaderParameters.Schemas.required_boolean_group</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | 
 
-# boolean_group
+# <a id="group_parameters.RequestHeaderParameters.Schemas.boolean_group" >RequestHeaderParameters.Schemas.boolean_group</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2415,7 +2415,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#parameter_collisions.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#parameter_collisions.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
 [query_params](#parameter_collisions.RequestQueryParameters) | [RequestQueryParameters.Params](#parameter_collisions.RequestQueryParameters.Params) | |
-header_params | RequestHeaderParameters.Params | |
+[header_params](#parameter_collisions.RequestHeaderParameters) | [RequestHeaderParameters.Params](#parameter_collisions.RequestHeaderParameters.Params) | |
 path_params | RequestPathParameters.Params | |
 cookie_params | RequestCookieParameters.Params | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
@@ -2480,38 +2480,38 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### header_params
-#### RequestHeaderParameters.Params
+### <a id="parameter_collisions.RequestHeaderParameters" >header_params</a>
+#### <a id="parameter_collisions.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | 1 | | optional
-aB | aB | | optional
-self | self | | optional
-A-B | A-B | | optional
+1 | [RequestHeaderParameters.Schemas._1](#parameter_collisions.RequestHeaderParameters.Schemas._1) | | optional
+aB | [RequestHeaderParameters.Schemas.aB](#parameter_collisions.RequestHeaderParameters.Schemas.aB) | | optional
+self | [RequestHeaderParameters.Schemas._self](#parameter_collisions.RequestHeaderParameters.Schemas._self) | | optional
+A-B | [RequestHeaderParameters.Schemas.a_b](#parameter_collisions.RequestHeaderParameters.Schemas.a_b) | | optional
 
-# 1
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# aB
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas._1" >RequestHeaderParameters.Schemas._1</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# self
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas.aB" >RequestHeaderParameters.Schemas.aB</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# A-B
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas._self" >RequestHeaderParameters.Schemas._self</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas.a_b" >RequestHeaderParameters.Schemas.a_b</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

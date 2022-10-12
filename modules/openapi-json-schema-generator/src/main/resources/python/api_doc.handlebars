@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 [query_params](#{{operationId}}.RequestQueryParameters) | [RequestQueryParameters.Params](#{{operationId}}.RequestQueryParameters.Params) | |
     {{/if}}
     {{#if headerParams}}
-header_params | RequestHeaderParameters.Params | |
+[header_params](#{{operationId}}.RequestHeaderParameters) | [RequestHeaderParameters.Params](#{{operationId}}.RequestHeaderParameters.Params) | |
     {{/if}}
     {{#if pathParams}}
 path_params | RequestPathParameters.Params | |
@@ -107,17 +107,17 @@ Name | Type | Description  | Notes
     {{/if}}
     {{#if headerParams}}
 
-### header_params
-#### RequestHeaderParameters.Params
+### <a id="{{operationId}}.RequestHeaderParameters" >header_params</a>
+#### <a id="{{operationId}}.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
-{{baseName}} | {{#with schema}}{{baseName}}{{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | {{#with schema}}[RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each headerParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestHeaderParameters.Schemas." complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}

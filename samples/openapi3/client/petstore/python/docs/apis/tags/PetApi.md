@@ -259,20 +259,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-header_params | RequestHeaderParameters.Params | |
+[header_params](#delete_pet.RequestHeaderParameters) | [RequestHeaderParameters.Params](#delete_pet.RequestHeaderParameters.Params) | |
 path_params | RequestPathParameters.Params | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### header_params
-#### RequestHeaderParameters.Params
+### <a id="delete_pet.RequestHeaderParameters" >header_params</a>
+#### <a id="delete_pet.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | api_key | | optional
+api_key | [RequestHeaderParameters.Schemas.api_key](#delete_pet.RequestHeaderParameters.Schemas.api_key) | | optional
 
-# api_key
+# <a id="delete_pet.RequestHeaderParameters.Schemas.api_key" >RequestHeaderParameters.Schemas.api_key</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
