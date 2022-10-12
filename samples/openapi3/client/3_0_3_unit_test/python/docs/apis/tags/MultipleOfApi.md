@@ -16,8 +16,6 @@ Method | HTTP request | Description
 
 # **post_by_int_request_body**
 <a name="post_by_int_request_body"></a>
-> post_by_int_request_body(body)
-
 
 
 ### Example
@@ -51,15 +49,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_by_int_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_by_int_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_by_int_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_by_int_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ByInt**](../../models/ByInt.md) |  | 
@@ -70,9 +68,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_int_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_int_request_body.response_for_200.ApiResponse) | success
 
-#### post_by_int_request_body.ApiResponseFor200
+#### <a id="post_by_int_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -87,8 +85,6 @@ No authorization required
 
 # **post_by_int_response_body_for_content_types**
 <a name="post_by_int_response_body_for_content_types"></a>
-> ByInt post_by_int_response_body_for_content_types()
-
 
 
 ### Example
@@ -123,16 +119,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_int_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_int_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_by_int_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_by_int_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_by_int_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_by_int_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ByInt**](../../models/ByInt.md) |  | 
@@ -146,8 +142,6 @@ No authorization required
 
 # **post_by_number_request_body**
 <a name="post_by_number_request_body"></a>
-> post_by_number_request_body(body)
-
 
 
 ### Example
@@ -181,15 +175,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_by_number_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_by_number_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_by_number_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_by_number_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ByNumber**](../../models/ByNumber.md) |  | 
@@ -200,9 +194,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_number_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_number_request_body.response_for_200.ApiResponse) | success
 
-#### post_by_number_request_body.ApiResponseFor200
+#### <a id="post_by_number_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -217,8 +211,6 @@ No authorization required
 
 # **post_by_number_response_body_for_content_types**
 <a name="post_by_number_response_body_for_content_types"></a>
-> ByNumber post_by_number_response_body_for_content_types()
-
 
 
 ### Example
@@ -253,16 +245,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_number_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_number_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_by_number_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_by_number_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_by_number_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_by_number_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ByNumber**](../../models/ByNumber.md) |  | 
@@ -276,8 +268,6 @@ No authorization required
 
 # **post_by_small_number_request_body**
 <a name="post_by_small_number_request_body"></a>
-> post_by_small_number_request_body(body)
-
 
 
 ### Example
@@ -311,15 +301,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_by_small_number_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_by_small_number_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_by_small_number_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_by_small_number_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**BySmallNumber**](../../models/BySmallNumber.md) |  | 
@@ -330,9 +320,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_small_number_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_small_number_request_body.response_for_200.ApiResponse) | success
 
-#### post_by_small_number_request_body.ApiResponseFor200
+#### <a id="post_by_small_number_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -347,8 +337,6 @@ No authorization required
 
 # **post_by_small_number_response_body_for_content_types**
 <a name="post_by_small_number_response_body_for_content_types"></a>
-> BySmallNumber post_by_small_number_response_body_for_content_types()
-
 
 
 ### Example
@@ -383,16 +371,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_by_small_number_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_by_small_number_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_by_small_number_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_by_small_number_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_by_small_number_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_by_small_number_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**BySmallNumber**](../../models/BySmallNumber.md) |  | 
@@ -406,8 +394,6 @@ No authorization required
 
 # **post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body**
 <a name="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body"></a>
-> post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body(body)
-
 
 
 ### Example
@@ -441,15 +427,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.RequestBody" >body</a>
 
-# application/json
+# <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
@@ -460,9 +446,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.response_for_200.ApiResponse) | success
 
-#### post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.ApiResponseFor200
+#### <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -477,8 +463,6 @@ No authorization required
 
 # **post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types**
 <a name="post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types"></a>
-> InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types()
-
 
 
 ### Example
@@ -513,16 +497,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
