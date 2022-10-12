@@ -32,6 +32,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.BodySchemas.application_json
 
     def test_an_object_is_not_an_integer_fails(self):
         # an object is not an integer
@@ -129,8 +130,8 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -207,8 +208,8 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

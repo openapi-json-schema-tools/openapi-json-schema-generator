@@ -1,7 +1,7 @@
 # coding: utf-8
 {{>partial_header}}
 
-from dataclasses import dataclass
+import dataclasses
 from decimal import Decimal
 import enum
 import email
@@ -339,7 +339,7 @@ class JSONDetector:
         return False
 
 
-@dataclass
+@dataclasses.dataclass
 class ParameterBase(JSONDetector):
     name: str
     in_type: ParameterInType
@@ -779,7 +779,7 @@ class Encoding:
         self.allow_reserved = allow_reserved
 
 
-@dataclass
+@dataclasses.dataclass
 class MediaType:
     """
     Used to store request and response body schema information
@@ -793,7 +793,7 @@ class MediaType:
     encoding: typing.Optional[typing.Dict[str, Encoding]] = None
 
 
-@dataclass
+@dataclasses.dataclass
 class ApiResponse:
     response: urllib3.HTTPResponse
     body: typing.Union[Unset, Schema]
@@ -802,8 +802,8 @@ class ApiResponse:
     def __init__(
         self,
         response: urllib3.HTTPResponse,
-        body: typing.Union[Unset, typing.Type[Schema]],
-        headers: typing.Union[Unset, typing.List[HeaderParameter]]
+        body: typing.Union[Unset, typing.Type[Schema]] = unset,
+        headers: typing.Union[Unset, typing.List[HeaderParameter]] = unset
     ):
         """
         pycharm needs this to prevent 'Unexpected argument' warnings
@@ -813,7 +813,7 @@ class ApiResponse:
         self.headers = headers
 
 
-@dataclass
+@dataclasses.dataclass
 class ApiResponseWithoutDeserialization(ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[Unset, typing.Type[Schema]] = unset
