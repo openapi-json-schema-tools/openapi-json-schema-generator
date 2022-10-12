@@ -260,7 +260,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [header_params](#delete_pet.RequestHeaderParameters) | [RequestHeaderParameters.Params](#delete_pet.RequestHeaderParameters.Params) | |
-path_params | RequestPathParameters.Params | |
+[path_params](#delete_pet.RequestPathParameters) | [RequestPathParameters.Params](#delete_pet.RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -279,14 +279,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="delete_pet.RequestPathParameters" >path_params</a>
+#### <a id="delete_pet.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | petId | | 
+petId | [RequestPathParameters.Schemas.petId](#delete_pet.RequestPathParameters.Schemas.petId) | | 
 
-# petId
+# <a id="delete_pet.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -749,20 +749,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParameters.Params | |
+[path_params](#get_pet_by_id.RequestPathParameters) | [RequestPathParameters.Params](#get_pet_by_id.RequestPathParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="get_pet_by_id.RequestPathParameters" >path_params</a>
+#### <a id="get_pet_by_id.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | petId | | 
+petId | [RequestPathParameters.Schemas.petId](#get_pet_by_id.RequestPathParameters.Schemas.petId) | | 
 
-# petId
+# <a id="get_pet_by_id.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1066,7 +1066,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#update_pet_with_form.RequestBody) | typing.Union[[RequestBody.Schemas.application_x_www_form_urlencoded](#update_pet_with_form.RequestBody.Schemas.application_x_www_form_urlencoded), Unset] | optional, default is unset |
-path_params | RequestPathParameters.Params | |
+[path_params](#update_pet_with_form.RequestPathParameters) | [RequestPathParameters.Params](#update_pet_with_form.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -1088,14 +1088,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **status** | str,  | str,  | Updated status of the pet | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="update_pet_with_form.RequestPathParameters" >path_params</a>
+#### <a id="update_pet_with_form.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | petId | | 
+petId | [RequestPathParameters.Schemas.petId](#update_pet_with_form.RequestPathParameters.Schemas.petId) | | 
 
-# petId
+# <a id="update_pet_with_form.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1191,7 +1191,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#upload_file_with_required_file.RequestBody) | typing.Union[[RequestBody.Schemas.multipart_form_data](#upload_file_with_required_file.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
-path_params | RequestPathParameters.Params | |
+[path_params](#upload_file_with_required_file.RequestPathParameters) | [RequestPathParameters.Params](#upload_file_with_required_file.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -1214,14 +1214,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **additionalMetadata** | str,  | str,  | Additional data to pass to server | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="upload_file_with_required_file.RequestPathParameters" >path_params</a>
+#### <a id="upload_file_with_required_file.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | petId | | 
+petId | [RequestPathParameters.Schemas.petId](#upload_file_with_required_file.RequestPathParameters.Schemas.petId) | | 
 
-# petId
+# <a id="upload_file_with_required_file.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1323,7 +1323,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#upload_image.RequestBody) | typing.Union[[RequestBody.Schemas.multipart_form_data](#upload_image.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
-path_params | RequestPathParameters.Params | |
+[path_params](#upload_image.RequestPathParameters) | [RequestPathParameters.Params](#upload_image.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -1346,14 +1346,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **file** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="upload_image.RequestPathParameters" >path_params</a>
+#### <a id="upload_image.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | petId | | 
+petId | [RequestPathParameters.Schemas.petId](#upload_image.RequestPathParameters.Schemas.petId) | | 
 
-# petId
+# <a id="upload_image.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

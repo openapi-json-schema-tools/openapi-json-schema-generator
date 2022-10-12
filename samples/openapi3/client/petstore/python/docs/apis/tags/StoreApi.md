@@ -50,19 +50,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParameters.Params | |
+[path_params](#delete_order.RequestPathParameters) | [RequestPathParameters.Params](#delete_order.RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="delete_order.RequestPathParameters" >path_params</a>
+#### <a id="delete_order.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | order_id | | 
+order_id | [RequestPathParameters.Schemas.order_id](#delete_order.RequestPathParameters.Schemas.order_id) | | 
 
-# order_id
+# <a id="delete_order.RequestPathParameters.Schemas.order_id" >RequestPathParameters.Schemas.order_id</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -216,20 +216,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParameters.Params | |
+[path_params](#get_order_by_id.RequestPathParameters) | [RequestPathParameters.Params](#get_order_by_id.RequestPathParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="get_order_by_id.RequestPathParameters" >path_params</a>
+#### <a id="get_order_by_id.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | order_id | | 
+order_id | [RequestPathParameters.Schemas.order_id](#get_order_by_id.RequestPathParameters.Schemas.order_id) | | 
 
-# order_id
+# <a id="get_order_by_id.RequestPathParameters.Schemas.order_id" >RequestPathParameters.Schemas.order_id</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

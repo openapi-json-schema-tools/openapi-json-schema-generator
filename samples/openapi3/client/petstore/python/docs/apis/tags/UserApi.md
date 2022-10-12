@@ -327,19 +327,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParameters.Params | |
+[path_params](#delete_user.RequestPathParameters) | [RequestPathParameters.Params](#delete_user.RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="delete_user.RequestPathParameters" >path_params</a>
+#### <a id="delete_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | username | | 
+username | [RequestPathParameters.Schemas.username](#delete_user.RequestPathParameters.Schemas.username) | | 
 
-# username
+# <a id="delete_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -413,20 +413,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParameters.Params | |
+[path_params](#get_user_by_name.RequestPathParameters) | [RequestPathParameters.Params](#get_user_by_name.RequestPathParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="get_user_by_name.RequestPathParameters" >path_params</a>
+#### <a id="get_user_by_name.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | username | | 
+username | [RequestPathParameters.Schemas.username](#get_user_by_name.RequestPathParameters.Schemas.username) | | 
 
-# username
+# <a id="get_user_by_name.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -727,7 +727,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#update_user.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#update_user.RequestBody.Schemas.application_json)] | required |
-path_params | RequestPathParameters.Params | |
+[path_params](#update_user.RequestPathParameters) | [RequestPathParameters.Params](#update_user.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -741,14 +741,14 @@ Type | Description  | Notes
 [**User**](../../models/User.md) |  | 
 
 
-### path_params
-#### RequestPathParameters.Params
+### <a id="update_user.RequestPathParameters" >path_params</a>
+#### <a id="update_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | username | | 
+username | [RequestPathParameters.Schemas.username](#update_user.RequestPathParameters.Schemas.username) | | 
 
-# username
+# <a id="update_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
