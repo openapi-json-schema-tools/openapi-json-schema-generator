@@ -31,13 +31,13 @@ from . import response_for_404
 
 class RequestPathParameters:
     class Schemas:
-        OrderIdSchema = schemas.StrSchema
+        order_id = schemas.StrSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'order_id': typing.Union[Schemas.OrderIdSchema, str, ],
+            'order_id': typing.Union[Schemas.order_id, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -56,7 +56,7 @@ class RequestPathParameters:
         api_client.PathParameter(
             name="order_id",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.OrderIdSchema,
+            schema=Schemas.order_id,
             required=True,
         ),
     ]

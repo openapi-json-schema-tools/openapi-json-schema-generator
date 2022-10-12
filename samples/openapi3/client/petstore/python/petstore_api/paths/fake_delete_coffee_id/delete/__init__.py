@@ -32,13 +32,13 @@ from . import response_for_default
 
 class RequestPathParameters:
     class Schemas:
-        IdSchema = schemas.StrSchema
+        id = schemas.StrSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'id': typing.Union[Schemas.IdSchema, str, ],
+            'id': typing.Union[Schemas.id, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -57,7 +57,7 @@ class RequestPathParameters:
         api_client.PathParameter(
             name="id",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.IdSchema,
+            schema=Schemas.id,
             required=True,
         ),
     ]

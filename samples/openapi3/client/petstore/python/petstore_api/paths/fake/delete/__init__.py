@@ -32,24 +32,24 @@ from . import response_for_200
 
 class RequestQueryParameters:
     class Schemas:
-        RequiredStringGroupSchema = schemas.IntSchema
-        RequiredInt64GroupSchema = schemas.Int64Schema
-        StringGroupSchema = schemas.IntSchema
-        Int64GroupSchema = schemas.Int64Schema
+        required_string_group = schemas.IntSchema
+        required_int64_group = schemas.Int64Schema
+        string_group = schemas.IntSchema
+        int64_group = schemas.Int64Schema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_string_group': typing.Union[Schemas.RequiredStringGroupSchema, decimal.Decimal, int, ],
-            'required_int64_group': typing.Union[Schemas.RequiredInt64GroupSchema, decimal.Decimal, int, ],
+            'required_string_group': typing.Union[Schemas.required_string_group, decimal.Decimal, int, ],
+            'required_int64_group': typing.Union[Schemas.required_int64_group, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'string_group': typing.Union[Schemas.StringGroupSchema, decimal.Decimal, int, ],
-            'int64_group': typing.Union[Schemas.Int64GroupSchema, decimal.Decimal, int, ],
+            'string_group': typing.Union[Schemas.string_group, decimal.Decimal, int, ],
+            'int64_group': typing.Union[Schemas.int64_group, decimal.Decimal, int, ],
         },
         total=False
     )
@@ -63,47 +63,47 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="required_string_group",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.RequiredStringGroupSchema,
+            schema=Schemas.required_string_group,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="required_int64_group",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.RequiredInt64GroupSchema,
+            schema=Schemas.required_int64_group,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="string_group",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.StringGroupSchema,
+            schema=Schemas.string_group,
             explode=True,
         ),
         api_client.QueryParameter(
             name="int64_group",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.Int64GroupSchema,
+            schema=Schemas.int64_group,
             explode=True,
         ),
     ]
 
 class RequestHeaderParameters:
     class Schemas:
-        RequiredBooleanGroupSchema = schemas.BoolSchema
-        BooleanGroupSchema = schemas.BoolSchema
+        required_boolean_group = schemas.BoolSchema
+        boolean_group = schemas.BoolSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_boolean_group': typing.Union[Schemas.RequiredBooleanGroupSchema, bool, ],
+            'required_boolean_group': typing.Union[Schemas.required_boolean_group, bool, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'boolean_group': typing.Union[Schemas.BooleanGroupSchema, bool, ],
+            'boolean_group': typing.Union[Schemas.boolean_group, bool, ],
         },
         total=False
     )
@@ -117,13 +117,13 @@ class RequestHeaderParameters:
         api_client.HeaderParameter(
             name="required_boolean_group",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.RequiredBooleanGroupSchema,
+            schema=Schemas.required_boolean_group,
             required=True,
         ),
         api_client.HeaderParameter(
             name="boolean_group",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.BooleanGroupSchema,
+            schema=Schemas.boolean_group,
         ),
     ]
 _auth = [

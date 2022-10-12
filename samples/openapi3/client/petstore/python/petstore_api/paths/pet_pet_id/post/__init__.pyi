@@ -31,13 +31,13 @@ from . import response_for_405
 
 class RequestPathParameters:
     class Schemas:
-        PetIdSchema = schemas.Int64Schema
+        petId = schemas.Int64Schema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[Schemas.PetIdSchema, decimal.Decimal, int, ],
+            'petId': typing.Union[Schemas.petId, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -56,7 +56,7 @@ class RequestPathParameters:
         api_client.PathParameter(
             name="petId",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.PetIdSchema,
+            schema=Schemas.petId,
             required=True,
         ),
     ]

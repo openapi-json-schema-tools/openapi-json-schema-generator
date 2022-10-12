@@ -954,18 +954,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     break;
             }
         }
-        // clone this so we can change some properties on it
-        CodegenProperty schemaProp = cp.getSchema();
-        // parameters may have valid python names like some_val or invalid ones like Content-Type
-        // we always set nameInSnakeCase to null so special handling will not be done for these names
-        // invalid python names will be handled in python by using a TypedDict which will allow us to have a type hint
-        // for keys that cannot be variable names to the schema baseName
-        if (schemaProp != null) {
-            schemaProp = schemaProp.clone();
-            schemaProp.nameInSnakeCase = null;
-            schemaProp.baseName = toModelName(cp.baseName) + "Schema";
-            cp.setSchema(schemaProp);
-        }
         return cp;
     }
 

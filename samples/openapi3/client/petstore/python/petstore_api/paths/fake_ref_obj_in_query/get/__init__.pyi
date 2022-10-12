@@ -32,7 +32,7 @@ from . import response_for_200
 
 class RequestQueryParameters:
     class Schemas:
-        MapBeanSchema = Foo
+        mapBean = Foo
 
 
     RequiredParams = typing_extensions.TypedDict(
@@ -43,7 +43,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[Schemas.MapBeanSchema, ],
+            'mapBean': typing.Union[Schemas.mapBean, ],
         },
         total=False
     )
@@ -57,7 +57,7 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="mapBean",
             style=api_client.ParameterStyle.DEEP_OBJECT,
-            schema=Schemas.MapBeanSchema,
+            schema=Schemas.mapBean,
             explode=True,
         ),
     ]

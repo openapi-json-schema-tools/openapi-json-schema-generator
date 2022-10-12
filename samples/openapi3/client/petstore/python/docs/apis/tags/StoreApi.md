@@ -12,7 +12,6 @@ Method | HTTP request | Description
 
 # **delete_order**
 <a name="delete_order"></a>
-> delete_order(order_id)
 
 Delete purchase order by ID
 
@@ -51,19 +50,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
+path_params | RequestPathParameters.Params | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### path_params
-#### RequestPathParams
+#### RequestPathParameters.Params
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | OrderIdSchema | | 
+order_id | order_id | | 
 
-# OrderIdSchema
+# order_id
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -75,17 +74,17 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ApiResponseFor400](#delete_order.ApiResponseFor400) | Invalid ID supplied
-404 | [ApiResponseFor404](#delete_order.ApiResponseFor404) | Order not found
+400 | [response_for_400.ApiResponse](#delete_order.response_for_400.ApiResponse) | Invalid ID supplied
+404 | [response_for_404.ApiResponse](#delete_order.response_for_404.ApiResponse) | Order not found
 
-#### delete_order.ApiResponseFor400
+#### <a id="delete_order.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### delete_order.ApiResponseFor404
+#### <a id="delete_order.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -100,7 +99,6 @@ No authorization required
 
 # **get_inventory**
 <a name="get_inventory"></a>
-> {str: (int,)} get_inventory()
 
 Returns pet inventories by status
 
@@ -150,16 +148,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_inventory.ApiResponseFor200) | successful operation
+200 | [response_for_200.ApiResponse](#get_inventory.response_for_200.ApiResponse) | successful operation
 
-#### get_inventory.ApiResponseFor200
+#### <a id="get_inventory.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#get_inventory.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/json
+# <a id="get_inventory.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -179,7 +177,6 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # **get_order_by_id**
 <a name="get_order_by_id"></a>
-> Order get_order_by_id(order_id)
 
 Find purchase order by ID
 
@@ -219,20 +216,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
+path_params | RequestPathParameters.Params | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### path_params
-#### RequestPathParams
+#### RequestPathParameters.Params
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | OrderIdSchema | | 
+order_id | order_id | | 
 
-# OrderIdSchema
+# order_id
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -244,37 +241,37 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_order_by_id.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#get_order_by_id.ApiResponseFor400) | Invalid ID supplied
-404 | [ApiResponseFor404](#get_order_by_id.ApiResponseFor404) | Order not found
+200 | [response_for_200.ApiResponse](#get_order_by_id.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#get_order_by_id.response_for_400.ApiResponse) | Invalid ID supplied
+404 | [response_for_404.ApiResponse](#get_order_by_id.response_for_404.ApiResponse) | Order not found
 
-#### get_order_by_id.ApiResponseFor200
+#### <a id="get_order_by_id.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/xml, application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_order_by_id.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_order_by_id.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/xml
+# <a id="get_order_by_id.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-# application/json
+# <a id="get_order_by_id.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-#### get_order_by_id.ApiResponseFor400
+#### <a id="get_order_by_id.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### get_order_by_id.ApiResponseFor404
+#### <a id="get_order_by_id.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -289,7 +286,6 @@ No authorization required
 
 # **place_order**
 <a name="place_order"></a>
-> Order place_order(order)
 
 Place an order for a pet
 
@@ -333,16 +329,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[application/json] | required |
+[body](#place_order.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#place_order.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="place_order.RequestBody" >body</a>
 
-# application/json
+# <a id="place_order.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
@@ -353,29 +349,29 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#place_order.ApiResponseFor200) | successful operation
-400 | [ApiResponseFor400](#place_order.ApiResponseFor400) | Invalid Order
+200 | [response_for_200.ApiResponse](#place_order.response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#place_order.response_for_400.ApiResponse) | Invalid Order
 
-#### place_order.ApiResponseFor200
+#### <a id="place_order.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[application/xml, application/json, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_xml](#place_order.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#place_order.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# application/xml
+# <a id="place_order.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-# application/json
+# <a id="place_order.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-#### place_order.ApiResponseFor400
+#### <a id="place_order.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

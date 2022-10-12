@@ -35,7 +35,7 @@ class RequestQueryParameters:
     class Schemas:
         
         
-        class EnumQueryStringArraySchema(
+        class enum_query_string_array(
             schemas.ListSchema
         ):
         
@@ -67,7 +67,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'EnumQueryStringArraySchema':
+            ) -> 'enum_query_string_array':
                 return super().__new__(
                     cls,
                     arg,
@@ -78,7 +78,7 @@ class RequestQueryParameters:
                 return super().__getitem__(i)
         
         
-        class EnumQueryStringSchema(
+        class enum_query_string(
             schemas.EnumBase,
             schemas.StrSchema
         ):
@@ -104,7 +104,7 @@ class RequestQueryParameters:
                 return cls("(xyz)")
         
         
-        class EnumQueryIntegerSchema(
+        class enum_query_integer(
             schemas.EnumBase,
             schemas.Int32Schema
         ):
@@ -126,7 +126,7 @@ class RequestQueryParameters:
                 return cls(-2)
         
         
-        class EnumQueryDoubleSchema(
+        class enum_query_double(
             schemas.EnumBase,
             schemas.Float64Schema
         ):
@@ -156,10 +156,10 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_query_string_array': typing.Union[Schemas.EnumQueryStringArraySchema, list, tuple, ],
-            'enum_query_string': typing.Union[Schemas.EnumQueryStringSchema, str, ],
-            'enum_query_integer': typing.Union[Schemas.EnumQueryIntegerSchema, decimal.Decimal, int, ],
-            'enum_query_double': typing.Union[Schemas.EnumQueryDoubleSchema, decimal.Decimal, int, float, ],
+            'enum_query_string_array': typing.Union[Schemas.enum_query_string_array, list, tuple, ],
+            'enum_query_string': typing.Union[Schemas.enum_query_string, str, ],
+            'enum_query_integer': typing.Union[Schemas.enum_query_integer, decimal.Decimal, int, ],
+            'enum_query_double': typing.Union[Schemas.enum_query_double, decimal.Decimal, int, float, ],
         },
         total=False
     )
@@ -173,25 +173,25 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="enum_query_string_array",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.EnumQueryStringArraySchema,
+            schema=Schemas.enum_query_string_array,
             explode=True,
         ),
         api_client.QueryParameter(
             name="enum_query_string",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.EnumQueryStringSchema,
+            schema=Schemas.enum_query_string,
             explode=True,
         ),
         api_client.QueryParameter(
             name="enum_query_integer",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.EnumQueryIntegerSchema,
+            schema=Schemas.enum_query_integer,
             explode=True,
         ),
         api_client.QueryParameter(
             name="enum_query_double",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.EnumQueryDoubleSchema,
+            schema=Schemas.enum_query_double,
             explode=True,
         ),
     ]
@@ -200,7 +200,7 @@ class RequestHeaderParameters:
     class Schemas:
         
         
-        class EnumHeaderStringArraySchema(
+        class enum_header_string_array(
             schemas.ListSchema
         ):
         
@@ -232,7 +232,7 @@ class RequestHeaderParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'EnumHeaderStringArraySchema':
+            ) -> 'enum_header_string_array':
                 return super().__new__(
                     cls,
                     arg,
@@ -243,7 +243,7 @@ class RequestHeaderParameters:
                 return super().__getitem__(i)
         
         
-        class EnumHeaderStringSchema(
+        class enum_header_string(
             schemas.EnumBase,
             schemas.StrSchema
         ):
@@ -277,8 +277,8 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_header_string_array': typing.Union[Schemas.EnumHeaderStringArraySchema, list, tuple, ],
-            'enum_header_string': typing.Union[Schemas.EnumHeaderStringSchema, str, ],
+            'enum_header_string_array': typing.Union[Schemas.enum_header_string_array, list, tuple, ],
+            'enum_header_string': typing.Union[Schemas.enum_header_string, str, ],
         },
         total=False
     )
@@ -292,12 +292,12 @@ class RequestHeaderParameters:
         api_client.HeaderParameter(
             name="enum_header_string_array",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.EnumHeaderStringArraySchema,
+            schema=Schemas.enum_header_string_array,
         ),
         api_client.HeaderParameter(
             name="enum_header_string",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.EnumHeaderStringSchema,
+            schema=Schemas.enum_header_string,
         ),
     ]
 

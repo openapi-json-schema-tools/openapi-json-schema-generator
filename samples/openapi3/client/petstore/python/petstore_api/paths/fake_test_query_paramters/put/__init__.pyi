@@ -34,7 +34,7 @@ class RequestQueryParameters:
     class Schemas:
         
         
-        class PipeSchema(
+        class pipe(
             schemas.ListSchema
         ):
         
@@ -46,7 +46,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'PipeSchema':
+            ) -> 'pipe':
                 return super().__new__(
                     cls,
                     arg,
@@ -57,7 +57,7 @@ class RequestQueryParameters:
                 return super().__getitem__(i)
         
         
-        class IoutilSchema(
+        class ioutil(
             schemas.ListSchema
         ):
         
@@ -69,7 +69,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'IoutilSchema':
+            ) -> 'ioutil':
                 return super().__new__(
                     cls,
                     arg,
@@ -80,7 +80,7 @@ class RequestQueryParameters:
                 return super().__getitem__(i)
         
         
-        class HttpSchema(
+        class http(
             schemas.ListSchema
         ):
         
@@ -92,7 +92,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'HttpSchema':
+            ) -> 'http':
                 return super().__new__(
                     cls,
                     arg,
@@ -103,7 +103,7 @@ class RequestQueryParameters:
                 return super().__getitem__(i)
         
         
-        class UrlSchema(
+        class url(
             schemas.ListSchema
         ):
         
@@ -115,7 +115,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'UrlSchema':
+            ) -> 'url':
                 return super().__new__(
                     cls,
                     arg,
@@ -126,7 +126,7 @@ class RequestQueryParameters:
                 return super().__getitem__(i)
         
         
-        class ContextSchema(
+        class context(
             schemas.ListSchema
         ):
         
@@ -138,7 +138,7 @@ class RequestQueryParameters:
                 cls,
                 arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'ContextSchema':
+            ) -> 'context':
                 return super().__new__(
                     cls,
                     arg,
@@ -147,18 +147,18 @@ class RequestQueryParameters:
         
             def __getitem__(self, i: int) -> MetaOapg.items:
                 return super().__getitem__(i)
-        RefParamSchema = StringWithValidation
+        refParam = StringWithValidation
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'pipe': typing.Union[Schemas.PipeSchema, list, tuple, ],
-            'ioutil': typing.Union[Schemas.IoutilSchema, list, tuple, ],
-            'http': typing.Union[Schemas.HttpSchema, list, tuple, ],
-            'url': typing.Union[Schemas.UrlSchema, list, tuple, ],
-            'context': typing.Union[Schemas.ContextSchema, list, tuple, ],
-            'refParam': typing.Union[Schemas.RefParamSchema, ],
+            'pipe': typing.Union[Schemas.pipe, list, tuple, ],
+            'ioutil': typing.Union[Schemas.ioutil, list, tuple, ],
+            'http': typing.Union[Schemas.http, list, tuple, ],
+            'url': typing.Union[Schemas.url, list, tuple, ],
+            'context': typing.Union[Schemas.context, list, tuple, ],
+            'refParam': typing.Union[Schemas.refParam, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -177,39 +177,39 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="pipe",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.PipeSchema,
+            schema=Schemas.pipe,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="ioutil",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.IoutilSchema,
+            schema=Schemas.ioutil,
             required=True,
         ),
         api_client.QueryParameter(
             name="http",
             style=api_client.ParameterStyle.SPACE_DELIMITED,
-            schema=Schemas.HttpSchema,
+            schema=Schemas.http,
             required=True,
         ),
         api_client.QueryParameter(
             name="url",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.UrlSchema,
+            schema=Schemas.url,
             required=True,
         ),
         api_client.QueryParameter(
             name="context",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.ContextSchema,
+            schema=Schemas.context,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="refParam",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.RefParamSchema,
+            schema=Schemas.refParam,
             required=True,
             explode=True,
         ),

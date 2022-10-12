@@ -32,15 +32,15 @@ from . import response_for_400
 
 class RequestQueryParameters:
     class Schemas:
-        UsernameSchema = schemas.StrSchema
-        PasswordSchema = schemas.StrSchema
+        username = schemas.StrSchema
+        password = schemas.StrSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[Schemas.UsernameSchema, str, ],
-            'password': typing.Union[Schemas.PasswordSchema, str, ],
+            'username': typing.Union[Schemas.username, str, ],
+            'password': typing.Union[Schemas.password, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -59,14 +59,14 @@ class RequestQueryParameters:
         api_client.QueryParameter(
             name="username",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.UsernameSchema,
+            schema=Schemas.username,
             required=True,
             explode=True,
         ),
         api_client.QueryParameter(
             name="password",
             style=api_client.ParameterStyle.FORM,
-            schema=Schemas.PasswordSchema,
+            schema=Schemas.password,
             required=True,
             explode=True,
         ),

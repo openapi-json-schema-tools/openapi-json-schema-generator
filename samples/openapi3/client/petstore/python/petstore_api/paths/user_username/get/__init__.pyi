@@ -33,13 +33,13 @@ from . import response_for_404
 
 class RequestPathParameters:
     class Schemas:
-        UsernameSchema = schemas.StrSchema
+        username = schemas.StrSchema
 
 
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[Schemas.UsernameSchema, str, ],
+            'username': typing.Union[Schemas.username, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -58,7 +58,7 @@ class RequestPathParameters:
         api_client.PathParameter(
             name="username",
             style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.UsernameSchema,
+            schema=Schemas.username,
             required=True,
         ),
     ]_all_accept_content_types = (
