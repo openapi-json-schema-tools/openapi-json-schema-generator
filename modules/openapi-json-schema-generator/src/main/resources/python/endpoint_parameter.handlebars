@@ -1,24 +1,20 @@
-api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter(
-    name="{{baseName}}",
-{{#if style}}
-    style=api_client.ParameterStyle.{{style}},
-{{/if}}
+{{#with parameter}}
 {{#if schema}}
     {{#with schema}}
-    schema=Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+{{> model_templates/schema }}
     {{/with}}
+{{else}}
+    {{#if getContent}}
+        {{#each getContent}}
+            {{#with this}}
+                {{#with schema}}
+{{> model_templates/schema }}
+                {{/with}}
+            {{/with}}
+        {{/each}}
+    {{/if}}
 {{/if}}
-{{#if getContent}}
-    content={
-{{#each getContent}}
-        "{{@key}}": {{#with this}}{{#with schema}}Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/with}}{{/with}},
-{{/each}}
-    },
-{{/if}}
-{{#if required}}
-    required=True,
-{{/if}}
-{{#if isExplode}}
-    explode=True,
-{{/if}}
-),
+
+
+{{> endpoint_parameter_instance }}
+{{/with}}
