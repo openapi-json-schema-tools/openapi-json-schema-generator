@@ -42,7 +42,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
                 {
                 }
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 False
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -102,7 +102,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 12
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -132,7 +132,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 13.7
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -163,7 +163,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
                 [
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -193,7 +193,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 None
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

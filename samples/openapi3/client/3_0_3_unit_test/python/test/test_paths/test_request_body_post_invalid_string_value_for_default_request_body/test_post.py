@@ -44,7 +44,7 @@ class TestRequestBodyPostInvalidStringValueForDefaultRequestBody(ApiTestMixin, u
                         "good",
                 }
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -75,7 +75,7 @@ class TestRequestBodyPostInvalidStringValueForDefaultRequestBody(ApiTestMixin, u
                 {
                 }
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
