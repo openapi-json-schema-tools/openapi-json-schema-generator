@@ -57,15 +57,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_array_type_matches_arrays_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_array_type_matches_arrays_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_array_type_matches_arrays_request_body.request_body) | typing.Union[[request_body.application_json](#post_array_type_matches_arrays_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_array_type_matches_arrays_request_body.RequestBody" >body</a>
+### <a id="post_array_type_matches_arrays_request_body.request_body" >body</a>
 
-# <a id="post_array_type_matches_arrays_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_array_type_matches_arrays_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
@@ -183,15 +183,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_boolean_type_matches_booleans_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_boolean_type_matches_booleans_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_boolean_type_matches_booleans_request_body.request_body) | typing.Union[[request_body.application_json](#post_boolean_type_matches_booleans_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_boolean_type_matches_booleans_request_body.RequestBody" >body</a>
+### <a id="post_boolean_type_matches_booleans_request_body.request_body" >body</a>
 
-# <a id="post_boolean_type_matches_booleans_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_boolean_type_matches_booleans_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
@@ -309,15 +309,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_integer_type_matches_integers_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_integer_type_matches_integers_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_integer_type_matches_integers_request_body.request_body) | typing.Union[[request_body.application_json](#post_integer_type_matches_integers_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_integer_type_matches_integers_request_body.RequestBody" >body</a>
+### <a id="post_integer_type_matches_integers_request_body.request_body" >body</a>
 
-# <a id="post_integer_type_matches_integers_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_integer_type_matches_integers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
@@ -435,15 +435,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_null_type_matches_only_the_null_object_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_null_type_matches_only_the_null_object_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_null_type_matches_only_the_null_object_request_body.request_body) | typing.Union[[request_body.application_json](#post_null_type_matches_only_the_null_object_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_null_type_matches_only_the_null_object_request_body.RequestBody" >body</a>
+### <a id="post_null_type_matches_only_the_null_object_request_body.request_body" >body</a>
 
-# <a id="post_null_type_matches_only_the_null_object_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_null_type_matches_only_the_null_object_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
@@ -561,15 +561,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_number_type_matches_numbers_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_number_type_matches_numbers_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_number_type_matches_numbers_request_body.request_body) | typing.Union[[request_body.application_json](#post_number_type_matches_numbers_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_number_type_matches_numbers_request_body.RequestBody" >body</a>
+### <a id="post_number_type_matches_numbers_request_body.request_body" >body</a>
 
-# <a id="post_number_type_matches_numbers_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_number_type_matches_numbers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
@@ -687,15 +687,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_object_type_matches_objects_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_object_type_matches_objects_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_object_type_matches_objects_request_body.request_body) | typing.Union[[request_body.application_json](#post_object_type_matches_objects_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_object_type_matches_objects_request_body.RequestBody" >body</a>
+### <a id="post_object_type_matches_objects_request_body.request_body" >body</a>
 
-# <a id="post_object_type_matches_objects_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_object_type_matches_objects_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
@@ -813,15 +813,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_string_type_matches_strings_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_string_type_matches_strings_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_string_type_matches_strings_request_body.request_body) | typing.Union[[request_body.application_json](#post_string_type_matches_strings_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_string_type_matches_strings_request_body.RequestBody" >body</a>
+### <a id="post_string_type_matches_strings_request_body.request_body" >body</a>
 
-# <a id="post_string_type_matches_strings_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_string_type_matches_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 

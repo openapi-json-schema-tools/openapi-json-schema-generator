@@ -578,6 +578,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "__init__.py"));
             pathsFiles.add(Arrays.asList(endpointMap, "endpoint.handlebars", outputFilename));
 
+            // paths.some_path.post.request_body.py
+            if (co.bodyParam != null) {
+                Map<String, Object> paramMap = new HashMap<>();
+                paramMap.put("requestBody", co.bodyParam);
+                // TODO consolidate imports into body param only
+                paramMap.put("imports", co.imports);
+                paramMap.put("packageName", packageName);
+                outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
+                pathsFiles.add(Arrays.asList(paramMap, "endpoint_request_body.handlebars", outputFilename));
+            }
+
             for (CodegenResponse response: co.responses) {
                 // paths.some_path.post.response_for_200.py (file per response)
                 Map<String, Object> responseMap = new HashMap<>();

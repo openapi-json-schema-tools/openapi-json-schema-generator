@@ -49,7 +49,7 @@ Method | HTTP request | Description
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with bodyParam}}
-[{{baseName}}](#{{operationId}}.RequestBody) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../operationId}}.RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[{{baseName}}](#{{operationId}}.request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../operationId}}.request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/with}}
     {{#if queryParams}}
 [query_params](#{{operationId}}.RequestQueryParameters) | [RequestQueryParameters.Params](#{{operationId}}.RequestQueryParameters.Params) | |
@@ -81,10 +81,10 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
     {{#with bodyParam}}
 
-### <a id="{{operationId}}.RequestBody" >body</a>
+### <a id="{{operationId}}.request_body" >body</a>
         {{#each content}}
         {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="RequestBody.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body." complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/with}}

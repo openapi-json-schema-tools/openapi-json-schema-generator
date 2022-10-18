@@ -47,7 +47,7 @@ class TestRequestBodyPostRequiredWithEscapedCharactersRequestBody(ApiTestMixin, 
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+                body = post.request_body.application_json.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )
@@ -73,7 +73,7 @@ class TestRequestBodyPostRequiredWithEscapedCharactersRequestBody(ApiTestMixin, 
                         1,
                 }
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
