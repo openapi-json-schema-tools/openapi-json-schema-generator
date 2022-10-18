@@ -242,7 +242,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> specialCharReplacements = new LinkedHashMap<>();
     // When a model is an alias for a simple type
     protected Map<String, String> typeAliases = null;
-    protected Boolean prependFormOrBodyParameters = false;
     // The extension of the generated documentation files (defaults to markdown .md)
     protected String docExtension;
     protected String ignoreFilePathOverride;
@@ -336,11 +335,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (additionalProperties.containsKey(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG)) {
             this.setSortModelPropertiesByRequiredFlag(Boolean.valueOf(additionalProperties
                     .get(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS)) {
-            this.setPrependFormOrBodyParameters(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.ENSURE_UNIQUE_PARAMS)) {
@@ -1339,15 +1333,6 @@ public class DefaultCodegen implements CodegenConfig {
     public void setSortModelPropertiesByRequiredFlag(Boolean sortModelPropertiesByRequiredFlag) {
         this.sortModelPropertiesByRequiredFlag = sortModelPropertiesByRequiredFlag;
     }
-
-    public Boolean getPrependFormOrBodyParameters() {
-        return prependFormOrBodyParameters;
-    }
-
-    public void setPrependFormOrBodyParameters(Boolean prependFormOrBodyParameters) {
-        this.prependFormOrBodyParameters = prependFormOrBodyParameters;
-    }
-
     public Boolean getEnsureUniqueParams() {
         return ensureUniqueParams;
     }
@@ -4354,12 +4339,6 @@ public class DefaultCodegen implements CodegenConfig {
                     setParameterEncodingValues(cp, requestBody.getContent().get(contentType));
                     postProcessParameter(cp);
                 }
-                // add form parameters to the beginning of all parameter list
-                if (prependFormOrBodyParameters) {
-                    for (CodegenParameter cp : formParams) {
-                        allParams.add(cp.copy());
-                    }
-                }
             } else {
                 // process body parameter
                 requestBody = ModelUtils.getReferencedRequestBody(this.openAPI, requestBody);
@@ -4373,10 +4352,6 @@ public class DefaultCodegen implements CodegenConfig {
                 postProcessParameter(bodyParam);
 
                 bodyParams.add(bodyParam);
-
-                if (prependFormOrBodyParameters) {
-                    allParams.add(bodyParam);
-                }
 
                 // add example
                 if (schemas != null && !isSkipOperationExample()) {
@@ -4408,27 +4383,6 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn("Unknown parameter type {} for {}", p.baseType, p.baseName);
                 }
 
-            }
-        }
-
-        // add form/body parameter (if any) to the end of all parameter list
-        if (!prependFormOrBodyParameters) {
-            for (CodegenParameter cp : formParams) {
-                if (ensureUniqueParams) {
-                    while (!isParameterNameUnique(cp, allParams)) {
-                        cp.paramName = generateNextName(cp.paramName);
-                    }
-                }
-                allParams.add(cp.copy());
-            }
-
-            for (CodegenParameter cp : bodyParams) {
-                if (ensureUniqueParams) {
-                    while (!isParameterNameUnique(cp, allParams)) {
-                        cp.paramName = generateNextName(cp.paramName);
-                    }
-                }
-                allParams.add(cp.copy());
             }
         }
 
