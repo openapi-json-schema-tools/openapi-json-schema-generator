@@ -28,20 +28,8 @@ from this_package import schemas  # noqa: F401
 from this_package.model.operator import Operator
 
 from . import response_for_200
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        application_json = Operator
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/json': api_client.MediaType(
-                schema=Schemas.application_json
-            ),
-        },
-    )
 
 
 class BaseApi(api_client.Api):
@@ -49,7 +37,7 @@ class BaseApi(api_client.Api):
     def _post_operators_oapg(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -61,7 +49,7 @@ class BaseApi(api_client.Api):
     def _post_operators_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -75,7 +63,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -84,7 +72,7 @@ class BaseApi(api_client.Api):
     def _post_operators_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -96,7 +84,7 @@ class BaseApi(api_client.Api):
     def _post_operators_oapg(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -114,7 +102,7 @@ class BaseApi(api_client.Api):
         _fields = None
         _body = None
         if body is not schemas.unset:
-            serialized_data = RequestBody.parameter.serialize(body, content_type)
+            serialized_data = request_body.parameter_oapg.serialize(body, content_type)
             _headers.add('Content-Type', content_type)
             if 'fields' in serialized_data:
                 _fields = serialized_data['fields']
@@ -152,7 +140,7 @@ class PostOperators(BaseApi):
     def post_operators(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -164,7 +152,7 @@ class PostOperators(BaseApi):
     def post_operators(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -178,7 +166,7 @@ class PostOperators(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -187,7 +175,7 @@ class PostOperators(BaseApi):
     def post_operators(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -199,7 +187,7 @@ class PostOperators(BaseApi):
     def post_operators(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -220,7 +208,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -232,7 +220,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -246,7 +234,7 @@ class ApiForpost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -255,7 +243,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -267,7 +255,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[RequestBody.Schemas.application_json, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

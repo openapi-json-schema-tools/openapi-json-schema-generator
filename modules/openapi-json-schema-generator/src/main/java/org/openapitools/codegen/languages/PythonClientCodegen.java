@@ -583,10 +583,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Map<String, Object> paramMap = new HashMap<>();
                 paramMap.put("requestBody", co.bodyParam);
                 // TODO consolidate imports into body param only
-                endpointMap.put("imports", co.imports);
-                endpointMap.put("packageName", packageName);
+                paramMap.put("imports", co.imports);
+                paramMap.put("packageName", packageName);
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
-                pathsFiles.add(Arrays.asList(endpointMap, "endpoint_request_body.handlebars", outputFilename));
+                pathsFiles.add(Arrays.asList(paramMap, "endpoint_request_body.handlebars", outputFilename));
             }
 
             for (CodegenResponse response: co.responses) {
