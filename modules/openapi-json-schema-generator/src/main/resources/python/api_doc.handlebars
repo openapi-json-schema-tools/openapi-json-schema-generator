@@ -44,7 +44,7 @@ Method | HTTP request | Description
 {{/if}}
 {{> api_doc_example }}
 ### Parameters
-{{#if allParams}}
+{{#or bodyParam queryParams headerParams pathParams cookieParams}}
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -96,12 +96,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
-{{baseName}} | {{#with schema}}[RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
 
         {{#each queryParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestQueryParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -155,7 +155,7 @@ Key | Input Type | Description  | Notes
     {{/if}}
 {{else}}
 This endpoint does not need any parameter.
-{{/if}}
+{{/or}}
 
 ### Return Types, Responses
 

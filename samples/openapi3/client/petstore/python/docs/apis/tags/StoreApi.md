@@ -60,9 +60,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.order_id](#delete_order.RequestPathParameters.Schemas.order_id) | | 
+order_id | [RequestPathParameters.Schemas.items](#delete_order.RequestPathParameters.Schemas.items) | | 
 
-# <a id="delete_order.RequestPathParameters.Schemas.order_id" >RequestPathParameters.Schemas.order_id</a>
+# <a id="delete_order.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -227,9 +227,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.order_id](#get_order_by_id.RequestPathParameters.Schemas.order_id) | | 
+order_id | [RequestPathParameters.Schemas.schema](#get_order_by_id.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="get_order_by_id.RequestPathParameters.Schemas.order_id" >RequestPathParameters.Schemas.order_id</a>
+# <a id="get_order_by_id.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -338,7 +338,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="place_order.request_body" >body</a>
 
-# <a id="place_order.request_body.application_json" >request_body.application_json</a>
+# <a id="place_order.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 

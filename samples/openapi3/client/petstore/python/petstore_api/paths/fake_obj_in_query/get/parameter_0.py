@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class mapBean(
+class schema(
     schemas.DictSchema
 ):
 
@@ -67,7 +67,7 @@ class mapBean(
         keyword: typing.Union[MetaOapg.properties.keyword, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'mapBean':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *args,
@@ -80,6 +80,6 @@ class mapBean(
 parameter_oapg = api_client.QueryParameter(
     name="mapBean",
     style=api_client.ParameterStyle.DEEP_OBJECT,
-    schema=mapBean,
+    schema=schema,
     explode=True,
 ),

@@ -35,9 +35,9 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'someVar': typing.Union[parameter_0.someVar, str, ],
-            'SomeVar': typing.Union[parameter_1.SomeVar, str, ],
-            'some_var': typing.Union[parameter_2.some_var, str, ],
+            'someVar': typing.Union[parameter_0.items, str, ],
+            'SomeVar': typing.Union[parameter_1.items, str, ],
+            'some_var': typing.Union[parameter_2.items, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

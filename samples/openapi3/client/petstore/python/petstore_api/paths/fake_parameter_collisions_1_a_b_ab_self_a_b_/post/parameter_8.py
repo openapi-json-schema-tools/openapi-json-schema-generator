@@ -25,12 +25,12 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-_self = schemas.StrSchema
+items = schemas.StrSchema
 
 
 parameter_oapg = api_client.QueryParameter(
     name="self",
     style=api_client.ParameterStyle.FORM,
-    schema=_self,
+    schema=items,
     explode=True,
 ),

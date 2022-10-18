@@ -27,13 +27,13 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.model.string_with_validation import StringWithValidation
 
 
-refParam = StringWithValidation
+schema = StringWithValidation
 
 
 parameter_oapg = api_client.QueryParameter(
     name="refParam",
     style=api_client.ParameterStyle.FORM,
-    schema=refParam,
+    schema=schema,
     required=True,
     explode=True,
 ),

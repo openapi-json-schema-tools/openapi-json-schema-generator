@@ -25,11 +25,11 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-boolean_group = schemas.BoolSchema
+schema = schemas.BoolSchema
 
 
 parameter_oapg = api_client.HeaderParameter(
     name="boolean_group",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=boolean_group,
+    schema=schema,
 ),

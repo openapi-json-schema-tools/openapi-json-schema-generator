@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.model.foo import Foo
 
 
-mapBean = Foo
+schema = Foo
 
 
 parameter_oapg = api_client.QueryParameter(
     name="mapBean",
     style=api_client.ParameterStyle.DEEP_OBJECT,
-    schema=mapBean,
+    schema=schema,
     explode=True,
 ),

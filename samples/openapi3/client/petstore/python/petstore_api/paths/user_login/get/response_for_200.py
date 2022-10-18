@@ -25,8 +25,8 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Rate-Limit': typing.Union[x_rate_limit.x_rate_limit, decimal.Decimal, int, ],
-            'X-Expires-After': typing.Union[x_expires_after.x_expires_after, str, datetime, ],
+            'X-Rate-Limit': typing.Union[x_rate_limit.schema, decimal.Decimal, int, ],
+            'X-Expires-After': typing.Union[x_expires_after.schema, str, datetime, ],
         },
         total=False
     )

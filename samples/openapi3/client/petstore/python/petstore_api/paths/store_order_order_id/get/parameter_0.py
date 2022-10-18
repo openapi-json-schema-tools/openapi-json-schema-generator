@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class order_id(
+class schema(
     schemas.Int64Schema
 ):
 
@@ -41,6 +41,6 @@ class order_id(
 parameter_oapg = api_client.PathParameter(
     name="order_id",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=order_id,
+    schema=schema,
     required=True,
 ),

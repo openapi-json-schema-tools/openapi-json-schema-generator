@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class enum_query_string(
+class schema(
     schemas.EnumBase,
     schemas.StrSchema
 ):
@@ -56,6 +56,6 @@ class enum_query_string(
 parameter_oapg = api_client.QueryParameter(
     name="enum_query_string",
     style=api_client.ParameterStyle.FORM,
-    schema=enum_query_string,
+    schema=schema,
     explode=True,
 ),

@@ -29,7 +29,7 @@ from petstore_api.model.string_with_validation import StringWithValidation
 
 
 
-class pipe(
+class schema(
     schemas.ListSchema
 ):
 
@@ -41,7 +41,7 @@ class pipe(
         cls,
         arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'pipe':
+    ) -> 'schema':
         return super().__new__(
             cls,
             arg,
@@ -55,7 +55,7 @@ class pipe(
 parameter_oapg = api_client.QueryParameter(
     name="pipe",
     style=api_client.ParameterStyle.FORM,
-    schema=pipe,
+    schema=schema,
     required=True,
     explode=True,
 ),

@@ -90,7 +90,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="additional_properties_with_array_of_enums.request_body" >body</a>
 
-# <a id="additional_properties_with_array_of_enums.request_body.application_json" >request_body.application_json</a>
+# <a id="additional_properties_with_array_of_enums.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
@@ -171,7 +171,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="array_model.request_body" >body</a>
 
-# <a id="array_model.request_body.application_json" >request_body.application_json</a>
+# <a id="array_model.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnimalFarm**](../../models/AnimalFarm.md) |  | 
@@ -252,7 +252,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="array_of_enums.request_body" >body</a>
 
-# <a id="array_of_enums.request_body.application_json" >request_body.application_json</a>
+# <a id="array_of_enums.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
@@ -336,7 +336,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="body_with_file_schema.request_body" >body</a>
 
-# <a id="body_with_file_schema.request_body.application_json" >request_body.application_json</a>
+# <a id="body_with_file_schema.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**FileSchemaTestClass**](../../models/FileSchemaTestClass.md) |  | 
@@ -424,7 +424,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="body_with_query_params.request_body" >body</a>
 
-# <a id="body_with_query_params.request_body.application_json" >request_body.application_json</a>
+# <a id="body_with_query_params.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -435,10 +435,10 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [RequestQueryParameters.Schemas.query](#body_with_query_params.RequestQueryParameters.Schemas.query) | | 
+query | [parameter_0.schema](#body_with_query_params.parameter_0.schema) | | 
 
 
-# <a id="body_with_query_params.RequestQueryParameters.Schemas.query" >RequestQueryParameters.Schemas.query</a>
+# <a id="body_with_query_params.parameter_0.items" >parameter_0.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -512,7 +512,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="boolean.request_body" >body</a>
 
-# <a id="boolean.request_body.application_json" >request_body.application_json</a>
+# <a id="boolean.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Boolean**](../../models/Boolean.md) |  | 
@@ -594,26 +594,26 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someVar | [RequestQueryParameters.Schemas.someVar](#case_sensitive_params.RequestQueryParameters.Schemas.someVar) | | 
-SomeVar | [RequestQueryParameters.Schemas.SomeVar](#case_sensitive_params.RequestQueryParameters.Schemas.SomeVar) | | 
-some_var | [RequestQueryParameters.Schemas.some_var](#case_sensitive_params.RequestQueryParameters.Schemas.some_var) | | 
+someVar | [parameter_0.schema](#case_sensitive_params.parameter_0.schema) | | 
+SomeVar | [parameter_1.schema](#case_sensitive_params.parameter_1.schema) | | 
+some_var | [parameter_2.schema](#case_sensitive_params.parameter_2.schema) | | 
 
 
-# <a id="case_sensitive_params.RequestQueryParameters.Schemas.someVar" >RequestQueryParameters.Schemas.someVar</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="case_sensitive_params.RequestQueryParameters.Schemas.SomeVar" >RequestQueryParameters.Schemas.SomeVar</a>
+# <a id="case_sensitive_params.parameter_0.items" >parameter_0.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="case_sensitive_params.RequestQueryParameters.Schemas.some_var" >RequestQueryParameters.Schemas.some_var</a>
+# <a id="case_sensitive_params.parameter_1.items" >parameter_1.items</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="case_sensitive_params.parameter_2.items" >parameter_2.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -691,7 +691,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="client_model.request_body" >body</a>
 
-# <a id="client_model.request_body.application_json" >request_body.application_json</a>
+# <a id="client_model.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 
@@ -770,7 +770,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="composed_one_of_different_types.request_body" >body</a>
 
-# <a id="composed_one_of_different_types.request_body.application_json" >request_body.application_json</a>
+# <a id="composed_one_of_different_types.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
@@ -852,9 +852,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | [RequestPathParameters.Schemas.id](#delete_coffee.RequestPathParameters.Schemas.id) | | 
+id | [RequestPathParameters.Schemas.items](#delete_coffee.RequestPathParameters.Schemas.items) | | 
 
-# <a id="delete_coffee.RequestPathParameters.Schemas.id" >RequestPathParameters.Schemas.id</a>
+# <a id="delete_coffee.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -924,68 +924,15 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only optional values
-    body = dict(
-        integer=10,
-        int32=20,
-        int64=1,
-        number=32.1,
-        _float=3.14,
-        double=67.8,
-        string="a",
-        pattern_without_delimiter="AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
-        byte='YQ==',
-        binary=open('/path/to/file', 'rb'),
-        date="1970-01-01",
-        date_time="2020-02-02T20:20:20.222220Z",
-        password="password_example",
-        callback="callback_example",
-    )
+    # example, this endpoint has no required or optional parameters
     try:
         # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-        api_response = api_instance.endpoint_parameters(
-            body=body,
-        )
+        api_response = api_instance.endpoint_parameters()
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->endpoint_parameters: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#endpoint_parameters.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#endpoint_parameters.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
-content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="endpoint_parameters.request_body" >body</a>
-
-# <a id="endpoint_parameters.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**number** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | 
-**pattern_without_delimiter** | str,  | str,  | None | 
-**byte** | str,  | str,  | None | 
-**double** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | value must be a 64 bit float
-**integer** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] 
-**int32** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 32 bit integer
-**int64** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 64 bit integer
-**float** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | [optional] value must be a 32 bit float
-**string** | str,  | str,  | None | [optional] 
-**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | None | [optional] 
-**date** | str, date,  | str,  | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**dateTime** | str, datetime,  | str,  | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.11111+01:00value must conform to RFC-3339 date-time
-**password** | str,  | str,  | None | [optional] 
-**callback** | str,  | str,  | None | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
@@ -1054,18 +1001,11 @@ with petstore_api.ApiClient(configuration) as api_client:
     ],
         'enum_header_string': "-efg",
     }
-    body = dict(
-        enum_form_string_array=[
-            "$"
-        ],
-        enum_form_string="-efg",
-    )
     try:
         # To test enum parameters
         api_response = api_instance.enum_parameters(
             query_params=query_params,
             header_params=header_params,
-            body=body,
         )
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->enum_parameters: %s\n" % e)
@@ -1074,56 +1014,24 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#enum_parameters.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#enum_parameters.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
 [query_params](#enum_parameters.RequestQueryParameters) | [RequestQueryParameters.Params](#enum_parameters.RequestQueryParameters.Params) | |
 [header_params](#enum_parameters.RequestHeaderParameters) | [RequestHeaderParameters.Params](#enum_parameters.RequestHeaderParameters.Params) | |
-content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="enum_parameters.request_body" >body</a>
-
-# <a id="enum_parameters.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**[enum_form_string_array](#enum_form_string_array)** | list, tuple,  | tuple,  | Form parameter enum test (string array) | [optional] 
-**enum_form_string** | str,  | str,  | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
-
-# enum_form_string_array
-
-Form parameter enum test (string array)
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | Form parameter enum test (string array) | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 ### <a id="enum_parameters.RequestQueryParameters" >query_params</a>
 #### <a id="enum_parameters.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [RequestQueryParameters.Schemas.enum_query_string_array](#enum_parameters.RequestQueryParameters.Schemas.enum_query_string_array) | | optional
-enum_query_string | [RequestQueryParameters.Schemas.enum_query_string](#enum_parameters.RequestQueryParameters.Schemas.enum_query_string) | | optional
-enum_query_integer | [RequestQueryParameters.Schemas.enum_query_integer](#enum_parameters.RequestQueryParameters.Schemas.enum_query_integer) | | optional
-enum_query_double | [RequestQueryParameters.Schemas.enum_query_double](#enum_parameters.RequestQueryParameters.Schemas.enum_query_double) | | optional
+enum_query_string_array | [parameter_2.schema](#enum_parameters.parameter_2.schema) | | optional
+enum_query_string | [parameter_3.schema](#enum_parameters.parameter_3.schema) | | optional
+enum_query_integer | [parameter_4.schema](#enum_parameters.parameter_4.schema) | | optional
+enum_query_double | [parameter_5.schema](#enum_parameters.parameter_5.schema) | | optional
 
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_string_array" >RequestQueryParameters.Schemas.enum_query_string_array</a>
+# <a id="enum_parameters.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1135,21 +1043,21 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_string" >RequestQueryParameters.Schemas.enum_query_string</a>
+# <a id="enum_parameters.parameter_3.schema" >parameter_3.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_integer" >RequestQueryParameters.Schemas.enum_query_integer</a>
+# <a id="enum_parameters.parameter_4.schema" >parameter_4.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_double" >RequestQueryParameters.Schemas.enum_query_double</a>
+# <a id="enum_parameters.parameter_5.schema" >parameter_5.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1161,10 +1069,10 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [RequestHeaderParameters.Schemas.enum_header_string_array](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array) | | optional
-enum_header_string | [RequestHeaderParameters.Schemas.enum_header_string](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string) | | optional
+enum_header_string_array | [RequestHeaderParameters.Schemas.schema](#enum_parameters.RequestHeaderParameters.Schemas.schema) | | optional
+enum_header_string | [RequestHeaderParameters.Schemas.schema](#enum_parameters.RequestHeaderParameters.Schemas.schema) | | optional
 
-# <a id="enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array" >RequestHeaderParameters.Schemas.enum_header_string_array</a>
+# <a id="enum_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1176,7 +1084,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.RequestHeaderParameters.Schemas.enum_header_string" >RequestHeaderParameters.Schemas.enum_header_string</a>
+# <a id="enum_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1356,34 +1264,34 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [RequestQueryParameters.Schemas.required_string_group](#group_parameters.RequestQueryParameters.Schemas.required_string_group) | | 
-required_int64_group | [RequestQueryParameters.Schemas.required_int64_group](#group_parameters.RequestQueryParameters.Schemas.required_int64_group) | | 
-string_group | [RequestQueryParameters.Schemas.string_group](#group_parameters.RequestQueryParameters.Schemas.string_group) | | optional
-int64_group | [RequestQueryParameters.Schemas.int64_group](#group_parameters.RequestQueryParameters.Schemas.int64_group) | | optional
+required_string_group | [parameter_0.schema](#group_parameters.parameter_0.schema) | | 
+required_int64_group | [parameter_2.schema](#group_parameters.parameter_2.schema) | | 
+string_group | [parameter_3.schema](#group_parameters.parameter_3.schema) | | optional
+int64_group | [parameter_5.schema](#group_parameters.parameter_5.schema) | | optional
 
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.required_string_group" >RequestQueryParameters.Schemas.required_string_group</a>
+# <a id="group_parameters.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.required_int64_group" >RequestQueryParameters.Schemas.required_int64_group</a>
+# <a id="group_parameters.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.string_group" >RequestQueryParameters.Schemas.string_group</a>
+# <a id="group_parameters.parameter_3.schema" >parameter_3.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.int64_group" >RequestQueryParameters.Schemas.int64_group</a>
+# <a id="group_parameters.parameter_5.schema" >parameter_5.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1395,17 +1303,17 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [RequestHeaderParameters.Schemas.required_boolean_group](#group_parameters.RequestHeaderParameters.Schemas.required_boolean_group) | | 
-boolean_group | [RequestHeaderParameters.Schemas.boolean_group](#group_parameters.RequestHeaderParameters.Schemas.boolean_group) | | optional
+required_boolean_group | [RequestHeaderParameters.Schemas.schema](#group_parameters.RequestHeaderParameters.Schemas.schema) | | 
+boolean_group | [RequestHeaderParameters.Schemas.schema](#group_parameters.RequestHeaderParameters.Schemas.schema) | | optional
 
-# <a id="group_parameters.RequestHeaderParameters.Schemas.required_boolean_group" >RequestHeaderParameters.Schemas.required_boolean_group</a>
+# <a id="group_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | 
 
-# <a id="group_parameters.RequestHeaderParameters.Schemas.boolean_group" >RequestHeaderParameters.Schemas.boolean_group</a>
+# <a id="group_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1478,7 +1386,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="inline_additional_properties.request_body" >body</a>
 
-# <a id="inline_additional_properties.request_body.application_json" >request_body.application_json</a>
+# <a id="inline_additional_properties.request_body..application_json" >request_body..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1564,7 +1472,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="inline_composition.request_body" >body</a>
 
-# <a id="inline_composition.request_body.application_json" >request_body.application_json</a>
+# <a id="inline_composition.request_body..application_json" >request_body..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1584,7 +1492,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.request_body.multipart_form_data" >request_body.multipart_form_data</a>
+# <a id="inline_composition.request_body..multipart_form_data" >request_body..multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1622,11 +1530,11 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [RequestQueryParameters.Schemas.compositionAtRoot](#inline_composition.RequestQueryParameters.Schemas.compositionAtRoot) | | optional
-compositionInProperty | [RequestQueryParameters.Schemas.compositionInProperty](#inline_composition.RequestQueryParameters.Schemas.compositionInProperty) | | optional
+compositionAtRoot | [parameter_0.schema](#inline_composition.parameter_0.schema) | | optional
+compositionInProperty | [parameter_1.schema](#inline_composition.parameter_1.schema) | | optional
 
 
-# <a id="inline_composition.RequestQueryParameters.Schemas.compositionAtRoot" >RequestQueryParameters.Schemas.compositionAtRoot</a>
+# <a id="inline_composition.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1646,7 +1554,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.RequestQueryParameters.Schemas.compositionInProperty" >RequestQueryParameters.Schemas.compositionInProperty</a>
+# <a id="inline_composition.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1774,44 +1682,15 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only optional values
-    body = dict(
-        param="param_example",
-        param2="param2_example",
-    )
+    # example, this endpoint has no required or optional parameters
     try:
         # test json serialization of form data
-        api_response = api_instance.json_form_data(
-            body=body,
-        )
+        api_response = api_instance.json_form_data()
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->json_form_data: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#json_form_data.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#json_form_data.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
-content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="json_form_data.request_body" >body</a>
-
-# <a id="json_form_data.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**param** | str,  | str,  | field1 | 
-**param2** | str,  | str,  | field2 | 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
@@ -1882,7 +1761,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="json_patch.request_body" >body</a>
 
-# <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
+# <a id="json_patch.request_body..application_json_patchjson" >request_body..application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**JSONPatchRequest**](../../models/JSONPatchRequest.md) |  | 
@@ -1954,7 +1833,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="json_with_charset.request_body" >body</a>
 
-# <a id="json_with_charset.request_body.application_json_charsetutf_8" >request_body.application_json_charsetutf_8</a>
+# <a id="json_with_charset.request_body..application_json_charsetutf_8" >request_body..application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2039,7 +1918,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="mammal.request_body" >body</a>
 
-# <a id="mammal.request_body.application_json" >request_body.application_json</a>
+# <a id="mammal.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Mammal**](../../models/Mammal.md) |  | 
@@ -2118,7 +1997,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="number_with_validations.request_body" >body</a>
 
-# <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
+# <a id="number_with_validations.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
@@ -2200,10 +2079,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [RequestQueryParameters.Schemas.mapBean](#object_in_query.RequestQueryParameters.Schemas.mapBean) | | optional
+mapBean | [parameter_0.schema](#object_in_query.parameter_0.schema) | | optional
 
 
-# <a id="object_in_query.RequestQueryParameters.Schemas.mapBean" >RequestQueryParameters.Schemas.mapBean</a>
+# <a id="object_in_query.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2287,7 +2166,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="object_model_with_ref_props.request_body" >body</a>
 
-# <a id="object_model_with_ref_props.request_body.application_json" >request_body.application_json</a>
+# <a id="object_model_with_ref_props.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
@@ -2426,7 +2305,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="parameter_collisions.request_body" >body</a>
 
-# <a id="parameter_collisions.request_body.application_json" >request_body.application_json</a>
+# <a id="parameter_collisions.request_body..application_json" >request_body..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2438,42 +2317,42 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestQueryParameters.Schemas._1](#parameter_collisions.RequestQueryParameters.Schemas._1) | | optional
-aB | [RequestQueryParameters.Schemas.aB](#parameter_collisions.RequestQueryParameters.Schemas.aB) | | optional
-Ab | [RequestQueryParameters.Schemas.Ab](#parameter_collisions.RequestQueryParameters.Schemas.Ab) | | optional
-self | [RequestQueryParameters.Schemas._self](#parameter_collisions.RequestQueryParameters.Schemas._self) | | optional
-A-B | [RequestQueryParameters.Schemas.a_b](#parameter_collisions.RequestQueryParameters.Schemas.a_b) | | optional
+1 | [parameter_0.schema](#parameter_collisions.parameter_0.schema) | | optional
+aB | [parameter_1.schema](#parameter_collisions.parameter_1.schema) | | optional
+Ab | [parameter_2.schema](#parameter_collisions.parameter_2.schema) | | optional
+self | [parameter_3.schema](#parameter_collisions.parameter_3.schema) | | optional
+A-B | [parameter_4.schema](#parameter_collisions.parameter_4.schema) | | optional
 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas._1" >RequestQueryParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestQueryParameters.Schemas.aB" >RequestQueryParameters.Schemas.aB</a>
+# <a id="parameter_collisions.parameter_0.items" >parameter_0.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas.Ab" >RequestQueryParameters.Schemas.Ab</a>
+# <a id="parameter_collisions.parameter_1.items" >parameter_1.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas._self" >RequestQueryParameters.Schemas._self</a>
+# <a id="parameter_collisions.parameter_2.items" >parameter_2.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas.a_b" >RequestQueryParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.parameter_3.items" >parameter_3.items</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_4.items" >parameter_4.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2485,33 +2364,33 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestHeaderParameters.Schemas._1](#parameter_collisions.RequestHeaderParameters.Schemas._1) | | optional
-aB | [RequestHeaderParameters.Schemas.aB](#parameter_collisions.RequestHeaderParameters.Schemas.aB) | | optional
-self | [RequestHeaderParameters.Schemas._self](#parameter_collisions.RequestHeaderParameters.Schemas._self) | | optional
-A-B | [RequestHeaderParameters.Schemas.a_b](#parameter_collisions.RequestHeaderParameters.Schemas.a_b) | | optional
+1 | [RequestHeaderParameters.Schemas.items](#parameter_collisions.RequestHeaderParameters.Schemas.items) | | optional
+aB | [RequestHeaderParameters.Schemas.items](#parameter_collisions.RequestHeaderParameters.Schemas.items) | | optional
+self | [RequestHeaderParameters.Schemas.items](#parameter_collisions.RequestHeaderParameters.Schemas.items) | | optional
+A-B | [RequestHeaderParameters.Schemas.items](#parameter_collisions.RequestHeaderParameters.Schemas.items) | | optional
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas._1" >RequestHeaderParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas.aB" >RequestHeaderParameters.Schemas.aB</a>
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas..items" >RequestHeaderParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas._self" >RequestHeaderParameters.Schemas._self</a>
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas..items" >RequestHeaderParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas.a_b" >RequestHeaderParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas..items" >RequestHeaderParameters.Schemas..items</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.RequestHeaderParameters.Schemas..items" >RequestHeaderParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2523,41 +2402,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestPathParameters.Schemas._1](#parameter_collisions.RequestPathParameters.Schemas._1) | | 
-aB | [RequestPathParameters.Schemas.aB](#parameter_collisions.RequestPathParameters.Schemas.aB) | | 
-Ab | [RequestPathParameters.Schemas.Ab](#parameter_collisions.RequestPathParameters.Schemas.Ab) | | 
-self | [RequestPathParameters.Schemas._self](#parameter_collisions.RequestPathParameters.Schemas._self) | | 
-A-B | [RequestPathParameters.Schemas.a_b](#parameter_collisions.RequestPathParameters.Schemas.a_b) | | 
+1 | [RequestPathParameters.Schemas.items](#parameter_collisions.RequestPathParameters.Schemas.items) | | 
+aB | [RequestPathParameters.Schemas.items](#parameter_collisions.RequestPathParameters.Schemas.items) | | 
+Ab | [RequestPathParameters.Schemas.items](#parameter_collisions.RequestPathParameters.Schemas.items) | | 
+self | [RequestPathParameters.Schemas.items](#parameter_collisions.RequestPathParameters.Schemas.items) | | 
+A-B | [RequestPathParameters.Schemas.items](#parameter_collisions.RequestPathParameters.Schemas.items) | | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas._1" >RequestPathParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestPathParameters.Schemas.aB" >RequestPathParameters.Schemas.aB</a>
+# <a id="parameter_collisions.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas.Ab" >RequestPathParameters.Schemas.Ab</a>
+# <a id="parameter_collisions.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas._self" >RequestPathParameters.Schemas._self</a>
+# <a id="parameter_collisions.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas.a_b" >RequestPathParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2569,41 +2448,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestCookieParameters.Schemas._1](#parameter_collisions.RequestCookieParameters.Schemas._1) | | optional
-aB | [RequestCookieParameters.Schemas.aB](#parameter_collisions.RequestCookieParameters.Schemas.aB) | | optional
-Ab | [RequestCookieParameters.Schemas.Ab](#parameter_collisions.RequestCookieParameters.Schemas.Ab) | | optional
-self | [RequestCookieParameters.Schemas._self](#parameter_collisions.RequestCookieParameters.Schemas._self) | | optional
-A-B | [RequestCookieParameters.Schemas.a_b](#parameter_collisions.RequestCookieParameters.Schemas.a_b) | | optional
+1 | [RequestCookieParameters.Schemas.items](#parameter_collisions.RequestCookieParameters.Schemas.items) | | optional
+aB | [RequestCookieParameters.Schemas.items](#parameter_collisions.RequestCookieParameters.Schemas.items) | | optional
+Ab | [RequestCookieParameters.Schemas.items](#parameter_collisions.RequestCookieParameters.Schemas.items) | | optional
+self | [RequestCookieParameters.Schemas.items](#parameter_collisions.RequestCookieParameters.Schemas.items) | | optional
+A-B | [RequestCookieParameters.Schemas.items](#parameter_collisions.RequestCookieParameters.Schemas.items) | | optional
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas._1" >RequestCookieParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestCookieParameters.Schemas.aB" >RequestCookieParameters.Schemas.aB</a>
+# <a id="parameter_collisions.RequestCookieParameters.Schemas..items" >RequestCookieParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas.Ab" >RequestCookieParameters.Schemas.Ab</a>
+# <a id="parameter_collisions.RequestCookieParameters.Schemas..items" >RequestCookieParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas._self" >RequestCookieParameters.Schemas._self</a>
+# <a id="parameter_collisions.RequestCookieParameters.Schemas..items" >RequestCookieParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas.a_b" >RequestCookieParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.RequestCookieParameters.Schemas..items" >RequestCookieParameters.Schemas..items</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.RequestCookieParameters.Schemas..items" >RequestCookieParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2687,7 +2566,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someParam |  | | 
+someParam | [parameter_0.schema](#query_param_with_json_content_type.parameter_0.schema) | | 
 
 
 ### Return Types, Responses
@@ -2781,27 +2660,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-pipe | [RequestQueryParameters.Schemas.pipe](#query_parameter_collection_format.RequestQueryParameters.Schemas.pipe) | | 
-ioutil | [RequestQueryParameters.Schemas.ioutil](#query_parameter_collection_format.RequestQueryParameters.Schemas.ioutil) | | 
-http | [RequestQueryParameters.Schemas.http](#query_parameter_collection_format.RequestQueryParameters.Schemas.http) | | 
-url | [RequestQueryParameters.Schemas.url](#query_parameter_collection_format.RequestQueryParameters.Schemas.url) | | 
-context | [RequestQueryParameters.Schemas.context](#query_parameter_collection_format.RequestQueryParameters.Schemas.context) | | 
-refParam | [RequestQueryParameters.Schemas.refParam](#query_parameter_collection_format.RequestQueryParameters.Schemas.refParam) | | 
+pipe | [parameter_0.schema](#query_parameter_collection_format.parameter_0.schema) | | 
+ioutil | [parameter_1.schema](#query_parameter_collection_format.parameter_1.schema) | | 
+http | [parameter_2.schema](#query_parameter_collection_format.parameter_2.schema) | | 
+url | [parameter_3.schema](#query_parameter_collection_format.parameter_3.schema) | | 
+context | [parameter_4.schema](#query_parameter_collection_format.parameter_4.schema) | | 
+refParam | [parameter_5.schema](#query_parameter_collection_format.parameter_5.schema) | | 
 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.pipe" >RequestQueryParameters.Schemas.pipe</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
-
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.ioutil" >RequestQueryParameters.Schemas.ioutil</a>
+# <a id="query_parameter_collection_format.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2813,7 +2680,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.http" >RequestQueryParameters.Schemas.http</a>
+# <a id="query_parameter_collection_format.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2825,7 +2692,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.url" >RequestQueryParameters.Schemas.url</a>
+# <a id="query_parameter_collection_format.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2837,7 +2704,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.context" >RequestQueryParameters.Schemas.context</a>
+# <a id="query_parameter_collection_format.parameter_3.schema" >parameter_3.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2849,7 +2716,19 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.refParam" >RequestQueryParameters.Schemas.refParam</a>
+# <a id="query_parameter_collection_format.parameter_4.schema" >parameter_4.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../models/StringWithValidation.md) |  | 
@@ -2926,10 +2805,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [RequestQueryParameters.Schemas.mapBean](#ref_object_in_query.RequestQueryParameters.Schemas.mapBean) | | optional
+mapBean | [parameter_0.schema](#ref_object_in_query.parameter_0.schema) | | optional
 
 
-# <a id="ref_object_in_query.RequestQueryParameters.Schemas.mapBean" >RequestQueryParameters.Schemas.mapBean</a>
+# <a id="ref_object_in_query.parameter_0.schema" >parameter_0.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Foo**](../../models/Foo.md) |  | 
@@ -3054,7 +2933,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="string.request_body" >body</a>
 
-# <a id="string.request_body.application_json" >request_body.application_json</a>
+# <a id="string.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**String**](../../models/String.md) |  | 
@@ -3133,7 +3012,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="string_enum.request_body" >body</a>
 
-# <a id="string_enum.request_body.application_json" >request_body.application_json</a>
+# <a id="string_enum.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringEnum**](../../models/StringEnum.md) |  | 
@@ -3211,7 +3090,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="upload_download_file.request_body" >body</a>
 
-# <a id="upload_download_file.request_body.application_octet_stream" >request_body.application_octet_stream</a>
+# <a id="upload_download_file.request_body..application_octet_stream" >request_body..application_octet_stream</a>
 
 file to upload
 
@@ -3271,46 +3150,16 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only optional values
-    body = dict(
-        additional_metadata="additional_metadata_example",
-        file=open('/path/to/file', 'rb'),
-    )
+    # example, this endpoint has no required or optional parameters
     try:
         # uploads a file using multipart/form-data
-        api_response = api_instance.upload_file(
-            body=body,
-        )
+        api_response = api_instance.upload_file()
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->upload_file: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#upload_file.request_body) | typing.Union[[request_body.multipart_form_data](#upload_file.request_body.multipart_form_data), Unset] | optional, default is unset |
-content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="upload_file.request_body" >body</a>
-
-# <a id="upload_file.request_body.multipart_form_data" >request_body.multipart_form_data</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**file** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | 
-**additionalMetadata** | str,  | str,  | Additional data to pass to server | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
@@ -3360,58 +3209,16 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only optional values
-    body = dict(
-        files=[
-            open('/path/to/file', 'rb')
-        ],
-    )
+    # example, this endpoint has no required or optional parameters
     try:
         # uploads files using multipart/form-data
-        api_response = api_instance.upload_files(
-            body=body,
-        )
+        api_response = api_instance.upload_files()
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->upload_files: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#upload_files.request_body) | typing.Union[[request_body.multipart_form_data](#upload_files.request_body.multipart_form_data), Unset] | optional, default is unset |
-content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="upload_files.request_body" >body</a>
-
-# <a id="upload_files.request_body.multipart_form_data" >request_body.multipart_form_data</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**[files](#files)** | list, tuple,  | tuple,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
-
-# files
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  | 
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 

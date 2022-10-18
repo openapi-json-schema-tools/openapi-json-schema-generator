@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class compositionAtRoot(
+class schema(
     schemas.ComposedSchema,
 ):
 
@@ -63,7 +63,7 @@ class compositionAtRoot(
         *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'compositionAtRoot':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *args,
@@ -75,6 +75,6 @@ class compositionAtRoot(
 parameter_oapg = api_client.QueryParameter(
     name="compositionAtRoot",
     style=api_client.ParameterStyle.FORM,
-    schema=compositionAtRoot,
+    schema=schema,
     explode=True,
 ),

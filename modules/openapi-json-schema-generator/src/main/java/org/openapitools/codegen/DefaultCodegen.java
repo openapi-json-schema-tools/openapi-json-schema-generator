@@ -4395,6 +4395,14 @@ public class DefaultCodegen implements CodegenConfig {
                 op.hasOptionalParams = true;
             }
         }
+        if (bodyParam != null) {
+            if (bodyParam.required) {
+                requiredParams.add(bodyParam.copy());
+            } else {
+                optionalParams.add(bodyParam.copy());
+                op.hasOptionalParams = true;
+            }
+        }
 
         // add imports to operation import tag
         for (String i : imports) {
@@ -4800,9 +4808,9 @@ public class DefaultCodegen implements CodegenConfig {
             parameterModelName = getParameterDataType(parameter, parameterSchema);
             CodegenProperty prop;
             if (getUseInlineModelResolver()) {
-                prop = fromProperty(parameter.getName(), getReferencedSchemaWhenNotEnum(parameterSchema), false);
+                prop = fromProperty("schema", getReferencedSchemaWhenNotEnum(parameterSchema), false);
             } else {
-                prop = fromProperty(parameter.getName(), parameterSchema, false);
+                prop = fromProperty("schema", parameterSchema, false);
             }
             codegenParameter.setSchema(prop);
             if (addSchemaImportsFromV3SpecLocations) {

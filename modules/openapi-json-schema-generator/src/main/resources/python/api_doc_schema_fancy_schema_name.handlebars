@@ -1,1 +1,1 @@
-{{schemaNamePrefix1}}{{#if schemaNamePrefix2}}{{schemaNamePrefix2}}{{/if}}{{#if schemaNamePrefix3}}{{schemaNamePrefix3}}{{/if}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}
+{{schemaNamePrefix1}}{{#if schemaNamePrefix2}}{{schemaNamePrefix2}}{{/if}}{{#if schemaNamePrefix3}}{{schemaNamePrefix3}}{{/if}}{{#unless schemaNamePrefix2 schemaNamePrefix3}}.{{/unless}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}

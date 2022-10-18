@@ -46,7 +46,6 @@ from . import parameter_15
 from . import parameter_16
 from . import parameter_17
 from . import parameter_18
-from . import body
 
 
 
@@ -59,11 +58,11 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_0._1, str, ],
-            'aB': typing.Union[parameter_1.aB, str, ],
-            'Ab': typing.Union[parameter_2.Ab, str, ],
-            'self': typing.Union[parameter_3._self, str, ],
-            'A-B': typing.Union[parameter_4.a_b, str, ],
+            '1': typing.Union[parameter_0.items, str, ],
+            'aB': typing.Union[parameter_1.items, str, ],
+            'Ab': typing.Union[parameter_2.items, str, ],
+            'self': typing.Union[parameter_3.items, str, ],
+            'A-B': typing.Union[parameter_4.items, str, ],
         },
         total=False
     )
@@ -90,10 +89,10 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_5._1, str, ],
-            'aB': typing.Union[parameter_6.aB, str, ],
-            'self': typing.Union[parameter_7._self, str, ],
-            'A-B': typing.Union[parameter_8.a_b, str, ],
+            '1': typing.Union[parameter_5.items, str, ],
+            'aB': typing.Union[parameter_6.items, str, ],
+            'self': typing.Union[parameter_7.items, str, ],
+            'A-B': typing.Union[parameter_8.items, str, ],
         },
         total=False
     )
@@ -114,11 +113,11 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            '1': typing.Union[parameter_9._1, str, ],
-            'aB': typing.Union[parameter_10.aB, str, ],
-            'Ab': typing.Union[parameter_11.Ab, str, ],
-            'self': typing.Union[parameter_12._self, str, ],
-            'A-B': typing.Union[parameter_13.a_b, str, ],
+            '1': typing.Union[parameter_9.items, str, ],
+            'aB': typing.Union[parameter_10.items, str, ],
+            'Ab': typing.Union[parameter_11.items, str, ],
+            'self': typing.Union[parameter_12.items, str, ],
+            'A-B': typing.Union[parameter_13.items, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -150,11 +149,11 @@ class RequestCookieParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_14._1, str, ],
-            'aB': typing.Union[parameter_15.aB, str, ],
-            'Ab': typing.Union[parameter_16.Ab, str, ],
-            'self': typing.Union[parameter_17._self, str, ],
-            'A-B': typing.Union[parameter_18.a_b, str, ],
+            '1': typing.Union[parameter_14.items, str, ],
+            'aB': typing.Union[parameter_15.items, str, ],
+            'Ab': typing.Union[parameter_16.items, str, ],
+            'self': typing.Union[parameter_17.items, str, ],
+            'A-B': typing.Union[parameter_18.items, str, ],
         },
         total=False
     )

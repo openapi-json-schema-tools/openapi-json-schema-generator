@@ -58,7 +58,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="call_123_test_special_tags.request_body" >body</a>
 
-# <a id="call_123_test_special_tags.request_body.application_json" >request_body.application_json</a>
+# <a id="call_123_test_special_tags.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 

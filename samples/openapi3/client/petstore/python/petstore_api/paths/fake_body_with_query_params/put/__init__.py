@@ -31,7 +31,6 @@ from .. import path
 from . import response_for_200
 from . import request_body
 from . import parameter_0
-from . import user
 
 
 
@@ -39,7 +38,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'query': typing.Union[parameter_0.query, str, ],
+            'query': typing.Union[parameter_0.items, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
