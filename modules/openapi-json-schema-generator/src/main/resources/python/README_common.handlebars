@@ -1,19 +1,9 @@
-```python
-{{#with apiInfo}}{{#each apis}}{{#unless hasMore}}{{#if hasHttpSignatureMethods}}import datetime{{/if}}{{/unless}}{{/each}}{{/with}}
-import time
-import {{{packageName}}}
-from pprint import pprint
 {{#with apiInfo}}
 {{#each apis}}
 {{#if @first}}
-from {{packageName}}.{{apiPackage}}.tags import {{classFilename}}
-{{#each imports}}
-{{{import}}}
-{{/each}}
 {{#with operations}}
 {{#each operation}}
 {{#if @first}}
-{{> doc_auth_partial}}
 {{> api_doc_example }}
 {{/if}}
 {{/each}}
@@ -21,7 +11,6 @@ from {{packageName}}.{{apiPackage}}.tags import {{classFilename}}
 {{/if}}
 {{/each}}
 {{/with}}
-```
 
 ## Documentation for API Endpoints
 
