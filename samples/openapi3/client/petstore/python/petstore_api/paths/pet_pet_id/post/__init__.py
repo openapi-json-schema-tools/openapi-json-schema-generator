@@ -28,18 +28,16 @@ from petstore_api import schemas  # noqa: F401
 from .. import path
 from . import response_for_405
 from . import request_body
+from . import parameter_0
+from . import body
 
 
 
 class RequestPathParameters:
-    class Schemas:
-        petId = schemas.Int64Schema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[Schemas.petId, decimal.Decimal, int, ],
+            'petId': typing.Union[parameter_0.petId, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -55,12 +53,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        api_client.PathParameter(
-            name="petId",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.petId,
-            required=True,
-        ),
+        parameter_0.parameter_oapg,
     ]
 _auth = [
     'petstore_auth',

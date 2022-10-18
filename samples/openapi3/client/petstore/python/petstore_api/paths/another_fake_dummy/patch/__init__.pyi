@@ -29,6 +29,7 @@ from petstore_api.model.client import Client
 
 from . import response_for_200
 from . import request_body
+from . import client
 
 _all_accept_content_types = (
     'application/json',

@@ -30,6 +30,7 @@ from petstore_api.model.mammal import Mammal
 from .. import path
 from . import response_for_200
 from . import request_body
+from . import mammal
 
 
 _status_code_to_response = {

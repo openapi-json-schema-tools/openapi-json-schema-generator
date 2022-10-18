@@ -17,11 +17,6 @@ from petstore_api import schemas  # noqa: F401
 
 
 class Header:
-    class Schemas:
-        x_rate_limit = schemas.Int32Schema
-        x_expires_after = schemas.DateTimeSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -30,8 +25,8 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Rate-Limit': typing.Union[Schemas.x_rate_limit, decimal.Decimal, int, ],
-            'X-Expires-After': typing.Union[Schemas.x_expires_after, str, datetime, ],
+            'X-Rate-Limit': typing.Union[x_rate_limit.x_rate_limit, decimal.Decimal, int, ],
+            'X-Expires-After': typing.Union[x_expires_after.x_expires_after, str, datetime, ],
         },
         total=False
     )
@@ -42,16 +37,8 @@ class Header:
 
 
     parameters = [
-        api_client.HeaderParameter(
-            name="X-Rate-Limit",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.x_rate_limit,
-        ),
-        api_client.HeaderParameter(
-            name="X-Expires-After",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.x_expires_after,
-        ),
+        x_rate_limit.parameter_oapg,
+        x_expires_after.parameter_oapg,
     ]
 
 class BodySchemas:

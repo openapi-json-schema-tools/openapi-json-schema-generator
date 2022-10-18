@@ -30,6 +30,7 @@ from petstore_api.model.array_of_enums import ArrayOfEnums
 from .. import path
 from . import response_for_200
 from . import request_body
+from . import array_of_enums
 
 
 _status_code_to_response = {

@@ -28,6 +28,7 @@ from petstore_api import schemas  # noqa: F401
 from . import response_for_200
 from . import response_for_404
 from . import request_body
+from . import body
 
 
 

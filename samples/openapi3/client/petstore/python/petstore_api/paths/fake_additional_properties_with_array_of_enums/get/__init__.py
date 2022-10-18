@@ -30,6 +30,7 @@ from petstore_api.model.additional_properties_with_array_of_enums import Additio
 from .. import path
 from . import response_for_200
 from . import request_body
+from . import additional_properties_with_array_of_enums
 
 
 _status_code_to_response = {

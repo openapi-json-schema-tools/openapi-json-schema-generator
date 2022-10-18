@@ -29,6 +29,7 @@ from petstore_api.model.mammal import Mammal
 
 from . import response_for_200
 from . import request_body
+from . import mammal
 
 _all_accept_content_types = (
     'application/json',
