@@ -151,13 +151,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="add_pet.request_body" >body</a>
 
-# <a id="add_pet.request_body..application_json" >request_body..application_json</a>
+# <a id="add_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# <a id="add_pet.request_body..application_xml" >request_body..application_xml</a>
+# <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -951,13 +951,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="update_pet.request_body" >body</a>
 
-# <a id="update_pet.request_body..application_json" >request_body..application_json</a>
+# <a id="update_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# <a id="update_pet.request_body..application_xml" >request_body..application_xml</a>
+# <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 

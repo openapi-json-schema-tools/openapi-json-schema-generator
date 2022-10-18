@@ -84,7 +84,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="{{operationId}}.request_body" >body</a>
         {{#each content}}
         {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/with}}

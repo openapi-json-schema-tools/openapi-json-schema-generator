@@ -90,7 +90,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="additional_properties_with_array_of_enums.request_body" >body</a>
 
-# <a id="additional_properties_with_array_of_enums.request_body..application_json" >request_body..application_json</a>
+# <a id="additional_properties_with_array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
@@ -171,7 +171,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="array_model.request_body" >body</a>
 
-# <a id="array_model.request_body..application_json" >request_body..application_json</a>
+# <a id="array_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnimalFarm**](../../models/AnimalFarm.md) |  | 
@@ -252,7 +252,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="array_of_enums.request_body" >body</a>
 
-# <a id="array_of_enums.request_body..application_json" >request_body..application_json</a>
+# <a id="array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
@@ -336,7 +336,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="body_with_file_schema.request_body" >body</a>
 
-# <a id="body_with_file_schema.request_body..application_json" >request_body..application_json</a>
+# <a id="body_with_file_schema.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**FileSchemaTestClass**](../../models/FileSchemaTestClass.md) |  | 
@@ -424,7 +424,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="body_with_query_params.request_body" >body</a>
 
-# <a id="body_with_query_params.request_body..application_json" >request_body..application_json</a>
+# <a id="body_with_query_params.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -512,7 +512,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="boolean.request_body" >body</a>
 
-# <a id="boolean.request_body..application_json" >request_body..application_json</a>
+# <a id="boolean.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Boolean**](../../models/Boolean.md) |  | 
@@ -691,7 +691,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="client_model.request_body" >body</a>
 
-# <a id="client_model.request_body..application_json" >request_body..application_json</a>
+# <a id="client_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 
@@ -770,7 +770,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="composed_one_of_different_types.request_body" >body</a>
 
-# <a id="composed_one_of_different_types.request_body..application_json" >request_body..application_json</a>
+# <a id="composed_one_of_different_types.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
@@ -1386,7 +1386,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="inline_additional_properties.request_body" >body</a>
 
-# <a id="inline_additional_properties.request_body..application_json" >request_body..application_json</a>
+# <a id="inline_additional_properties.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1472,7 +1472,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="inline_composition.request_body" >body</a>
 
-# <a id="inline_composition.request_body..application_json" >request_body..application_json</a>
+# <a id="inline_composition.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1492,7 +1492,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.request_body..multipart_form_data" >request_body..multipart_form_data</a>
+# <a id="inline_composition.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1761,7 +1761,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="json_patch.request_body" >body</a>
 
-# <a id="json_patch.request_body..application_json_patchjson" >request_body..application_json_patchjson</a>
+# <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**JSONPatchRequest**](../../models/JSONPatchRequest.md) |  | 
@@ -1833,7 +1833,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="json_with_charset.request_body" >body</a>
 
-# <a id="json_with_charset.request_body..application_json_charsetutf_8" >request_body..application_json_charsetutf_8</a>
+# <a id="json_with_charset.request_body.application_json_charsetutf_8" >request_body.application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1918,7 +1918,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="mammal.request_body" >body</a>
 
-# <a id="mammal.request_body..application_json" >request_body..application_json</a>
+# <a id="mammal.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Mammal**](../../models/Mammal.md) |  | 
@@ -1997,7 +1997,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="number_with_validations.request_body" >body</a>
 
-# <a id="number_with_validations.request_body..application_json" >request_body..application_json</a>
+# <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
@@ -2166,7 +2166,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="object_model_with_ref_props.request_body" >body</a>
 
-# <a id="object_model_with_ref_props.request_body..application_json" >request_body..application_json</a>
+# <a id="object_model_with_ref_props.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
@@ -2305,7 +2305,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="parameter_collisions.request_body" >body</a>
 
-# <a id="parameter_collisions.request_body..application_json" >request_body..application_json</a>
+# <a id="parameter_collisions.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2933,7 +2933,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="string.request_body" >body</a>
 
-# <a id="string.request_body..application_json" >request_body..application_json</a>
+# <a id="string.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**String**](../../models/String.md) |  | 
@@ -3012,7 +3012,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="string_enum.request_body" >body</a>
 
-# <a id="string_enum.request_body..application_json" >request_body..application_json</a>
+# <a id="string_enum.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringEnum**](../../models/StringEnum.md) |  | 
@@ -3090,7 +3090,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="upload_download_file.request_body" >body</a>
 
-# <a id="upload_download_file.request_body..application_octet_stream" >request_body..application_octet_stream</a>
+# <a id="upload_download_file.request_body.application_octet_stream" >request_body.application_octet_stream</a>
 
 file to upload
 

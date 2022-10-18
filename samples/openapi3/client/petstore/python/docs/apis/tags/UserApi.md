@@ -75,7 +75,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="create_user.request_body" >body</a>
 
-# <a id="create_user.request_body..application_json" >request_body..application_json</a>
+# <a id="create_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -162,7 +162,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="create_users_with_array_input.request_body" >body</a>
 
-# <a id="create_users_with_array_input.request_body..application_json" >request_body..application_json</a>
+# <a id="create_users_with_array_input.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -255,7 +255,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="create_users_with_list_input.request_body" >body</a>
 
-# <a id="create_users_with_list_input.request_body..application_json" >request_body..application_json</a>
+# <a id="create_users_with_list_input.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -731,7 +731,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="update_user.request_body" >body</a>
 
-# <a id="update_user.request_body..application_json" >request_body..application_json</a>
+# <a id="update_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
