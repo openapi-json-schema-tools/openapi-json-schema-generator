@@ -155,17 +155,31 @@ configuration = unit_test_api.Configuration(
     host = "https://someserver.com/v1"
 )
 
+```python
+import unit_test_api
+from unit_test_api.apis.tags import ref_api
+from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from pprint import pprint
+# Defining the host is optional and defaults to https://someserver.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = unit_test_api.Configuration(
+    host = "https://someserver.com/v1"
+)
 
 # Enter a context with an instance of the API client
 with unit_test_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ref_api.RefApi(api_client)
-    property_named_ref_that_is_not_a_reference = PropertyNamedRefThatIsNotAReference(None) # PropertyNamedRefThatIsNotAReference | 
 
+    # example passing only required values which don't have defaults set
+    body = PropertyNamedRefThatIsNotAReference(None)
     try:
-        api_instance.post_property_named_ref_that_is_not_a_reference_request_body(property_named_ref_that_is_not_a_reference)
+        api_response = api_instance.post_property_named_ref_that_is_not_a_reference_request_body(
+            body=body,
+        )
     except unit_test_api.ApiException as e:
         print("Exception when calling RefApi->post_property_named_ref_that_is_not_a_reference_request_body: %s\n" % e)
+```
 ```
 
 ## Documentation for API Endpoints
