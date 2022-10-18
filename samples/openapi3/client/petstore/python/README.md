@@ -136,19 +136,6 @@ import petstore_api
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-import datetimeimport datetimeimport datetimeimport datetimeimport datetimeimport datetimeimport datetime
-import time
-import petstore_api
-from pprint import pprint
-from petstore_api.apis.tags import another_fake_api
-from petstore_api.model.client import Client
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-```python
 import petstore_api
 from petstore_api.apis.tags import another_fake_api
 from petstore_api.model.client import Client
@@ -176,7 +163,6 @@ with petstore_api.ApiClient(configuration) as api_client:
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling AnotherFakeApi->call_123_test_special_tags: %s\n" % e)
-```
 ```
 
 ## Documentation for API Endpoints
