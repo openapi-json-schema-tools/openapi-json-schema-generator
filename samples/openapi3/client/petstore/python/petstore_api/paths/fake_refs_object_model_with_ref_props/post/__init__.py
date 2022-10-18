@@ -30,7 +30,6 @@ from petstore_api.model.object_model_with_ref_props import ObjectModelWithRefPro
 from .. import path
 from . import response_for_200
 from . import request_body
-from . import body
 
 
 _status_code_to_response = {

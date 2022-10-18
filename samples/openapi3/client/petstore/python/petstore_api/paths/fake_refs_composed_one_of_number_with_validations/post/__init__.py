@@ -30,7 +30,6 @@ from petstore_api.model.composed_one_of_different_types import ComposedOneOfDiff
 from .. import path
 from . import response_for_200
 from . import request_body
-from . import composed_one_of_different_types
 
 
 _status_code_to_response = {

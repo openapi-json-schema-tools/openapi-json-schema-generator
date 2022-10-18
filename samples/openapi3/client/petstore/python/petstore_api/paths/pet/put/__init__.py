@@ -32,7 +32,6 @@ from . import response_for_400
 from . import response_for_404
 from . import response_for_405
 from . import request_body
-from . import pet
 
 
 _auth = [

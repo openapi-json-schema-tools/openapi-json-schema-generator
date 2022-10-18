@@ -29,7 +29,7 @@ from petstore_api.model.string_with_validation import StringWithValidation
 
 
 
-class ioutil(
+class schema(
     schemas.ListSchema
 ):
 
@@ -41,7 +41,7 @@ class ioutil(
         cls,
         arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'ioutil':
+    ) -> 'schema':
         return super().__new__(
             cls,
             arg,
@@ -55,6 +55,6 @@ class ioutil(
 parameter_oapg = api_client.QueryParameter(
     name="ioutil",
     style=api_client.ParameterStyle.FORM,
-    schema=ioutil,
+    schema=schema,
     required=True,
 ),

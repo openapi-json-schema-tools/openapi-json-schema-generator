@@ -25,12 +25,12 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-petId = schemas.Int64Schema
+schema = schemas.Int64Schema
 
 
 parameter_oapg = api_client.PathParameter(
     name="petId",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=petId,
+    schema=schema,
     required=True,
 ),

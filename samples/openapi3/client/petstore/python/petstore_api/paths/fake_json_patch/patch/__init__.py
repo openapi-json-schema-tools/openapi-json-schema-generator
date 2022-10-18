@@ -30,7 +30,6 @@ from petstore_api.model.json_patch_request import JSONPatchRequest
 from .. import path
 from . import response_for_200
 from . import request_body
-from . import json_patch_request
 
 
 _status_code_to_response = {

@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.model.user import User
 
 
-username = schemas.StrSchema
+items = schemas.StrSchema
 
 
 parameter_oapg = api_client.PathParameter(
     name="username",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=username,
+    schema=items,
     required=True,
 ),

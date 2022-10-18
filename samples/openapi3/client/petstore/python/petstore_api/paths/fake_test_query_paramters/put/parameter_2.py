@@ -29,7 +29,7 @@ from petstore_api.model.string_with_validation import StringWithValidation
 
 
 
-class http(
+class schema(
     schemas.ListSchema
 ):
 
@@ -41,7 +41,7 @@ class http(
         cls,
         arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'http':
+    ) -> 'schema':
         return super().__new__(
             cls,
             arg,
@@ -55,6 +55,6 @@ class http(
 parameter_oapg = api_client.QueryParameter(
     name="http",
     style=api_client.ParameterStyle.SPACE_DELIMITED,
-    schema=http,
+    schema=schema,
     required=True,
 ),

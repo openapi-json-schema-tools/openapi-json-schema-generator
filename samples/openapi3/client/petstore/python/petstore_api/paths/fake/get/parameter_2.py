@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class enum_query_string_array(
+class schema(
     schemas.ListSchema
 ):
 
@@ -59,7 +59,7 @@ class enum_query_string_array(
         cls,
         arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'enum_query_string_array':
+    ) -> 'schema':
         return super().__new__(
             cls,
             arg,
@@ -73,6 +73,6 @@ class enum_query_string_array(
 parameter_oapg = api_client.QueryParameter(
     name="enum_query_string_array",
     style=api_client.ParameterStyle.FORM,
-    schema=enum_query_string_array,
+    schema=schema,
     explode=True,
 ),

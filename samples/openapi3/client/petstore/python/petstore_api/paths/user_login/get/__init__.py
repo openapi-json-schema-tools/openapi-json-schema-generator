@@ -37,8 +37,8 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_0.username, str, ],
-            'password': typing.Union[parameter_1.password, str, ],
+            'username': typing.Union[parameter_0.items, str, ],
+            'password': typing.Union[parameter_1.items, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

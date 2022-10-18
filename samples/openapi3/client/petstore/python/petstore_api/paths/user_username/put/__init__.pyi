@@ -31,7 +31,6 @@ from . import response_for_400
 from . import response_for_404
 from . import request_body
 from . import parameter_0
-from . import user
 
 
 
@@ -39,7 +38,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_0.username, str, ],
+            'username': typing.Union[parameter_0.items, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

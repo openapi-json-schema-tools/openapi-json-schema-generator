@@ -30,7 +30,6 @@ from petstore_api.model.client import Client
 from .. import path
 from . import response_for_200
 from . import request_body
-from . import client
 
 
 _status_code_to_response = {

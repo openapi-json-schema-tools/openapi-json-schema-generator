@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class enum_query_integer(
+class schema(
     schemas.EnumBase,
     schemas.Int32Schema
 ):
@@ -52,6 +52,6 @@ class enum_query_integer(
 parameter_oapg = api_client.QueryParameter(
     name="enum_query_integer",
     style=api_client.ParameterStyle.FORM,
-    schema=enum_query_integer,
+    schema=schema,
     explode=True,
 ),

@@ -75,7 +75,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="create_user.request_body" >body</a>
 
-# <a id="create_user.request_body.application_json" >request_body.application_json</a>
+# <a id="create_user.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -162,7 +162,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="create_users_with_array_input.request_body" >body</a>
 
-# <a id="create_users_with_array_input.request_body.application_json" >request_body.application_json</a>
+# <a id="create_users_with_array_input.request_body..application_json" >request_body..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -255,7 +255,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="create_users_with_list_input.request_body" >body</a>
 
-# <a id="create_users_with_list_input.request_body.application_json" >request_body.application_json</a>
+# <a id="create_users_with_list_input.request_body..application_json" >request_body..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -337,9 +337,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.username](#delete_user.RequestPathParameters.Schemas.username) | | 
+username | [RequestPathParameters.Schemas.items](#delete_user.RequestPathParameters.Schemas.items) | | 
 
-# <a id="delete_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
+# <a id="delete_user.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -424,9 +424,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.username](#get_user_by_name.RequestPathParameters.Schemas.username) | | 
+username | [RequestPathParameters.Schemas.items](#get_user_by_name.RequestPathParameters.Schemas.items) | | 
 
-# <a id="get_user_by_name.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
+# <a id="get_user_by_name.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -532,18 +532,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestQueryParameters.Schemas.username](#login_user.RequestQueryParameters.Schemas.username) | | 
-password | [RequestQueryParameters.Schemas.password](#login_user.RequestQueryParameters.Schemas.password) | | 
+username | [parameter_0.schema](#login_user.parameter_0.schema) | | 
+password | [parameter_1.schema](#login_user.parameter_1.schema) | | 
 
 
-# <a id="login_user.RequestQueryParameters.Schemas.username" >RequestQueryParameters.Schemas.username</a>
+# <a id="login_user.parameter_0.items" >parameter_0.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="login_user.RequestQueryParameters.Schemas.password" >RequestQueryParameters.Schemas.password</a>
+# <a id="login_user.parameter_1.items" >parameter_1.items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -582,26 +582,22 @@ str,  | str,  |  |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-X-Rate-Limit | X-Rate-Limit | | optional
-X-Expires-After | X-Expires-After | | optional
+X-Rate-Limit | schema | | optional
+X-Expires-After | schema | | optional
 
-# X-Rate-Limit
-
-calls per hour allowed by the user
+# schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  | calls per hour allowed by the user | value must be a 32 bit integer
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# X-Expires-After
-
-date in UTC when token expires
+# schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str, datetime,  | str,  | date in UTC when token expires | value must conform to RFC-3339 date-time
+str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 
 #### <a id="login_user.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -735,7 +731,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="update_user.request_body" >body</a>
 
-# <a id="update_user.request_body.application_json" >request_body.application_json</a>
+# <a id="update_user.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -746,9 +742,9 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.username](#update_user.RequestPathParameters.Schemas.username) | | 
+username | [RequestPathParameters.Schemas.items](#update_user.RequestPathParameters.Schemas.items) | | 
 
-# <a id="update_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
+# <a id="update_user.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

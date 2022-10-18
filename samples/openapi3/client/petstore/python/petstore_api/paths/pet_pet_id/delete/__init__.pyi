@@ -40,7 +40,7 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'api_key': typing.Union[parameter_0.api_key, str, ],
+            'api_key': typing.Union[parameter_0.items, str, ],
         },
         total=False
     )
@@ -58,7 +58,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[parameter_1.petId, decimal.Decimal, int, ],
+            'petId': typing.Union[parameter_1.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

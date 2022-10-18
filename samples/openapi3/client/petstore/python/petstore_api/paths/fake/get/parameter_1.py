@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class enum_header_string(
+class schema(
     schemas.EnumBase,
     schemas.StrSchema
 ):
@@ -56,5 +56,5 @@ class enum_header_string(
 parameter_oapg = api_client.HeaderParameter(
     name="enum_header_string",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=enum_header_string,
+    schema=schema,
 ),

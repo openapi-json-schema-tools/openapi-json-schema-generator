@@ -151,13 +151,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="add_pet.request_body" >body</a>
 
-# <a id="add_pet.request_body.application_json" >request_body.application_json</a>
+# <a id="add_pet.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
+# <a id="add_pet.request_body..application_xml" >request_body..application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -270,9 +270,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [RequestHeaderParameters.Schemas.api_key](#delete_pet.RequestHeaderParameters.Schemas.api_key) | | optional
+api_key | [RequestHeaderParameters.Schemas.items](#delete_pet.RequestHeaderParameters.Schemas.items) | | optional
 
-# <a id="delete_pet.RequestHeaderParameters.Schemas.api_key" >RequestHeaderParameters.Schemas.api_key</a>
+# <a id="delete_pet.RequestHeaderParameters.Schemas..items" >RequestHeaderParameters.Schemas..items</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -284,9 +284,9 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#delete_pet.RequestPathParameters.Schemas.petId) | | 
+petId | [RequestPathParameters.Schemas.schema](#delete_pet.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="delete_pet.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="delete_pet.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -438,10 +438,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [RequestQueryParameters.Schemas.status](#find_pets_by_status.RequestQueryParameters.Schemas.status) | | 
+status | [parameter_0.schema](#find_pets_by_status.parameter_0.schema) | | 
 
 
-# <a id="find_pets_by_status.RequestQueryParameters.Schemas.status" >RequestQueryParameters.Schemas.status</a>
+# <a id="find_pets_by_status.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -630,10 +630,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-tags | [RequestQueryParameters.Schemas.tags](#find_pets_by_tags.RequestQueryParameters.Schemas.tags) | | 
+tags | [parameter_0.schema](#find_pets_by_tags.parameter_0.schema) | | 
 
 
-# <a id="find_pets_by_tags.RequestQueryParameters.Schemas.tags" >RequestQueryParameters.Schemas.tags</a>
+# <a id="find_pets_by_tags.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -760,9 +760,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#get_pet_by_id.RequestPathParameters.Schemas.petId) | | 
+petId | [RequestPathParameters.Schemas.schema](#get_pet_by_id.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="get_pet_by_id.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="get_pet_by_id.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -951,13 +951,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="update_pet.request_body" >body</a>
 
-# <a id="update_pet.request_body.application_json" >request_body.application_json</a>
+# <a id="update_pet.request_body..application_json" >request_body..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
+# <a id="update_pet.request_body..application_xml" >request_body..application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -1043,59 +1043,24 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->update_pet_with_form: %s\n" % e)
-
-    # example passing only optional values
-    path_params = {
-        'petId': 1,
-    }
-    body = dict(
-        name="name_example",
-        status="status_example",
-    )
-    try:
-        # Updates a pet in the store with form data
-        api_response = api_instance.update_pet_with_form(
-            path_params=path_params,
-            body=body,
-        )
-    except petstore_api.ApiException as e:
-        print("Exception when calling PetApi->update_pet_with_form: %s\n" % e)
 ```
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#update_pet_with_form.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#update_pet_with_form.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
 [path_params](#update_pet_with_form.RequestPathParameters) | [RequestPathParameters.Params](#update_pet_with_form.RequestPathParameters.Params) | |
-content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="update_pet_with_form.request_body" >body</a>
-
-# <a id="update_pet_with_form.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**name** | str,  | str,  | Updated name of the pet | [optional] 
-**status** | str,  | str,  | Updated status of the pet | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### <a id="update_pet_with_form.RequestPathParameters" >path_params</a>
 #### <a id="update_pet_with_form.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#update_pet_with_form.RequestPathParameters.Schemas.petId) | | 
+petId | [RequestPathParameters.Schemas.schema](#update_pet_with_form.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="update_pet_with_form.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="update_pet_with_form.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1167,61 +1132,25 @@ with petstore_api.ApiClient(configuration) as api_client:
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->upload_file_with_required_file: %s\n" % e)
-
-    # example passing only optional values
-    path_params = {
-        'petId': 1,
-    }
-    body = dict(
-        additional_metadata="additional_metadata_example",
-        required_file=open('/path/to/file', 'rb'),
-    )
-    try:
-        # uploads an image (required)
-        api_response = api_instance.upload_file_with_required_file(
-            path_params=path_params,
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling PetApi->upload_file_with_required_file: %s\n" % e)
 ```
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_file_with_required_file.request_body) | typing.Union[[request_body.multipart_form_data](#upload_file_with_required_file.request_body.multipart_form_data), Unset] | optional, default is unset |
 [path_params](#upload_file_with_required_file.RequestPathParameters) | [RequestPathParameters.Params](#upload_file_with_required_file.RequestPathParameters.Params) | |
-content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="upload_file_with_required_file.request_body" >body</a>
-
-# <a id="upload_file_with_required_file.request_body.multipart_form_data" >request_body.multipart_form_data</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**requiredFile** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | 
-**additionalMetadata** | str,  | str,  | Additional data to pass to server | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### <a id="upload_file_with_required_file.RequestPathParameters" >path_params</a>
 #### <a id="upload_file_with_required_file.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#upload_file_with_required_file.RequestPathParameters.Schemas.petId) | | 
+petId | [RequestPathParameters.Schemas.schema](#upload_file_with_required_file.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="upload_file_with_required_file.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="upload_file_with_required_file.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1299,61 +1228,25 @@ with petstore_api.ApiClient(configuration) as api_client:
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->upload_image: %s\n" % e)
-
-    # example passing only optional values
-    path_params = {
-        'petId': 1,
-    }
-    body = dict(
-        additional_metadata="additional_metadata_example",
-        file=open('/path/to/file', 'rb'),
-    )
-    try:
-        # uploads an image
-        api_response = api_instance.upload_image(
-            path_params=path_params,
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling PetApi->upload_image: %s\n" % e)
 ```
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_image.request_body) | typing.Union[[request_body.multipart_form_data](#upload_image.request_body.multipart_form_data), Unset] | optional, default is unset |
 [path_params](#upload_image.RequestPathParameters) | [RequestPathParameters.Params](#upload_image.RequestPathParameters.Params) | |
-content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="upload_image.request_body" >body</a>
-
-# <a id="upload_image.request_body.multipart_form_data" >request_body.multipart_form_data</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**additionalMetadata** | str,  | str,  | Additional data to pass to server | [optional] 
-**file** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### <a id="upload_image.RequestPathParameters" >path_params</a>
 #### <a id="upload_image.RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#upload_image.RequestPathParameters.Schemas.petId) | | 
+petId | [RequestPathParameters.Schemas.schema](#upload_image.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="upload_image.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="upload_image.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -30,7 +30,6 @@ from petstore_api.model.order import Order
 from . import response_for_200
 from . import response_for_400
 from . import request_body
-from . import order
 
 _all_accept_content_types = (
     'application/xml',

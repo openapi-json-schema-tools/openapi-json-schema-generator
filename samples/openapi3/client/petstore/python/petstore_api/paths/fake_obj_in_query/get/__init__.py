@@ -39,7 +39,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[parameter_0.mapBean, dict, frozendict.frozendict, ],
+            'mapBean': typing.Union[parameter_0.schema, dict, frozendict.frozendict, ],
         },
         total=False
     )

@@ -9,7 +9,6 @@
 from dataclasses import dataclass
 import typing_extensions
 import urllib3
-from urllib3._collections import HTTPHeaderDict
 
 from petstore_api import api_client, exceptions
 from datetime import date, datetime  # noqa: F401
@@ -26,8 +25,6 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
-from . import request_body
-from . import body
 
 
 
@@ -35,34 +32,17 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_form_data_oapg(
         self,
-        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         response_for_200.ApiResponse,
     ]: ...
-
-    @typing.overload
-    def _json_form_data_oapg(
-        self,
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_for_200.ApiResponse,
-    ]: ...
-
 
     @typing.overload
     def _json_form_data_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -70,8 +50,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_form_data_oapg(
         self,
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -82,8 +60,6 @@ class BaseApi(api_client.Api):
 
     def _json_form_data_oapg(
         self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -95,25 +71,11 @@ class BaseApi(api_client.Api):
             class instances
         """
         used_path = path.value
-
-        _headers = HTTPHeaderDict()
         # TODO add cookie handling
 
-        _fields = None
-        _body = None
-        if body is not schemas.unset:
-            serialized_data = request_body.parameter_oapg.serialize(body, content_type)
-            _headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get'.upper(),
-            headers=_headers,
-            fields=_fields,
-            body=_body,
             stream=stream,
             timeout=timeout,
         )
@@ -139,34 +101,17 @@ class JsonFormData(BaseApi):
     @typing.overload
     def json_form_data(
         self,
-        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         response_for_200.ApiResponse,
     ]: ...
-
-    @typing.overload
-    def json_form_data(
-        self,
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_for_200.ApiResponse,
-    ]: ...
-
 
     @typing.overload
     def json_form_data(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -174,8 +119,6 @@ class JsonFormData(BaseApi):
     @typing.overload
     def json_form_data(
         self,
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -186,15 +129,11 @@ class JsonFormData(BaseApi):
 
     def json_form_data(
         self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._json_form_data_oapg(
-            body=body,
-            content_type=content_type,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -207,34 +146,17 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
         response_for_200.ApiResponse,
     ]: ...
-
-    @typing.overload
-    def get(
-        self,
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_for_200.ApiResponse,
-    ]: ...
-
 
     @typing.overload
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -242,8 +164,6 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
-        content_type: str = ...,
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -254,15 +174,11 @@ class ApiForget(BaseApi):
 
     def get(
         self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._json_form_data_oapg(
-            body=body,
-            content_type=content_type,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
