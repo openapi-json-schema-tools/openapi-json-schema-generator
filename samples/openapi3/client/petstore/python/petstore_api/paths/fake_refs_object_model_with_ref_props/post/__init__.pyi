@@ -29,6 +29,7 @@ from petstore_api.model.object_model_with_ref_props import ObjectModelWithRefPro
 
 from . import response_for_200
 from . import request_body
+from . import body
 
 _all_accept_content_types = (
     'application/json',

@@ -30,6 +30,7 @@ from petstore_api.model.pet import Pet
 from . import response_for_200
 from . import response_for_405
 from . import request_body
+from . import pet
 
 
 

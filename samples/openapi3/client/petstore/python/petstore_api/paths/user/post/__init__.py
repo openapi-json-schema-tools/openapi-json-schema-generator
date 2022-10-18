@@ -30,6 +30,7 @@ from petstore_api.model.user import User
 from .. import path
 from . import response_for_default
 from . import request_body
+from . import user
 
 
 _status_code_to_response = {

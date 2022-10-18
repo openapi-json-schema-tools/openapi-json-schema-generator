@@ -29,6 +29,7 @@ from petstore_api.model.file_schema_test_class import FileSchemaTestClass
 
 from . import response_for_200
 from . import request_body
+from . import file_schema_test_class
 
 
 

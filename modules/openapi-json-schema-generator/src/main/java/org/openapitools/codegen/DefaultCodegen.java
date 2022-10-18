@@ -4386,20 +4386,15 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (parameters != null) {
+            Integer i = 0;
             for (Parameter param : parameters) {
                 param = ModelUtils.getReferencedParameter(this.openAPI, param);
 
                 CodegenParameter p = fromParameter(param, imports);
-                p.setContent(getContent(param.getContent(), imports, param.getName()));
-
-                // ensure unique params
-                if (ensureUniqueParams) {
-                    while (!isParameterNameUnique(p, allParams)) {
-                        p.paramName = generateNextName(p.paramName);
-                    }
-                }
-
+                p.setContent(getContent(param.getContent(), imports, "schema"));
+                p.paramName = "parameter_" + i.toString();
                 allParams.add(p);
+                i++;
 
                 if (param instanceof QueryParameter || "query".equalsIgnoreCase(param.getIn())) {
                     queryParams.add(p.copy());

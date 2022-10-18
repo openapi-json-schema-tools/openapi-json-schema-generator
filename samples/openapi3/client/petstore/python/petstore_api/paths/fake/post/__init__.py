@@ -29,6 +29,7 @@ from .. import path
 from . import response_for_200
 from . import response_for_404
 from . import request_body
+from . import body
 
 
 _auth = [

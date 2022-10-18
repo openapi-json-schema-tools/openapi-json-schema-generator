@@ -31,6 +31,7 @@ from .. import path
 from . import response_for_200
 from . import response_for_405
 from . import request_body
+from . import pet
 
 
 _auth = [
