@@ -67,15 +67,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#create_user.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#create_user.RequestBody.Schemas.application_json)] | required |
+[body](#create_user.request_body) | typing.Union[[request_body.application_json](#create_user.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="create_user.RequestBody" >body</a>
+### <a id="create_user.request_body" >body</a>
 
-# <a id="create_user.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="create_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -154,15 +154,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#create_users_with_array_input.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#create_users_with_array_input.RequestBody.Schemas.application_json)] | required |
+[body](#create_users_with_array_input.request_body) | typing.Union[[request_body.application_json](#create_users_with_array_input.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="create_users_with_array_input.RequestBody" >body</a>
+### <a id="create_users_with_array_input.request_body" >body</a>
 
-# <a id="create_users_with_array_input.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="create_users_with_array_input.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -247,15 +247,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#create_users_with_list_input.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#create_users_with_list_input.RequestBody.Schemas.application_json)] | required |
+[body](#create_users_with_list_input.request_body) | typing.Union[[request_body.application_json](#create_users_with_list_input.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="create_users_with_list_input.RequestBody" >body</a>
+### <a id="create_users_with_list_input.request_body" >body</a>
 
-# <a id="create_users_with_list_input.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="create_users_with_list_input.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -726,16 +726,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#update_user.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#update_user.RequestBody.Schemas.application_json)] | required |
+[body](#update_user.request_body) | typing.Union[[request_body.application_json](#update_user.request_body.application_json)] | required |
 [path_params](#update_user.RequestPathParameters) | [RequestPathParameters.Params](#update_user.RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="update_user.RequestBody" >body</a>
+### <a id="update_user.request_body" >body</a>
 
-# <a id="update_user.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="update_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 

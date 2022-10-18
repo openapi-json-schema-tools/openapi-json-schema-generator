@@ -47,15 +47,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_forbidden_property_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_forbidden_property_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_forbidden_property_request_body.request_body) | typing.Union[[request_body.application_json](#post_forbidden_property_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_forbidden_property_request_body.RequestBody" >body</a>
+### <a id="post_forbidden_property_request_body.request_body" >body</a>
 
-# <a id="post_forbidden_property_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
@@ -173,15 +173,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_not_more_complex_schema_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_not_more_complex_schema_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_not_more_complex_schema_request_body.request_body) | typing.Union[[request_body.application_json](#post_not_more_complex_schema_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_not_more_complex_schema_request_body.RequestBody" >body</a>
+### <a id="post_not_more_complex_schema_request_body.request_body" >body</a>
 
-# <a id="post_not_more_complex_schema_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
@@ -299,15 +299,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_not_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_not_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_not_request_body.request_body) | typing.Union[[request_body.application_json](#post_not_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_not_request_body.RequestBody" >body</a>
+### <a id="post_not_request_body.request_body" >body</a>
 
-# <a id="post_not_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ModelNot**](../../models/ModelNot.md) |  | 
