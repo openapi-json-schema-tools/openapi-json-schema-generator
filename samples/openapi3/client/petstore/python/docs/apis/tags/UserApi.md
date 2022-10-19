@@ -337,9 +337,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.items](#delete_user.RequestPathParameters.Schemas.items) | | 
+username | [RequestPathParameters.Schemas.schema](#delete_user.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="delete_user.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
+# <a id="delete_user.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -424,9 +424,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.items](#get_user_by_name.RequestPathParameters.Schemas.items) | | 
+username | [RequestPathParameters.Schemas.schema](#get_user_by_name.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="get_user_by_name.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
+# <a id="get_user_by_name.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -536,14 +536,14 @@ username | [parameter_0.schema](#login_user.parameter_0.schema) | |
 password | [parameter_1.schema](#login_user.parameter_1.schema) | | 
 
 
-# <a id="login_user.parameter_0.items" >parameter_0.items</a>
+# <a id="login_user.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="login_user.parameter_1.items" >parameter_1.items</a>
+# <a id="login_user.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -742,9 +742,9 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.items](#update_user.RequestPathParameters.Schemas.items) | | 
+username | [RequestPathParameters.Schemas.schema](#update_user.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="update_user.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
+# <a id="update_user.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

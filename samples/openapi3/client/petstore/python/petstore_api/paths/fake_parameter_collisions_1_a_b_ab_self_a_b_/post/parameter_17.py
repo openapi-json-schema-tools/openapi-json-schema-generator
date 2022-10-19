@@ -25,12 +25,12 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-items = schemas.StrSchema
+schema = schemas.StrSchema
 
 
 parameter_oapg = api_client.CookieParameter(
     name="self",
     style=api_client.ParameterStyle.FORM,
-    schema=items,
+    schema=schema,
     explode=True,
 ),

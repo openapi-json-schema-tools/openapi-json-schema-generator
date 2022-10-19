@@ -27,13 +27,13 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.model.user import User
 
 
-items = schemas.StrSchema
+schema = schemas.StrSchema
 
 
 parameter_oapg = api_client.QueryParameter(
     name="query",
     style=api_client.ParameterStyle.FORM,
-    schema=items,
+    schema=schema,
     required=True,
     explode=True,
 ),
