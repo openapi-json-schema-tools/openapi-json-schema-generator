@@ -591,6 +591,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
                 pathsFiles.add(Arrays.asList(paramMap, "endpoint_request_body.handlebars", outputFilename));
             }
+            // paths.some_path.post.parameter_0.py
             Integer i = 0;
             for (CodegenParameter cp: co.allParams) {
                 Map<String, Object> paramMap = new HashMap<>();
@@ -604,7 +605,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
 
             for (CodegenResponse response: co.responses) {
-                // paths.some_path.post.response_for_200.py (file per response)
+                // paths.some_path.post.response_for_200.__init__.py (file per response)
+                // response is a package because responses have Headers which can be refed
+                // so each inline header should be a module in the response package
                 Map<String, Object> responseMap = new HashMap<>();
                 responseMap.put("response", response);
                 responseMap.put("packageName", packageName);
@@ -614,7 +617,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 } else {
                     responseModuleName += response.code;
                 }
-                String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName+ ".py"));
+                String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  "__init__.py"));
                 pathsFiles.add(Arrays.asList(responseMap, "endpoint_response.handlebars", responseFilename));
             }
             /*
