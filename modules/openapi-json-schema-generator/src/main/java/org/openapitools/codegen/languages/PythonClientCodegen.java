@@ -619,6 +619,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
                 String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  "__init__.py"));
                 pathsFiles.add(Arrays.asList(responseMap, "endpoint_response.handlebars", responseFilename));
+                for (CodegenParameter header: response.getResponseHeaders()) {
+                    Map<String, Object> headerMap = new HashMap<>();
+                    headerMap.put("parameter", header);
+                    // TODO consolidate imports into header param only
+                    headerMap.put("imports", co.imports);
+                    headerMap.put("packageName", packageName);
+                    String headerModule = toModelFilename(header.baseName);
+                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, headerModule+".py"));
+                    pathsFiles.add(Arrays.asList(headerMap, "endpoint_response_header.handlebars", headerFilename));
+                }
             }
             /*
             This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
