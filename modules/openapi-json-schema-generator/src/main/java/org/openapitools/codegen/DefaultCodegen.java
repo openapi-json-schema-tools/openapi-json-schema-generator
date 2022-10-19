@@ -4242,7 +4242,7 @@ public class DefaultCodegen implements CodegenConfig {
                     for (Entry<String, Header> entry : headers.entrySet()) {
                         String headerName = entry.getKey();
                         Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
-                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, String.format(Locale.ROOT, "%sResponseParameter", r.code));
+                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "");
                         responseHeaders.add(responseHeader);
                     }
                     r.setResponseHeaders(responseHeaders);
@@ -4357,9 +4357,8 @@ public class DefaultCodegen implements CodegenConfig {
             for (Parameter param : parameters) {
                 param = ModelUtils.getReferencedParameter(this.openAPI, param);
 
-                CodegenParameter p = fromParameter(param, imports);
+                CodegenParameter p = fromParameter(param, imports, i.toString());
                 p.setContent(getContent(param.getContent(), imports, "schema"));
-                p.paramName = "parameter_" + i.toString();
                 allParams.add(p);
                 i++;
 
@@ -4766,7 +4765,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param imports   set of imports for library/package/module
      * @return Codegen Parameter object
      */
-    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports) {
+    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports, String priorJsonPathFragment) {
         CodegenParameter codegenParameter = CodegenModelFactory.newInstance(CodegenModelType.PARAMETER);
 
         codegenParameter.baseName = parameter.getName();
@@ -4991,7 +4990,7 @@ public class DefaultCodegen implements CodegenConfig {
         if ("multi".equals(collectionFormat)) {
             codegenParameter.isCollectionFormatMulti = true;
         }
-        codegenParameter.paramName = toParamName(parameter.getName());
+        codegenParameter.paramName = toParamName(priorJsonPathFragment);
         if (!addSchemaImportsFromV3SpecLocations) {
             // import
             if (codegenProperty.complexType != null) {
@@ -7060,7 +7059,7 @@ public class DefaultCodegen implements CodegenConfig {
         headerParam.setExample(header.getExample());
         headerParam.setContent(header.getContent());
         headerParam.setExtensions(header.getExtensions());
-        CodegenParameter param = fromParameter(headerParam, imports);
+        CodegenParameter param = fromParameter(headerParam, imports, headerName);
         param.setContent(getContent(headerParam.getContent(), imports, mediaTypeSchemaSuffix));
         return param;
     }
