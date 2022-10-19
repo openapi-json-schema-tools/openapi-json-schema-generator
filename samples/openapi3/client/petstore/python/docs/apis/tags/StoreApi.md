@@ -60,9 +60,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.items](#delete_order.RequestPathParameters.Schemas.items) | | 
+order_id | [RequestPathParameters.Schemas.schema](#delete_order.RequestPathParameters.Schemas.schema) | | 
 
-# <a id="delete_order.RequestPathParameters.Schemas..items" >RequestPathParameters.Schemas..items</a>
+# <a id="delete_order.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

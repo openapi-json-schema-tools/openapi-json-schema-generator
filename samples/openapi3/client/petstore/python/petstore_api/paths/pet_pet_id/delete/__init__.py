@@ -41,7 +41,7 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'api_key': typing.Union[parameter_0.items, str, ],
+            'api_key': typing.Union[parameter_0.schema, str, ],
         },
         total=False
     )

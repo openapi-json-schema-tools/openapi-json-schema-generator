@@ -270,9 +270,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [RequestHeaderParameters.Schemas.items](#delete_pet.RequestHeaderParameters.Schemas.items) | | optional
+api_key | [RequestHeaderParameters.Schemas.schema](#delete_pet.RequestHeaderParameters.Schemas.schema) | | optional
 
-# <a id="delete_pet.RequestHeaderParameters.Schemas..items" >RequestHeaderParameters.Schemas..items</a>
+# <a id="delete_pet.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1031,17 +1031,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cp.isPrimitiveType && unaliasedSchema.get$ref() != null) {
             cp.complexType = cp.dataType;
         }
-        setAdditionalPropsAndItemsVarNames(cp);
         return cp;
-    }
-
-    private void setAdditionalPropsAndItemsVarNames(IJsonSchemaValidationProperties item) {
-        if (item.getAdditionalProperties() != null) {
-            item.getAdditionalProperties().setBaseName("additional_properties");
-        }
-        if (item.getItems() != null) {
-            item.getItems().setBaseName("items");
-        }
     }
 
     /**
@@ -1467,7 +1457,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             cm.setHasMultipleTypes(true);
         }
         Boolean isNotPythonModelSimpleModel = (ModelUtils.isComposedSchema(sc) || ModelUtils.isObjectSchema(sc) || ModelUtils.isMapSchema(sc));
-        setAdditionalPropsAndItemsVarNames(cm);
         if (isNotPythonModelSimpleModel) {
             return cm;
         }
@@ -2229,7 +2218,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (addPropsSchema == null) {
             return;
         }
-        CodegenProperty addPropProp = fromProperty("",  addPropsSchema, false, false);
+        CodegenProperty addPropProp = fromProperty("additional_properties",  addPropsSchema, false, false);
         property.setAdditionalProperties(addPropProp);
     }
 
