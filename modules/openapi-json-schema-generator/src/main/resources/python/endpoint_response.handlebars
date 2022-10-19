@@ -5,11 +5,13 @@ from {{packageName}} import api_client
 {{> model_templates/imports_schema_types }}
 {{#with response}}
 {{> model_templates/imports_schemas }}
+{{#each responseHeaders}}
+from . import {{paramName}}
+{{/each}}
 {{#if responseHeaders}}
 {{> endpoint_parameter_schema_and_def xParams=responseHeaders xParamsName="Header" }}
 {{/if}}
 {{#if getContent}}
-
 
 # body schemas
 {{#each content}}

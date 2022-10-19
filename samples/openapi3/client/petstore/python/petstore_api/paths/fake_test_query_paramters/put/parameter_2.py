@@ -57,4 +57,4 @@ parameter_oapg = api_client.QueryParameter(
     style=api_client.ParameterStyle.SPACE_DELIMITED,
     schema=schema,
     required=True,
-),
+)

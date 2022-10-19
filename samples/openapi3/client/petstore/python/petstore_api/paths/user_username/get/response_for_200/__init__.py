@@ -17,7 +17,6 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.user import User
 
-
 # body schemas
 application_xml = User
 application_json = User

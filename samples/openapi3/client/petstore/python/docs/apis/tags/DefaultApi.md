@@ -49,10 +49,10 @@ default | [response_for_default.ApiResponse](#foo_get.response_for_default.ApiRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_0.BodySchemas.application_json](#foo_get.response_for_0.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_0.application_json](#foo_get.response_for_0.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="foo_get.response_for_0.BodySchemas.application_json" >response_for_0.BodySchemas.application_json</a>
+# <a id="foo_get.response_for_0.application_json" >response_for_0.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

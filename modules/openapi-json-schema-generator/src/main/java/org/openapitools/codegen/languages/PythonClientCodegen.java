@@ -600,7 +600,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 // TODO consolidate imports into body param only
                 paramMap.put("imports", co.imports);
                 paramMap.put("packageName", packageName);
-                outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "parameter_"+i.toString()+".py"));
+                outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  toParamName(i.toString())+".py"));
                 pathsFiles.add(Arrays.asList(paramMap, "endpoint_parameter.handlebars", outputFilename));
                 i++;
             }
@@ -626,8 +626,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     // TODO consolidate imports into header param only
                     headerMap.put("imports", co.imports);
                     headerMap.put("packageName", packageName);
-                    String headerModule = toModelFilename(header.baseName);
-                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, headerModule+".py"));
+                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, toParamName(header.baseName) + ".py"));
                     pathsFiles.add(Arrays.asList(headerMap, "endpoint_response_header.handlebars", headerFilename));
                 }
             }
@@ -2758,10 +2757,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint
-            return "parameter_"+name;
+            return "parameter_" + name;
         } catch (NumberFormatException nfe) {
             // for header parameters in responses
-            return toModelFilename(name);
+            return "parameter_" + toModelFilename(name);
         }
     }
 

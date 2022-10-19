@@ -17,7 +17,6 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.pet import Pet
 
-
 # body schemas
 application_xml = Pet
 application_json = Pet

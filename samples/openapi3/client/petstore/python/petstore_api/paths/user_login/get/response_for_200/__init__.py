@@ -14,19 +14,21 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+from . import parameter_x_rate_limit
+from . import parameter_x_expires_after
 
 
 class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
+            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.application_json, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Rate-Limit': typing.Union[x_rate_limit.schema, decimal.Decimal, int, ],
-            'X-Expires-After': typing.Union[x_expires_after.schema, str, datetime, ],
+            'X-Expires-After': typing.Union[parameter_x_expires_after.schema, str, datetime, ],
         },
         total=False
     )
@@ -37,10 +39,9 @@ class Header:
 
 
     parameters = [
-        x_rate_limit.parameter_oapg,
-        x_expires_after.parameter_oapg,
+        parameter_x_rate_limit.parameter_oapg,
+        parameter_x_expires_after.parameter_oapg,
     ]
-
 # body schemas
 application_xml = schemas.StrSchema
 application_json = schemas.StrSchema

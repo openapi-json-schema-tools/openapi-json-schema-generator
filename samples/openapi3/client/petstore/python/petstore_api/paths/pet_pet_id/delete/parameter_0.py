@@ -32,4 +32,4 @@ parameter_oapg = api_client.HeaderParameter(
     name="api_key",
     style=api_client.ParameterStyle.SIMPLE,
     schema=schema,
-),
+)

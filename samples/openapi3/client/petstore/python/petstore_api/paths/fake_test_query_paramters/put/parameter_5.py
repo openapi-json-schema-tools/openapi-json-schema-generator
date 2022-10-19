@@ -36,4 +36,4 @@ parameter_oapg = api_client.QueryParameter(
     schema=schema,
     required=True,
     explode=True,
-),
+)

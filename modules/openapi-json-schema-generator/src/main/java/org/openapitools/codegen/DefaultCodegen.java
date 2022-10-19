@@ -4331,6 +4331,9 @@ public class DefaultCodegen implements CodegenConfig {
                     setParameterEncodingValues(cp, requestBody.getContent().get(contentType));
                     postProcessParameter(cp);
                 }
+                if (formParams.size() == 1) {
+                    bodyParam = formParams.get(0);
+                }
             } else {
                 // process body parameter
                 requestBody = ModelUtils.getReferencedRequestBody(this.openAPI, requestBody);
