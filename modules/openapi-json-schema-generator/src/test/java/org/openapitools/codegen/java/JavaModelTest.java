@@ -471,8 +471,8 @@ public class JavaModelTest {
         Assert.assertTrue(property.isContainer);
 
         final CodegenProperty itemsProperty = property.items;
-        Assert.assertEquals(itemsProperty.baseName, "child");
-        Assert.assertEquals(itemsProperty.name, "child");
+        Assert.assertEquals(itemsProperty.baseName, "items");
+        Assert.assertEquals(itemsProperty.name, "items");
     }
 
     @Test(description = "convert an array model")
@@ -978,7 +978,7 @@ public class JavaModelTest {
         Assert.assertNotNull(property2.items);
         CodegenProperty items = property2.items;
         Assert.assertEquals(items.xmlName, "i");
-        Assert.assertEquals(items.baseName, "array");
+        Assert.assertEquals(items.baseName, "items");
     }
 
     @Test(description = "convert a boolean parameter")
