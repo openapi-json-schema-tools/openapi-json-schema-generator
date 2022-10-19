@@ -1,5 +1,7 @@
-parameter_oapg = api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter(
+parameter_oapg = api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}(
+{{#unless noName}}
     name="{{baseName}}",
+{{/unless}}
 {{#if style}}
     style=api_client.ParameterStyle.{{style}},
 {{/if}}
