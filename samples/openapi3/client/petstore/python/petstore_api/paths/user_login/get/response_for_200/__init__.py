@@ -41,19 +41,17 @@ class Header:
         x_expires_after.parameter_oapg,
     ]
 
-class BodySchemas:
-    # body schemas
-    application_xml = schemas.StrSchema
-    application_json = schemas.StrSchema
-    pass
+# body schemas
+application_xml = schemas.StrSchema
+application_json = schemas.StrSchema
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        BodySchemas.application_xml,
-        BodySchemas.application_json,
+        application_xml,
+        application_json,
     ]
     headers: Header.Params
 
@@ -62,10 +60,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=BodySchemas.application_xml,
+            schema=application_xml,
         ),
         'application/json': api_client.MediaType(
-            schema=BodySchemas.application_json,
+            schema=application_json,
         ),
     },
     headers=Header.parameters

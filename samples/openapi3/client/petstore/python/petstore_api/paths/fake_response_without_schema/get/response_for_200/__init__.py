@@ -16,9 +16,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class BodySchemas:
-    # body schemas
-    pass
+# body schemas
 
 
 @dataclasses.dataclass
