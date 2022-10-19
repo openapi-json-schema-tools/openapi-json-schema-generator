@@ -18,17 +18,15 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.model.composed_one_of_different_types import ComposedOneOfDifferentTypes
 
 
-class BodySchemas:
-    # body schemas
-    application_json = ComposedOneOfDifferentTypes
-    pass
+# body schemas
+application_json = ComposedOneOfDifferentTypes
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        BodySchemas.application_json,
+        application_json,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -37,7 +35,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=BodySchemas.application_json,
+            schema=application_json,
         ),
     },
 )
