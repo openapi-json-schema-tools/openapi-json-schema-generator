@@ -852,9 +852,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | [RequestPathParameters.Schemas.schema](#delete_coffee.RequestPathParameters.Schemas.schema) | | 
+id | [parameter_0.schema](#delete_coffee.parameter_0.schema) | | 
 
-# <a id="delete_coffee.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="delete_coffee.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1069,10 +1069,10 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [RequestHeaderParameters.Schemas.schema](#enum_parameters.RequestHeaderParameters.Schemas.schema) | | optional
-enum_header_string | [RequestHeaderParameters.Schemas.schema](#enum_parameters.RequestHeaderParameters.Schemas.schema) | | optional
+enum_header_string_array | [parameter_0.schema](#enum_parameters.parameter_0.schema) | | optional
+enum_header_string | [parameter_1.schema](#enum_parameters.parameter_1.schema) | | optional
 
-# <a id="enum_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="enum_parameters.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1084,7 +1084,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="enum_parameters.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1303,17 +1303,17 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [RequestHeaderParameters.Schemas.schema](#group_parameters.RequestHeaderParameters.Schemas.schema) | | 
-boolean_group | [RequestHeaderParameters.Schemas.schema](#group_parameters.RequestHeaderParameters.Schemas.schema) | | optional
+required_boolean_group | [parameter_1.schema](#group_parameters.parameter_1.schema) | | 
+boolean_group | [parameter_4.schema](#group_parameters.parameter_4.schema) | | optional
 
-# <a id="group_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="group_parameters.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | 
 
-# <a id="group_parameters.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="group_parameters.parameter_4.schema" >parameter_4.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2364,33 +2364,33 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestHeaderParameters.Schemas.schema](#parameter_collisions.RequestHeaderParameters.Schemas.schema) | | optional
-aB | [RequestHeaderParameters.Schemas.schema](#parameter_collisions.RequestHeaderParameters.Schemas.schema) | | optional
-self | [RequestHeaderParameters.Schemas.schema](#parameter_collisions.RequestHeaderParameters.Schemas.schema) | | optional
-A-B | [RequestHeaderParameters.Schemas.schema](#parameter_collisions.RequestHeaderParameters.Schemas.schema) | | optional
+1 | [parameter_5.schema](#parameter_collisions.parameter_5.schema) | | optional
+aB | [parameter_6.schema](#parameter_collisions.parameter_6.schema) | | optional
+self | [parameter_7.schema](#parameter_collisions.parameter_7.schema) | | optional
+A-B | [parameter_8.schema](#parameter_collisions.parameter_8.schema) | | optional
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_5.schema" >parameter_5.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_6.schema" >parameter_6.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_7.schema" >parameter_7.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_8.schema" >parameter_8.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2402,41 +2402,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestPathParameters.Schemas.schema](#parameter_collisions.RequestPathParameters.Schemas.schema) | | 
-aB | [RequestPathParameters.Schemas.schema](#parameter_collisions.RequestPathParameters.Schemas.schema) | | 
-Ab | [RequestPathParameters.Schemas.schema](#parameter_collisions.RequestPathParameters.Schemas.schema) | | 
-self | [RequestPathParameters.Schemas.schema](#parameter_collisions.RequestPathParameters.Schemas.schema) | | 
-A-B | [RequestPathParameters.Schemas.schema](#parameter_collisions.RequestPathParameters.Schemas.schema) | | 
+1 | [parameter_9.schema](#parameter_collisions.parameter_9.schema) | | 
+aB | [parameter_10.schema](#parameter_collisions.parameter_10.schema) | | 
+Ab | [parameter_11.schema](#parameter_collisions.parameter_11.schema) | | 
+self | [parameter_12.schema](#parameter_collisions.parameter_12.schema) | | 
+A-B | [parameter_13.schema](#parameter_collisions.parameter_13.schema) | | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_9.schema" >parameter_9.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_10.schema" >parameter_10.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_11.schema" >parameter_11.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_12.schema" >parameter_12.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_13.schema" >parameter_13.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2448,41 +2448,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestCookieParameters.Schemas.schema](#parameter_collisions.RequestCookieParameters.Schemas.schema) | | optional
-aB | [RequestCookieParameters.Schemas.schema](#parameter_collisions.RequestCookieParameters.Schemas.schema) | | optional
-Ab | [RequestCookieParameters.Schemas.schema](#parameter_collisions.RequestCookieParameters.Schemas.schema) | | optional
-self | [RequestCookieParameters.Schemas.schema](#parameter_collisions.RequestCookieParameters.Schemas.schema) | | optional
-A-B | [RequestCookieParameters.Schemas.schema](#parameter_collisions.RequestCookieParameters.Schemas.schema) | | optional
+1 | [parameter_14.schema](#parameter_collisions.parameter_14.schema) | | optional
+aB | [parameter_15.schema](#parameter_collisions.parameter_15.schema) | | optional
+Ab | [parameter_16.schema](#parameter_collisions.parameter_16.schema) | | optional
+self | [parameter_17.schema](#parameter_collisions.parameter_17.schema) | | optional
+A-B | [parameter_18.schema](#parameter_collisions.parameter_18.schema) | | optional
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas..schema" >RequestCookieParameters.Schemas..schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestCookieParameters.Schemas..schema" >RequestCookieParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_14.schema" >parameter_14.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas..schema" >RequestCookieParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_15.schema" >parameter_15.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas..schema" >RequestCookieParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_16.schema" >parameter_16.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas..schema" >RequestCookieParameters.Schemas..schema</a>
+# <a id="parameter_collisions.parameter_17.schema" >parameter_17.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_18.schema" >parameter_18.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

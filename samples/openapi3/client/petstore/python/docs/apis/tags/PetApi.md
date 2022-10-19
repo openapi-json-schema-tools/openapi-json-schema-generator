@@ -270,9 +270,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [RequestHeaderParameters.Schemas.schema](#delete_pet.RequestHeaderParameters.Schemas.schema) | | optional
+api_key | [parameter_0.schema](#delete_pet.parameter_0.schema) | | optional
 
-# <a id="delete_pet.RequestHeaderParameters.Schemas..schema" >RequestHeaderParameters.Schemas..schema</a>
+# <a id="delete_pet.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -284,9 +284,9 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.schema](#delete_pet.RequestPathParameters.Schemas.schema) | | 
+petId | [parameter_1.schema](#delete_pet.parameter_1.schema) | | 
 
-# <a id="delete_pet.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="delete_pet.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -760,9 +760,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.schema](#get_pet_by_id.RequestPathParameters.Schemas.schema) | | 
+petId | [parameter_0.schema](#get_pet_by_id.parameter_0.schema) | | 
 
-# <a id="get_pet_by_id.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="get_pet_by_id.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1058,9 +1058,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.schema](#update_pet_with_form.RequestPathParameters.Schemas.schema) | | 
+petId | [parameter_0.schema](#update_pet_with_form.parameter_0.schema) | | 
 
-# <a id="update_pet_with_form.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="update_pet_with_form.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1148,9 +1148,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.schema](#upload_file_with_required_file.RequestPathParameters.Schemas.schema) | | 
+petId | [parameter_0.schema](#upload_file_with_required_file.parameter_0.schema) | | 
 
-# <a id="upload_file_with_required_file.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="upload_file_with_required_file.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1244,9 +1244,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.schema](#upload_image.RequestPathParameters.Schemas.schema) | | 
+petId | [parameter_0.schema](#upload_image.parameter_0.schema) | | 
 
-# <a id="upload_image.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="upload_image.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

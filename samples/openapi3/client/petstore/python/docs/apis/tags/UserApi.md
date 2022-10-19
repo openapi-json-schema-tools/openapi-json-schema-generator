@@ -337,9 +337,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.schema](#delete_user.RequestPathParameters.Schemas.schema) | | 
+username | [parameter_0.schema](#delete_user.parameter_0.schema) | | 
 
-# <a id="delete_user.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="delete_user.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -424,9 +424,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.schema](#get_user_by_name.RequestPathParameters.Schemas.schema) | | 
+username | [parameter_0.schema](#get_user_by_name.parameter_0.schema) | | 
 
-# <a id="get_user_by_name.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="get_user_by_name.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -742,9 +742,9 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.schema](#update_user.RequestPathParameters.Schemas.schema) | | 
+username | [parameter_0.schema](#update_user.parameter_0.schema) | | 
 
-# <a id="update_user.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="update_user.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
