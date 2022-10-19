@@ -28,8 +28,9 @@ from petstore_api import schemas  # noqa: F401
 schema = schemas.StrSchema
 
 
-parameter_oapg = api_client.HeaderParameter(
-    name="1",
+parameter_oapg = api_client.PathParameter(
+    name="aB",
     style=api_client.ParameterStyle.SIMPLE,
     schema=schema,
+    required=True,
 ),

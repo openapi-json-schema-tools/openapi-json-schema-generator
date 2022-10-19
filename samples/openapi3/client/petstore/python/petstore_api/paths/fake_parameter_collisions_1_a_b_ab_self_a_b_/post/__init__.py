@@ -28,11 +28,6 @@ from petstore_api import schemas  # noqa: F401
 from .. import path
 from . import response_for_200
 from . import request_body
-from . import parameter_9
-from . import parameter_10
-from . import parameter_11
-from . import parameter_12
-from . import parameter_13
 from . import parameter_0
 from . import parameter_1
 from . import parameter_2
@@ -42,6 +37,11 @@ from . import parameter_5
 from . import parameter_6
 from . import parameter_7
 from . import parameter_8
+from . import parameter_9
+from . import parameter_10
+from . import parameter_11
+from . import parameter_12
+from . import parameter_13
 from . import parameter_14
 from . import parameter_15
 from . import parameter_16
