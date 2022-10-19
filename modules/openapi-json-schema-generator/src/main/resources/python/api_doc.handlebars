@@ -113,11 +113,11 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
-{{baseName}} | {{#with schema}}[RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each headerParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestHeaderParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -129,11 +129,11 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
-{{baseName}} | {{#with schema}}[RequestPathParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestPathParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each pathParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestPathParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -145,11 +145,11 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
-{{baseName}} | {{#with schema}}[RequestCookieParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestCookieParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each cookieParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestCookieParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}

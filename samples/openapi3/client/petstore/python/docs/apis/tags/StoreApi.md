@@ -60,9 +60,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.schema](#delete_order.RequestPathParameters.Schemas.schema) | | 
+order_id | [parameter_0.schema](#delete_order.parameter_0.schema) | | 
 
-# <a id="delete_order.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="delete_order.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -227,9 +227,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.schema](#get_order_by_id.RequestPathParameters.Schemas.schema) | | 
+order_id | [parameter_0.schema](#get_order_by_id.parameter_0.schema) | | 
 
-# <a id="get_order_by_id.RequestPathParameters.Schemas..schema" >RequestPathParameters.Schemas..schema</a>
+# <a id="get_order_by_id.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
