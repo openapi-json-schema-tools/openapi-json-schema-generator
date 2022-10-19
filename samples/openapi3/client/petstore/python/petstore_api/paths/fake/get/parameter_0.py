@@ -74,4 +74,4 @@ parameter_oapg = api_client.HeaderParameter(
     name="enum_header_string_array",
     style=api_client.ParameterStyle.SIMPLE,
     schema=schema,
-),
+)

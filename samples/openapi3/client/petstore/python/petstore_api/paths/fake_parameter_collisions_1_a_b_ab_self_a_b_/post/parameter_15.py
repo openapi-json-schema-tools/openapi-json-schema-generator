@@ -33,4 +33,4 @@ parameter_oapg = api_client.CookieParameter(
     style=api_client.ParameterStyle.FORM,
     schema=schema,
     explode=True,
-),
+)

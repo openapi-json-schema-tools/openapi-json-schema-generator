@@ -17,7 +17,6 @@ from petstore_api import schemas  # noqa: F401
 
 from petstore_api.model.composed_one_of_different_types import ComposedOneOfDifferentTypes
 
-
 # body schemas
 application_json = ComposedOneOfDifferentTypes
 

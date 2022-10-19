@@ -80,4 +80,4 @@ parameter_oapg = api_client.QueryParameter(
     style=api_client.ParameterStyle.FORM,
     schema=schema,
     required=True,
-),
+)

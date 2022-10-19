@@ -446,16 +446,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_user_by_name.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_user_by_name.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#get_user_by_name.response_for_200.application_xml), [response_for_200.application_json](#get_user_by_name.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="get_user_by_name.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="get_user_by_name.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
 
 
-# <a id="get_user_by_name.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="get_user_by_name.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -562,43 +562,42 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#login_user.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#login_user.response_for_200.BodySchemas.application_json), ] |  |
-headers | ResponseHeadersFor200 |  |
+body | typing.Union[[response_for_200.application_xml](#login_user.response_for_200.application_xml), [response_for_200.application_json](#login_user.response_for_200.application_json), ] |  |
+headers | [response_for_200.Headers](#login_user.response_for_200.Headers) |  |
 
-# <a id="login_user.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="login_user.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="login_user.response_for_200.application_xml" >response_for_200.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-#### ResponseHeadersFor200
 
-Name | Type | Description  | Notes
+# <a id="login_user.response_for_200.application_json" >response_for_200.application_json</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+#### <a id="login_user.response_for_200.Headers" >response_for_200.Headers</a>
+
+Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-X-Rate-Limit | schema | | optional
-X-Expires-After | schema | | optional
+X-Rate-Limit | [response_for_200.parameter_x_rate_limit.application_json](#login_user.response_for_200.parameter_x_rate_limit.application_json) | | optional
+X-Expires-After | [response_for_200.parameter_x_expires_after.schema](#login_user.response_for_200.parameter_x_expires_after.schema) | | optional
 
-# schema
+# <a id="login_user.response_for_200.parameter_x_rate_limit.application_json" >response_for_200.parameter_x_rate_limit.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# schema
+# <a id="login_user.response_for_200.parameter_x_expires_after.schema" >response_for_200.parameter_x_expires_after.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
-
 
 #### <a id="login_user.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes

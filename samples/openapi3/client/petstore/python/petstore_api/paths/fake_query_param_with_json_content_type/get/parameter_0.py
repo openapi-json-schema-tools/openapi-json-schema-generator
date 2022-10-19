@@ -34,4 +34,4 @@ parameter_oapg = api_client.QueryParameter(
         "application/json": schema,
     },
     required=True,
-),
+)

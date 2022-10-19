@@ -15,7 +15,6 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-
 # body schemas
 application_json_charsetutf_8 = schemas.AnyTypeSchema
 

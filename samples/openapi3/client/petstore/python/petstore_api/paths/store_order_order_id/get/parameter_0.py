@@ -43,4 +43,4 @@ parameter_oapg = api_client.PathParameter(
     style=api_client.ParameterStyle.SIMPLE,
     schema=schema,
     required=True,
-),
+)
