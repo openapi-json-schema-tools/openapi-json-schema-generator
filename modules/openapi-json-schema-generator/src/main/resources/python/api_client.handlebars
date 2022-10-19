@@ -341,7 +341,6 @@ class JSONDetector:
 
 @dataclasses.dataclass
 class ParameterBase(JSONDetector):
-    name: str
     in_type: ParameterInType
     required: bool
     style: typing.Optional[ParameterStyle]
@@ -365,7 +364,6 @@ class ParameterBase(JSONDetector):
         ParameterInType.HEADER: ParameterStyle.SIMPLE,
         ParameterInType.COOKIE: ParameterStyle.FORM,
     }
-    __disallowed_header_names = {'Accept', 'Content-Type', 'Authorization'}
     _json_encoder = JSONEncoder()
 
     @classmethod
@@ -382,7 +380,6 @@ class ParameterBase(JSONDetector):
 
     def __init__(
         self,
-        name: str,
         in_type: ParameterInType,
         required: bool = False,
         style: typing.Optional[ParameterStyle] = None,
@@ -395,15 +392,12 @@ class ParameterBase(JSONDetector):
             raise ValueError('Value missing; Pass in either schema or content')
         if schema and content:
             raise ValueError('Too many values provided. Both schema and content were provided. Only one may be input')
-        if name in self.__disallowed_header_names and in_type is ParameterInType.HEADER:
-            raise ValueError('Invalid name, name may not be one of {}'.format(self.__disallowed_header_names))
         self.__verify_style_to_in_type(style, in_type)
         if content is None and style is None:
             style = self.__in_type_to_default_style[in_type]
         if content is not None and in_type in self.__in_type_to_default_style and len(content) != 1:
             raise ValueError('Invalid content length, content length must equal 1')
         self.in_type = in_type
-        self.name = name
         self.required = required
         self.style = style
         self.explode = explode
@@ -422,6 +416,7 @@ class ParameterBase(JSONDetector):
 
 
 class PathParameter(ParameterBase, StyleSimpleSerializer):
+    name: str
 
     def __init__(
         self,
@@ -433,8 +428,8 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
         schema: typing.Optional[typing.Type[Schema]] = None,
         content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
     ):
+        self.name = name
         super().__init__(
-            name,
             in_type=ParameterInType.PATH,
             required=required,
             style=style,
@@ -519,6 +514,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
 
 
 class QueryParameter(ParameterBase, StyleFormSerializer):
+    name: str
 
     def __init__(
         self,
@@ -533,8 +529,8 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         used_style = ParameterStyle.FORM if style is None else style
         used_explode = self._get_default_explode(used_style) if explode is None else explode
 
+        self.name = name
         super().__init__(
-            name,
             in_type=ParameterInType.QUERY,
             required=required,
             style=used_style,
@@ -646,6 +642,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
 
 
 class CookieParameter(ParameterBase, StyleFormSerializer):
+    name: str
 
     def __init__(
         self,
@@ -660,8 +657,8 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         used_style = ParameterStyle.FORM if style is None and content is None and schema else style
         used_explode = self._get_default_explode(used_style) if explode is None else explode
 
+        self.name = name
         super().__init__(
-            name,
             in_type=ParameterInType.COOKIE,
             required=required,
             style=used_style,
@@ -706,10 +703,10 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
-class HeaderParameter(ParameterBase, StyleSimpleSerializer):
+class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
+
     def __init__(
         self,
-        name: str,
         required: bool = False,
         style: typing.Optional[ParameterStyle] = None,
         explode: bool = False,
@@ -718,7 +715,6 @@ class HeaderParameter(ParameterBase, StyleSimpleSerializer):
         content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
     ):
         super().__init__(
-            name,
             in_type=ParameterInType.HEADER,
             required=required,
             style=style,
@@ -740,7 +736,8 @@ class HeaderParameter(ParameterBase, StyleSimpleSerializer):
     def serialize(
         self,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict],
+        name: str
     ) -> HTTPHeaderDict:
         if self.schema:
             cast_in_data = self.schema(in_data)
@@ -751,16 +748,54 @@ class HeaderParameter(ParameterBase, StyleSimpleSerializer):
                     returns headers: dict
             """
             if self.style:
-                value = self._serialize_simple(cast_in_data, self.name, self.explode, False)
-                return self.__to_headers(((self.name, value),))
+                value = self._serialize_simple(cast_in_data, name, self.explode, False)
+                return self.__to_headers(((name, value),))
         # self.content will be length one
         for content_type, schema in self.content.items():
             cast_in_data = schema(in_data)
             cast_in_data = self._json_encoder.default(cast_in_data)
             if self._content_type_is_json(content_type):
                 value = self._serialize_json(cast_in_data)
-                return self.__to_headers(((self.name, value),))
+                return self.__to_headers(((name, value),))
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+
+
+class HeaderParameter(HeaderParameterWithoutName):
+    name: str
+    __disallowed_header_names = {'Accept', 'Content-Type', 'Authorization'}
+
+    def __init__(
+        self,
+        name: str,
+        required: bool = False,
+        style: typing.Optional[ParameterStyle] = None,
+        explode: bool = False,
+        allow_reserved: typing.Optional[bool] = None,
+        schema: typing.Optional[typing.Type[Schema]] = None,
+        content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
+    ):
+        if name in self.__disallowed_header_names and in_type is ParameterInType.HEADER:
+            raise ValueError('Invalid name, name may not be one of {}'.format(self.__disallowed_header_names))
+        self.name = name
+        super().__init__(
+            in_type=ParameterInType.HEADER,
+            required=required,
+            style=style,
+            explode=explode,
+            allow_reserved=allow_reserved,
+            schema=schema,
+            content=content
+        )
+
+    def serialize(
+        self,
+        in_data: typing.Union[
+            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+    ) -> HTTPHeaderDict:
+        return super().serialize(
+            in_data,
+            self.name
+        )
 
 
 class Encoding:
