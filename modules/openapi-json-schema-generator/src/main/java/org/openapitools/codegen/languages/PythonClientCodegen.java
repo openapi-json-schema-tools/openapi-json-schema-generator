@@ -67,6 +67,7 @@ import java.util.stream.Collectors;
 
 import static org.openapitools.codegen.utils.OnceLogger.once;
 import static org.openapitools.codegen.utils.StringUtils.camelize;
+import static org.openapitools.codegen.utils.StringUtils.escape;
 import static org.openapitools.codegen.utils.StringUtils.underscore;
 
 public class PythonClientCodegen extends AbstractPythonCodegen {
@@ -965,8 +966,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
-    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports) {
-        CodegenParameter cp = super.fromParameter(parameter, imports);
+    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports, String priorJsonPathFragment) {
+        CodegenParameter cp = super.fromParameter(parameter, imports, priorJsonPathFragment);
         if (parameter.getStyle() != null) {
             switch(parameter.getStyle()) {
                 case MATRIX:
@@ -2750,6 +2751,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
         objs.put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, nonCompliantUseDiscrIfCompositionFails);
         return objs;
+    }
+
+    @Override
+    public String toParamName(String name) {
+        try {
+            Integer.parseInt(name);
+            // for parameters in path, or an endpoint
+            return "parameter_"+name;
+        } catch (NumberFormatException nfe) {
+            // for header parameters in responses
+            return toModelFilename(name);
+        }
     }
 
     @Override
