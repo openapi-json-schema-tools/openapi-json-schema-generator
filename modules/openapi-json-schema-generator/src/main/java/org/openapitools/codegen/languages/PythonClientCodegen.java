@@ -113,7 +113,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
         sortModelPropertiesByRequiredFlag = Boolean.TRUE;
-        sortParamsByRequiredFlag = Boolean.TRUE;
+        // this must be false for parameter numbers to stay the same as the ones in the spec
+        // if another schema $refs a schema in a parameter, the json path
+        // and generated moudel must have the same parameter index as the spec
+        sortParamsByRequiredFlag = Boolean.FALSE;
         addSuffixToDuplicateOperationNicknames = false;
 
         modifyFeatureSet(features -> features

@@ -136,19 +136,6 @@ import this_package
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-
-import time
-import this_package
-from pprint import pprint
-from this_package.apis.tags import default_api
-from this_package.model.operator import Operator
-# Defining the host is optional and defaults to http://localhost:3000
-# See configuration.py for a list of all supported configuration parameters.
-configuration = this_package.Configuration(
-    host = "http://localhost:3000"
-)
-
-```python
 import this_package
 from this_package.apis.tags import default_api
 from this_package.model.operator import Operator
@@ -176,7 +163,6 @@ with this_package.ApiClient(configuration) as api_client:
         )
     except this_package.ApiException as e:
         print("Exception when calling DefaultApi->post_operators: %s\n" % e)
-```
 ```
 
 ## Documentation for API Endpoints

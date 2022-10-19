@@ -136,26 +136,6 @@ import unit_test_api
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-
-import time
-import unit_test_api
-from pprint import pprint
-from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
-from unit_test_api.model.ref_in_allof import RefInAllof
-from unit_test_api.model.ref_in_anyof import RefInAnyof
-from unit_test_api.model.ref_in_items import RefInItems
-from unit_test_api.model.ref_in_not import RefInNot
-from unit_test_api.model.ref_in_oneof import RefInOneof
-from unit_test_api.model.ref_in_property import RefInProperty
-# Defining the host is optional and defaults to https://someserver.com/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = unit_test_api.Configuration(
-    host = "https://someserver.com/v1"
-)
-
-```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
 from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
@@ -179,7 +159,6 @@ with unit_test_api.ApiClient(configuration) as api_client:
         )
     except unit_test_api.ApiException as e:
         print("Exception when calling RefApi->post_property_named_ref_that_is_not_a_reference_request_body: %s\n" % e)
-```
 ```
 
 ## Documentation for API Endpoints
