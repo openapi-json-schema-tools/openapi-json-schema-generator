@@ -37,6 +37,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.HashSet;
 import java.util.List;
 
 public class JavaModelTest {
@@ -773,7 +774,7 @@ public class JavaModelTest {
                 .required(true);
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenParameter cm = codegen.fromParameter(parameter, null);
+        final CodegenParameter cm = codegen.fromParameter(parameter, new HashSet<>(), "0");
 
         Assert.assertNull(cm.allowableValues);
         Assert.assertEquals(cm.description, "this is a description");
