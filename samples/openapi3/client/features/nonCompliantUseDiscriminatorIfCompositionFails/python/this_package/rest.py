@@ -146,7 +146,7 @@ class RESTClientObject(object):
                 elif headers['Content-Type'] == 'application/x-www-form-urlencoded':  # noqa: E501
                     r = self.pool_manager.request(
                         method, url,
-                        fields=fields,
+                        body=body,
                         encode_multipart=False,
                         preload_content=not stream,
                         timeout=timeout,
