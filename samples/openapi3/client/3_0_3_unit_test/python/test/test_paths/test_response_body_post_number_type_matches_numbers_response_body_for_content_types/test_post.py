@@ -32,7 +32,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.BodySchemas.application_json
+    response_body_schema = post.response_for_200.application_json
 
     def test_an_array_is_not_a_number_fails(self):
         # an array is not a number
