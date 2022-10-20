@@ -32,7 +32,7 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.BodySchemas.application_json
+    response_body_schema = post.response_for_200.application_json
 
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid

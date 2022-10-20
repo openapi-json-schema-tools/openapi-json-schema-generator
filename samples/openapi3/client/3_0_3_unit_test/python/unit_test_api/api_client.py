@@ -811,11 +811,10 @@ class HeaderParameter(HeaderParameterWithoutName):
         schema: typing.Optional[typing.Type[Schema]] = None,
         content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
     ):
-        if name in self.__disallowed_header_names and in_type is ParameterInType.HEADER:
+        if name in self.__disallowed_header_names:
             raise ValueError('Invalid name, name may not be one of {}'.format(self.__disallowed_header_names))
         self.name = name
         super().__init__(
-            in_type=ParameterInType.HEADER,
             required=required,
             style=style,
             explode=explode,

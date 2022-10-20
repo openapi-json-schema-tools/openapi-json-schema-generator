@@ -32,7 +32,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.BodySchemas.application_json
+    response_body_schema = post.response_for_200.application_json
 
     def test_an_empty_string_is_not_a_boolean_fails(self):
         # an empty string is not a boolean

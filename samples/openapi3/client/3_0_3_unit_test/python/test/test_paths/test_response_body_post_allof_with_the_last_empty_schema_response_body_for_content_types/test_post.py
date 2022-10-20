@@ -32,7 +32,7 @@ class TestResponseBodyPostAllofWithTheLastEmptySchemaResponseBodyForContentTypes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.BodySchemas.application_json
+    response_body_schema = post.response_for_200.application_json
 
     def test_string_is_invalid_fails(self):
         # string is invalid
