@@ -1,2 +1,7 @@
 tox
 flake8
+types-frozendict
+types-typing-extensions
+types-urllib3
+mypy
+

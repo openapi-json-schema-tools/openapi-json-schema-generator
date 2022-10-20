@@ -23,6 +23,7 @@ pip install -e .
 
 ### run tests
 tox || exit 1
+mypy -p petstore_api
 
 ### static analysis of code
 #flake8 --show-source petstore_api/
