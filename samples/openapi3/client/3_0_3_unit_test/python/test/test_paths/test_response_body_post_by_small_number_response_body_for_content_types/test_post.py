@@ -32,7 +32,7 @@ class TestResponseBodyPostBySmallNumberResponseBodyForContentTypes(ApiTestMixin,
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.BodySchemas.application_json
+    response_body_schema = post.response_for_200.application_json
 
     def test_000751_is_not_multiple_of00001_fails(self):
         # 0.00751 is not multiple of 0.0001

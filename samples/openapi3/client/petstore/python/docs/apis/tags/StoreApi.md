@@ -60,9 +60,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.order_id](#delete_order.RequestPathParameters.Schemas.order_id) | | 
+order_id | [parameter_0.schema](#delete_order.parameter_0.schema) | | 
 
-# <a id="delete_order.RequestPathParameters.Schemas.order_id" >RequestPathParameters.Schemas.order_id</a>
+# <a id="delete_order.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -154,10 +154,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#get_inventory.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#get_inventory.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="get_inventory.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="get_inventory.response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -227,9 +227,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [RequestPathParameters.Schemas.order_id](#get_order_by_id.RequestPathParameters.Schemas.order_id) | | 
+order_id | [parameter_0.schema](#get_order_by_id.parameter_0.schema) | | 
 
-# <a id="get_order_by_id.RequestPathParameters.Schemas.order_id" >RequestPathParameters.Schemas.order_id</a>
+# <a id="get_order_by_id.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -249,16 +249,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_order_by_id.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_order_by_id.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#get_order_by_id.response_for_200.application_xml), [response_for_200.application_json](#get_order_by_id.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="get_order_by_id.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="get_order_by_id.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-# <a id="get_order_by_id.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="get_order_by_id.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
@@ -356,16 +356,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#place_order.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#place_order.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#place_order.response_for_200.application_xml), [response_for_200.application_json](#place_order.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="place_order.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="place_order.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
 
 
-# <a id="place_order.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="place_order.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../models/Order.md) |  | 
