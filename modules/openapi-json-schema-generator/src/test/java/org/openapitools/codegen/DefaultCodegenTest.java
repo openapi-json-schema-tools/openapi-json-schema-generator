@@ -2032,7 +2032,8 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         Set<String> imports = new HashSet<>();
-        CodegenParameter parameter = codegen.fromParameter(openAPI.getPaths().get("/pony").getGet().getParameters().get(0), imports);
+        CodegenParameter parameter = codegen.fromParameter(
+                openAPI.getPaths().get("/pony").getGet().getParameters().get(0), imports, "0");
 
         // TODO: This must be updated to work with flattened inline models
         Assert.assertEquals(parameter.dataType, "ListPageQueryParameter");
@@ -2217,7 +2218,8 @@ public class DefaultCodegenTest {
                                     .getGet()
                                     .getParameters()
                                     .get(0),
-                            new HashSet<>()
+                            new HashSet<>(),
+                            "0"
                     );
         }
 
