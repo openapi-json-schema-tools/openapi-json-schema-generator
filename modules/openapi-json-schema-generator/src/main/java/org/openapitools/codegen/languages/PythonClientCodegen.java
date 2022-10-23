@@ -82,7 +82,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     protected String packageUrl;
     protected String apiDocPath = "docs/apis/tags/";
-    protected String modelDocPath = "docs/models/";
+    protected String modelDocPath = "docs/components/schema/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -164,7 +164,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // at the moment
         importMapping.clear();
 
-        modelPackage = "model";
+        modelPackage = "components.schema";
         apiPackage = "apis";
         outputFolder = "generated-code" + File.separatorChar + "python";
 
@@ -420,7 +420,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         if (Boolean.FALSE.equals(excludeTests)) {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder, "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "test_models", "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
         }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
@@ -438,8 +438,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("schemas." + templateExtension, packagePath(), "schemas.py"));
 
         // add the models and apis folders
-        supportingFiles.add(new SupportingFile("__init__models." + templateExtension, packagePath() + File.separatorChar + "models", "__init__.py"));
-        supportingFiles.add(new SupportingFile("__init__model." + templateExtension, packagePath() + File.separatorChar + modelPackage, "__init__.py"));
+        String modelPackages = modelPackage + "s";
+        supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separatorChar + "components" , "__init__.py"));
+        supportingFiles.add(new SupportingFile("__init__models." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
+        supportingFiles.add(new SupportingFile("__init__model." + templateExtension, packagePath() + File.separatorChar + modelPackage.replace('.', File.separatorChar), "__init__.py"));
         supportingFiles.add(new SupportingFile("__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
