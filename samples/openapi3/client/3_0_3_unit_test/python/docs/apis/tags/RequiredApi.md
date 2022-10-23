@@ -60,7 +60,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -131,7 +131,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_default_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
 
 
 ### Authorization
@@ -186,7 +186,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../models/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -257,7 +257,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../models/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
 
 
 ### Authorization
@@ -312,7 +312,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses
@@ -383,7 +383,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_empty_array_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
 
 
 ### Authorization
@@ -438,7 +438,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -509,7 +509,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Authorization

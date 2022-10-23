@@ -2,4 +2,4 @@
 # reference which would not work in python2
 # do not import all models into this module because that uses a lot of memory and stack frames
 # if you need the ability to import all models from one package, import them with
-# from this_package.models import ModelA, ModelB
+# from this_package.components.schemas import ModelA, ModelB

@@ -990,20 +990,22 @@ Class | Method | HTTP request | Description
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in unit_test_api.apis and unit_test_api.models may fail with a
+If the OpenAPI document is large, imports in unit_test_api.apis.tags.tag_to_api and unit_test_api.components.schemas may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
 - `from unit_test_api.apis.default_api import DefaultApi`
+- `from unit_test_api.apis.paths.some_path import SomePath`
+- `from unit_test_api.paths.some_path.get import ApiForget`
 - `from unit_test_api.components.schema.pet import Pet`
 
-Solution 1:
+Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
 import unit_test_api
-from unit_test_api.apis import *
-from unit_test_api.models import *
+from unit_test_api.apis.tags.tag_to_api import *
+from unit_test_api.components.schemas import *
 ```

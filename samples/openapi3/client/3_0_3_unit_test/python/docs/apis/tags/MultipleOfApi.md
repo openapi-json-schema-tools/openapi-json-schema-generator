@@ -60,7 +60,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_int_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../models/ByInt.md) |  | 
+[**ByInt**](../../components/schema/ByInt.md) |  | 
 
 
 ### Return Types, Responses
@@ -131,7 +131,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_int_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../models/ByInt.md) |  | 
+[**ByInt**](../../components/schema/ByInt.md) |  | 
 
 
 ### Authorization
@@ -186,7 +186,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../models/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/ByNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -257,7 +257,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_number_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../models/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/ByNumber.md) |  | 
 
 
 ### Authorization
@@ -312,7 +312,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_small_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../models/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -383,7 +383,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_small_number_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../models/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
 
 
 ### Authorization
@@ -438,7 +438,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Return Types, Responses
@@ -509,7 +509,7 @@ headers | Unset | headers were not defined |
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Authorization

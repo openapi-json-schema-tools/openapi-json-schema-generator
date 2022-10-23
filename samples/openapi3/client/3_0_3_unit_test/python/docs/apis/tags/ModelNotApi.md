@@ -58,7 +58,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -129,7 +129,7 @@ headers | Unset | headers were not defined |
 # <a id="post_forbidden_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
 
 
 ### Authorization
@@ -184,7 +184,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -255,7 +255,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_more_complex_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
 
 
 ### Authorization
@@ -310,7 +310,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../models/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/ModelNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -381,7 +381,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../models/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/ModelNot.md) |  | 
 
 
 ### Authorization

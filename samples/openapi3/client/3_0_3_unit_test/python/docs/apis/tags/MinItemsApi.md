@@ -54,7 +54,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinitemsValidation**](../../models/MinitemsValidation.md) |  | 
+[**MinitemsValidation**](../../components/schema/MinitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -125,7 +125,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minitems_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinitemsValidation**](../../models/MinitemsValidation.md) |  | 
+[**MinitemsValidation**](../../components/schema/MinitemsValidation.md) |  | 
 
 
 ### Authorization

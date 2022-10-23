@@ -57,7 +57,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_operators.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Operator**](../../models/Operator.md) |  | 
+[**Operator**](../../components/schema/Operator.md) |  | 
 
 
 ### Return Types, Responses

@@ -64,7 +64,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_oneof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -135,7 +135,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization
@@ -190,7 +190,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -261,7 +261,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
 
 
 ### Authorization
@@ -316,7 +316,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../models/Oneof.md) |  | 
+[**Oneof**](../../components/schema/Oneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -387,7 +387,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../models/Oneof.md) |  | 
+[**Oneof**](../../components/schema/Oneof.md) |  | 
 
 
 ### Authorization
@@ -442,7 +442,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -513,7 +513,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -568,7 +568,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -639,7 +639,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -694,7 +694,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_required_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
 
 
 ### Return Types, Responses
@@ -765,7 +765,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
 
 
 ### Authorization
