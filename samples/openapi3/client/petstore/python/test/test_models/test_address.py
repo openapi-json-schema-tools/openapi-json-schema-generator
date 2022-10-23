@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.address import Address
+from petstore_api.components.schema.address import Address
 from petstore_api import configuration
 
 

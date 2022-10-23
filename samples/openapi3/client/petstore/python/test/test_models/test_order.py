@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.order import Order
+from petstore_api.components.schema.order import Order
 from petstore_api import configuration
 
 

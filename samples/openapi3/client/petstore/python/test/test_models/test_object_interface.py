@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.object_interface import ObjectInterface
+from petstore_api.components.schema.object_interface import ObjectInterface
 from petstore_api import configuration
 
 

@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_none import ComposedNone
+from petstore_api.components.schema.composed_none import ComposedNone
 from petstore_api import configuration
 
 

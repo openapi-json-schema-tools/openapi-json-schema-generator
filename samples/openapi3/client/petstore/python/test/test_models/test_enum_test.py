@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.enum_test import EnumTest
+from petstore_api.components.schema.enum_test import EnumTest
 from petstore_api import configuration
 
 

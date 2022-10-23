@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.banana import Banana
+from petstore_api.components.schema.banana import Banana
 from petstore_api import configuration
 
 

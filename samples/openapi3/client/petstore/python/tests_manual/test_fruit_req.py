@@ -13,9 +13,9 @@
 import unittest
 
 import petstore_api
-from petstore_api.model import apple_req
-from petstore_api.model import banana_req
-from petstore_api.model.fruit_req import FruitReq
+from petstore_api.components.schema import apple_req
+from petstore_api.components.schema import banana_req
+from petstore_api.components.schema.fruit_req import FruitReq
 from petstore_api import schemas
 
 

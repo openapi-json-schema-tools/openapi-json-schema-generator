@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.json_patch_request_move_copy import JSONPatchRequestMoveCopy
+from petstore_api.components.schema.json_patch_request_move_copy import JSONPatchRequestMoveCopy
 from petstore_api import configuration
 
 

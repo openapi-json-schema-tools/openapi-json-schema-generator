@@ -13,7 +13,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.string_enum import StringEnum
+from petstore_api.components.schema.string_enum import StringEnum
 from petstore_api.schemas import Singleton, NoneClass
 
 

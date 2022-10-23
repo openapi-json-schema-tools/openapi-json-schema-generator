@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.enum_arrays import EnumArrays
+from petstore_api.components.schema.enum_arrays import EnumArrays
 from petstore_api import configuration
 
 

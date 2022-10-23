@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.array_holding_any_type import ArrayHoldingAnyType
+from petstore_api.components.schema.array_holding_any_type import ArrayHoldingAnyType
 from petstore_api import configuration
 
 

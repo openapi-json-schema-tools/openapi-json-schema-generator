@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.number_only import NumberOnly
+from petstore_api.components.schema.number_only import NumberOnly
 from petstore_api import configuration
 
 

@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.decimal_payload import DecimalPayload
+from petstore_api.components.schema.decimal_payload import DecimalPayload
 from petstore_api import configuration
 
 

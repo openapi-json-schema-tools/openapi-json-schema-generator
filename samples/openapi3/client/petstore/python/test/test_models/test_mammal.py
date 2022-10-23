@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.mammal import Mammal
+from petstore_api.components.schema.mammal import Mammal
 from petstore_api import configuration
 
 

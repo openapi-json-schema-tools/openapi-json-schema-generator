@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.drawing import Drawing
+from petstore_api.components.schema.drawing import Drawing
 from petstore_api import configuration
 
 

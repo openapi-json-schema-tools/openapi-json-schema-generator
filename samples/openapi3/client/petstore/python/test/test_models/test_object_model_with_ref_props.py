@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.object_model_with_ref_props import ObjectModelWithRefProps
+from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
 from petstore_api import configuration
 
 

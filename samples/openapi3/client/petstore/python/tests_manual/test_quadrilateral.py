@@ -14,9 +14,9 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model import complex_quadrilateral
-from petstore_api.model import simple_quadrilateral
-from petstore_api.model.quadrilateral import Quadrilateral
+from petstore_api.components.schema import complex_quadrilateral
+from petstore_api.components.schema import simple_quadrilateral
+from petstore_api.components.schema.quadrilateral import Quadrilateral
 
 
 class TestQuadrilateral(unittest.TestCase):

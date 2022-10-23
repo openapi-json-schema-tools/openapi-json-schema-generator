@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.shape_or_null import ShapeOrNull
+from petstore_api.components.schema.shape_or_null import ShapeOrNull
 from petstore_api import configuration
 
 

@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.object_with_optional_test_prop import ObjectWithOptionalTestProp
+from petstore_api.components.schema.object_with_optional_test_prop import ObjectWithOptionalTestProp
 from petstore_api import configuration
 
 

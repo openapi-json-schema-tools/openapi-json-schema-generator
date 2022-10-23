@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.triangle import Triangle
+from petstore_api.components.schema.triangle import Triangle
 from petstore_api import configuration
 
 

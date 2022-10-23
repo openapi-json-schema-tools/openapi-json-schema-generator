@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.json_patch_request_add_replace_test import JSONPatchRequestAddReplaceTest
+from petstore_api.components.schema.json_patch_request_add_replace_test import JSONPatchRequestAddReplaceTest
 from petstore_api import configuration
 
 

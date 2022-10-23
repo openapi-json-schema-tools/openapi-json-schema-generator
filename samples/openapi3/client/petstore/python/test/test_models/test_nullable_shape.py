@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.nullable_shape import NullableShape
+from petstore_api.components.schema.nullable_shape import NullableShape
 from petstore_api import configuration
 
 

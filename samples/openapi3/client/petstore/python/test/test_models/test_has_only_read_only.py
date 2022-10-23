@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.has_only_read_only import HasOnlyReadOnly
+from petstore_api.components.schema.has_only_read_only import HasOnlyReadOnly
 from petstore_api import configuration
 
 

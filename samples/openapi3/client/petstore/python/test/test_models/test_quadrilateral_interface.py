@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.quadrilateral_interface import QuadrilateralInterface
+from petstore_api.components.schema.quadrilateral_interface import QuadrilateralInterface
 from petstore_api import configuration
 
 

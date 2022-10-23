@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.money import Money
+from petstore_api.components.schema.money import Money
 from petstore_api import configuration
 
 

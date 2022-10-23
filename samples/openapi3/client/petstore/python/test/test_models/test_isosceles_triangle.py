@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.isosceles_triangle import IsoscelesTriangle
+from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
 from petstore_api import configuration
 
 

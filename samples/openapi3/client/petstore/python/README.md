@@ -407,7 +407,7 @@ Class | Method | HTTP request | Description
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in petstore_api.apis and petstore_api.models may fail with a
+If the OpenAPI document is large, imports in petstore_api.apis and petstore_api.components.schemas may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
@@ -422,5 +422,5 @@ import sys
 sys.setrecursionlimit(1500)
 import petstore_api
 from petstore_api.apis import *
-from petstore_api.models import *
+from petstore_api.components.schemas import *
 ```

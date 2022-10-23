@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.health_check_result import HealthCheckResult
+from petstore_api.components.schema.health_check_result import HealthCheckResult
 from petstore_api import configuration
 
 

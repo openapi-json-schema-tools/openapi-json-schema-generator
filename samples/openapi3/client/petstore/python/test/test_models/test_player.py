@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.player import Player
+from petstore_api.components.schema.player import Player
 from petstore_api import configuration
 
 
