@@ -93,7 +93,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="additional_properties_with_array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -113,7 +113,7 @@ headers | Unset | headers were not defined |
 # <a id="additional_properties_with_array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Authorization
@@ -174,7 +174,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="array_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../models/AnimalFarm.md) |  | 
+[**AnimalFarm**](../../components/schema/AnimalFarm.md) |  | 
 
 
 ### Return Types, Responses
@@ -194,7 +194,7 @@ headers | Unset | headers were not defined |
 # <a id="array_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../models/AnimalFarm.md) |  | 
+[**AnimalFarm**](../../components/schema/AnimalFarm.md) |  | 
 
 
 ### Authorization
@@ -255,7 +255,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
+[**ArrayOfEnums**](../../components/schema/ArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -275,7 +275,7 @@ headers | Unset | headers were not defined |
 # <a id="array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
+[**ArrayOfEnums**](../../components/schema/ArrayOfEnums.md) |  | 
 
 
 ### Authorization
@@ -339,7 +339,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="body_with_file_schema.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**FileSchemaTestClass**](../../models/FileSchemaTestClass.md) |  | 
+[**FileSchemaTestClass**](../../components/schema/FileSchemaTestClass.md) |  | 
 
 
 ### Return Types, Responses
@@ -427,7 +427,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="body_with_query_params.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../models/User.md) |  | 
+[**User**](../../components/schema/User.md) |  | 
 
 
 ### <a id="body_with_query_params.RequestQueryParameters" >query_params</a>
@@ -515,7 +515,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="boolean.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../models/Boolean.md) |  | 
+[**Boolean**](../../components/schema/Boolean.md) |  | 
 
 
 ### Return Types, Responses
@@ -535,7 +535,7 @@ headers | Unset | headers were not defined |
 # <a id="boolean.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../models/Boolean.md) |  | 
+[**Boolean**](../../components/schema/Boolean.md) |  | 
 
 
 ### Authorization
@@ -694,7 +694,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="client_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**Client**](../../components/schema/Client.md) |  | 
 
 
 ### Return Types, Responses
@@ -714,7 +714,7 @@ headers | Unset | headers were not defined |
 # <a id="client_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**Client**](../../components/schema/Client.md) |  | 
 
 
 ### Authorization
@@ -773,7 +773,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="composed_one_of_different_types.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../components/schema/ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -793,7 +793,7 @@ headers | Unset | headers were not defined |
 # <a id="composed_one_of_different_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../components/schema/ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Authorization
@@ -1261,7 +1261,7 @@ headers | Unset | headers were not defined |
 # <a id="fake_health_get.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HealthCheckResult**](../../models/HealthCheckResult.md) |  | 
+[**HealthCheckResult**](../../components/schema/HealthCheckResult.md) |  | 
 
 
 ### Authorization
@@ -1885,7 +1885,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JSONPatchRequest**](../../models/JSONPatchRequest.md) |  | 
+[**JSONPatchRequest**](../../components/schema/JSONPatchRequest.md) |  | 
 
 
 ### Return Types, Responses
@@ -2042,7 +2042,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="mammal.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Mammal**](../../models/Mammal.md) |  | 
+[**Mammal**](../../components/schema/Mammal.md) |  | 
 
 
 ### Return Types, Responses
@@ -2062,7 +2062,7 @@ headers | Unset | headers were not defined |
 # <a id="mammal.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Mammal**](../../models/Mammal.md) |  | 
+[**Mammal**](../../components/schema/Mammal.md) |  | 
 
 
 ### Authorization
@@ -2121,7 +2121,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
 
 
 ### Return Types, Responses
@@ -2141,7 +2141,7 @@ headers | Unset | headers were not defined |
 # <a id="number_with_validations.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
 
 
 ### Authorization
@@ -2290,7 +2290,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="object_model_with_ref_props.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../components/schema/ObjectModelWithRefProps.md) |  | 
 
 
 ### Return Types, Responses
@@ -2310,7 +2310,7 @@ headers | Unset | headers were not defined |
 # <a id="object_model_with_ref_props.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../components/schema/ObjectModelWithRefProps.md) |  | 
 
 
 ### Authorization
@@ -2852,7 +2852,7 @@ items | str,  | str,  |  |
 # <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringWithValidation**](../../models/StringWithValidation.md) |  | 
+[**StringWithValidation**](../../components/schema/StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2932,7 +2932,7 @@ mapBean | [parameter_0.schema](#ref_object_in_query.parameter_0.schema) | | opti
 # <a id="ref_object_in_query.parameter_0.schema" >parameter_0.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Foo**](../../models/Foo.md) |  | 
+[**Foo**](../../components/schema/Foo.md) |  | 
 
 
 ### Return Types, Responses
@@ -3057,7 +3057,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../models/String.md) |  | 
+[**String**](../../components/schema/String.md) |  | 
 
 
 ### Return Types, Responses
@@ -3077,7 +3077,7 @@ headers | Unset | headers were not defined |
 # <a id="string.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../models/String.md) |  | 
+[**String**](../../components/schema/String.md) |  | 
 
 
 ### Authorization
@@ -3136,7 +3136,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string_enum.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../models/StringEnum.md) |  | 
+[**StringEnum**](../../components/schema/StringEnum.md) |  | 
 
 
 ### Return Types, Responses
@@ -3156,7 +3156,7 @@ headers | Unset | headers were not defined |
 # <a id="string_enum.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../models/StringEnum.md) |  | 
+[**StringEnum**](../../components/schema/StringEnum.md) |  | 
 
 
 ### Authorization
@@ -3329,7 +3329,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization
@@ -3430,7 +3430,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_files.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization
