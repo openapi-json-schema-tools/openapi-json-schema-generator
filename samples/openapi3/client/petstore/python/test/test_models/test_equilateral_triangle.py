@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.equilateral_triangle import EquilateralTriangle
+from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
 from petstore_api import configuration
 
 

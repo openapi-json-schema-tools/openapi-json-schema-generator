@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.object_with_inline_composition_property import ObjectWithInlineCompositionProperty
+from petstore_api.components.schema.object_with_inline_composition_property import ObjectWithInlineCompositionProperty
 from petstore_api import configuration
 
 

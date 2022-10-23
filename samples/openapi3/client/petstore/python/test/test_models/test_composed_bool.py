@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_bool import ComposedBool
+from petstore_api.components.schema.composed_bool import ComposedBool
 from petstore_api import configuration
 
 

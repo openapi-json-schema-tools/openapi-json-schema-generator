@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.scalene_triangle import ScaleneTriangle
+from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
 from petstore_api import configuration
 
 

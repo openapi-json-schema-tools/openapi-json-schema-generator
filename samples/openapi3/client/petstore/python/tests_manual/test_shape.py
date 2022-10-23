@@ -17,14 +17,14 @@ import frozendict
 
 import petstore_api
 from petstore_api.schemas import Singleton
-from petstore_api.model.shape import Shape
-from petstore_api.model import complex_quadrilateral
-from petstore_api.model import simple_quadrilateral
-from petstore_api.model import triangle
-from petstore_api.model import triangle_interface
-from petstore_api.model import equilateral_triangle
-from petstore_api.model import isosceles_triangle
-from petstore_api.model import scalene_triangle
+from petstore_api.components.schema.shape import Shape
+from petstore_api.components.schema import complex_quadrilateral
+from petstore_api.components.schema import simple_quadrilateral
+from petstore_api.components.schema import triangle
+from petstore_api.components.schema import triangle_interface
+from petstore_api.components.schema import equilateral_triangle
+from petstore_api.components.schema import isosceles_triangle
+from petstore_api.components.schema import scalene_triangle
 
 
 class TestShape(unittest.TestCase):

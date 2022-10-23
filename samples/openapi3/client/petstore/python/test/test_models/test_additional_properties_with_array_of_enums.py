@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
+from petstore_api.components.schema.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
 from petstore_api import configuration
 
 

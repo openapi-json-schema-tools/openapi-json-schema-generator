@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.capitalization import Capitalization
+from petstore_api.components.schema.capitalization import Capitalization
 from petstore_api import configuration
 
 

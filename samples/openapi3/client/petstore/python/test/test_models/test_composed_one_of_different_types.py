@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_one_of_different_types import ComposedOneOfDifferentTypes
+from petstore_api.components.schema.composed_one_of_different_types import ComposedOneOfDifferentTypes
 from petstore_api import configuration
 
 

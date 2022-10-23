@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.string_boolean_map import StringBooleanMap
+from petstore_api.components.schema.string_boolean_map import StringBooleanMap
 from petstore_api import configuration
 
 

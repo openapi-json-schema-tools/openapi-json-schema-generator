@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.client import Client
+from petstore_api.components.schema.client import Client
 from petstore_api import configuration
 
 

@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.array_with_validations_in_items import ArrayWithValidationsInItems
+from petstore_api.components.schema.array_with_validations_in_items import ArrayWithValidationsInItems
 from petstore_api import configuration
 
 

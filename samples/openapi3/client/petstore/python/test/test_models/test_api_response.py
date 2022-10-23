@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.api_response import ApiResponse
+from petstore_api.components.schema.api_response import ApiResponse
 from petstore_api import configuration
 
 

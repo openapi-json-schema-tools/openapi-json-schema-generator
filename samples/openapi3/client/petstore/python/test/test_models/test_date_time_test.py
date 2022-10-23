@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.date_time_test import DateTimeTest
+from petstore_api.components.schema.date_time_test import DateTimeTest
 from petstore_api import configuration
 
 

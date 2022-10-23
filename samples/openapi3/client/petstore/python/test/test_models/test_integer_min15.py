@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.integer_min15 import IntegerMin15
+from petstore_api.components.schema.integer_min15 import IntegerMin15
 from petstore_api import configuration
 
 

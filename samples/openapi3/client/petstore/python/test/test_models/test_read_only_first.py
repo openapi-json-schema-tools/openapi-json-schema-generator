@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.read_only_first import ReadOnlyFirst
+from petstore_api.components.schema.read_only_first import ReadOnlyFirst
 from petstore_api import configuration
 
 

@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.gm_fruit import GmFruit
+from petstore_api.components.schema.gm_fruit import GmFruit
 from petstore_api import configuration
 
 

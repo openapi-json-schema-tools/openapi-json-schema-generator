@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.currency import Currency
+from petstore_api.components.schema.currency import Currency
 from petstore_api import configuration
 
 

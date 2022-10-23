@@ -14,9 +14,9 @@ import unittest
 
 import frozendict
 
-from petstore_api.model import apple
-from petstore_api.model import banana
-from petstore_api.model.gm_fruit import GmFruit
+from petstore_api.components.schema import apple
+from petstore_api.components.schema import banana
+from petstore_api.components.schema.gm_fruit import GmFruit
 from petstore_api import schemas
 
 class TestGmFruit(unittest.TestCase):

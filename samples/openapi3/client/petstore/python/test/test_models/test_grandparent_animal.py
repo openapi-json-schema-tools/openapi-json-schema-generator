@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.grandparent_animal import GrandparentAnimal
+from petstore_api.components.schema.grandparent_animal import GrandparentAnimal
 from petstore_api import configuration
 
 

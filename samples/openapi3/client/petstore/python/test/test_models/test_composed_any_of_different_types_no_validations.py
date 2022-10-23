@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_any_of_different_types_no_validations import ComposedAnyOfDifferentTypesNoValidations
+from petstore_api.components.schema.composed_any_of_different_types_no_validations import ComposedAnyOfDifferentTypesNoValidations
 from petstore_api import configuration
 
 

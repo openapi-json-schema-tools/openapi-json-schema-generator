@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.any_type_and_format import AnyTypeAndFormat
+from petstore_api.components.schema.any_type_and_format import AnyTypeAndFormat
 from petstore_api import configuration
 
 

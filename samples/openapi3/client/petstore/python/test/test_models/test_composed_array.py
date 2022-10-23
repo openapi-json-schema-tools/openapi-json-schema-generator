@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_array import ComposedArray
+from petstore_api.components.schema.composed_array import ComposedArray
 from petstore_api import configuration
 
 

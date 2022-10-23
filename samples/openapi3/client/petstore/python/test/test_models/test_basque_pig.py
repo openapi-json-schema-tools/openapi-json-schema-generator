@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.basque_pig import BasquePig
+from petstore_api.components.schema.basque_pig import BasquePig
 from petstore_api import configuration
 
 

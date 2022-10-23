@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.integer_enum import IntegerEnum
+from petstore_api.components.schema.integer_enum import IntegerEnum
 from petstore_api import configuration
 
 

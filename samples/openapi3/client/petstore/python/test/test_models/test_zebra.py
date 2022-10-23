@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.zebra import Zebra
+from petstore_api.components.schema.zebra import Zebra
 from petstore_api import configuration
 
 

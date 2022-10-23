@@ -15,9 +15,9 @@ import unittest
 import frozendict
 
 import petstore_api
-from petstore_api.model.cat import Cat
-from petstore_api.model.dog import Dog
-from petstore_api.model.animal import Animal
+from petstore_api.components.schema.cat import Cat
+from petstore_api.components.schema.dog import Dog
+from petstore_api.components.schema.animal import Animal
 from petstore_api.schemas import StrSchema, BoolSchema
 
 

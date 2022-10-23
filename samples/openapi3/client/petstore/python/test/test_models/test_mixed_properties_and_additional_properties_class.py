@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.mixed_properties_and_additional_properties_class import MixedPropertiesAndAdditionalPropertiesClass
+from petstore_api.components.schema.mixed_properties_and_additional_properties_class import MixedPropertiesAndAdditionalPropertiesClass
 from petstore_api import configuration
 
 

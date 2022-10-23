@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.array_test import ArrayTest
+from petstore_api.components.schema.array_test import ArrayTest
 from petstore_api import configuration
 
 

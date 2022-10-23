@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.class_model import ClassModel
+from petstore_api.components.schema.class_model import ClassModel
 from petstore_api import configuration
 
 

@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.apple import Apple
+from petstore_api.components.schema.apple import Apple
 from petstore_api import configuration
 
 

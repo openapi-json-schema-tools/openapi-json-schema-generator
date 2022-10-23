@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.boolean_enum import BooleanEnum
+from petstore_api.components.schema.boolean_enum import BooleanEnum
 from petstore_api import configuration
 
 

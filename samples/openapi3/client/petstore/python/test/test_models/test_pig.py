@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.pig import Pig
+from petstore_api.components.schema.pig import Pig
 from petstore_api import configuration
 
 

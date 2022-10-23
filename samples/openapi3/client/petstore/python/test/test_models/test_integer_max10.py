@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.integer_max10 import IntegerMax10
+from petstore_api.components.schema.integer_max10 import IntegerMax10
 from petstore_api import configuration
 
 

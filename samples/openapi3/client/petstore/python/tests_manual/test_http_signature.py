@@ -26,7 +26,7 @@
 # from Crypto.Signature import pkcs1_15, pss, DSS
 #
 # import petstore_api
-# from petstore_api.model import category, tag, pet
+# from petstore_api.components.schema import category, tag, pet
 # from petstore_api.apis.tags.pet_api import PetApi
 # from petstore_api import Configuration, signing
 # from petstore_api.rest import (
