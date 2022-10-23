@@ -2565,7 +2565,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String modelFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar +  modelPackage();
+        return outputFolder + File.separatorChar + packagePath() + File.separator + modelPackage().replace('.', File.separatorChar);
     }
 
     @Override
@@ -2575,7 +2575,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String modelTestFileFolder() {
-        return outputFolder + File.separatorChar + testFolder + File.separatorChar + "test_models";
+        return outputFolder + File.separatorChar + testFolder + File.separatorChar + modelPackage.replace('.', File.separatorChar);
     }
 
     public void setUseNose(String val) {

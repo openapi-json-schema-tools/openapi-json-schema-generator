@@ -29,7 +29,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -283,7 +283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -409,7 +409,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -535,7 +535,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -661,7 +661,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.object_type_matches_objects import ObjectTypeMatchesObjects
+from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -787,7 +787,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.string_type_matches_strings import StringTypeMatchesStrings
+from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

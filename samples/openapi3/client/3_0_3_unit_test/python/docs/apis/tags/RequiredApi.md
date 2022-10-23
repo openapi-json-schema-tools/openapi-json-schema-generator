@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,7 +149,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_validation import RequiredValidation
+from unit_test_api.components.schema.required_validation import RequiredValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -275,7 +275,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -401,7 +401,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.model.required_with_escaped_characters import RequiredWithEscapedCharacters
+from unit_test_api.components.schema.required_with_escaped_characters import RequiredWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

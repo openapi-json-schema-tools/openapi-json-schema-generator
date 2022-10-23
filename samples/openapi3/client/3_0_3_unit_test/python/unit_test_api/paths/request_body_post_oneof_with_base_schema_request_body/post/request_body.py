@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.oneof_with_base_schema import OneofWithBaseSchema
+from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
 
 
 application_json = OneofWithBaseSchema

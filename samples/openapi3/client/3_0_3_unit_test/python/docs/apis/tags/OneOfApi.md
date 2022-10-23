@@ -27,7 +27,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.model.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,7 +153,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.model.oneof_complex_types import OneofComplexTypes
+from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -279,7 +279,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.model.oneof import Oneof
+from unit_test_api.components.schema.oneof import Oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -405,7 +405,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.model.oneof_with_base_schema import OneofWithBaseSchema
+from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -531,7 +531,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.model.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -657,7 +657,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.model.oneof_with_required import OneofWithRequired
+from unit_test_api.components.schema.oneof_with_required import OneofWithRequired
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

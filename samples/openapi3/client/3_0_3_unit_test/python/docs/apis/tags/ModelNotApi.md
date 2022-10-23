@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -147,7 +147,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.not_more_complex_schema import NotMoreComplexSchema
+from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -273,7 +273,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.model_not import ModelNot
+from unit_test_api.components.schema.model_not import ModelNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

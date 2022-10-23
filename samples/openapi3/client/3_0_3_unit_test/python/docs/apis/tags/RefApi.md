@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_allof import RefInAllof
+from unit_test_api.components.schema.ref_in_allof import RefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_items import RefInItems
+from unit_test_api.components.schema.ref_in_items import RefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -665,7 +665,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_not import RefInNot
+from unit_test_api.components.schema.ref_in_not import RefInNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -791,7 +791,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema.ref_in_oneof import RefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -917,7 +917,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.ref_in_property import RefInProperty
+from unit_test_api.components.schema.ref_in_property import RefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

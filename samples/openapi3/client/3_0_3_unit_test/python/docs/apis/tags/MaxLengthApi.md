@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_length_api
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

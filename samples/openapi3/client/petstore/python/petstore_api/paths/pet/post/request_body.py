@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.model.pet import Pet
+from petstore_api.components.schema.pet import Pet
 
 
 application_json = Pet

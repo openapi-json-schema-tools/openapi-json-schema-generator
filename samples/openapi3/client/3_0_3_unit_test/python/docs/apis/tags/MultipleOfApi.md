@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.model.by_int import ByInt
+from unit_test_api.components.schema.by_int import ByInt
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,7 +149,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.model.by_number import ByNumber
+from unit_test_api.components.schema.by_number import ByNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -275,7 +275,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.model.by_small_number import BySmallNumber
+from unit_test_api.components.schema.by_small_number import BySmallNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -401,7 +401,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.model.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+from unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

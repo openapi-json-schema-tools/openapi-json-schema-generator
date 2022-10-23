@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.model.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -151,7 +151,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.model.anyof import Anyof
+from unit_test_api.components.schema.anyof import Anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -277,7 +277,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.model.anyof_with_base_schema import AnyofWithBaseSchema
+from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -403,7 +403,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.model.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -529,7 +529,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.model.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

@@ -138,7 +138,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.model.operator import Operator
+from this_package.components.schema.operator import Operator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
@@ -175,9 +175,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionOperator](docs/models/AdditionOperator.md)
- - [Operator](docs/models/Operator.md)
- - [SubtractionOperator](docs/models/SubtractionOperator.md)
+ - [AdditionOperator](docs/components/schema/AdditionOperator.md)
+ - [Operator](docs/components/schema/Operator.md)
+ - [SubtractionOperator](docs/components/schema/SubtractionOperator.md)
 
 ## Documentation For Authorization
 
@@ -194,7 +194,7 @@ RecursionError indicating the maximum recursion limit has been exceeded. In that
 Solution 1:
 Use specific imports for apis and models like:
 - `from this_package.apis.default_api import DefaultApi`
-- `from this_package.model.pet import Pet`
+- `from this_package.components.schema.pet import Pet`
 
 Solution 1:
 Before importing the package, adjust the maximum recursion limit as shown below:

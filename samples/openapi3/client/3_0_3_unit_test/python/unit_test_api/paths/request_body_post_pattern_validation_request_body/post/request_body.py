@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.pattern_validation import PatternValidation
+from unit_test_api.components.schema.pattern_validation import PatternValidation
 
 
 application_json = PatternValidation

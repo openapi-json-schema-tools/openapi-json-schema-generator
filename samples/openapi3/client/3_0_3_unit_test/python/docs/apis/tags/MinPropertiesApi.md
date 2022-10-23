@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import min_properties_api
-from unit_test_api.model.minproperties_validation import MinpropertiesValidation
+from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
