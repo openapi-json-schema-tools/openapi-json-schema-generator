@@ -154,13 +154,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="add_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 # <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 ### Return Types, Responses
@@ -788,13 +788,13 @@ headers | Unset | headers were not defined |
 # <a id="get_pet_by_id.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 # <a id="get_pet_by_id.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 #### <a id="get_pet_by_id.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -954,13 +954,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="update_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 # <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 ### Return Types, Responses
@@ -1245,7 +1245,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_file_with_required_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization
@@ -1377,7 +1377,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_image.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization

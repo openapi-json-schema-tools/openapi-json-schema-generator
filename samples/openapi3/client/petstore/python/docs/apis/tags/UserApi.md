@@ -78,7 +78,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="create_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../models/User.md) |  | 
+[**User**](../../components/schema/User.md) |  | 
 
 
 ### Return Types, Responses
@@ -452,13 +452,13 @@ headers | Unset | headers were not defined |
 # <a id="get_user_by_name.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../models/User.md) |  | 
+[**User**](../../components/schema/User.md) |  | 
 
 
 # <a id="get_user_by_name.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../models/User.md) |  | 
+[**User**](../../components/schema/User.md) |  | 
 
 
 #### <a id="get_user_by_name.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -733,7 +733,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="update_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../models/User.md) |  | 
+[**User**](../../components/schema/User.md) |  | 
 
 
 ### <a id="update_user.RequestPathParameters" >path_params</a>
