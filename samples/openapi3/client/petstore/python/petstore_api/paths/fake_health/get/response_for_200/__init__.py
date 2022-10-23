@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.model.health_check_result import HealthCheckResult
+from petstore_api.components.schema.health_check_result import HealthCheckResult
 
 # body schemas
 application_json = HealthCheckResult
