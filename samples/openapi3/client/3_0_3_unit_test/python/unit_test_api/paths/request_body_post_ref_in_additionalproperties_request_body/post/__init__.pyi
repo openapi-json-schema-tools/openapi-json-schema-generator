@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
 
 from . import response_for_200
 from . import request_body

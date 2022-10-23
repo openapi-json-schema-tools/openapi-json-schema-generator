@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.minitems_validation import MinitemsValidation
+from unit_test_api.components.schema.minitems_validation import MinitemsValidation
 
 from .. import path
 from . import response_for_200

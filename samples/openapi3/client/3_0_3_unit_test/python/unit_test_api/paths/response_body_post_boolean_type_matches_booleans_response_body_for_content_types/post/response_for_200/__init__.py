@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 
 # body schemas
 application_json = BooleanTypeMatchesBooleans
