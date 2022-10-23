@@ -407,20 +407,22 @@ Class | Method | HTTP request | Description
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in petstore_api.apis and petstore_api.components.schemas may fail with a
+If the OpenAPI document is large, imports in petstore_api.apis.tags.tag_to_api and petstore_api.components.schemas may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
 - `from petstore_api.apis.default_api import DefaultApi`
+- `from petstore_api.apis.paths.some_path import SomePath`
+- `from petstore_api.paths.some_path.get import ApiForget`
 - `from petstore_api.components.schema.pet import Pet`
 
-Solution 1:
+Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
 import petstore_api
-from petstore_api.apis import *
+from petstore_api.apis.tags.tag_to_api import *
 from petstore_api.components.schemas import *
 ```

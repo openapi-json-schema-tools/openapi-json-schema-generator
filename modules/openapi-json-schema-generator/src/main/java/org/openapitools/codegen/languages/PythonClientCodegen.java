@@ -440,9 +440,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
         supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separatorChar + "components" , "__init__.py"));
-        supportingFiles.add(new SupportingFile("__init__models." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
-        supportingFiles.add(new SupportingFile("__init__model." + templateExtension, packagePath() + File.separatorChar + modelPackage.replace('.', File.separatorChar), "__init__.py"));
-        supportingFiles.add(new SupportingFile("__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
+        boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
+        if (generateModels) {
+            supportingFiles.add(new SupportingFile("__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__schema." + templateExtension, packagePath() + File.separatorChar + modelPackage.replace('.', File.separatorChar), "__init__.py"));
+        }
+        boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
+        if (generateApis) {
+            supportingFiles.add(new SupportingFile("__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
+        }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
@@ -669,7 +675,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         tagToApiMap.put("apiClassname", "Api");
         tagToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
         tagToApiMap.put("tagEnumToApiClassname", tagEnumToApiClassname);
-        outputFilename = packageFilename(Arrays.asList("apis", "tag_to_api.py"));
+        outputFilename = packageFilename(Arrays.asList(apiPackage, "tag_to_api.py"));
         apisFiles.add(Arrays.asList(tagToApiMap, "apis_tag_to_api.handlebars", outputFilename));
         // apis.path_to_api.py
         Map<String, Object> allByPathsFileMap = new HashMap<>();
@@ -677,13 +683,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         allByPathsFileMap.put("apiClassname", "Api");
         allByPathsFileMap.put("pathModuleToApiClassname", pathModuleToApiClassname);
         allByPathsFileMap.put("pathEnumToApiClassname", pathEnumToApiClassname);
-        outputFilename = packageFilename(Arrays.asList("apis", "path_to_api.py"));
+        outputFilename = packageFilename(Arrays.asList(apiPackage, "path_to_api.py"));
         apisFiles.add(Arrays.asList(allByPathsFileMap, "apis_path_to_api.handlebars", outputFilename));
         // apis.paths.__init__.py
         Map<String, Object> initApiTagsMap = new HashMap<>();
         initApiTagsMap.put("packageName", packageName);
         initApiTagsMap.put("enumToTag", enumToTag);
-        outputFilename = packageFilename(Arrays.asList("apis", "tags", "__init__.py"));
+        outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
         apisFiles.add(Arrays.asList(initApiTagsMap, "__init__apis_tags.handlebars", outputFilename));
 
         // paths.__init__.py (contains path str enum)
@@ -694,7 +700,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
         pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths_enum.handlebars", outputFilename));
         // apis.paths.__init__.py
-        outputFilename = packageFilename(Arrays.asList("apis", "paths", "__init__.py"));
+        outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
         apisFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
         // paths.some_path.__init__.py
         // apis.paths.some_path.py
