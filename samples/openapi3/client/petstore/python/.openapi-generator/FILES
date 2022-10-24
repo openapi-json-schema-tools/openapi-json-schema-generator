@@ -399,5 +399,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/components/__init__.py
 test/components/schema/__init__.py
 tox.ini
