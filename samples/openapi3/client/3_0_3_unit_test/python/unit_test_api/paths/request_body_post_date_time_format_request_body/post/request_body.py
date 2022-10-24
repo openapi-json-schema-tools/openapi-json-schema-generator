@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.date_time_format import DateTimeFormat
+from unit_test_api.components.schema.date_time_format import DateTimeFormat
 
 
 application_json = DateTimeFormat

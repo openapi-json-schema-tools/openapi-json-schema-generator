@@ -102,7 +102,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -142,7 +142,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../models/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
+[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
 
 
 ### Return Types, Responses
@@ -174,7 +174,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -211,7 +211,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_are_allowed_by_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAreAllowedByDefault**](../../models/AdditionalpropertiesAreAllowedByDefault.md) |  | 
+[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/AdditionalpropertiesAreAllowedByDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -243,7 +243,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
+from unit_test_api.components.schema.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -282,7 +282,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_can_exist_by_itself_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../models/AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../components/schema/AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Return Types, Responses
@@ -314,7 +314,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
+from unit_test_api.components.schema.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -351,7 +351,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_should_not_look_in_applicators_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesShouldNotLookInApplicators**](../../models/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
+[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
 
 
 ### Return Types, Responses
@@ -383,7 +383,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
+from unit_test_api.components.schema.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -420,7 +420,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_combined_with_anyof_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -452,7 +452,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof import Allof
+from unit_test_api.components.schema.allof import Allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -489,7 +489,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../models/Allof.md) |  | 
+[**Allof**](../../components/schema/Allof.md) |  | 
 
 
 ### Return Types, Responses
@@ -521,7 +521,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema.allof_simple_types import AllofSimpleTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -558,7 +558,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_simple_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/AllofSimpleTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -590,7 +590,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_base_schema import AllofWithBaseSchema
+from unit_test_api.components.schema.allof_with_base_schema import AllofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -627,7 +627,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/AllofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -659,7 +659,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_one_empty_schema import AllofWithOneEmptySchema
+from unit_test_api.components.schema.allof_with_one_empty_schema import AllofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -696,7 +696,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/AllofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -728,7 +728,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -765,7 +765,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_the_first_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -797,7 +797,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -834,7 +834,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_the_last_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -866,7 +866,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
+from unit_test_api.components.schema.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -903,7 +903,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_two_empty_schemas_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Return Types, Responses
@@ -935,7 +935,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -972,7 +972,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofComplexTypes**](../../models/AnyofComplexTypes.md) |  | 
+[**AnyofComplexTypes**](../../components/schema/AnyofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -1004,7 +1004,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof import Anyof
+from unit_test_api.components.schema.anyof import Anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1041,7 +1041,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Anyof**](../../models/Anyof.md) |  | 
+[**Anyof**](../../components/schema/Anyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -1073,7 +1073,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof_with_base_schema import AnyofWithBaseSchema
+from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1110,7 +1110,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithBaseSchema**](../../models/AnyofWithBaseSchema.md) |  | 
+[**AnyofWithBaseSchema**](../../components/schema/AnyofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1142,7 +1142,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1179,7 +1179,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithOneEmptySchema**](../../models/AnyofWithOneEmptySchema.md) |  | 
+[**AnyofWithOneEmptySchema**](../../components/schema/AnyofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1211,7 +1211,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1250,7 +1250,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_array_type_matches_arrays_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Return Types, Responses
@@ -1282,7 +1282,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1319,7 +1319,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_boolean_type_matches_booleans_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Return Types, Responses
@@ -1351,7 +1351,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.by_int import ByInt
+from unit_test_api.components.schema.by_int import ByInt
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1388,7 +1388,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_int_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../models/ByInt.md) |  | 
+[**ByInt**](../../components/schema/ByInt.md) |  | 
 
 
 ### Return Types, Responses
@@ -1420,7 +1420,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.by_number import ByNumber
+from unit_test_api.components.schema.by_number import ByNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1457,7 +1457,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../models/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/ByNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -1489,7 +1489,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.by_small_number import BySmallNumber
+from unit_test_api.components.schema.by_small_number import BySmallNumber
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1526,7 +1526,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_small_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../models/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -1558,7 +1558,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.date_time_format import DateTimeFormat
+from unit_test_api.components.schema.date_time_format import DateTimeFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1595,7 +1595,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_date_time_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../models/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -1627,7 +1627,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.email_format import EmailFormat
+from unit_test_api.components.schema.email_format import EmailFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1664,7 +1664,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_email_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../models/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -1696,7 +1696,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1733,7 +1733,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with0_does_not_match_false_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../models/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Return Types, Responses
@@ -1765,7 +1765,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
+from unit_test_api.components.schema.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1802,7 +1802,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with1_does_not_match_true_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../models/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Return Types, Responses
@@ -1834,7 +1834,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1871,7 +1871,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../models/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/EnumWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -1903,7 +1903,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
+from unit_test_api.components.schema.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1940,7 +1940,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_false_does_not_match0_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../models/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Return Types, Responses
@@ -1972,7 +1972,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
+from unit_test_api.components.schema.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2009,7 +2009,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_true_does_not_match1_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../models/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Return Types, Responses
@@ -2041,7 +2041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2081,7 +2081,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enums_in_properties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../models/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/EnumsInProperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -2113,7 +2113,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2150,7 +2150,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -2182,7 +2182,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.hostname_format import HostnameFormat
+from unit_test_api.components.schema.hostname_format import HostnameFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2219,7 +2219,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_hostname_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../models/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -2251,7 +2251,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2288,7 +2288,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_integer_type_matches_integers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Return Types, Responses
@@ -2320,7 +2320,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+from unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2357,7 +2357,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Return Types, Responses
@@ -2389,7 +2389,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.invalid_string_value_for_default import InvalidStringValueForDefault
+from unit_test_api.components.schema.invalid_string_value_for_default import InvalidStringValueForDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2426,7 +2426,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_string_value_for_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../models/InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../components/schema/InvalidStringValueForDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -2458,7 +2458,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ipv4_format import Ipv4Format
+from unit_test_api.components.schema.ipv4_format import Ipv4Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2495,7 +2495,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv4_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../models/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -2527,7 +2527,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ipv6_format import Ipv6Format
+from unit_test_api.components.schema.ipv6_format import Ipv6Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2564,7 +2564,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv6_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../models/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -2596,7 +2596,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.json_pointer_format import JsonPointerFormat
+from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2633,7 +2633,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_json_pointer_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../models/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -2665,7 +2665,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maximum_validation import MaximumValidation
+from unit_test_api.components.schema.maximum_validation import MaximumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2702,7 +2702,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maximum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidation**](../../models/MaximumValidation.md) |  | 
+[**MaximumValidation**](../../components/schema/MaximumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2734,7 +2734,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
+from unit_test_api.components.schema.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2771,7 +2771,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maximum_validation_with_unsigned_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidationWithUnsignedInteger**](../../models/MaximumValidationWithUnsignedInteger.md) |  | 
+[**MaximumValidationWithUnsignedInteger**](../../components/schema/MaximumValidationWithUnsignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -2803,7 +2803,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxitems_validation import MaxitemsValidation
+from unit_test_api.components.schema.maxitems_validation import MaxitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2840,7 +2840,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxitemsValidation**](../../models/MaxitemsValidation.md) |  | 
+[**MaxitemsValidation**](../../components/schema/MaxitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2872,7 +2872,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2909,7 +2909,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxlengthValidation**](../../models/MaxlengthValidation.md) |  | 
+[**MaxlengthValidation**](../../components/schema/MaxlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2941,7 +2941,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
+from unit_test_api.components.schema.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2978,7 +2978,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties0_means_the_object_is_empty_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../models/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Return Types, Responses
@@ -3010,7 +3010,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.maxproperties_validation import MaxpropertiesValidation
+from unit_test_api.components.schema.maxproperties_validation import MaxpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3047,7 +3047,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../models/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3079,7 +3079,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minimum_validation import MinimumValidation
+from unit_test_api.components.schema.minimum_validation import MinimumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3116,7 +3116,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minimum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../models/MinimumValidation.md) |  | 
+[**MinimumValidation**](../../components/schema/MinimumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3148,7 +3148,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3185,7 +3185,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minimum_validation_with_signed_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../models/MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../components/schema/MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -3217,7 +3217,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minitems_validation import MinitemsValidation
+from unit_test_api.components.schema.minitems_validation import MinitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3254,7 +3254,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinitemsValidation**](../../models/MinitemsValidation.md) |  | 
+[**MinitemsValidation**](../../components/schema/MinitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3286,7 +3286,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minlength_validation import MinlengthValidation
+from unit_test_api.components.schema.minlength_validation import MinlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3323,7 +3323,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinlengthValidation**](../../models/MinlengthValidation.md) |  | 
+[**MinlengthValidation**](../../components/schema/MinlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3355,7 +3355,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.minproperties_validation import MinpropertiesValidation
+from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3392,7 +3392,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinpropertiesValidation**](../../models/MinpropertiesValidation.md) |  | 
+[**MinpropertiesValidation**](../../components/schema/MinpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -3424,7 +3424,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3461,7 +3461,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_allof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -3493,7 +3493,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3530,7 +3530,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_anyof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAnyofToCheckValidationSemantics**](../../models/NestedAnyofToCheckValidationSemantics.md) |  | 
+[**NestedAnyofToCheckValidationSemantics**](../../components/schema/NestedAnyofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -3562,7 +3562,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_items import NestedItems
+from unit_test_api.components.schema.nested_items import NestedItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3607,7 +3607,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedItems**](../../models/NestedItems.md) |  | 
+[**NestedItems**](../../components/schema/NestedItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -3639,7 +3639,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3676,7 +3676,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_oneof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -3708,7 +3708,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.not_more_complex_schema import NotMoreComplexSchema
+from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3745,7 +3745,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -3777,7 +3777,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.model_not import ModelNot
+from unit_test_api.components.schema.model_not import ModelNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3814,7 +3814,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../models/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/ModelNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -3846,7 +3846,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3883,7 +3883,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nul_characters_in_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../models/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/NulCharactersInStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -3915,7 +3915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3952,7 +3952,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_null_type_matches_only_the_null_object_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Return Types, Responses
@@ -3984,7 +3984,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4021,7 +4021,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_number_type_matches_numbers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Return Types, Responses
@@ -4053,7 +4053,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4090,7 +4090,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_properties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectPropertiesValidation**](../../models/ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../components/schema/ObjectPropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -4122,7 +4122,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.object_type_matches_objects import ObjectTypeMatchesObjects
+from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4159,7 +4159,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_type_matches_objects_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Return Types, Responses
@@ -4191,7 +4191,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_complex_types import OneofComplexTypes
+from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4228,7 +4228,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -4260,7 +4260,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof import Oneof
+from unit_test_api.components.schema.oneof import Oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4297,7 +4297,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../models/Oneof.md) |  | 
+[**Oneof**](../../components/schema/Oneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -4329,7 +4329,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_with_base_schema import OneofWithBaseSchema
+from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4366,7 +4366,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -4398,7 +4398,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4435,7 +4435,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -4467,7 +4467,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.oneof_with_required import OneofWithRequired
+from unit_test_api.components.schema.oneof_with_required import OneofWithRequired
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4504,7 +4504,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_required_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
 
 
 ### Return Types, Responses
@@ -4536,7 +4536,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4573,7 +4573,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_pattern_is_not_anchored_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternIsNotAnchored**](../../models/PatternIsNotAnchored.md) |  | 
+[**PatternIsNotAnchored**](../../components/schema/PatternIsNotAnchored.md) |  | 
 
 
 ### Return Types, Responses
@@ -4605,7 +4605,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.pattern_validation import PatternValidation
+from unit_test_api.components.schema.pattern_validation import PatternValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4642,7 +4642,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_pattern_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternValidation**](../../models/PatternValidation.md) |  | 
+[**PatternValidation**](../../components/schema/PatternValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -4674,7 +4674,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4711,7 +4711,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_properties_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../models/PropertiesWithEscapedCharacters.md) |  | 
+[**PropertiesWithEscapedCharacters**](../../components/schema/PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -4743,7 +4743,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4780,7 +4780,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../models/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses
@@ -4812,7 +4812,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4851,7 +4851,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_additionalproperties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../models/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -4883,7 +4883,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_allof import RefInAllof
+from unit_test_api.components.schema.ref_in_allof import RefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4920,7 +4920,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../models/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
 
 
 ### Return Types, Responses
@@ -4952,7 +4952,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4989,7 +4989,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../models/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -5021,7 +5021,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_items import RefInItems
+from unit_test_api.components.schema.ref_in_items import RefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5060,7 +5060,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../models/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/RefInItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -5092,7 +5092,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_not import RefInNot
+from unit_test_api.components.schema.ref_in_not import RefInNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5129,7 +5129,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInNot**](../../models/RefInNot.md) |  | 
+[**RefInNot**](../../components/schema/RefInNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -5161,7 +5161,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema.ref_in_oneof import RefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5198,7 +5198,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../models/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -5230,7 +5230,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.ref_in_property import RefInProperty
+from unit_test_api.components.schema.ref_in_property import RefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5267,7 +5267,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../models/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -5299,7 +5299,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5336,7 +5336,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5368,7 +5368,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_validation import RequiredValidation
+from unit_test_api.components.schema.required_validation import RequiredValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5405,7 +5405,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../models/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5437,7 +5437,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5474,7 +5474,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses
@@ -5506,7 +5506,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.required_with_escaped_characters import RequiredWithEscapedCharacters
+from unit_test_api.components.schema.required_with_escaped_characters import RequiredWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5543,7 +5543,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -5575,7 +5575,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.simple_enum_validation import SimpleEnumValidation
+from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5612,7 +5612,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_simple_enum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../models/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/SimpleEnumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5644,7 +5644,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.string_type_matches_strings import StringTypeMatchesStrings
+from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5681,7 +5681,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_string_type_matches_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -5713,7 +5713,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+from unit_test_api.components.schema.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5752,7 +5752,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
+[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
 
 
 ### Return Types, Responses
@@ -5784,7 +5784,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uniqueitems_false_validation import UniqueitemsFalseValidation
+from unit_test_api.components.schema.uniqueitems_false_validation import UniqueitemsFalseValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5821,7 +5821,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uniqueitems_false_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../models/UniqueitemsFalseValidation.md) |  | 
+[**UniqueitemsFalseValidation**](../../components/schema/UniqueitemsFalseValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5853,7 +5853,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uniqueitems_validation import UniqueitemsValidation
+from unit_test_api.components.schema.uniqueitems_validation import UniqueitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5890,7 +5890,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uniqueitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../models/UniqueitemsValidation.md) |  | 
+[**UniqueitemsValidation**](../../components/schema/UniqueitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5922,7 +5922,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uri_format import UriFormat
+from unit_test_api.components.schema.uri_format import UriFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5959,7 +5959,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../models/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/UriFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -5991,7 +5991,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uri_reference_format import UriReferenceFormat
+from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6028,7 +6028,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_reference_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../models/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -6060,7 +6060,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.model.uri_template_format import UriTemplateFormat
+from unit_test_api.components.schema.uri_template_format import UriTemplateFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6097,7 +6097,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_template_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../models/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
 
 
 ### Return Types, Responses

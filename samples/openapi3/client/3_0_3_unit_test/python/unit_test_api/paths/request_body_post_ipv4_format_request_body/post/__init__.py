@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.ipv4_format import Ipv4Format
+from unit_test_api.components.schema.ipv4_format import Ipv4Format
 
 from .. import path
 from . import response_for_200

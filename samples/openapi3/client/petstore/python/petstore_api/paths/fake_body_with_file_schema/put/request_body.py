@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.model.file_schema_test_class import FileSchemaTestClass
+from petstore_api.components.schema.file_schema_test_class import FileSchemaTestClass
 
 
 application_json = FileSchemaTestClass

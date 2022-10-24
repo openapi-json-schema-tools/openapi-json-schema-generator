@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.mammal import Mammal
+from petstore_api.components.schema.mammal import Mammal
 
 
 class TestMammal(unittest.TestCase):
@@ -31,22 +31,22 @@ class TestMammal(unittest.TestCase):
 
         # tests that we can make a BasquePig by traveling through discriminator in Pig
         m = Mammal(className="BasquePig")
-        from petstore_api.model import pig
-        from petstore_api.model import basque_pig
+        from petstore_api.components.schema import pig
+        from petstore_api.components.schema import basque_pig
         assert isinstance(m, Mammal)
         assert isinstance(m, basque_pig.BasquePig)
         assert isinstance(m, pig.Pig)
 
         # can make a Whale
         m = Mammal(className="whale")
-        from petstore_api.model import whale
+        from petstore_api.components.schema import whale
         assert isinstance(m, whale.Whale)
 
         # can use the enum value
         m = Mammal(className=whale.Whale.MetaOapg.properties.className.WHALE)
         assert isinstance(m, whale.Whale)
 
-        from petstore_api.model import zebra
+        from petstore_api.components.schema import zebra
         m = Mammal(className='zebra')
         assert isinstance(m, zebra.Zebra)
 

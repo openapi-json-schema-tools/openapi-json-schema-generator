@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
 
 # body schemas
 application_json = IntegerTypeMatchesIntegers

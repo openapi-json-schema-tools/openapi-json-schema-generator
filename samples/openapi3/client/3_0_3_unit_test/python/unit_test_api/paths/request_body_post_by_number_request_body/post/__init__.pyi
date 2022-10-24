@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.by_number import ByNumber
+from unit_test_api.components.schema.by_number import ByNumber
 
 from . import response_for_200
 from . import request_body

@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.uri_reference_format import UriReferenceFormat
+from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
 
 
 application_json = UriReferenceFormat

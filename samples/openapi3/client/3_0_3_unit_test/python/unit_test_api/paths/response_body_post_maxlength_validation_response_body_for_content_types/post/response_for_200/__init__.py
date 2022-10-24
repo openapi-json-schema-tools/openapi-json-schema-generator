@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
 
 # body schemas
 application_json = MaxlengthValidation
