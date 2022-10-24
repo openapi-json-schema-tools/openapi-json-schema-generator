@@ -12,10 +12,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_addition_operator.py
-test/components/schema/test_operator.py
-test/components/schema/test_subtraction_operator.py
 this_package/__init__.py
 this_package/api_client.py
 this_package/apis/__init__.py

@@ -421,6 +421,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (Boolean.FALSE.equals(excludeTests)) {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder, "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
         }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));

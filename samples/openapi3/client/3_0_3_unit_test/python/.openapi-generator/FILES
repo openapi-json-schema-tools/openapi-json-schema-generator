@@ -123,6 +123,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/components/__init__.py
 test/components/schema/__init__.py
 test/components/schema/test_additionalproperties_allows_a_schema_which_should_validate.py
 test/components/schema/test_additionalproperties_are_allowed_by_default.py
