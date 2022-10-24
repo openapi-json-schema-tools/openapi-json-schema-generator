@@ -807,7 +807,7 @@ Supporting files can either be processed through the templating engine or copied
 
 > This is a very limited list of variable name explanations. Feel free to [open a pull request](https://github.com/OpenAPITools/openapi-generator/pull/new/master) to add to this documentation!
 
-- **complexType**: stores the name of the model (e.g. Pet)
+- **refClass**: stores the name of the model (e.g. Pet)
 - **isContainer**: true if the parameter or property is an array or a map.
 - **isPrimitiveType**: true if the parameter or property type is a primitive type (e.g. string, integer, etc) as defined in the spec.
 
