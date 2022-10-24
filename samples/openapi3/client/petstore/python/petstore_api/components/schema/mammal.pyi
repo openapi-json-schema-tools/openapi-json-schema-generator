@@ -56,9 +56,9 @@ class Mammal(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                Whale,
-                Zebra,
-                Pig,
+                whale.Whale,
+                zebra.Zebra,
+                pig.Pig,
             ]
 
 
@@ -76,5 +76,8 @@ class Mammal(
         )
 
 from petstore_api.components.schema.pig import Pig
+from petstore_api.components.schema.pig_pig import PigPig
 from petstore_api.components.schema.whale import Whale
+from petstore_api.components.schema.whale_whale import WhaleWhale
 from petstore_api.components.schema.zebra import Zebra
+from petstore_api.components.schema.zebra_zebra import ZebraZebra

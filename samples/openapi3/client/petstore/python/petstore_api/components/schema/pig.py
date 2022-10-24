@@ -55,8 +55,8 @@ class Pig(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                BasquePig,
-                DanishPig,
+                basque_pig.BasquePig,
+                danish_pig.DanishPig,
             ]
 
 
@@ -74,4 +74,6 @@ class Pig(
         )
 
 from petstore_api.components.schema.basque_pig import BasquePig
+from petstore_api.components.schema.basque_pig_basque_pig import BasquePigBasquePig
 from petstore_api.components.schema.danish_pig import DanishPig
+from petstore_api.components.schema.danish_pig_danish_pig import DanishPigDanishPig

@@ -56,9 +56,9 @@ class Triangle(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                EquilateralTriangle,
-                IsoscelesTriangle,
-                ScaleneTriangle,
+                equilateral_triangle.EquilateralTriangle,
+                isosceles_triangle.IsoscelesTriangle,
+                scalene_triangle.ScaleneTriangle,
             ]
 
 
@@ -76,5 +76,8 @@ class Triangle(
         )
 
 from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
+from petstore_api.components.schema.equilateral_triangle_equilateral_triangle import EquilateralTriangleEquilateralTriangle
 from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
+from petstore_api.components.schema.isosceles_triangle_isosceles_triangle import IsoscelesTriangleIsoscelesTriangle
 from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
+from petstore_api.components.schema.scalene_triangle_scalene_triangle import ScaleneTriangleScaleneTriangle

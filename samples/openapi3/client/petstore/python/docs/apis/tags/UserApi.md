@@ -26,7 +26,7 @@ This can only be done by the logged in user.
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema.user import User
+from petstore_api.components.schema.user_user import UserUser
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -78,7 +78,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="create_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../components/schema/User.md) |  | 
+[**User**](../../components/schema/user.User.md) |  | 
 
 
 ### Return Types, Responses
@@ -111,7 +111,7 @@ Creates list of users with given input array
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema.user import User
+from petstore_api.components.schema.user_user import UserUser
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -172,7 +172,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**User**]({{complexTypePrefix}}User.md) | [**User**]({{complexTypePrefix}}User.md) | [**User**]({{complexTypePrefix}}User.md) |  | 
+[**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) |  | 
 
 ### Return Types, Responses
 
@@ -204,7 +204,7 @@ Creates list of users with given input array
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema.user import User
+from petstore_api.components.schema.user_user import UserUser
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -265,7 +265,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**User**]({{complexTypePrefix}}User.md) | [**User**]({{complexTypePrefix}}User.md) | [**User**]({{complexTypePrefix}}User.md) |  | 
+[**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) |  | 
 
 ### Return Types, Responses
 
@@ -452,13 +452,13 @@ headers | Unset | headers were not defined |
 # <a id="get_user_by_name.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../components/schema/User.md) |  | 
+[**User**](../../components/schema/user.User.md) |  | 
 
 
 # <a id="get_user_by_name.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../components/schema/User.md) |  | 
+[**User**](../../components/schema/user.User.md) |  | 
 
 
 #### <a id="get_user_by_name.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -676,7 +676,7 @@ This can only be done by the logged in user.
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema.user import User
+from petstore_api.components.schema.user_user import UserUser
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -733,7 +733,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="update_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../components/schema/User.md) |  | 
+[**User**](../../components/schema/user.User.md) |  | 
 
 
 ### <a id="update_user.RequestPathParameters" >path_params</a>

@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.order import Order
+from petstore_api.components.schema.order_order import OrderOrder
 
 from . import response_for_200
 from . import response_for_400

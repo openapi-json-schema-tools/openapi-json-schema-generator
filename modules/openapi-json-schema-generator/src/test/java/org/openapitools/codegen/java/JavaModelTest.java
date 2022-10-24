@@ -989,7 +989,7 @@ public class JavaModelTest {
         final JavaClientCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
         codegen.setBooleanGetterPrefix("is");
-        final CodegenProperty cp = codegen.fromProperty("property", property);
+        final CodegenProperty cp = codegen.fromProperty("property", property, false, false);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.dataType, "Boolean");
@@ -1006,7 +1006,7 @@ public class JavaModelTest {
         final IntegerSchema property = new IntegerSchema();
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("property", property);
+        final CodegenProperty cp = codegen.fromProperty("property", property, false, false);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.dataType, "Integer");
@@ -1024,7 +1024,7 @@ public class JavaModelTest {
         final IntegerSchema property = new IntegerSchema().format("int64");
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("property", property);
+        final CodegenProperty cp = codegen.fromProperty("property", property, false, false);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.nameInCamelCase, "Property");
@@ -1104,7 +1104,8 @@ public class JavaModelTest {
         final Schema property = new StringSchema().maxLength(10).minLength(3).pattern("^[A-Z]+$");
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("somePropertyWithMinMaxAndPattern", property);
+        final CodegenProperty cp = codegen.fromProperty(
+                "somePropertyWithMinMaxAndPattern", property, false, false);
 
         Assert.assertEquals(cp.baseName, "somePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.nameInCamelCase, "SomePropertyWithMinMaxAndPattern");

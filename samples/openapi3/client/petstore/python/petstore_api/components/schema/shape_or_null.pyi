@@ -59,8 +59,8 @@ class ShapeOrNull(
             # loading
             return [
                 cls.one_of_0,
-                Triangle,
-                Quadrilateral,
+                triangle.Triangle,
+                quadrilateral.Quadrilateral,
             ]
 
 
@@ -78,4 +78,6 @@ class ShapeOrNull(
         )
 
 from petstore_api.components.schema.quadrilateral import Quadrilateral
+from petstore_api.components.schema.quadrilateral_quadrilateral import QuadrilateralQuadrilateral
 from petstore_api.components.schema.triangle import Triangle
+from petstore_api.components.schema.triangle_triangle import TriangleTriangle

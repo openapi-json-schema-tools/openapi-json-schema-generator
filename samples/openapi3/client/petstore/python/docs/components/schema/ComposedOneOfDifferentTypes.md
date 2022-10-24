@@ -12,7 +12,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [NumberWithValidations](NumberWithValidations.md) | [**NumberWithValidations**](NumberWithValidations.md) | [**NumberWithValidations**](NumberWithValidations.md) |  | 
-[Animal](Animal.md) | [**Animal**](Animal.md) | [**Animal**](Animal.md) |  | 
+[Animal](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  | 
 [one_of_2](#one_of_2) | None,  | NoneClass,  |  | 
 [one_of_3](#one_of_3) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [one_of_4](#one_of_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 

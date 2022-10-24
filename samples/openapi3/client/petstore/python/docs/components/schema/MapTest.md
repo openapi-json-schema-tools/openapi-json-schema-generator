@@ -11,7 +11,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[map_map_of_string](#map_map_of_string)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **[map_of_enum_string](#map_of_enum_string)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **[direct_map](#direct_map)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
-**indirect_map** | [**StringBooleanMap**](StringBooleanMap.md) | [**StringBooleanMap**](StringBooleanMap.md) |  | [optional] 
+**indirect_map** | [**StringBooleanMap**](string_boolean_map.StringBooleanMap.md) | [**StringBooleanMap**](string_boolean_map.StringBooleanMap.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # map_map_of_string

@@ -1705,7 +1705,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenResponse cr = codegen.fromResponse("2XX", response2XX);
+        CodegenResponse cr = codegen.fromResponse("2XX", response2XX, "");
         Assert.assertNotNull(cr);
         Assert.assertTrue(cr.hasHeaders);
     }
@@ -1717,7 +1717,12 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenProperty property = codegen.fromProperty("address", (Schema) openAPI.getComponents().getSchemas().get("User").getProperties().get("address"));
+        CodegenProperty property = codegen.fromProperty(
+                "address",
+                (Schema) openAPI.getComponents().getSchemas().get("User").getProperties().get("address"),
+                false,
+                false
+        );
 
         Assert.assertTrue(property.isNullable);
     }
@@ -1745,10 +1750,30 @@ public class DefaultCodegenTest {
         final Map responseProperties = Collections.unmodifiableMap(openAPI.getComponents().getSchemas().get("Response").getProperties());
         final Map requestProperties = Collections.unmodifiableMap(openAPI.getComponents().getSchemas().get("Response").getProperties());
 
-        Assert.assertTrue(codegen.fromProperty("firstName", (Schema) responseProperties.get("firstName")).deprecated);
-        Assert.assertFalse(codegen.fromProperty("customerCode", (Schema) responseProperties.get("customerCode")).deprecated);
-        Assert.assertTrue(codegen.fromProperty("firstName", (Schema) requestProperties.get("firstName")).deprecated);
-        Assert.assertFalse(codegen.fromProperty("customerCode", (Schema) requestProperties.get("customerCode")).deprecated);
+        Assert.assertTrue(codegen.fromProperty(
+                "firstName",
+                (Schema) responseProperties.get("firstName"),
+                false,
+                false
+        ).deprecated);
+        Assert.assertFalse(codegen.fromProperty(
+                "customerCode",
+                (Schema) responseProperties.get("customerCode"),
+                false,
+                false
+        ).deprecated);
+        Assert.assertTrue(codegen.fromProperty(
+                "firstName",
+                (Schema) requestProperties.get("firstName"),
+                false,
+                false
+        ).deprecated);
+        Assert.assertFalse(codegen.fromProperty(
+                "customerCode",
+                (Schema) requestProperties.get("customerCode"),
+                false,
+                false
+        ).deprecated);
     }
 
     @Test
@@ -1760,8 +1785,18 @@ public class DefaultCodegenTest {
 
         final Map requestProperties = Collections.unmodifiableMap(openAPI.getComponents().getSchemas().get("complex").getProperties());
 
-        Assert.assertTrue(codegen.fromProperty("deprecated", (Schema) requestProperties.get("deprecated")).deprecated);
-        Assert.assertFalse(codegen.fromProperty("current", (Schema) requestProperties.get("current")).deprecated);
+        Assert.assertTrue(codegen.fromProperty(
+                "deprecated",
+                (Schema) requestProperties.get("deprecated"),
+                false,
+                false
+        ).deprecated);
+        Assert.assertFalse(codegen.fromProperty(
+                "current",
+                (Schema) requestProperties.get("current"),
+                false,
+                false
+        ).deprecated);
     }
 
     @Test
@@ -1772,7 +1807,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty("someProperty", schema);
+        final CodegenProperty cp = codegen.fromProperty("someProperty", schema, false, false);
         Assert.assertEquals(cp.baseType, "integer");
         Assert.assertEquals(cp.baseName, "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1804,7 +1839,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty("someProperty", schema);
+        final CodegenProperty cp = codegen.fromProperty("someProperty", schema, false, false);
         Assert.assertEquals(cp.baseType, "long");
         Assert.assertEquals(cp.baseName, "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1836,7 +1871,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty("someProperty", schema);
+        final CodegenProperty cp = codegen.fromProperty("someProperty", schema, false, false);
         Assert.assertEquals(cp.baseType, "number");
         Assert.assertEquals(cp.baseName, "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1868,7 +1903,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty("someProperty", schema);
+        final CodegenProperty cp = codegen.fromProperty("someProperty", schema, false, false);
         Assert.assertEquals(cp.baseType, "float");
         Assert.assertEquals(cp.baseName, "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1900,7 +1935,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty("someProperty", schema);
+        final CodegenProperty cp = codegen.fromProperty("someProperty", schema, false, false);
         Assert.assertEquals(cp.baseType, "double");
         Assert.assertEquals(cp.baseName, "someProperty");
         Assert.assertFalse(cp.isString);
@@ -2558,7 +2593,7 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema());
+        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema(), false, false);
 
         modelName = "AdditionalPropertiesUnset";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -2581,7 +2616,7 @@ public class DefaultCodegenTest {
         modelName = "AdditionalPropertiesSchema";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"));
+        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"), false, false);
         assertEquals(cm.getAdditionalProperties(), stringCp);
         assertFalse(cm.getAdditionalPropertiesIsAnyType());
     }
@@ -2596,8 +2631,8 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema());
-        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"));
+        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema(), false, false);
+        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"), false, false);
         CodegenProperty mapWithAddPropsUnset;
         CodegenProperty mapWithAddPropsTrue;
         CodegenProperty mapWithAddPropsFalse;
@@ -2657,8 +2692,8 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema());
-        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"));
+        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema(), false, false);
+        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"), false, false);
         CodegenParameter mapWithAddPropsUnset;
         CodegenParameter mapWithAddPropsTrue;
         CodegenParameter mapWithAddPropsFalse;
@@ -2718,8 +2753,8 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema());
-        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"));
+        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema(), false, false);
+        CodegenProperty stringCp = codegen.fromProperty("", new Schema().type("string"), false, false);
         CodegenResponse mapWithAddPropsUnset;
         CodegenResponse mapWithAddPropsTrue;
         CodegenResponse mapWithAddPropsFalse;
@@ -2774,7 +2809,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema());
+        CodegenProperty anyTypeSchema = codegen.fromProperty("", new Schema(), false, false);
 
         Schema sc;
         CodegenModel cm;
@@ -3129,11 +3164,26 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty propA = codegen.fromProperty("a", new Schema().type("string").minLength(1));
+        CodegenProperty propA = codegen.fromProperty(
+                "a",
+                new Schema().type("string").minLength(1),
+                false,
+                false
+        );
         propA.setRequired(true);
-        CodegenProperty propB = codegen.fromProperty("b", new Schema().type("string").minLength(1));
+        CodegenProperty propB = codegen.fromProperty(
+                "b",
+                new Schema().type("string").minLength(1),
+                false,
+                false
+        );
         propB.setRequired(true);
-        CodegenProperty propC = codegen.fromProperty("c", new Schema().type("string").minLength(1));
+        CodegenProperty propC = codegen.fromProperty(
+                "c",
+                new Schema().type("string").minLength(1),
+                false,
+                false
+        );
         propC.setRequired(false);
 
         List<CodegenProperty> vars = new ArrayList<>(Arrays.asList(propA, propB, propC));
