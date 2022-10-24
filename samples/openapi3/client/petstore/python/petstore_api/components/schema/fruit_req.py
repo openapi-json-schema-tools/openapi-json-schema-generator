@@ -48,8 +48,8 @@ class FruitReq(
             # loading
             return [
                 cls.one_of_0,
-                AppleReq,
-                BananaReq,
+                apple_req.AppleReq,
+                banana_req.BananaReq,
             ]
 
 
@@ -66,5 +66,5 @@ class FruitReq(
             **kwargs,
         )
 
-from petstore_api.components.schema.apple_req import AppleReq
-from petstore_api.components.schema.banana_req import BananaReq
+from petstore_api.components.schema.apple_req_apple_req import AppleReqAppleReq
+from petstore_api.components.schema.banana_req_banana_req import BananaReqBananaReq

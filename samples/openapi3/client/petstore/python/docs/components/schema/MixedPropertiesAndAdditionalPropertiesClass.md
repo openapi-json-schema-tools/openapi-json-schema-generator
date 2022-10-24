@@ -23,7 +23,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | [**Animal**](Animal.md) | [**Animal**](Animal.md) | any string name can be used but the value must be the correct type | [optional] 
+**any_string_name** | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | any string name can be used but the value must be the correct type | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.composed_one_of_different_types import ComposedOneOfDifferentTypes
+from petstore_api.components.schema.composed_one_of_different_types_composed_one_of_different_types import ComposedOneOfDifferentTypesComposedOneOfDifferentTypes
 
 from .. import path
 from . import response_for_200

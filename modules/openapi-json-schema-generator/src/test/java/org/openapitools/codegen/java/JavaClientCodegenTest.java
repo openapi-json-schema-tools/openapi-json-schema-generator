@@ -520,7 +520,7 @@ public class JavaClientCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         ApiResponse ok_200 = openAPI.getComponents().getResponses().get("OK_200");
-        CodegenResponse response = codegen.fromResponse("200", ok_200);
+        CodegenResponse response = codegen.fromResponse("200", ok_200, "");
 
         Assert.assertEquals(response.headers.size(), 1);
         CodegenProperty header = response.headers.get(0);

@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.json_patch_request import JSONPatchRequest
+from petstore_api.components.schema.json_patch_request_json_patch_request import JsonPatchRequestJSONPatchRequest
 
 from .. import path
 from . import response_for_200

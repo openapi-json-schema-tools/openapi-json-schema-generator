@@ -741,8 +741,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     they are not.
      */
     @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, IJsonSchemaValidationProperties property){
-        setAddProps(schema, property);
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath){
+        setAddProps(schema, property, sourceJsonPath);
         if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
             // if anyType schema has properties then add them
             if (schema.getProperties() != null && !schema.getProperties().isEmpty()) {
@@ -757,9 +757,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (schema.getRequired() != null) {
                     requiredVars.addAll(schema.getRequired());
                 }
-                addVars(property, property.getVars(), schema.getProperties(), requiredVars);
+                addVars(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
             }
-            addRequiredVarsMap(schema, property);
+            addRequiredVarsMap(schema, property, sourceJsonPath);
             return;
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             HashSet<String> requiredVars = new HashSet<>();
@@ -767,12 +767,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 requiredVars.addAll(schema.getRequired());
                 property.setHasRequired(true);
             }
-            addVars(property, property.getVars(), schema.getProperties(), requiredVars);
+            addVars(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
             if (property.getVars() != null && !property.getVars().isEmpty()) {
                 property.setHasVars(true);
             }
         }
-        addRequiredVarsMap(schema, property);
+        addRequiredVarsMap(schema, property, sourceJsonPath);
         return;
     }
 
@@ -1022,10 +1022,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromProperty(String name, Schema p, boolean required, boolean schemaIsFromAdditionalProperties) {
+    public CodegenProperty fromProperty(String name, Schema p, boolean required, boolean schemaIsFromAdditionalProperties, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
         String fixedName = handleSpecialCharacters(name);
-        CodegenProperty cp = super.fromProperty(fixedName, p, required, schemaIsFromAdditionalProperties);
+        CodegenProperty cp = super.fromProperty(fixedName, p, required, schemaIsFromAdditionalProperties, sourceJsonPath);
 
         if (cp.isAnyType && cp.isNullable) {
             cp.isNullable = false;
@@ -1123,15 +1123,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the resultant CodegenParameter
      */
     @Override
-    public CodegenParameter fromRequestBody(RequestBody body, Set<String> imports, String bodyParameterName) {
-        CodegenParameter cp = super.fromRequestBody(body, imports, bodyParameterName);
+    public CodegenParameter fromRequestBody(RequestBody body, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
+        CodegenParameter cp = super.fromRequestBody(body, imports, bodyParameterName, sourceJsonPath);
         cp.baseName = "body";
         Schema schema = ModelUtils.getSchemaFromRequestBody(body);
         if (schema.get$ref() == null) {
             return cp;
         }
         Schema unaliasedSchema = unaliasSchema(schema);
-        CodegenProperty unaliasedProp = fromProperty("body", unaliasedSchema, false);
+        CodegenProperty unaliasedProp = fromProperty(
+                "body", unaliasedSchema, false, false, sourceJsonPath);
         Boolean dataTypeMismatch = !cp.dataType.equals(unaliasedProp.dataType);
         Boolean baseTypeMismatch = !cp.baseType.equals(unaliasedProp.refClass) && unaliasedProp.refClass != null;
         if (dataTypeMismatch || baseTypeMismatch) {
@@ -1158,7 +1159,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @param forceSimpleRef if true use a model reference
      */
     @Override
-    protected void addBodyModelSchema(CodegenParameter codegenParameter, String name, Schema schema, Set<String> imports, String bodyParameterName, boolean forceSimpleRef) {
+    protected void addBodyModelSchema(CodegenParameter codegenParameter, String name, Schema schema, Set<String> imports, String bodyParameterName, boolean forceSimpleRef, String sourceJsonPath) {
         if (name != null) {
             Schema bodySchema = new Schema().$ref("#/components/schemas/" + name);
             Schema unaliased = unaliasSchema(bodySchema);
@@ -1185,7 +1186,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.description = codegenModel.description;
             codegenParameter.isNullable = codegenModel.isNullable;
         } else {
-            CodegenProperty codegenProperty = fromProperty("property", schema, false);
+            CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
@@ -2201,8 +2202,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the resultant CodegenParameter
      */
     @Override
-    public CodegenParameter fromFormProperty(String name, Schema propertySchema, Set<String> imports) {
-        CodegenParameter cp = super.fromFormProperty(name, propertySchema, imports);
+    public CodegenParameter fromFormProperty(String name, Schema propertySchema, Set<String> imports, String sourceJsonPath) {
+        CodegenParameter cp = super.fromFormProperty(name, propertySchema, imports, sourceJsonPath);
         Parameter p = new Parameter();
         p.setSchema(propertySchema);
         p.setName(cp.paramName);
@@ -2238,12 +2239,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @param property the property for the above schema
      */
     @Override
-    protected void setAddProps(Schema schema, IJsonSchemaValidationProperties property){
+    protected void setAddProps(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath){
         Schema addPropsSchema = getSchemaFromBooleanOrSchema(schema.getAdditionalProperties());
         if (addPropsSchema == null) {
             return;
         }
-        CodegenProperty addPropProp = fromProperty("additional_properties",  addPropsSchema, false, false);
+        CodegenProperty addPropProp = fromProperty(
+                "additional_properties",
+                addPropsSchema,
+                false,
+                false,
+                sourceJsonPath
+        );
         property.setAdditionalProperties(addPropProp);
     }
 
@@ -2356,36 +2363,36 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
 
     @Override
-    protected void updatePropertyForObject(CodegenProperty property, Schema p) {
-        addVarsRequiredVarsAdditionalProps(p, property);
+    protected void updatePropertyForObject(CodegenProperty property, Schema p, String sourceJsonPath) {
+        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
     }
 
     @Override
-    protected void updatePropertyForAnyType(CodegenProperty property, Schema p) {
+    protected void updatePropertyForAnyType(CodegenProperty property, Schema p, String sourceJsonPath) {
         // The 'null' value is allowed when the OAS schema is 'any type'.
         // See https://github.com/OAI/OpenAPI-Specification/issues/1389
         if (Boolean.FALSE.equals(p.getNullable())) {
             LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
         }
-        addVarsRequiredVarsAdditionalProps(p, property);
+        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
     }
 
     @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema) {
+    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
         // custom version of this method so properties are always added with addVars
         if (schema.getProperties() != null || schema.getRequired() != null) {
             // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null);
+            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
         }
         // an object or anyType composed schema that has additionalProperties set
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
-        setAddProps(schema, m);
-        addRequiredVarsMap(schema, m);
+        setAddProps(schema, m, sourceJsonPath);
+        addRequiredVarsMap(schema, m, sourceJsonPath);
     }
 
     @Override
-    protected void updateModelForAnyType(CodegenModel m, Schema schema) {
+    protected void updateModelForAnyType(CodegenModel m, Schema schema, String sourceJsonPath) {
         // The 'null' value is allowed when the OAS schema is 'any type'.
         // See https://github.com/OAI/OpenAPI-Specification/issues/1389
         if (Boolean.FALSE.equals(schema.getNullable())) {
@@ -2394,16 +2401,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // todo add items support here in the future
         if (schema.getProperties() != null || schema.getRequired() != null) {
             // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null);
+            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
         }
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
-        setAddProps(schema, m);
-        addRequiredVarsMap(schema, m);
+        setAddProps(schema, m, sourceJsonPath);
+        addRequiredVarsMap(schema, m, sourceJsonPath);
     }
 
     @Override
-    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, Map<String, Schema> allDefinitions) {
+    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, Map<String, Schema> allDefinitions, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
 
         // TODO revise the logic below to set discriminator, xml attributes
@@ -2626,13 +2633,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the list of length one containing a single type object CodegenParameter
      */
     @Override
-    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, Set<String> imports) {
+    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, Set<String> imports, String sourceJsonPath) {
         List<CodegenParameter> parameters = new ArrayList<>();
         LOGGER.debug("debugging fromRequestBodyToFormParameters= {}", body);
         Schema schema = ModelUtils.getSchemaFromRequestBody(body);
         schema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-        CodegenParameter cp = fromFormProperty("body", schema, imports);
-        cp.setContent(getContent(body.getContent(), imports, ""));
+        CodegenParameter cp = fromFormProperty("body", schema, imports, sourceJsonPath);
+        cp.setContent(getContent(body.getContent(), imports, "", sourceJsonPath));
         cp.isFormParam = false;
         cp.isBodyParam = true;
         parameters.add(cp);

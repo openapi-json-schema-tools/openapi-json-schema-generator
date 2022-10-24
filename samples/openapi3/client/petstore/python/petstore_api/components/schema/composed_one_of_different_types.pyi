@@ -98,7 +98,7 @@ class ComposedOneOfDifferentTypes(
             # loading
             return [
                 NumberWithValidations,
-                Animal,
+                animal.Animal,
                 cls.one_of_2,
                 cls.one_of_3,
                 cls.one_of_4,
@@ -120,5 +120,5 @@ class ComposedOneOfDifferentTypes(
             **kwargs,
         )
 
-from petstore_api.components.schema.animal import Animal
+from petstore_api.components.schema.animal_animal import AnimalAnimal
 from petstore_api.components.schema.number_with_validations import NumberWithValidations

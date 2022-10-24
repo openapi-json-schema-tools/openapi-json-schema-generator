@@ -55,8 +55,8 @@ class Quadrilateral(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                SimpleQuadrilateral,
-                ComplexQuadrilateral,
+                simple_quadrilateral.SimpleQuadrilateral,
+                complex_quadrilateral.ComplexQuadrilateral,
             ]
 
 
@@ -74,4 +74,6 @@ class Quadrilateral(
         )
 
 from petstore_api.components.schema.complex_quadrilateral import ComplexQuadrilateral
+from petstore_api.components.schema.complex_quadrilateral_complex_quadrilateral import ComplexQuadrilateralComplexQuadrilateral
 from petstore_api.components.schema.simple_quadrilateral import SimpleQuadrilateral
+from petstore_api.components.schema.simple_quadrilateral_simple_quadrilateral import SimpleQuadrilateralSimpleQuadrilateral

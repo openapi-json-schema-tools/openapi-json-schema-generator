@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.mammal import Mammal
+from petstore_api.components.schema.mammal_mammal import MammalMammal
 
 from .. import path
 from . import response_for_200

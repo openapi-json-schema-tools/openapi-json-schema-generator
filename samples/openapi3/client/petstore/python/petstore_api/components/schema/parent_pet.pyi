@@ -55,7 +55,7 @@ class ParentPet(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                GrandparentAnimal,
+                grandparent_animal.GrandparentAnimal,
             ]
 
 
@@ -73,4 +73,4 @@ class ParentPet(
         )
 
 from petstore_api.components.schema.child_cat import ChildCat
-from petstore_api.components.schema.grandparent_animal import GrandparentAnimal
+from petstore_api.components.schema.grandparent_animal_grandparent_animal import GrandparentAnimalGrandparentAnimal
