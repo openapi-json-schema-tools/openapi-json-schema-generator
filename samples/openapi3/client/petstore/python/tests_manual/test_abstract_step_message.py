@@ -46,7 +46,7 @@ class TestAbstractStepMessage(unittest.TestCase):
             },
         ]
         for invalid_kwarg in invalid_kwargs:
-            with self.assertRaises(petstore_api.exceptions.ApiTypeError):
+            with self.assertRaises(TypeError):
                 AbstractStepMessage(**invalid_kwarg)
 
 if __name__ == '__main__':
