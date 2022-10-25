@@ -2992,3 +2992,17 @@ components:
           properties:
             name:
               type: string
+    AbstractStepMessage:
+      required:
+        - description
+        - discriminator
+        - sequenceNumber
+      type: object
+      properties:
+        discriminator:
+          type: string
+      description: Abstract Step
+      discriminator:
+        propertyName: discriminator
+      anyOf:
+        - $ref: '#/components/schemas/AbstractStepMessage'
