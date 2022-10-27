@@ -28,152 +28,12 @@ from petstore_api import schemas  # noqa: F401
 from .. import path
 from . import response_for_200
 from . import request_body
+from . import parameter_0
+from . import parameter_1
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        
-        
-        class compositionAtRoot(
-            schemas.ComposedSchema,
-        ):
-        
-        
-            class MetaOapg:
-                
-                
-                class all_of_0(
-                    schemas.StrSchema
-                ):
-                
-                
-                    class MetaOapg:
-                        min_length = 1
-                
-                @classmethod
-                @functools.lru_cache()
-                def all_of(cls):
-                    # we need this here to make our import statements work
-                    # we must store _composed_schemas in here so the code is only run
-                    # when we invoke this method. If we kept this at the class
-                    # level we would get an error because the class level
-                    # code would be run when this module is imported, and these composed
-                    # classes don't exist yet because their module has not finished
-                    # loading
-                    return [
-                        cls.all_of_0,
-                    ]
-        
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'compositionAtRoot':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-        
-        
-        class compositionInProperty(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                class properties:
-                    
-                    
-                    class someProp(
-                        schemas.ComposedSchema,
-                    ):
-                    
-                    
-                        class MetaOapg:
-                            
-                            
-                            class all_of_0(
-                                schemas.StrSchema
-                            ):
-                            
-                            
-                                class MetaOapg:
-                                    min_length = 1
-                            
-                            @classmethod
-                            @functools.lru_cache()
-                            def all_of(cls):
-                                # we need this here to make our import statements work
-                                # we must store _composed_schemas in here so the code is only run
-                                # when we invoke this method. If we kept this at the class
-                                # level we would get an error because the class level
-                                # code would be run when this module is imported, and these composed
-                                # classes don't exist yet because their module has not finished
-                                # loading
-                                return [
-                                    cls.all_of_0,
-                                ]
-                    
-                    
-                        def __new__(
-                            cls,
-                            *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                            _configuration: typing.Optional[schemas.Configuration] = None,
-                            **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                        ) -> 'someProp':
-                            return super().__new__(
-                                cls,
-                                *_args,
-                                _configuration=_configuration,
-                                **kwargs,
-                            )
-                    __annotations__ = {
-                        "someProp": someProp,
-                    }
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.properties.someProp: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.properties.someProp, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                someProp: typing.Union[MetaOapg.properties.someProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'compositionInProperty':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    someProp=someProp,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -182,8 +42,8 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'compositionAtRoot': typing.Union[Schemas.compositionAtRoot, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'compositionInProperty': typing.Union[Schemas.compositionInProperty, dict, frozendict.frozendict, ],
+            'compositionAtRoot': typing.Union[parameter_0.schema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+            'compositionInProperty': typing.Union[parameter_1.schema, dict, frozendict.frozendict, ],
         },
         total=False
     )
@@ -194,18 +54,8 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="compositionAtRoot",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.compositionAtRoot,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="compositionInProperty",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.compositionInProperty,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
+        parameter_1.parameter_oapg,
     ]
 _status_code_to_response = {
     '200': response_for_200.response,

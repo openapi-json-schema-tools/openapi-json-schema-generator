@@ -37,7 +37,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-    response_body_schema = {{httpMethod}}.response_for_{{#if ../isDefault}}default{{else}}{{code}}{{/if}}.BodySchemas.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}
+    response_body_schema = {{httpMethod}}.response_for_{{#if ../isDefault}}default{{else}}{{code}}{{/if}}.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}
     {{/if}}
 
 {{#if this.testCases}}

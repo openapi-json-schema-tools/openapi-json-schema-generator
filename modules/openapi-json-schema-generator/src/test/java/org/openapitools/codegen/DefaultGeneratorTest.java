@@ -331,9 +331,6 @@ public class DefaultGeneratorTest {
             Assert.assertTrue(new File(output, ".openapi-generator/FILES").exists());
 
             TestUtils.assertFileContains(java.nio.file.Paths.get(output + "/PingApi.jmx"), "PingApi Test Plan via Handlebars");
-            TestUtils.assertFileContains(java.nio.file.Paths.get(output + "/PingApi.csv"),
-                    "testCase,httpStatusCode,someObj",
-                    "Success,200,0");
         } finally {
             output.delete();
         }

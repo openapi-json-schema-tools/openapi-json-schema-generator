@@ -28,65 +28,15 @@ from petstore_api import schemas  # noqa: F401
 from .. import path
 from . import response_for_200
 from . import response_for_400
+from . import parameter_0
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        
-        
-        class status(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                
-                class items(
-                    schemas.EnumBase,
-                    schemas.StrSchema
-                ):
-                
-                
-                    class MetaOapg:
-                        enum_value_to_name = {
-                            "available": "AVAILABLE",
-                            "pending": "PENDING",
-                            "sold": "SOLD",
-                        }
-                    
-                    @schemas.classproperty
-                    def AVAILABLE(cls):
-                        return cls("available")
-                    
-                    @schemas.classproperty
-                    def PENDING(cls):
-                        return cls("pending")
-                    
-                    @schemas.classproperty
-                    def SOLD(cls):
-                        return cls("sold")
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'status':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'status': typing.Union[Schemas.status, list, tuple, ],
+            'status': typing.Union[parameter_0.schema, list, tuple, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -102,12 +52,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="status",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.status,
-            required=True,
-        ),
+        parameter_0.parameter_oapg,
     ]
 _auth = [
     'http_signature_test',
