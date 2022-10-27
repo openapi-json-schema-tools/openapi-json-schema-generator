@@ -1,17 +1,17 @@
-request_{{#if isQueryParam}}query{{/if}}{{#if isPathParam}}path{{/if}}{{#if isHeaderParam}}header{{/if}}{{#if isCookieParam}}cookie{{/if}}_{{paramName}} = api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter(
+api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter(
     name="{{baseName}}",
 {{#if style}}
     style=api_client.ParameterStyle.{{style}},
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema={{baseName}},
+    schema=Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
     {{/with}}
 {{/if}}
 {{#if getContent}}
     content={
 {{#each getContent}}
-        "{{@key}}": {{#with this}}{{#with schema}}{{baseName}}{{/with}}{{/with}},
+        "{{@key}}": {{#with this}}{{#with schema}}Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/with}}{{/with}},
 {{/each}}
     },
 {{/if}}
@@ -21,4 +21,4 @@ request_{{#if isQueryParam}}query{{/if}}{{#if isPathParam}}path{{/if}}{{#if isHe
 {{#if isExplode}}
     explode=True,
 {{/if}}
-)
+),

@@ -4265,13 +4265,12 @@ public class DefaultCodegen implements CodegenConfig {
                     for (Entry<String, Header> entry : headers.entrySet()) {
                         String headerName = entry.getKey();
                         Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
-                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, imports, String.format(Locale.ROOT, "%sResponseParameter", r.code));
+                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, String.format(Locale.ROOT, "%sResponseParameter", r.code));
                         responseHeaders.add(responseHeader);
                     }
                     r.setResponseHeaders(responseHeaders);
                 }
-                String mediaTypeSchemaSuffix = String.format(Locale.ROOT, "%sResponseBody", r.code);
-                r.setContent(getContent(response.getContent(), imports, mediaTypeSchemaSuffix));
+                r.setContent(getContent(response.getContent(), r.imports, ""));
 
                 if (!addSchemaImportsFromV3SpecLocations) {
                     if (r.baseType != null &&
@@ -4391,7 +4390,7 @@ public class DefaultCodegen implements CodegenConfig {
                 param = ModelUtils.getReferencedParameter(this.openAPI, param);
 
                 CodegenParameter p = fromParameter(param, imports);
-                p.setContent(getContent(param.getContent(), imports, "RequestParameter" + toModelName(param.getName())));
+                p.setContent(getContent(param.getContent(), imports, param.getName()));
 
                 // ensure unique params
                 if (ensureUniqueParams) {
@@ -7092,10 +7091,6 @@ public class DefaultCodegen implements CodegenConfig {
         codegenParameter.pattern = toRegularExpression(schema.getPattern());
     }
 
-    protected String toMediaTypeSchemaName(String contentType, String mediaTypeSchemaSuffix) {
-        return "SchemaFor" + mediaTypeSchemaSuffix + toModelName(contentType);
-    }
-
     private CodegenParameter headerToCodegenParameter(Header header, String headerName, Set<String> imports, String mediaTypeSchemaSuffix) {
         if (header == null) {
             return null;
@@ -7121,7 +7116,7 @@ public class DefaultCodegen implements CodegenConfig {
         return param;
     }
 
-    protected LinkedHashMap<String, CodegenMediaType> getContent(Content content, Set<String> imports, String mediaTypeSchemaSuffix) {
+    protected LinkedHashMap<String, CodegenMediaType> getContent(Content content, Set<String> imports, String schemaName) {
         if (content == null) {
             return null;
         }
@@ -7140,7 +7135,7 @@ public class DefaultCodegen implements CodegenConfig {
                         for (Entry<String, Header> headerEntry : encHeaders.entrySet()) {
                             String headerName = headerEntry.getKey();
                             Header header = ModelUtils.getReferencedHeader(this.openAPI, headerEntry.getValue());
-                            CodegenParameter param = headerToCodegenParameter(header, headerName, imports, mediaTypeSchemaSuffix);
+                            CodegenParameter param = headerToCodegenParameter(header, headerName, imports, schemaName);
                             headers.add(param);
                         }
                     }
@@ -7157,8 +7152,12 @@ public class DefaultCodegen implements CodegenConfig {
             }
             String contentType = contentEntry.getKey();
             CodegenProperty schemaProp = null;
+            String usedSchemaName = schemaName;
+            if (usedSchemaName.equals("")) {
+                usedSchemaName = contentType;
+            }
             if (mt.getSchema() != null) {
-                schemaProp = fromProperty(toMediaTypeSchemaName(contentType, mediaTypeSchemaSuffix), mt.getSchema(), false);
+                schemaProp = fromProperty(usedSchemaName, mt.getSchema(), false);
             }
             HashMap<String, SchemaTestCase> schemaTestCases = null;
             if (mt.getExtensions() != null && mt.getExtensions().containsKey(xSchemaTestExamplesKey)) {
@@ -7207,7 +7206,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (schema == null) {
             throw new RuntimeException("Request body cannot be null. Possible cause: missing schema in body parameter (OAS v2): " + body);
         }
-        codegenParameter.setContent(getContent(body.getContent(), imports, "RequestBody"));
+        codegenParameter.setContent(getContent(body.getContent(), imports, ""));
 
         if (StringUtils.isNotBlank(schema.get$ref())) {
             name = ModelUtils.getSimpleRef(schema.get$ref());

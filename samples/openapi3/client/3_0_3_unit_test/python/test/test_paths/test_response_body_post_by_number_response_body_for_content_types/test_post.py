@@ -32,6 +32,7 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.BodySchemas.application_json
 
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5
@@ -56,8 +57,8 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -110,8 +111,8 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

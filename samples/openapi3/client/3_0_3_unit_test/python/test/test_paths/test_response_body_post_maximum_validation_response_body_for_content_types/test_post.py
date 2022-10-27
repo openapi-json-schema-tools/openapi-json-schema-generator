@@ -32,6 +32,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.BodySchemas.application_json
 
     def test_below_the_maximum_is_valid_passes(self):
         # below the maximum is valid
@@ -56,8 +57,8 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -86,8 +87,8 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -140,8 +141,8 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, post.SchemaFor200ResponseBodyApplicationJson)
-            deserialized_response_body = post.SchemaFor200ResponseBodyApplicationJson.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
