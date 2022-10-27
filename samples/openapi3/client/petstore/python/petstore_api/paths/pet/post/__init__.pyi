@@ -29,32 +29,15 @@ from petstore_api.model.pet import Pet
 
 from . import response_for_200
 from . import response_for_405
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        application_json = Pet
-        application_xml = Pet
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/json': api_client.MediaType(
-                schema=Schemas.application_json
-            ),
-            'application/xml': api_client.MediaType(
-                schema=Schemas.application_xml
-            ),
-        },
-        required=True,
-    )
 
 
 class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -67,7 +50,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_xml,],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -80,7 +63,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -94,7 +77,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -105,7 +88,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -118,7 +101,7 @@ class BaseApi(api_client.Api):
 
     def _add_pet_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -141,7 +124,7 @@ class BaseApi(api_client.Api):
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        serialized_data = RequestBody.parameter.serialize(body, content_type)
+        serialized_data = request_body.parameter_oapg.serialize(body, content_type)
         _headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             _fields = serialized_data['fields']
@@ -186,7 +169,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -199,7 +182,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_xml,],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -212,7 +195,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -226,7 +209,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -237,7 +220,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -250,7 +233,7 @@ class AddPet(BaseApi):
 
     def add_pet(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -273,7 +256,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -286,7 +269,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_xml,],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -299,7 +282,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -313,7 +296,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -324,7 +307,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -337,7 +320,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,RequestBody.Schemas.application_xml,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
