@@ -5,20 +5,20 @@ from {{packageName}} import api_client
 {{> model_templates/imports_schema_types }}
 {{#with response}}
 {{> model_templates/imports_schemas }}
+{{#each responseHeaders}}
+from . import {{paramName}}
+{{/each}}
 {{#if responseHeaders}}
 {{> endpoint_parameter_schema_and_def xParams=responseHeaders xParamsName="Header" }}
 {{/if}}
 {{#if getContent}}
 
-
-class BodySchemas:
-    # body schemas
-    {{#each content}}
-        {{#with this.schema}}
-    {{> model_templates/schema }}
-        {{/with}}
-    {{/each}}
-    pass
+# body schemas
+{{#each content}}
+    {{#with this.schema}}
+{{> model_templates/schema }}
+    {{/with}}
+{{/each}}
 {{/if}}
 
 
@@ -30,7 +30,7 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        BodySchemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+        {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
     {{/with}}
 {{else}}
         schemas.Unset,
@@ -48,7 +48,7 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        BodySchemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+        {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
     {{/with}}
 {{else}}
         schemas.Unset,
@@ -76,7 +76,7 @@ response = api_client.OpenApiResponse(
         '{{{@key}}}': api_client.MediaType(
         {{#if this.schema}}
             {{#with this.schema}}
-            schema=BodySchemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+            schema={{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
             {{/with}}
         {{/if}}
         ),

@@ -25,22 +25,19 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
+from . import parameter_0
+from . import parameter_1
+from . import parameter_2
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        someVar = schemas.StrSchema
-        SomeVar = schemas.StrSchema
-        some_var = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'someVar': typing.Union[Schemas.someVar, str, ],
-            'SomeVar': typing.Union[Schemas.SomeVar, str, ],
-            'some_var': typing.Union[Schemas.some_var, str, ],
+            'someVar': typing.Union[parameter_0.schema, str, ],
+            'SomeVar': typing.Union[parameter_1.schema, str, ],
+            'some_var': typing.Union[parameter_2.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -56,27 +53,9 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="someVar",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.someVar,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="SomeVar",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.SomeVar,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="some_var",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.some_var,
-            required=True,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
+        parameter_1.parameter_oapg,
+        parameter_2.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

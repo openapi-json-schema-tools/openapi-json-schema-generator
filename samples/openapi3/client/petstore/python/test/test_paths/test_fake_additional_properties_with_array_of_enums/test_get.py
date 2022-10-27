@@ -33,7 +33,7 @@ class TestFakeAdditionalPropertiesWithArrayOfEnums(ApiTestMixin, unittest.TestCa
         pass
 
     response_status = 200
-    response_body_schema = get.response_for_200.BodySchemas.application_json
+    response_body_schema = get.response_for_200.application_json
 
 
 
