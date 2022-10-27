@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
 
 
 application_json = AllofWithTheFirstEmptySchema

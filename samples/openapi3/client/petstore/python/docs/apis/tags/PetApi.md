@@ -28,7 +28,7 @@ Add a new pet to the store
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
+from petstore_api.components.schema.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,13 +154,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="add_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 # <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 ### Return Types, Responses
@@ -788,13 +788,13 @@ headers | Unset | headers were not defined |
 # <a id="get_pet_by_id.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 # <a id="get_pet_by_id.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 #### <a id="get_pet_by_id.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -828,7 +828,7 @@ Update an existing pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.model.pet import Pet
+from petstore_api.components.schema.pet import Pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -954,13 +954,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="update_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 # <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../models/Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 ### Return Types, Responses
@@ -1245,7 +1245,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_file_with_required_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization
@@ -1377,7 +1377,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_image.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization

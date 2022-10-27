@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 
 # body schemas
 application_json = NestedAllofToCheckValidationSemantics

@@ -14,8 +14,8 @@ import unittest
 import frozendict
 
 from petstore_api.schemas import BoolClass
-from petstore_api.model.object_model_with_ref_props import ObjectModelWithRefProps
-from petstore_api.model.number_with_validations import NumberWithValidations
+from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
+from petstore_api.components.schema.number_with_validations import NumberWithValidations
 
 
 class TestObjectModelWithRefProps(unittest.TestCase):

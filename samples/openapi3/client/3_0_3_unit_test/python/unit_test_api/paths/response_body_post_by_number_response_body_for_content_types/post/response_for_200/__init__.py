@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.by_number import ByNumber
+from unit_test_api.components.schema.by_number import ByNumber
 
 # body schemas
 application_json = ByNumber

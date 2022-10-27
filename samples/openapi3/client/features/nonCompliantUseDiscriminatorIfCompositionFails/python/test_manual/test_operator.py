@@ -11,15 +11,13 @@
 
 import unittest
 
-from this_package.model.operator import Operator
-from this_package.model.addition_operator import AdditionOperator
-from this_package.model.subtraction_operator import SubtractionOperator
-from this_package import configuration
+from this_package.components.schema.operator import Operator
+from this_package.components.schema.addition_operator import AdditionOperator
+from this_package.components.schema.subtraction_operator import SubtractionOperator
 
 
 class TestOperator(unittest.TestCase):
     """Operator unit test stubs"""
-    _configuration = configuration.Configuration()
 
     def test_discriminator_works(self):
         op = Operator(

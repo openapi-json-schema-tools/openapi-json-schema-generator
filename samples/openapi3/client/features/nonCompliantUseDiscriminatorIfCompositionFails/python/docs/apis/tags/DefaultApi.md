@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.model.operator import Operator
+from this_package.components.schema.operator import Operator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,7 +57,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_operators.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Operator**](../../models/Operator.md) |  | 
+[**Operator**](../../components/schema/Operator.md) |  | 
 
 
 ### Return Types, Responses

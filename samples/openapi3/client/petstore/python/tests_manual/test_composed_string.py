@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_string import ComposedString
+from petstore_api.components.schema.composed_string import ComposedString
 
 
 class TestComposedString(unittest.TestCase):

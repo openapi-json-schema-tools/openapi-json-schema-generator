@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.any_type_not_string import AnyTypeNotString
+from petstore_api.components.schema.any_type_not_string import AnyTypeNotString
 
 
 class TestAnyTypeNotString(unittest.TestCase):

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import min_length_api
-from unit_test_api.model.minlength_validation import MinlengthValidation
+from unit_test_api.components.schema.minlength_validation import MinlengthValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,7 +54,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinlengthValidation**](../../models/MinlengthValidation.md) |  | 
+[**MinlengthValidation**](../../components/schema/MinlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -125,7 +125,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minlength_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinlengthValidation**](../../models/MinlengthValidation.md) |  | 
+[**MinlengthValidation**](../../components/schema/MinlengthValidation.md) |  | 
 
 
 ### Authorization
