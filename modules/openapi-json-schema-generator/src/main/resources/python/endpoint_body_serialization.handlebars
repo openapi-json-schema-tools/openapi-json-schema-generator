@@ -1,4 +1,4 @@
-serialized_data = RequestBody.parameter.serialize(body, content_type)
+serialized_data = request_body.parameter_oapg.serialize(body, content_type)
 _headers.add('Content-Type', content_type)
 if 'fields' in serialized_data:
     _fields = serialized_data['fields']

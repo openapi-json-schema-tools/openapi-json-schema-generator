@@ -27,248 +27,8 @@ from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
 from . import response_for_404
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        
-        
-        class application_x_www_form_urlencoded(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                required = {
-                    "number",
-                    "pattern_without_delimiter",
-                    "byte",
-                    "double",
-                }
-                
-                class properties:
-                    
-                    
-                    class integer(
-                        schemas.IntSchema
-                    ):
-                        pass
-                    
-                    
-                    class int32(
-                        schemas.Int32Schema
-                    ):
-                        pass
-                    int64 = schemas.Int64Schema
-                    
-                    
-                    class number(
-                        schemas.NumberSchema
-                    ):
-                        pass
-                    
-                    
-                    class _float(
-                        schemas.Float32Schema
-                    ):
-                        pass
-                    
-                    
-                    class double(
-                        schemas.Float64Schema
-                    ):
-                        pass
-                    
-                    
-                    class string(
-                        schemas.StrSchema
-                    ):
-                        pass
-                    
-                    
-                    class pattern_without_delimiter(
-                        schemas.StrSchema
-                    ):
-                        pass
-                    byte = schemas.StrSchema
-                    binary = schemas.BinarySchema
-                    date = schemas.DateSchema
-                    dateTime = schemas.DateTimeSchema
-                    
-                    
-                    class password(
-                        schemas.StrSchema
-                    ):
-                        pass
-                    callback = schemas.StrSchema
-                    __annotations__ = {
-                        "integer": integer,
-                        "int32": int32,
-                        "int64": int64,
-                        "number": number,
-                        "float": _float,
-                        "double": double,
-                        "string": string,
-                        "pattern_without_delimiter": pattern_without_delimiter,
-                        "byte": byte,
-                        "binary": binary,
-                        "date": date,
-                        "dateTime": dateTime,
-                        "password": password,
-                        "callback": callback,
-                    }
-            
-            number: MetaOapg.properties.number
-            pattern_without_delimiter: MetaOapg.properties.pattern_without_delimiter
-            byte: MetaOapg.properties.byte
-            double: MetaOapg.properties.double
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.properties.string: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.properties.binary: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.properties.dateTime: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["callback"]) -> MetaOapg.properties.callback: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["integer", "int32", "int64", "number", "float", "double", "string", "pattern_without_delimiter", "byte", "binary", "date", "dateTime", "password", "callback", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.properties.integer, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.properties.int32, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.properties.int64, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.properties._float, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.properties.string, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.properties.binary, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.properties.date, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.properties.dateTime, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> typing.Union[MetaOapg.properties.password, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union[MetaOapg.properties.callback, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["integer", "int32", "int64", "number", "float", "double", "string", "pattern_without_delimiter", "byte", "binary", "date", "dateTime", "password", "callback", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
-                pattern_without_delimiter: typing.Union[MetaOapg.properties.pattern_without_delimiter, str, ],
-                byte: typing.Union[MetaOapg.properties.byte, str, ],
-                double: typing.Union[MetaOapg.properties.double, decimal.Decimal, int, float, ],
-                integer: typing.Union[MetaOapg.properties.integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-                int32: typing.Union[MetaOapg.properties.int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-                int64: typing.Union[MetaOapg.properties.int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-                string: typing.Union[MetaOapg.properties.string, str, schemas.Unset] = schemas.unset,
-                binary: typing.Union[MetaOapg.properties.binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-                date: typing.Union[MetaOapg.properties.date, str, date, schemas.Unset] = schemas.unset,
-                dateTime: typing.Union[MetaOapg.properties.dateTime, str, datetime, schemas.Unset] = schemas.unset,
-                password: typing.Union[MetaOapg.properties.password, str, schemas.Unset] = schemas.unset,
-                callback: typing.Union[MetaOapg.properties.callback, str, schemas.Unset] = schemas.unset,
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'application_x_www_form_urlencoded':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    number=number,
-                    pattern_without_delimiter=pattern_without_delimiter,
-                    byte=byte,
-                    double=double,
-                    integer=integer,
-                    int32=int32,
-                    int64=int64,
-                    string=string,
-                    binary=binary,
-                    date=date,
-                    dateTime=dateTime,
-                    password=password,
-                    callback=callback,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/x-www-form-urlencoded': api_client.MediaType(
-                schema=Schemas.application_x_www_form_urlencoded
-            ),
-        },
-    )
 
 
 class BaseApi(api_client.Api):
@@ -276,7 +36,7 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters_oapg(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -288,7 +48,7 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -302,7 +62,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -311,7 +71,7 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -323,7 +83,7 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters_oapg(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -342,7 +102,7 @@ class BaseApi(api_client.Api):
         _fields = None
         _body = None
         if body is not schemas.unset:
-            serialized_data = RequestBody.parameter.serialize(body, content_type)
+            serialized_data = request_body.parameter_oapg.serialize(body, content_type)
             _headers.add('Content-Type', content_type)
             if 'fields' in serialized_data:
                 _fields = serialized_data['fields']
@@ -381,7 +141,7 @@ class EndpointParameters(BaseApi):
     def endpoint_parameters(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -393,7 +153,7 @@ class EndpointParameters(BaseApi):
     def endpoint_parameters(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -407,7 +167,7 @@ class EndpointParameters(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -416,7 +176,7 @@ class EndpointParameters(BaseApi):
     def endpoint_parameters(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -428,7 +188,7 @@ class EndpointParameters(BaseApi):
     def endpoint_parameters(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -449,7 +209,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -461,7 +221,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -475,7 +235,7 @@ class ApiForpost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -484,7 +244,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -496,7 +256,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

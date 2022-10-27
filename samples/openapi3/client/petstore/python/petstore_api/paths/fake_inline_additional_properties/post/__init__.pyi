@@ -26,56 +26,15 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        
-        
-        class application_json(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                additional_properties = schemas.StrSchema
-            
-            def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
-                return super().get_item_oapg(name)
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[MetaOapg.additional_properties, str, ],
-            ) -> 'application_json':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/json': api_client.MediaType(
-                schema=Schemas.application_json
-            ),
-        },
-        required=True,
-    )
 
 
 class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -87,7 +46,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -100,7 +59,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -110,7 +69,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -122,7 +81,7 @@ class BaseApi(api_client.Api):
 
     def _inline_additional_properties_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -144,7 +103,7 @@ class BaseApi(api_client.Api):
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        serialized_data = RequestBody.parameter.serialize(body, content_type)
+        serialized_data = request_body.parameter_oapg.serialize(body, content_type)
         _headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             _fields = serialized_data['fields']
@@ -181,7 +140,7 @@ class InlineAdditionalProperties(BaseApi):
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -193,7 +152,7 @@ class InlineAdditionalProperties(BaseApi):
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -206,7 +165,7 @@ class InlineAdditionalProperties(BaseApi):
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -216,7 +175,7 @@ class InlineAdditionalProperties(BaseApi):
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -228,7 +187,7 @@ class InlineAdditionalProperties(BaseApi):
 
     def inline_additional_properties(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -249,7 +208,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -261,7 +220,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -274,7 +233,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -284,7 +243,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -296,7 +255,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.application_json,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

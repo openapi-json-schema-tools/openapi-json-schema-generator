@@ -26,86 +26,8 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        
-        
-        class application_x_www_form_urlencoded(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                required = {
-                    "param",
-                    "param2",
-                }
-                
-                class properties:
-                    param = schemas.StrSchema
-                    param2 = schemas.StrSchema
-                    __annotations__ = {
-                        "param": param,
-                        "param2": param2,
-                    }
-            
-            param: MetaOapg.properties.param
-            param2: MetaOapg.properties.param2
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["param"]) -> MetaOapg.properties.param: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.properties.param2: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["param", "param2", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["param"]) -> MetaOapg.properties.param: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.properties.param2: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["param", "param2", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                param: typing.Union[MetaOapg.properties.param, str, ],
-                param2: typing.Union[MetaOapg.properties.param2, str, ],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'application_x_www_form_urlencoded':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    param=param,
-                    param2=param2,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/x-www-form-urlencoded': api_client.MediaType(
-                schema=Schemas.application_x_www_form_urlencoded
-            ),
-        },
-    )
 
 
 class BaseApi(api_client.Api):
@@ -113,7 +35,7 @@ class BaseApi(api_client.Api):
     def _json_form_data_oapg(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -125,7 +47,7 @@ class BaseApi(api_client.Api):
     def _json_form_data_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -139,7 +61,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -148,7 +70,7 @@ class BaseApi(api_client.Api):
     def _json_form_data_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -160,7 +82,7 @@ class BaseApi(api_client.Api):
     def _json_form_data_oapg(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -179,7 +101,7 @@ class BaseApi(api_client.Api):
         _fields = None
         _body = None
         if body is not schemas.unset:
-            serialized_data = RequestBody.parameter.serialize(body, content_type)
+            serialized_data = request_body.parameter_oapg.serialize(body, content_type)
             _headers.add('Content-Type', content_type)
             if 'fields' in serialized_data:
                 _fields = serialized_data['fields']
@@ -217,7 +139,7 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -229,7 +151,7 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -243,7 +165,7 @@ class JsonFormData(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -252,7 +174,7 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -264,7 +186,7 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -285,7 +207,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -297,7 +219,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -311,7 +233,7 @@ class ApiForget(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -320,7 +242,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -332,7 +254,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[RequestBody.Schemas.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_x_www_form_urlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
