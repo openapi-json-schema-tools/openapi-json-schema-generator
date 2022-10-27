@@ -146,6 +146,7 @@ from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalprope
 from unit_test_api.model.ref_in_allof import RefInAllof
 from unit_test_api.model.ref_in_anyof import RefInAnyof
 from unit_test_api.model.ref_in_items import RefInItems
+from unit_test_api.model.ref_in_not import RefInNot
 from unit_test_api.model.ref_in_oneof import RefInOneof
 from unit_test_api.model.ref_in_property import RefInProperty
 # Defining the host is optional and defaults to https://someserver.com/v1
@@ -930,6 +931,7 @@ Class | Method | HTTP request | Description
  - [NullTypeMatchesOnlyTheNullObject](docs/models/NullTypeMatchesOnlyTheNullObject.md)
  - [NumberTypeMatchesNumbers](docs/models/NumberTypeMatchesNumbers.md)
  - [ObjectPropertiesValidation](docs/models/ObjectPropertiesValidation.md)
+ - [ObjectTypeMatchesObjects](docs/models/ObjectTypeMatchesObjects.md)
  - [Oneof](docs/models/Oneof.md)
  - [OneofComplexTypes](docs/models/OneofComplexTypes.md)
  - [OneofWithBaseSchema](docs/models/OneofWithBaseSchema.md)

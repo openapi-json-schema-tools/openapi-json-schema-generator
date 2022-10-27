@@ -48,7 +48,7 @@ class TestRequestBodyPostAdditionalpropertiesAreAllowedByDefaultRequestBody(ApiT
                         True,
                 }
             )
-            body = post.SchemaForRequestBodyApplicationJson.from_openapi_data_oapg(
+            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

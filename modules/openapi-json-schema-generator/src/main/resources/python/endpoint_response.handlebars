@@ -1,0 +1,91 @@
+import dataclasses
+import urllib3
+
+from {{packageName}} import api_client
+{{> model_templates/imports_schema_types }}
+{{#with response}}
+{{> model_templates/imports_schemas }}
+{{#if responseHeaders}}
+{{> endpoint_parameter_schema_and_def xParams=responseHeaders xParamsName="Header" }}
+{{/if}}
+{{#if getContent}}
+
+
+class BodySchemas:
+    # body schemas
+    {{#each content}}
+        {{#with this.schema}}
+    {{> model_templates/schema }}
+        {{/with}}
+    {{/each}}
+    pass
+{{/if}}
+
+
+@dataclasses.dataclass
+class ApiResponse(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+{{#and responseHeaders content}}
+    body: typing.Union[
+{{#each content}}
+{{#if this.schema}}
+    {{#with this.schema}}
+        BodySchemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+    {{/with}}
+{{else}}
+        schemas.Unset,
+{{/if}}
+{{/each}}
+    ]
+    headers: Header.Params
+{{else}}
+{{#or responseHeaders content}}
+{{#if responseHeaders}}
+    headers: Header.Params
+    body: schemas.Unset = schemas.unset
+{{else}}
+    body: typing.Union[
+{{#each content}}
+{{#if this.schema}}
+    {{#with this.schema}}
+        BodySchemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+    {{/with}}
+{{else}}
+        schemas.Unset,
+{{/if}}
+{{/each}}
+    ]
+    headers: schemas.Unset = schemas.unset
+{{/if}}
+{{/or}}
+{{/and}}
+{{#unless responseHeaders}}
+{{#unless content}}
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset
+{{/unless}}
+{{/unless}}
+
+
+response = api_client.OpenApiResponse(
+    response_cls=ApiResponse,
+{{#each content}}
+{{#if @first}}
+    content={
+{{/if}}
+        '{{{@key}}}': api_client.MediaType(
+        {{#if this.schema}}
+            {{#with this.schema}}
+            schema=BodySchemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+            {{/with}}
+        {{/if}}
+        ),
+{{#if @last}}
+    },
+{{/if}}
+{{/each}}
+{{#if responseHeaders}}
+    headers=Header.parameters
+{{/if}}
+)
+{{/with}}

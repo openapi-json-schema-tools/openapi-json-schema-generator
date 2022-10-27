@@ -36,6 +36,9 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     response_status = {{code}}
 {{#if content}}
 {{#each content}}
+    {{#if schema}}
+    response_body_schema = {{httpMethod}}.response_for_{{#if ../isDefault}}default{{else}}{{code}}{{/if}}.BodySchemas.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}
+    {{/if}}
 
 {{#if this.testCases}}
 {{#each testCases}}
@@ -58,8 +61,8 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
             {{> api_test_partial }}
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, {{httpMethod}}.{{schema.baseName}})
-            deserialized_response_body = {{httpMethod}}.{{schema.baseName}}.from_openapi_data_oapg(
+            assert isinstance(api_response.body, self.response_body_schema)
+            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -106,7 +109,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{/with}}
             )
 {{#if valid}}
-            body = {{httpMethod}}.{{schema.baseName}}.from_openapi_data_oapg(
+            body = {{httpMethod}}.RequestBody.Schemas.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -120,7 +123,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 {{else}}
             with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-                body = {{httpMethod}}.{{schema.baseName}}.from_openapi_data_oapg(
+                body = {{httpMethod}}.RequestBody.Schemas.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )
