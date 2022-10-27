@@ -371,7 +371,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{name}} = ({{{datatypeWithEnum}}})in.readValue(null);
 {{/isPrimitiveType}}
 {{^isPrimitiveType}}
-    {{name}} = ({{{datatypeWithEnum}}})in.readValue({{complexType}}.class.getClassLoader());
+    {{name}} = ({{{datatypeWithEnum}}})in.readValue({{refClass}}.class.getClassLoader());
 {{/isPrimitiveType}}
 {{/vars}}
 {{/isArray}}
