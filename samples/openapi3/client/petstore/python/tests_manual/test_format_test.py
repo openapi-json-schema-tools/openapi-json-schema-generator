@@ -17,7 +17,7 @@ import unittest
 import frozendict
 
 import petstore_api
-from petstore_api.model.format_test import FormatTest
+from petstore_api.components.schema.format_test import FormatTest
 from petstore_api.schemas import BinarySchema, BytesSchema, Singleton
 
 

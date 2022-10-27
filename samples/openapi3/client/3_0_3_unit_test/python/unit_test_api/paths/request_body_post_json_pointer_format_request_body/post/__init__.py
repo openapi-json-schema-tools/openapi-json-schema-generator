@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.json_pointer_format import JsonPointerFormat
+from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
 
 from .. import path
 from . import response_for_200

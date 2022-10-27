@@ -84,7 +84,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="{{operationId}}.request_body" >body</a>
         {{#each content}}
         {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix="../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/with}}
@@ -101,7 +101,7 @@ Key | Input Type | Description  | Notes
 
         {{#each queryParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -117,7 +117,7 @@ Key | Input Type | Description  | Notes
         {{/each}}
         {{#each headerParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -133,7 +133,7 @@ Key | Input Type | Description  | Notes
         {{/each}}
         {{#each pathParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -149,7 +149,7 @@ Key | Input Type | Description  | Notes
         {{/each}}
         {{#each cookieParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -184,7 +184,7 @@ body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.
 headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{code}}.Headers](#{{operationId}}.response_for_{{code}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../components/schema/" }}
     {{/with}}
 {{/each}}
 {{#if responseHeaders}}
@@ -210,13 +210,13 @@ Key | Accessed Type | Description  | Notes
     {{#each responseHeaders}}
         {{#if schema}}
             {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
             {{/with}}
         {{else}}
             {{#each getContent}}
                 {{#with this}}
                     {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
                     {{/with}}
                 {{/with}}
             {{/each}}

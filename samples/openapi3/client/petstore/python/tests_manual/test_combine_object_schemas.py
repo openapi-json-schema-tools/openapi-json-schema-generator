@@ -15,13 +15,13 @@ import unittest
 
 import petstore_api
 from petstore_api.schemas import AnyTypeSchema, DictSchema, IntSchema, StrSchema, Float32Schema, DateSchema
-from petstore_api.model.danish_pig import DanishPig
-from petstore_api.model.basque_pig import BasquePig
-from petstore_api.model.no_additional_properties import NoAdditionalProperties
-from petstore_api.model.address import Address
-from petstore_api.model.apple_req import AppleReq
-from petstore_api.model.banana_req import BananaReq
-from petstore_api.model.player import Player
+from petstore_api.components.schema.danish_pig import DanishPig
+from petstore_api.components.schema.basque_pig import BasquePig
+from petstore_api.components.schema.no_additional_properties import NoAdditionalProperties
+from petstore_api.components.schema.address import Address
+from petstore_api.components.schema.apple_req import AppleReq
+from petstore_api.components.schema.banana_req import BananaReq
+from petstore_api.components.schema.player import Player
 
 class TestCombineObjectSchemas(unittest.TestCase):
     pass

@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.object_with_validations import ObjectWithValidations
+from petstore_api.components.schema.object_with_validations import ObjectWithValidations
 
 
 class TestObjectWithValidations(unittest.TestCase):

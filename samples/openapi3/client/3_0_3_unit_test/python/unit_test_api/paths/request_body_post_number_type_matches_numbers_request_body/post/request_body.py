@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
 
 
 application_json = NumberTypeMatchesNumbers

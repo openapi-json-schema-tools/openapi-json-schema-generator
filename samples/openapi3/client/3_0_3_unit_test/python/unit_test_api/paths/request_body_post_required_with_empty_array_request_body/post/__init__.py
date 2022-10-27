@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
 
 from .. import path
 from . import response_for_200

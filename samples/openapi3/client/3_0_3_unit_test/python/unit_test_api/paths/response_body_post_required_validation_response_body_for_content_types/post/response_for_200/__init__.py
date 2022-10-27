@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.required_validation import RequiredValidation
+from unit_test_api.components.schema.required_validation import RequiredValidation
 
 # body schemas
 application_json = RequiredValidation

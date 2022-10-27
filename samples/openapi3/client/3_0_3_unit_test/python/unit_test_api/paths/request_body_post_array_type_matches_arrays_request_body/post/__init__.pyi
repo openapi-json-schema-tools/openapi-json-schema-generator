@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
 
 from . import response_for_200
 from . import request_body

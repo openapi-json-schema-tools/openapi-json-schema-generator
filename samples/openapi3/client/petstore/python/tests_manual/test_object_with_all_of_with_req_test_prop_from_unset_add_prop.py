@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.object_with_all_of_with_req_test_prop_from_unset_add_prop import ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+from petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop import ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 from petstore_api import configuration
 
 

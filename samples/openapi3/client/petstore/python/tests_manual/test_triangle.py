@@ -14,11 +14,11 @@ import unittest
 
 import frozendict
 
-from petstore_api.model.equilateral_triangle import EquilateralTriangle
-from petstore_api.model.isosceles_triangle import IsoscelesTriangle
-from petstore_api.model.scalene_triangle import ScaleneTriangle
-from petstore_api.model.triangle import Triangle
-from petstore_api.model.triangle_interface import TriangleInterface
+from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
+from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
+from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
+from petstore_api.components.schema.triangle import Triangle
+from petstore_api.components.schema.triangle_interface import TriangleInterface
 
 
 class TestTriangle(unittest.TestCase):

@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
 
 # body schemas
 application_json = EnumsInProperties

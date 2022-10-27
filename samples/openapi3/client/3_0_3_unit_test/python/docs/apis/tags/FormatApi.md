@@ -33,7 +33,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.date_time_format import DateTimeFormat
+from unit_test_api.components.schema.date_time_format import DateTimeFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -70,7 +70,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_date_time_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../models/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -141,7 +141,7 @@ headers | Unset | headers were not defined |
 # <a id="post_date_time_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../models/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
 
 
 ### Authorization
@@ -159,7 +159,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.email_format import EmailFormat
+from unit_test_api.components.schema.email_format import EmailFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -196,7 +196,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_email_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../models/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -267,7 +267,7 @@ headers | Unset | headers were not defined |
 # <a id="post_email_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../models/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
 
 
 ### Authorization
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.hostname_format import HostnameFormat
+from unit_test_api.components.schema.hostname_format import HostnameFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -322,7 +322,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_hostname_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../models/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -393,7 +393,7 @@ headers | Unset | headers were not defined |
 # <a id="post_hostname_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../models/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
 
 
 ### Authorization
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.ipv4_format import Ipv4Format
+from unit_test_api.components.schema.ipv4_format import Ipv4Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -448,7 +448,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv4_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../models/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -519,7 +519,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ipv4_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../models/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
 
 
 ### Authorization
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.ipv6_format import Ipv6Format
+from unit_test_api.components.schema.ipv6_format import Ipv6Format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -574,7 +574,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv6_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../models/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -645,7 +645,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ipv6_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../models/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
 
 
 ### Authorization
@@ -663,7 +663,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.json_pointer_format import JsonPointerFormat
+from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -700,7 +700,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_json_pointer_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../models/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -771,7 +771,7 @@ headers | Unset | headers were not defined |
 # <a id="post_json_pointer_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../models/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
 
 
 ### Authorization
@@ -789,7 +789,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.uri_format import UriFormat
+from unit_test_api.components.schema.uri_format import UriFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -826,7 +826,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../models/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/UriFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -897,7 +897,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../models/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/UriFormat.md) |  | 
 
 
 ### Authorization
@@ -915,7 +915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.uri_reference_format import UriReferenceFormat
+from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -952,7 +952,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_reference_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../models/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -1023,7 +1023,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_reference_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../models/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
 
 
 ### Authorization
@@ -1041,7 +1041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.model.uri_template_format import UriTemplateFormat
+from unit_test_api.components.schema.uri_template_format import UriTemplateFormat
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1078,7 +1078,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_template_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../models/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -1149,7 +1149,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_template_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../models/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
 
 
 ### Authorization
