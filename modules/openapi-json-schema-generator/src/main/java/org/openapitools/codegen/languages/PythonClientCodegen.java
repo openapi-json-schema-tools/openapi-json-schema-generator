@@ -2549,9 +2549,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String toModelDocFilename(String name) {
-        return toModelName(name);
-    }
+    public String toModelDocFilename(String schemaName) {
+        return toModelFilename(schemaName) + "." + toModelName(schemaName); }
 
     @Override
     public String toApiDocFilename(String name) {
@@ -2778,6 +2777,43 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             // for header parameters in responses
             return "parameter_" + toModelFilename(name);
         }
+    }
+
+    protected String toRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.equals(sourceJsonPath)) {
+            // self reference, no import needed
+            if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
+                return toModelName(refPieces[3]);
+            }
+            Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
+            boolean requestBodyCase = (
+                    refPieces.length == 8 &&
+                            refPieces[1].equals("paths") &&
+                            httpMethods.contains(refPieces[3]) &&
+                            refPieces[4].equals("requestBody") &&
+                            refPieces[5].equals("content") &&
+                            refPieces[7].equals("schema")
+            );
+            if (requestBodyCase) {
+                String contentType = ModelUtils.decodeSlashes(refPieces[6]);
+                // the code knows that content-type are never valid python names
+                return toVarName(contentType);
+            }
+            return null;
+        }
+        if (sourceJsonPath != null && ref.startsWith(sourceJsonPath + "/")) {
+            // internal in-schema reference, no import needed
+            // TODO handle this in the future
+            return null;
+        }
+        // reference is external, import needed
+        if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
+            String schemaName = refPieces[3];
+            String refClass = toModelFilename(schemaName) + "." + toModelName(schemaName);
+            return refClass;
+        }
+        return null;
     }
 
     @Override
