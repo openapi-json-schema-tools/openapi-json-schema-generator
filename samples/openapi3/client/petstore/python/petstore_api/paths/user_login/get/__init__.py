@@ -28,20 +28,17 @@ from petstore_api import schemas  # noqa: F401
 from .. import path
 from . import response_for_200
 from . import response_for_400
+from . import parameter_0
+from . import parameter_1
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        username = schemas.StrSchema
-        password = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[Schemas.username, str, ],
-            'password': typing.Union[Schemas.password, str, ],
+            'username': typing.Union[parameter_0.schema, str, ],
+            'password': typing.Union[parameter_1.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -57,20 +54,8 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="username",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.username,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="password",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.password,
-            required=True,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
+        parameter_1.parameter_oapg,
     ]
 _status_code_to_response = {
     '200': response_for_200.response,

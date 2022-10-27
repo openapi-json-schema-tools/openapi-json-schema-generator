@@ -27,138 +27,25 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.model.string_with_validation import StringWithValidation
 
 from . import response_for_200
+from . import parameter_0
+from . import parameter_1
+from . import parameter_2
+from . import parameter_3
+from . import parameter_4
+from . import parameter_5
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        
-        
-        class pipe(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                items = schemas.StrSchema
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'pipe':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        
-        
-        class ioutil(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                items = schemas.StrSchema
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'ioutil':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        
-        
-        class http(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                items = schemas.StrSchema
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'http':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        
-        
-        class url(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                items = schemas.StrSchema
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'url':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        
-        
-        class context(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                items = schemas.StrSchema
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'context':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        refParam = StringWithValidation
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'pipe': typing.Union[Schemas.pipe, list, tuple, ],
-            'ioutil': typing.Union[Schemas.ioutil, list, tuple, ],
-            'http': typing.Union[Schemas.http, list, tuple, ],
-            'url': typing.Union[Schemas.url, list, tuple, ],
-            'context': typing.Union[Schemas.context, list, tuple, ],
-            'refParam': typing.Union[Schemas.refParam, ],
+            'pipe': typing.Union[parameter_0.schema, list, tuple, ],
+            'ioutil': typing.Union[parameter_1.schema, list, tuple, ],
+            'http': typing.Union[parameter_2.schema, list, tuple, ],
+            'url': typing.Union[parameter_3.schema, list, tuple, ],
+            'context': typing.Union[parameter_4.schema, list, tuple, ],
+            'refParam': typing.Union[parameter_5.schema, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -174,45 +61,12 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="pipe",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.pipe,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="ioutil",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.ioutil,
-            required=True,
-        ),
-        api_client.QueryParameter(
-            name="http",
-            style=api_client.ParameterStyle.SPACE_DELIMITED,
-            schema=Schemas.http,
-            required=True,
-        ),
-        api_client.QueryParameter(
-            name="url",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.url,
-            required=True,
-        ),
-        api_client.QueryParameter(
-            name="context",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.context,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="refParam",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.refParam,
-            required=True,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
+        parameter_1.parameter_oapg,
+        parameter_2.parameter_oapg,
+        parameter_3.parameter_oapg,
+        parameter_4.parameter_oapg,
+        parameter_5.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

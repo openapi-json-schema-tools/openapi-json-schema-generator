@@ -133,10 +133,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PropertyNamedRefThatIsNotAReference**](../../models/PropertyNamedRefThatIsNotAReference.md) |  | 
@@ -261,10 +261,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInAdditionalproperties**](../../models/RefInAdditionalproperties.md) |  | 
@@ -387,10 +387,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_allof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_allof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInAllof**](../../models/RefInAllof.md) |  | 
@@ -513,10 +513,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_anyof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInAnyof**](../../models/RefInAnyof.md) |  | 
@@ -641,10 +641,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_items_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_items_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_items_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_items_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInItems**](../../models/RefInItems.md) |  | 
@@ -767,10 +767,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_not_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_not_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_not_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInNot**](../../models/RefInNot.md) |  | 
@@ -893,10 +893,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInOneof**](../../models/RefInOneof.md) |  | 
@@ -1019,10 +1019,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_ref_in_property_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_ref_in_property_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_ref_in_property_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_ref_in_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefInProperty**](../../models/RefInProperty.md) |  | 

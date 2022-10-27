@@ -136,34 +136,27 @@ import unit_test_api
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-
-import time
 import unit_test_api
-from pprint import pprint
 from unit_test_api.apis.tags import ref_api
 from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
-from unit_test_api.model.ref_in_additionalproperties import RefInAdditionalproperties
-from unit_test_api.model.ref_in_allof import RefInAllof
-from unit_test_api.model.ref_in_anyof import RefInAnyof
-from unit_test_api.model.ref_in_items import RefInItems
-from unit_test_api.model.ref_in_not import RefInNot
-from unit_test_api.model.ref_in_oneof import RefInOneof
-from unit_test_api.model.ref_in_property import RefInProperty
+from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = unit_test_api.Configuration(
     host = "https://someserver.com/v1"
 )
 
-
 # Enter a context with an instance of the API client
 with unit_test_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ref_api.RefApi(api_client)
-    property_named_ref_that_is_not_a_reference = PropertyNamedRefThatIsNotAReference(None) # PropertyNamedRefThatIsNotAReference | 
 
+    # example passing only required values which don't have defaults set
+    body = PropertyNamedRefThatIsNotAReference(None)
     try:
-        api_instance.post_property_named_ref_that_is_not_a_reference_request_body(property_named_ref_that_is_not_a_reference)
+        api_response = api_instance.post_property_named_ref_that_is_not_a_reference_request_body(
+            body=body,
+        )
     except unit_test_api.ApiException as e:
         print("Exception when calling RefApi->post_property_named_ref_that_is_not_a_reference_request_body: %s\n" % e)
 ```

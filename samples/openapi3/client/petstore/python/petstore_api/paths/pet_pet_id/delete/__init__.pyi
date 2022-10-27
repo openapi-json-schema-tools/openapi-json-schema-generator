@@ -26,14 +26,12 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from . import response_for_400
+from . import parameter_0
+from . import parameter_1
 
 
 
 class RequestHeaderParameters:
-    class Schemas:
-        api_key = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -42,7 +40,7 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'api_key': typing.Union[Schemas.api_key, str, ],
+            'api_key': typing.Union[parameter_0.schema, str, ],
         },
         total=False
     )
@@ -53,22 +51,14 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        api_client.HeaderParameter(
-            name="api_key",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.api_key,
-        ),
+        parameter_0.parameter_oapg,
     ]
 
 class RequestPathParameters:
-    class Schemas:
-        petId = schemas.Int64Schema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[Schemas.petId, decimal.Decimal, int, ],
+            'petId': typing.Union[parameter_1.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -84,12 +74,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        api_client.PathParameter(
-            name="petId",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.petId,
-            required=True,
-        ),
+        parameter_1.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

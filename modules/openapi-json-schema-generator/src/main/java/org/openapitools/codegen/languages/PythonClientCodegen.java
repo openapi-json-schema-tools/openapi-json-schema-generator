@@ -67,6 +67,7 @@ import java.util.stream.Collectors;
 
 import static org.openapitools.codegen.utils.OnceLogger.once;
 import static org.openapitools.codegen.utils.StringUtils.camelize;
+import static org.openapitools.codegen.utils.StringUtils.escape;
 import static org.openapitools.codegen.utils.StringUtils.underscore;
 
 public class PythonClientCodegen extends AbstractPythonCodegen {
@@ -113,7 +114,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
         sortModelPropertiesByRequiredFlag = Boolean.TRUE;
-        sortParamsByRequiredFlag = Boolean.TRUE;
+        // this must be false for parameter numbers to stay the same as the ones in the spec
+        // if another schema $refs a schema in a parameter, the json path
+        // and generated module must have the same parameter index as the spec
+        sortParamsByRequiredFlag = Boolean.FALSE;
         addSuffixToDuplicateOperationNicknames = false;
 
         modifyFeatureSet(features -> features
@@ -588,9 +592,23 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
                 pathsFiles.add(Arrays.asList(paramMap, "endpoint_request_body.handlebars", outputFilename));
             }
+            // paths.some_path.post.parameter_0.py
+            Integer i = 0;
+            for (CodegenParameter cp: co.allParams) {
+                Map<String, Object> paramMap = new HashMap<>();
+                paramMap.put("parameter", cp);
+                // TODO consolidate imports into body param only
+                paramMap.put("imports", co.imports);
+                paramMap.put("packageName", packageName);
+                outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  toParamName(i.toString())+".py"));
+                pathsFiles.add(Arrays.asList(paramMap, "endpoint_parameter.handlebars", outputFilename));
+                i++;
+            }
 
             for (CodegenResponse response: co.responses) {
-                // paths.some_path.post.response_for_200.py (file per response)
+                // paths.some_path.post.response_for_200.__init__.py (file per response)
+                // response is a package because responses have Headers which can be refed
+                // so each inline header should be a module in the response package
                 Map<String, Object> responseMap = new HashMap<>();
                 responseMap.put("response", response);
                 responseMap.put("packageName", packageName);
@@ -600,8 +618,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 } else {
                     responseModuleName += response.code;
                 }
-                String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName+ ".py"));
+                String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  "__init__.py"));
                 pathsFiles.add(Arrays.asList(responseMap, "endpoint_response.handlebars", responseFilename));
+                for (CodegenParameter header: response.getResponseHeaders()) {
+                    Map<String, Object> headerMap = new HashMap<>();
+                    headerMap.put("parameter", header);
+                    // TODO consolidate imports into header param only
+                    headerMap.put("imports", co.imports);
+                    headerMap.put("packageName", packageName);
+                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, toParamName(header.baseName) + ".py"));
+                    pathsFiles.add(Arrays.asList(headerMap, "endpoint_response_header.handlebars", headerFilename));
+                }
             }
             /*
             This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
@@ -938,8 +965,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
-    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports) {
-        CodegenParameter cp = super.fromParameter(parameter, imports);
+    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports, String priorJsonPathFragment) {
+        CodegenParameter cp = super.fromParameter(parameter, imports, priorJsonPathFragment);
         if (parameter.getStyle() != null) {
             switch(parameter.getStyle()) {
                 case MATRIX:
@@ -1020,17 +1047,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cp.isPrimitiveType && unaliasedSchema.get$ref() != null) {
             cp.complexType = cp.dataType;
         }
-        setAdditionalPropsAndItemsVarNames(cp);
         return cp;
-    }
-
-    private void setAdditionalPropsAndItemsVarNames(IJsonSchemaValidationProperties item) {
-        if (item.getAdditionalProperties() != null) {
-            item.getAdditionalProperties().setBaseName("additional_properties");
-        }
-        if (item.getItems() != null) {
-            item.getItems().setBaseName("items");
-        }
     }
 
     /**
@@ -1467,7 +1484,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             cm.setHasMultipleTypes(true);
         }
         Boolean isNotPythonModelSimpleModel = (ModelUtils.isComposedSchema(sc) || ModelUtils.isObjectSchema(sc) || ModelUtils.isMapSchema(sc));
-        setAdditionalPropsAndItemsVarNames(cm);
         if (isNotPythonModelSimpleModel) {
             return cm;
         }
@@ -2229,7 +2245,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (addPropsSchema == null) {
             return;
         }
-        CodegenProperty addPropProp = fromProperty("",  addPropsSchema, false, false);
+        CodegenProperty addPropProp = fromProperty("additional_properties",  addPropsSchema, false, false);
         property.setAdditionalProperties(addPropProp);
     }
 
@@ -2745,6 +2761,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
         objs.put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, nonCompliantUseDiscrIfCompositionFails);
         return objs;
+    }
+
+    @Override
+    public String toParamName(String name) {
+        try {
+            Integer.parseInt(name);
+            // for parameters in path, or an endpoint
+            return "parameter_" + name;
+        } catch (NumberFormatException nfe) {
+            // for header parameters in responses
+            return "parameter_" + toModelFilename(name);
+        }
     }
 
     @Override
