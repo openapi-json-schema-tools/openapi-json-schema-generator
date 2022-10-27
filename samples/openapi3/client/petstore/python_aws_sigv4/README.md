@@ -137,7 +137,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 import petstore_api
-from petstore_api.apis.tags import default_api
+from petstore_api.apis.tags import pet_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,14 +148,20 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = default_api.DefaultApi(api_client)
+    api_instance = pet_api.PetApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'petId': 1,
+    }
     try:
-        api_response = api_instance.foo_get()
+        # Find pet by ID
+        api_response = api_instance.get_pet_by_id(
+            path_params=path_params,
+        )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling DefaultApi->foo_get: %s\n" % e)
+        print("Exception when calling PetApi->get_pet_by_id: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -164,18 +170,12 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**foo_get**](docs/apis/tags/DefaultApi.md#foo_get) | **get** /foo | 
-*PetApi* | [**add_pet**](docs/apis/tags/PetApi.md#add_pet) | **post** /pet | Add a new pet to the store
-*PetApi* | [**delete_pet**](docs/apis/tags/PetApi.md#delete_pet) | **delete** /pet/{petId} | Deletes a pet
 *PetApi* | [**get_pet_by_id**](docs/apis/tags/PetApi.md#get_pet_by_id) | **get** /pet/{petId} | Find pet by ID
-*PetApi* | [**update_pet**](docs/apis/tags/PetApi.md#update_pet) | **put** /pet | Update an existing pet
 *PetApi* | [**update_pet_with_form**](docs/apis/tags/PetApi.md#update_pet_with_form) | **post** /pet/{petId} | Updates a pet in the store with form data
 
 ## Documentation For Models
 
- - [Bar](docs/components/schema/Bar.md)
  - [Category](docs/components/schema/Category.md)
- - [Foo](docs/components/schema/Foo.md)
  - [Pet](docs/components/schema/Pet.md)
  - [Tag](docs/components/schema/Tag.md)
 
@@ -190,7 +190,6 @@ Class | Method | HTTP request | Description
 
 
 ## Author
-
 
 
 

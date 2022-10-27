@@ -55,10 +55,6 @@ class RequestPathParameters:
     parameters = [
         parameter_0.parameter_oapg,
     ]
-_auth = [
-    'aws_sigv4',
-]
-
 _status_code_to_response = {
     '200': response_for_200.response,
     '400': response_for_400.response,
@@ -144,7 +140,6 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get'.upper(),
             headers=_headers,
-            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

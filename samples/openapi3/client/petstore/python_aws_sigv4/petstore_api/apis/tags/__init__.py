@@ -9,4 +9,3 @@ class TagValues(str, enum.Enum):
     PET = "pet"
     STORE = "store"
     USER = "user"
-    DEFAULT = "default"

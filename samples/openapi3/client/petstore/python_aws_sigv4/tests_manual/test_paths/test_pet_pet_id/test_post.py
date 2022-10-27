@@ -13,7 +13,7 @@ from freezegun import freeze_time
 
 import petstore_api
 from petstore_api.paths.pet_pet_id import post
-from petstore_api import configuration, schemas, api_client
+from petstore_api import schemas, api_client
 from petstore_api.signing.aws_sigv4 import AwsSigv4Configuration
 
 from ... import ApiTestMixin

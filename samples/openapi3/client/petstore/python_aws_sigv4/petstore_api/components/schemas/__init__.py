@@ -11,8 +11,6 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from petstore_api.components.schema.bar import Bar
 from petstore_api.components.schema.category import Category
-from petstore_api.components.schema.foo import Foo
 from petstore_api.components.schema.pet import Pet
 from petstore_api.components.schema.tag import Tag

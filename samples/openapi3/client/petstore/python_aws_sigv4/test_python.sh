@@ -11,7 +11,7 @@ export LANG=en_US.UTF-8
 
 ### set virtualenv
 if [ -z "$VENVV" ]; then
-		python3 -m venv $VENV
+		~/.pyenv/versions/3.7.13/bin/python3 -m venv $VENV
 		source $VENV/bin/activate
     DEACTIVE=true
 fi

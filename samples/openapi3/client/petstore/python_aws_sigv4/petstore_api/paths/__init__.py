@@ -6,6 +6,4 @@ import enum
 
 
 class PathValues(str, enum.Enum):
-    FOO = "/foo"
-    PET = "/pet"
     PET_PET_ID = "/pet/{petId}"
