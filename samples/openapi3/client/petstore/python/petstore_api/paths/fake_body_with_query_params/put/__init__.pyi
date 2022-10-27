@@ -29,18 +29,15 @@ from petstore_api.model.user import User
 
 from . import response_for_200
 from . import request_body
+from . import parameter_0
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        query = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'query': typing.Union[Schemas.query, str, ],
+            'query': typing.Union[parameter_0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -56,13 +53,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="query",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.query,
-            required=True,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

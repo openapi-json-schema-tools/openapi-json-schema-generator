@@ -337,9 +337,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.username](#delete_user.RequestPathParameters.Schemas.username) | | 
+username | [parameter_0.schema](#delete_user.parameter_0.schema) | | 
 
-# <a id="delete_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
+# <a id="delete_user.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -424,9 +424,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.username](#get_user_by_name.RequestPathParameters.Schemas.username) | | 
+username | [parameter_0.schema](#get_user_by_name.parameter_0.schema) | | 
 
-# <a id="get_user_by_name.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
+# <a id="get_user_by_name.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -446,16 +446,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_user_by_name.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_user_by_name.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#get_user_by_name.response_for_200.application_xml), [response_for_200.application_json](#get_user_by_name.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="get_user_by_name.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="get_user_by_name.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
 
 
-# <a id="get_user_by_name.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="get_user_by_name.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -532,18 +532,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestQueryParameters.Schemas.username](#login_user.RequestQueryParameters.Schemas.username) | | 
-password | [RequestQueryParameters.Schemas.password](#login_user.RequestQueryParameters.Schemas.password) | | 
+username | [parameter_0.schema](#login_user.parameter_0.schema) | | 
+password | [parameter_1.schema](#login_user.parameter_1.schema) | | 
 
 
-# <a id="login_user.RequestQueryParameters.Schemas.username" >RequestQueryParameters.Schemas.username</a>
+# <a id="login_user.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="login_user.RequestQueryParameters.Schemas.password" >RequestQueryParameters.Schemas.password</a>
+# <a id="login_user.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -562,47 +562,42 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#login_user.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#login_user.response_for_200.BodySchemas.application_json), ] |  |
-headers | ResponseHeadersFor200 |  |
+body | typing.Union[[response_for_200.application_xml](#login_user.response_for_200.application_xml), [response_for_200.application_json](#login_user.response_for_200.application_json), ] |  |
+headers | [response_for_200.Headers](#login_user.response_for_200.Headers) |  |
 
-# <a id="login_user.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="login_user.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="login_user.response_for_200.application_xml" >response_for_200.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-#### ResponseHeadersFor200
 
-Name | Type | Description  | Notes
+# <a id="login_user.response_for_200.application_json" >response_for_200.application_json</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+#### <a id="login_user.response_for_200.Headers" >response_for_200.Headers</a>
+
+Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-X-Rate-Limit | X-Rate-Limit | | optional
-X-Expires-After | X-Expires-After | | optional
+X-Rate-Limit | [response_for_200.parameter_x_rate_limit.application_json](#login_user.response_for_200.parameter_x_rate_limit.application_json) | | optional
+X-Expires-After | [response_for_200.parameter_x_expires_after.schema](#login_user.response_for_200.parameter_x_expires_after.schema) | | optional
 
-# X-Rate-Limit
-
-calls per hour allowed by the user
+# <a id="login_user.response_for_200.parameter_x_rate_limit.application_json" >response_for_200.parameter_x_rate_limit.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  | calls per hour allowed by the user | value must be a 32 bit integer
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# X-Expires-After
-
-date in UTC when token expires
+# <a id="login_user.response_for_200.parameter_x_expires_after.schema" >response_for_200.parameter_x_expires_after.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str, datetime,  | str,  | date in UTC when token expires | value must conform to RFC-3339 date-time
-
+str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 #### <a id="login_user.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -746,9 +741,9 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [RequestPathParameters.Schemas.username](#update_user.RequestPathParameters.Schemas.username) | | 
+username | [parameter_0.schema](#update_user.parameter_0.schema) | | 
 
-# <a id="update_user.RequestPathParameters.Schemas.username" >RequestPathParameters.Schemas.username</a>
+# <a id="update_user.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

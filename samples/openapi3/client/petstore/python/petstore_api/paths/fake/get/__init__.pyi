@@ -28,95 +28,16 @@ from petstore_api import schemas  # noqa: F401
 from . import response_for_200
 from . import response_for_404
 from . import request_body
+from . import parameter_0
+from . import parameter_1
+from . import parameter_2
+from . import parameter_3
+from . import parameter_4
+from . import parameter_5
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        
-        
-        class enum_query_string_array(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                
-                class items(
-                    schemas.EnumBase,
-                    schemas.StrSchema
-                ):
-                    
-                    @schemas.classproperty
-                    def GREATER_THAN(cls):
-                        return cls(">")
-                    
-                    @schemas.classproperty
-                    def DOLLAR(cls):
-                        return cls("$")
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'enum_query_string_array':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        
-        
-        class enum_query_string(
-            schemas.EnumBase,
-            schemas.StrSchema
-        ):
-            
-            @schemas.classproperty
-            def _ABC(cls):
-                return cls("_abc")
-            
-            @schemas.classproperty
-            def EFG(cls):
-                return cls("-efg")
-            
-            @schemas.classproperty
-            def XYZ(cls):
-                return cls("(xyz)")
-        
-        
-        class enum_query_integer(
-            schemas.EnumBase,
-            schemas.Int32Schema
-        ):
-            
-            @schemas.classproperty
-            def POSITIVE_1(cls):
-                return cls(1)
-            
-            @schemas.classproperty
-            def NEGATIVE_2(cls):
-                return cls(-2)
-        
-        
-        class enum_query_double(
-            schemas.EnumBase,
-            schemas.Float64Schema
-        ):
-            
-            @schemas.classproperty
-            def POSITIVE_1_PT_1(cls):
-                return cls(1.1)
-            
-            @schemas.classproperty
-            def NEGATIVE_1_PT_2(cls):
-                return cls(-1.2)
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -125,10 +46,10 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_query_string_array': typing.Union[Schemas.enum_query_string_array, list, tuple, ],
-            'enum_query_string': typing.Union[Schemas.enum_query_string, str, ],
-            'enum_query_integer': typing.Union[Schemas.enum_query_integer, decimal.Decimal, int, ],
-            'enum_query_double': typing.Union[Schemas.enum_query_double, decimal.Decimal, int, float, ],
+            'enum_query_string_array': typing.Union[parameter_2.schema, list, tuple, ],
+            'enum_query_string': typing.Union[parameter_3.schema, str, ],
+            'enum_query_integer': typing.Union[parameter_4.schema, decimal.Decimal, int, ],
+            'enum_query_double': typing.Union[parameter_5.schema, decimal.Decimal, int, float, ],
         },
         total=False
     )
@@ -139,90 +60,13 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="enum_query_string_array",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.enum_query_string_array,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="enum_query_string",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.enum_query_string,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="enum_query_integer",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.enum_query_integer,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="enum_query_double",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.enum_query_double,
-            explode=True,
-        ),
+        parameter_2.parameter_oapg,
+        parameter_3.parameter_oapg,
+        parameter_4.parameter_oapg,
+        parameter_5.parameter_oapg,
     ]
 
 class RequestHeaderParameters:
-    class Schemas:
-        
-        
-        class enum_header_string_array(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                
-                class items(
-                    schemas.EnumBase,
-                    schemas.StrSchema
-                ):
-                    
-                    @schemas.classproperty
-                    def GREATER_THAN(cls):
-                        return cls(">")
-                    
-                    @schemas.classproperty
-                    def DOLLAR(cls):
-                        return cls("$")
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'enum_header_string_array':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-        
-        
-        class enum_header_string(
-            schemas.EnumBase,
-            schemas.StrSchema
-        ):
-            
-            @schemas.classproperty
-            def _ABC(cls):
-                return cls("_abc")
-            
-            @schemas.classproperty
-            def EFG(cls):
-                return cls("-efg")
-            
-            @schemas.classproperty
-            def XYZ(cls):
-                return cls("(xyz)")
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -231,8 +75,8 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_header_string_array': typing.Union[Schemas.enum_header_string_array, list, tuple, ],
-            'enum_header_string': typing.Union[Schemas.enum_header_string, str, ],
+            'enum_header_string_array': typing.Union[parameter_0.schema, list, tuple, ],
+            'enum_header_string': typing.Union[parameter_1.schema, str, ],
         },
         total=False
     )
@@ -243,148 +87,13 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        api_client.HeaderParameter(
-            name="enum_header_string_array",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.enum_header_string_array,
-        ),
-        api_client.HeaderParameter(
-            name="enum_header_string",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.enum_header_string,
-        ),
-    ]
-
-<<<<<<< HEAD
-class RequestBody:
-    class Schemas:
-        
-        
-        class application_x_www_form_urlencoded(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                class properties:
-                    
-                    
-                    class enum_form_string_array(
-                        schemas.ListSchema
-                    ):
-                    
-                    
-                        class MetaOapg:
-                            
-                            
-                            class items(
-                                schemas.EnumBase,
-                                schemas.StrSchema
-                            ):
-                                
-                                @schemas.classproperty
-                                def GREATER_THAN(cls):
-                                    return cls(">")
-                                
-                                @schemas.classproperty
-                                def DOLLAR(cls):
-                                    return cls("$")
-                    
-                        def __new__(
-                            cls,
-                            _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                            _configuration: typing.Optional[schemas.Configuration] = None,
-                        ) -> 'enum_form_string_array':
-                            return super().__new__(
-                                cls,
-                                _arg,
-                                _configuration=_configuration,
-                            )
-                    
-                        def __getitem__(self, i: int) -> MetaOapg.items:
-                            return super().__getitem__(i)
-                    
-                    
-                    class enum_form_string(
-                        schemas.EnumBase,
-                        schemas.StrSchema
-                    ):
-                        
-                        @schemas.classproperty
-                        def _ABC(cls):
-                            return cls("_abc")
-                        
-                        @schemas.classproperty
-                        def EFG(cls):
-                            return cls("-efg")
-                        
-                        @schemas.classproperty
-                        def XYZ(cls):
-                            return cls("(xyz)")
-                    __annotations__ = {
-                        "enum_form_string_array": enum_form_string_array,
-                        "enum_form_string": enum_form_string,
-                    }
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> MetaOapg.properties.enum_form_string_array: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> MetaOapg.properties.enum_form_string: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array", "enum_form_string", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["enum_form_string_array"]) -> typing.Union[MetaOapg.properties.enum_form_string_array, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["enum_form_string"]) -> typing.Union[MetaOapg.properties.enum_form_string, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array", "enum_form_string", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                enum_form_string_array: typing.Union[MetaOapg.properties.enum_form_string_array, list, tuple, schemas.Unset] = schemas.unset,
-                enum_form_string: typing.Union[MetaOapg.properties.enum_form_string, str, schemas.Unset] = schemas.unset,
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'application_x_www_form_urlencoded':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    enum_form_string_array=enum_form_string_array,
-                    enum_form_string=enum_form_string,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/x-www-form-urlencoded': api_client.MediaType(
-                schema=Schemas.application_x_www_form_urlencoded
-            ),
-        },
-    )
-_all_accept_content_types = (
+        parameter_0.parameter_oapg,
+        parameter_1.parameter_oapg,
+    ]_all_accept_content_types = (
     'application/json',
 )
 
 
-=======
->>>>>>> v2 Adds request body module (#58)
 class BaseApi(api_client.Api):
     @typing.overload
     def _enum_parameters_oapg(

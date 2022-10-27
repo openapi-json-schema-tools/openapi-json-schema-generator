@@ -28,23 +28,15 @@ from petstore_api import schemas  # noqa: F401
 from . import response_for_200
 from . import response_for_400
 from . import response_for_404
+from . import parameter_0
 
 
 
 class RequestPathParameters:
-    class Schemas:
-        
-        
-        class order_id(
-            schemas.Int64Schema
-        ):
-            pass
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'order_id': typing.Union[Schemas.order_id, decimal.Decimal, int, ],
+            'order_id': typing.Union[parameter_0.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -60,12 +52,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        api_client.PathParameter(
-            name="order_id",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.order_id,
-            required=True,
-        ),
+        parameter_0.parameter_oapg,
     ]_all_accept_content_types = (
     'application/xml',
     'application/json',

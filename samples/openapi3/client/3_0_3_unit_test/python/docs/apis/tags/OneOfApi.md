@@ -129,10 +129,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedOneofToCheckValidationSemantics**](../../models/NestedOneofToCheckValidationSemantics.md) |  | 
@@ -255,10 +255,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_complex_types_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_oneof_complex_types_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofComplexTypes**](../../models/OneofComplexTypes.md) |  | 
@@ -381,10 +381,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_oneof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Oneof**](../../models/Oneof.md) |  | 
@@ -419,7 +419,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithBaseSchema("body_example")
+    body = OneofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_oneof_with_base_schema_request_body(
             body=body,
@@ -507,10 +507,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_oneof_with_base_schema_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithBaseSchema**](../../models/OneofWithBaseSchema.md) |  | 
@@ -633,10 +633,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithEmptySchema**](../../models/OneofWithEmptySchema.md) |  | 
@@ -759,10 +759,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_oneof_with_required_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_oneof_with_required_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**OneofWithRequired**](../../models/OneofWithRequired.md) |  | 

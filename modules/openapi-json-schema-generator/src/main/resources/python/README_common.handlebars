@@ -1,40 +1,16 @@
-```python
-{{#with apiInfo}}{{#each apis}}{{#unless hasMore}}{{#if hasHttpSignatureMethods}}import datetime{{/if}}{{/unless}}{{/each}}{{/with}}
-import time
-import {{{packageName}}}
-from pprint import pprint
 {{#with apiInfo}}
 {{#each apis}}
 {{#if @first}}
-from {{packageName}}.{{apiPackage}}.tags import {{classFilename}}
-{{#each imports}}
-{{{import}}}
-{{/each}}
 {{#with operations}}
 {{#each operation}}
 {{#if @first}}
-{{> doc_auth_partial}}
-
-# Enter a context with an instance of the API client
-with {{{packageName}}}.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = {{classFilename}}.{{{classname}}}(api_client)
-    {{#each allParams}}{{paramName}} = {{{example}}} # {{{dataType}}} | {{{description}}}{{#unless required}} (optional){{/unless}}{{#if defaultValue}} (default to {{{.}}}){{/if}}
-    {{/each}}
-
-    try:
-    {{#if summary}}    # {{{summary}}}
-    {{/if}}    {{#if returnType}}api_response = {{/if}}api_instance.{{{operationId}}}({{#each allParams}}{{#if required}}{{paramName}}{{/if}}{{#unless required}}{{paramName}}={{paramName}}{{/unless}}{{#if hasMore}}, {{/if}}{{/each}}){{#if returnType}}
-        pprint(api_response){{/if}}
-    except {{{packageName}}}.ApiException as e:
-        print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)
+{{> api_doc_example }}
 {{/if}}
 {{/each}}
 {{/with}}
 {{/if}}
 {{/each}}
 {{/with}}
-```
 
 ## Documentation for API Endpoints
 

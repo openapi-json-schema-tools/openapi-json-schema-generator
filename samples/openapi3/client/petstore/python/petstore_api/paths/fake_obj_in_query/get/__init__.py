@@ -26,63 +26,11 @@ from petstore_api import schemas  # noqa: F401
 
 from .. import path
 from . import response_for_200
+from . import parameter_0
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        
-        
-        class mapBean(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                class properties:
-                    keyword = schemas.StrSchema
-                    __annotations__ = {
-                        "keyword": keyword,
-                    }
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["keyword"]) -> MetaOapg.properties.keyword: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["keyword", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["keyword"]) -> typing.Union[MetaOapg.properties.keyword, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["keyword", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                keyword: typing.Union[MetaOapg.properties.keyword, str, schemas.Unset] = schemas.unset,
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'mapBean':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    keyword=keyword,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -91,7 +39,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[Schemas.mapBean, dict, frozendict.frozendict, ],
+            'mapBean': typing.Union[parameter_0.schema, dict, frozendict.frozendict, ],
         },
         total=False
     )
@@ -102,12 +50,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="mapBean",
-            style=api_client.ParameterStyle.DEEP_OBJECT,
-            schema=Schemas.mapBean,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
     ]
 _status_code_to_response = {
     '200': response_for_200.response,

@@ -25,6 +25,9 @@ from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
 {{#if bodyParam}}
 from . import request_body
 {{/if}}
+{{#each allParams}}
+from . import {{paramName}}
+{{/each}}
 
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}

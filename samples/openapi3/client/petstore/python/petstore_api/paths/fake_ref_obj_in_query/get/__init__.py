@@ -28,14 +28,11 @@ from petstore_api.model.foo import Foo
 
 from .. import path
 from . import response_for_200
+from . import parameter_0
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        mapBean = Foo
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -44,7 +41,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[Schemas.mapBean, ],
+            'mapBean': typing.Union[parameter_0.schema, ],
         },
         total=False
     )
@@ -55,12 +52,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="mapBean",
-            style=api_client.ParameterStyle.DEEP_OBJECT,
-            schema=Schemas.mapBean,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
     ]
 _status_code_to_response = {
     '200': response_for_200.response,
