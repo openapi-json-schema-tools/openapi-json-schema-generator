@@ -22,6 +22,9 @@ from .. import path
 {{#each responses}}
 from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
 {{/each}}
+{{#if bodyParam}}
+from . import request_body
+{{/if}}
 
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
@@ -37,38 +40,6 @@ from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
 {{> endpoint_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
     {{/if}}
 {{/or}}
-{{#if bodyParam}}
-{{#with bodyParam}}
-
-
-class RequestBody:
-    class Schemas:
-    {{#each content}}
-        {{#with this}}
-            {{#with schema}}
-        {{> model_templates/schema }}
-            {{/with}}
-        {{/with}}
-    {{/each}}
-
-    parameter = api_client.RequestBody(
-        content={
-    {{#each content}}
-            '{{{@key}}}': api_client.MediaType(
-        {{#with this}}
-            {{#with schema}}
-                schema=Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}
-            {{/with}}
-        {{/with}}
-            ),
-    {{/each}}
-        },
-    {{#if required}}
-        required=True,
-    {{/if}}
-    )
-{{/with}}
-{{/if}}
 {{#unless isStub}}
 {{#each authMethods}}
 {{#if @first}}
