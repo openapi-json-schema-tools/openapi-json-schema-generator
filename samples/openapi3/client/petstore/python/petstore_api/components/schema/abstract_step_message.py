@@ -68,7 +68,7 @@ class AbstractStepMessage(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                abstract_step_message.AbstractStepMessage,
+                AbstractStepMessage,
             ]
 
     
@@ -117,4 +117,3 @@ class AbstractStepMessage(
         )
 
 from petstore_api.components.schema.abstract_step_message import AbstractStepMessage
-from petstore_api.components.schema.abstract_step_message_abstract_step_message import AbstractStepMessageAbstractStepMessage

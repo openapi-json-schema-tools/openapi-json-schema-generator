@@ -2920,7 +2920,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         m.setTypeProperties(schema);
         m.setFormat(schema.getFormat());
-        String sourceJsonPath = "#/compents/scheams/" + name;
+        String sourceJsonPath = "#/components/schemas/" + name;
         m.setComposedSchemas(getComposedSchemas(schema, sourceJsonPath));
         if (ModelUtils.isArraySchema(schema)) {
             CodegenProperty arrayProperty = fromProperty("items", schema, false, false, sourceJsonPath);
