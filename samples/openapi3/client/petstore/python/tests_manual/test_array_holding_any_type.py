@@ -15,7 +15,7 @@ import unittest
 from datetime import date, datetime, timezone
 
 import petstore_api
-from petstore_api.model.array_holding_any_type import ArrayHoldingAnyType
+from petstore_api.components.schema.array_holding_any_type import ArrayHoldingAnyType
 from petstore_api.schemas import NoneClass, BoolClass
 
 

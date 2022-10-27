@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.uniqueitems_validation import UniqueitemsValidation
+from unit_test_api.components.schema.uniqueitems_validation import UniqueitemsValidation
 
 from .. import path
 from . import response_for_200

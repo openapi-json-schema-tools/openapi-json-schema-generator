@@ -38,7 +38,7 @@ class TestFakeApi(ApiTestMixin):
     api = FakeApi(api_client=api_client.ApiClient(configuration=configuration))
 
     def test_array_model(self):
-        from petstore_api.model import animal_farm, animal
+        from petstore_api.components.schema import animal_farm, animal
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
@@ -66,7 +66,7 @@ class TestFakeApi(ApiTestMixin):
         assert sys.getrecursionlimit() == 1234
 
     def test_array_of_enums(self):
-        from petstore_api.model import array_of_enums, string_enum
+        from petstore_api.components.schema import array_of_enums, string_enum
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
@@ -88,7 +88,7 @@ class TestFakeApi(ApiTestMixin):
             assert api_response.body == body
 
     def test_number_with_validations(self):
-        from petstore_api.model import number_with_validations
+        from petstore_api.components.schema import number_with_validations
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
@@ -109,7 +109,7 @@ class TestFakeApi(ApiTestMixin):
             assert api_response.body == value
 
     def test_composed_one_of_different_types(self):
-        from petstore_api.model import composed_one_of_different_types
+        from petstore_api.components.schema import composed_one_of_different_types
 
         # serialization + deserialization works
         number = composed_one_of_different_types.ComposedOneOfDifferentTypes(10.0)
@@ -177,7 +177,7 @@ class TestFakeApi(ApiTestMixin):
             assert api_response.body == value_simple
 
     def test_string_enum(self):
-        from petstore_api.model import string_enum
+        from petstore_api.components.schema import string_enum
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
             value = "placed"
@@ -198,7 +198,7 @@ class TestFakeApi(ApiTestMixin):
 
     def test_mammal(self):
         # serialization + deserialization works
-        from petstore_api.model.mammal import Mammal
+        from petstore_api.components.schema.mammal import Mammal
         with patch.object(RESTClientObject, 'request') as mock_request:
             body = Mammal(className="BasquePig")
             value_simple = dict(className='BasquePig')
@@ -225,7 +225,7 @@ class TestFakeApi(ApiTestMixin):
             self.api.mammal(body=schemas.unset)
 
     def test_missing_or_unset_required_query_parameter(self):
-        from petstore_api.model.user import User
+        from petstore_api.components.schema.user import User
         user = User({})
         # missing required query param
         with self.assertRaises(petstore_api.ApiTypeError):
@@ -235,7 +235,7 @@ class TestFakeApi(ApiTestMixin):
             self.api.body_with_query_params(body=schemas.unset, query_params=dict(query=schemas.unset))
 
     def test_body_with_query_params(self):
-        from petstore_api.model import user
+        from petstore_api.components.schema import user
         with patch.object(RESTClientObject, 'request') as mock_request:
 
             value_simple = dict(
@@ -794,8 +794,8 @@ class TestFakeApi(ApiTestMixin):
 
     def test_json_patch(self):
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
-            from petstore_api.model import json_patch_request
-            from petstore_api.model import json_patch_request_add_replace_test
+            from petstore_api.components.schema import json_patch_request
+            from petstore_api.components.schema import json_patch_request_add_replace_test
 
             mock_request.return_value = self.response("")
             body = json_patch_request.JSONPatchRequest(

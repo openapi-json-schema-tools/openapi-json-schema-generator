@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import unique_items_api
-from unit_test_api.model.uniqueitems_false_validation import UniqueitemsFalseValidation
+from unit_test_api.components.schema.uniqueitems_false_validation import UniqueitemsFalseValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uniqueitems_false_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../models/UniqueitemsFalseValidation.md) |  | 
+[**UniqueitemsFalseValidation**](../../components/schema/UniqueitemsFalseValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uniqueitems_false_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../models/UniqueitemsFalseValidation.md) |  | 
+[**UniqueitemsFalseValidation**](../../components/schema/UniqueitemsFalseValidation.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import unique_items_api
-from unit_test_api.model.uniqueitems_validation import UniqueitemsValidation
+from unit_test_api.components.schema.uniqueitems_validation import UniqueitemsValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uniqueitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../models/UniqueitemsValidation.md) |  | 
+[**UniqueitemsValidation**](../../components/schema/UniqueitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uniqueitems_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../models/UniqueitemsValidation.md) |  | 
+[**UniqueitemsValidation**](../../components/schema/UniqueitemsValidation.md) |  | 
 
 
 ### Authorization

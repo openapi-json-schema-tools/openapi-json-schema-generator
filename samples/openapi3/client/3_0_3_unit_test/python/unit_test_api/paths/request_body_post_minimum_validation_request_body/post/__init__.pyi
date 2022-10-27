@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.minimum_validation import MinimumValidation
+from unit_test_api.components.schema.minimum_validation import MinimumValidation
 
 from . import response_for_200
 from . import request_body

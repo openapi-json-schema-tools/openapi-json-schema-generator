@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
 
 from . import response_for_200
 from . import request_body

@@ -12,7 +12,7 @@
 import unittest
 
 from petstore_api import schemas, exceptions
-from petstore_api.model.uuid_string import UUIDString
+from petstore_api.components.schema.uuid_string import UUIDString
 import uuid
 
 

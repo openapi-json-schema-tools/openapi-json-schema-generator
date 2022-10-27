@@ -33,7 +33,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
+from unit_test_api.components.schema.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -70,7 +70,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_combined_with_anyof_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -141,7 +141,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Authorization
@@ -159,7 +159,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof import Allof
+from unit_test_api.components.schema.allof import Allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -196,7 +196,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../models/Allof.md) |  | 
+[**Allof**](../../components/schema/Allof.md) |  | 
 
 
 ### Return Types, Responses
@@ -267,7 +267,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../models/Allof.md) |  | 
+[**Allof**](../../components/schema/Allof.md) |  | 
 
 
 ### Authorization
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema.allof_simple_types import AllofSimpleTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -322,7 +322,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_simple_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/AllofSimpleTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -393,7 +393,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_simple_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/AllofSimpleTypes.md) |  | 
 
 
 ### Authorization
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_base_schema import AllofWithBaseSchema
+from unit_test_api.components.schema.allof_with_base_schema import AllofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -448,7 +448,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/AllofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -519,7 +519,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/AllofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_one_empty_schema import AllofWithOneEmptySchema
+from unit_test_api.components.schema.allof_with_one_empty_schema import AllofWithOneEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -574,7 +574,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/AllofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -645,7 +645,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/AllofWithOneEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -663,7 +663,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -700,7 +700,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_the_first_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -771,7 +771,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -789,7 +789,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -826,7 +826,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_the_last_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -897,7 +897,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -915,7 +915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
+from unit_test_api.components.schema.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -952,7 +952,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_two_empty_schemas_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Return Types, Responses
@@ -1023,7 +1023,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Authorization
@@ -1041,7 +1041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.model.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1078,7 +1078,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_allof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -1149,7 +1149,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization
