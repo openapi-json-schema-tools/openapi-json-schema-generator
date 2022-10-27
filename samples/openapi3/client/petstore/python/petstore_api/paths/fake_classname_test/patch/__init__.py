@@ -29,21 +29,8 @@ from petstore_api.model.client import Client
 
 from .. import path
 from . import response_for_200
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        application_json = Client
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/json': api_client.MediaType(
-                schema=Schemas.application_json
-            ),
-        },
-        required=True,
-    )
 
 _auth = [
     'api_key_query',
@@ -61,7 +48,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -74,7 +61,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -88,7 +75,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -99,7 +86,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -112,7 +99,7 @@ class BaseApi(api_client.Api):
 
     def _classname_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -138,7 +125,7 @@ class BaseApi(api_client.Api):
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        serialized_data = RequestBody.parameter.serialize(body, content_type)
+        serialized_data = request_body.parameter_oapg.serialize(body, content_type)
         _headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             _fields = serialized_data['fields']
@@ -180,7 +167,7 @@ class Classname(BaseApi):
     @typing.overload
     def classname(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -193,7 +180,7 @@ class Classname(BaseApi):
     @typing.overload
     def classname(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -207,7 +194,7 @@ class Classname(BaseApi):
     @typing.overload
     def classname(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -218,7 +205,7 @@ class Classname(BaseApi):
     @typing.overload
     def classname(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -231,7 +218,7 @@ class Classname(BaseApi):
 
     def classname(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -254,7 +241,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -267,7 +254,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -281,7 +268,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -292,7 +279,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -305,7 +292,7 @@ class ApiForpatch(BaseApi):
 
     def patch(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

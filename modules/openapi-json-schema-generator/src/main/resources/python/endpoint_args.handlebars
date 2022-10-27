@@ -3,9 +3,9 @@
     {{#if bodyParam.required}}
         {{#with bodyParam}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -67,9 +67,9 @@
         {{/if}}
         {{#with bodyParam}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
