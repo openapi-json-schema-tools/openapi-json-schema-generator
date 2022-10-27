@@ -57,8 +57,8 @@ class Operator(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                AdditionOperator,
-                SubtractionOperator,
+                addition_operator.AdditionOperator,
+                subtraction_operator.SubtractionOperator,
             ]
 
 
@@ -76,4 +76,6 @@ class Operator(
         )
 
 from this_package.components.schema.addition_operator import AdditionOperator
+from this_package.components.schema.addition_operator_addition_operator import AdditionOperatorAdditionOperator
 from this_package.components.schema.subtraction_operator import SubtractionOperator
+from this_package.components.schema.subtraction_operator_subtraction_operator import SubtractionOperatorSubtractionOperator

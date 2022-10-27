@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema.forbidden_property_forbidden_property import ForbiddenPropertyForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +58,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -129,7 +129,7 @@ headers | Unset | headers were not defined |
 # <a id="post_forbidden_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Authorization

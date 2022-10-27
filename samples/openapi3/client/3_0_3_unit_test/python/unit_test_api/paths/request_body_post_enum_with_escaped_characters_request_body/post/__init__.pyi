@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema.enum_with_escaped_characters_enum_with_escaped_characters import EnumWithEscapedCharactersEnumWithEscapedCharacters
 
 from . import response_for_200
 from . import request_body

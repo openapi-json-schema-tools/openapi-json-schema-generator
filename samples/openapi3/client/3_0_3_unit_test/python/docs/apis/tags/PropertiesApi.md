@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import properties_api
-from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema.object_properties_validation_object_properties_validation import ObjectPropertiesValidationObjectPropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_properties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectPropertiesValidation**](../../components/schema/ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../components/schema/object_properties_validation.ObjectPropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_object_properties_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectPropertiesValidation**](../../components/schema/ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../components/schema/object_properties_validation.ObjectPropertiesValidation.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import properties_api
-from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema.properties_with_escaped_characters_properties_with_escaped_characters import PropertiesWithEscapedCharactersPropertiesWithEscapedCharacters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_properties_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../components/schema/PropertiesWithEscapedCharacters.md) |  | 
+[**PropertiesWithEscapedCharacters**](../../components/schema/properties_with_escaped_characters.PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_properties_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../components/schema/PropertiesWithEscapedCharacters.md) |  | 
+[**PropertiesWithEscapedCharacters**](../../components/schema/properties_with_escaped_characters.PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Authorization

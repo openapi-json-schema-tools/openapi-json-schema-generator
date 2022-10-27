@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
+from unit_test_api.components.schema.additionalproperties_can_exist_by_itself_additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItselfAdditionalpropertiesCanExistByItself
 
 # body schemas
-application_json = AdditionalpropertiesCanExistByItself
+application_json = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself
 
 
 @dataclasses.dataclass

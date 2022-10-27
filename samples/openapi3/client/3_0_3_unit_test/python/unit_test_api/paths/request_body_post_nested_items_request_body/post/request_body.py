@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.nested_items import NestedItems
+from unit_test_api.components.schema.nested_items_nested_items import NestedItemsNestedItems
 
 
-application_json = NestedItems
+application_json = nested_items.NestedItems
 
 parameter_oapg = api_client.RequestBody(
     content={

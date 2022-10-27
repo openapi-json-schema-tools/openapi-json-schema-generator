@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema.enum_with_escaped_characters_enum_with_escaped_characters import EnumWithEscapedCharactersEnumWithEscapedCharacters
 
 # body schemas
-application_json = EnumWithEscapedCharacters
+application_json = enum_with_escaped_characters.EnumWithEscapedCharacters
 
 
 @dataclasses.dataclass

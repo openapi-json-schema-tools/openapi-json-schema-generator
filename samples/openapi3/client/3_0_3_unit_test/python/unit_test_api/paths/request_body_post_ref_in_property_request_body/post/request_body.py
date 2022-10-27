@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.ref_in_property import RefInProperty
+from unit_test_api.components.schema.ref_in_property_ref_in_property import RefInPropertyRefInProperty
 
 
-application_json = RefInProperty
+application_json = ref_in_property.RefInProperty
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -138,7 +138,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.components.schema.operator import Operator
+from this_package.components.schema.operator_operator import OperatorOperator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.

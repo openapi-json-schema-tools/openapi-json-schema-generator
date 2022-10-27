@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference_property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReferencePropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -68,7 +68,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses
@@ -139,7 +139,7 @@ headers | Unset | headers were not defined |
 # <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Authorization
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema.ref_in_additionalproperties_ref_in_additionalproperties import RefInAdditionalpropertiesRefInAdditionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -196,7 +196,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_additionalproperties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -267,7 +267,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Authorization
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_allof import RefInAllof
+from unit_test_api.components.schema.ref_in_allof_ref_in_allof import RefInAllofRefInAllof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -322,7 +322,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/ref_in_allof.RefInAllof.md) |  | 
 
 
 ### Return Types, Responses
@@ -393,7 +393,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/ref_in_allof.RefInAllof.md) |  | 
 
 
 ### Authorization
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema.ref_in_anyof_ref_in_anyof import RefInAnyofRefInAnyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -448,7 +448,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -519,7 +519,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Authorization
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_items import RefInItems
+from unit_test_api.components.schema.ref_in_items_ref_in_items import RefInItemsRefInItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -576,7 +576,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../components/schema/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/ref_in_items.RefInItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -647,7 +647,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_items_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../components/schema/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/ref_in_items.RefInItems.md) |  | 
 
 
 ### Authorization
@@ -791,7 +791,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema.ref_in_oneof_ref_in_oneof import RefInOneofRefInOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -828,7 +828,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/ref_in_oneof.RefInOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -899,7 +899,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/ref_in_oneof.RefInOneof.md) |  | 
 
 
 ### Authorization
@@ -917,7 +917,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_property import RefInProperty
+from unit_test_api.components.schema.ref_in_property_ref_in_property import RefInPropertyRefInProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -954,7 +954,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -1025,7 +1025,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Authorization

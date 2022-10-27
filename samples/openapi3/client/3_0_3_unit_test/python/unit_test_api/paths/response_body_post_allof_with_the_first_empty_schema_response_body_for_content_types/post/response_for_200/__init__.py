@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema.allof_with_the_first_empty_schema_allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchemaAllofWithTheFirstEmptySchema
 
 # body schemas
-application_json = AllofWithTheFirstEmptySchema
+application_json = allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema
 
 
 @dataclasses.dataclass

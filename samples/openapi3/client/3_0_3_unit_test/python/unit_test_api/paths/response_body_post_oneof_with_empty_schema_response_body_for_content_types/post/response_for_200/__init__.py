@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema.oneof_with_empty_schema_oneof_with_empty_schema import OneofWithEmptySchemaOneofWithEmptySchema
 
 # body schemas
-application_json = OneofWithEmptySchema
+application_json = oneof_with_empty_schema.OneofWithEmptySchema
 
 
 @dataclasses.dataclass

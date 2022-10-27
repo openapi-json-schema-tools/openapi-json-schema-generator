@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema.anyof_complex_types_anyof_complex_types import AnyofComplexTypesAnyofComplexTypes
 
 
-application_json = AnyofComplexTypes
+application_json = anyof_complex_types.AnyofComplexTypes
 
 parameter_oapg = api_client.RequestBody(
     content={

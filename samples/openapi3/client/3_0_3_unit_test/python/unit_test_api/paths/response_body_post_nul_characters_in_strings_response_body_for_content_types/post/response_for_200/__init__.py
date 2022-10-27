@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema.nul_characters_in_strings_nul_characters_in_strings import NulCharactersInStringsNulCharactersInStrings
 
 # body schemas
-application_json = NulCharactersInStrings
+application_json = nul_characters_in_strings.NulCharactersInStrings
 
 
 @dataclasses.dataclass

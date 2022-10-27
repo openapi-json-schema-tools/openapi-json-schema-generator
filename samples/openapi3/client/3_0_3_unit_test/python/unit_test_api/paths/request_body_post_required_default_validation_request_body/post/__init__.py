@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema.required_default_validation_required_default_validation import RequiredDefaultValidationRequiredDefaultValidation
 
 from .. import path
 from . import response_for_200

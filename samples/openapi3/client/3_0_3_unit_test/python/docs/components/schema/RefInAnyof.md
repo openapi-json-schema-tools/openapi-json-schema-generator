@@ -9,7 +9,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[PropertyNamedRefThatIsNotAReference](PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](PropertyNamedRefThatIsNotAReference.md) |  | 
+[PropertyNamedRefThatIsNotAReference](property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

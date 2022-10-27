@@ -9,8 +9,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[AdditionOperator](AdditionOperator.md) | [**AdditionOperator**](AdditionOperator.md) | [**AdditionOperator**](AdditionOperator.md) |  | 
-[SubtractionOperator](SubtractionOperator.md) | [**SubtractionOperator**](SubtractionOperator.md) | [**SubtractionOperator**](SubtractionOperator.md) |  | 
+[AdditionOperator](addition_operator.AdditionOperator.md) | [**AdditionOperator**](addition_operator.AdditionOperator.md) | [**AdditionOperator**](addition_operator.AdditionOperator.md) |  | 
+[SubtractionOperator](subtraction_operator.SubtractionOperator.md) | [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

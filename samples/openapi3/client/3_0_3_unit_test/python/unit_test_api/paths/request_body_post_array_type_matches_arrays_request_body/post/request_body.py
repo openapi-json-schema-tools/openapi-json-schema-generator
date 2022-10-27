@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.array_type_matches_arrays_array_type_matches_arrays import ArrayTypeMatchesArraysArrayTypeMatchesArrays
 
 
-application_json = ArrayTypeMatchesArrays
+application_json = array_type_matches_arrays.ArrayTypeMatchesArrays
 
 parameter_oapg = api_client.RequestBody(
     content={

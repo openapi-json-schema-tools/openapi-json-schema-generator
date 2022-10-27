@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema.required_default_validation_required_default_validation import RequiredDefaultValidationRequiredDefaultValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,7 +60,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -131,7 +131,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_default_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Authorization
@@ -149,7 +149,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_validation import RequiredValidation
+from unit_test_api.components.schema.required_validation_required_validation import RequiredValidationRequiredValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -186,7 +186,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -257,7 +257,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Authorization
@@ -275,7 +275,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema.required_with_empty_array_required_with_empty_array import RequiredWithEmptyArrayRequiredWithEmptyArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -312,7 +312,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses
@@ -383,7 +383,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_empty_array_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Authorization

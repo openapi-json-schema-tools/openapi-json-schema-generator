@@ -27,7 +27,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics_nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemanticsNestedOneofToCheckValidationSemantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,7 +64,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_oneof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -135,7 +135,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization
@@ -153,7 +153,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
+from unit_test_api.components.schema.oneof_complex_types_oneof_complex_types import OneofComplexTypesOneofComplexTypes
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -190,7 +190,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/oneof_complex_types.OneofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -261,7 +261,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/oneof_complex_types.OneofComplexTypes.md) |  | 
 
 
 ### Authorization
@@ -279,7 +279,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof import Oneof
+from unit_test_api.components.schema.oneof_oneof import OneofOneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -316,7 +316,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../components/schema/Oneof.md) |  | 
+[**Oneof**](../../components/schema/oneof.Oneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -387,7 +387,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../components/schema/Oneof.md) |  | 
+[**Oneof**](../../components/schema/oneof.Oneof.md) |  | 
 
 
 ### Authorization
@@ -405,7 +405,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
+from unit_test_api.components.schema.oneof_with_base_schema_oneof_with_base_schema import OneofWithBaseSchemaOneofWithBaseSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -442,7 +442,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/oneof_with_base_schema.OneofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -513,7 +513,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/oneof_with_base_schema.OneofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -531,7 +531,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema.oneof_with_empty_schema_oneof_with_empty_schema import OneofWithEmptySchemaOneofWithEmptySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -568,7 +568,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/oneof_with_empty_schema.OneofWithEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -639,7 +639,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/oneof_with_empty_schema.OneofWithEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -657,7 +657,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_with_required import OneofWithRequired
+from unit_test_api.components.schema.oneof_with_required_oneof_with_required import OneofWithRequiredOneofWithRequired
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -694,7 +694,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_required_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/oneof_with_required.OneofWithRequired.md) |  | 
 
 
 ### Return Types, Responses
@@ -765,7 +765,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/oneof_with_required.OneofWithRequired.md) |  | 
 
 
 ### Authorization

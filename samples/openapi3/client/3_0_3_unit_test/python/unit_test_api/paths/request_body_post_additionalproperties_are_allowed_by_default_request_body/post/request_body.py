@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema.additionalproperties_are_allowed_by_default_additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefaultAdditionalpropertiesAreAllowedByDefault
 
 
-application_json = AdditionalpropertiesAreAllowedByDefault
+application_json = additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault
 
 parameter_oapg = api_client.RequestBody(
     content={
