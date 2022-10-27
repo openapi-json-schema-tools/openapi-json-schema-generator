@@ -26,7 +26,7 @@ public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperti
      */
     public String openApiType;
     public String baseName;
-    public String complexType;
+    public String refClass;
     public String getter;
     public String setter;
     /**
@@ -258,12 +258,12 @@ public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperti
         this.baseName = baseName;
     }
 
-    public String getComplexType() {
-        return complexType;
+    public String getRefClass() {
+        return refClass;
     }
 
-    public void setComplexType(String complexType) {
-        this.complexType = complexType;
+    public void setRefClass(String refClass) {
+        this.refClass = refClass;
     }
 
     public String getGetter() {
@@ -978,7 +978,7 @@ public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperti
         final StringBuilder sb = new StringBuilder("CodegenProperty{");
         sb.append("openApiType='").append(openApiType).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
-        sb.append(", complexType='").append(complexType).append('\'');
+        sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", getter='").append(getter).append('\'');
         sb.append(", setter='").append(setter).append('\'');
         sb.append(", description='").append(description).append('\'');
@@ -1151,7 +1151,7 @@ public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperti
                 Objects.equals(composedSchemas, that.composedSchemas) &&
                 Objects.equals(openApiType, that.openApiType) &&
                 Objects.equals(baseName, that.baseName) &&
-                Objects.equals(complexType, that.complexType) &&
+                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(getter, that.getter) &&
                 Objects.equals(setter, that.setter) &&
                 Objects.equals(description, that.description) &&
@@ -1197,7 +1197,7 @@ public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperti
     @Override
     public int hashCode() {
 
-        return Objects.hash(openApiType, baseName, complexType, getter, setter, description,
+        return Objects.hash(openApiType, baseName, refClass, getter, setter, description,
                 dataType, datatypeWithEnum, dataFormat, name, min, max, defaultValue,
                 defaultValueWithParam, baseType, containerType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
