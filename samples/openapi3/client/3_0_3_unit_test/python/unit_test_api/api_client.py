@@ -325,6 +325,18 @@ class StyleSimpleSerializer(ParameterSerializerBase):
             prefix_separator_iterator=prefix_separator_iterator
         )
 
+    def _deserialize_simple(
+        self,
+        in_data: str,
+        name: str,
+        explode: bool,
+        percent_encode: bool
+    ) -> typing.Union[str, typing.List[str], typing.Dict[str, str]]:
+        raise NotImplementedError(
+            "Deserialization of style=simple has not yet been added. "
+            "If you need this how about you submit a PR adding it?"
+        )
+
 
 class JSONDetector:
     """
@@ -345,7 +357,6 @@ class JSONDetector:
 
 @dataclasses.dataclass
 class ParameterBase(JSONDetector):
-    name: str
     in_type: ParameterInType
     required: bool
     style: typing.Optional[ParameterStyle]
@@ -369,7 +380,6 @@ class ParameterBase(JSONDetector):
         ParameterInType.HEADER: ParameterStyle.SIMPLE,
         ParameterInType.COOKIE: ParameterStyle.FORM,
     }
-    __disallowed_header_names = {'Accept', 'Content-Type', 'Authorization'}
     _json_encoder = JSONEncoder()
 
     @classmethod
@@ -386,7 +396,6 @@ class ParameterBase(JSONDetector):
 
     def __init__(
         self,
-        name: str,
         in_type: ParameterInType,
         required: bool = False,
         style: typing.Optional[ParameterStyle] = None,
@@ -399,15 +408,12 @@ class ParameterBase(JSONDetector):
             raise ValueError('Value missing; Pass in either schema or content')
         if schema and content:
             raise ValueError('Too many values provided. Both schema and content were provided. Only one may be input')
-        if name in self.__disallowed_header_names and in_type is ParameterInType.HEADER:
-            raise ValueError('Invalid name, name may not be one of {}'.format(self.__disallowed_header_names))
         self.__verify_style_to_in_type(style, in_type)
         if content is None and style is None:
             style = self.__in_type_to_default_style[in_type]
         if content is not None and in_type in self.__in_type_to_default_style and len(content) != 1:
             raise ValueError('Invalid content length, content length must equal 1')
         self.in_type = in_type
-        self.name = name
         self.required = required
         self.style = style
         self.explode = explode
@@ -426,6 +432,7 @@ class ParameterBase(JSONDetector):
 
 
 class PathParameter(ParameterBase, StyleSimpleSerializer):
+    name: str
 
     def __init__(
         self,
@@ -437,8 +444,8 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
         schema: typing.Optional[typing.Type[Schema]] = None,
         content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
     ):
+        self.name = name
         super().__init__(
-            name,
             in_type=ParameterInType.PATH,
             required=required,
             style=style,
@@ -523,6 +530,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
 
 
 class QueryParameter(ParameterBase, StyleFormSerializer):
+    name: str
 
     def __init__(
         self,
@@ -537,8 +545,8 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         used_style = ParameterStyle.FORM if style is None else style
         used_explode = self._get_default_explode(used_style) if explode is None else explode
 
+        self.name = name
         super().__init__(
-            name,
             in_type=ParameterInType.QUERY,
             required=required,
             style=used_style,
@@ -650,6 +658,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
 
 
 class CookieParameter(ParameterBase, StyleFormSerializer):
+    name: str
 
     def __init__(
         self,
@@ -664,8 +673,8 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         used_style = ParameterStyle.FORM if style is None and content is None and schema else style
         used_explode = self._get_default_explode(used_style) if explode is None else explode
 
+        self.name = name
         super().__init__(
-            name,
             in_type=ParameterInType.COOKIE,
             required=required,
             style=used_style,
@@ -710,10 +719,10 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
-class HeaderParameter(ParameterBase, StyleSimpleSerializer):
+class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
+
     def __init__(
         self,
-        name: str,
         required: bool = False,
         style: typing.Optional[ParameterStyle] = None,
         explode: bool = False,
@@ -722,7 +731,6 @@ class HeaderParameter(ParameterBase, StyleSimpleSerializer):
         content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
     ):
         super().__init__(
-            name,
             in_type=ParameterInType.HEADER,
             required=required,
             style=style,
@@ -744,7 +752,8 @@ class HeaderParameter(ParameterBase, StyleSimpleSerializer):
     def serialize(
         self,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict],
+        name: str
     ) -> HTTPHeaderDict:
         if self.schema:
             cast_in_data = self.schema(in_data)
@@ -755,16 +764,74 @@ class HeaderParameter(ParameterBase, StyleSimpleSerializer):
                     returns headers: dict
             """
             if self.style:
-                value = self._serialize_simple(cast_in_data, self.name, self.explode, False)
-                return self.__to_headers(((self.name, value),))
+                value = self._serialize_simple(cast_in_data, name, self.explode, False)
+                return self.__to_headers(((name, value),))
         # self.content will be length one
         for content_type, schema in self.content.items():
             cast_in_data = schema(in_data)
             cast_in_data = self._json_encoder.default(cast_in_data)
             if self._content_type_is_json(content_type):
                 value = self._serialize_json(cast_in_data)
-                return self.__to_headers(((self.name, value),))
+                return self.__to_headers(((name, value),))
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+
+    def deserialize(
+        self,
+        in_data: str,
+        name: str
+    ) -> Schema:
+        if self.schema:
+            """
+            simple -> header
+                headers: PoolManager needs a mapping, tuple is close
+                    returns headers: dict
+            """
+            if self.style:
+                extracted_data = self._deserialize_simple(in_data, name, self.explode, False)
+                return schema.from_openapi_data_oapg(extracted_data)
+        # self.content will be length one
+        for content_type, schema in self.content.items():
+            if self._content_type_is_json(content_type):
+                cast_in_data = json.loads(in_data)
+                return schema.from_openapi_data_oapg(cast_in_data)
+            raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
+
+
+class HeaderParameter(HeaderParameterWithoutName):
+    name: str
+    __disallowed_header_names = {'Accept', 'Content-Type', 'Authorization'}
+
+    def __init__(
+        self,
+        name: str,
+        required: bool = False,
+        style: typing.Optional[ParameterStyle] = None,
+        explode: bool = False,
+        allow_reserved: typing.Optional[bool] = None,
+        schema: typing.Optional[typing.Type[Schema]] = None,
+        content: typing.Optional[typing.Dict[str, typing.Type[Schema]]] = None
+    ):
+        if name in self.__disallowed_header_names:
+            raise ValueError('Invalid name, name may not be one of {}'.format(self.__disallowed_header_names))
+        self.name = name
+        super().__init__(
+            required=required,
+            style=style,
+            explode=explode,
+            allow_reserved=allow_reserved,
+            schema=schema,
+            content=content
+        )
+
+    def serialize(
+        self,
+        in_data: typing.Union[
+            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+    ) -> HTTPHeaderDict:
+        return super().serialize(
+            in_data,
+            self.name
+        )
 
 
 class Encoding:
@@ -801,13 +868,13 @@ class MediaType:
 class ApiResponse:
     response: urllib3.HTTPResponse
     body: typing.Union[Unset, Schema]
-    headers: typing.Union[Unset, typing.List[HeaderParameter]]
+    headers: typing.Union[Unset, typing.Dict[str, Schema]]
 
     def __init__(
         self,
         response: urllib3.HTTPResponse,
-        body: typing.Union[Unset, typing.Type[Schema]] = unset,
-        headers: typing.Union[Unset, typing.List[HeaderParameter]] = unset
+        body: typing.Union[Unset, Schema] = unset,
+        headers: typing.Union[Unset, typing.Dict[str, Schema]] = unset
     ):
         """
         pycharm needs this to prevent 'Unexpected argument' warnings
@@ -820,18 +887,63 @@ class ApiResponse:
 @dataclasses.dataclass
 class ApiResponseWithoutDeserialization(ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[Unset, typing.Type[Schema]] = unset
-    headers: typing.Union[Unset, typing.List[HeaderParameter]] = unset
+    body: typing.Union[Unset, Schema] = unset
+    headers: typing.Union[Unset, typing.Dict[str, Schema]] = unset
 
 
-class OpenApiResponse(JSONDetector):
+class TypedDictInputVerifier:
+    @staticmethod
+    def _verify_typed_dict_inputs_oapg(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
+        """
+        Ensures that:
+        - required keys are present
+        - additional properties are not input
+        - value stored under required keys do not have the value unset
+        Note: detailed value checking is done in schema classes
+        """
+        missing_required_keys = []
+        required_keys_with_unset_values = []
+        for required_key in cls.__required_keys__:
+            if required_key not in data:
+                missing_required_keys.append(required_key)
+                continue
+            value = data[required_key]
+            if value is unset:
+                required_keys_with_unset_values.append(required_key)
+        if missing_required_keys:
+            raise ApiTypeError(
+                '{} missing {} required arguments: {}'.format(
+                    cls.__name__, len(missing_required_keys), missing_required_keys
+                 )
+             )
+        if required_keys_with_unset_values:
+            raise ApiValueError(
+                '{} contains invalid unset values for {} required keys: {}'.format(
+                    cls.__name__, len(required_keys_with_unset_values), required_keys_with_unset_values
+                )
+            )
+
+        disallowed_additional_keys = []
+        for key in data:
+            if key in cls.__required_keys__ or key in cls.__optional_keys__:
+                continue
+            disallowed_additional_keys.append(key)
+        if disallowed_additional_keys:
+            raise ApiTypeError(
+                '{} got {} unexpected keyword arguments: {}'.format(
+                    cls.__name__, len(disallowed_additional_keys), disallowed_additional_keys
+                )
+            )
+
+
+class OpenApiResponse(JSONDetector, TypedDictInputVerifier):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
 
     def __init__(
         self,
         response_cls: typing.Type[ApiResponse] = ApiResponse,
         content: typing.Optional[typing.Dict[str, MediaType]] = None,
-        headers: typing.Optional[typing.List[HeaderParameter]] = None,
+        headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]] = None,
     ):
         self.headers = headers
         if content is not None and len(content) == 0:
@@ -921,8 +1033,14 @@ class OpenApiResponse(JSONDetector):
 
         deserialized_headers = unset
         if self.headers is not None:
-            # TODO add header deserialiation here
-            pass
+            self._verify_typed_dict_inputs_oapg(self.response_cls.headers, response.headers)
+            deserialized_headers = {}
+            for header_name, header_param in self.headers.items():
+                header_value = response.getheader(header_name)
+                if header_value is None:
+                    continue
+                header_value = header_param.deserialize(header_value, header_name)
+                deserialized_headers[header_name] = header_value
 
         if self.content is not None:
             if content_type not in self.content:
@@ -1258,7 +1376,7 @@ class ApiClient:
                 )
 
 
-class Api:
+class Api(TypedDictInputVerifier):
     """NOTE: This class is auto generated by OpenAPI Generator
     Ref: https://openapi-generator.tech
 
@@ -1269,49 +1387,6 @@ class Api:
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-    @staticmethod
-    def _verify_typed_dict_inputs_oapg(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
-        """
-        Ensures that:
-        - required keys are present
-        - additional properties are not input
-        - value stored under required keys do not have the value unset
-        Note: detailed value checking is done in schema classes
-        """
-        missing_required_keys = []
-        required_keys_with_unset_values = []
-        for required_key in cls.__required_keys__:
-            if required_key not in data:
-                missing_required_keys.append(required_key)
-                continue
-            value = data[required_key]
-            if value is unset:
-                required_keys_with_unset_values.append(required_key)
-        if missing_required_keys:
-            raise ApiTypeError(
-                '{} missing {} required arguments: {}'.format(
-                    cls.__name__, len(missing_required_keys), missing_required_keys
-                 )
-             )
-        if required_keys_with_unset_values:
-            raise ApiValueError(
-                '{} contains invalid unset values for {} required keys: {}'.format(
-                    cls.__name__, len(required_keys_with_unset_values), required_keys_with_unset_values
-                )
-            )
-
-        disallowed_additional_keys = []
-        for key in data:
-            if key in cls.__required_keys__ or key in cls.__optional_keys__:
-                continue
-            disallowed_additional_keys.append(key)
-        if disallowed_additional_keys:
-            raise ApiTypeError(
-                '{} got {} unexpected keyword arguments: {}'.format(
-                    cls.__name__, len(disallowed_additional_keys), disallowed_additional_keys
-                )
-            )
 
     def _get_host_oapg(
         self,

@@ -1,35 +1,15 @@
 
 
 class {{xParamsName}}:
-    class Schemas:
-{{#each xParams}}
-    {{#if schema}}
-        {{#with schema}}
-        {{> model_templates/schema }}
-        {{/with}}
-    {{else}}
-        {{#if getContent}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-        {{> model_templates/schema }}
-                    {{/with}}
-                {{/with}}
-            {{/each}}
-        {{/if}}
-    {{/if}}
-{{/each}}
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
 {{#each xParams}}
 {{#if required}}
 {{#if schema}}
-            '{{baseName}}': {{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{baseName}}': {{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/if}}
 {{/each}}
@@ -41,9 +21,9 @@ class {{xParamsName}}:
 {{#each xParams}}
 {{#unless required}}
 {{#if schema}}
-            '{{baseName}}': {{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{baseName}}': {{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/unless}}
 {{/each}}
@@ -58,6 +38,6 @@ class {{xParamsName}}:
 
     parameters = [
     {{#each xParams}}
-        {{> endpoint_parameter }}
+        {{paramName}}.parameter_oapg,
     {{/each}}
     ]

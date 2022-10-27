@@ -44,7 +44,7 @@ Method | HTTP request | Description
 {{/if}}
 {{> api_doc_example }}
 ### Parameters
-{{#if allParams}}
+{{#or bodyParam queryParams headerParams pathParams cookieParams}}
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -84,7 +84,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="{{operationId}}.request_body" >body</a>
         {{#each content}}
         {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/with}}
@@ -96,12 +96,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
-{{baseName}} | {{#with schema}}[RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestQueryParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
 
         {{#each queryParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestQueryParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -113,11 +113,11 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
-{{baseName}} | {{#with schema}}[RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestHeaderParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each headerParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestHeaderParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -129,11 +129,11 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
-{{baseName}} | {{#with schema}}[RequestPathParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestPathParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each pathParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestPathParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -145,17 +145,17 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
-{{baseName}} | {{#with schema}}[RequestCookieParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../../operationId}}.RequestCookieParameters.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}} | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{paramName}}.schema](#{{../operationId}}.{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/each}}
         {{#each cookieParams}}
         {{#with schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="RequestCookieParameters.Schemas." complexTypePrefix="../../models/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1=../paramName complexTypePrefix="../../models/" }}
         {{/with}}
         {{/each}}
     {{/if}}
 {{else}}
 This endpoint does not need any parameter.
-{{/if}}
+{{/or}}
 
 ### Return Types, Responses
 
@@ -180,27 +180,48 @@ default | [response_for_default.ApiResponse](#{{operationId}}.response_for_defau
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{code}}.BodySchemas.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#{{operationId}}.response_for_{{code}}.BodySchemas.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless responseHeaders}}Unset{{else}}ResponseHeadersFor{{code}}{{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{code}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#{{operationId}}.response_for_{{code}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{code}}.Headers](#{{operationId}}.response_for_{{code}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
 {{#each content}}
-{{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3=".BodySchemas." complexTypePrefix="../../models/" }}
-{{/with}}
+    {{#with this.schema}}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../models/" }}
+    {{/with}}
 {{/each}}
 {{#if responseHeaders}}
-#### ResponseHeadersFor{{code}}
+#### <a id="{{operationId}}.response_for_{{code}}.Headers" >response_for_{{code}}.Headers</a>
 
-Name | Type | Description  | Notes
+Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-        {{#each responseHeaders}}
-{{baseName}} | {{#with schema}}{{baseName}}{{/with}} | | {{#unless required}}optional{{/unless}}
-        {{/each}}
-        {{#each responseHeaders}}
-        {{#with schema}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../models/" }}
-        {{/with}}
-        {{/each}}
-
+    {{#each responseHeaders}}
+        {{#if schema}}
+            {{#with schema}}
+{{../baseName}} | [response_for_{{../code}}.{{../paramName}}.schema](#{{../operationId}}.response_for_{{../code}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+            {{/with}}
+        {{else}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+{{../baseName}} | [response_for_{{../code}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../operationId}}.response_for_{{../code}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each responseHeaders}}
+        {{#if schema}}
+            {{#with schema}}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../models/" }}
+            {{/with}}
+        {{else}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+{{> api_doc_schema_type_hint anchorPrefix=../../operationId schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../models/" }}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
 {{/if}}
 {{/each}}
 

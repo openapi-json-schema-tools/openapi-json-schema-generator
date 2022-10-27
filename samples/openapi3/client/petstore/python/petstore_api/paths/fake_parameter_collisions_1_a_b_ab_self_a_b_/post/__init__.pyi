@@ -27,18 +27,29 @@ from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
 from . import request_body
+from . import parameter_0
+from . import parameter_1
+from . import parameter_2
+from . import parameter_3
+from . import parameter_4
+from . import parameter_5
+from . import parameter_6
+from . import parameter_7
+from . import parameter_8
+from . import parameter_9
+from . import parameter_10
+from . import parameter_11
+from . import parameter_12
+from . import parameter_13
+from . import parameter_14
+from . import parameter_15
+from . import parameter_16
+from . import parameter_17
+from . import parameter_18
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        _1 = schemas.StrSchema
-        aB = schemas.StrSchema
-        Ab = schemas.StrSchema
-        _self = schemas.StrSchema
-        a_b = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -47,11 +58,11 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[Schemas._1, str, ],
-            'aB': typing.Union[Schemas.aB, str, ],
-            'Ab': typing.Union[Schemas.Ab, str, ],
-            'self': typing.Union[Schemas._self, str, ],
-            'A-B': typing.Union[Schemas.a_b, str, ],
+            '1': typing.Union[parameter_0.schema, str, ],
+            'aB': typing.Union[parameter_1.schema, str, ],
+            'Ab': typing.Union[parameter_2.schema, str, ],
+            'self': typing.Union[parameter_3.schema, str, ],
+            'A-B': typing.Union[parameter_4.schema, str, ],
         },
         total=False
     )
@@ -62,46 +73,14 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="1",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas._1,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="aB",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.aB,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="Ab",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.Ab,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="self",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas._self,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="A-B",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.a_b,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
+        parameter_1.parameter_oapg,
+        parameter_2.parameter_oapg,
+        parameter_3.parameter_oapg,
+        parameter_4.parameter_oapg,
     ]
 
 class RequestHeaderParameters:
-    class Schemas:
-        _1 = schemas.StrSchema
-        aB = schemas.StrSchema
-        _self = schemas.StrSchema
-        a_b = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -110,10 +89,10 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[Schemas._1, str, ],
-            'aB': typing.Union[Schemas.aB, str, ],
-            'self': typing.Union[Schemas._self, str, ],
-            'A-B': typing.Union[Schemas.a_b, str, ],
+            '1': typing.Union[parameter_5.schema, str, ],
+            'aB': typing.Union[parameter_6.schema, str, ],
+            'self': typing.Union[parameter_7.schema, str, ],
+            'A-B': typing.Union[parameter_8.schema, str, ],
         },
         total=False
     )
@@ -124,45 +103,21 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        api_client.HeaderParameter(
-            name="1",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas._1,
-        ),
-        api_client.HeaderParameter(
-            name="aB",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.aB,
-        ),
-        api_client.HeaderParameter(
-            name="self",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas._self,
-        ),
-        api_client.HeaderParameter(
-            name="A-B",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.a_b,
-        ),
+        parameter_5.parameter_oapg,
+        parameter_6.parameter_oapg,
+        parameter_7.parameter_oapg,
+        parameter_8.parameter_oapg,
     ]
 
 class RequestPathParameters:
-    class Schemas:
-        _1 = schemas.StrSchema
-        aB = schemas.StrSchema
-        Ab = schemas.StrSchema
-        _self = schemas.StrSchema
-        a_b = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            '1': typing.Union[Schemas._1, str, ],
-            'aB': typing.Union[Schemas.aB, str, ],
-            'Ab': typing.Union[Schemas.Ab, str, ],
-            'self': typing.Union[Schemas._self, str, ],
-            'A-B': typing.Union[Schemas.a_b, str, ],
+            '1': typing.Union[parameter_9.schema, str, ],
+            'aB': typing.Union[parameter_10.schema, str, ],
+            'Ab': typing.Union[parameter_11.schema, str, ],
+            'self': typing.Union[parameter_12.schema, str, ],
+            'A-B': typing.Union[parameter_13.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -178,47 +133,14 @@ class RequestPathParameters:
 
 
     parameters = [
-        api_client.PathParameter(
-            name="1",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas._1,
-            required=True,
-        ),
-        api_client.PathParameter(
-            name="aB",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.aB,
-            required=True,
-        ),
-        api_client.PathParameter(
-            name="Ab",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.Ab,
-            required=True,
-        ),
-        api_client.PathParameter(
-            name="self",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas._self,
-            required=True,
-        ),
-        api_client.PathParameter(
-            name="A-B",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.a_b,
-            required=True,
-        ),
+        parameter_9.parameter_oapg,
+        parameter_10.parameter_oapg,
+        parameter_11.parameter_oapg,
+        parameter_12.parameter_oapg,
+        parameter_13.parameter_oapg,
     ]
 
 class RequestCookieParameters:
-    class Schemas:
-        _1 = schemas.StrSchema
-        aB = schemas.StrSchema
-        Ab = schemas.StrSchema
-        _self = schemas.StrSchema
-        a_b = schemas.StrSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
@@ -227,11 +149,11 @@ class RequestCookieParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[Schemas._1, str, ],
-            'aB': typing.Union[Schemas.aB, str, ],
-            'Ab': typing.Union[Schemas.Ab, str, ],
-            'self': typing.Union[Schemas._self, str, ],
-            'A-B': typing.Union[Schemas.a_b, str, ],
+            '1': typing.Union[parameter_14.schema, str, ],
+            'aB': typing.Union[parameter_15.schema, str, ],
+            'Ab': typing.Union[parameter_16.schema, str, ],
+            'self': typing.Union[parameter_17.schema, str, ],
+            'A-B': typing.Union[parameter_18.schema, str, ],
         },
         total=False
     )
@@ -242,36 +164,11 @@ class RequestCookieParameters:
 
 
     parameters = [
-        api_client.CookieParameter(
-            name="1",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas._1,
-            explode=True,
-        ),
-        api_client.CookieParameter(
-            name="aB",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.aB,
-            explode=True,
-        ),
-        api_client.CookieParameter(
-            name="Ab",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.Ab,
-            explode=True,
-        ),
-        api_client.CookieParameter(
-            name="self",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas._self,
-            explode=True,
-        ),
-        api_client.CookieParameter(
-            name="A-B",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.a_b,
-            explode=True,
-        ),
+        parameter_14.parameter_oapg,
+        parameter_15.parameter_oapg,
+        parameter_16.parameter_oapg,
+        parameter_17.parameter_oapg,
+        parameter_18.parameter_oapg,
     ]_all_accept_content_types = (
     'application/json',
 )

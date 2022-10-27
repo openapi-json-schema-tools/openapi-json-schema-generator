@@ -1,0 +1,33 @@
+# coding: utf-8
+
+{{>partial_header}}
+
+from dataclasses import dataclass
+import typing_extensions
+import urllib3
+
+from {{packageName}} import api_client, exceptions
+{{> model_templates/imports_schema_types }}
+{{> model_templates/imports_schemas }}
+
+
+{{#with parameter}}
+{{#if schema}}
+    {{#with schema}}
+{{> model_templates/schema }}
+    {{/with}}
+{{else}}
+    {{#if getContent}}
+        {{#each getContent}}
+            {{#with this}}
+                {{#with schema}}
+{{> model_templates/schema }}
+                {{/with}}
+            {{/with}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+
+
+{{> endpoint_parameter_instance noName=true }}
+{{/with}}

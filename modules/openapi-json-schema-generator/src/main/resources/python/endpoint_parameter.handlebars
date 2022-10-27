@@ -1,24 +1,33 @@
-api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter(
-    name="{{baseName}}",
-{{#if style}}
-    style=api_client.ParameterStyle.{{style}},
-{{/if}}
+# coding: utf-8
+
+{{>partial_header}}
+
+from dataclasses import dataclass
+import typing_extensions
+import urllib3
+
+from {{packageName}} import api_client, exceptions
+{{> model_templates/imports_schema_types }}
+{{> model_templates/imports_schemas }}
+
+
+{{#with parameter}}
 {{#if schema}}
     {{#with schema}}
-    schema=Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+{{> model_templates/schema }}
     {{/with}}
+{{else}}
+    {{#if getContent}}
+        {{#each getContent}}
+            {{#with this}}
+                {{#with schema}}
+{{> model_templates/schema }}
+                {{/with}}
+            {{/with}}
+        {{/each}}
+    {{/if}}
 {{/if}}
-{{#if getContent}}
-    content={
-{{#each getContent}}
-        "{{@key}}": {{#with this}}{{#with schema}}Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/with}}{{/with}},
-{{/each}}
-    },
-{{/if}}
-{{#if required}}
-    required=True,
-{{/if}}
-{{#if isExplode}}
-    explode=True,
-{{/if}}
-),
+
+
+{{> endpoint_parameter_instance }}
+{{/with}}
