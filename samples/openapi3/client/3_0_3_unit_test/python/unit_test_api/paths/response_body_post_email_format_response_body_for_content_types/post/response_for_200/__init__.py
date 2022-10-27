@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.email_format import EmailFormat
+from unit_test_api.components.schema.email_format import EmailFormat
 
 # body schemas
 application_json = EmailFormat

@@ -14,7 +14,7 @@ import unittest
 
 import petstore_api
 from petstore_api.schemas import DecimalSchema
-from petstore_api.model.decimal_payload import DecimalPayload
+from petstore_api.components.schema.decimal_payload import DecimalPayload
 
 
 class TestDecimalPayload(unittest.TestCase):

@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema.allof_simple_types import AllofSimpleTypes
 
 # body schemas
 application_json = AllofSimpleTypes

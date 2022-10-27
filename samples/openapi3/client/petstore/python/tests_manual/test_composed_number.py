@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.composed_number import ComposedNumber
+from petstore_api.components.schema.composed_number import ComposedNumber
 
 
 class TestComposedNumber(unittest.TestCase):

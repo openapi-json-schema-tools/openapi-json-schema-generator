@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
 
 
 application_json = RefInAnyof

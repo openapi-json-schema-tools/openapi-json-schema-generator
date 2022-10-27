@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.number_with_validations import NumberWithValidations
+from petstore_api.components.schema.number_with_validations import NumberWithValidations
 
 
 class TestNumberWithValidations(unittest.TestCase):

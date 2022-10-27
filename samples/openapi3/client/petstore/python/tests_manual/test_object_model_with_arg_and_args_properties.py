@@ -12,7 +12,7 @@
 import unittest
 
 from petstore_api import schemas, exceptions
-from petstore_api.model.object_model_with_arg_and_args_properties import ObjectModelWithArgAndArgsProperties
+from petstore_api.components.schema.object_model_with_arg_and_args_properties import ObjectModelWithArgAndArgsProperties
 
 
 class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):

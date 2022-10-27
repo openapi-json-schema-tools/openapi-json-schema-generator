@@ -16,7 +16,7 @@
 # import unittest
 #
 # import petstore_api
-# from petstore_api.model import cat, dog, isosceles_triangle, banana_req
+# from petstore_api.components.schema import cat, dog, isosceles_triangle, banana_req
 # from petstore_api import Configuration, signing
 #
 # from petstore_api.schemas import (
