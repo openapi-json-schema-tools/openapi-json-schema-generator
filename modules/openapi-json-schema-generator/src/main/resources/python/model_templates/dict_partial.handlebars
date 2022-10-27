@@ -27,11 +27,11 @@ def discriminator():
 
 class properties:
 {{#each vars}}
-{{#if complexType}}
+{{#if refClass}}
 
     @staticmethod
-    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{complexType}}']:
-        return {{complexType}}
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
 {{else}}
     {{> model_templates/schema }}
 {{/if}}
@@ -47,11 +47,11 @@ class properties:
     }
 {{/if}}
 {{#with additionalProperties}}
-{{#if complexType}}
+{{#if refClass}}
 
 @staticmethod
-def {{baseName}}() -> typing.Type['{{complexType}}']:
-    return {{complexType}}
+def {{baseName}}() -> typing.Type['{{refClass}}']:
+    return {{refClass}}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}
