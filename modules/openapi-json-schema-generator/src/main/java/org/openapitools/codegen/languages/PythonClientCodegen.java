@@ -552,7 +552,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         OperationMap operations = objs.getOperations();
         List<CodegenOperation> codegenOperations = operations.getOperation();
         HashMap<String, String> pathModuleToPath = new HashMap<>();
-        // paths.some_path.post.py (single endpoint definition)
+        // paths.some_path.post.__init__.py (single endpoint definition)
+        // responses are adjacent to the init file
         for (CodegenOperation co: codegenOperations) {
             if (co.tags != null) {
                 for (Tag tag: co.tags) {
@@ -574,14 +575,29 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             endpointMap.put("operation", co);
             endpointMap.put("imports", co.imports);
             endpointMap.put("packageName", packageName);
-            outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod + ".py"));
+            outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "__init__.py"));
             pathsFiles.add(Arrays.asList(endpointMap, "endpoint.handlebars", outputFilename));
+
+            for (CodegenResponse response: co.responses) {
+                // paths.some_path.post.response_for_200.py (file per response)
+                Map<String, Object> responseMap = new HashMap<>();
+                responseMap.put("response", response);
+                responseMap.put("packageName", packageName);
+                String responseModuleName = "response_for_";
+                if (response.isDefault) {
+                    responseModuleName += "default";
+                } else {
+                    responseModuleName += response.code;
+                }
+                String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName+ ".py"));
+                pathsFiles.add(Arrays.asList(responseMap, "endpoint_response.handlebars", responseFilename));
+            }
             /*
             This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
             dict_instance["someProp"] is of type SomeClass.properties.someProp
             See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
              */
-            String stubOutputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod + ".pyi"));
+            String stubOutputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, "__init__.pyi"));
             pathsFiles.add(Arrays.asList(endpointMap, "endpoint_stub.handlebars", stubOutputFilename));
 
             Map<String, Object> endpointTestMap = new HashMap<>();
@@ -749,72 +765,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public Schema unaliasSchema(Schema schema) {
-        Map<String, Schema> allSchemas = ModelUtils.getSchemas(openAPI);
-        if (allSchemas == null || allSchemas.isEmpty()) {
-            // skip the warning as the spec can have no model defined
-            //LOGGER.warn("allSchemas cannot be null/empty in unaliasSchema. Returned 'schema'");
-            return schema;
-        }
-
-        if (schema != null && StringUtils.isNotEmpty(schema.get$ref())) {
-            String simpleRef = ModelUtils.getSimpleRef(schema.get$ref());
-            if (schemaMapping.containsKey(simpleRef)) {
-                LOGGER.debug("Schema unaliasing of {} omitted because aliased class is to be mapped to {}", simpleRef, schemaMapping.get(simpleRef));
-                return schema;
-            }
-            Schema ref = allSchemas.get(simpleRef);
-            if (ref == null) {
-                once(LOGGER).warn("{} is not defined", schema.get$ref());
-                return schema;
-            } else if (ref.getEnum() != null && !ref.getEnum().isEmpty()) {
-                // top-level enum class
-                return schema;
-            } else if (ModelUtils.isArraySchema(ref)) {
-                if (ModelUtils.isGenerateAliasAsModel(ref)) {
-                    return schema; // generate a model extending array
-                } else {
-                    return unaliasSchema(allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())));
-                }
-            } else if (ModelUtils.isComposedSchema(ref)) {
-                return schema;
-            } else if (ModelUtils.isMapSchema(ref)) {
-                if (ref.getProperties() != null && !ref.getProperties().isEmpty()) // has at least one property
-                    return schema; // treat it as model
-                else {
-                    if (ModelUtils.isGenerateAliasAsModel(ref)) {
-                        return schema; // generate a model extending map
-                    } else {
-                        // treat it as a typical map
-                        return unaliasSchema(allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())));
-                    }
-                }
-            } else if (ModelUtils.isObjectSchema(ref)) { // model
-                if (ref.getProperties() != null && !ref.getProperties().isEmpty()) { // has at least one property
-                    return schema;
-                } else {
-                    // free form object (type: object)
-                    if (ModelUtils.hasValidation(ref)) {
-                        return schema;
-                    } else if (getAllOfDescendants(simpleRef, openAPI).size() > 0) {
-                        return schema;
-                    }
-                    return unaliasSchema(allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())));
-                }
-            } else if (ModelUtils.hasValidation(ref)) {
-                // non object non array non map schemas that have validations
-                // are returned so we can generate those schemas as models
-                // we do this to:
-                // - preserve the validations in that model class in python
-                // - use those validations when we use this schema in composed oneOf schemas
-                return schema;
-            } else if (Boolean.TRUE.equals(ref.getNullable()) && ref.getEnum() == null) {
-                // non enum primitive with nullable True
-                // we make these models so instances of this will be subclasses of this model
-                return schema;
-            } else {
-                return unaliasSchema(allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())));
-            }
-        }
+        // python allows schemas to be inlined at any location so unaliasing should do nothing
         return schema;
     }
 
@@ -892,6 +843,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return "from " + packageName + "." +  modelPackage() + "." + toModelFilename(name) + " import " + toModelName(name);
     }
 
+    private void fixSchemaImports(Set<String> imports) {
+        if (imports.size() == 0) {
+            return;
+        }
+        String[] modelNames = imports.toArray(new String[0]);
+        imports.clear();
+        for (String modelName : modelNames) {
+            imports.add(toModelImport(modelName));
+        }
+    }
+
     @Override
     @SuppressWarnings("static-method")
     public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
@@ -902,13 +864,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         OperationMap val = objs.getOperations();
         List<CodegenOperation> operations = val.getOperation();
         for (CodegenOperation operation : operations) {
-            if (operation.imports.size() == 0) {
-                continue;
-            }
-            String[] modelNames = operation.imports.toArray(new String[0]);
-            operation.imports.clear();
-            for (String modelName : modelNames) {
-                operation.imports.add(toModelImport(modelName));
+            fixSchemaImports(operation.imports);
+            for (CodegenResponse response: operation.responses) {
+                fixSchemaImports(response.imports);
             }
         }
         generateEndpoints(objs);
@@ -995,18 +953,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     cp.style = "DEEP_OBJECT";
                     break;
             }
-        }
-        // clone this so we can change some properties on it
-        CodegenProperty schemaProp = cp.getSchema();
-        // parameters may have valid python names like some_val or invalid ones like Content-Type
-        // we always set nameInSnakeCase to null so special handling will not be done for these names
-        // invalid python names will be handled in python by using a TypedDict which will allow us to have a type hint
-        // for keys that cannot be variable names to the schema baseName
-        if (schemaProp != null) {
-            schemaProp = schemaProp.clone();
-            schemaProp.nameInSnakeCase = null;
-            schemaProp.baseName = toModelName(cp.baseName) + "Schema";
-            cp.setSchema(schemaProp);
         }
         return cp;
     }
@@ -2661,11 +2607,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         Schema schema = ModelUtils.getSchemaFromRequestBody(body);
         schema = ModelUtils.getReferencedSchema(this.openAPI, schema);
         CodegenParameter cp = fromFormProperty("body", schema, imports);
-        cp.setContent(getContent(body.getContent(), imports, "RequestBody"));
+        cp.setContent(getContent(body.getContent(), imports, ""));
         cp.isFormParam = false;
         cp.isBodyParam = true;
         parameters.add(cp);
         return parameters;
+    }
+
+    protected boolean needToImport(String type) {
+        return true;
     }
 
     /**

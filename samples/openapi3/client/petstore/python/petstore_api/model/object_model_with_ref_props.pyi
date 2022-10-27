@@ -42,8 +42,14 @@ class ObjectModelWithRefProps(
             @staticmethod
             def myNumber() -> typing.Type['NumberWithValidations']:
                 return NumberWithValidations
-            myString = schemas.StrSchema
-            myBoolean = schemas.BoolSchema
+        
+            @staticmethod
+            def myString() -> typing.Type['String']:
+                return String
+        
+            @staticmethod
+            def myBoolean() -> typing.Type['Boolean']:
+                return Boolean
             __annotations__ = {
                 "myNumber": myNumber,
                 "myString": myString,
@@ -54,10 +60,10 @@ class ObjectModelWithRefProps(
     def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'NumberWithValidations': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> MetaOapg.properties.myString: ...
+    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'String': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> MetaOapg.properties.myBoolean: ...
+    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'Boolean': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -71,10 +77,10 @@ class ObjectModelWithRefProps(
     def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['NumberWithValidations', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union[MetaOapg.properties.myString, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union['String', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union[MetaOapg.properties.myBoolean, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['Boolean', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -87,8 +93,8 @@ class ObjectModelWithRefProps(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         myNumber: typing.Union['NumberWithValidations', schemas.Unset] = schemas.unset,
-        myString: typing.Union[MetaOapg.properties.myString, str, schemas.Unset] = schemas.unset,
-        myBoolean: typing.Union[MetaOapg.properties.myBoolean, bool, schemas.Unset] = schemas.unset,
+        myString: typing.Union['String', schemas.Unset] = schemas.unset,
+        myBoolean: typing.Union['Boolean', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectModelWithRefProps':
@@ -102,4 +108,6 @@ class ObjectModelWithRefProps(
             **kwargs,
         )
 
+from petstore_api.model.boolean import Boolean
 from petstore_api.model.number_with_validations import NumberWithValidations
+from petstore_api.model.string import String
