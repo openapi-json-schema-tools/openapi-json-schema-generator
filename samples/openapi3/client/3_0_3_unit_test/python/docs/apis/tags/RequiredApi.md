@@ -49,15 +49,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_required_default_validation_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_required_default_validation_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_required_default_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_default_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_required_default_validation_request_body.RequestBody" >body</a>
+### <a id="post_required_default_validation_request_body.request_body" >body</a>
 
-# <a id="post_required_default_validation_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredDefaultValidation**](../../models/RequiredDefaultValidation.md) |  | 
@@ -175,15 +175,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_required_validation_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_required_validation_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_required_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_required_validation_request_body.RequestBody" >body</a>
+### <a id="post_required_validation_request_body.request_body" >body</a>
 
-# <a id="post_required_validation_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredValidation**](../../models/RequiredValidation.md) |  | 
@@ -301,15 +301,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_required_with_empty_array_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_required_with_empty_array_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_required_with_empty_array_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_with_empty_array_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_required_with_empty_array_request_body.RequestBody" >body</a>
+### <a id="post_required_with_empty_array_request_body.request_body" >body</a>
 
-# <a id="post_required_with_empty_array_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredWithEmptyArray**](../../models/RequiredWithEmptyArray.md) |  | 
@@ -427,15 +427,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_required_with_escaped_characters_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_required_with_escaped_characters_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_required_with_escaped_characters_request_body.request_body) | typing.Union[[request_body.application_json](#post_required_with_escaped_characters_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_required_with_escaped_characters_request_body.RequestBody" >body</a>
+### <a id="post_required_with_escaped_characters_request_body.request_body" >body</a>
 
-# <a id="post_required_with_escaped_characters_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_required_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RequiredWithEscapedCharacters**](../../models/RequiredWithEscapedCharacters.md) |  | 

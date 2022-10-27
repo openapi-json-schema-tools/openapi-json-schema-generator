@@ -46,15 +46,15 @@ with this_package.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_operators.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_operators.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#post_operators.request_body) | typing.Union[[request_body.application_json](#post_operators.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_operators.RequestBody" >body</a>
+### <a id="post_operators.request_body" >body</a>
 
-# <a id="post_operators.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_operators.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Operator**](../../models/Operator.md) |  | 

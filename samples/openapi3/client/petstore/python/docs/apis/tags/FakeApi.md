@@ -81,16 +81,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#additional_properties_with_array_of_enums.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#additional_properties_with_array_of_enums.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#additional_properties_with_array_of_enums.request_body) | typing.Union[[request_body.application_json](#additional_properties_with_array_of_enums.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="additional_properties_with_array_of_enums.RequestBody" >body</a>
+### <a id="additional_properties_with_array_of_enums.request_body" >body</a>
 
-# <a id="additional_properties_with_array_of_enums.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="additional_properties_with_array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
@@ -162,16 +162,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#array_model.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#array_model.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#array_model.request_body) | typing.Union[[request_body.application_json](#array_model.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="array_model.RequestBody" >body</a>
+### <a id="array_model.request_body" >body</a>
 
-# <a id="array_model.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="array_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnimalFarm**](../../models/AnimalFarm.md) |  | 
@@ -243,16 +243,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#array_of_enums.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#array_of_enums.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#array_of_enums.request_body) | typing.Union[[request_body.application_json](#array_of_enums.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="array_of_enums.RequestBody" >body</a>
+### <a id="array_of_enums.request_body" >body</a>
 
-# <a id="array_of_enums.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
@@ -328,15 +328,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#body_with_file_schema.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#body_with_file_schema.RequestBody.Schemas.application_json)] | required |
+[body](#body_with_file_schema.request_body) | typing.Union[[request_body.application_json](#body_with_file_schema.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="body_with_file_schema.RequestBody" >body</a>
+### <a id="body_with_file_schema.request_body" >body</a>
 
-# <a id="body_with_file_schema.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="body_with_file_schema.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**FileSchemaTestClass**](../../models/FileSchemaTestClass.md) |  | 
@@ -415,16 +415,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#body_with_query_params.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#body_with_query_params.RequestBody.Schemas.application_json)] | required |
+[body](#body_with_query_params.request_body) | typing.Union[[request_body.application_json](#body_with_query_params.request_body.application_json)] | required |
 [query_params](#body_with_query_params.RequestQueryParameters) | [RequestQueryParameters.Params](#body_with_query_params.RequestQueryParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="body_with_query_params.RequestBody" >body</a>
+### <a id="body_with_query_params.request_body" >body</a>
 
-# <a id="body_with_query_params.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="body_with_query_params.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../models/User.md) |  | 
@@ -503,16 +503,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#boolean.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#boolean.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#boolean.request_body) | typing.Union[[request_body.application_json](#boolean.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="boolean.RequestBody" >body</a>
+### <a id="boolean.request_body" >body</a>
 
-# <a id="boolean.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="boolean.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Boolean**](../../models/Boolean.md) |  | 
@@ -682,16 +682,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#client_model.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#client_model.RequestBody.Schemas.application_json)] | required |
+[body](#client_model.request_body) | typing.Union[[request_body.application_json](#client_model.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="client_model.RequestBody" >body</a>
+### <a id="client_model.request_body" >body</a>
 
-# <a id="client_model.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="client_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 
@@ -761,16 +761,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#composed_one_of_different_types.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#composed_one_of_different_types.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#composed_one_of_different_types.request_body) | typing.Union[[request_body.application_json](#composed_one_of_different_types.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="composed_one_of_different_types.RequestBody" >body</a>
+### <a id="composed_one_of_different_types.request_body" >body</a>
 
-# <a id="composed_one_of_different_types.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="composed_one_of_different_types.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
@@ -953,15 +953,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#endpoint_parameters.RequestBody) | typing.Union[[RequestBody.Schemas.application_x_www_form_urlencoded](#endpoint_parameters.RequestBody.Schemas.application_x_www_form_urlencoded), Unset] | optional, default is unset |
+[body](#endpoint_parameters.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#endpoint_parameters.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="endpoint_parameters.RequestBody" >body</a>
+### <a id="endpoint_parameters.request_body" >body</a>
 
-# <a id="endpoint_parameters.RequestBody.Schemas.application_x_www_form_urlencoded" >RequestBody.Schemas.application_x_www_form_urlencoded</a>
+# <a id="endpoint_parameters.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1074,7 +1074,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#enum_parameters.RequestBody) | typing.Union[[RequestBody.Schemas.application_x_www_form_urlencoded](#enum_parameters.RequestBody.Schemas.application_x_www_form_urlencoded), Unset] | optional, default is unset |
+[body](#enum_parameters.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#enum_parameters.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
 [query_params](#enum_parameters.RequestQueryParameters) | [RequestQueryParameters.Params](#enum_parameters.RequestQueryParameters.Params) | |
 [header_params](#enum_parameters.RequestHeaderParameters) | [RequestHeaderParameters.Params](#enum_parameters.RequestHeaderParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
@@ -1082,9 +1082,9 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="enum_parameters.RequestBody" >body</a>
+### <a id="enum_parameters.request_body" >body</a>
 
-# <a id="enum_parameters.RequestBody.Schemas.application_x_www_form_urlencoded" >RequestBody.Schemas.application_x_www_form_urlencoded</a>
+# <a id="enum_parameters.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1470,15 +1470,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#inline_additional_properties.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#inline_additional_properties.RequestBody.Schemas.application_json)] | required |
+[body](#inline_additional_properties.request_body) | typing.Union[[request_body.application_json](#inline_additional_properties.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="inline_additional_properties.RequestBody" >body</a>
+### <a id="inline_additional_properties.request_body" >body</a>
 
-# <a id="inline_additional_properties.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="inline_additional_properties.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1554,7 +1554,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#inline_composition.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#inline_composition.RequestBody.Schemas.application_json), [RequestBody.Schemas.multipart_form_data](#inline_composition.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
+[body](#inline_composition.request_body) | typing.Union[[request_body.application_json](#inline_composition.request_body.application_json), [request_body.multipart_form_data](#inline_composition.request_body.multipart_form_data), Unset] | optional, default is unset |
 [query_params](#inline_composition.RequestQueryParameters) | [RequestQueryParameters.Params](#inline_composition.RequestQueryParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', 'multipart/form-data', ) | Tells the server the content type(s) that are accepted by the client
@@ -1562,9 +1562,9 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="inline_composition.RequestBody" >body</a>
+### <a id="inline_composition.request_body" >body</a>
 
-# <a id="inline_composition.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="inline_composition.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1584,7 +1584,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.RequestBody.Schemas.multipart_form_data" >RequestBody.Schemas.multipart_form_data</a>
+# <a id="inline_composition.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1791,15 +1791,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#json_form_data.RequestBody) | typing.Union[[RequestBody.Schemas.application_x_www_form_urlencoded](#json_form_data.RequestBody.Schemas.application_x_www_form_urlencoded), Unset] | optional, default is unset |
+[body](#json_form_data.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#json_form_data.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="json_form_data.RequestBody" >body</a>
+### <a id="json_form_data.request_body" >body</a>
 
-# <a id="json_form_data.RequestBody.Schemas.application_x_www_form_urlencoded" >RequestBody.Schemas.application_x_www_form_urlencoded</a>
+# <a id="json_form_data.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1874,15 +1874,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#json_patch.RequestBody) | typing.Union[[RequestBody.Schemas.application_json_patchjson](#json_patch.RequestBody.Schemas.application_json_patchjson), Unset] | optional, default is unset |
+[body](#json_patch.request_body) | typing.Union[[request_body.application_json_patchjson](#json_patch.request_body.application_json_patchjson), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="json_patch.RequestBody" >body</a>
+### <a id="json_patch.request_body" >body</a>
 
-# <a id="json_patch.RequestBody.Schemas.application_json_patchjson" >RequestBody.Schemas.application_json_patchjson</a>
+# <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**JSONPatchRequest**](../../models/JSONPatchRequest.md) |  | 
@@ -1945,16 +1945,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#json_with_charset.RequestBody) | typing.Union[[RequestBody.Schemas.application_json_charsetutf_8](#json_with_charset.RequestBody.Schemas.application_json_charsetutf_8), Unset] | optional, default is unset |
+[body](#json_with_charset.request_body) | typing.Union[[request_body.application_json_charsetutf_8](#json_with_charset.request_body.application_json_charsetutf_8), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json; charset&#x3D;utf-8' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json; charset&#x3D;utf-8', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="json_with_charset.RequestBody" >body</a>
+### <a id="json_with_charset.request_body" >body</a>
 
-# <a id="json_with_charset.RequestBody.Schemas.application_json_charsetutf_8" >RequestBody.Schemas.application_json_charsetutf_8</a>
+# <a id="json_with_charset.request_body.application_json_charsetutf_8" >request_body.application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2030,16 +2030,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#mammal.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#mammal.RequestBody.Schemas.application_json)] | required |
+[body](#mammal.request_body) | typing.Union[[request_body.application_json](#mammal.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="mammal.RequestBody" >body</a>
+### <a id="mammal.request_body" >body</a>
 
-# <a id="mammal.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="mammal.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Mammal**](../../models/Mammal.md) |  | 
@@ -2109,16 +2109,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#number_with_validations.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#number_with_validations.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#number_with_validations.request_body) | typing.Union[[request_body.application_json](#number_with_validations.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="number_with_validations.RequestBody" >body</a>
+### <a id="number_with_validations.request_body" >body</a>
 
-# <a id="number_with_validations.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
@@ -2278,16 +2278,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#object_model_with_ref_props.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#object_model_with_ref_props.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#object_model_with_ref_props.request_body) | typing.Union[[request_body.application_json](#object_model_with_ref_props.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="object_model_with_ref_props.RequestBody" >body</a>
+### <a id="object_model_with_ref_props.request_body" >body</a>
 
-# <a id="object_model_with_ref_props.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="object_model_with_ref_props.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
@@ -2413,7 +2413,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#parameter_collisions.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#parameter_collisions.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#parameter_collisions.request_body) | typing.Union[[request_body.application_json](#parameter_collisions.request_body.application_json), Unset] | optional, default is unset |
 [query_params](#parameter_collisions.RequestQueryParameters) | [RequestQueryParameters.Params](#parameter_collisions.RequestQueryParameters.Params) | |
 [header_params](#parameter_collisions.RequestHeaderParameters) | [RequestHeaderParameters.Params](#parameter_collisions.RequestHeaderParameters.Params) | |
 [path_params](#parameter_collisions.RequestPathParameters) | [RequestPathParameters.Params](#parameter_collisions.RequestPathParameters.Params) | |
@@ -2424,9 +2424,9 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="parameter_collisions.RequestBody" >body</a>
+### <a id="parameter_collisions.request_body" >body</a>
 
-# <a id="parameter_collisions.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="parameter_collisions.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -3045,16 +3045,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#string.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#string.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#string.request_body) | typing.Union[[request_body.application_json](#string.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="string.RequestBody" >body</a>
+### <a id="string.request_body" >body</a>
 
-# <a id="string.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="string.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**String**](../../models/String.md) |  | 
@@ -3124,16 +3124,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#string_enum.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#string_enum.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
+[body](#string_enum.request_body) | typing.Union[[request_body.application_json](#string_enum.request_body.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="string_enum.RequestBody" >body</a>
+### <a id="string_enum.request_body" >body</a>
 
-# <a id="string_enum.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="string_enum.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringEnum**](../../models/StringEnum.md) |  | 
@@ -3202,16 +3202,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_download_file.RequestBody) | typing.Union[[RequestBody.Schemas.application_octet_stream](#upload_download_file.RequestBody.Schemas.application_octet_stream)] | required |
+[body](#upload_download_file.request_body) | typing.Union[[request_body.application_octet_stream](#upload_download_file.request_body.application_octet_stream)] | required |
 content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/octet-stream', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="upload_download_file.RequestBody" >body</a>
+### <a id="upload_download_file.request_body" >body</a>
 
-# <a id="upload_download_file.RequestBody.Schemas.application_octet_stream" >RequestBody.Schemas.application_octet_stream</a>
+# <a id="upload_download_file.request_body.application_octet_stream" >request_body.application_octet_stream</a>
 
 file to upload
 
@@ -3289,16 +3289,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_file.RequestBody) | typing.Union[[RequestBody.Schemas.multipart_form_data](#upload_file.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
+[body](#upload_file.request_body) | typing.Union[[request_body.multipart_form_data](#upload_file.request_body.multipart_form_data), Unset] | optional, default is unset |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="upload_file.RequestBody" >body</a>
+### <a id="upload_file.request_body" >body</a>
 
-# <a id="upload_file.RequestBody.Schemas.multipart_form_data" >RequestBody.Schemas.multipart_form_data</a>
+# <a id="upload_file.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -3379,16 +3379,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_files.RequestBody) | typing.Union[[RequestBody.Schemas.multipart_form_data](#upload_files.RequestBody.Schemas.multipart_form_data), Unset] | optional, default is unset |
+[body](#upload_files.request_body) | typing.Union[[request_body.multipart_form_data](#upload_files.request_body.multipart_form_data), Unset] | optional, default is unset |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="upload_files.RequestBody" >body</a>
+### <a id="upload_files.request_body" >body</a>
 
-# <a id="upload_files.RequestBody.Schemas.multipart_form_data" >RequestBody.Schemas.multipart_form_data</a>
+# <a id="upload_files.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
