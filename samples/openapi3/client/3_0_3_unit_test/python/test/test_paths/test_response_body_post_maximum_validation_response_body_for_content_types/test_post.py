@@ -32,7 +32,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.BodySchemas.application_json
+    response_body_schema = post.response_for_200.application_json
 
     def test_below_the_maximum_is_valid_passes(self):
         # below the maximum is valid

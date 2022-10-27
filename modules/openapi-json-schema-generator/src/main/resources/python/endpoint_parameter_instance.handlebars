@@ -1,0 +1,26 @@
+parameter_oapg = api_client.{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}(
+{{#unless noName}}
+    name="{{baseName}}",
+{{/unless}}
+{{#if style}}
+    style=api_client.ParameterStyle.{{style}},
+{{/if}}
+{{#if schema}}
+    {{#with schema}}
+    schema={{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+    {{/with}}
+{{/if}}
+{{#if getContent}}
+    content={
+{{#each getContent}}
+        "{{@key}}": {{#with this}}{{#with schema}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/with}}{{/with}},
+{{/each}}
+    },
+{{/if}}
+{{#if required}}
+    required=True,
+{{/if}}
+{{#if isExplode}}
+    explode=True,
+{{/if}}
+)

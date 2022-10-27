@@ -242,7 +242,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> specialCharReplacements = new LinkedHashMap<>();
     // When a model is an alias for a simple type
     protected Map<String, String> typeAliases = null;
-    protected Boolean prependFormOrBodyParameters = false;
     // The extension of the generated documentation files (defaults to markdown .md)
     protected String docExtension;
     protected String ignoreFilePathOverride;
@@ -336,11 +335,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (additionalProperties.containsKey(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG)) {
             this.setSortModelPropertiesByRequiredFlag(Boolean.valueOf(additionalProperties
                     .get(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS)) {
-            this.setPrependFormOrBodyParameters(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.ENSURE_UNIQUE_PARAMS)) {
@@ -1339,15 +1333,6 @@ public class DefaultCodegen implements CodegenConfig {
     public void setSortModelPropertiesByRequiredFlag(Boolean sortModelPropertiesByRequiredFlag) {
         this.sortModelPropertiesByRequiredFlag = sortModelPropertiesByRequiredFlag;
     }
-
-    public Boolean getPrependFormOrBodyParameters() {
-        return prependFormOrBodyParameters;
-    }
-
-    public void setPrependFormOrBodyParameters(Boolean prependFormOrBodyParameters) {
-        this.prependFormOrBodyParameters = prependFormOrBodyParameters;
-    }
-
     public Boolean getEnsureUniqueParams() {
         return ensureUniqueParams;
     }
@@ -2934,7 +2919,7 @@ public class DefaultCodegen implements CodegenConfig {
         m.setFormat(schema.getFormat());
         m.setComposedSchemas(getComposedSchemas(schema));
         if (ModelUtils.isArraySchema(schema)) {
-            CodegenProperty arrayProperty = fromProperty(name, schema, false);
+            CodegenProperty arrayProperty = fromProperty("items", schema, false);
             m.setItems(arrayProperty.items);
             m.arrayModelType = arrayProperty.complexType;
             addParentContainer(m, name, schema);
@@ -3849,17 +3834,9 @@ public class DefaultCodegen implements CodegenConfig {
                 property.xmlName = p.getXml().getName();
             }
 
-            // handle inner property
-            String itemName = null;
-            if (p.getExtensions() != null && p.getExtensions().get("x-item-name") != null) {
-                itemName = p.getExtensions().get("x-item-name").toString();
-            }
-            if (itemName == null) {
-                itemName = property.name;
-            }
             ArraySchema arraySchema = (ArraySchema) p;
             Schema innerSchema = unaliasSchema(getSchemaItems(arraySchema));
-            CodegenProperty cp = fromProperty(itemName, innerSchema, false);
+            CodegenProperty cp = fromProperty("items", innerSchema, false);
             updatePropertyForArray(property, cp);
         } else if (ModelUtils.isTypeObjectSchema(p)) {
             updatePropertyForObject(property, p);
@@ -4265,7 +4242,7 @@ public class DefaultCodegen implements CodegenConfig {
                     for (Entry<String, Header> entry : headers.entrySet()) {
                         String headerName = entry.getKey();
                         Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
-                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, String.format(Locale.ROOT, "%sResponseParameter", r.code));
+                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "");
                         responseHeaders.add(responseHeader);
                     }
                     r.setResponseHeaders(responseHeaders);
@@ -4354,11 +4331,8 @@ public class DefaultCodegen implements CodegenConfig {
                     setParameterEncodingValues(cp, requestBody.getContent().get(contentType));
                     postProcessParameter(cp);
                 }
-                // add form parameters to the beginning of all parameter list
-                if (prependFormOrBodyParameters) {
-                    for (CodegenParameter cp : formParams) {
-                        allParams.add(cp.copy());
-                    }
+                if (formParams.size() == 1) {
+                    bodyParam = formParams.get(0);
                 }
             } else {
                 // process body parameter
@@ -4374,10 +4348,6 @@ public class DefaultCodegen implements CodegenConfig {
 
                 bodyParams.add(bodyParam);
 
-                if (prependFormOrBodyParameters) {
-                    allParams.add(bodyParam);
-                }
-
                 // add example
                 if (schemas != null && !isSkipOperationExample()) {
                     op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), bodyParam.baseType);
@@ -4386,20 +4356,14 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (parameters != null) {
+            Integer i = 0;
             for (Parameter param : parameters) {
                 param = ModelUtils.getReferencedParameter(this.openAPI, param);
 
-                CodegenParameter p = fromParameter(param, imports);
-                p.setContent(getContent(param.getContent(), imports, param.getName()));
-
-                // ensure unique params
-                if (ensureUniqueParams) {
-                    while (!isParameterNameUnique(p, allParams)) {
-                        p.paramName = generateNextName(p.paramName);
-                    }
-                }
-
+                CodegenParameter p = fromParameter(param, imports, i.toString());
+                p.setContent(getContent(param.getContent(), imports, "schema"));
                 allParams.add(p);
+                i++;
 
                 if (param instanceof QueryParameter || "query".equalsIgnoreCase(param.getIn())) {
                     queryParams.add(p.copy());
@@ -4416,33 +4380,20 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        // add form/body parameter (if any) to the end of all parameter list
-        if (!prependFormOrBodyParameters) {
-            for (CodegenParameter cp : formParams) {
-                if (ensureUniqueParams) {
-                    while (!isParameterNameUnique(cp, allParams)) {
-                        cp.paramName = generateNextName(cp.paramName);
-                    }
-                }
-                allParams.add(cp.copy());
-            }
-
-            for (CodegenParameter cp : bodyParams) {
-                if (ensureUniqueParams) {
-                    while (!isParameterNameUnique(cp, allParams)) {
-                        cp.paramName = generateNextName(cp.paramName);
-                    }
-                }
-                allParams.add(cp.copy());
-            }
-        }
-
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
             if (cp.required) { //required parameters
                 requiredParams.add(cp.copy());
             } else { // optional parameters
                 optionalParams.add(cp.copy());
+                op.hasOptionalParams = true;
+            }
+        }
+        if (bodyParam != null) {
+            if (bodyParam.required) {
+                requiredParams.add(bodyParam.copy());
+            } else {
+                optionalParams.add(bodyParam.copy());
                 op.hasOptionalParams = true;
             }
         }
@@ -4817,7 +4768,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param imports   set of imports for library/package/module
      * @return Codegen Parameter object
      */
-    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports) {
+    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports, String priorJsonPathFragment) {
         CodegenParameter codegenParameter = CodegenModelFactory.newInstance(CodegenModelType.PARAMETER);
 
         codegenParameter.baseName = parameter.getName();
@@ -4851,9 +4802,9 @@ public class DefaultCodegen implements CodegenConfig {
             parameterModelName = getParameterDataType(parameter, parameterSchema);
             CodegenProperty prop;
             if (getUseInlineModelResolver()) {
-                prop = fromProperty(parameter.getName(), getReferencedSchemaWhenNotEnum(parameterSchema), false);
+                prop = fromProperty("schema", getReferencedSchemaWhenNotEnum(parameterSchema), false);
             } else {
-                prop = fromProperty(parameter.getName(), parameterSchema, false);
+                prop = fromProperty("schema", parameterSchema, false);
             }
             codegenParameter.setSchema(prop);
             if (addSchemaImportsFromV3SpecLocations) {
@@ -5042,7 +4993,7 @@ public class DefaultCodegen implements CodegenConfig {
         if ("multi".equals(collectionFormat)) {
             codegenParameter.isCollectionFormatMulti = true;
         }
-        codegenParameter.paramName = toParamName(parameter.getName());
+        codegenParameter.paramName = toParamName(priorJsonPathFragment);
         if (!addSchemaImportsFromV3SpecLocations) {
             // import
             if (codegenProperty.complexType != null) {
@@ -7111,7 +7062,7 @@ public class DefaultCodegen implements CodegenConfig {
         headerParam.setExample(header.getExample());
         headerParam.setContent(header.getContent());
         headerParam.setExtensions(header.getExtensions());
-        CodegenParameter param = fromParameter(headerParam, imports);
+        CodegenParameter param = fromParameter(headerParam, imports, headerName);
         param.setContent(getContent(headerParam.getContent(), imports, mediaTypeSchemaSuffix));
         return param;
     }

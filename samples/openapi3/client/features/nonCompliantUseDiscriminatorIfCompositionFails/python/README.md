@@ -136,31 +136,31 @@ import this_package
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-
-import time
 import this_package
-from pprint import pprint
 from this_package.apis.tags import default_api
 from this_package.model.operator import Operator
+from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = this_package.Configuration(
     host = "http://localhost:3000"
 )
 
-
 # Enter a context with an instance of the API client
 with this_package.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
-    operator = Operator(
+
+    # example passing only optional values
+    body = Operator(
         a=3.14,
         b=3.14,
         operator_id="ADD",
-    ) # Operator |  (optional)
-
+    )
     try:
-        api_instance.post_operators(operator=operator)
+        api_response = api_instance.post_operators(
+            body=body,
+        )
     except this_package.ApiException as e:
         print("Exception when calling DefaultApi->post_operators: %s\n" % e)
 ```

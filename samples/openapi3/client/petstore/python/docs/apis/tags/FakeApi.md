@@ -107,10 +107,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#additional_properties_with_array_of_enums.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#additional_properties_with_array_of_enums.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="additional_properties_with_array_of_enums.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="additional_properties_with_array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
@@ -188,10 +188,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#array_model.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#array_model.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="array_model.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="array_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnimalFarm**](../../models/AnimalFarm.md) |  | 
@@ -269,10 +269,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#array_of_enums.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#array_of_enums.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="array_of_enums.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
@@ -435,10 +435,10 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [RequestQueryParameters.Schemas.query](#body_with_query_params.RequestQueryParameters.Schemas.query) | | 
+query | [parameter_0.schema](#body_with_query_params.parameter_0.schema) | | 
 
 
-# <a id="body_with_query_params.RequestQueryParameters.Schemas.query" >RequestQueryParameters.Schemas.query</a>
+# <a id="body_with_query_params.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -529,10 +529,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#boolean.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#boolean.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="boolean.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="boolean.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Boolean**](../../models/Boolean.md) |  | 
@@ -594,26 +594,26 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someVar | [RequestQueryParameters.Schemas.someVar](#case_sensitive_params.RequestQueryParameters.Schemas.someVar) | | 
-SomeVar | [RequestQueryParameters.Schemas.SomeVar](#case_sensitive_params.RequestQueryParameters.Schemas.SomeVar) | | 
-some_var | [RequestQueryParameters.Schemas.some_var](#case_sensitive_params.RequestQueryParameters.Schemas.some_var) | | 
+someVar | [parameter_0.schema](#case_sensitive_params.parameter_0.schema) | | 
+SomeVar | [parameter_1.schema](#case_sensitive_params.parameter_1.schema) | | 
+some_var | [parameter_2.schema](#case_sensitive_params.parameter_2.schema) | | 
 
 
-# <a id="case_sensitive_params.RequestQueryParameters.Schemas.someVar" >RequestQueryParameters.Schemas.someVar</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="case_sensitive_params.RequestQueryParameters.Schemas.SomeVar" >RequestQueryParameters.Schemas.SomeVar</a>
+# <a id="case_sensitive_params.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="case_sensitive_params.RequestQueryParameters.Schemas.some_var" >RequestQueryParameters.Schemas.some_var</a>
+# <a id="case_sensitive_params.parameter_1.schema" >parameter_1.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="case_sensitive_params.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -708,10 +708,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#client_model.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#client_model.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="client_model.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="client_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 
@@ -787,10 +787,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#composed_one_of_different_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#composed_one_of_different_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="composed_one_of_different_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="composed_one_of_different_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
@@ -852,9 +852,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | [RequestPathParameters.Schemas.id](#delete_coffee.RequestPathParameters.Schemas.id) | | 
+id | [parameter_0.schema](#delete_coffee.parameter_0.schema) | | 
 
-# <a id="delete_coffee.RequestPathParameters.Schemas.id" >RequestPathParameters.Schemas.id</a>
+# <a id="delete_coffee.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1117,13 +1117,13 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [RequestQueryParameters.Schemas.enum_query_string_array](#enum_parameters.RequestQueryParameters.Schemas.enum_query_string_array) | | optional
-enum_query_string | [RequestQueryParameters.Schemas.enum_query_string](#enum_parameters.RequestQueryParameters.Schemas.enum_query_string) | | optional
-enum_query_integer | [RequestQueryParameters.Schemas.enum_query_integer](#enum_parameters.RequestQueryParameters.Schemas.enum_query_integer) | | optional
-enum_query_double | [RequestQueryParameters.Schemas.enum_query_double](#enum_parameters.RequestQueryParameters.Schemas.enum_query_double) | | optional
+enum_query_string_array | [parameter_2.schema](#enum_parameters.parameter_2.schema) | | optional
+enum_query_string | [parameter_3.schema](#enum_parameters.parameter_3.schema) | | optional
+enum_query_integer | [parameter_4.schema](#enum_parameters.parameter_4.schema) | | optional
+enum_query_double | [parameter_5.schema](#enum_parameters.parameter_5.schema) | | optional
 
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_string_array" >RequestQueryParameters.Schemas.enum_query_string_array</a>
+# <a id="enum_parameters.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1135,21 +1135,21 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_string" >RequestQueryParameters.Schemas.enum_query_string</a>
+# <a id="enum_parameters.parameter_3.schema" >parameter_3.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_integer" >RequestQueryParameters.Schemas.enum_query_integer</a>
+# <a id="enum_parameters.parameter_4.schema" >parameter_4.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-# <a id="enum_parameters.RequestQueryParameters.Schemas.enum_query_double" >RequestQueryParameters.Schemas.enum_query_double</a>
+# <a id="enum_parameters.parameter_5.schema" >parameter_5.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1161,10 +1161,10 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [RequestHeaderParameters.Schemas.enum_header_string_array](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array) | | optional
-enum_header_string | [RequestHeaderParameters.Schemas.enum_header_string](#enum_parameters.RequestHeaderParameters.Schemas.enum_header_string) | | optional
+enum_header_string_array | [parameter_0.schema](#enum_parameters.parameter_0.schema) | | optional
+enum_header_string | [parameter_1.schema](#enum_parameters.parameter_1.schema) | | optional
 
-# <a id="enum_parameters.RequestHeaderParameters.Schemas.enum_header_string_array" >RequestHeaderParameters.Schemas.enum_header_string_array</a>
+# <a id="enum_parameters.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1176,7 +1176,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.RequestHeaderParameters.Schemas.enum_header_string" >RequestHeaderParameters.Schemas.enum_header_string</a>
+# <a id="enum_parameters.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1255,10 +1255,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#fake_health_get.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#fake_health_get.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="fake_health_get.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="fake_health_get.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**HealthCheckResult**](../../models/HealthCheckResult.md) |  | 
@@ -1356,34 +1356,34 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [RequestQueryParameters.Schemas.required_string_group](#group_parameters.RequestQueryParameters.Schemas.required_string_group) | | 
-required_int64_group | [RequestQueryParameters.Schemas.required_int64_group](#group_parameters.RequestQueryParameters.Schemas.required_int64_group) | | 
-string_group | [RequestQueryParameters.Schemas.string_group](#group_parameters.RequestQueryParameters.Schemas.string_group) | | optional
-int64_group | [RequestQueryParameters.Schemas.int64_group](#group_parameters.RequestQueryParameters.Schemas.int64_group) | | optional
+required_string_group | [parameter_0.schema](#group_parameters.parameter_0.schema) | | 
+required_int64_group | [parameter_2.schema](#group_parameters.parameter_2.schema) | | 
+string_group | [parameter_3.schema](#group_parameters.parameter_3.schema) | | optional
+int64_group | [parameter_5.schema](#group_parameters.parameter_5.schema) | | optional
 
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.required_string_group" >RequestQueryParameters.Schemas.required_string_group</a>
+# <a id="group_parameters.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.required_int64_group" >RequestQueryParameters.Schemas.required_int64_group</a>
+# <a id="group_parameters.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.string_group" >RequestQueryParameters.Schemas.string_group</a>
+# <a id="group_parameters.parameter_3.schema" >parameter_3.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="group_parameters.RequestQueryParameters.Schemas.int64_group" >RequestQueryParameters.Schemas.int64_group</a>
+# <a id="group_parameters.parameter_5.schema" >parameter_5.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1395,17 +1395,17 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [RequestHeaderParameters.Schemas.required_boolean_group](#group_parameters.RequestHeaderParameters.Schemas.required_boolean_group) | | 
-boolean_group | [RequestHeaderParameters.Schemas.boolean_group](#group_parameters.RequestHeaderParameters.Schemas.boolean_group) | | optional
+required_boolean_group | [parameter_1.schema](#group_parameters.parameter_1.schema) | | 
+boolean_group | [parameter_4.schema](#group_parameters.parameter_4.schema) | | optional
 
-# <a id="group_parameters.RequestHeaderParameters.Schemas.required_boolean_group" >RequestHeaderParameters.Schemas.required_boolean_group</a>
+# <a id="group_parameters.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ] 
 
-# <a id="group_parameters.RequestHeaderParameters.Schemas.boolean_group" >RequestHeaderParameters.Schemas.boolean_group</a>
+# <a id="group_parameters.parameter_4.schema" >parameter_4.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1622,11 +1622,11 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [RequestQueryParameters.Schemas.compositionAtRoot](#inline_composition.RequestQueryParameters.Schemas.compositionAtRoot) | | optional
-compositionInProperty | [RequestQueryParameters.Schemas.compositionInProperty](#inline_composition.RequestQueryParameters.Schemas.compositionInProperty) | | optional
+compositionAtRoot | [parameter_0.schema](#inline_composition.parameter_0.schema) | | optional
+compositionInProperty | [parameter_1.schema](#inline_composition.parameter_1.schema) | | optional
 
 
-# <a id="inline_composition.RequestQueryParameters.Schemas.compositionAtRoot" >RequestQueryParameters.Schemas.compositionAtRoot</a>
+# <a id="inline_composition.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1646,7 +1646,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.RequestQueryParameters.Schemas.compositionInProperty" >RequestQueryParameters.Schemas.compositionInProperty</a>
+# <a id="inline_composition.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1690,10 +1690,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#inline_composition.response_for_200.BodySchemas.application_json), [response_for_200.BodySchemas.multipart_form_data](#inline_composition.response_for_200.BodySchemas.multipart_form_data), ] |  |
+body | typing.Union[[response_for_200.application_json](#inline_composition.response_for_200.application_json), [response_for_200.multipart_form_data](#inline_composition.response_for_200.multipart_form_data), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="inline_composition.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="inline_composition.response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1713,7 +1713,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.response_for_200.BodySchemas.multipart_form_data" >response_for_200.BodySchemas.multipart_form_data</a>
+# <a id="inline_composition.response_for_200.multipart_form_data" >response_for_200.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1972,10 +1972,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json_charsetutf_8](#json_with_charset.response_for_200.BodySchemas.application_json_charsetutf_8), ] |  |
+body | typing.Union[[response_for_200.application_json_charsetutf_8](#json_with_charset.response_for_200.application_json_charsetutf_8), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="json_with_charset.response_for_200.BodySchemas.application_json_charsetutf_8" >response_for_200.BodySchemas.application_json_charsetutf_8</a>
+# <a id="json_with_charset.response_for_200.application_json_charsetutf_8" >response_for_200.application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2056,10 +2056,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#mammal.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#mammal.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="mammal.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="mammal.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Mammal**](../../models/Mammal.md) |  | 
@@ -2135,10 +2135,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#number_with_validations.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#number_with_validations.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="number_with_validations.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="number_with_validations.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
@@ -2200,10 +2200,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [RequestQueryParameters.Schemas.mapBean](#object_in_query.RequestQueryParameters.Schemas.mapBean) | | optional
+mapBean | [parameter_0.schema](#object_in_query.parameter_0.schema) | | optional
 
 
-# <a id="object_in_query.RequestQueryParameters.Schemas.mapBean" >RequestQueryParameters.Schemas.mapBean</a>
+# <a id="object_in_query.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2304,10 +2304,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#object_model_with_ref_props.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#object_model_with_ref_props.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="object_model_with_ref_props.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="object_model_with_ref_props.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
@@ -2438,42 +2438,42 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestQueryParameters.Schemas._1](#parameter_collisions.RequestQueryParameters.Schemas._1) | | optional
-aB | [RequestQueryParameters.Schemas.aB](#parameter_collisions.RequestQueryParameters.Schemas.aB) | | optional
-Ab | [RequestQueryParameters.Schemas.Ab](#parameter_collisions.RequestQueryParameters.Schemas.Ab) | | optional
-self | [RequestQueryParameters.Schemas._self](#parameter_collisions.RequestQueryParameters.Schemas._self) | | optional
-A-B | [RequestQueryParameters.Schemas.a_b](#parameter_collisions.RequestQueryParameters.Schemas.a_b) | | optional
+1 | [parameter_0.schema](#parameter_collisions.parameter_0.schema) | | optional
+aB | [parameter_1.schema](#parameter_collisions.parameter_1.schema) | | optional
+Ab | [parameter_2.schema](#parameter_collisions.parameter_2.schema) | | optional
+self | [parameter_3.schema](#parameter_collisions.parameter_3.schema) | | optional
+A-B | [parameter_4.schema](#parameter_collisions.parameter_4.schema) | | optional
 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas._1" >RequestQueryParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestQueryParameters.Schemas.aB" >RequestQueryParameters.Schemas.aB</a>
+# <a id="parameter_collisions.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas.Ab" >RequestQueryParameters.Schemas.Ab</a>
+# <a id="parameter_collisions.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas._self" >RequestQueryParameters.Schemas._self</a>
+# <a id="parameter_collisions.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestQueryParameters.Schemas.a_b" >RequestQueryParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.parameter_3.schema" >parameter_3.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_4.schema" >parameter_4.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2485,33 +2485,33 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestHeaderParameters.Schemas._1](#parameter_collisions.RequestHeaderParameters.Schemas._1) | | optional
-aB | [RequestHeaderParameters.Schemas.aB](#parameter_collisions.RequestHeaderParameters.Schemas.aB) | | optional
-self | [RequestHeaderParameters.Schemas._self](#parameter_collisions.RequestHeaderParameters.Schemas._self) | | optional
-A-B | [RequestHeaderParameters.Schemas.a_b](#parameter_collisions.RequestHeaderParameters.Schemas.a_b) | | optional
+1 | [parameter_5.schema](#parameter_collisions.parameter_5.schema) | | optional
+aB | [parameter_6.schema](#parameter_collisions.parameter_6.schema) | | optional
+self | [parameter_7.schema](#parameter_collisions.parameter_7.schema) | | optional
+A-B | [parameter_8.schema](#parameter_collisions.parameter_8.schema) | | optional
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas._1" >RequestHeaderParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas.aB" >RequestHeaderParameters.Schemas.aB</a>
+# <a id="parameter_collisions.parameter_5.schema" >parameter_5.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas._self" >RequestHeaderParameters.Schemas._self</a>
+# <a id="parameter_collisions.parameter_6.schema" >parameter_6.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestHeaderParameters.Schemas.a_b" >RequestHeaderParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.parameter_7.schema" >parameter_7.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_8.schema" >parameter_8.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2523,41 +2523,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestPathParameters.Schemas._1](#parameter_collisions.RequestPathParameters.Schemas._1) | | 
-aB | [RequestPathParameters.Schemas.aB](#parameter_collisions.RequestPathParameters.Schemas.aB) | | 
-Ab | [RequestPathParameters.Schemas.Ab](#parameter_collisions.RequestPathParameters.Schemas.Ab) | | 
-self | [RequestPathParameters.Schemas._self](#parameter_collisions.RequestPathParameters.Schemas._self) | | 
-A-B | [RequestPathParameters.Schemas.a_b](#parameter_collisions.RequestPathParameters.Schemas.a_b) | | 
+1 | [parameter_9.schema](#parameter_collisions.parameter_9.schema) | | 
+aB | [parameter_10.schema](#parameter_collisions.parameter_10.schema) | | 
+Ab | [parameter_11.schema](#parameter_collisions.parameter_11.schema) | | 
+self | [parameter_12.schema](#parameter_collisions.parameter_12.schema) | | 
+A-B | [parameter_13.schema](#parameter_collisions.parameter_13.schema) | | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas._1" >RequestPathParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestPathParameters.Schemas.aB" >RequestPathParameters.Schemas.aB</a>
+# <a id="parameter_collisions.parameter_9.schema" >parameter_9.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas.Ab" >RequestPathParameters.Schemas.Ab</a>
+# <a id="parameter_collisions.parameter_10.schema" >parameter_10.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas._self" >RequestPathParameters.Schemas._self</a>
+# <a id="parameter_collisions.parameter_11.schema" >parameter_11.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestPathParameters.Schemas.a_b" >RequestPathParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.parameter_12.schema" >parameter_12.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_13.schema" >parameter_13.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2569,41 +2569,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [RequestCookieParameters.Schemas._1](#parameter_collisions.RequestCookieParameters.Schemas._1) | | optional
-aB | [RequestCookieParameters.Schemas.aB](#parameter_collisions.RequestCookieParameters.Schemas.aB) | | optional
-Ab | [RequestCookieParameters.Schemas.Ab](#parameter_collisions.RequestCookieParameters.Schemas.Ab) | | optional
-self | [RequestCookieParameters.Schemas._self](#parameter_collisions.RequestCookieParameters.Schemas._self) | | optional
-A-B | [RequestCookieParameters.Schemas.a_b](#parameter_collisions.RequestCookieParameters.Schemas.a_b) | | optional
+1 | [parameter_14.schema](#parameter_collisions.parameter_14.schema) | | optional
+aB | [parameter_15.schema](#parameter_collisions.parameter_15.schema) | | optional
+Ab | [parameter_16.schema](#parameter_collisions.parameter_16.schema) | | optional
+self | [parameter_17.schema](#parameter_collisions.parameter_17.schema) | | optional
+A-B | [parameter_18.schema](#parameter_collisions.parameter_18.schema) | | optional
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas._1" >RequestCookieParameters.Schemas._1</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_collisions.RequestCookieParameters.Schemas.aB" >RequestCookieParameters.Schemas.aB</a>
+# <a id="parameter_collisions.parameter_14.schema" >parameter_14.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas.Ab" >RequestCookieParameters.Schemas.Ab</a>
+# <a id="parameter_collisions.parameter_15.schema" >parameter_15.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas._self" >RequestCookieParameters.Schemas._self</a>
+# <a id="parameter_collisions.parameter_16.schema" >parameter_16.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="parameter_collisions.RequestCookieParameters.Schemas.a_b" >RequestCookieParameters.Schemas.a_b</a>
+# <a id="parameter_collisions.parameter_17.schema" >parameter_17.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# <a id="parameter_collisions.parameter_18.schema" >parameter_18.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2621,10 +2621,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#parameter_collisions.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#parameter_collisions.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="parameter_collisions.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="parameter_collisions.response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2687,7 +2687,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someParam |  | | 
+someParam | [parameter_0.schema](#query_param_with_json_content_type.parameter_0.schema) | | 
 
 
 ### Return Types, Responses
@@ -2701,10 +2701,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#query_param_with_json_content_type.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#query_param_with_json_content_type.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="query_param_with_json_content_type.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="query_param_with_json_content_type.response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2781,27 +2781,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-pipe | [RequestQueryParameters.Schemas.pipe](#query_parameter_collection_format.RequestQueryParameters.Schemas.pipe) | | 
-ioutil | [RequestQueryParameters.Schemas.ioutil](#query_parameter_collection_format.RequestQueryParameters.Schemas.ioutil) | | 
-http | [RequestQueryParameters.Schemas.http](#query_parameter_collection_format.RequestQueryParameters.Schemas.http) | | 
-url | [RequestQueryParameters.Schemas.url](#query_parameter_collection_format.RequestQueryParameters.Schemas.url) | | 
-context | [RequestQueryParameters.Schemas.context](#query_parameter_collection_format.RequestQueryParameters.Schemas.context) | | 
-refParam | [RequestQueryParameters.Schemas.refParam](#query_parameter_collection_format.RequestQueryParameters.Schemas.refParam) | | 
+pipe | [parameter_0.schema](#query_parameter_collection_format.parameter_0.schema) | | 
+ioutil | [parameter_1.schema](#query_parameter_collection_format.parameter_1.schema) | | 
+http | [parameter_2.schema](#query_parameter_collection_format.parameter_2.schema) | | 
+url | [parameter_3.schema](#query_parameter_collection_format.parameter_3.schema) | | 
+context | [parameter_4.schema](#query_parameter_collection_format.parameter_4.schema) | | 
+refParam | [parameter_5.schema](#query_parameter_collection_format.parameter_5.schema) | | 
 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.pipe" >RequestQueryParameters.Schemas.pipe</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
-
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.ioutil" >RequestQueryParameters.Schemas.ioutil</a>
+# <a id="query_parameter_collection_format.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2813,7 +2801,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.http" >RequestQueryParameters.Schemas.http</a>
+# <a id="query_parameter_collection_format.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2825,7 +2813,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.url" >RequestQueryParameters.Schemas.url</a>
+# <a id="query_parameter_collection_format.parameter_2.schema" >parameter_2.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2837,7 +2825,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.context" >RequestQueryParameters.Schemas.context</a>
+# <a id="query_parameter_collection_format.parameter_3.schema" >parameter_3.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -2849,7 +2837,19 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.RequestQueryParameters.Schemas.refParam" >RequestQueryParameters.Schemas.refParam</a>
+# <a id="query_parameter_collection_format.parameter_4.schema" >parameter_4.schema</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../models/StringWithValidation.md) |  | 
@@ -2926,10 +2926,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [RequestQueryParameters.Schemas.mapBean](#ref_object_in_query.RequestQueryParameters.Schemas.mapBean) | | optional
+mapBean | [parameter_0.schema](#ref_object_in_query.parameter_0.schema) | | optional
 
 
-# <a id="ref_object_in_query.RequestQueryParameters.Schemas.mapBean" >RequestQueryParameters.Schemas.mapBean</a>
+# <a id="ref_object_in_query.parameter_0.schema" >parameter_0.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Foo**](../../models/Foo.md) |  | 
@@ -3032,7 +3032,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = String("body_example")
+    body = String("parameter_body_example")
     try:
         api_response = api_instance.string(
             body=body,
@@ -3071,10 +3071,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#string.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#string.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="string.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="string.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**String**](../../models/String.md) |  | 
@@ -3150,10 +3150,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#string_enum.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#string_enum.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="string_enum.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="string_enum.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringEnum**](../../models/StringEnum.md) |  | 
@@ -3231,10 +3231,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_octet_stream](#upload_download_file.response_for_200.BodySchemas.application_octet_stream), ] |  |
+body | typing.Union[[response_for_200.application_octet_stream](#upload_download_file.response_for_200.application_octet_stream), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_download_file.response_for_200.BodySchemas.application_octet_stream" >response_for_200.BodySchemas.application_octet_stream</a>
+# <a id="upload_download_file.response_for_200.application_octet_stream" >response_for_200.application_octet_stream</a>
 
 file to download
 
@@ -3323,10 +3323,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#upload_file.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#upload_file.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_file.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="upload_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 
@@ -3424,10 +3424,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#upload_files.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#upload_files.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_files.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="upload_files.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 

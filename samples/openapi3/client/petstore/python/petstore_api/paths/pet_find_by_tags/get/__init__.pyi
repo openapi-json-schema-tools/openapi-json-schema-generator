@@ -27,40 +27,15 @@ from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
 from . import response_for_400
+from . import parameter_0
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        
-        
-        class tags(
-            schemas.ListSchema
-        ):
-        
-        
-            class MetaOapg:
-                items = schemas.StrSchema
-        
-            def __new__(
-                cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'tags':
-                return super().__new__(
-                    cls,
-                    _arg,
-                    _configuration=_configuration,
-                )
-        
-            def __getitem__(self, i: int) -> MetaOapg.items:
-                return super().__getitem__(i)
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'tags': typing.Union[Schemas.tags, list, tuple, ],
+            'tags': typing.Union[parameter_0.schema, list, tuple, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -76,12 +51,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="tags",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.tags,
-            required=True,
-        ),
+        parameter_0.parameter_oapg,
     ]_all_accept_content_types = (
     'application/xml',
     'application/json',

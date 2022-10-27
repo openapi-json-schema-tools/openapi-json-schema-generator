@@ -1087,7 +1087,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithBaseSchema("body_example")
+    body = AnyofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_anyof_with_base_schema_request_body(
             body=body,
@@ -4343,7 +4343,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithBaseSchema("body_example")
+    body = OneofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_oneof_with_base_schema_request_body(
             body=body,
@@ -5658,7 +5658,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = StringTypeMatchesStrings("body_example")
+    body = StringTypeMatchesStrings("parameter_body_example")
     try:
         api_response = api_instance.post_string_type_matches_strings_request_body(
             body=body,
