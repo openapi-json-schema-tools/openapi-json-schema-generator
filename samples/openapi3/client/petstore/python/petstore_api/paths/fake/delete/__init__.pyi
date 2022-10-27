@@ -26,29 +26,28 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from . import response_for_200
+from . import parameter_0
+from . import parameter_1
+from . import parameter_2
+from . import parameter_3
+from . import parameter_4
+from . import parameter_5
 
 
 
 class RequestQueryParameters:
-    class Schemas:
-        required_string_group = schemas.IntSchema
-        required_int64_group = schemas.Int64Schema
-        string_group = schemas.IntSchema
-        int64_group = schemas.Int64Schema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_string_group': typing.Union[Schemas.required_string_group, decimal.Decimal, int, ],
-            'required_int64_group': typing.Union[Schemas.required_int64_group, decimal.Decimal, int, ],
+            'required_string_group': typing.Union[parameter_0.schema, decimal.Decimal, int, ],
+            'required_int64_group': typing.Union[parameter_2.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'string_group': typing.Union[Schemas.string_group, decimal.Decimal, int, ],
-            'int64_group': typing.Union[Schemas.int64_group, decimal.Decimal, int, ],
+            'string_group': typing.Union[parameter_3.schema, decimal.Decimal, int, ],
+            'int64_group': typing.Union[parameter_5.schema, decimal.Decimal, int, ],
         },
         total=False
     )
@@ -59,50 +58,23 @@ class RequestQueryParameters:
 
 
     parameters = [
-        api_client.QueryParameter(
-            name="required_string_group",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.required_string_group,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="required_int64_group",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.required_int64_group,
-            required=True,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="string_group",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.string_group,
-            explode=True,
-        ),
-        api_client.QueryParameter(
-            name="int64_group",
-            style=api_client.ParameterStyle.FORM,
-            schema=Schemas.int64_group,
-            explode=True,
-        ),
+        parameter_0.parameter_oapg,
+        parameter_2.parameter_oapg,
+        parameter_3.parameter_oapg,
+        parameter_5.parameter_oapg,
     ]
 
 class RequestHeaderParameters:
-    class Schemas:
-        required_boolean_group = schemas.BoolSchema
-        boolean_group = schemas.BoolSchema
-
-
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_boolean_group': typing.Union[Schemas.required_boolean_group, bool, ],
+            'required_boolean_group': typing.Union[parameter_1.schema, bool, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'boolean_group': typing.Union[Schemas.boolean_group, bool, ],
+            'boolean_group': typing.Union[parameter_4.schema, bool, ],
         },
         total=False
     )
@@ -113,17 +85,8 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        api_client.HeaderParameter(
-            name="required_boolean_group",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.required_boolean_group,
-            required=True,
-        ),
-        api_client.HeaderParameter(
-            name="boolean_group",
-            style=api_client.ParameterStyle.SIMPLE,
-            schema=Schemas.boolean_group,
-        ),
+        parameter_1.parameter_oapg,
+        parameter_4.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

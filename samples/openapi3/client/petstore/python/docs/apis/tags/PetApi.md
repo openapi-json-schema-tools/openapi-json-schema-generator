@@ -270,9 +270,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [RequestHeaderParameters.Schemas.api_key](#delete_pet.RequestHeaderParameters.Schemas.api_key) | | optional
+api_key | [parameter_0.schema](#delete_pet.parameter_0.schema) | | optional
 
-# <a id="delete_pet.RequestHeaderParameters.Schemas.api_key" >RequestHeaderParameters.Schemas.api_key</a>
+# <a id="delete_pet.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -284,9 +284,9 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#delete_pet.RequestPathParameters.Schemas.petId) | | 
+petId | [parameter_1.schema](#delete_pet.parameter_1.schema) | | 
 
-# <a id="delete_pet.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="delete_pet.parameter_1.schema" >parameter_1.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -438,10 +438,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [RequestQueryParameters.Schemas.status](#find_pets_by_status.RequestQueryParameters.Schemas.status) | | 
+status | [parameter_0.schema](#find_pets_by_status.parameter_0.schema) | | 
 
 
-# <a id="find_pets_by_status.RequestQueryParameters.Schemas.status" >RequestQueryParameters.Schemas.status</a>
+# <a id="find_pets_by_status.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -465,10 +465,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#find_pets_by_status.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#find_pets_by_status.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#find_pets_by_status.response_for_200.application_xml), [response_for_200.application_json](#find_pets_by_status.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="find_pets_by_status.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="find_pets_by_status.response_for_200.application_xml" >response_for_200.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -480,7 +480,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-# <a id="find_pets_by_status.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="find_pets_by_status.response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -630,10 +630,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-tags | [RequestQueryParameters.Schemas.tags](#find_pets_by_tags.RequestQueryParameters.Schemas.tags) | | 
+tags | [parameter_0.schema](#find_pets_by_tags.parameter_0.schema) | | 
 
 
-# <a id="find_pets_by_tags.RequestQueryParameters.Schemas.tags" >RequestQueryParameters.Schemas.tags</a>
+# <a id="find_pets_by_tags.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -657,10 +657,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#find_pets_by_tags.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#find_pets_by_tags.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#find_pets_by_tags.response_for_200.application_xml), [response_for_200.application_json](#find_pets_by_tags.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="find_pets_by_tags.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="find_pets_by_tags.response_for_200.application_xml" >response_for_200.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -672,7 +672,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
 
-# <a id="find_pets_by_tags.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="find_pets_by_tags.response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -760,9 +760,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#get_pet_by_id.RequestPathParameters.Schemas.petId) | | 
+petId | [parameter_0.schema](#get_pet_by_id.parameter_0.schema) | | 
 
-# <a id="get_pet_by_id.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="get_pet_by_id.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -782,16 +782,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_xml](#get_pet_by_id.response_for_200.BodySchemas.application_xml), [response_for_200.BodySchemas.application_json](#get_pet_by_id.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#get_pet_by_id.response_for_200.application_xml), [response_for_200.application_json](#get_pet_by_id.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="get_pet_by_id.response_for_200.BodySchemas.application_xml" >response_for_200.BodySchemas.application_xml</a>
+# <a id="get_pet_by_id.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
 
 
-# <a id="get_pet_by_id.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="get_pet_by_id.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../models/Pet.md) |  | 
@@ -1093,9 +1093,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#update_pet_with_form.RequestPathParameters.Schemas.petId) | | 
+petId | [parameter_0.schema](#update_pet_with_form.parameter_0.schema) | | 
 
-# <a id="update_pet_with_form.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="update_pet_with_form.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1219,9 +1219,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#upload_file_with_required_file.RequestPathParameters.Schemas.petId) | | 
+petId | [parameter_0.schema](#upload_file_with_required_file.parameter_0.schema) | | 
 
-# <a id="upload_file_with_required_file.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="upload_file_with_required_file.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1239,10 +1239,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#upload_file_with_required_file.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#upload_file_with_required_file.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_file_with_required_file.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="upload_file_with_required_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 
@@ -1351,9 +1351,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [RequestPathParameters.Schemas.petId](#upload_image.RequestPathParameters.Schemas.petId) | | 
+petId | [parameter_0.schema](#upload_image.parameter_0.schema) | | 
 
-# <a id="upload_image.RequestPathParameters.Schemas.petId" >RequestPathParameters.Schemas.petId</a>
+# <a id="upload_image.parameter_0.schema" >parameter_0.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1371,10 +1371,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#upload_image.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#upload_image.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_image.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="upload_image.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../models/ApiResponse.md) |  | 

@@ -135,10 +135,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofCombinedWithAnyofOneof**](../../models/AllofCombinedWithAnyofOneof.md) |  | 
@@ -261,10 +261,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Allof**](../../models/Allof.md) |  | 
@@ -387,10 +387,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_simple_types_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_simple_types_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_simple_types_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_simple_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofSimpleTypes**](../../models/AllofSimpleTypes.md) |  | 
@@ -513,10 +513,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_with_base_schema_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_with_base_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithBaseSchema**](../../models/AllofWithBaseSchema.md) |  | 
@@ -639,10 +639,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithOneEmptySchema**](../../models/AllofWithOneEmptySchema.md) |  | 
@@ -765,10 +765,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithTheFirstEmptySchema**](../../models/AllofWithTheFirstEmptySchema.md) |  | 
@@ -891,10 +891,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithTheLastEmptySchema**](../../models/AllofWithTheLastEmptySchema.md) |  | 
@@ -1017,10 +1017,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AllofWithTwoEmptySchemas**](../../models/AllofWithTwoEmptySchemas.md) |  | 
@@ -1143,10 +1143,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.BodySchemas.application_json](#post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
+# <a id="post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NestedAllofToCheckValidationSemantics**](../../models/NestedAllofToCheckValidationSemantics.md) |  | 
