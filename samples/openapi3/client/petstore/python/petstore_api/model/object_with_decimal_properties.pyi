@@ -36,7 +36,10 @@ class ObjectWithDecimalProperties(
     class MetaOapg:
         
         class properties:
-            length = schemas.DecimalSchema
+        
+            @staticmethod
+            def length() -> typing.Type['DecimalPayload']:
+                return DecimalPayload
             width = schemas.DecimalSchema
         
             @staticmethod
@@ -49,7 +52,7 @@ class ObjectWithDecimalProperties(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["length"]) -> MetaOapg.properties.length: ...
+    def __getitem__(self, name: typing_extensions.Literal["length"]) -> 'DecimalPayload': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["width"]) -> MetaOapg.properties.width: ...
@@ -66,7 +69,7 @@ class ObjectWithDecimalProperties(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["length"]) -> typing.Union[MetaOapg.properties.length, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["length"]) -> typing.Union['DecimalPayload', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["width"]) -> typing.Union[MetaOapg.properties.width, schemas.Unset]: ...
@@ -84,7 +87,7 @@ class ObjectWithDecimalProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        length: typing.Union[MetaOapg.properties.length, str, schemas.Unset] = schemas.unset,
+        length: typing.Union['DecimalPayload', schemas.Unset] = schemas.unset,
         width: typing.Union[MetaOapg.properties.width, str, schemas.Unset] = schemas.unset,
         cost: typing.Union['Money', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -100,4 +103,5 @@ class ObjectWithDecimalProperties(
             **kwargs,
         )
 
+from petstore_api.model.decimal_payload import DecimalPayload
 from petstore_api.model.money import Money

@@ -88,6 +88,7 @@ docs/models/NulCharactersInStrings.md
 docs/models/NullTypeMatchesOnlyTheNullObject.md
 docs/models/NumberTypeMatchesNumbers.md
 docs/models/ObjectPropertiesValidation.md
+docs/models/ObjectTypeMatchesObjects.md
 docs/models/Oneof.md
 docs/models/OneofComplexTypes.md
 docs/models/OneofWithBaseSchema.md
@@ -181,6 +182,7 @@ test/test_models/test_nul_characters_in_strings.py
 test/test_models/test_null_type_matches_only_the_null_object.py
 test/test_models/test_number_type_matches_numbers.py
 test/test_models/test_object_properties_validation.py
+test/test_models/test_object_type_matches_objects.py
 test/test_models/test_oneof.py
 test/test_models/test_oneof_complex_types.py
 test/test_models/test_oneof_with_base_schema.py
@@ -360,6 +362,8 @@ unit_test_api/model/number_type_matches_numbers.py
 unit_test_api/model/number_type_matches_numbers.pyi
 unit_test_api/model/object_properties_validation.py
 unit_test_api/model/object_properties_validation.pyi
+unit_test_api/model/object_type_matches_objects.py
+unit_test_api/model/object_type_matches_objects.pyi
 unit_test_api/model/oneof.py
 unit_test_api/model/oneof.pyi
 unit_test_api/model/oneof_complex_types.py

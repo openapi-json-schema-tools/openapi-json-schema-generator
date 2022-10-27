@@ -357,32 +357,32 @@ class DeserializationTests(unittest.TestCase):
 
     def test_deserialize_NumberWithValidations(self):
         from petstore_api.model.number_with_validations import NumberWithValidations
-        from petstore_api.paths.fake_refs_number.post import _response_for_200
+        from petstore_api.paths.fake_refs_number.post import response_for_200
 
         # make sure that an exception is thrown on an invalid type value
         with self.assertRaises(petstore_api.ApiTypeError):
             response = self.__response('test str')
-            _response_for_200.deserialize(response, self.configuration)
+            response_for_200.response.deserialize(response, self.configuration)
 
         # make sure that an exception is thrown on an invalid value
         with self.assertRaises(petstore_api.ApiValueError):
             response = self.__response(21.0)
-            _response_for_200.deserialize(response, self.configuration)
+            response_for_200.response.deserialize(response, self.configuration)
 
         # valid value works
         number_val = 11.0
         response = self.__response(number_val)
-        response = _response_for_200.deserialize(response, self.configuration)
+        response = response_for_200.response.deserialize(response, self.configuration)
         self.assertTrue(isinstance(response.body, NumberWithValidations))
         self.assertEqual(response.body, number_val)
 
     def test_array_of_enums(self):
         from petstore_api.model.array_of_enums import ArrayOfEnums
-        from petstore_api.paths.fake_refs_array_of_enums.post import _response_for_200
+        from petstore_api.paths.fake_refs_array_of_enums.post import response_for_200
         from petstore_api.model import string_enum
         data = ["placed", None]
         response = self.__response(data)
-        deserialized = _response_for_200.deserialize(response, self.configuration)
+        deserialized = response_for_200.response.deserialize(response, self.configuration)
         assert isinstance(deserialized.body, ArrayOfEnums)
         expected_results = ArrayOfEnums([string_enum.StringEnum(v) for v in data])
         assert expected_results == deserialized.body

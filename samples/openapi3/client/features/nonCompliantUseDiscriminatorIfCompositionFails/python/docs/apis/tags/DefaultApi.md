@@ -9,8 +9,6 @@ Method | HTTP request | Description
 
 # **post_operators**
 <a name="post_operators"></a>
-> post_operators()
-
 
 
 ### Example
@@ -48,15 +46,15 @@ with this_package.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+[body](#post_operators.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_operators.RequestBody.Schemas.application_json), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_operators.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_operators.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Operator**](../../models/Operator.md) |  | 
@@ -67,9 +65,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_operators.ApiResponseFor200) | OK
+200 | [response_for_200.ApiResponse](#post_operators.response_for_200.ApiResponse) | OK
 
-#### post_operators.ApiResponseFor200
+#### <a id="post_operators.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -9,7 +9,6 @@ Method | HTTP request | Description
 
 # **call_123_test_special_tags**
 <a name="call_123_test_special_tags"></a>
-> Client call_123_test_special_tags(client)
 
 To test special tags
 
@@ -50,16 +49,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#call_123_test_special_tags.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#call_123_test_special_tags.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="call_123_test_special_tags.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="call_123_test_special_tags.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 
@@ -70,16 +69,16 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#call_123_test_special_tags.ApiResponseFor200) | successful operation
+200 | [response_for_200.ApiResponse](#call_123_test_special_tags.response_for_200.ApiResponse) | successful operation
 
-#### call_123_test_special_tags.ApiResponseFor200
+#### <a id="call_123_test_special_tags.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#call_123_test_special_tags.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="call_123_test_special_tags.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../models/Client.md) |  | 

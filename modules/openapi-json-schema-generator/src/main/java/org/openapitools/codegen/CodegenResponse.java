@@ -93,6 +93,7 @@ public class CodegenResponse implements IJsonSchemaValidationProperties {
     private Map<String, CodegenProperty> requiredVarsMap;
     private String ref;
     private boolean schemaIsFromAdditionalProperties;
+    public Set<String> imports = new TreeSet<>();
 
     @Override
     public int hashCode() {
@@ -105,7 +106,7 @@ public class CodegenResponse implements IJsonSchemaValidationProperties {
                 getMinLength(), exclusiveMinimum, exclusiveMaximum, getMinimum(), getMaximum(), getPattern(),
                 is1xx, is2xx, is3xx, is4xx, is5xx, additionalPropertiesIsAnyType, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, composedSchemas, hasMultipleTypes, responseHeaders, content,
-                requiredVarsMap, ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties);
+                requiredVarsMap, ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties, imports);
     }
 
     @Override
@@ -155,6 +156,7 @@ public class CodegenResponse implements IJsonSchemaValidationProperties {
                 getAdditionalPropertiesIsAnyType() == that.getAdditionalPropertiesIsAnyType() &&
                 getHasVars() == that.getHasVars() &&
                 getHasRequired() == that.getHasRequired() &&
+                Objects.equals(imports, that.imports) &&
                 Objects.equals(uniqueItemsBoolean, that.getUniqueItemsBoolean()) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
@@ -612,6 +614,7 @@ public class CodegenResponse implements IJsonSchemaValidationProperties {
         sb.append(", requiredVarsMap=").append(requiredVarsMap);
         sb.append(", ref=").append(ref);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
+        sb.append(", imports=").append(imports);
         sb.append('}');
         return sb.toString();
     }
