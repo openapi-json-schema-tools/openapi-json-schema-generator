@@ -3,8 +3,8 @@
 {{#with this}}
 
 @typing.overload
-{{#if complexType}}
-def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> '{{complexType}}': ...
+{{#if refClass}}
+def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> '{{refClass}}': ...
 {{else}}
 {{#if schemaIsFromAdditionalProperties}}
 def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> MetaOapg.additional_properties: ...
@@ -24,8 +24,8 @@ def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> Meta
 {{#unless required}}
 
 @typing.overload
-{{#if complexType}}
-def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> '{{complexType}}': ...
+{{#if refClass}}
+def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> '{{refClass}}': ...
 {{else}}
 {{#if nameInSnakeCase}}
 def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> MetaOapg.properties.{{name}}: ...
@@ -41,7 +41,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> Meta
 {{#unless getIsBooleanSchemaFalse}}
 
 @typing.overload
-def __getitem__(self, name: str) -> {{#if complexType}}'{{complexType}}'{{else}}MetaOapg.{{baseName}}{{/if}}: ...
+def __getitem__(self, name: str) -> {{#if refClass}}'{{refClass}}'{{else}}MetaOapg.{{baseName}}{{/if}}: ...
 {{/unless}}
 {{/with}}
 
@@ -57,8 +57,8 @@ def __getitem__(self, name: str) -> {{#if complexType}}'{{complexType}}'{{else}}
 {{#with this}}
 
 @typing.overload
-{{#if complexType}}
-def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> '{{complexType}}': ...
+{{#if refClass}}
+def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> '{{refClass}}': ...
 {{else}}
 {{#if schemaIsFromAdditionalProperties}}
 def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> MetaOapg.additional_properties: ...
@@ -78,8 +78,8 @@ def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> Me
 {{#unless required}}
 
 @typing.overload
-{{#if complexType}}
-def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> typing.Union['{{complexType}}', schemas.Unset]: ...
+{{#if refClass}}
+def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> typing.Union['{{refClass}}', schemas.Unset]: ...
 {{else}}
 {{#if nameInSnakeCase}}
 def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> typing.Union[MetaOapg.properties.{{name}}, schemas.Unset]: ...
@@ -95,7 +95,7 @@ def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> ty
 {{#unless getIsBooleanSchemaFalse}}
 
 @typing.overload
-def get_item_oapg(self, name: str) -> typing.Union[{{#if complexType}}'{{complexType}}'{{else}}MetaOapg.{{baseName}}{{/if}}, schemas.Unset]: ...
+def get_item_oapg(self, name: str) -> typing.Union[{{#if refClass}}'{{refClass}}'{{else}}MetaOapg.{{baseName}}{{/if}}, schemas.Unset]: ...
 {{/unless}}
 {{/with}}
 
