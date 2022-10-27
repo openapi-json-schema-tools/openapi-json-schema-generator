@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
 
 
 application_json = MinimumValidationWithSignedInteger

@@ -14,7 +14,7 @@ import sys
 import unittest
 
 import petstore_api
-from petstore_api.model.integer_enum_one_value import IntegerEnumOneValue
+from petstore_api.components.schema.integer_enum_one_value import IntegerEnumOneValue
 
 
 class TestIntegerEnumOneValue(unittest.TestCase):

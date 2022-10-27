@@ -49,7 +49,7 @@ Additional Properties with Array of Enums
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
+from petstore_api.components.schema.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -93,7 +93,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="additional_properties_with_array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -113,7 +113,7 @@ headers | Unset | headers were not defined |
 # <a id="additional_properties_with_array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../models/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Authorization
@@ -133,7 +133,7 @@ Test serialization of ArrayModel
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.animal_farm import AnimalFarm
+from petstore_api.components.schema.animal_farm import AnimalFarm
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -174,7 +174,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="array_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../models/AnimalFarm.md) |  | 
+[**AnimalFarm**](../../components/schema/AnimalFarm.md) |  | 
 
 
 ### Return Types, Responses
@@ -194,7 +194,7 @@ headers | Unset | headers were not defined |
 # <a id="array_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../models/AnimalFarm.md) |  | 
+[**AnimalFarm**](../../components/schema/AnimalFarm.md) |  | 
 
 
 ### Authorization
@@ -213,7 +213,7 @@ Array of Enums
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.array_of_enums import ArrayOfEnums
+from petstore_api.components.schema.array_of_enums import ArrayOfEnums
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -255,7 +255,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
+[**ArrayOfEnums**](../../components/schema/ArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -275,7 +275,7 @@ headers | Unset | headers were not defined |
 # <a id="array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayOfEnums**](../../models/ArrayOfEnums.md) |  | 
+[**ArrayOfEnums**](../../components/schema/ArrayOfEnums.md) |  | 
 
 
 ### Authorization
@@ -295,7 +295,7 @@ For this test, the body for this request much reference a schema named `File`.
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.file_schema_test_class import FileSchemaTestClass
+from petstore_api.components.schema.file_schema_test_class import FileSchemaTestClass
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -339,7 +339,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="body_with_file_schema.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**FileSchemaTestClass**](../../models/FileSchemaTestClass.md) |  | 
+[**FileSchemaTestClass**](../../components/schema/FileSchemaTestClass.md) |  | 
 
 
 ### Return Types, Responses
@@ -371,7 +371,7 @@ No authorization required
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.user import User
+from petstore_api.components.schema.user import User
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -427,7 +427,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="body_with_query_params.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../models/User.md) |  | 
+[**User**](../../components/schema/User.md) |  | 
 
 
 ### <a id="body_with_query_params.RequestQueryParameters" >query_params</a>
@@ -476,7 +476,7 @@ Test serialization of outer boolean types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.boolean import Boolean
+from petstore_api.components.schema.boolean import Boolean
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -515,7 +515,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="boolean.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../models/Boolean.md) |  | 
+[**Boolean**](../../components/schema/Boolean.md) |  | 
 
 
 ### Return Types, Responses
@@ -535,7 +535,7 @@ headers | Unset | headers were not defined |
 # <a id="boolean.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../models/Boolean.md) |  | 
+[**Boolean**](../../components/schema/Boolean.md) |  | 
 
 
 ### Authorization
@@ -652,7 +652,7 @@ To test \"client\" model
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.client import Client
+from petstore_api.components.schema.client import Client
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -694,7 +694,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="client_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**Client**](../../components/schema/Client.md) |  | 
 
 
 ### Return Types, Responses
@@ -714,7 +714,7 @@ headers | Unset | headers were not defined |
 # <a id="client_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**Client**](../../components/schema/Client.md) |  | 
 
 
 ### Authorization
@@ -734,7 +734,7 @@ Test serialization of object with $refed properties
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.composed_one_of_different_types import ComposedOneOfDifferentTypes
+from petstore_api.components.schema.composed_one_of_different_types import ComposedOneOfDifferentTypes
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -773,7 +773,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="composed_one_of_different_types.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../components/schema/ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -793,7 +793,7 @@ headers | Unset | headers were not defined |
 # <a id="composed_one_of_different_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../models/ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../components/schema/ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Authorization
@@ -1261,7 +1261,7 @@ headers | Unset | headers were not defined |
 # <a id="fake_health_get.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HealthCheckResult**](../../models/HealthCheckResult.md) |  | 
+[**HealthCheckResult**](../../components/schema/HealthCheckResult.md) |  | 
 
 
 ### Authorization
@@ -1845,7 +1845,7 @@ json patch route with a requestBody
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.json_patch_request import JSONPatchRequest
+from petstore_api.components.schema.json_patch_request import JSONPatchRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1885,7 +1885,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JSONPatchRequest**](../../models/JSONPatchRequest.md) |  | 
+[**JSONPatchRequest**](../../components/schema/JSONPatchRequest.md) |  | 
 
 
 ### Return Types, Responses
@@ -1999,7 +1999,7 @@ Test serialization of mammals
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.mammal import Mammal
+from petstore_api.components.schema.mammal import Mammal
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2042,7 +2042,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="mammal.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Mammal**](../../models/Mammal.md) |  | 
+[**Mammal**](../../components/schema/Mammal.md) |  | 
 
 
 ### Return Types, Responses
@@ -2062,7 +2062,7 @@ headers | Unset | headers were not defined |
 # <a id="mammal.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Mammal**](../../models/Mammal.md) |  | 
+[**Mammal**](../../components/schema/Mammal.md) |  | 
 
 
 ### Authorization
@@ -2082,7 +2082,7 @@ Test serialization of outer number types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.number_with_validations import NumberWithValidations
+from petstore_api.components.schema.number_with_validations import NumberWithValidations
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2121,7 +2121,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
 
 
 ### Return Types, Responses
@@ -2141,7 +2141,7 @@ headers | Unset | headers were not defined |
 # <a id="number_with_validations.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../models/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
 
 
 ### Authorization
@@ -2247,7 +2247,7 @@ Test serialization of object with $refed properties
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.object_model_with_ref_props import ObjectModelWithRefProps
+from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2290,7 +2290,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="object_model_with_ref_props.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../components/schema/ObjectModelWithRefProps.md) |  | 
 
 
 ### Return Types, Responses
@@ -2310,7 +2310,7 @@ headers | Unset | headers were not defined |
 # <a id="object_model_with_ref_props.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../models/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../components/schema/ObjectModelWithRefProps.md) |  | 
 
 
 ### Authorization
@@ -2728,7 +2728,7 @@ To test the collection format in query parameters
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.string_with_validation import StringWithValidation
+from petstore_api.components.schema.string_with_validation import StringWithValidation
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2852,7 +2852,7 @@ items | str,  | str,  |  |
 # <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringWithValidation**](../../models/StringWithValidation.md) |  | 
+[**StringWithValidation**](../../components/schema/StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2885,7 +2885,7 @@ user list
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.foo import Foo
+from petstore_api.components.schema.foo import Foo
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2932,7 +2932,7 @@ mapBean | [parameter_0.schema](#ref_object_in_query.parameter_0.schema) | | opti
 # <a id="ref_object_in_query.parameter_0.schema" >parameter_0.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Foo**](../../models/Foo.md) |  | 
+[**Foo**](../../components/schema/Foo.md) |  | 
 
 
 ### Return Types, Responses
@@ -3018,7 +3018,7 @@ Test serialization of outer string types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.string import String
+from petstore_api.components.schema.string import String
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -3057,7 +3057,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../models/String.md) |  | 
+[**String**](../../components/schema/String.md) |  | 
 
 
 ### Return Types, Responses
@@ -3077,7 +3077,7 @@ headers | Unset | headers were not defined |
 # <a id="string.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../models/String.md) |  | 
+[**String**](../../components/schema/String.md) |  | 
 
 
 ### Authorization
@@ -3097,7 +3097,7 @@ Test serialization of outer enum
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.model.string_enum import StringEnum
+from petstore_api.components.schema.string_enum import StringEnum
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -3136,7 +3136,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string_enum.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../models/StringEnum.md) |  | 
+[**StringEnum**](../../components/schema/StringEnum.md) |  | 
 
 
 ### Return Types, Responses
@@ -3156,7 +3156,7 @@ headers | Unset | headers were not defined |
 # <a id="string_enum.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../models/StringEnum.md) |  | 
+[**StringEnum**](../../components/schema/StringEnum.md) |  | 
 
 
 ### Authorization
@@ -3329,7 +3329,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization
@@ -3430,7 +3430,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_files.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../models/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization

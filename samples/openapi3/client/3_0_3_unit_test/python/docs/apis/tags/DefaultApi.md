@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import default_api
-from unit_test_api.model.invalid_string_value_for_default import InvalidStringValueForDefault
+from unit_test_api.components.schema.invalid_string_value_for_default import InvalidStringValueForDefault
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_string_value_for_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../models/InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../components/schema/InvalidStringValueForDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_invalid_string_value_for_default_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../models/InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../components/schema/InvalidStringValueForDefault.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import default_api
-from unit_test_api.model.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+from unit_test_api.components.schema.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -184,7 +184,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
+[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
 
 
 ### Return Types, Responses
@@ -255,7 +255,7 @@ headers | Unset | headers were not defined |
 # <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
+[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
 
 
 ### Authorization

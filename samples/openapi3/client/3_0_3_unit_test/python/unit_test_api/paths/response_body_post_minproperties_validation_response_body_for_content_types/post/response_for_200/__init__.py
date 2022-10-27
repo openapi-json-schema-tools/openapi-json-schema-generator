@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.minproperties_validation import MinpropertiesValidation
+from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
 
 # body schemas
 application_json = MinpropertiesValidation

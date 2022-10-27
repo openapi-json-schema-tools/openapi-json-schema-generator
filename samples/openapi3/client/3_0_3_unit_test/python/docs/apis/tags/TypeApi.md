@@ -29,7 +29,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -68,7 +68,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_array_type_matches_arrays_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Return Types, Responses
@@ -139,7 +139,7 @@ headers | Unset | headers were not defined |
 # <a id="post_array_type_matches_arrays_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../models/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Authorization
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -194,7 +194,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_boolean_type_matches_booleans_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Return Types, Responses
@@ -265,7 +265,7 @@ headers | Unset | headers were not defined |
 # <a id="post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../models/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Authorization
@@ -283,7 +283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -320,7 +320,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_integer_type_matches_integers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Return Types, Responses
@@ -391,7 +391,7 @@ headers | Unset | headers were not defined |
 # <a id="post_integer_type_matches_integers_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../models/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Authorization
@@ -409,7 +409,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -446,7 +446,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_null_type_matches_only_the_null_object_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Return Types, Responses
@@ -517,7 +517,7 @@ headers | Unset | headers were not defined |
 # <a id="post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../models/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Authorization
@@ -535,7 +535,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -572,7 +572,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_number_type_matches_numbers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Return Types, Responses
@@ -643,7 +643,7 @@ headers | Unset | headers were not defined |
 # <a id="post_number_type_matches_numbers_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../models/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Authorization
@@ -661,7 +661,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.object_type_matches_objects import ObjectTypeMatchesObjects
+from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -698,7 +698,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_type_matches_objects_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Return Types, Responses
@@ -769,7 +769,7 @@ headers | Unset | headers were not defined |
 # <a id="post_object_type_matches_objects_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../models/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Authorization
@@ -787,7 +787,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.model.string_type_matches_strings import StringTypeMatchesStrings
+from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -824,7 +824,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_string_type_matches_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -895,7 +895,7 @@ headers | Unset | headers were not defined |
 # <a id="post_string_type_matches_strings_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../models/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
 
 
 ### Authorization

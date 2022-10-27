@@ -15,7 +15,7 @@ import unittest
 
 import petstore_api
 from petstore_api.schemas import BoolClass
-from petstore_api.model.whale import Whale
+from petstore_api.components.schema.whale import Whale
 
 
 class TestWhale(unittest.TestCase):

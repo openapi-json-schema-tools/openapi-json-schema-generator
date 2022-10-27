@@ -48,7 +48,7 @@ class DeserializationTests(unittest.TestCase):
         - SimpleQuadrilateral
         by traveling through 2 discriminators
         """
-        from petstore_api.model import shape, equilateral_triangle
+        from petstore_api.components.schema import shape, equilateral_triangle
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=shape.Shape),
@@ -86,7 +86,7 @@ class DeserializationTests(unittest.TestCase):
         that inherrit from Animal
         This is the swagger (v2) way of doing something like oneOf composition
         """
-        from petstore_api.model import animal, dog
+        from petstore_api.components.schema import animal, dog
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=animal.Animal),
@@ -109,7 +109,7 @@ class DeserializationTests(unittest.TestCase):
         """
         Test regex pattern validation.
         """
-        from petstore_api.model import apple
+        from petstore_api.components.schema import apple
 
         # Test with valid regex pattern.
         inst = apple.Apple(
@@ -150,7 +150,7 @@ class DeserializationTests(unittest.TestCase):
         """
 
         # whale test
-        from petstore_api.model import mammal, zebra, whale
+        from petstore_api.components.schema import mammal, zebra, whale
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
@@ -190,7 +190,7 @@ class DeserializationTests(unittest.TestCase):
         """
         Deserialize floating point values.
         """
-        from petstore_api.model import banana
+        from petstore_api.components.schema import banana
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=banana.Banana),
@@ -226,7 +226,7 @@ class DeserializationTests(unittest.TestCase):
         deserialize fruit with null value.
         fruitReq is a oneOf composed schema model with discriminator, including 'null' type.
         """
-        from petstore_api.model import fruit_req
+        from petstore_api.components.schema import fruit_req
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=fruit_req.FruitReq),
@@ -251,7 +251,7 @@ class DeserializationTests(unittest.TestCase):
         # The additionalProperties keyword is used to control the handling of extra stuff,
         # that is, properties whose names are not listed in the properties keyword.
         # By default any additional properties are allowed.
-        from petstore_api.model import dog, mammal, zebra, banana_req
+        from petstore_api.components.schema import dog, mammal, zebra, banana_req
         data = {
             'className': 'Dog',
             'color': 'brown',
@@ -326,7 +326,7 @@ class DeserializationTests(unittest.TestCase):
         Deserialize data with schemas that has the additionalProperties keyword
         and the schema is specified as a reference ($ref).
         """
-        from petstore_api.model import drawing
+        from petstore_api.components.schema import drawing
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=drawing.Drawing),
@@ -356,7 +356,7 @@ class DeserializationTests(unittest.TestCase):
         _response_for_200.deserialize(response, self.configuration)
 
     def test_deserialize_NumberWithValidations(self):
-        from petstore_api.model.number_with_validations import NumberWithValidations
+        from petstore_api.components.schema.number_with_validations import NumberWithValidations
         from petstore_api.paths.fake_refs_number.post import response_for_200
 
         # make sure that an exception is thrown on an invalid type value
@@ -377,9 +377,9 @@ class DeserializationTests(unittest.TestCase):
         self.assertEqual(response.body, number_val)
 
     def test_array_of_enums(self):
-        from petstore_api.model.array_of_enums import ArrayOfEnums
+        from petstore_api.components.schema.array_of_enums import ArrayOfEnums
         from petstore_api.paths.fake_refs_array_of_enums.post import response_for_200
-        from petstore_api.model import string_enum
+        from petstore_api.components.schema import string_enum
         data = ["placed", None]
         response = self.__response(data)
         deserialized = response_for_200.response.deserialize(response, self.configuration)
@@ -396,7 +396,7 @@ class DeserializationTests(unittest.TestCase):
             'number': 65.0,
             'float': 62.4,
         }
-        from petstore_api.model import format_test
+        from petstore_api.components.schema import format_test
         _response_for_200 = api_client.OpenApiResponse(
             content={
                 self.json_content_type: api_client.MediaType(schema=format_test.FormatTest),

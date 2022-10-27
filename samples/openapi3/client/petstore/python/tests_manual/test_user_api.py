@@ -53,7 +53,7 @@ class TestUserApi(ApiTestMixin):
         pass
 
     def test_get_user_by_name(self):
-        from petstore_api.model import user
+        from petstore_api.components.schema import user
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
