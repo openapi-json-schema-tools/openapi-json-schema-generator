@@ -42,7 +42,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 [
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -73,7 +73,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 {
                 }
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -103,7 +103,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 None
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -133,7 +133,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 1.0
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -164,7 +164,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 "abc"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+                body = post.request_body.application_json.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )
@@ -177,7 +177,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 True
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -207,7 +207,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 "aaa"
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -237,7 +237,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 123
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

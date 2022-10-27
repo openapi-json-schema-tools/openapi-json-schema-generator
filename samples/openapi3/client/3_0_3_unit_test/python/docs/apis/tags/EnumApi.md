@@ -57,15 +57,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_enum_with0_does_not_match_false_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with0_does_not_match_false_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_enum_with0_does_not_match_false_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with0_does_not_match_false_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_enum_with0_does_not_match_false_request_body.RequestBody" >body</a>
+### <a id="post_enum_with0_does_not_match_false_request_body.request_body" >body</a>
 
-# <a id="post_enum_with0_does_not_match_false_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_enum_with0_does_not_match_false_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWith0DoesNotMatchFalse**](../../models/EnumWith0DoesNotMatchFalse.md) |  | 
@@ -183,15 +183,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_enum_with1_does_not_match_true_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with1_does_not_match_true_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_enum_with1_does_not_match_true_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with1_does_not_match_true_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_enum_with1_does_not_match_true_request_body.RequestBody" >body</a>
+### <a id="post_enum_with1_does_not_match_true_request_body.request_body" >body</a>
 
-# <a id="post_enum_with1_does_not_match_true_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_enum_with1_does_not_match_true_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWith1DoesNotMatchTrue**](../../models/EnumWith1DoesNotMatchTrue.md) |  | 
@@ -309,15 +309,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_enum_with_escaped_characters_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with_escaped_characters_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_enum_with_escaped_characters_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with_escaped_characters_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_enum_with_escaped_characters_request_body.RequestBody" >body</a>
+### <a id="post_enum_with_escaped_characters_request_body.request_body" >body</a>
 
-# <a id="post_enum_with_escaped_characters_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_enum_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWithEscapedCharacters**](../../models/EnumWithEscapedCharacters.md) |  | 
@@ -435,15 +435,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_enum_with_false_does_not_match0_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with_false_does_not_match0_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_enum_with_false_does_not_match0_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with_false_does_not_match0_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_enum_with_false_does_not_match0_request_body.RequestBody" >body</a>
+### <a id="post_enum_with_false_does_not_match0_request_body.request_body" >body</a>
 
-# <a id="post_enum_with_false_does_not_match0_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_enum_with_false_does_not_match0_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWithFalseDoesNotMatch0**](../../models/EnumWithFalseDoesNotMatch0.md) |  | 
@@ -561,15 +561,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_enum_with_true_does_not_match1_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enum_with_true_does_not_match1_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_enum_with_true_does_not_match1_request_body.request_body) | typing.Union[[request_body.application_json](#post_enum_with_true_does_not_match1_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_enum_with_true_does_not_match1_request_body.RequestBody" >body</a>
+### <a id="post_enum_with_true_does_not_match1_request_body.request_body" >body</a>
 
-# <a id="post_enum_with_true_does_not_match1_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_enum_with_true_does_not_match1_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumWithTrueDoesNotMatch1**](../../models/EnumWithTrueDoesNotMatch1.md) |  | 
@@ -690,15 +690,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_enums_in_properties_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_enums_in_properties_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_enums_in_properties_request_body.request_body) | typing.Union[[request_body.application_json](#post_enums_in_properties_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_enums_in_properties_request_body.RequestBody" >body</a>
+### <a id="post_enums_in_properties_request_body.request_body" >body</a>
 
-# <a id="post_enums_in_properties_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_enums_in_properties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**EnumsInProperties**](../../models/EnumsInProperties.md) |  | 
@@ -816,15 +816,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_nul_characters_in_strings_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_nul_characters_in_strings_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_nul_characters_in_strings_request_body.request_body) | typing.Union[[request_body.application_json](#post_nul_characters_in_strings_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_nul_characters_in_strings_request_body.RequestBody" >body</a>
+### <a id="post_nul_characters_in_strings_request_body.request_body" >body</a>
 
-# <a id="post_nul_characters_in_strings_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_nul_characters_in_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NulCharactersInStrings**](../../models/NulCharactersInStrings.md) |  | 
@@ -942,15 +942,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#post_simple_enum_validation_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_simple_enum_validation_request_body.RequestBody.Schemas.application_json)] | required |
+[body](#post_simple_enum_validation_request_body.request_body) | typing.Union[[request_body.application_json](#post_simple_enum_validation_request_body.request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="post_simple_enum_validation_request_body.RequestBody" >body</a>
+### <a id="post_simple_enum_validation_request_body.request_body" >body</a>
 
-# <a id="post_simple_enum_validation_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
+# <a id="post_simple_enum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**SimpleEnumValidation**](../../models/SimpleEnumValidation.md) |  | 
