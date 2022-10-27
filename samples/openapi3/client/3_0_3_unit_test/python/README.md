@@ -138,7 +138,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -866,93 +866,93 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionalpropertiesAllowsASchemaWhichShouldValidate](docs/models/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md)
- - [AdditionalpropertiesAreAllowedByDefault](docs/models/AdditionalpropertiesAreAllowedByDefault.md)
- - [AdditionalpropertiesCanExistByItself](docs/models/AdditionalpropertiesCanExistByItself.md)
- - [AdditionalpropertiesShouldNotLookInApplicators](docs/models/AdditionalpropertiesShouldNotLookInApplicators.md)
- - [Allof](docs/models/Allof.md)
- - [AllofCombinedWithAnyofOneof](docs/models/AllofCombinedWithAnyofOneof.md)
- - [AllofSimpleTypes](docs/models/AllofSimpleTypes.md)
- - [AllofWithBaseSchema](docs/models/AllofWithBaseSchema.md)
- - [AllofWithOneEmptySchema](docs/models/AllofWithOneEmptySchema.md)
- - [AllofWithTheFirstEmptySchema](docs/models/AllofWithTheFirstEmptySchema.md)
- - [AllofWithTheLastEmptySchema](docs/models/AllofWithTheLastEmptySchema.md)
- - [AllofWithTwoEmptySchemas](docs/models/AllofWithTwoEmptySchemas.md)
- - [Anyof](docs/models/Anyof.md)
- - [AnyofComplexTypes](docs/models/AnyofComplexTypes.md)
- - [AnyofWithBaseSchema](docs/models/AnyofWithBaseSchema.md)
- - [AnyofWithOneEmptySchema](docs/models/AnyofWithOneEmptySchema.md)
- - [ArrayTypeMatchesArrays](docs/models/ArrayTypeMatchesArrays.md)
- - [BooleanTypeMatchesBooleans](docs/models/BooleanTypeMatchesBooleans.md)
- - [ByInt](docs/models/ByInt.md)
- - [ByNumber](docs/models/ByNumber.md)
- - [BySmallNumber](docs/models/BySmallNumber.md)
- - [DateTimeFormat](docs/models/DateTimeFormat.md)
- - [EmailFormat](docs/models/EmailFormat.md)
- - [EnumWith0DoesNotMatchFalse](docs/models/EnumWith0DoesNotMatchFalse.md)
- - [EnumWith1DoesNotMatchTrue](docs/models/EnumWith1DoesNotMatchTrue.md)
- - [EnumWithEscapedCharacters](docs/models/EnumWithEscapedCharacters.md)
- - [EnumWithFalseDoesNotMatch0](docs/models/EnumWithFalseDoesNotMatch0.md)
- - [EnumWithTrueDoesNotMatch1](docs/models/EnumWithTrueDoesNotMatch1.md)
- - [EnumsInProperties](docs/models/EnumsInProperties.md)
- - [ForbiddenProperty](docs/models/ForbiddenProperty.md)
- - [HostnameFormat](docs/models/HostnameFormat.md)
- - [IntegerTypeMatchesIntegers](docs/models/IntegerTypeMatchesIntegers.md)
- - [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](docs/models/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md)
- - [InvalidStringValueForDefault](docs/models/InvalidStringValueForDefault.md)
- - [Ipv4Format](docs/models/Ipv4Format.md)
- - [Ipv6Format](docs/models/Ipv6Format.md)
- - [JsonPointerFormat](docs/models/JsonPointerFormat.md)
- - [MaximumValidation](docs/models/MaximumValidation.md)
- - [MaximumValidationWithUnsignedInteger](docs/models/MaximumValidationWithUnsignedInteger.md)
- - [MaxitemsValidation](docs/models/MaxitemsValidation.md)
- - [MaxlengthValidation](docs/models/MaxlengthValidation.md)
- - [Maxproperties0MeansTheObjectIsEmpty](docs/models/Maxproperties0MeansTheObjectIsEmpty.md)
- - [MaxpropertiesValidation](docs/models/MaxpropertiesValidation.md)
- - [MinimumValidation](docs/models/MinimumValidation.md)
- - [MinimumValidationWithSignedInteger](docs/models/MinimumValidationWithSignedInteger.md)
- - [MinitemsValidation](docs/models/MinitemsValidation.md)
- - [MinlengthValidation](docs/models/MinlengthValidation.md)
- - [MinpropertiesValidation](docs/models/MinpropertiesValidation.md)
- - [ModelNot](docs/models/ModelNot.md)
- - [NestedAllofToCheckValidationSemantics](docs/models/NestedAllofToCheckValidationSemantics.md)
- - [NestedAnyofToCheckValidationSemantics](docs/models/NestedAnyofToCheckValidationSemantics.md)
- - [NestedItems](docs/models/NestedItems.md)
- - [NestedOneofToCheckValidationSemantics](docs/models/NestedOneofToCheckValidationSemantics.md)
- - [NotMoreComplexSchema](docs/models/NotMoreComplexSchema.md)
- - [NulCharactersInStrings](docs/models/NulCharactersInStrings.md)
- - [NullTypeMatchesOnlyTheNullObject](docs/models/NullTypeMatchesOnlyTheNullObject.md)
- - [NumberTypeMatchesNumbers](docs/models/NumberTypeMatchesNumbers.md)
- - [ObjectPropertiesValidation](docs/models/ObjectPropertiesValidation.md)
- - [ObjectTypeMatchesObjects](docs/models/ObjectTypeMatchesObjects.md)
- - [Oneof](docs/models/Oneof.md)
- - [OneofComplexTypes](docs/models/OneofComplexTypes.md)
- - [OneofWithBaseSchema](docs/models/OneofWithBaseSchema.md)
- - [OneofWithEmptySchema](docs/models/OneofWithEmptySchema.md)
- - [OneofWithRequired](docs/models/OneofWithRequired.md)
- - [PatternIsNotAnchored](docs/models/PatternIsNotAnchored.md)
- - [PatternValidation](docs/models/PatternValidation.md)
- - [PropertiesWithEscapedCharacters](docs/models/PropertiesWithEscapedCharacters.md)
- - [PropertyNamedRefThatIsNotAReference](docs/models/PropertyNamedRefThatIsNotAReference.md)
- - [RefInAdditionalproperties](docs/models/RefInAdditionalproperties.md)
- - [RefInAllof](docs/models/RefInAllof.md)
- - [RefInAnyof](docs/models/RefInAnyof.md)
- - [RefInItems](docs/models/RefInItems.md)
- - [RefInNot](docs/models/RefInNot.md)
- - [RefInOneof](docs/models/RefInOneof.md)
- - [RefInProperty](docs/models/RefInProperty.md)
- - [RequiredDefaultValidation](docs/models/RequiredDefaultValidation.md)
- - [RequiredValidation](docs/models/RequiredValidation.md)
- - [RequiredWithEmptyArray](docs/models/RequiredWithEmptyArray.md)
- - [RequiredWithEscapedCharacters](docs/models/RequiredWithEscapedCharacters.md)
- - [SimpleEnumValidation](docs/models/SimpleEnumValidation.md)
- - [StringTypeMatchesStrings](docs/models/StringTypeMatchesStrings.md)
- - [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](docs/models/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md)
- - [UniqueitemsFalseValidation](docs/models/UniqueitemsFalseValidation.md)
- - [UniqueitemsValidation](docs/models/UniqueitemsValidation.md)
- - [UriFormat](docs/models/UriFormat.md)
- - [UriReferenceFormat](docs/models/UriReferenceFormat.md)
- - [UriTemplateFormat](docs/models/UriTemplateFormat.md)
+ - [AdditionalpropertiesAllowsASchemaWhichShouldValidate](docs/components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md)
+ - [AdditionalpropertiesAreAllowedByDefault](docs/components/schema/AdditionalpropertiesAreAllowedByDefault.md)
+ - [AdditionalpropertiesCanExistByItself](docs/components/schema/AdditionalpropertiesCanExistByItself.md)
+ - [AdditionalpropertiesShouldNotLookInApplicators](docs/components/schema/AdditionalpropertiesShouldNotLookInApplicators.md)
+ - [Allof](docs/components/schema/Allof.md)
+ - [AllofCombinedWithAnyofOneof](docs/components/schema/AllofCombinedWithAnyofOneof.md)
+ - [AllofSimpleTypes](docs/components/schema/AllofSimpleTypes.md)
+ - [AllofWithBaseSchema](docs/components/schema/AllofWithBaseSchema.md)
+ - [AllofWithOneEmptySchema](docs/components/schema/AllofWithOneEmptySchema.md)
+ - [AllofWithTheFirstEmptySchema](docs/components/schema/AllofWithTheFirstEmptySchema.md)
+ - [AllofWithTheLastEmptySchema](docs/components/schema/AllofWithTheLastEmptySchema.md)
+ - [AllofWithTwoEmptySchemas](docs/components/schema/AllofWithTwoEmptySchemas.md)
+ - [Anyof](docs/components/schema/Anyof.md)
+ - [AnyofComplexTypes](docs/components/schema/AnyofComplexTypes.md)
+ - [AnyofWithBaseSchema](docs/components/schema/AnyofWithBaseSchema.md)
+ - [AnyofWithOneEmptySchema](docs/components/schema/AnyofWithOneEmptySchema.md)
+ - [ArrayTypeMatchesArrays](docs/components/schema/ArrayTypeMatchesArrays.md)
+ - [BooleanTypeMatchesBooleans](docs/components/schema/BooleanTypeMatchesBooleans.md)
+ - [ByInt](docs/components/schema/ByInt.md)
+ - [ByNumber](docs/components/schema/ByNumber.md)
+ - [BySmallNumber](docs/components/schema/BySmallNumber.md)
+ - [DateTimeFormat](docs/components/schema/DateTimeFormat.md)
+ - [EmailFormat](docs/components/schema/EmailFormat.md)
+ - [EnumWith0DoesNotMatchFalse](docs/components/schema/EnumWith0DoesNotMatchFalse.md)
+ - [EnumWith1DoesNotMatchTrue](docs/components/schema/EnumWith1DoesNotMatchTrue.md)
+ - [EnumWithEscapedCharacters](docs/components/schema/EnumWithEscapedCharacters.md)
+ - [EnumWithFalseDoesNotMatch0](docs/components/schema/EnumWithFalseDoesNotMatch0.md)
+ - [EnumWithTrueDoesNotMatch1](docs/components/schema/EnumWithTrueDoesNotMatch1.md)
+ - [EnumsInProperties](docs/components/schema/EnumsInProperties.md)
+ - [ForbiddenProperty](docs/components/schema/ForbiddenProperty.md)
+ - [HostnameFormat](docs/components/schema/HostnameFormat.md)
+ - [IntegerTypeMatchesIntegers](docs/components/schema/IntegerTypeMatchesIntegers.md)
+ - [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](docs/components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md)
+ - [InvalidStringValueForDefault](docs/components/schema/InvalidStringValueForDefault.md)
+ - [Ipv4Format](docs/components/schema/Ipv4Format.md)
+ - [Ipv6Format](docs/components/schema/Ipv6Format.md)
+ - [JsonPointerFormat](docs/components/schema/JsonPointerFormat.md)
+ - [MaximumValidation](docs/components/schema/MaximumValidation.md)
+ - [MaximumValidationWithUnsignedInteger](docs/components/schema/MaximumValidationWithUnsignedInteger.md)
+ - [MaxitemsValidation](docs/components/schema/MaxitemsValidation.md)
+ - [MaxlengthValidation](docs/components/schema/MaxlengthValidation.md)
+ - [Maxproperties0MeansTheObjectIsEmpty](docs/components/schema/Maxproperties0MeansTheObjectIsEmpty.md)
+ - [MaxpropertiesValidation](docs/components/schema/MaxpropertiesValidation.md)
+ - [MinimumValidation](docs/components/schema/MinimumValidation.md)
+ - [MinimumValidationWithSignedInteger](docs/components/schema/MinimumValidationWithSignedInteger.md)
+ - [MinitemsValidation](docs/components/schema/MinitemsValidation.md)
+ - [MinlengthValidation](docs/components/schema/MinlengthValidation.md)
+ - [MinpropertiesValidation](docs/components/schema/MinpropertiesValidation.md)
+ - [ModelNot](docs/components/schema/ModelNot.md)
+ - [NestedAllofToCheckValidationSemantics](docs/components/schema/NestedAllofToCheckValidationSemantics.md)
+ - [NestedAnyofToCheckValidationSemantics](docs/components/schema/NestedAnyofToCheckValidationSemantics.md)
+ - [NestedItems](docs/components/schema/NestedItems.md)
+ - [NestedOneofToCheckValidationSemantics](docs/components/schema/NestedOneofToCheckValidationSemantics.md)
+ - [NotMoreComplexSchema](docs/components/schema/NotMoreComplexSchema.md)
+ - [NulCharactersInStrings](docs/components/schema/NulCharactersInStrings.md)
+ - [NullTypeMatchesOnlyTheNullObject](docs/components/schema/NullTypeMatchesOnlyTheNullObject.md)
+ - [NumberTypeMatchesNumbers](docs/components/schema/NumberTypeMatchesNumbers.md)
+ - [ObjectPropertiesValidation](docs/components/schema/ObjectPropertiesValidation.md)
+ - [ObjectTypeMatchesObjects](docs/components/schema/ObjectTypeMatchesObjects.md)
+ - [Oneof](docs/components/schema/Oneof.md)
+ - [OneofComplexTypes](docs/components/schema/OneofComplexTypes.md)
+ - [OneofWithBaseSchema](docs/components/schema/OneofWithBaseSchema.md)
+ - [OneofWithEmptySchema](docs/components/schema/OneofWithEmptySchema.md)
+ - [OneofWithRequired](docs/components/schema/OneofWithRequired.md)
+ - [PatternIsNotAnchored](docs/components/schema/PatternIsNotAnchored.md)
+ - [PatternValidation](docs/components/schema/PatternValidation.md)
+ - [PropertiesWithEscapedCharacters](docs/components/schema/PropertiesWithEscapedCharacters.md)
+ - [PropertyNamedRefThatIsNotAReference](docs/components/schema/PropertyNamedRefThatIsNotAReference.md)
+ - [RefInAdditionalproperties](docs/components/schema/RefInAdditionalproperties.md)
+ - [RefInAllof](docs/components/schema/RefInAllof.md)
+ - [RefInAnyof](docs/components/schema/RefInAnyof.md)
+ - [RefInItems](docs/components/schema/RefInItems.md)
+ - [RefInNot](docs/components/schema/RefInNot.md)
+ - [RefInOneof](docs/components/schema/RefInOneof.md)
+ - [RefInProperty](docs/components/schema/RefInProperty.md)
+ - [RequiredDefaultValidation](docs/components/schema/RequiredDefaultValidation.md)
+ - [RequiredValidation](docs/components/schema/RequiredValidation.md)
+ - [RequiredWithEmptyArray](docs/components/schema/RequiredWithEmptyArray.md)
+ - [RequiredWithEscapedCharacters](docs/components/schema/RequiredWithEscapedCharacters.md)
+ - [SimpleEnumValidation](docs/components/schema/SimpleEnumValidation.md)
+ - [StringTypeMatchesStrings](docs/components/schema/StringTypeMatchesStrings.md)
+ - [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](docs/components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md)
+ - [UniqueitemsFalseValidation](docs/components/schema/UniqueitemsFalseValidation.md)
+ - [UniqueitemsValidation](docs/components/schema/UniqueitemsValidation.md)
+ - [UriFormat](docs/components/schema/UriFormat.md)
+ - [UriReferenceFormat](docs/components/schema/UriReferenceFormat.md)
+ - [UriTemplateFormat](docs/components/schema/UriTemplateFormat.md)
 
 ## Documentation For Authorization
 
@@ -990,20 +990,22 @@ Class | Method | HTTP request | Description
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in unit_test_api.apis and unit_test_api.models may fail with a
+If the OpenAPI document is large, imports in unit_test_api.apis.tags.tag_to_api and unit_test_api.components.schemas may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
 - `from unit_test_api.apis.default_api import DefaultApi`
-- `from unit_test_api.model.pet import Pet`
+- `from unit_test_api.apis.paths.some_path import SomePath`
+- `from unit_test_api.paths.some_path.get import ApiForget`
+- `from unit_test_api.components.schema.pet import Pet`
 
-Solution 1:
+Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
 import unit_test_api
-from unit_test_api.apis import *
-from unit_test_api.models import *
+from unit_test_api.apis.tags.tag_to_api import *
+from unit_test_api.components.schemas import *
 ```

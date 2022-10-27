@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.model.animal_farm import AnimalFarm
+from petstore_api.components.schema.animal_farm import AnimalFarm
 
 # body schemas
 application_json = AnimalFarm

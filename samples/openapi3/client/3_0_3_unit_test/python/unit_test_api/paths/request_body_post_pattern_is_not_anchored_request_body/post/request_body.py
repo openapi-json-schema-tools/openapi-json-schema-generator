@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
 
 
 application_json = PatternIsNotAnchored

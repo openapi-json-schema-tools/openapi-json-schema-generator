@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.hostname_format import HostnameFormat
+from unit_test_api.components.schema.hostname_format import HostnameFormat
 
 from .. import path
 from . import response_for_200

@@ -11,7 +11,7 @@
 
 import unittest
 
-from petstore_api.model.additional_properties_validator import AdditionalPropertiesValidator
+from petstore_api.components.schema.additional_properties_validator import AdditionalPropertiesValidator
 from petstore_api import schemas, exceptions
 
 

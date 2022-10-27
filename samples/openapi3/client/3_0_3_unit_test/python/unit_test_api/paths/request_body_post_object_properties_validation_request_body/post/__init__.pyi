@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
 
 from . import response_for_200
 from . import request_body

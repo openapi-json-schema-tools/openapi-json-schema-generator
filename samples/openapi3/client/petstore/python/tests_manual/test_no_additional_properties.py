@@ -12,7 +12,7 @@
 import decimal
 import unittest
 
-from petstore_api.model.no_additional_properties import NoAdditionalProperties
+from petstore_api.components.schema.no_additional_properties import NoAdditionalProperties
 from petstore_api import schemas
 
 class TestNoAdditionalProperties(unittest.TestCase):

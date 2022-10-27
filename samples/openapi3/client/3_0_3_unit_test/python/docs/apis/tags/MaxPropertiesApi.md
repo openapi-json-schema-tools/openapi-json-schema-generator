@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_properties_api
-from unit_test_api.model.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
+from unit_test_api.components.schema.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties0_means_the_object_is_empty_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../models/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxproperties0_means_the_object_is_empty_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../models/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_properties_api
-from unit_test_api.model.maxproperties_validation import MaxpropertiesValidation
+from unit_test_api.components.schema.maxproperties_validation import MaxpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../models/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxproperties_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../models/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
 
 
 ### Authorization

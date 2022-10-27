@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.object_type_matches_objects import ObjectTypeMatchesObjects
+from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
 
 from .. import path
 from . import response_for_200
