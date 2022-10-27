@@ -1,8 +1,8 @@
 {{#each getRequiredVarsMap}}
 {{#with this}}
 {{#unless nameInSnakeCase}}
-{{#if complexType}}
-{{baseName}}: '{{complexType}}'
+{{#if refClass}}
+{{baseName}}: '{{refClass}}'
 {{else}}
 {{#if schemaIsFromAdditionalProperties}}
 {{#if addPropsUnset}}

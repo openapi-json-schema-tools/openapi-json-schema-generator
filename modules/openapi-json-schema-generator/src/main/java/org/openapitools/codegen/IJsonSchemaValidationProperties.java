@@ -292,7 +292,7 @@ public interface IJsonSchemaValidationProperties {
     /**
      * @return complex type that can contain type parameters - like {@code List<Items>} for Java
      */
-    default String getComplexType() {
+    default String getRefClass() {
         return getBaseType();
     };
 
@@ -344,13 +344,13 @@ public interface IJsonSchemaValidationProperties {
         if (this.getIsArray() || this.getIsMap()) {
             if (importContainerType) {
                 /*
-                use-case for this complexType block:
+                use-case for this refClass block:
                 DefaultCodegenTest.objectQueryParamIdentifyAsObject
                 DefaultCodegenTest.mapParamImportInnerObject
                 */
-                String complexType = this.getComplexType();
-                if (complexType != null) {
-                    imports.add(complexType);
+                String refClass = this.getRefClass();
+                if (refClass != null) {
+                    imports.add(refClass);
                 }
                 /*
                 use-case:
@@ -363,9 +363,9 @@ public interface IJsonSchemaValidationProperties {
             }
         } else {
             // referenced or inline schemas
-            String complexType = this.getComplexType();
-            if (complexType != null) {
-                imports.add(complexType);
+            String refClass = this.getRefClass();
+            if (refClass != null) {
+                imports.add(refClass);
             }
             String baseType = this.getBaseType();
             if (importBaseType && baseType != null) {
