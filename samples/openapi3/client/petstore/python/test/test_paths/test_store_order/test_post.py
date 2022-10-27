@@ -33,8 +33,10 @@ class TestStoreOrder(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
+    response_body_schema = post.response_for_200.BodySchemas.application_xml
 
 
+    response_body_schema = post.response_for_200.BodySchemas.application_json
 
 
 

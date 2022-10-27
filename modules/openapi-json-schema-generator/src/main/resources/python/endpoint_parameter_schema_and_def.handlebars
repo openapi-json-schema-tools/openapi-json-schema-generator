@@ -1,56 +1,63 @@
-# {{xParamsName}} params
+
+
+class {{xParamsName}}:
+    class Schemas:
 {{#each xParams}}
     {{#if schema}}
         {{#with schema}}
-{{> model_templates/schema }}
+        {{> model_templates/schema }}
         {{/with}}
     {{else}}
         {{#if getContent}}
             {{#each getContent}}
                 {{#with this}}
                     {{#with schema}}
-{{> model_templates/schema }}
+        {{> model_templates/schema }}
                     {{/with}}
                 {{/with}}
             {{/each}}
         {{/if}}
     {{/if}}
 {{/each}}
-RequestRequired{{xParamsName}}Params = typing_extensions.TypedDict(
-    'RequestRequired{{xParamsName}}Params',
-    {
+
+
+    RequiredParams = typing_extensions.TypedDict(
+        'RequiredParams',
+        {
 {{#each xParams}}
 {{#if required}}
 {{#if schema}}
-        '{{baseName}}': {{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{baseName}}': {{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-        '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/if}}
 {{/each}}
-    }
-)
-RequestOptional{{xParamsName}}Params = typing_extensions.TypedDict(
-    'RequestOptional{{xParamsName}}Params',
-    {
+        }
+    )
+    OptionalParams = typing_extensions.TypedDict(
+        'OptionalParams',
+        {
 {{#each xParams}}
 {{#unless required}}
 {{#if schema}}
-        '{{baseName}}': {{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{baseName}}': {{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-        '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{baseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/unless}}
 {{/each}}
-    },
-    total=False
-)
+        },
+        total=False
+    )
 
 
-class Request{{xParamsName}}Params(RequestRequired{{xParamsName}}Params, RequestOptional{{xParamsName}}Params):
-    pass
+    class Params(RequiredParams, OptionalParams):
+        pass
 
 
-{{#each xParams}}
-{{> endpoint_parameter }}
-{{/each}}
+    parameters = [
+    {{#each xParams}}
+        {{> endpoint_parameter }}
+    {{/each}}
+    ]
