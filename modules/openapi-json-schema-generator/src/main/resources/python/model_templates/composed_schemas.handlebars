@@ -1,16 +1,16 @@
 {{#with composedSchemas}}
 {{#each allOf}}
-{{#unless complexType}}
+{{#unless refClass}}
 {{> model_templates/schema }}
 {{/unless}}
 {{/each}}
 {{#each oneOf}}
-{{#unless complexType}}
+{{#unless refClass}}
 {{> model_templates/schema }}
 {{/unless}}
 {{/each}}
 {{#each anyOf}}
-{{#unless complexType}}
+{{#unless refClass}}
 {{> model_templates/schema }}
 {{/unless}}
 {{/each}}
@@ -30,8 +30,8 @@ def all_of(cls):
     # loading
     return [
 {{#each allOf}}
-{{#if complexType}}
-        {{complexType}},
+{{#if refClass}}
+        {{refClass}},
 {{else}}
     {{#if nameInSnakeCase}}
         cls.{{name}},
@@ -56,8 +56,8 @@ def one_of(cls):
     # loading
     return [
 {{#each oneOf}}
-{{#if complexType}}
-        {{complexType}},
+{{#if refClass}}
+        {{refClass}},
 {{else}}
     {{#if nameInSnakeCase}}
         cls.{{name}},
@@ -82,8 +82,8 @@ def any_of(cls):
     # loading
     return [
 {{#each anyOf}}
-{{#if complexType}}
-        {{complexType}},
+{{#if refClass}}
+        {{refClass}},
 {{else}}
     {{#if nameInSnakeCase}}
         cls.{{name}},
@@ -96,11 +96,11 @@ def any_of(cls):
 {{/if}}
 {{#if not}}
 {{#with not}}
-{{#if complexType}}
+{{#if refClass}}
 
 @staticmethod
-def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{complexType}}']:
-    return {{complexType}}
+def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+    return {{refClass}}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}

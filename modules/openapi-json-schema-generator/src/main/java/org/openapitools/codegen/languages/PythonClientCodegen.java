@@ -1030,7 +1030,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cp.isAnyType && cp.isNullable) {
             cp.isNullable = false;
         }
-        if (cp.isNullable && cp.complexType == null) {
+        if (cp.isNullable && cp.refClass == null) {
             cp.setIsNull(true);
             cp.isNullable = false;
             cp.setHasMultipleTypes(true);
@@ -1054,7 +1054,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         Schema unaliasedSchema = unaliasSchema(p);
         if (cp.isPrimitiveType && unaliasedSchema.get$ref() != null) {
-            cp.complexType = cp.dataType;
+            cp.refClass = cp.dataType;
         }
         return cp;
     }
@@ -1133,10 +1133,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         Schema unaliasedSchema = unaliasSchema(schema);
         CodegenProperty unaliasedProp = fromProperty("body", unaliasedSchema, false);
         Boolean dataTypeMismatch = !cp.dataType.equals(unaliasedProp.dataType);
-        Boolean baseTypeMismatch = !cp.baseType.equals(unaliasedProp.complexType) && unaliasedProp.complexType != null;
+        Boolean baseTypeMismatch = !cp.baseType.equals(unaliasedProp.refClass) && unaliasedProp.refClass != null;
         if (dataTypeMismatch || baseTypeMismatch) {
             cp.dataType = unaliasedProp.dataType;
-            cp.baseType = unaliasedProp.complexType;
+            cp.baseType = unaliasedProp.refClass;
         }
         return cp;
     }
@@ -2451,22 +2451,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cs != null) {
             if (cs.getAllOf() != null && !cs.getAllOf().isEmpty()) {
                 for (CodegenProperty cp: cs.getAllOf()) {
-                    if (cp.complexType != null) {
-                        addImport(m, cp.complexType);
+                    if (cp.refClass != null) {
+                        addImport(m, cp.refClass);
                     }
                 }
             }
             if (cs.getOneOf() != null && !cs.getOneOf().isEmpty()) {
                 for (CodegenProperty cp: cs.getOneOf()) {
-                    if (cp.complexType != null) {
-                        addImport(m, cp.complexType);
+                    if (cp.refClass != null) {
+                        addImport(m, cp.refClass);
                     }
                 }
             }
             if (cs.getAnyOf() != null && !cs.getAnyOf().isEmpty()) {
                 for (CodegenProperty cp: cs.getAnyOf()) {
-                    if (cp.complexType != null) {
-                        addImport(m, cp.complexType);
+                    if (cp.refClass != null) {
+                        addImport(m, cp.refClass);
                     }
                 }
             }

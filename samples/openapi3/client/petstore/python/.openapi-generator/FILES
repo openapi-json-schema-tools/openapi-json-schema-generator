@@ -404,5 +404,4 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_object_model_with_arg_and_args_properties.py
 tox.ini

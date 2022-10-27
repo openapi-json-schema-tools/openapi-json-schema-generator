@@ -4,7 +4,7 @@ def __new__(
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if complexType}}'{{complexType}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if complexType}}'{{complexType}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{/if}}
@@ -14,8 +14,8 @@ def __new__(
 {{#each getRequiredVarsMap}}
 {{#with this}}
 {{#unless nameInSnakeCase}}
-{{#if complexType}}
-    {{baseName}}: '{{complexType}}',
+{{#if refClass}}
+    {{baseName}}: '{{refClass}}',
 {{else}}
     {{#if getSchemaIsFromAdditionalProperties}}
         {{#if addPropsUnset}}
@@ -35,8 +35,8 @@ def __new__(
 {{#each vars}}
 {{#unless nameInSnakeCase}}
 {{#unless getRequired}}
-{{#if complexType}}
-    {{baseName}}: typing.Union['{{complexType}}', schemas.Unset] = schemas.unset,
+{{#if refClass}}
+    {{baseName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
     {{baseName}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
@@ -46,8 +46,8 @@ def __new__(
     _configuration: typing.Optional[schemas.Configuration] = None,
 {{#with additionalProperties}}
 {{#unless getIsBooleanSchemaFalse}}
-{{#if complexType}}
-    **kwargs: '{{complexType}}',
+{{#if refClass}}
+    **kwargs: '{{refClass}}',
 {{else}}
     **kwargs: typing.Union[MetaOapg.additional_properties, {{> model_templates/schema_python_types }}],
 {{/if}}

@@ -1,9 +1,9 @@
 {{#with items}}
-{{#if complexType}}
+{{#if refClass}}
 
 @staticmethod
-def {{baseName}}() -> typing.Type['{{complexType}}']:
-    return {{complexType}}
+def {{baseName}}() -> typing.Type['{{refClass}}']:
+    return {{refClass}}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}
