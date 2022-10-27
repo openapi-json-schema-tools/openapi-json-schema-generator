@@ -371,6 +371,13 @@ Class | Method | HTTP request | Description
 - **Location**: URL query string
 
 
+## aws_sigv4
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+
 ## bearer_test
 
 - **Type**: Bearer authentication (JWT)

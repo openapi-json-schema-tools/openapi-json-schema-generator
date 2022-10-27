@@ -136,6 +136,43 @@ public class ProcessUtils {
     }
 
     /**
+     * Returns true if the specified OAS model has at least one operation with the HTTP basic
+     * security scheme.
+     * The HTTP signature scheme is defined in https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
+     *
+     * @param authMethods List of auth methods.
+     * @return True if at least one operation has HTTP signature security scheme defined
+     */
+    public static boolean hasAwsSignatureV4Methods(List<CodegenSecurity> authMethods) {
+        if (authMethods != null && !authMethods.isEmpty()) {
+            for (CodegenSecurity cs : authMethods) {
+                if (Boolean.TRUE.equals(cs.isAwsSignatureV4)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns a list of OAS Codegen security objects
+     *
+     * @param authMethods List of auth methods.
+     * @return A list of OAS Codegen security objects
+     */
+    public static List<CodegenSecurity> getAwsSignatureV4Methods(List<CodegenSecurity> authMethods) {
+        List<CodegenSecurity> awsSignatureV4Methods = new ArrayList<>();
+
+        for (CodegenSecurity cs : authMethods) {
+            if (Boolean.TRUE.equals(cs.isAwsSignatureV4)) {
+                awsSignatureV4Methods.add(cs);
+            }
+        }
+
+        return awsSignatureV4Methods;
+    }
+
+    /**
      * Returns a list of OAS Codegen security objects
      *
      * @param authMethods List of auth methods.
@@ -310,6 +347,32 @@ public class ProcessUtils {
             for (Map.Entry<String, SecurityScheme> scheme : securitySchemes.entrySet()) {
                 if (SecurityScheme.Type.APIKEY.equals(scheme.getValue().getType())) {
                     return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns true if the specified OAS model has at least one operation with AWSSigv4 authentication.
+     *
+     * @param openAPI An instance of OpenAPI
+     * @return True if at least one operation has API key security scheme defined
+     */
+    public static boolean hasAwsSignatureV4Methods(OpenAPI openAPI) {
+        final Map<String, SecurityScheme> securitySchemes = getSecuritySchemes(openAPI);
+        if (securitySchemes != null) {
+            for (Map.Entry<String, SecurityScheme> scheme : securitySchemes.entrySet()) {
+                if (SecurityScheme.Type.APIKEY.equals(scheme.getValue().getType())) {
+                    final Map<String, Object> extensions = scheme.getValue().getExtensions();
+                    if (extensions != null) {
+                        for (Map.Entry<String, Object> extension : extensions.entrySet()) {
+                            if (extension.getKey().equals("x-amazon-apigateway-authtype") && extension.getValue().equals("awsSigv4")) {
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -32,7 +32,7 @@ public class CodegenSecurity {
     // Those are to differentiate basic and bearer authentication
     // isHttpSignature is to support HTTP signature authorization scheme.
     // https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
-    public Boolean isBasicBasic, isBasicBearer, isHttpSignature;
+    public Boolean isBasicBasic, isBasicBearer, isHttpSignature, isAwsSignatureV4;
     public String bearerFormat;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     // ApiKey specific
@@ -52,6 +52,7 @@ public class CodegenSecurity {
         filteredSecurity.isBasic = isBasic;
         filteredSecurity.isBasicBasic = isBasicBasic;
         filteredSecurity.isHttpSignature = isHttpSignature;
+        filteredSecurity.isAwsSignatureV4 = isAwsSignatureV4;
         filteredSecurity.isBasicBearer = isBasicBearer;
         filteredSecurity.isApiKey = isApiKey;
         filteredSecurity.isOAuth = isOAuth;
@@ -100,6 +101,7 @@ public class CodegenSecurity {
                 Objects.equals(isApiKey, that.isApiKey) &&
                 Objects.equals(isBasicBasic, that.isBasicBasic) &&
                 Objects.equals(isHttpSignature, that.isHttpSignature) &&
+                Objects.equals(isAwsSignatureV4, that.isAwsSignatureV4) &&
                 Objects.equals(isBasicBearer, that.isBasicBearer) &&
                 Objects.equals(bearerFormat, that.bearerFormat) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
@@ -122,7 +124,7 @@ public class CodegenSecurity {
     public int hashCode() {
 
         return Objects.hash(name, type, scheme, isBasic, isOAuth, isApiKey,
-                isBasicBasic, isHttpSignature, isBasicBearer, bearerFormat, vendorExtensions,
+                isBasicBasic, isHttpSignature, isAwsSignatureV4, isBasicBearer, bearerFormat, vendorExtensions,
                 keyParamName, isKeyInQuery, isKeyInHeader, isKeyInCookie, flow,
                 authorizationUrl, tokenUrl, refreshUrl, scopes, isCode, isPassword, isApplication, isImplicit);
     }
@@ -138,6 +140,7 @@ public class CodegenSecurity {
         sb.append(", isApiKey=").append(isApiKey);
         sb.append(", isBasicBasic=").append(isBasicBasic);
         sb.append(", isHttpSignature=").append(isHttpSignature);
+        sb.append(", isAwsSignatureV4=").append(isAwsSignatureV4);
         sb.append(", isBasicBearer=").append(isBasicBearer);
         sb.append(", bearerFormat='").append(bearerFormat).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);

@@ -14,3 +14,6 @@
 {{/if}}
 {{#if quoted}}"{{/if}}typing_extensions ~= 4.3.0{{#if quoted}}",{{/if}}
 {{#if quoted}}"{{/if}}urllib3 ~= 1.26.7{{#if quoted}}",{{/if}}
+{{#if hasAwsSignatureV4Methods}}
+{{#if quoted}}"{{/if}}boto3 >= 1.25.1{{#if quoted}}",{{/if}}
+{{/if}}

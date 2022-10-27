@@ -85,6 +85,7 @@ class RESTClientObject(object):
                 key_file=configuration.key_file,
                 **addition_pool_args
             )
+        self.aws_sigv4_info = configuration.aws_sigv4_info if configuration.aws_sigv4_info else None
 
     def request(
         self,
@@ -131,6 +132,9 @@ class RESTClientObject(object):
             elif (isinstance(timeout, tuple) and
                   len(timeout) == 2):
                 timeout = urllib3.Timeout(connect=timeout[0], read=timeout[1])
+
+        if self.aws_sigv4_info:
+            headers.extend(self.aws_sigv4_info.get_aws_signature_v4_headers(method, url, body))
 
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`

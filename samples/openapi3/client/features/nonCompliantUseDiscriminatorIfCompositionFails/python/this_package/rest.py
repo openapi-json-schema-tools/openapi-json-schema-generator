@@ -132,6 +132,7 @@ class RESTClientObject(object):
                   len(timeout) == 2):
                 timeout = urllib3.Timeout(connect=timeout[0], read=timeout[1])
 
+
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
             if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:

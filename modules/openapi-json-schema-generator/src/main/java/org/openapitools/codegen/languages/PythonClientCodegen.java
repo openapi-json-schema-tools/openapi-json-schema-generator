@@ -455,7 +455,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
         List<CodegenSecurity> authMethods = fromSecurity(securitySchemeMap);
         if (ProcessUtils.hasHttpSignatureMethods(authMethods)) {
-            supportingFiles.add(new SupportingFile("signing." + templateExtension, packagePath(), "signing.py"));
+            supportingFiles.add(new SupportingFile("signing_http_signing." + templateExtension, packagePath() + File.separatorChar + "signing", "http_signing.py"));
+        }
+        if (ProcessUtils.hasAwsSignatureV4Methods(authMethods)) {
+            supportingFiles.add(new SupportingFile("signging_aws_sigv4." + templateExtension, packagePath() + File.separatorChar + "signing", "aws_sigv4.py"));
         }
 
         // default this to true so the python ModelSimple models will be generated

@@ -859,6 +859,10 @@ public class DefaultGenerator implements Generator {
                 bundle.put("hasHttpSignatureMethods", true);
                 bundle.put("httpSignatureMethods", ProcessUtils.getHttpSignatureMethods(authMethods));
             }
+            if (ProcessUtils.hasAwsSignatureV4Methods(authMethods)) {
+                bundle.put("hasAwsSignatureV4Methods", true);
+                bundle.put("awsSignatureV4Methods", ProcessUtils.getAwsSignatureV4Methods(authMethods));
+            }
             if (ProcessUtils.hasHttpBasicMethods(authMethods)) {
                 bundle.put("hasHttpBasicMethods", true);
                 bundle.put("httpBasicMethods", ProcessUtils.getHttpBasicMethods(authMethods));

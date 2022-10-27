@@ -5103,6 +5103,17 @@ public class DefaultCodegen implements CodegenConfig {
                 cs.isKeyInHeader = securityScheme.getIn() == SecurityScheme.In.HEADER;
                 cs.isKeyInQuery = securityScheme.getIn() == SecurityScheme.In.QUERY;
                 cs.isKeyInCookie = securityScheme.getIn() == SecurityScheme.In.COOKIE;  //it assumes a validation step prior to generation. (cookie-auth supported from OpenAPI 3.0.0)
+
+                // Add support for AWS SigV4 extension if present
+                Map<String, Object> extensions = securityScheme.getExtensions();
+                if (extensions != null) {
+                    for (Entry<String, Object> extension : extensions.entrySet()) {
+                        if (extension.getKey().equals("x-amazon-apigateway-authtype") && extension.getValue().equals("awsSigv4")) {
+                            cs.isAwsSignatureV4 = true;
+                        }
+                    }
+                }
+
                 codegenSecurities.add(cs);
             } else if (SecurityScheme.Type.HTTP.equals(securityScheme.getType())) {
                 final CodegenSecurity cs = defaultCodegenSecurity(key, securityScheme);
