@@ -27,7 +27,7 @@ class AwsSigv4Configuration(object):
     def __init__(self, service_name='execute-api',
                        boto3_session=None):
         self.service_name = service_name
-        if self.boto3_session is None:
+        if boto3_session is None:
             raise Exception("A boto3.Session must be provided")
         self.boto3_session = boto3_session
 

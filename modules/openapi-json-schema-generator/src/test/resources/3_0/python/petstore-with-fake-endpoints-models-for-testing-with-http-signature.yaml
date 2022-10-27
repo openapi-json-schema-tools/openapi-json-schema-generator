@@ -331,8 +331,6 @@ paths:
               $ref: '#/components/schemas/Order'
         description: order placed for purchasing the pet
         required: true
-      security:
-        - aws_sigv4: []
   '/store/order/{order_id}':
     get:
       tags:
@@ -1698,11 +1696,6 @@ components:
       # in https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
       type: http
       scheme: signature
-    aws_sigv4:
-      type: 'apiKey'
-      name: 'Authorization'
-      in: 'header'
-      x-amazon-apigateway-authtype: 'awsSigv4'
   schemas:
     Foo:
       type: object

@@ -68,8 +68,6 @@ class Configuration(object):
       received by the server.
     :param signing_info: Configuration parameters for the HTTP signature security scheme.
         Must be an instance of petstore_api.signing.HttpSigningConfiguration
-    :param aws_sigv4_info: Configuration parameters for the AWS signature V4 security scheme.
-        Must be an instance of petstore_api.aws_sigv4.AwsSigv4Configuration
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
       templated server configuration. The validation of enums is performed for
@@ -155,25 +153,6 @@ conf = petstore_api.Configuration(
         signature_max_validity = datetime.timedelta(minutes=5)
     )
 )
-    AWS Sigv4 Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          aws_sigv4:
-            type: 'apiKey'
-            name: 'Authorization'
-            in: 'header'
-            x-amazon-apigateway-authtype: 'awsSigv4'
-
-    Configure API client with AWS Sigv4 authetnication.
-
-conf = petstore_api.Configuration(
-    aws_sigv4_info = petstore_api.aws_sigv4.AwsSigv4Configuration(
-        service_name =          'execute-api',
-        region_name =           "us-east-1",
-        boto3_session =         None
-    )
-)
     """
 
     _default = None
@@ -184,7 +163,6 @@ conf = petstore_api.Configuration(
                  discard_unknown_keys=False,
                  disabled_client_side_validations="",
                  signing_info=None,
-                 aws_sigv4_info=None,
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
                  ):
@@ -230,9 +208,6 @@ conf = petstore_api.Configuration(
             signing_info.host = host
         self.signing_info = signing_info
         """The HTTP signing configuration
-        """
-        self.aws_sigv4_info = aws_sigv4_info
-        """The AWS Sigv4 configuration
         """
         self.access_token = None
         """access token for OAuth/Bearer
@@ -494,15 +469,6 @@ conf = petstore_api.Configuration(
                 'key': 'api_key_query',
                 'value': self.get_api_key_with_prefix(
                     'api_key_query',
-                ),
-            }
-        if 'aws_sigv4' in self.api_key:
-            auth['aws_sigv4'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': self.get_api_key_with_prefix(
-                    'aws_sigv4',
                 ),
             }
         if self.access_token is not None:

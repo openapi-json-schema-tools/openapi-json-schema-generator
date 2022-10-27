@@ -1185,6 +1185,7 @@
             <modules>
                 <!-- python clients which don't need the server running -->
                 <module>samples/openapi3/client/petstore/python</module>
+                <module>samples/openapi3/client/petstore/python_aws_sigv4</module>
                 <module>samples/openapi3/client/petstore/python-prior</module>
             </modules>
         </profile>

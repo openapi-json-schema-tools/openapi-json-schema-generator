@@ -13,3 +13,6 @@ pytest-randomly==1.2.3 # needed for python 3.4
 {{#if hasHttpSignatureMethods}}
 pycryptodome>=3.9.0
 {{/if}}
+{{#if hasAwsSignatureV4Methods}}
+freezegun==1.2.2
+{{/if}}

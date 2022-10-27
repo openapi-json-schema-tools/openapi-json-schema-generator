@@ -393,7 +393,6 @@ petstore_api/configuration.py
 petstore_api/exceptions.py
 petstore_api/rest.py
 petstore_api/schemas.py
-petstore_api/signing/aws_sigv4.py
 petstore_api/signing/http_signing.py
 requirements.txt
 setup.cfg

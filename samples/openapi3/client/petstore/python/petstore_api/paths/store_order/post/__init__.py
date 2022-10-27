@@ -33,10 +33,6 @@ from . import response_for_400
 from . import request_body
 
 
-_auth = [
-    'aws_sigv4',
-]
-
 _status_code_to_response = {
     '200': response_for_200.response,
     '400': response_for_400.response,
@@ -140,7 +136,6 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
-            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

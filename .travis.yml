@@ -21,6 +21,7 @@ cache:
   - $HOME/samples/client/petstore/php/OpenAPIToolsClient-php/vendor
   - $HOME/samples/client/petstore/ruby/vendor/bundle
   - $HOME/samples/client/petstore/python/.venv/
+  - $HOME/samples/client/petstore/python_aws_sigv4/.venv/
   - $HOME/samples/server/petstore/rust-server/target
   - $HOME/perl5
   - $HOME/.cargo

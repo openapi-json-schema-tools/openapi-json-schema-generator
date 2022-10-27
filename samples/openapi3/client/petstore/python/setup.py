@@ -29,7 +29,6 @@ REQUIRES = [
     "setuptools >= 21.0.0",
     "typing_extensions ~= 4.3.0",
     "urllib3 ~= 1.26.7",
-    "boto3 >= 1.25.1",
 ]
 
 setup(
