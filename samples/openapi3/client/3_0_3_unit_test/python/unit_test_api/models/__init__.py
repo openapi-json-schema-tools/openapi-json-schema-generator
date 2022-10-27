@@ -69,6 +69,7 @@ from unit_test_api.model.nul_characters_in_strings import NulCharactersInStrings
 from unit_test_api.model.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
 from unit_test_api.model.number_type_matches_numbers import NumberTypeMatchesNumbers
 from unit_test_api.model.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.model.object_type_matches_objects import ObjectTypeMatchesObjects
 from unit_test_api.model.oneof import Oneof
 from unit_test_api.model.oneof_complex_types import OneofComplexTypes
 from unit_test_api.model.oneof_with_base_schema import OneofWithBaseSchema

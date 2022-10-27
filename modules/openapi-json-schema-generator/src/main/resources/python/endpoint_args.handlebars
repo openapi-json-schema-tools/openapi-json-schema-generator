@@ -3,9 +3,9 @@
     {{#if bodyParam.required}}
         {{#with bodyParam}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}{{baseName}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -67,9 +67,9 @@
         {{/if}}
         {{#with bodyParam}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}{{baseName}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}{{baseName}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}RequestBody.Schemas.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
@@ -81,16 +81,16 @@
     {{/if}}
 {{/if}}
 {{#if queryParams}}
-    query_params: RequestQueryParams = frozendict.frozendict(),
+    query_params: RequestQueryParameters.Params = frozendict.frozendict(),
 {{/if}}
 {{#if headerParams}}
-    header_params: RequestHeaderParams = frozendict.frozendict(),
+    header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
 {{/if}}
 {{#if pathParams}}
-    path_params: RequestPathParams = frozendict.frozendict(),
+    path_params: RequestPathParameters.Params = frozendict.frozendict(),
 {{/if}}
 {{#if cookieParams}}
-    cookie_params: RequestCookieParams = frozendict.frozendict(),
+    cookie_params: RequestCookieParameters.Params = frozendict.frozendict(),
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -117,10 +117,10 @@
 ) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}typing.Union[
     {{#each responses}}
         {{#if isDefault}}
-    ApiResponseForDefault,
+    response_for_default.ApiResponse,
         {{else}}
             {{#if is2xx}}
-    ApiResponseFor{{code}},
+    response_for_{{code}}.ApiResponse,
             {{/if}}
         {{/if}}
     {{/each}}
@@ -132,10 +132,10 @@
 ) -> typing.Union[
     {{#each responses}}
         {{#if isDefault}}
-    ApiResponseForDefault,
+    response_for_default.ApiResponse,
         {{else}}
             {{#if is2xx}}
-    ApiResponseFor{{code}},
+    response_for_{{code}}.ApiResponse,
             {{/if}}
         {{/if}}
     {{/each}}

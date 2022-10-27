@@ -1,5 +1,5 @@
 
-# {{baseName}}
+# {{#if schemaNamePrefix1}}{{#if anchorPrefix}}<a id="{{anchorPrefix}}.{{> api_doc_schema_fancy_schema_name }}" >{{/if}}{{> api_doc_schema_fancy_schema_name }}{{#if anchorPrefix}}</a>{{/if}}{{else}}{{baseName}}{{/if}}
 {{#if complexType}}
 Type | Description  | Notes
 ------------- | ------------- | -------------

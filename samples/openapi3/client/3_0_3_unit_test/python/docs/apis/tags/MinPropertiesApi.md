@@ -10,8 +10,6 @@ Method | HTTP request | Description
 
 # **post_minproperties_validation_request_body**
 <a name="post_minproperties_validation_request_body"></a>
-> post_minproperties_validation_request_body(body)
-
 
 
 ### Example
@@ -45,15 +43,15 @@ with unit_test_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+[body](#post_minproperties_validation_request_body.RequestBody) | typing.Union[[RequestBody.Schemas.application_json](#post_minproperties_validation_request_body.RequestBody.Schemas.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### body
+### <a id="post_minproperties_validation_request_body.RequestBody" >body</a>
 
-# SchemaForRequestBodyApplicationJson
+# <a id="post_minproperties_validation_request_body.RequestBody.Schemas.application_json" >RequestBody.Schemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinpropertiesValidation**](../../models/MinpropertiesValidation.md) |  | 
@@ -64,9 +62,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minproperties_validation_request_body.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minproperties_validation_request_body.response_for_200.ApiResponse) | success
 
-#### post_minproperties_validation_request_body.ApiResponseFor200
+#### <a id="post_minproperties_validation_request_body.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -81,8 +79,6 @@ No authorization required
 
 # **post_minproperties_validation_response_body_for_content_types**
 <a name="post_minproperties_validation_response_body_for_content_types"></a>
-> MinpropertiesValidation post_minproperties_validation_response_body_for_content_types()
-
 
 
 ### Example
@@ -90,7 +86,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import min_properties_api
-from unit_test_api.model.minproperties_validation import MinpropertiesValidation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -118,16 +113,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#post_minproperties_validation_response_body_for_content_types.ApiResponseFor200) | success
+200 | [response_for_200.ApiResponse](#post_minproperties_validation_response_body_for_content_types.response_for_200.ApiResponse) | success
 
-#### post_minproperties_validation_response_body_for_content_types.ApiResponseFor200
+#### <a id="post_minproperties_validation_response_body_for_content_types.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[[response_for_200.BodySchemas.application_json](#post_minproperties_validation_response_body_for_content_types.response_for_200.BodySchemas.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# <a id="post_minproperties_validation_response_body_for_content_types.response_for_200.BodySchemas.application_json" >response_for_200.BodySchemas.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**MinpropertiesValidation**](../../models/MinpropertiesValidation.md) |  | 
