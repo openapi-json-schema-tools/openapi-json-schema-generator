@@ -20,7 +20,7 @@ To test class name in snake case
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_classname_tags123_api
-from petstore_api.model.client import Client
+from petstore_api.components.schema.client import Client
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -72,7 +72,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="classname.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**Client**](../../components/schema/Client.md) |  | 
 
 
 ### Return Types, Responses
@@ -92,7 +92,7 @@ headers | Unset | headers were not defined |
 # <a id="classname.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../models/Client.md) |  | 
+[**Client**](../../components/schema/Client.md) |  | 
 
 
 ### Authorization

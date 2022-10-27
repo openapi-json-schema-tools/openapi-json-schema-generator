@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.ipv6_format import Ipv6Format
+from unit_test_api.components.schema.ipv6_format import Ipv6Format
 
 
 application_json = Ipv6Format

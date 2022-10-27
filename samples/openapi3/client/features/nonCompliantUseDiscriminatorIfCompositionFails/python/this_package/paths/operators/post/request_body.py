@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from this_package import schemas  # noqa: F401
 
-from this_package.model.operator import Operator
+from this_package.components.schema.operator import Operator
 
 
 application_json = Operator

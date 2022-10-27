@@ -13,7 +13,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.date_time_with_validations import DateTimeWithValidations
+from petstore_api.components.schema.date_time_with_validations import DateTimeWithValidations
 from datetime import date, datetime, timezone
 
 

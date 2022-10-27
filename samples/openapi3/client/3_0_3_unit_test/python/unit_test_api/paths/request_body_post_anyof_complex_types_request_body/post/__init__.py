@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
 
 from .. import path
 from . import response_for_200

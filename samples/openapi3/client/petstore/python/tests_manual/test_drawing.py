@@ -15,9 +15,9 @@ import unittest
 
 import petstore_api
 from petstore_api.schemas import NoneClass
-from petstore_api.model import shape
-from petstore_api.model import shape_or_null
-from petstore_api.model.drawing import Drawing
+from petstore_api.components.schema import shape
+from petstore_api.components.schema import shape_or_null
+from petstore_api.components.schema.drawing import Drawing
 
 
 class TestDrawing(unittest.TestCase):
@@ -38,7 +38,7 @@ class TestDrawing(unittest.TestCase):
             shapeType="Triangle",
             triangleType="IsoscelesTriangle"
         )
-        from petstore_api.model.isosceles_triangle import IsoscelesTriangle
+        from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
         assert isinstance(inst, IsoscelesTriangle)
 
     def test_deserialize_oneof_reference(self):
@@ -50,9 +50,9 @@ class TestDrawing(unittest.TestCase):
             shapeType="Triangle",
             triangleType="IsoscelesTriangle"
         )
-        from petstore_api.model.isosceles_triangle import IsoscelesTriangle
+        from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
         assert isinstance(isosceles_triangle, IsoscelesTriangle)
-        from petstore_api.model.equilateral_triangle import EquilateralTriangle
+        from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
 
         inst = Drawing(
             mainShape=isosceles_triangle,
@@ -78,7 +78,7 @@ class TestDrawing(unittest.TestCase):
         assert isinstance(inst, Drawing)
         assert isinstance(inst["mainShape"], IsoscelesTriangle)
         self.assertEqual(len(inst["shapes"]), 4)
-        from petstore_api.model.complex_quadrilateral import ComplexQuadrilateral
+        from petstore_api.components.schema.complex_quadrilateral import ComplexQuadrilateral
         assert isinstance(inst["shapes"][0], EquilateralTriangle)
         assert isinstance(inst["shapes"][1], IsoscelesTriangle)
         assert isinstance(inst["shapes"][2], EquilateralTriangle)
@@ -103,7 +103,7 @@ class TestDrawing(unittest.TestCase):
         Under the hood it is converted into a dict, and that dict payload
         does validate as a Shape, so this works
         """
-        from petstore_api.model.triangle import Triangle
+        from petstore_api.components.schema.triangle import Triangle
         inst = Drawing(
             mainShape=isosceles_triangle,
             shapes=[
@@ -114,7 +114,7 @@ class TestDrawing(unittest.TestCase):
             ]
         )
         self.assertEqual(len(inst["shapes"]), 1)
-        from petstore_api.model.triangle_interface import TriangleInterface
+        from petstore_api.components.schema.triangle_interface import TriangleInterface
         shapes = inst["shapes"]
         assert isinstance(shapes[0], shape.Shape)
         assert isinstance(shapes[0], Triangle)

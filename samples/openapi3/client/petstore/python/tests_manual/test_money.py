@@ -11,7 +11,7 @@
 import decimal
 import unittest
 
-from petstore_api.model.money import Money
+from petstore_api.components.schema.money import Money
 
 
 class TestMoney(unittest.TestCase):

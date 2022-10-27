@@ -12,7 +12,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.abstract_step_message import AbstractStepMessage
+from petstore_api.components.schema.abstract_step_message import AbstractStepMessage
 
 
 class TestAbstractStepMessage(unittest.TestCase):

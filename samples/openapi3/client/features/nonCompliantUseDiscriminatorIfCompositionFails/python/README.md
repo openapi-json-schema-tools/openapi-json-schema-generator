@@ -138,7 +138,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.model.operator import Operator
+from this_package.components.schema.operator import Operator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
@@ -175,9 +175,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionOperator](docs/models/AdditionOperator.md)
- - [Operator](docs/models/Operator.md)
- - [SubtractionOperator](docs/models/SubtractionOperator.md)
+ - [AdditionOperator](docs/components/schema/AdditionOperator.md)
+ - [Operator](docs/components/schema/Operator.md)
+ - [SubtractionOperator](docs/components/schema/SubtractionOperator.md)
 
 ## Documentation For Authorization
 
@@ -188,20 +188,22 @@ Class | Method | HTTP request | Description
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in this_package.apis and this_package.models may fail with a
+If the OpenAPI document is large, imports in this_package.apis.tags.tag_to_api and this_package.components.schemas may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
 - `from this_package.apis.default_api import DefaultApi`
-- `from this_package.model.pet import Pet`
+- `from this_package.apis.paths.some_path import SomePath`
+- `from this_package.paths.some_path.get import ApiForget`
+- `from this_package.components.schema.pet import Pet`
 
-Solution 1:
+Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
 import this_package
-from this_package.apis import *
-from this_package.models import *
+from this_package.apis.tags.tag_to_api import *
+from this_package.components.schemas import *
 ```

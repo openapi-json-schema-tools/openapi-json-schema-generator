@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.model.model_not import ModelNot
+from unit_test_api.components.schema.model_not import ModelNot
 
 
 application_json = ModelNot

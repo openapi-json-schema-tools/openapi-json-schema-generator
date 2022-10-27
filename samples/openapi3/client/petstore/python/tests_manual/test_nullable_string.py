@@ -13,7 +13,7 @@
 import unittest
 
 import petstore_api
-from petstore_api.model.nullable_string import NullableString
+from petstore_api.components.schema.nullable_string import NullableString
 from petstore_api.schemas import Schema, Singleton
 
 

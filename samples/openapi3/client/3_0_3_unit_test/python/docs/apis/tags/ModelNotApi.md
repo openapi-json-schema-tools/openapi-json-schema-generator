@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +58,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -129,7 +129,7 @@ headers | Unset | headers were not defined |
 # <a id="post_forbidden_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../models/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
 
 
 ### Authorization
@@ -147,7 +147,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.not_more_complex_schema import NotMoreComplexSchema
+from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -184,7 +184,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -255,7 +255,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_more_complex_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../models/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
 
 
 ### Authorization
@@ -273,7 +273,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.model.model_not import ModelNot
+from unit_test_api.components.schema.model_not import ModelNot
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -310,7 +310,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../models/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/ModelNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -381,7 +381,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../models/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/ModelNot.md) |  | 
 
 
 ### Authorization
