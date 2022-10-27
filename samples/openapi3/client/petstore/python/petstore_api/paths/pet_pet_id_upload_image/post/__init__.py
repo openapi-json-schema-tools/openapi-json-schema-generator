@@ -27,6 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 from .. import path
 from . import response_for_200
+from . import request_body
 
 
 
@@ -61,78 +62,6 @@ class RequestPathParameters:
             required=True,
         ),
     ]
-
-class RequestBody:
-    class Schemas:
-        
-        
-        class multipart_form_data(
-            schemas.DictSchema
-        ):
-        
-        
-            class MetaOapg:
-                
-                class properties:
-                    additionalMetadata = schemas.StrSchema
-                    file = schemas.BinarySchema
-                    __annotations__ = {
-                        "additionalMetadata": additionalMetadata,
-                        "file": file,
-                    }
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.properties.additionalMetadata: ...
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["file"]) -> MetaOapg.properties.file: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["additionalMetadata", "file", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.properties.additionalMetadata, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union[MetaOapg.properties.file, schemas.Unset]: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["additionalMetadata", "file", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, ],
-                additionalMetadata: typing.Union[MetaOapg.properties.additionalMetadata, str, schemas.Unset] = schemas.unset,
-                file: typing.Union[MetaOapg.properties.file, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'multipart_form_data':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    additionalMetadata=additionalMetadata,
-                    file=file,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-
-    parameter = api_client.RequestBody(
-        content={
-            'multipart/form-data': api_client.MediaType(
-                schema=Schemas.multipart_form_data
-            ),
-        },
-    )
-
 _auth = [
     'petstore_auth',
 ]
@@ -150,7 +79,7 @@ class BaseApi(api_client.Api):
     def _upload_image_oapg(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -164,7 +93,7 @@ class BaseApi(api_client.Api):
     def _upload_image_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -180,7 +109,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -191,7 +120,7 @@ class BaseApi(api_client.Api):
     def _upload_image_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -205,7 +134,7 @@ class BaseApi(api_client.Api):
     def _upload_image_oapg(
         self,
         content_type: str = 'multipart/form-data',
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -241,7 +170,7 @@ class BaseApi(api_client.Api):
         _fields = None
         _body = None
         if body is not schemas.unset:
-            serialized_data = RequestBody.parameter.serialize(body, content_type)
+            serialized_data = request_body.parameter_oapg.serialize(body, content_type)
             _headers.add('Content-Type', content_type)
             if 'fields' in serialized_data:
                 _fields = serialized_data['fields']
@@ -280,7 +209,7 @@ class UploadImage(BaseApi):
     def upload_image(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -294,7 +223,7 @@ class UploadImage(BaseApi):
     def upload_image(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -310,7 +239,7 @@ class UploadImage(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -321,7 +250,7 @@ class UploadImage(BaseApi):
     def upload_image(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -335,7 +264,7 @@ class UploadImage(BaseApi):
     def upload_image(
         self,
         content_type: str = 'multipart/form-data',
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -360,7 +289,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -374,7 +303,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -390,7 +319,7 @@ class ApiForpost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -401,7 +330,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -415,7 +344,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = 'multipart/form-data',
-        body: typing.Union[RequestBody.Schemas.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.multipart_form_data, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

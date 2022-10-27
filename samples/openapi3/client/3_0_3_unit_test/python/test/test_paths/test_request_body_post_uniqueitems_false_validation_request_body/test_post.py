@@ -44,7 +44,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -83,7 +83,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -134,7 +134,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -173,7 +173,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -206,7 +206,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     True,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -239,7 +239,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     2,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -276,7 +276,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     ],
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -310,7 +310,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -343,7 +343,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     False,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -394,7 +394,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -427,7 +427,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     False,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -464,7 +464,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     ],
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -497,7 +497,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     True,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -538,7 +538,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -577,7 +577,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.RequestBody.Schemas.application_json.from_openapi_data_oapg(
+            body = post.request_body.application_json.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

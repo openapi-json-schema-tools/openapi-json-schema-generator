@@ -29,21 +29,8 @@ from petstore_api.model.user import User
 
 from .. import path
 from . import response_for_default
+from . import request_body
 
-
-
-class RequestBody:
-    class Schemas:
-        application_json = User
-
-    parameter = api_client.RequestBody(
-        content={
-            'application/json': api_client.MediaType(
-                schema=Schemas.application_json
-            ),
-        },
-        required=True,
-    )
 
 _status_code_to_response = {
     'default': response_for_default.response,
@@ -54,7 +41,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -66,7 +53,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -79,7 +66,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -89,7 +76,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -101,7 +88,7 @@ class BaseApi(api_client.Api):
 
     def _create_user_oapg(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -123,7 +110,7 @@ class BaseApi(api_client.Api):
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        serialized_data = RequestBody.parameter.serialize(body, content_type)
+        serialized_data = request_body.parameter_oapg.serialize(body, content_type)
         _headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             _fields = serialized_data['fields']
@@ -164,7 +151,7 @@ class CreateUser(BaseApi):
     @typing.overload
     def create_user(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -176,7 +163,7 @@ class CreateUser(BaseApi):
     @typing.overload
     def create_user(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -189,7 +176,7 @@ class CreateUser(BaseApi):
     @typing.overload
     def create_user(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -199,7 +186,7 @@ class CreateUser(BaseApi):
     @typing.overload
     def create_user(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -211,7 +198,7 @@ class CreateUser(BaseApi):
 
     def create_user(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -232,7 +219,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -244,7 +231,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -257,7 +244,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -267,7 +254,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -279,7 +266,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[RequestBody.Schemas.application_json,],
+        body: typing.Union[request_body.application_json,],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
