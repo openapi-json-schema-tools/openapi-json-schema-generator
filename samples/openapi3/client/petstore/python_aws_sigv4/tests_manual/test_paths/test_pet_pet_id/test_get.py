@@ -13,7 +13,7 @@ from freezegun import freeze_time
 
 from petstore_api.paths.pet_pet_id import get
 from petstore_api import  schemas, api_client
-from petstore_api.model.pet import Pet
+from petstore_api.components.schema.pet import Pet
 
 from ... import ApiTestMixin
 
