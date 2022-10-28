@@ -12,7 +12,7 @@ from {{packageName}}.api_client import ApiClient
 # import Configuration
 from {{packageName}}.configuration import Configuration
 {{#if hasHttpSignatureMethods}}
-from {{packageName}}.signing import HttpSigningConfiguration
+from {{packageName}}.signing.http_signing import HttpSigningConfiguration
 {{/if}}
 
 # import exceptions
