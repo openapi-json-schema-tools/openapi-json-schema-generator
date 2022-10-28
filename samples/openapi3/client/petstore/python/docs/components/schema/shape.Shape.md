@@ -1,3 +1,4 @@
+<a id="Shape"></a>
 # petstore_api.components.schema.shape.Shape
 
 ## Model Type Info
@@ -9,8 +10,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[Triangle](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  | 
-[Quadrilateral](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  | 
+[**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  | 
+[**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

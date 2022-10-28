@@ -1,3 +1,4 @@
+<a id="IntegerMax10"></a>
 # petstore_api.components.schema.integer_max10.IntegerMax10
 
 ## Model Type Info

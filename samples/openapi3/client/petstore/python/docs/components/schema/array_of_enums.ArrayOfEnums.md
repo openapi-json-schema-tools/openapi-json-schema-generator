@@ -1,3 +1,4 @@
+<a id="ArrayOfEnums"></a>
 # petstore_api.components.schema.array_of_enums.ArrayOfEnums
 
 ## Model Type Info

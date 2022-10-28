@@ -1,3 +1,4 @@
+<a id="NullableClass"></a>
 # petstore_api.components.schema.nullable_class.NullableClass
 
 ## Model Type Info

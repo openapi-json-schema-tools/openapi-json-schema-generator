@@ -1,3 +1,4 @@
+<a id="File"></a>
 # petstore_api.components.schema.file.File
 
 Must be named `File` for test.

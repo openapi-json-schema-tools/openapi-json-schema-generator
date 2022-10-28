@@ -1,3 +1,4 @@
+<a id="SomeObject"></a>
 # petstore_api.components.schema.some_object.SomeObject
 
 ## Model Type Info
@@ -9,7 +10,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[ObjectInterface](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) |  | 
+[**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

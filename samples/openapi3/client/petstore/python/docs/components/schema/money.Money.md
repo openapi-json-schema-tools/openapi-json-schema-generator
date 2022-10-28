@@ -1,3 +1,4 @@
+<a id="Money"></a>
 # petstore_api.components.schema.money.Money
 
 ## Model Type Info

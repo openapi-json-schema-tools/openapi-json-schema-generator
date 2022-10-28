@@ -1,3 +1,4 @@
+<a id="Pet"></a>
 # petstore_api.components.schema.pet.Pet
 
 Pet object that needs to be added to the store

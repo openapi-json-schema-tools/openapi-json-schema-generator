@@ -1,3 +1,4 @@
+<a id="Number"></a>
 # petstore_api.components.schema.number.Number
 
 ## Model Type Info

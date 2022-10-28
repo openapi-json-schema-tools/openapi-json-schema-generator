@@ -1,3 +1,4 @@
+<a id="DanishPig"></a>
 # petstore_api.components.schema.danish_pig.DanishPig
 
 ## Model Type Info

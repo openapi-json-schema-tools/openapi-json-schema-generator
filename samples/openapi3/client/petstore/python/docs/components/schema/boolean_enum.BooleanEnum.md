@@ -1,3 +1,4 @@
+<a id="BooleanEnum"></a>
 # petstore_api.components.schema.boolean_enum.BooleanEnum
 
 ## Model Type Info

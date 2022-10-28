@@ -1,3 +1,4 @@
+<a id="Tag"></a>
 # petstore_api.components.schema.tag.Tag
 
 ## Model Type Info

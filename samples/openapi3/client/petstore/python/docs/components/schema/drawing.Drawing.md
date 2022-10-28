@@ -1,3 +1,4 @@
+<a id="Drawing"></a>
 # petstore_api.components.schema.drawing.Drawing
 
 ## Model Type Info

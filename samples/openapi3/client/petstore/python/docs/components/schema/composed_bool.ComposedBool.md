@@ -1,3 +1,4 @@
+<a id="ComposedBool"></a>
 # petstore_api.components.schema.composed_bool.ComposedBool
 
 ## Model Type Info

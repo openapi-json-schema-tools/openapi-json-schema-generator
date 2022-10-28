@@ -1,3 +1,4 @@
+<a id="ComposedNone"></a>
 # petstore_api.components.schema.composed_none.ComposedNone
 
 ## Model Type Info

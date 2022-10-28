@@ -1,3 +1,4 @@
+<a id="IntegerMin15"></a>
 # petstore_api.components.schema.integer_min15.IntegerMin15
 
 ## Model Type Info

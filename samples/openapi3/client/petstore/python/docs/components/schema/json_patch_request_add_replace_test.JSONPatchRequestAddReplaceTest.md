@@ -1,3 +1,4 @@
+<a id="JSONPatchRequestAddReplaceTest"></a>
 # petstore_api.components.schema.json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest
 
 ## Model Type Info

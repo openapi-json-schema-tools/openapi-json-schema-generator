@@ -1,3 +1,4 @@
+<a id="Boolean"></a>
 # petstore_api.components.schema.boolean.Boolean
 
 ## Model Type Info

@@ -1,3 +1,4 @@
+<a id="AppleReq"></a>
 # petstore_api.components.schema.apple_req.AppleReq
 
 ## Model Type Info

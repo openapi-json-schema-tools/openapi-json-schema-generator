@@ -1,3 +1,4 @@
+<a id="Banana"></a>
 # petstore_api.components.schema.banana.Banana
 
 ## Model Type Info

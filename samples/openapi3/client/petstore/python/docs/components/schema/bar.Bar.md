@@ -1,3 +1,4 @@
+<a id="Bar"></a>
 # petstore_api.components.schema.bar.Bar
 
 ## Model Type Info

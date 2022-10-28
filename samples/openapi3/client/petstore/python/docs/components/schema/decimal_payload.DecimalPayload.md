@@ -1,3 +1,4 @@
+<a id="DecimalPayload"></a>
 # petstore_api.components.schema.decimal_payload.DecimalPayload
 
 ## Model Type Info

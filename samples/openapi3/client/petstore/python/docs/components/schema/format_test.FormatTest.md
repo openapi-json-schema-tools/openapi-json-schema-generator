@@ -1,3 +1,4 @@
+<a id="FormatTest"></a>
 # petstore_api.components.schema.format_test.FormatTest
 
 ## Model Type Info

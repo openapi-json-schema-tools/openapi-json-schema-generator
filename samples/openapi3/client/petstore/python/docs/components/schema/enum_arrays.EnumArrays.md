@@ -1,3 +1,4 @@
+<a id="EnumArrays"></a>
 # petstore_api.components.schema.enum_arrays.EnumArrays
 
 ## Model Type Info

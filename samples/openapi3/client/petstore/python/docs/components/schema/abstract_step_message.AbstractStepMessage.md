@@ -1,3 +1,4 @@
+<a id="AbstractStepMessage"></a>
 # petstore_api.components.schema.abstract_step_message.AbstractStepMessage
 
 Abstract Step
@@ -19,7 +20,7 @@ Key | Input Type | Accessed Type | Description | Notes
 #### anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[AbstractStepMessage](AbstractStepMessage.md) | [**AbstractStepMessage**](AbstractStepMessage.md) | [**AbstractStepMessage**](AbstractStepMessage.md) |  | 
+[**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

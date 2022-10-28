@@ -1,3 +1,4 @@
+<a id="ReadOnlyFirst"></a>
 # petstore_api.components.schema.read_only_first.ReadOnlyFirst
 
 ## Model Type Info

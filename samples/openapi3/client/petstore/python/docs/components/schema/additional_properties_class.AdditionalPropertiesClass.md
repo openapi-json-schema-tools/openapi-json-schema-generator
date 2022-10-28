@@ -1,3 +1,4 @@
+<a id="AdditionalPropertiesClass"></a>
 # petstore_api.components.schema.additional_properties_class.AdditionalPropertiesClass
 
 ## Model Type Info

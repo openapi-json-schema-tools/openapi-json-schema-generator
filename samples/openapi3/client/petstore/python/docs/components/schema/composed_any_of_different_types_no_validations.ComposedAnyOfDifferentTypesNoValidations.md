@@ -1,3 +1,4 @@
+<a id="ComposedAnyOfDifferentTypesNoValidations"></a>
 # petstore_api.components.schema.composed_any_of_different_types_no_validations.ComposedAnyOfDifferentTypesNoValidations
 
 ## Model Type Info

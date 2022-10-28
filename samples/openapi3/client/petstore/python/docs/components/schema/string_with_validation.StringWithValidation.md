@@ -1,3 +1,4 @@
+<a id="StringWithValidation"></a>
 # petstore_api.components.schema.string_with_validation.StringWithValidation
 
 ## Model Type Info

@@ -1,3 +1,4 @@
+<a id="ComposedNumber"></a>
 # petstore_api.components.schema.composed_number.ComposedNumber
 
 ## Model Type Info

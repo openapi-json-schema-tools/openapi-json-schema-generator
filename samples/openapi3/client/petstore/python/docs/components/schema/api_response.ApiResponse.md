@@ -1,3 +1,4 @@
+<a id="ApiResponse"></a>
 # petstore_api.components.schema.api_response.ApiResponse
 
 ## Model Type Info

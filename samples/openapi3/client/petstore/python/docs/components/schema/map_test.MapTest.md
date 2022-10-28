@@ -1,3 +1,4 @@
+<a id="MapTest"></a>
 # petstore_api.components.schema.map_test.MapTest
 
 ## Model Type Info

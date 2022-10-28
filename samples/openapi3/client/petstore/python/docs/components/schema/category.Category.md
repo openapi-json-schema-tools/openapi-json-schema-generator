@@ -1,3 +1,4 @@
+<a id="Category"></a>
 # petstore_api.components.schema.category.Category
 
 ## Model Type Info

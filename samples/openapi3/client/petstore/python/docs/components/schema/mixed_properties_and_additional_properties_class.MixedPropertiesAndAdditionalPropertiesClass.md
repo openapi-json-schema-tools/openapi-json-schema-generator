@@ -1,3 +1,4 @@
+<a id="MixedPropertiesAndAdditionalPropertiesClass"></a>
 # petstore_api.components.schema.mixed_properties_and_additional_properties_class.MixedPropertiesAndAdditionalPropertiesClass
 
 ## Model Type Info

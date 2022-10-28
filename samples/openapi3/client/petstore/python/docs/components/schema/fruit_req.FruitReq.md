@@ -1,3 +1,4 @@
+<a id="FruitReq"></a>
 # petstore_api.components.schema.fruit_req.FruitReq
 
 ## Model Type Info
@@ -10,8 +11,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [one_of_0](#one_of_0) | None,  | NoneClass,  |  | 
-[AppleReq](apple_req.AppleReq.md) | [**AppleReq**](apple_req.AppleReq.md) | [**AppleReq**](apple_req.AppleReq.md) |  | 
-[BananaReq](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) |  | 
+[**AppleReq**](apple_req.AppleReq.md) | [**AppleReq**](apple_req.AppleReq.md) | [**AppleReq**](apple_req.AppleReq.md) |  | 
+[**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) |  | 
 
 # one_of_0
 

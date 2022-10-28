@@ -1,3 +1,4 @@
+<a id="ComposedObject"></a>
 # petstore_api.components.schema.composed_object.ComposedObject
 
 ## Model Type Info

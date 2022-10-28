@@ -1,3 +1,4 @@
+<a id="Whale"></a>
 # petstore_api.components.schema.whale.Whale
 
 ## Model Type Info

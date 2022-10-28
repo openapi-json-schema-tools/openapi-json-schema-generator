@@ -1,3 +1,4 @@
+<a id="AnimalFarm"></a>
 # petstore_api.components.schema.animal_farm.AnimalFarm
 
 ## Model Type Info

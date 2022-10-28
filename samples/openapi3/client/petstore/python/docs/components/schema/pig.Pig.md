@@ -1,3 +1,4 @@
+<a id="Pig"></a>
 # petstore_api.components.schema.pig.Pig
 
 ## Model Type Info
@@ -9,8 +10,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[BasquePig](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) |  | 
-[DanishPig](danish_pig.DanishPig.md) | [**DanishPig**](danish_pig.DanishPig.md) | [**DanishPig**](danish_pig.DanishPig.md) |  | 
+[**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) |  | 
+[**DanishPig**](danish_pig.DanishPig.md) | [**DanishPig**](danish_pig.DanishPig.md) | [**DanishPig**](danish_pig.DanishPig.md) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

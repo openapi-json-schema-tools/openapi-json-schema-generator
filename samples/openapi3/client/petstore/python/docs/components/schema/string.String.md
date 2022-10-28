@@ -1,3 +1,4 @@
+<a id="String"></a>
 # petstore_api.components.schema.string.String
 
 ## Model Type Info

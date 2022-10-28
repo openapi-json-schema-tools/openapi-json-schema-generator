@@ -1,3 +1,4 @@
+<a id="ArrayTest"></a>
 # petstore_api.components.schema.array_test.ArrayTest
 
 ## Model Type Info

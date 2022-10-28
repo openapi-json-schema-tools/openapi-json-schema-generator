@@ -1,3 +1,4 @@
+<a id="NumberOnly"></a>
 # petstore_api.components.schema.number_only.NumberOnly
 
 ## Model Type Info

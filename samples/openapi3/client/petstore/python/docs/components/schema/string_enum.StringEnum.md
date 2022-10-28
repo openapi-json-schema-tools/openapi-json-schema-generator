@@ -1,3 +1,4 @@
+<a id="StringEnum"></a>
 # petstore_api.components.schema.string_enum.StringEnum
 
 ## Model Type Info

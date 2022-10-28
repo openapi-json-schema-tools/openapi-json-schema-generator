@@ -1,3 +1,4 @@
+<a id="ShapeOrNull"></a>
 # petstore_api.components.schema.shape_or_null.ShapeOrNull
 
 The value may be a shape or the 'null' value. This is introduced in OAS schema >= 3.1.
@@ -12,8 +13,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [one_of_0](#one_of_0) | None,  | NoneClass,  |  | 
-[Triangle](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  | 
-[Quadrilateral](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  | 
+[**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  | 
+[**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  | 
 
 # one_of_0
 

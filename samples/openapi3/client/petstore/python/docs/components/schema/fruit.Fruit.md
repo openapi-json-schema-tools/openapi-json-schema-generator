@@ -1,3 +1,4 @@
+<a id="Fruit"></a>
 # petstore_api.components.schema.fruit.Fruit
 
 ## Model Type Info
@@ -15,8 +16,8 @@ Key | Input Type | Accessed Type | Description | Notes
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[Apple](apple.Apple.md) | [**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) |  | 
-[Banana](banana.Banana.md) | [**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) |  | 
+[**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) |  | 
+[**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) |  | 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

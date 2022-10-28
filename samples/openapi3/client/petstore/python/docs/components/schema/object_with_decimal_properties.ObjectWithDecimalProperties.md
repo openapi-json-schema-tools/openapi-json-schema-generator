@@ -1,3 +1,4 @@
+<a id="ObjectWithDecimalProperties"></a>
 # petstore_api.components.schema.object_with_decimal_properties.ObjectWithDecimalProperties
 
 ## Model Type Info

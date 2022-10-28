@@ -1,3 +1,4 @@
+<a id="IntegerEnum"></a>
 # petstore_api.components.schema.integer_enum.IntegerEnum
 
 ## Model Type Info

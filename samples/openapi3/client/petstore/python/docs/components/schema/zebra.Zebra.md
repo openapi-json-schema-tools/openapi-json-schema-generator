@@ -1,3 +1,4 @@
+<a id="Zebra"></a>
 # petstore_api.components.schema.zebra.Zebra
 
 ## Model Type Info

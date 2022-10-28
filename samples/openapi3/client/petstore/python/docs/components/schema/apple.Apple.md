@@ -1,3 +1,4 @@
+<a id="Apple"></a>
 # petstore_api.components.schema.apple.Apple
 
 ## Model Type Info

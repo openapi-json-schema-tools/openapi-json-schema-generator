@@ -1,3 +1,4 @@
+<a id="JSONPatchRequestRemove"></a>
 # petstore_api.components.schema.json_patch_request_remove.JSONPatchRequestRemove
 
 ## Model Type Info
