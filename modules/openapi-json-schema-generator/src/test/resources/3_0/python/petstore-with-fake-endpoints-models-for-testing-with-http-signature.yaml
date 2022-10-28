@@ -3009,3 +3009,16 @@ components:
         propertyName: discriminator
       anyOf:
         - $ref: '#/components/schemas/AbstractStepMessage'
+    SelfReferencingObjectModel:
+      type: object
+      properties:
+        selfRef:
+          $ref: '#/components/schemas/SelfReferencingObjectModel'
+      required:
+        - selfRef
+      additionalProperties:
+        $ref: '#/components/schemas/SelfReferencingObjectModel'
+    SelfReferencingArrayModel:
+      type: array
+      items:
+        $ref: '#/components/schemas/SelfReferencingArrayModel'

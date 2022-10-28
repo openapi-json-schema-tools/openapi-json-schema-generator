@@ -114,6 +114,8 @@ docs/components/schema/quadrilateral.Quadrilateral.md
 docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md
 docs/components/schema/read_only_first.ReadOnlyFirst.md
 docs/components/schema/scalene_triangle.ScaleneTriangle.md
+docs/components/schema/self_referencing_array_model.SelfReferencingArrayModel.md
+docs/components/schema/self_referencing_object_model.SelfReferencingObjectModel.md
 docs/components/schema/shape.Shape.md
 docs/components/schema/shape_or_null.ShapeOrNull.md
 docs/components/schema/simple_quadrilateral.SimpleQuadrilateral.md
@@ -354,6 +356,10 @@ petstore_api/components/schema/read_only_first.py
 petstore_api/components/schema/read_only_first.pyi
 petstore_api/components/schema/scalene_triangle.py
 petstore_api/components/schema/scalene_triangle.pyi
+petstore_api/components/schema/self_referencing_array_model.py
+petstore_api/components/schema/self_referencing_array_model.pyi
+petstore_api/components/schema/self_referencing_object_model.py
+petstore_api/components/schema/self_referencing_object_model.pyi
 petstore_api/components/schema/shape.py
 petstore_api/components/schema/shape.pyi
 petstore_api/components/schema/shape_or_null.py
@@ -401,4 +407,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
+test/components/schema/test_self_referencing_array_model.py
+test/components/schema/test_self_referencing_object_model.py
 tox.ini

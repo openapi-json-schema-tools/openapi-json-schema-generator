@@ -336,6 +336,8 @@ Class | Method | HTTP request | Description
  - [QuadrilateralInterface](docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md)
  - [ReadOnlyFirst](docs/components/schema/read_only_first.ReadOnlyFirst.md)
  - [ScaleneTriangle](docs/components/schema/scalene_triangle.ScaleneTriangle.md)
+ - [SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model.SelfReferencingArrayModel.md)
+ - [SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model.SelfReferencingObjectModel.md)
  - [Shape](docs/components/schema/shape.Shape.md)
  - [ShapeOrNull](docs/components/schema/shape_or_null.ShapeOrNull.md)
  - [SimpleQuadrilateral](docs/components/schema/simple_quadrilateral.SimpleQuadrilateral.md)
