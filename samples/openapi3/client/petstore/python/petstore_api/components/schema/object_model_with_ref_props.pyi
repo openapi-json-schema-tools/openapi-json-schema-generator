@@ -107,7 +107,3 @@ class ObjectModelWithRefProps(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.boolean import Boolean
-from petstore_api.components.schema.number_with_validations import NumberWithValidations
-from petstore_api.components.schema.string import String

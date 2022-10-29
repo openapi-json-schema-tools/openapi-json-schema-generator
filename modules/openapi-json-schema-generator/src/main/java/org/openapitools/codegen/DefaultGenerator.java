@@ -1283,14 +1283,14 @@ public class DefaultGenerator implements Generator {
         List<ModelMap> modelMaps = new ArrayList<>();
         Set<String> allImports = new LinkedHashSet<>();
         for (Map.Entry<String, Schema> definitionsEntry : definitions.entrySet()) {
-            String key = definitionsEntry.getKey();
+            String schemaName = definitionsEntry.getKey();
             Schema schema = definitionsEntry.getValue();
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
-            CodegenModel cm = config.fromModel(key, schema);
+            CodegenModel cm = config.fromModel(schemaName, schema);
             ModelMap mo = new ModelMap();
             mo.setModel(cm);
-            mo.put("importPath", config.toModelImport(cm.classname));
+            mo.put("importPath", config.toModelImport(config.toRefClass("#/components/schemas/"+schemaName, "")));
             modelMaps.add(mo);
 
             cm.removeSelfReferenceImport();

@@ -1571,11 +1571,11 @@ public class DefaultCodegen implements CodegenConfig {
      * @return the fully-qualified "Model" name for import
      */
     @Override
-    public String toModelImport(String name) {
+    public String toModelImport(String refClass) {
         if ("".equals(modelPackage())) {
-            return name;
+            return refClass;
         } else {
-            return modelPackage() + "." + name;
+            return modelPackage() + "." + refClass;
         }
     }
 
@@ -3853,7 +3853,7 @@ public class DefaultCodegen implements CodegenConfig {
         return property;
     }
 
-    protected String toRefClass(String ref, String sourceJsonPath) {
+    public String toRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         return toModelName(refPieces[-1]);
     }

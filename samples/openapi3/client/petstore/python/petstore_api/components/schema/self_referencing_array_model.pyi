@@ -52,5 +52,3 @@ class SelfReferencingArrayModel(
 
     def __getitem__(self, i: int) -> 'SelfReferencingArrayModel':
         return super().__getitem__(i)
-
-from petstore_api.components.schema.self_referencing_array_model import SelfReferencingArrayModel

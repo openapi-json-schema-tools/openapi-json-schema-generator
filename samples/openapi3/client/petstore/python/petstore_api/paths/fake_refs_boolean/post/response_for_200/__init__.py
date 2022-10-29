@@ -15,8 +15,6 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.boolean import Boolean
-
 # body schemas
 application_json = Boolean
 

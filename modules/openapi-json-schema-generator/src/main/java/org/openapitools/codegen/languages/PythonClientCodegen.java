@@ -885,9 +885,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String toModelImport(String name) {
-        // name looks like Cat
-        return "from " + packagePath() + "." +  modelPackage() + "." + toModelFilename(name) + " import " + toModelName(name);
+    public String toModelImport(String refClass) {
+        // name looks like cat.Cat
+        String[] refClassPieces = refClass.split("\\.");
+        if (refClassPieces.length != 2) {
+            return null;
+        }
+        String modelModule = refClassPieces[0];
+        return "from " + packagePath() + "." +  modelPackage() + " import " + modelModule;
     }
 
     private void fixSchemaImports(Set<String> imports) {
@@ -2779,7 +2784,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
     }
 
-    protected String toRefClass(String ref, String sourceJsonPath) {
+    public String toRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed

@@ -476,7 +476,6 @@ Test serialization of outer boolean types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.boolean import Boolean
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2082,7 +2081,6 @@ Test serialization of outer number types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.number_with_validations import NumberWithValidations
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2728,7 +2726,6 @@ To test the collection format in query parameters
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.string_with_validation import StringWithValidation
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -3018,7 +3015,6 @@ Test serialization of outer string types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.string import String
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
