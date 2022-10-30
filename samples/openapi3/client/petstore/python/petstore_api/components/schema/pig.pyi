@@ -72,6 +72,3 @@ class Pig(
             _configuration=_configuration,
             **kwargs,
         )
-
-basque_pig.BasquePig
-danish_pig.DanishPig

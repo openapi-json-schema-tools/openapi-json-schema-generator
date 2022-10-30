@@ -74,7 +74,3 @@ class Mammal(
             _configuration=_configuration,
             **kwargs,
         )
-
-pig.Pig
-whale.Whale
-zebra.Zebra

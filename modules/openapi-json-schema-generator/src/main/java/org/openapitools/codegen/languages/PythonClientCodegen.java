@@ -956,11 +956,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
-//                String[] importModelNames = cm.imports.toArray(new String[0]);
-//                cm.imports.clear();
-//                for (String importModelName : importModelNames) {
-//                    cm.imports.add(toModelImport(importModelName));
-//                }
+                String[] importModelNames = cm.imports.toArray(new String[0]);
+                cm.imports.clear();
+                for (String importModelName : importModelNames) {
+                    if (needToImport(importModelName)) {
+                        cm.imports.add( toModelImport(importModelName));
+                    }
+                }
             }
         }
         boolean testFolderSet = testFolder != null;

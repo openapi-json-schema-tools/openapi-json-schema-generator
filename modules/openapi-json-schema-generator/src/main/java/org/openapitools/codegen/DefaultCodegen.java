@@ -5459,7 +5459,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected void addImport(Set<String> importsToBeAddedTo, String type) {
         if (shouldAddImport(type)) {
-            importsToBeAddedTo.add(toModelImport(type));
+            importsToBeAddedTo.add(type);
         }
     }
 

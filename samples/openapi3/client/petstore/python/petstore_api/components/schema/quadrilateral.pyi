@@ -72,6 +72,3 @@ class Quadrilateral(
             _configuration=_configuration,
             **kwargs,
         )
-
-complex_quadrilateral.ComplexQuadrilateral
-simple_quadrilateral.SimpleQuadrilateral

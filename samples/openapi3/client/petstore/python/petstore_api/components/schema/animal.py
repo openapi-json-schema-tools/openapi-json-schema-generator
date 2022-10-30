@@ -100,6 +100,3 @@ class Animal(
             _configuration=_configuration,
             **kwargs,
         )
-
-cat.Cat
-dog.Dog

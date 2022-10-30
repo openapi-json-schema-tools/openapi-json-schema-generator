@@ -90,6 +90,3 @@ class GrandparentAnimal(
             _configuration=_configuration,
             **kwargs,
         )
-
-child_cat.ChildCat
-parent_pet.ParentPet

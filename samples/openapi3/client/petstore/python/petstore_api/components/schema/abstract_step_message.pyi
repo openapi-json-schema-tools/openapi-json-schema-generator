@@ -115,5 +115,3 @@ class AbstractStepMessage(
             _configuration=_configuration,
             **kwargs,
         )
-
-AbstractStepMessage

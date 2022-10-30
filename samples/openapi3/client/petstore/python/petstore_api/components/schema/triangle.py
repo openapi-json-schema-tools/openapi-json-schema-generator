@@ -74,7 +74,3 @@ class Triangle(
             _configuration=_configuration,
             **kwargs,
         )
-
-equilateral_triangle.EquilateralTriangle
-isosceles_triangle.IsoscelesTriangle
-scalene_triangle.ScaleneTriangle

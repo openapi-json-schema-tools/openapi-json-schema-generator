@@ -72,6 +72,3 @@ class Shape(
             _configuration=_configuration,
             **kwargs,
         )
-
-quadrilateral.Quadrilateral
-triangle.Triangle

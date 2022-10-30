@@ -71,5 +71,3 @@ class ParentPet(
             _configuration=_configuration,
             **kwargs,
         )
-
-child_cat.ChildCat
