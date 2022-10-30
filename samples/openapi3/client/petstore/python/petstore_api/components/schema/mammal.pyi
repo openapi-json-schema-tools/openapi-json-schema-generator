@@ -39,9 +39,9 @@ class Mammal(
         def discriminator():
             return {
                 'className': {
-                    'Pig': Pig,
-                    'whale': Whale,
-                    'zebra': Zebra,
+                    'Pig': pig.Pig,
+                    'whale': whale.Whale,
+                    'zebra': zebra.Zebra,
                 }
             }
         
@@ -75,9 +75,6 @@ class Mammal(
             **kwargs,
         )
 
-from petstore_api.components.schema.pig import Pig
-from petstore_api.components.schema.pig_pig import PigPig
-from petstore_api.components.schema.whale import Whale
-from petstore_api.components.schema.whale_whale import WhaleWhale
-from petstore_api.components.schema.zebra import Zebra
-from petstore_api.components.schema.zebra_zebra import ZebraZebra
+pig.Pig
+whale.Whale
+zebra.Zebra

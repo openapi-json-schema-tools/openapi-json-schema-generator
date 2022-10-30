@@ -24,8 +24,6 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.client_client import ClientClient
-
 
 application_json = client.Client
 

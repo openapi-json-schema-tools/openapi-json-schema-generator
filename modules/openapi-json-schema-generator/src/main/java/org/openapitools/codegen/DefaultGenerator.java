@@ -1295,6 +1295,9 @@ public class DefaultGenerator implements Generator {
 
             cm.removeSelfReferenceImport();
 
+            if (cm.imports == null || cm.imports.size() == 0) {
+                continue;
+            }
             allImports.addAll(cm.imports);
         }
         objs.setModels(modelMaps);
@@ -1302,7 +1305,7 @@ public class DefaultGenerator implements Generator {
         for (String nextImport : allImports) {
             String mapping = config.importMapping().get(nextImport);
             if (mapping == null) {
-                mapping = config.toModelImport(nextImport);
+                mapping = nextImport;
             }
             if (mapping != null && !config.defaultIncludes().contains(mapping)) {
                 importSet.add(mapping);

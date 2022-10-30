@@ -122,5 +122,3 @@ class ScaleneTriangle(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.triangle_interface_triangle_interface import TriangleInterfaceTriangleInterface

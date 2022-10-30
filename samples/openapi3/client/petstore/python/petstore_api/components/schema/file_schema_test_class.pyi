@@ -114,5 +114,3 @@ class FileSchemaTestClass(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.file_file import FileFile

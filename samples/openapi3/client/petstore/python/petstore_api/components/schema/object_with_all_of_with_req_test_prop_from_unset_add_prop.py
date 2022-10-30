@@ -120,5 +120,3 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.object_with_optional_test_prop_object_with_optional_test_prop import ObjectWithOptionalTestPropObjectWithOptionalTestProp

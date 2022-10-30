@@ -932,6 +932,8 @@ public class DefaultCodegen implements CodegenConfig {
 
             // go through all gathered schemas and add them as interfaces to be created
             for (Map.Entry<String, Schema> e : schemas.entrySet()) {
+                String schemaName = e.getKey();
+                String sourceJsonPath = "#/components/schemas/" + schemaName;
                 String n = toModelName(e.getKey());
                 Schema s = e.getValue();
                 String nOneOf = toModelName(n + "OneOf");
@@ -939,7 +941,7 @@ public class DefaultCodegen implements CodegenConfig {
                     if (e.getKey().contains("/")) {
                         // if this is property schema, we also need to generate the oneOf interface model
                         addOneOfNameExtension((ComposedSchema) s, nOneOf);
-                        addOneOfInterfaceModel((ComposedSchema) s, nOneOf, openAPI);
+                        addOneOfInterfaceModel((ComposedSchema) s, nOneOf, openAPI, sourceJsonPath);
                     } else {
                         // else this is a component schema, so we will just use that as the oneOf interface model
                         addOneOfNameExtension((ComposedSchema) s, n);
@@ -948,13 +950,13 @@ public class DefaultCodegen implements CodegenConfig {
                     Schema items = ((ArraySchema) s).getItems();
                     if (ModelUtils.isComposedSchema(items)) {
                         addOneOfNameExtension((ComposedSchema) items, nOneOf);
-                        addOneOfInterfaceModel((ComposedSchema) items, nOneOf, openAPI);
+                        addOneOfInterfaceModel((ComposedSchema) items, nOneOf, openAPI, sourceJsonPath);
                     }
                 } else if (ModelUtils.isMapSchema(s)) {
                     Schema addProps = getAdditionalProperties(s);
                     if (addProps != null && ModelUtils.isComposedSchema(addProps)) {
                         addOneOfNameExtension((ComposedSchema) addProps, nOneOf);
-                        addOneOfInterfaceModel((ComposedSchema) addProps, nOneOf, openAPI);
+                        addOneOfInterfaceModel((ComposedSchema) addProps, nOneOf, openAPI, sourceJsonPath);
                     }
                 }
             }
@@ -1567,7 +1569,7 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Return the fully-qualified "Model" name for import
      *
-     * @param name the name of the "Model"
+     * @param refClass the name of the "Model"
      * @return the fully-qualified "Model" name for import
      */
     @Override
@@ -2542,7 +2544,7 @@ public class DefaultCodegen implements CodegenConfig {
                 for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                     if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                         LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                        m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI));
+                        m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI, sourceJsonPath));
                         if (!this.getLegacyDiscriminatorBehavior()) {
                             m.addDiscriminatorMappedModelsImports();
                         }
@@ -2890,7 +2892,8 @@ public class DefaultCodegen implements CodegenConfig {
         }
         m.isAlias = (typeAliases.containsKey(name)
                 || isAliasOfSimpleTypes(schema)); // check if the unaliased schema is an alias of simple OAS types
-        m.setDiscriminator(createDiscriminator(name, schema, this.openAPI));
+        String sourceJsonPath = "#/components/schemas/" + name;
+        m.setDiscriminator(createDiscriminator(name, schema, this.openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
             m.addDiscriminatorMappedModelsImports();
         }
@@ -2920,7 +2923,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         m.setTypeProperties(schema);
         m.setFormat(schema.getFormat());
-        String sourceJsonPath = "#/components/schemas/" + name;
         m.setComposedSchemas(getComposedSchemas(schema, sourceJsonPath));
         if (ModelUtils.isArraySchema(schema)) {
             CodegenProperty arrayProperty = fromProperty("items", schema, false, false, sourceJsonPath);
@@ -3243,7 +3245,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param openAPI            The OpenAPI spec that we are using
      * @return the list of oneOf and anyOf MappedModel that need to be added to the discriminator map
      */
-    protected List<MappedModel> getOneOfAnyOfDescendants(String composedSchemaName, String discPropName, ComposedSchema c, OpenAPI openAPI) {
+    protected List<MappedModel> getOneOfAnyOfDescendants(String composedSchemaName, String discPropName, ComposedSchema c, OpenAPI openAPI, String sourceJsonPath) {
         ArrayList<List<Schema>> listOLists = new ArrayList<>();
         listOLists.add(c.getOneOf());
         listOLists.add(c.getAnyOf());
@@ -3289,7 +3291,7 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn("'{}' defines discriminator '{}', but the referenced schema '{}' is incorrect. {}",
                             composedSchemaName, discPropName, modelName, msgSuffix);
                 }
-                MappedModel mm = new MappedModel(modelName, toModelName(modelName));
+                MappedModel mm = new MappedModel(modelName, toRefClass("#/components/schemas/" + modelName, sourceJsonPath));
                 descendentSchemas.add(mm);
                 Schema cs = ModelUtils.getSchema(openAPI, modelName);
                 if (cs == null) { // cannot lookup the model based on the name
@@ -3298,7 +3300,7 @@ public class DefaultCodegen implements CodegenConfig {
                     Map<String, Object> vendorExtensions = cs.getExtensions();
                     if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                         String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                        mm = new MappedModel(xDiscriminatorValue, toModelName(modelName));
+                        mm = new MappedModel(xDiscriminatorValue, toRefClass("#/components/schemas/" + modelName, sourceJsonPath));
                         descendentSchemas.add(mm);
                     }
                 }
@@ -3307,7 +3309,7 @@ public class DefaultCodegen implements CodegenConfig {
         return descendentSchemas;
     }
 
-    protected List<MappedModel> getAllOfDescendants(String thisSchemaName, OpenAPI openAPI) {
+    protected List<MappedModel> getAllOfDescendants(String thisSchemaName, OpenAPI openAPI, String sourceJsonPath) {
         ArrayList<String> queue = new ArrayList();
         List<MappedModel> descendentSchemas = new ArrayList();
         Map<String, Schema> schemas = ModelUtils.getSchemas(openAPI);
@@ -3350,20 +3352,20 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             }
             currentSchemaName = queue.remove(0);
-            MappedModel mm = new MappedModel(currentSchemaName, toModelName(currentSchemaName));
+            MappedModel mm = new MappedModel(currentSchemaName, toRefClass("#/components/schemas/" + currentSchemaName, sourceJsonPath));
             descendentSchemas.add(mm);
             Schema cs = schemas.get(currentSchemaName);
             Map<String, Object> vendorExtensions = cs.getExtensions();
             if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                 String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                mm = new MappedModel(xDiscriminatorValue, toModelName(currentSchemaName));
+                mm = new MappedModel(xDiscriminatorValue, toRefClass("#/components/schemas/" + currentSchemaName, sourceJsonPath));
                 descendentSchemas.add(mm);
             }
         }
         return descendentSchemas;
     }
 
-    protected CodegenDiscriminator createDiscriminator(String schemaName, Schema schema, OpenAPI openAPI) {
+    protected CodegenDiscriminator createDiscriminator(String schemaName, Schema schema, OpenAPI openAPI, String sourceJsonPath) {
         Discriminator sourceDiscriminator = recursiveGetDiscriminator(schema, openAPI);
         if (sourceDiscriminator == null) {
             return null;
@@ -3391,22 +3393,29 @@ public class DefaultCodegen implements CodegenConfig {
         if (sourceDiscriminator.getMapping() != null && !sourceDiscriminator.getMapping().isEmpty()) {
             for (Entry<String, String> e : sourceDiscriminator.getMapping().entrySet()) {
                 String name;
-                if (e.getValue().indexOf('/') >= 0) {
-                    name = ModelUtils.getSimpleRef(e.getValue());
+                String value = e.getValue();
+                String modelName = null;
+                if (value.indexOf('/') >= 0) {
+                    name = ModelUtils.getSimpleRef(value);
                     if (ModelUtils.getSchema(openAPI, name) == null) {
                         LOGGER.error("Failed to lookup the schema '{}' when processing the discriminator mapping of oneOf/anyOf. Please check to ensure it's defined properly.", name);
+                    } else {
+                        modelName = toRefClass(e.getValue(), sourceJsonPath);
                     }
                 } else {
-                    name = e.getValue();
+                    String ref = "#/components/schemas/" + value;
+                    modelName = toRefClass(ref, sourceJsonPath);
                 }
-                uniqueDescendants.add(new MappedModel(e.getKey(), toModelName(name)));
+                if (modelName != null) {
+                    uniqueDescendants.add(new MappedModel(e.getKey(), modelName));
+                }
             }
         }
 
         boolean legacyUseCase = (this.getLegacyDiscriminatorBehavior() && uniqueDescendants.isEmpty());
         if (!this.getLegacyDiscriminatorBehavior() || legacyUseCase) {
             // for schemas that allOf inherit from this schema, add those descendants to this discriminator map
-            List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI);
+            List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI, sourceJsonPath);
             for (MappedModel otherDescendant : otherDescendants) {
                 // add only if the mapping names are not the same
                 boolean matched = false;
@@ -3424,7 +3433,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         // if there are composed oneOf/anyOf schemas, add them to this discriminator
         if (ModelUtils.isComposedSchema(schema) && !this.getLegacyDiscriminatorBehavior()) {
-            List<MappedModel> otherDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI);
+            List<MappedModel> otherDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI, sourceJsonPath);
             for (MappedModel otherDescendant : otherDescendants) {
                 if (!uniqueDescendants.contains(otherDescendant)) {
                     uniqueDescendants.add(otherDescendant);
@@ -5450,7 +5459,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected void addImport(Set<String> importsToBeAddedTo, String type) {
         if (shouldAddImport(type)) {
-            importsToBeAddedTo.add(type);
+            importsToBeAddedTo.add(toModelImport(type));
         }
     }
 
@@ -7589,14 +7598,14 @@ public class DefaultCodegen implements CodegenConfig {
      * @param type    name to use for the generated interface model
      * @param openAPI OpenAPI spec that we are using
      */
-    public void addOneOfInterfaceModel(ComposedSchema cs, String type, OpenAPI openAPI) {
+    public void addOneOfInterfaceModel(ComposedSchema cs, String type, OpenAPI openAPI, String sourceJsonPath) {
         if (cs.getOneOf() == null) {
             return;
         }
 
         CodegenModel cm = new CodegenModel();
 
-        cm.setDiscriminator(createDiscriminator("", cs, openAPI));
+        cm.setDiscriminator(createDiscriminator("", cs, openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
             cm.addDiscriminatorMappedModelsImports();
         }

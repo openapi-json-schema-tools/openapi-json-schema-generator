@@ -49,7 +49,6 @@ Additional Properties with Array of Enums
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.additional_properties_with_array_of_enums_additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnumsAdditionalPropertiesWithArrayOfEnums
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -133,7 +132,6 @@ Test serialization of ArrayModel
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.animal_farm_animal_farm import AnimalFarmAnimalFarm
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -213,7 +211,6 @@ Array of Enums
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.array_of_enums_array_of_enums import ArrayOfEnumsArrayOfEnums
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -295,7 +292,6 @@ For this test, the body for this request much reference a schema named `File`.
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.file_schema_test_class_file_schema_test_class import FileSchemaTestClassFileSchemaTestClass
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -371,7 +367,6 @@ No authorization required
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.user_user import UserUser
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -514,7 +509,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="boolean.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../components/schema/Boolean.md) |  | 
+[**Boolean**](../../components/schema/boolean.Boolean.md) |  | 
 
 
 ### Return Types, Responses
@@ -534,7 +529,7 @@ headers | Unset | headers were not defined |
 # <a id="boolean.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../components/schema/Boolean.md) |  | 
+[**Boolean**](../../components/schema/boolean.Boolean.md) |  | 
 
 
 ### Authorization
@@ -651,7 +646,6 @@ To test \"client\" model
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.client_client import ClientClient
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -733,7 +727,6 @@ Test serialization of object with $refed properties
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.composed_one_of_different_types_composed_one_of_different_types import ComposedOneOfDifferentTypesComposedOneOfDifferentTypes
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1844,7 +1837,6 @@ json patch route with a requestBody
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.json_patch_request_json_patch_request import JsonPatchRequestJSONPatchRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1998,7 +1990,6 @@ Test serialization of mammals
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.mammal_mammal import MammalMammal
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2119,7 +2110,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
 
 
 ### Return Types, Responses
@@ -2139,7 +2130,7 @@ headers | Unset | headers were not defined |
 # <a id="number_with_validations.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
 
 
 ### Authorization
@@ -2245,7 +2236,6 @@ Test serialization of object with $refed properties
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.object_model_with_ref_props_object_model_with_ref_props import ObjectModelWithRefPropsObjectModelWithRefProps
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2849,7 +2839,7 @@ items | str,  | str,  |  |
 # <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringWithValidation**](../../components/schema/StringWithValidation.md) |  | 
+[**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2882,7 +2872,6 @@ user list
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.foo_foo import FooFoo
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -3053,7 +3042,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../components/schema/String.md) |  | 
+[**String**](../../components/schema/string.String.md) |  | 
 
 
 ### Return Types, Responses
@@ -3073,7 +3062,7 @@ headers | Unset | headers were not defined |
 # <a id="string.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../components/schema/String.md) |  | 
+[**String**](../../components/schema/string.String.md) |  | 
 
 
 ### Authorization
@@ -3093,7 +3082,6 @@ Test serialization of outer enum
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.string_enum_string_enum import StringEnumStringEnum
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.

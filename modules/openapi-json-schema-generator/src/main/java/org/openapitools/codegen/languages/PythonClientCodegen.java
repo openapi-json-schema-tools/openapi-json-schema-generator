@@ -956,11 +956,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
-                String[] importModelNames = cm.imports.toArray(new String[0]);
-                cm.imports.clear();
-                for (String importModelName : importModelNames) {
-                    cm.imports.add(toModelImport(importModelName));
-                }
+//                String[] importModelNames = cm.imports.toArray(new String[0]);
+//                cm.imports.clear();
+//                for (String importModelName : importModelNames) {
+//                    cm.imports.add(toModelImport(importModelName));
+//                }
             }
         }
         boolean testFolderSet = testFolder != null;
@@ -1056,10 +1056,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         if (cp.isEnum) {
             updateCodegenPropertyEnum(cp);
-        }
-        Schema unaliasedSchema = unaliasSchema(p);
-        if (cp.isPrimitiveType && unaliasedSchema.get$ref() != null) {
-            cp.refClass = cp.dataType;
         }
         return cp;
     }
@@ -1704,10 +1700,19 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return false;
     }
 
+    private String getSchemaName(String complexType) {
+        String[] packageNameSplits = complexType.split("\\.");
+        if (packageNameSplits.length == 1) {
+            return packageNameSplits[0];
+        }
+        return packageNameSplits[1];
+    }
+
     private MappedModel getDiscriminatorMappedModel(CodegenDiscriminator disc) {
         for (MappedModel mm : disc.getMappedModels()) {
-            String modelName = mm.getModelName();
-            Schema modelSchema = getModelNameToSchemaCache().get(modelName);
+            String complexType = mm.getModelName();
+            String schemaName = getSchemaName(complexType);
+            Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
             if (ModelUtils.isObjectSchema(modelSchema)) {
                 return mm;
             }
@@ -1793,7 +1798,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return "";
             }
             Boolean hasProperties = (schema.getProperties() != null && !schema.getProperties().isEmpty());
-            CodegenDiscriminator disc = createDiscriminator(modelName, schema, openAPI);
+            CodegenDiscriminator disc = createDiscriminator(modelName, schema, openAPI, "");
             if (ModelUtils.isComposedSchema(schema)) {
                 if(includedSchemas.contains(schema)) {
                     return "";
@@ -1836,8 +1841,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     return fullPrefix + "None" + closeChars;
                 }
                 String discPropNameValue = mm.getMappingName();
-                String chosenModelName = mm.getModelName();
-                Schema modelSchema = getModelNameToSchemaCache().get(chosenModelName);
+                String schemaName = getSchemaName(mm.getModelName());
+                Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
                 cp.setName(disc.getPropertyName());
                 cp.setExample(discPropNameValue);
@@ -1969,7 +1974,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return fullPrefix + closeChars;
             }
             Boolean hasProperties = (schema.getProperties() != null && !schema.getProperties().isEmpty());
-            CodegenDiscriminator disc = createDiscriminator(modelName, schema, openAPI);
+            CodegenDiscriminator disc = createDiscriminator(modelName, schema, openAPI, "");
             if (ModelUtils.isComposedSchema(schema)) {
                 // complex composed object type schemas not yet handled and the code returns early
                 if (hasProperties) {
@@ -2006,8 +2011,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     return fullPrefix + closeChars;
                 }
                 String discPropNameValue = mm.getMappingName();
-                String chosenModelName = mm.getModelName();
-                Schema modelSchema = getModelNameToSchemaCache().get(chosenModelName);
+                String schemaName = getSchemaName(mm.getModelName());
+                Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
                 cp.setName(disc.getPropertyName());
                 cp.setExample(discPropNameValue);
@@ -2052,6 +2057,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenProperty discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
 
+        if (schema == null) {
+            String A = "a";
+        }
         Map<String, Schema> requiredAndOptionalProps = schema.getProperties();
         if (requiredAndOptionalProps == null || requiredAndOptionalProps.isEmpty()) {
             return fullPrefix + closeChars;
@@ -2425,7 +2433,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                 if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                     LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI));
+                    m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI, sourceJsonPath));
                     if (!this.getLegacyDiscriminatorBehavior()) {
                         m.addDiscriminatorMappedModelsImports();
                     }
@@ -2650,8 +2658,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return parameters;
     }
 
-    protected boolean needToImport(String type) {
-        return true;
+    protected boolean needToImport(String refClass) {
+        boolean containsPeriod = refClass.contains("\\.");
+        if (containsPeriod) {
+            return true;
+        }
+        // self import
+        return false;
     }
 
     /**

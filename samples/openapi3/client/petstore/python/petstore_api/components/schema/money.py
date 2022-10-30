@@ -96,5 +96,3 @@ class Money(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.currency_currency import CurrencyCurrency

@@ -236,9 +236,3 @@ class EnumTest(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.integer_enum_integer_enum import IntegerEnumIntegerEnum
-from petstore_api.components.schema.integer_enum_one_value_integer_enum_one_value import IntegerEnumOneValueIntegerEnumOneValue
-from petstore_api.components.schema.integer_enum_with_default_value_integer_enum_with_default_value import IntegerEnumWithDefaultValueIntegerEnumWithDefaultValue
-from petstore_api.components.schema.string_enum_string_enum import StringEnumStringEnum
-from petstore_api.components.schema.string_enum_with_default_value_string_enum_with_default_value import StringEnumWithDefaultValueStringEnumWithDefaultValue

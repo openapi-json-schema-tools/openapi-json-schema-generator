@@ -92,6 +92,3 @@ class Fruit(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.apple_apple import AppleApple
-from petstore_api.components.schema.banana_banana import BananaBanana

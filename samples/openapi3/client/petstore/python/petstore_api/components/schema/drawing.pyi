@@ -142,8 +142,3 @@ class Drawing(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.fruit_fruit import FruitFruit
-from petstore_api.components.schema.nullable_shape_nullable_shape import NullableShapeNullableShape
-from petstore_api.components.schema.shape_or_null_shape_or_null import ShapeOrNullShapeOrNull
-from petstore_api.components.schema.shape_shape import ShapeShape

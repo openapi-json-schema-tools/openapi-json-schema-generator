@@ -116,4 +116,4 @@ class AbstractStepMessage(
             **kwargs,
         )
 
-from petstore_api.components.schema.abstract_step_message import AbstractStepMessage
+AbstractStepMessage

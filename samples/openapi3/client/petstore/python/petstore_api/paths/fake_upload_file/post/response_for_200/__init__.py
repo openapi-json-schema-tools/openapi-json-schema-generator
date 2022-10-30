@@ -15,8 +15,6 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.api_response_api_response import ApiResponseApiResponse
-
 # body schemas
 application_json = api_response.ApiResponse
 

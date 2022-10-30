@@ -67,6 +67,3 @@ class NullableShape(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.quadrilateral_quadrilateral import QuadrilateralQuadrilateral
-from petstore_api.components.schema.triangle_triangle import TriangleTriangle

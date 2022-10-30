@@ -113,5 +113,3 @@ class Dog(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema.animal_animal import AnimalAnimal

@@ -41,8 +41,8 @@ class ShapeOrNull(
         def discriminator():
             return {
                 'shapeType': {
-                    'Quadrilateral': Quadrilateral,
-                    'Triangle': Triangle,
+                    'Quadrilateral': quadrilateral.Quadrilateral,
+                    'Triangle': triangle.Triangle,
                 }
             }
         one_of_0 = schemas.NoneSchema
@@ -77,7 +77,5 @@ class ShapeOrNull(
             **kwargs,
         )
 
-from petstore_api.components.schema.quadrilateral import Quadrilateral
-from petstore_api.components.schema.quadrilateral_quadrilateral import QuadrilateralQuadrilateral
-from petstore_api.components.schema.triangle import Triangle
-from petstore_api.components.schema.triangle_triangle import TriangleTriangle
+quadrilateral.Quadrilateral
+triangle.Triangle
