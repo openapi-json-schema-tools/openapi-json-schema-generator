@@ -132,3 +132,6 @@ class ComposedOneOfDifferentTypes(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import animal
+from petstore_api.components.schema import number_with_validations

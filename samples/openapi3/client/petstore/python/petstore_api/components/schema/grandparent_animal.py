@@ -90,3 +90,6 @@ class GrandparentAnimal(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import child_cat
+from petstore_api.components.schema import parent_pet

@@ -15,6 +15,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
+from petstore_api.components.schema import number_with_validations
+
 # body schemas
 application_json = number_with_validations.NumberWithValidations
 

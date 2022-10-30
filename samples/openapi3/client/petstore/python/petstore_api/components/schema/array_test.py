@@ -209,3 +209,5 @@ class ArrayTest(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import read_only_first

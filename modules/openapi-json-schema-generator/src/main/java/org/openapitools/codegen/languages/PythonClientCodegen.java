@@ -902,7 +902,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String[] modelNames = imports.toArray(new String[0]);
         imports.clear();
         for (String modelName : modelNames) {
-            imports.add(toModelImport(modelName));
+            if (needToImport(modelName)) {
+                imports.add(toModelImport(modelName));
+            }
         }
     }
 
@@ -956,13 +958,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
-                String[] importModelNames = cm.imports.toArray(new String[0]);
-                cm.imports.clear();
-                for (String importModelName : importModelNames) {
-                    if (needToImport(importModelName)) {
-                        cm.imports.add( toModelImport(importModelName));
-                    }
+                if (cm.imports == null || cm.imports.size() == 0) {
+                    continue;
                 }
+                fixSchemaImports(cm.imports);
             }
         }
         boolean testFolderSet = testFolder != null;
@@ -2661,7 +2660,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     protected boolean needToImport(String refClass) {
-        boolean containsPeriod = refClass.contains("\\.");
+        boolean containsPeriod = refClass.contains(".");
         if (containsPeriod) {
             return true;
         }

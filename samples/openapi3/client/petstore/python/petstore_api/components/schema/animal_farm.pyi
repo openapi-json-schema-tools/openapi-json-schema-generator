@@ -52,3 +52,5 @@ class AnimalFarm(
 
     def __getitem__(self, i: int) -> 'animal.Animal':
         return super().__getitem__(i)
+
+from petstore_api.components.schema import animal

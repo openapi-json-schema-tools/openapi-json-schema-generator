@@ -74,3 +74,7 @@ class Triangle(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import equilateral_triangle
+from petstore_api.components.schema import isosceles_triangle
+from petstore_api.components.schema import scalene_triangle

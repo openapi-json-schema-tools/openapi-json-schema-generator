@@ -86,3 +86,7 @@ class JSONPatchRequest(
 
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
+
+from petstore_api.components.schema import json_patch_request_add_replace_test
+from petstore_api.components.schema import json_patch_request_move_copy
+from petstore_api.components.schema import json_patch_request_remove

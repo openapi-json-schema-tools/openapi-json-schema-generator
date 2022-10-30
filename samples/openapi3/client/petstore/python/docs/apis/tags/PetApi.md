@@ -28,6 +28,7 @@ Add a new pet to the store
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
+from petstore_api.components.schema import pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -827,6 +828,7 @@ Update an existing pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
+from petstore_api.components.schema import pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.

@@ -100,3 +100,6 @@ class Animal(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import cat
+from petstore_api.components.schema import dog

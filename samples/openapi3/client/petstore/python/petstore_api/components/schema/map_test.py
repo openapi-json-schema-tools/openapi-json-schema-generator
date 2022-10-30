@@ -241,3 +241,5 @@ class MapTest(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import string_boolean_map
