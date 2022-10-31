@@ -2262,9 +2262,9 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     body = object_model_with_ref_props.ObjectModelWithRefProps(
-        my_number=10,
-        my_string="my_string_example",
-        my_boolean=True,
+        my_number=number_with_validations.NumberWithValidations(10),
+        my_string=string.String("my_string_example"),
+        my_boolean=boolean.Boolean(True),
     )
     try:
         api_response = api_instance.object_model_with_ref_props(

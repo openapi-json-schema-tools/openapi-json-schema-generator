@@ -2286,11 +2286,11 @@ components:
       type: object
       properties:
         myNumber:
-          $ref: '#/definitions/NumberWithValidations'
+          $ref: '#/components/schemas/NumberWithValidations'
         myString:
-          $ref: '#/definitions/String'
+          $ref: '#/components/schemas/String'
         myBoolean:
-          $ref: '#/definitions/Boolean'
+          $ref: '#/components/schemas/Boolean'
     NumberWithValidations:
       type: number
       minimum: 10

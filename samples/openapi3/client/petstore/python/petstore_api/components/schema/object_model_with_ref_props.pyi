@@ -38,9 +38,18 @@ class ObjectModelWithRefProps(
     class MetaOapg:
         
         class properties:
-            myNumber = schemas.Schema
-            myString = schemas.Schema
-            myBoolean = schemas.Schema
+        
+            @staticmethod
+            def myNumber() -> typing.Type['number_with_validations.NumberWithValidations']:
+                return number_with_validations.NumberWithValidations
+        
+            @staticmethod
+            def myString() -> typing.Type['string.String']:
+                return string.String
+        
+            @staticmethod
+            def myBoolean() -> typing.Type['boolean.Boolean']:
+                return boolean.Boolean
             __annotations__ = {
                 "myNumber": myNumber,
                 "myString": myString,
@@ -48,13 +57,13 @@ class ObjectModelWithRefProps(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> MetaOapg.properties.myNumber: ...
+    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'number_with_validations.NumberWithValidations': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> MetaOapg.properties.myString: ...
+    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'string.String': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> MetaOapg.properties.myBoolean: ...
+    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'boolean.Boolean': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -65,13 +74,13 @@ class ObjectModelWithRefProps(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union[MetaOapg.properties.myNumber, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['number_with_validations.NumberWithValidations', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union[MetaOapg.properties.myString, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union['string.String', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union[MetaOapg.properties.myBoolean, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['boolean.Boolean', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -83,9 +92,9 @@ class ObjectModelWithRefProps(
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        myNumber: typing.Union[MetaOapg.properties.myNumber, schemas.Unset] = schemas.unset,
-        myString: typing.Union[MetaOapg.properties.myString, schemas.Unset] = schemas.unset,
-        myBoolean: typing.Union[MetaOapg.properties.myBoolean, schemas.Unset] = schemas.unset,
+        myNumber: typing.Union['number_with_validations.NumberWithValidations', schemas.Unset] = schemas.unset,
+        myString: typing.Union['string.String', schemas.Unset] = schemas.unset,
+        myBoolean: typing.Union['boolean.Boolean', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectModelWithRefProps':
@@ -98,3 +107,7 @@ class ObjectModelWithRefProps(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import boolean
+from petstore_api.components.schema import number_with_validations
+from petstore_api.components.schema import string
