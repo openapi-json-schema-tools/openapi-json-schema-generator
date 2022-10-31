@@ -14,7 +14,7 @@ import org.openapitools.codegen.meta.FeatureSet;
 import org.openapitools.codegen.meta.features.SchemaSupportFeature;
 import org.openapitools.codegen.utils.ModelUtils;
 
-public interface IJsonSchemaValidationProperties {
+public interface JsonSchema {
     CodegenProperty getContains();
 
     void setContains(CodegenProperty contains);
@@ -216,7 +216,7 @@ public interface IJsonSchemaValidationProperties {
     String getFormat();
 
     /**
-     * Syncs all the schema's type properties into the IJsonSchemaValidationProperties instance
+     * Syncs all the schema's type properties into the JsonSchema instance
      * for now this only supports types without format information
      * TODO: in the future move the format handling in here too
      * @param p the schema which contains the type info

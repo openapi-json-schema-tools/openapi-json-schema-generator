@@ -19,7 +19,7 @@ package org.openapitools.codegen;
 
 import java.util.*;
 
-public class CodegenResponse implements IJsonSchemaValidationProperties {
+public class CodegenResponse implements JsonSchema {
     public final List<CodegenProperty> headers = new ArrayList<CodegenProperty>();
     private List<CodegenParameter> responseHeaders = new ArrayList<CodegenParameter>();
     public String code;
