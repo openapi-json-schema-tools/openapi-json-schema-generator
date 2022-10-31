@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_complex_types_anyof_complex_types import AnyofComplexTypesAnyofComplexTypes
+from unit_test_api.components.schema import anyof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -39,7 +39,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofComplexTypes(None)
+    body = anyof_complex_types.AnyofComplexTypes(None)
     try:
         api_response = api_instance.post_anyof_complex_types_request_body(
             body=body,
@@ -151,7 +151,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_anyof import AnyofAnyof
+from unit_test_api.components.schema import anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -165,7 +165,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Anyof(None)
+    body = anyof.Anyof(None)
     try:
         api_response = api_instance.post_anyof_request_body(
             body=body,
@@ -277,7 +277,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_with_base_schema_anyof_with_base_schema import AnyofWithBaseSchemaAnyofWithBaseSchema
+from unit_test_api.components.schema import anyof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -291,7 +291,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithBaseSchema("parameter_body_example")
+    body = anyof_with_base_schema.AnyofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_anyof_with_base_schema_request_body(
             body=body,
@@ -403,7 +403,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_with_one_empty_schema_anyof_with_one_empty_schema import AnyofWithOneEmptySchemaAnyofWithOneEmptySchema
+from unit_test_api.components.schema import anyof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -417,7 +417,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithOneEmptySchema(None)
+    body = anyof_with_one_empty_schema.AnyofWithOneEmptySchema(None)
     try:
         api_response = api_instance.post_anyof_with_one_empty_schema_request_body(
             body=body,
@@ -529,7 +529,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics_nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemanticsNestedAnyofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_anyof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -543,7 +543,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedAnyofToCheckValidationSemantics(None)
+    body = nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_anyof_to_check_validation_semantics_request_body(
             body=body,

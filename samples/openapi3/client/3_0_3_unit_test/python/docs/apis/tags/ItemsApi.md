@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import items_api
-from unit_test_api.components.schema.nested_items_nested_items import NestedItemsNestedItems
+from unit_test_api.components.schema import nested_items
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -31,7 +31,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = items_api.ItemsApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedItems([
+    body = nested_items.NestedItems([
         [
             [
                 [

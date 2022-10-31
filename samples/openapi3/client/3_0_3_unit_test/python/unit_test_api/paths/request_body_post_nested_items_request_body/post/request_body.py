@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.nested_items_nested_items import NestedItemsNestedItems
+from unit_test_api.components.schema import nested_items
 
 
 application_json = nested_items.NestedItems

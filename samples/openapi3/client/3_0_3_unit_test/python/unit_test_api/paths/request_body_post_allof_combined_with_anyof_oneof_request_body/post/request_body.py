@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.allof_combined_with_anyof_oneof_allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneofAllofCombinedWithAnyofOneof
+from unit_test_api.components.schema import allof_combined_with_anyof_oneof
 
 
 application_json = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof

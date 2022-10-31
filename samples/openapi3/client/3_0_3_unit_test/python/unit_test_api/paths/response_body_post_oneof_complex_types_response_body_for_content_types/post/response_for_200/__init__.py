@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.oneof_complex_types_oneof_complex_types import OneofComplexTypesOneofComplexTypes
+from unit_test_api.components.schema import oneof_complex_types
 
 # body schemas
 application_json = oneof_complex_types.OneofComplexTypes

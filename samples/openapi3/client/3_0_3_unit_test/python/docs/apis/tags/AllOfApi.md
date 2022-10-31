@@ -33,7 +33,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_combined_with_anyof_oneof_allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneofAllofCombinedWithAnyofOneof
+from unit_test_api.components.schema import allof_combined_with_anyof_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -47,7 +47,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofCombinedWithAnyofOneof(None)
+    body = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof(None)
     try:
         api_response = api_instance.post_allof_combined_with_anyof_oneof_request_body(
             body=body,
@@ -159,7 +159,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_allof import AllofAllof
+from unit_test_api.components.schema import allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -173,7 +173,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Allof(None)
+    body = allof.Allof(None)
     try:
         api_response = api_instance.post_allof_request_body(
             body=body,
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_simple_types_allof_simple_types import AllofSimpleTypesAllofSimpleTypes
+from unit_test_api.components.schema import allof_simple_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -299,7 +299,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofSimpleTypes(None)
+    body = allof_simple_types.AllofSimpleTypes(None)
     try:
         api_response = api_instance.post_allof_simple_types_request_body(
             body=body,
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_with_base_schema_allof_with_base_schema import AllofWithBaseSchemaAllofWithBaseSchema
+from unit_test_api.components.schema import allof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -425,7 +425,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithBaseSchema({})
+    body = allof_with_base_schema.AllofWithBaseSchema({})
     try:
         api_response = api_instance.post_allof_with_base_schema_request_body(
             body=body,
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_with_one_empty_schema_allof_with_one_empty_schema import AllofWithOneEmptySchemaAllofWithOneEmptySchema
+from unit_test_api.components.schema import allof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -551,7 +551,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithOneEmptySchema(None)
+    body = allof_with_one_empty_schema.AllofWithOneEmptySchema(None)
     try:
         api_response = api_instance.post_allof_with_one_empty_schema_request_body(
             body=body,
@@ -663,7 +663,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_with_the_first_empty_schema_allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchemaAllofWithTheFirstEmptySchema
+from unit_test_api.components.schema import allof_with_the_first_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -677,7 +677,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithTheFirstEmptySchema(None)
+    body = allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema(None)
     try:
         api_response = api_instance.post_allof_with_the_first_empty_schema_request_body(
             body=body,
@@ -789,7 +789,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_with_the_last_empty_schema_allof_with_the_last_empty_schema import AllofWithTheLastEmptySchemaAllofWithTheLastEmptySchema
+from unit_test_api.components.schema import allof_with_the_last_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -803,7 +803,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithTheLastEmptySchema(None)
+    body = allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema(None)
     try:
         api_response = api_instance.post_allof_with_the_last_empty_schema_request_body(
             body=body,
@@ -915,7 +915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.allof_with_two_empty_schemas_allof_with_two_empty_schemas import AllofWithTwoEmptySchemasAllofWithTwoEmptySchemas
+from unit_test_api.components.schema import allof_with_two_empty_schemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -929,7 +929,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithTwoEmptySchemas(None)
+    body = allof_with_two_empty_schemas.AllofWithTwoEmptySchemas(None)
     try:
         api_response = api_instance.post_allof_with_two_empty_schemas_request_body(
             body=body,
@@ -1041,7 +1041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema.nested_allof_to_check_validation_semantics_nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemanticsNestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_allof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1055,7 +1055,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = all_of_api.AllOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedAllofToCheckValidationSemantics(None)
+    body = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_allof_to_check_validation_semantics_request_body(
             body=body,

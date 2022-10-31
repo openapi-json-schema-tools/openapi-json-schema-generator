@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema import minimum_validation_with_signed_integer
 
 # body schemas
-application_json = MinimumValidationWithSignedInteger
+application_json = minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger
 
 
 @dataclasses.dataclass

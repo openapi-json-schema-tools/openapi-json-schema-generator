@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate_additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidateAdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema import additionalproperties_allows_a_schema_which_should_validate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -37,7 +37,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesAllowsASchemaWhichShouldValidate(
+    body = additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate(
         foo=None,
         bar=None,
     )
@@ -152,7 +152,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_are_allowed_by_default_additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefaultAdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema import additionalproperties_are_allowed_by_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,7 +166,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesAreAllowedByDefault(None)
+    body = additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault(None)
     try:
         api_response = api_instance.post_additionalproperties_are_allowed_by_default_request_body(
             body=body,
@@ -278,7 +278,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_can_exist_by_itself_additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItselfAdditionalpropertiesCanExistByItself
+from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -292,7 +292,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesCanExistByItself(
+    body = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself(
         key=True,
     )
     try:
@@ -406,7 +406,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_should_not_look_in_applicators_additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicatorsAdditionalpropertiesShouldNotLookInApplicators
+from unit_test_api.components.schema import additionalproperties_should_not_look_in_applicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -420,7 +420,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesShouldNotLookInApplicators(None)
+    body = additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators(None)
     try:
         api_response = api_instance.post_additionalproperties_should_not_look_in_applicators_request_body(
             body=body,

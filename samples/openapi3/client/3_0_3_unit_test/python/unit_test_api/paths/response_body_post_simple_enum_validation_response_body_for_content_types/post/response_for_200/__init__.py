@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.simple_enum_validation_simple_enum_validation import SimpleEnumValidationSimpleEnumValidation
+from unit_test_api.components.schema import simple_enum_validation
 
 # body schemas
 application_json = simple_enum_validation.SimpleEnumValidation

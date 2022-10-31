@@ -81,4 +81,4 @@ class RefInProperty(
             **kwargs,
         )
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference_property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReferencePropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

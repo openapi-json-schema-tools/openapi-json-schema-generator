@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.anyof_with_base_schema_anyof_with_base_schema import AnyofWithBaseSchemaAnyofWithBaseSchema
+from unit_test_api.components.schema import anyof_with_base_schema
 
 
 application_json = anyof_with_base_schema.AnyofWithBaseSchema

@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enum_with0_does_not_match_false_enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalseEnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema import enum_with0_does_not_match_false
 
 # body schemas
 application_json = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse

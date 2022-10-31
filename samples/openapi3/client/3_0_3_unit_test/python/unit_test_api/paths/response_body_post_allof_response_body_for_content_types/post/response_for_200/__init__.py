@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.allof_allof import AllofAllof
+from unit_test_api.components.schema import allof
 
 # body schemas
 application_json = allof.Allof

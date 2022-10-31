@@ -27,7 +27,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics_nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemanticsNestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_oneof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -41,7 +41,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedOneofToCheckValidationSemantics(None)
+    body = nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_oneof_to_check_validation_semantics_request_body(
             body=body,
@@ -153,7 +153,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_complex_types_oneof_complex_types import OneofComplexTypesOneofComplexTypes
+from unit_test_api.components.schema import oneof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,7 +167,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofComplexTypes(None)
+    body = oneof_complex_types.OneofComplexTypes(None)
     try:
         api_response = api_instance.post_oneof_complex_types_request_body(
             body=body,
@@ -279,7 +279,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_oneof import OneofOneof
+from unit_test_api.components.schema import oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -293,7 +293,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Oneof(None)
+    body = oneof.Oneof(None)
     try:
         api_response = api_instance.post_oneof_request_body(
             body=body,
@@ -405,7 +405,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_with_base_schema_oneof_with_base_schema import OneofWithBaseSchemaOneofWithBaseSchema
+from unit_test_api.components.schema import oneof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -419,7 +419,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithBaseSchema("parameter_body_example")
+    body = oneof_with_base_schema.OneofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_oneof_with_base_schema_request_body(
             body=body,
@@ -531,7 +531,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_with_empty_schema_oneof_with_empty_schema import OneofWithEmptySchemaOneofWithEmptySchema
+from unit_test_api.components.schema import oneof_with_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -545,7 +545,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithEmptySchema(None)
+    body = oneof_with_empty_schema.OneofWithEmptySchema(None)
     try:
         api_response = api_instance.post_oneof_with_empty_schema_request_body(
             body=body,
@@ -657,7 +657,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema.oneof_with_required_oneof_with_required import OneofWithRequiredOneofWithRequired
+from unit_test_api.components.schema import oneof_with_required
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -671,7 +671,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = one_of_api.OneOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithRequired()
+    body = oneof_with_required.OneofWithRequired()
     try:
         api_response = api_instance.post_oneof_with_required_request_body(
             body=body,

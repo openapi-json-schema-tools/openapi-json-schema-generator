@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.oneof_with_required_oneof_with_required import OneofWithRequiredOneofWithRequired
+from unit_test_api.components.schema import oneof_with_required
 
 # body schemas
 application_json = oneof_with_required.OneofWithRequired

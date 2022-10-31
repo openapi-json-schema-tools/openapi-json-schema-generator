@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.additionalproperties_are_allowed_by_default_additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefaultAdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema import additionalproperties_are_allowed_by_default
 
 
 application_json = additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault

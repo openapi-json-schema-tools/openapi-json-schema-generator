@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.minlength_validation import MinlengthValidation
+from unit_test_api.components.schema import minlength_validation
 
 
-application_json = MinlengthValidation
+application_json = minlength_validation.MinlengthValidation
 
 parameter_oapg = api_client.RequestBody(
     content={
