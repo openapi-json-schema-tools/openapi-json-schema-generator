@@ -2067,27 +2067,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void objectQueryParamIdentifyAsObject() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/objectQueryParam.yaml");
-        new InlineModelResolver().flatten(openAPI);
-        final DefaultCodegen codegen = new DefaultCodegen();
-        codegen.setOpenAPI(openAPI);
-
-        Set<String> imports = new HashSet<>();
-        CodegenParameter parameter = codegen.fromParameter(
-                openAPI.getPaths().get("/pony").getGet().getParameters().get(0), imports, "0");
-
-        // TODO: This must be updated to work with flattened inline models
-        Assert.assertEquals(parameter.dataType, "ListPageQueryParameter");
-        Assert.assertEquals(imports.size(), 1);
-        Assert.assertEquals(imports.iterator().next(), "ListPageQueryParameter");
-
-        Assert.assertNotNull(parameter.getSchema());
-        Assert.assertEquals(parameter.getSchema().dataType, "Object");
-        Assert.assertEquals(parameter.getSchema().baseType, "object");
-    }
-
-    @Test
     public void mapParamImportInnerObject() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/mapArgs.yaml");
         final DefaultCodegen codegen = new DefaultCodegen();
