@@ -54,9 +54,9 @@ class JSONPatchRequest(
                     # classes don't exist yet because their module has not finished
                     # loading
                     return [
-                        JSONPatchRequestAddReplaceTest,
-                        JSONPatchRequestRemove,
-                        JSONPatchRequestMoveCopy,
+                        json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest,
+                        json_patch_request_remove.JSONPatchRequestRemove,
+                        json_patch_request_move_copy.JSONPatchRequestMoveCopy,
                     ]
         
         
@@ -87,6 +87,6 @@ class JSONPatchRequest(
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
-from petstore_api.components.schema.json_patch_request_add_replace_test import JSONPatchRequestAddReplaceTest
-from petstore_api.components.schema.json_patch_request_move_copy import JSONPatchRequestMoveCopy
-from petstore_api.components.schema.json_patch_request_remove import JSONPatchRequestRemove
+from petstore_api.components.schema import json_patch_request_add_replace_test
+from petstore_api.components.schema import json_patch_request_move_copy
+from petstore_api.components.schema import json_patch_request_remove

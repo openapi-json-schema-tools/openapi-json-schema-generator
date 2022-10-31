@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema import enum_with0_does_not_match_false
 
 
-application_json = EnumWith0DoesNotMatchFalse
+application_json = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse
 
 parameter_oapg = api_client.RequestBody(
     content={

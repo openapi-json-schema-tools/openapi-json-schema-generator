@@ -137,24 +137,24 @@ class EnumTest(
                     return cls(-1.2)
         
             @staticmethod
-            def stringEnum() -> typing.Type['StringEnum']:
-                return StringEnum
+            def stringEnum() -> typing.Type['string_enum.StringEnum']:
+                return string_enum.StringEnum
         
             @staticmethod
-            def IntegerEnum() -> typing.Type['IntegerEnum']:
-                return IntegerEnum
+            def IntegerEnum() -> typing.Type['integer_enum.IntegerEnum']:
+                return integer_enum.IntegerEnum
         
             @staticmethod
-            def StringEnumWithDefaultValue() -> typing.Type['StringEnumWithDefaultValue']:
-                return StringEnumWithDefaultValue
+            def StringEnumWithDefaultValue() -> typing.Type['string_enum_with_default_value.StringEnumWithDefaultValue']:
+                return string_enum_with_default_value.StringEnumWithDefaultValue
         
             @staticmethod
-            def IntegerEnumWithDefaultValue() -> typing.Type['IntegerEnumWithDefaultValue']:
-                return IntegerEnumWithDefaultValue
+            def IntegerEnumWithDefaultValue() -> typing.Type['integer_enum_with_default_value.IntegerEnumWithDefaultValue']:
+                return integer_enum_with_default_value.IntegerEnumWithDefaultValue
         
             @staticmethod
-            def IntegerEnumOneValue() -> typing.Type['IntegerEnumOneValue']:
-                return IntegerEnumOneValue
+            def IntegerEnumOneValue() -> typing.Type['integer_enum_one_value.IntegerEnumOneValue']:
+                return integer_enum_one_value.IntegerEnumOneValue
             __annotations__ = {
                 "enum_string_required": enum_string_required,
                 "enum_string": enum_string,
@@ -182,19 +182,19 @@ class EnumTest(
     def __getitem__(self, name: typing_extensions.Literal["enum_number"]) -> MetaOapg.properties.enum_number: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["stringEnum"]) -> 'StringEnum': ...
+    def __getitem__(self, name: typing_extensions.Literal["stringEnum"]) -> 'string_enum.StringEnum': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["IntegerEnum"]) -> 'IntegerEnum': ...
+    def __getitem__(self, name: typing_extensions.Literal["IntegerEnum"]) -> 'integer_enum.IntegerEnum': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> 'StringEnumWithDefaultValue': ...
+    def __getitem__(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> 'string_enum_with_default_value.StringEnumWithDefaultValue': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> 'IntegerEnumWithDefaultValue': ...
+    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> 'integer_enum_with_default_value.IntegerEnumWithDefaultValue': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> 'IntegerEnumOneValue': ...
+    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> 'integer_enum_one_value.IntegerEnumOneValue': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -217,19 +217,19 @@ class EnumTest(
     def get_item_oapg(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[MetaOapg.properties.enum_number, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union['StringEnum', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union['string_enum.StringEnum', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing.Union['IntegerEnum', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing.Union['integer_enum.IntegerEnum', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing.Union['StringEnumWithDefaultValue', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing.Union['string_enum_with_default_value.StringEnumWithDefaultValue', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing.Union['IntegerEnumWithDefaultValue', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing.Union['integer_enum_with_default_value.IntegerEnumWithDefaultValue', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing.Union['IntegerEnumOneValue', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing.Union['integer_enum_one_value.IntegerEnumOneValue', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -245,11 +245,11 @@ class EnumTest(
         enum_string: typing.Union[MetaOapg.properties.enum_string, str, schemas.Unset] = schemas.unset,
         enum_integer: typing.Union[MetaOapg.properties.enum_integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         enum_number: typing.Union[MetaOapg.properties.enum_number, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        stringEnum: typing.Union['StringEnum', schemas.Unset] = schemas.unset,
-        IntegerEnum: typing.Union['IntegerEnum', schemas.Unset] = schemas.unset,
-        StringEnumWithDefaultValue: typing.Union['StringEnumWithDefaultValue', schemas.Unset] = schemas.unset,
-        IntegerEnumWithDefaultValue: typing.Union['IntegerEnumWithDefaultValue', schemas.Unset] = schemas.unset,
-        IntegerEnumOneValue: typing.Union['IntegerEnumOneValue', schemas.Unset] = schemas.unset,
+        stringEnum: typing.Union['string_enum.StringEnum', schemas.Unset] = schemas.unset,
+        IntegerEnum: typing.Union['integer_enum.IntegerEnum', schemas.Unset] = schemas.unset,
+        StringEnumWithDefaultValue: typing.Union['string_enum_with_default_value.StringEnumWithDefaultValue', schemas.Unset] = schemas.unset,
+        IntegerEnumWithDefaultValue: typing.Union['integer_enum_with_default_value.IntegerEnumWithDefaultValue', schemas.Unset] = schemas.unset,
+        IntegerEnumOneValue: typing.Union['integer_enum_one_value.IntegerEnumOneValue', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'EnumTest':
@@ -269,8 +269,8 @@ class EnumTest(
             **kwargs,
         )
 
-from petstore_api.components.schema.integer_enum import IntegerEnum
-from petstore_api.components.schema.integer_enum_one_value import IntegerEnumOneValue
-from petstore_api.components.schema.integer_enum_with_default_value import IntegerEnumWithDefaultValue
-from petstore_api.components.schema.string_enum import StringEnum
-from petstore_api.components.schema.string_enum_with_default_value import StringEnumWithDefaultValue
+from petstore_api.components.schema import integer_enum
+from petstore_api.components.schema import integer_enum_one_value
+from petstore_api.components.schema import integer_enum_with_default_value
+from petstore_api.components.schema import string_enum
+from petstore_api.components.schema import string_enum_with_default_value

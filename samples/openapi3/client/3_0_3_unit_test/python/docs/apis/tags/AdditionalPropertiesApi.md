@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema import additionalproperties_allows_a_schema_which_should_validate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -37,7 +37,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesAllowsASchemaWhichShouldValidate(
+    body = additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate(
         foo=None,
         bar=None,
     )
@@ -63,7 +63,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
+[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
 
 
 ### Return Types, Responses
@@ -134,7 +134,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_allows_a_schema_which_should_validate_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
+[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
 
 
 ### Authorization
@@ -152,7 +152,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema import additionalproperties_are_allowed_by_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,7 +166,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesAreAllowedByDefault(None)
+    body = additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault(None)
     try:
         api_response = api_instance.post_additionalproperties_are_allowed_by_default_request_body(
             body=body,
@@ -189,7 +189,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_are_allowed_by_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/AdditionalpropertiesAreAllowedByDefault.md) |  | 
+[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -260,7 +260,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_are_allowed_by_default_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/AdditionalpropertiesAreAllowedByDefault.md) |  | 
+[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.md) |  | 
 
 
 ### Authorization
@@ -278,7 +278,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
+from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -292,7 +292,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesCanExistByItself(
+    body = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself(
         key=True,
     )
     try:
@@ -317,7 +317,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_can_exist_by_itself_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../components/schema/AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../components/schema/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Return Types, Responses
@@ -388,7 +388,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_can_exist_by_itself_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../components/schema/AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../components/schema/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Authorization
@@ -406,7 +406,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
+from unit_test_api.components.schema import additionalproperties_should_not_look_in_applicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -420,7 +420,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = additional_properties_api.AdditionalPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesShouldNotLookInApplicators(None)
+    body = additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators(None)
     try:
         api_response = api_instance.post_additionalproperties_should_not_look_in_applicators_request_body(
             body=body,
@@ -443,7 +443,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_should_not_look_in_applicators_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
+[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
 
 
 ### Return Types, Responses
@@ -514,7 +514,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_should_not_look_in_applicators_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
+[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
 
 
 ### Authorization

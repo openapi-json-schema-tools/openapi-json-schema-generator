@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema import enums_in_properties
 
 # body schemas
-application_json = EnumsInProperties
+application_json = enums_in_properties.EnumsInProperties
 
 
 @dataclasses.dataclass

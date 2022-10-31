@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.invalid_string_value_for_default import InvalidStringValueForDefault
+from unit_test_api.components.schema import invalid_string_value_for_default
 
 
-application_json = InvalidStringValueForDefault
+application_json = invalid_string_value_for_default.InvalidStringValueForDefault
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.client import Client
+from petstore_api.components.schema import client
 
 # body schemas
-application_json = Client
+application_json = client.Client
 
 
 @dataclasses.dataclass

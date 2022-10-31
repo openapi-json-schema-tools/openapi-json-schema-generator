@@ -52,8 +52,8 @@ class Fruit(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                Apple,
-                Banana,
+                apple.Apple,
+                banana.Banana,
             ]
 
     
@@ -93,5 +93,5 @@ class Fruit(
             **kwargs,
         )
 
-from petstore_api.components.schema.apple import Apple
-from petstore_api.components.schema.banana import Banana
+from petstore_api.components.schema import apple
+from petstore_api.components.schema import banana

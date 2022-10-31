@@ -39,10 +39,10 @@ class Operator(
         def discriminator():
             return {
                 'operator_id': {
-                    'ADD': AdditionOperator,
-                    'AdditionOperator': AdditionOperator,
-                    'SUB': SubtractionOperator,
-                    'SubtractionOperator': SubtractionOperator,
+                    'ADD': addition_operator.AdditionOperator,
+                    'AdditionOperator': addition_operator.AdditionOperator,
+                    'SUB': subtraction_operator.SubtractionOperator,
+                    'SubtractionOperator': subtraction_operator.SubtractionOperator,
                 }
             }
         
@@ -57,8 +57,8 @@ class Operator(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                AdditionOperator,
-                SubtractionOperator,
+                addition_operator.AdditionOperator,
+                subtraction_operator.SubtractionOperator,
             ]
 
 
@@ -75,5 +75,5 @@ class Operator(
             **kwargs,
         )
 
-from this_package.components.schema.addition_operator import AdditionOperator
-from this_package.components.schema.subtraction_operator import SubtractionOperator
+from this_package.components.schema import addition_operator
+from this_package.components.schema import subtraction_operator

@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema import required_default_validation
 
 # body schemas
-application_json = RequiredDefaultValidation
+application_json = required_default_validation.RequiredDefaultValidation
 
 
 @dataclasses.dataclass

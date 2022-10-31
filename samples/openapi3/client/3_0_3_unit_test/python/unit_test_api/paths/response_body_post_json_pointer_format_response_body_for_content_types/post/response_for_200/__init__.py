@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
+from unit_test_api.components.schema import json_pointer_format
 
 # body schemas
-application_json = JsonPointerFormat
+application_json = json_pointer_format.JsonPointerFormat
 
 
 @dataclasses.dataclass

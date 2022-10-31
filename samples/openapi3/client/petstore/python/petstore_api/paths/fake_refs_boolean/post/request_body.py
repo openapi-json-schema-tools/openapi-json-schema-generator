@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.boolean import Boolean
+from petstore_api.components.schema import boolean
 
 
-application_json = Boolean
+application_json = boolean.Boolean
 
 parameter_oapg = api_client.RequestBody(
     content={

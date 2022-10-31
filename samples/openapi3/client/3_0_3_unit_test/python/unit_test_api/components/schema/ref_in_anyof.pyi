@@ -46,7 +46,7 @@ class RefInAnyof(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                PropertyNamedRefThatIsNotAReference,
+                property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference,
             ]
 
 
@@ -63,4 +63,4 @@ class RefInAnyof(
             **kwargs,
         )
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import minimum_api
-from unit_test_api.components.schema.minimum_validation import MinimumValidation
+from unit_test_api.components.schema import minimum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,7 +33,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = minimum_api.MinimumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinimumValidation(None)
+    body = minimum_validation.MinimumValidation(None)
     try:
         api_response = api_instance.post_minimum_validation_request_body(
             body=body,
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minimum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../components/schema/MinimumValidation.md) |  | 
+[**MinimumValidation**](../../components/schema/minimum_validation.MinimumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minimum_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../components/schema/MinimumValidation.md) |  | 
+[**MinimumValidation**](../../components/schema/minimum_validation.MinimumValidation.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import minimum_api
-from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema import minimum_validation_with_signed_integer
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +159,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = minimum_api.MinimumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinimumValidationWithSignedInteger(None)
+    body = minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger(None)
     try:
         api_response = api_instance.post_minimum_validation_with_signed_integer_request_body(
             body=body,
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minimum_validation_with_signed_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../components/schema/MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minimum_validation_with_signed_integer_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../components/schema/MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Authorization

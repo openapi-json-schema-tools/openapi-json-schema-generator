@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema import number_type_matches_numbers
 
 # body schemas
-application_json = NumberTypeMatchesNumbers
+application_json = number_type_matches_numbers.NumberTypeMatchesNumbers
 
 
 @dataclasses.dataclass

@@ -29,7 +29,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema import array_type_matches_arrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -43,7 +43,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ArrayTypeMatchesArrays([
+    body = array_type_matches_arrays.ArrayTypeMatchesArrays([
         None
     ])
     try:
@@ -68,7 +68,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_array_type_matches_arrays_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/array_type_matches_arrays.ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Return Types, Responses
@@ -139,7 +139,7 @@ headers | Unset | headers were not defined |
 # <a id="post_array_type_matches_arrays_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/array_type_matches_arrays.ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Authorization
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema import boolean_type_matches_booleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,7 +171,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = BooleanTypeMatchesBooleans(True)
+    body = boolean_type_matches_booleans.BooleanTypeMatchesBooleans(True)
     try:
         api_response = api_instance.post_boolean_type_matches_booleans_request_body(
             body=body,
@@ -194,7 +194,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_boolean_type_matches_booleans_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Return Types, Responses
@@ -265,7 +265,7 @@ headers | Unset | headers were not defined |
 # <a id="post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Authorization
@@ -283,7 +283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema import integer_type_matches_integers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -297,7 +297,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = IntegerTypeMatchesIntegers(1)
+    body = integer_type_matches_integers.IntegerTypeMatchesIntegers(1)
     try:
         api_response = api_instance.post_integer_type_matches_integers_request_body(
             body=body,
@@ -320,7 +320,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_integer_type_matches_integers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/integer_type_matches_integers.IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Return Types, Responses
@@ -391,7 +391,7 @@ headers | Unset | headers were not defined |
 # <a id="post_integer_type_matches_integers_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/integer_type_matches_integers.IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Authorization
@@ -409,7 +409,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema import null_type_matches_only_the_null_object
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -423,7 +423,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NullTypeMatchesOnlyTheNullObject(None)
+    body = null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject(None)
     try:
         api_response = api_instance.post_null_type_matches_only_the_null_object_request_body(
             body=body,
@@ -446,7 +446,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_null_type_matches_only_the_null_object_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Return Types, Responses
@@ -517,7 +517,7 @@ headers | Unset | headers were not defined |
 # <a id="post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Authorization
@@ -535,7 +535,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema import number_type_matches_numbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -549,7 +549,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NumberTypeMatchesNumbers(3.14)
+    body = number_type_matches_numbers.NumberTypeMatchesNumbers(3.14)
     try:
         api_response = api_instance.post_number_type_matches_numbers_request_body(
             body=body,
@@ -572,7 +572,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_number_type_matches_numbers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/number_type_matches_numbers.NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Return Types, Responses
@@ -643,7 +643,7 @@ headers | Unset | headers were not defined |
 # <a id="post_number_type_matches_numbers_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/number_type_matches_numbers.NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Authorization
@@ -661,7 +661,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
+from unit_test_api.components.schema import object_type_matches_objects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -675,7 +675,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ObjectTypeMatchesObjects()
+    body = object_type_matches_objects.ObjectTypeMatchesObjects()
     try:
         api_response = api_instance.post_object_type_matches_objects_request_body(
             body=body,
@@ -698,7 +698,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_type_matches_objects_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Return Types, Responses
@@ -769,7 +769,7 @@ headers | Unset | headers were not defined |
 # <a id="post_object_type_matches_objects_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Authorization
@@ -787,7 +787,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
+from unit_test_api.components.schema import string_type_matches_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -801,7 +801,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = type_api.TypeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = StringTypeMatchesStrings("parameter_body_example")
+    body = string_type_matches_strings.StringTypeMatchesStrings("parameter_body_example")
     try:
         api_response = api_instance.post_string_type_matches_strings_request_body(
             body=body,
@@ -824,7 +824,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_string_type_matches_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/string_type_matches_strings.StringTypeMatchesStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -895,7 +895,7 @@ headers | Unset | headers were not defined |
 # <a id="post_string_type_matches_strings_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/string_type_matches_strings.StringTypeMatchesStrings.md) |  | 
 
 
 ### Authorization

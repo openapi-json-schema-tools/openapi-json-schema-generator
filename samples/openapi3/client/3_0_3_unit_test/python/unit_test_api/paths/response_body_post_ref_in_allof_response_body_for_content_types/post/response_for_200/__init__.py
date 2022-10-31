@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.ref_in_allof import RefInAllof
+from unit_test_api.components.schema import ref_in_allof
 
 # body schemas
-application_json = RefInAllof
+application_json = ref_in_allof.RefInAllof
 
 
 @dataclasses.dataclass

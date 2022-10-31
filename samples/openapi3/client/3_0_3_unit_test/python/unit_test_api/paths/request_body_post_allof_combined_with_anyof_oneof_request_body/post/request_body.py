@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
+from unit_test_api.components.schema import allof_combined_with_anyof_oneof
 
 
-application_json = AllofCombinedWithAnyofOneof
+application_json = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof
 
 parameter_oapg = api_client.RequestBody(
     content={

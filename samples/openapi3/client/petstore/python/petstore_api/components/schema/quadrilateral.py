@@ -39,8 +39,8 @@ class Quadrilateral(
         def discriminator():
             return {
                 'quadrilateralType': {
-                    'ComplexQuadrilateral': ComplexQuadrilateral,
-                    'SimpleQuadrilateral': SimpleQuadrilateral,
+                    'ComplexQuadrilateral': complex_quadrilateral.ComplexQuadrilateral,
+                    'SimpleQuadrilateral': simple_quadrilateral.SimpleQuadrilateral,
                 }
             }
         
@@ -55,8 +55,8 @@ class Quadrilateral(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                SimpleQuadrilateral,
-                ComplexQuadrilateral,
+                simple_quadrilateral.SimpleQuadrilateral,
+                complex_quadrilateral.ComplexQuadrilateral,
             ]
 
 
@@ -73,5 +73,5 @@ class Quadrilateral(
             **kwargs,
         )
 
-from petstore_api.components.schema.complex_quadrilateral import ComplexQuadrilateral
-from petstore_api.components.schema.simple_quadrilateral import SimpleQuadrilateral
+from petstore_api.components.schema import complex_quadrilateral
+from petstore_api.components.schema import simple_quadrilateral

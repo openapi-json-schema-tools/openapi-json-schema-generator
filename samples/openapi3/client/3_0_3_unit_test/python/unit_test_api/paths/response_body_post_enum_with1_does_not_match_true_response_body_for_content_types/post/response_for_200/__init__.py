@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
+from unit_test_api.components.schema import enum_with1_does_not_match_true
 
 # body schemas
-application_json = EnumWith1DoesNotMatchTrue
+application_json = enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue
 
 
 @dataclasses.dataclass

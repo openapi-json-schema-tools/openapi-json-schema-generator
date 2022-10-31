@@ -173,8 +173,8 @@ class MapTest(
                     )
         
             @staticmethod
-            def indirect_map() -> typing.Type['StringBooleanMap']:
-                return StringBooleanMap
+            def indirect_map() -> typing.Type['string_boolean_map.StringBooleanMap']:
+                return string_boolean_map.StringBooleanMap
             __annotations__ = {
                 "map_map_of_string": map_map_of_string,
                 "map_of_enum_string": map_of_enum_string,
@@ -192,7 +192,7 @@ class MapTest(
     def __getitem__(self, name: typing_extensions.Literal["direct_map"]) -> MetaOapg.properties.direct_map: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["indirect_map"]) -> 'StringBooleanMap': ...
+    def __getitem__(self, name: typing_extensions.Literal["indirect_map"]) -> 'string_boolean_map.StringBooleanMap': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -212,7 +212,7 @@ class MapTest(
     def get_item_oapg(self, name: typing_extensions.Literal["direct_map"]) -> typing.Union[MetaOapg.properties.direct_map, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["indirect_map"]) -> typing.Union['StringBooleanMap', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["indirect_map"]) -> typing.Union['string_boolean_map.StringBooleanMap', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -227,7 +227,7 @@ class MapTest(
         map_map_of_string: typing.Union[MetaOapg.properties.map_map_of_string, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         map_of_enum_string: typing.Union[MetaOapg.properties.map_of_enum_string, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         direct_map: typing.Union[MetaOapg.properties.direct_map, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        indirect_map: typing.Union['StringBooleanMap', schemas.Unset] = schemas.unset,
+        indirect_map: typing.Union['string_boolean_map.StringBooleanMap', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'MapTest':
@@ -242,4 +242,4 @@ class MapTest(
             **kwargs,
         )
 
-from petstore_api.components.schema.string_boolean_map import StringBooleanMap
+from petstore_api.components.schema import string_boolean_map

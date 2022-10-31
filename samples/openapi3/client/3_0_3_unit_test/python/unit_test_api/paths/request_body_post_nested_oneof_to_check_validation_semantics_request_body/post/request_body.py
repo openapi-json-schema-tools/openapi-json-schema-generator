@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_oneof_to_check_validation_semantics
 
 
-application_json = NestedOneofToCheckValidationSemantics
+application_json = nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -40,7 +40,7 @@ class ParentPet(
         def discriminator():
             return {
                 'pet_type': {
-                    'ChildCat': ChildCat,
+                    'ChildCat': child_cat.ChildCat,
                 }
             }
         
@@ -55,7 +55,7 @@ class ParentPet(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                GrandparentAnimal,
+                grandparent_animal.GrandparentAnimal,
             ]
 
 
@@ -72,5 +72,5 @@ class ParentPet(
             **kwargs,
         )
 
-from petstore_api.components.schema.child_cat import ChildCat
-from petstore_api.components.schema.grandparent_animal import GrandparentAnimal
+from petstore_api.components.schema import child_cat
+from petstore_api.components.schema import grandparent_animal

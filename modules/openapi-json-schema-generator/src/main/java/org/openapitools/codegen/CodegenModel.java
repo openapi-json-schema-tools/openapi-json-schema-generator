@@ -1214,7 +1214,8 @@ public class CodegenModel implements IJsonSchemaValidationProperties {
         }
         for (CodegenDiscriminator.MappedModel mm : discriminator.getMappedModels()) {
             if (!"".equals(mm.getModelName())) {
-                imports.add(mm.getModelName());
+                String complexType = mm.getModelName();
+                imports.add(complexType);
             }
         }
     }

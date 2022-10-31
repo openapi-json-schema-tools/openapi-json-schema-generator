@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema import integer_type_matches_integers
 
 
-application_json = IntegerTypeMatchesIntegers
+application_json = integer_type_matches_integers.IntegerTypeMatchesIntegers
 
 parameter_oapg = api_client.RequestBody(
     content={

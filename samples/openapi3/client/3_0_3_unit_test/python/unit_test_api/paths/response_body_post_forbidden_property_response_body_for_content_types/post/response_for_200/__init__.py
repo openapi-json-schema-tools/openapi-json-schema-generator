@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema import forbidden_property
 
 # body schemas
-application_json = ForbiddenProperty
+application_json = forbidden_property.ForbiddenProperty
 
 
 @dataclasses.dataclass
