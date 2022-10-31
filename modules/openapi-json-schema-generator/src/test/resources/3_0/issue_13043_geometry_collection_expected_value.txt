@@ -1,4 +1,4 @@
-GeometryCollection(
+geometry_collection.GeometryCollection(
         type="GeometryCollection",
         geometries=[],
     )

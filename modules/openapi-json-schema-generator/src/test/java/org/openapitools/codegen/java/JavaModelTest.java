@@ -989,7 +989,7 @@ public class JavaModelTest {
         final JavaClientCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
         codegen.setBooleanGetterPrefix("is");
-        final CodegenProperty cp = codegen.fromProperty("property", property, false, false);
+        final CodegenProperty cp = codegen.fromProperty("property", property, false, false, null);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.dataType, "Boolean");
@@ -1006,7 +1006,7 @@ public class JavaModelTest {
         final IntegerSchema property = new IntegerSchema();
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("property", property, false, false);
+        final CodegenProperty cp = codegen.fromProperty("property", property, false, false, null);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.dataType, "Integer");
@@ -1024,7 +1024,7 @@ public class JavaModelTest {
         final IntegerSchema property = new IntegerSchema().format("int64");
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("property", property, false, false);
+        final CodegenProperty cp = codegen.fromProperty("property", property, false, false, null);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.nameInCamelCase, "Property");
@@ -1105,7 +1105,7 @@ public class JavaModelTest {
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
         final CodegenProperty cp = codegen.fromProperty(
-                "somePropertyWithMinMaxAndPattern", property, false, false);
+                "somePropertyWithMinMaxAndPattern", property, false, false, null);
 
         Assert.assertEquals(cp.baseName, "somePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.nameInCamelCase, "SomePropertyWithMinMaxAndPattern");
