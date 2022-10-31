@@ -111,7 +111,7 @@ class EquilateralTriangle(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                TriangleInterface,
+                triangle_interface.TriangleInterface,
                 cls.all_of_1,
             ]
 
@@ -129,4 +129,4 @@ class EquilateralTriangle(
             **kwargs,
         )
 
-from petstore_api.components.schema.triangle_interface import TriangleInterface
+from petstore_api.components.schema import triangle_interface

@@ -96,7 +96,7 @@ class Dog(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                Animal,
+                animal.Animal,
                 cls.all_of_1,
             ]
 
@@ -114,4 +114,4 @@ class Dog(
             **kwargs,
         )
 
-from petstore_api.components.schema.animal import Animal
+from petstore_api.components.schema import animal

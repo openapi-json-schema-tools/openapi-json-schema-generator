@@ -36,21 +36,21 @@ class RefInAdditionalproperties(
     class MetaOapg:
         
         @staticmethod
-        def additional_properties() -> typing.Type['PropertyNamedRefThatIsNotAReference']:
-            return PropertyNamedRefThatIsNotAReference
+        def additional_properties() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+            return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
     
-    def __getitem__(self, name: typing.Union[str, ]) -> 'PropertyNamedRefThatIsNotAReference':
+    def __getitem__(self, name: typing.Union[str, ]) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: typing.Union[str, ]) -> 'PropertyNamedRefThatIsNotAReference':
+    def get_item_oapg(self, name: typing.Union[str, ]) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
         return super().get_item_oapg(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: 'PropertyNamedRefThatIsNotAReference',
+        **kwargs: 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference',
     ) -> 'RefInAdditionalproperties':
         return super().__new__(
             cls,
@@ -59,4 +59,4 @@ class RefInAdditionalproperties(
             **kwargs,
         )
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

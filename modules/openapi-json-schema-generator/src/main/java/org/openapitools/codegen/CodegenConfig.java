@@ -185,7 +185,7 @@ public interface CodegenConfig {
 
     String toModelDocFilename(String name);
 
-    String toModelImport(String name);
+    String toModelImport(String refClass);
 
     Map<String, String> toModelImportMap(String name);
 
@@ -330,4 +330,6 @@ public interface CodegenConfig {
     boolean getUseInlineModelResolver();
 
     boolean getAddSuffixToDuplicateOperationNicknames();
+
+    String toRefClass(String ref, String sourceJsonPath);
 }

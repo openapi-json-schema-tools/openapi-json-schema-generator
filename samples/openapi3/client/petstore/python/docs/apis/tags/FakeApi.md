@@ -49,7 +49,7 @@ Additional Properties with Array of Enums
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
+from petstore_api.components.schema import additional_properties_with_array_of_enums
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,9 +63,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = AdditionalPropertiesWithArrayOfEnums(
+    body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums(
         key=[
-            EnumClass("-efg")
+            enum_class.EnumClass("-efg")
         ],
     )
     try:
@@ -93,7 +93,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="additional_properties_with_array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -113,7 +113,7 @@ headers | Unset | headers were not defined |
 # <a id="additional_properties_with_array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Authorization
@@ -133,7 +133,7 @@ Test serialization of ArrayModel
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.animal_farm import AnimalFarm
+from petstore_api.components.schema import animal_farm
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -147,8 +147,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = AnimalFarm([
-        Animal()
+    body = animal_farm.AnimalFarm([
+        animal.Animal()
     ])
     try:
         api_response = api_instance.array_model(
@@ -174,7 +174,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="array_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../components/schema/AnimalFarm.md) |  | 
+[**AnimalFarm**](../../components/schema/animal_farm.AnimalFarm.md) |  | 
 
 
 ### Return Types, Responses
@@ -194,7 +194,7 @@ headers | Unset | headers were not defined |
 # <a id="array_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../components/schema/AnimalFarm.md) |  | 
+[**AnimalFarm**](../../components/schema/animal_farm.AnimalFarm.md) |  | 
 
 
 ### Authorization
@@ -213,7 +213,7 @@ Array of Enums
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.array_of_enums import ArrayOfEnums
+from petstore_api.components.schema import array_of_enums
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -227,8 +227,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ArrayOfEnums([
-        StringEnum("placed")
+    body = array_of_enums.ArrayOfEnums([
+        string_enum.StringEnum("placed")
     ])
     try:
         # Array of Enums
@@ -255,7 +255,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="array_of_enums.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayOfEnums**](../../components/schema/ArrayOfEnums.md) |  | 
+[**ArrayOfEnums**](../../components/schema/array_of_enums.ArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -275,7 +275,7 @@ headers | Unset | headers were not defined |
 # <a id="array_of_enums.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayOfEnums**](../../components/schema/ArrayOfEnums.md) |  | 
+[**ArrayOfEnums**](../../components/schema/array_of_enums.ArrayOfEnums.md) |  | 
 
 
 ### Authorization
@@ -295,7 +295,7 @@ For this test, the body for this request much reference a schema named `File`.
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.file_schema_test_class import FileSchemaTestClass
+from petstore_api.components.schema import file_schema_test_class
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -309,12 +309,12 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = FileSchemaTestClass(
-        file=File(
+    body = file_schema_test_class.FileSchemaTestClass(
+        file=file.File(
             source_uri="source_uri_example",
         ),
         files=[
-            File()
+            file.File()
         ],
     )
     try:
@@ -339,7 +339,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="body_with_file_schema.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**FileSchemaTestClass**](../../components/schema/FileSchemaTestClass.md) |  | 
+[**FileSchemaTestClass**](../../components/schema/file_schema_test_class.FileSchemaTestClass.md) |  | 
 
 
 ### Return Types, Responses
@@ -371,7 +371,7 @@ No authorization required
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.user import User
+from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -388,7 +388,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     query_params = {
         'query': "query_example",
     }
-    body = User(
+    body = user.User(
         id=1,
         username="username_example",
         first_name="first_name_example",
@@ -427,7 +427,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="body_with_query_params.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../components/schema/User.md) |  | 
+[**User**](../../components/schema/user.User.md) |  | 
 
 
 ### <a id="body_with_query_params.RequestQueryParameters" >query_params</a>
@@ -476,7 +476,7 @@ Test serialization of outer boolean types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.boolean import Boolean
+from petstore_api.components.schema import boolean
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -490,7 +490,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = Boolean(True)
+    body = boolean.Boolean(True)
     try:
         api_response = api_instance.boolean(
             body=body,
@@ -515,7 +515,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="boolean.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../components/schema/Boolean.md) |  | 
+[**Boolean**](../../components/schema/boolean.Boolean.md) |  | 
 
 
 ### Return Types, Responses
@@ -535,7 +535,7 @@ headers | Unset | headers were not defined |
 # <a id="boolean.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Boolean**](../../components/schema/Boolean.md) |  | 
+[**Boolean**](../../components/schema/boolean.Boolean.md) |  | 
 
 
 ### Authorization
@@ -652,7 +652,7 @@ To test \"client\" model
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.client import Client
+from petstore_api.components.schema import client
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -666,7 +666,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Client(
+    body = client.Client(
         client="client_example",
     )
     try:
@@ -694,7 +694,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="client_model.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../components/schema/Client.md) |  | 
+[**Client**](../../components/schema/client.Client.md) |  | 
 
 
 ### Return Types, Responses
@@ -714,7 +714,7 @@ headers | Unset | headers were not defined |
 # <a id="client_model.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../components/schema/Client.md) |  | 
+[**Client**](../../components/schema/client.Client.md) |  | 
 
 
 ### Authorization
@@ -734,7 +734,7 @@ Test serialization of object with $refed properties
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.composed_one_of_different_types import ComposedOneOfDifferentTypes
+from petstore_api.components.schema import composed_one_of_different_types
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -748,7 +748,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ComposedOneOfDifferentTypes(None)
+    body = composed_one_of_different_types.ComposedOneOfDifferentTypes(None)
     try:
         api_response = api_instance.composed_one_of_different_types(
             body=body,
@@ -773,7 +773,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="composed_one_of_different_types.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../components/schema/ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -793,7 +793,7 @@ headers | Unset | headers were not defined |
 # <a id="composed_one_of_different_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../components/schema/ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Authorization
@@ -1269,7 +1269,7 @@ headers | Unset | headers were not defined |
 # <a id="fake_health_get.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HealthCheckResult**](../../components/schema/HealthCheckResult.md) |  | 
+[**HealthCheckResult**](../../components/schema/health_check_result.HealthCheckResult.md) |  | 
 
 
 ### Authorization
@@ -1853,7 +1853,7 @@ json patch route with a requestBody
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.json_patch_request import JSONPatchRequest
+from petstore_api.components.schema import json_patch_request
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -1867,7 +1867,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = JSONPatchRequest([
+    body = json_patch_request.JSONPatchRequest([
         None
     ])
     try:
@@ -1893,7 +1893,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JSONPatchRequest**](../../components/schema/JSONPatchRequest.md) |  | 
+[**JSONPatchRequest**](../../components/schema/json_patch_request.JSONPatchRequest.md) |  | 
 
 
 ### Return Types, Responses
@@ -2007,7 +2007,7 @@ Test serialization of mammals
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.mammal import Mammal
+from petstore_api.components.schema import mammal
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2021,7 +2021,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Mammal(
+    body = mammal.Mammal(
         has_baleen=True,
         has_teeth=True,
         class_name="whale",
@@ -2050,7 +2050,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="mammal.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Mammal**](../../components/schema/Mammal.md) |  | 
+[**Mammal**](../../components/schema/mammal.Mammal.md) |  | 
 
 
 ### Return Types, Responses
@@ -2070,7 +2070,7 @@ headers | Unset | headers were not defined |
 # <a id="mammal.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Mammal**](../../components/schema/Mammal.md) |  | 
+[**Mammal**](../../components/schema/mammal.Mammal.md) |  | 
 
 
 ### Authorization
@@ -2090,7 +2090,7 @@ Test serialization of outer number types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.number_with_validations import NumberWithValidations
+from petstore_api.components.schema import number_with_validations
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2104,7 +2104,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = NumberWithValidations(10)
+    body = number_with_validations.NumberWithValidations(10)
     try:
         api_response = api_instance.number_with_validations(
             body=body,
@@ -2129,7 +2129,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="number_with_validations.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
 
 
 ### Return Types, Responses
@@ -2149,7 +2149,7 @@ headers | Unset | headers were not defined |
 # <a id="number_with_validations.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../components/schema/NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
 
 
 ### Authorization
@@ -2255,7 +2255,7 @@ Test serialization of object with $refed properties
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
+from petstore_api.components.schema import object_model_with_ref_props
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2269,10 +2269,10 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ObjectModelWithRefProps(
-        my_number=NumberWithValidations(10),
-        my_string=String("my_string_example"),
-        my_boolean=Boolean(True),
+    body = object_model_with_ref_props.ObjectModelWithRefProps(
+        my_number=number_with_validations.NumberWithValidations(10),
+        my_string=string.String("my_string_example"),
+        my_boolean=boolean.Boolean(True),
     )
     try:
         api_response = api_instance.object_model_with_ref_props(
@@ -2298,7 +2298,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="object_model_with_ref_props.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../components/schema/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
 
 
 ### Return Types, Responses
@@ -2318,7 +2318,7 @@ headers | Unset | headers were not defined |
 # <a id="object_model_with_ref_props.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../components/schema/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
 
 
 ### Authorization
@@ -2736,7 +2736,7 @@ To test the collection format in query parameters
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.string_with_validation import StringWithValidation
+from petstore_api.components.schema import string_with_validation
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2766,7 +2766,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         'context': [
         "context_example"
     ],
-        'refParam': StringWithValidation("refParam_example"),
+        'refParam': string_with_validation.StringWithValidation("refParam_example"),
     }
     try:
         api_response = api_instance.query_parameter_collection_format(
@@ -2860,7 +2860,7 @@ items | str,  | str,  |  |
 # <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringWithValidation**](../../components/schema/StringWithValidation.md) |  | 
+[**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -2893,7 +2893,7 @@ user list
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.foo import Foo
+from petstore_api.components.schema import foo
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -2908,8 +2908,8 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'mapBean': Foo(
-        bar=Bar("bar"),
+        'mapBean': foo.Foo(
+        bar=bar.Bar("bar"),
     ),
     }
     try:
@@ -2940,7 +2940,7 @@ mapBean | [parameter_0.schema](#ref_object_in_query.parameter_0.schema) | | opti
 # <a id="ref_object_in_query.parameter_0.schema" >parameter_0.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Foo**](../../components/schema/Foo.md) |  | 
+[**Foo**](../../components/schema/foo.Foo.md) |  | 
 
 
 ### Return Types, Responses
@@ -3026,7 +3026,7 @@ Test serialization of outer string types
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.string import String
+from petstore_api.components.schema import string
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -3040,7 +3040,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = String("parameter_body_example")
+    body = string.String("parameter_body_example")
     try:
         api_response = api_instance.string(
             body=body,
@@ -3065,7 +3065,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../components/schema/String.md) |  | 
+[**String**](../../components/schema/string.String.md) |  | 
 
 
 ### Return Types, Responses
@@ -3085,7 +3085,7 @@ headers | Unset | headers were not defined |
 # <a id="string.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../components/schema/String.md) |  | 
+[**String**](../../components/schema/string.String.md) |  | 
 
 
 ### Authorization
@@ -3105,7 +3105,7 @@ Test serialization of outer enum
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
-from petstore_api.components.schema.string_enum import StringEnum
+from petstore_api.components.schema import string_enum
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -3119,7 +3119,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = StringEnum("placed")
+    body = string_enum.StringEnum("placed")
     try:
         api_response = api_instance.string_enum(
             body=body,
@@ -3144,7 +3144,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="string_enum.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../components/schema/StringEnum.md) |  | 
+[**StringEnum**](../../components/schema/string_enum.StringEnum.md) |  | 
 
 
 ### Return Types, Responses
@@ -3164,7 +3164,7 @@ headers | Unset | headers were not defined |
 # <a id="string_enum.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../components/schema/StringEnum.md) |  | 
+[**StringEnum**](../../components/schema/string_enum.StringEnum.md) |  | 
 
 
 ### Authorization
@@ -3337,7 +3337,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 
 ### Authorization
@@ -3438,7 +3438,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_files.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 
 ### Authorization

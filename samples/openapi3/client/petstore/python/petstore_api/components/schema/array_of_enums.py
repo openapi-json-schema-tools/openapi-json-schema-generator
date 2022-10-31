@@ -36,12 +36,12 @@ class ArrayOfEnums(
     class MetaOapg:
         
         @staticmethod
-        def items() -> typing.Type['StringEnum']:
-            return StringEnum
+        def items() -> typing.Type['string_enum.StringEnum']:
+            return string_enum.StringEnum
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['StringEnum'], typing.List['StringEnum']],
+        _arg: typing.Union[typing.Tuple['string_enum.StringEnum'], typing.List['string_enum.StringEnum']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ArrayOfEnums':
         return super().__new__(
@@ -50,7 +50,7 @@ class ArrayOfEnums(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'StringEnum':
+    def __getitem__(self, i: int) -> 'string_enum.StringEnum':
         return super().__getitem__(i)
 
-from petstore_api.components.schema.string_enum import StringEnum
+from petstore_api.components.schema import string_enum

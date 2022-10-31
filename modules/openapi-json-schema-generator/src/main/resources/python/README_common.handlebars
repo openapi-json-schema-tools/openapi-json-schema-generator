@@ -23,8 +23,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
-{{#each models}}{{#with model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
-{{/with}}{{/each}}
+{{#each models}}
+{{#with model}}
+ - [{{{classname}}}]({{modelDocPath}}{{classFilename}}.{{classname}}.md)
+{{/with}}
+{{/each}}
 
 ## Documentation For Authorization
 

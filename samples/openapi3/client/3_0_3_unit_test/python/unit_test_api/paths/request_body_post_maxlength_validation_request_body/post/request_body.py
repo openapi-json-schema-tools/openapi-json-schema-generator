@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema import maxlength_validation
 
 
-application_json = MaxlengthValidation
+application_json = maxlength_validation.MaxlengthValidation
 
 parameter_oapg = api_client.RequestBody(
     content={

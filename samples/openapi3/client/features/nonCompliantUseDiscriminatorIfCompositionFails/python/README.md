@@ -138,7 +138,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.components.schema.operator import Operator
+from this_package.components.schema import operator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
@@ -152,7 +152,7 @@ with this_package.ApiClient(configuration) as api_client:
     api_instance = default_api.DefaultApi(api_client)
 
     # example passing only optional values
-    body = Operator(
+    body = operator.Operator(
         a=3.14,
         b=3.14,
         operator_id="ADD",
@@ -175,9 +175,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionOperator](docs/components/schema/AdditionOperator.md)
- - [Operator](docs/components/schema/Operator.md)
- - [SubtractionOperator](docs/components/schema/SubtractionOperator.md)
+ - [AdditionOperator](docs/components/schema/addition_operator.AdditionOperator.md)
+ - [Operator](docs/components/schema/operator.Operator.md)
+ - [SubtractionOperator](docs/components/schema/subtraction_operator.SubtractionOperator.md)
 
 ## Documentation For Authorization
 

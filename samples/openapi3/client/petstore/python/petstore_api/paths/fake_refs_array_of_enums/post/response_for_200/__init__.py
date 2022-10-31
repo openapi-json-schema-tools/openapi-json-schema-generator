@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.array_of_enums import ArrayOfEnums
+from petstore_api.components.schema import array_of_enums
 
 # body schemas
-application_json = ArrayOfEnums
+application_json = array_of_enums.ArrayOfEnums
 
 
 @dataclasses.dataclass

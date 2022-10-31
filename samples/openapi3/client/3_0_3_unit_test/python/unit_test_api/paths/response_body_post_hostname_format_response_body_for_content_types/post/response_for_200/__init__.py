@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.hostname_format import HostnameFormat
+from unit_test_api.components.schema import hostname_format
 
 # body schemas
-application_json = HostnameFormat
+application_json = hostname_format.HostnameFormat
 
 
 @dataclasses.dataclass

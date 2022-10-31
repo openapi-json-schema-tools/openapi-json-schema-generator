@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema import object_properties_validation
 
 
-application_json = ObjectPropertiesValidation
+application_json = object_properties_validation.ObjectPropertiesValidation
 
 parameter_oapg = api_client.RequestBody(
     content={

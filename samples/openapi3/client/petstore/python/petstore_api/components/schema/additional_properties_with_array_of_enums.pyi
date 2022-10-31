@@ -44,12 +44,12 @@ class AdditionalPropertiesWithArrayOfEnums(
             class MetaOapg:
                 
                 @staticmethod
-                def items() -> typing.Type['EnumClass']:
-                    return EnumClass
+                def items() -> typing.Type['enum_class.EnumClass']:
+                    return enum_class.EnumClass
         
             def __new__(
                 cls,
-                _arg: typing.Union[typing.Tuple['EnumClass'], typing.List['EnumClass']],
+                _arg: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
                 _configuration: typing.Optional[schemas.Configuration] = None,
             ) -> 'additional_properties':
                 return super().__new__(
@@ -58,7 +58,7 @@ class AdditionalPropertiesWithArrayOfEnums(
                     _configuration=_configuration,
                 )
         
-            def __getitem__(self, i: int) -> 'EnumClass':
+            def __getitem__(self, i: int) -> 'enum_class.EnumClass':
                 return super().__getitem__(i)
     
     def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -81,4 +81,4 @@ class AdditionalPropertiesWithArrayOfEnums(
             **kwargs,
         )
 
-from petstore_api.components.schema.enum_class import EnumClass
+from petstore_api.components.schema import enum_class

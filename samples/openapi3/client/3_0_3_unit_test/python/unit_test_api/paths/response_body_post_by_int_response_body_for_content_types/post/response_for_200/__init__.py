@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.by_int import ByInt
+from unit_test_api.components.schema import by_int
 
 # body schemas
-application_json = ByInt
+application_json = by_int.ByInt
 
 
 @dataclasses.dataclass

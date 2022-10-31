@@ -15,7 +15,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.foo import Foo
+from petstore_api.components.schema import foo
 
 # body schemas
 
@@ -30,14 +30,14 @@ class application_json(
         class properties:
         
             @staticmethod
-            def string() -> typing.Type['Foo']:
-                return Foo
+            def string() -> typing.Type['foo.Foo']:
+                return foo.Foo
             __annotations__ = {
                 "string": string,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'Foo': ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'foo.Foo': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -48,7 +48,7 @@ class application_json(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union['Foo', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union['foo.Foo', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -60,7 +60,7 @@ class application_json(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        string: typing.Union['Foo', schemas.Unset] = schemas.unset,
+        string: typing.Union['foo.Foo', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'application_json':

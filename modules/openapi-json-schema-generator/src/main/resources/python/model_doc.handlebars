@@ -1,5 +1,6 @@
 {{#each models}}
 {{#with model}}
+<a id="{{classname}}"></a>
 # {{packageName}}.{{modelPackage}}.{{classFilename}}.{{classname}}
 {{> schema_doc complexTypePrefix="" }}
 {{/with}}

@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+from unit_test_api.components.schema import invalid_instance_should_not_raise_error_when_float_division_inf
 
 
-application_json = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+application_json = invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 
 parameter_oapg = api_client.RequestBody(
     content={
