@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
 
 # body schemas
-application_json = PropertyNamedRefThatIsNotAReference
+application_json = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
 
 
 @dataclasses.dataclass

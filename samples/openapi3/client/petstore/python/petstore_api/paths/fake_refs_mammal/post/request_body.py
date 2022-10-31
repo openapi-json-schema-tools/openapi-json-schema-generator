@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.mammal import Mammal
+from petstore_api.components.schema import mammal
 
 
-application_json = Mammal
+application_json = mammal.Mammal
 
 parameter_oapg = api_client.RequestBody(
     content={

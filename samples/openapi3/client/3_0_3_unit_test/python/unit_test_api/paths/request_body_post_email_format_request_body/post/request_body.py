@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.email_format import EmailFormat
+from unit_test_api.components.schema import email_format
 
 
-application_json = EmailFormat
+application_json = email_format.EmailFormat
 
 parameter_oapg = api_client.RequestBody(
     content={

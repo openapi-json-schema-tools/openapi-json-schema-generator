@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from this_package import schemas  # noqa: F401
 
-from this_package.components.schema.operator import Operator
+from this_package.components.schema import operator
 
 
-application_json = Operator
+application_json = operator.Operator
 
 parameter_oapg = api_client.RequestBody(
     content={

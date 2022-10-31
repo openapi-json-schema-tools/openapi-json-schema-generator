@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema import boolean_type_matches_booleans
 
 
-application_json = BooleanTypeMatchesBooleans
+application_json = boolean_type_matches_booleans.BooleanTypeMatchesBooleans
 
 parameter_oapg = api_client.RequestBody(
     content={

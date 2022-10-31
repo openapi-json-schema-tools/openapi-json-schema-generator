@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
+from petstore_api.components.schema import object_model_with_ref_props
 
 
-application_json = ObjectModelWithRefProps
+application_json = object_model_with_ref_props.ObjectModelWithRefProps
 
 parameter_oapg = api_client.RequestBody(
     content={

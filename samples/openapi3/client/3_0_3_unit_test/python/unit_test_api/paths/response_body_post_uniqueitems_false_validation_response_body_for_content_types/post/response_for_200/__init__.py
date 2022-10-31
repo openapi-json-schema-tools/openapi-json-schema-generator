@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.uniqueitems_false_validation import UniqueitemsFalseValidation
+from unit_test_api.components.schema import uniqueitems_false_validation
 
 # body schemas
-application_json = UniqueitemsFalseValidation
+application_json = uniqueitems_false_validation.UniqueitemsFalseValidation
 
 
 @dataclasses.dataclass

@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,7 +45,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PropertyNamedRefThatIsNotAReference(None)
+    body = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None)
     try:
         api_response = api_instance.post_property_named_ref_that_is_not_a_reference_request_body(
             body=body,
@@ -68,7 +68,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses
@@ -139,7 +139,7 @@ headers | Unset | headers were not defined |
 # <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Authorization
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema import ref_in_additionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,8 +171,8 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInAdditionalproperties(
-        key=PropertyNamedRefThatIsNotAReference(None),
+    body = ref_in_additionalproperties.RefInAdditionalproperties(
+        key=property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None),
     )
     try:
         api_response = api_instance.post_ref_in_additionalproperties_request_body(
@@ -196,7 +196,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_additionalproperties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -267,7 +267,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Authorization
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_allof import RefInAllof
+from unit_test_api.components.schema import ref_in_allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -299,7 +299,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInAllof(None)
+    body = ref_in_allof.RefInAllof(None)
     try:
         api_response = api_instance.post_ref_in_allof_request_body(
             body=body,
@@ -322,7 +322,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/ref_in_allof.RefInAllof.md) |  | 
 
 
 ### Return Types, Responses
@@ -393,7 +393,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/ref_in_allof.RefInAllof.md) |  | 
 
 
 ### Authorization
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema import ref_in_anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -425,7 +425,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInAnyof(None)
+    body = ref_in_anyof.RefInAnyof(None)
     try:
         api_response = api_instance.post_ref_in_anyof_request_body(
             body=body,
@@ -448,7 +448,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -519,7 +519,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Authorization
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_items import RefInItems
+from unit_test_api.components.schema import ref_in_items
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -551,8 +551,8 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInItems([
-        PropertyNamedRefThatIsNotAReference(None)
+    body = ref_in_items.RefInItems([
+        property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None)
     ])
     try:
         api_response = api_instance.post_ref_in_items_request_body(
@@ -576,7 +576,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../components/schema/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/ref_in_items.RefInItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -647,7 +647,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_items_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../components/schema/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/ref_in_items.RefInItems.md) |  | 
 
 
 ### Authorization
@@ -665,7 +665,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_not import RefInNot
+from unit_test_api.components.schema import ref_in_not
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -679,7 +679,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInNot(None)
+    body = ref_in_not.RefInNot(None)
     try:
         api_response = api_instance.post_ref_in_not_request_body(
             body=body,
@@ -702,7 +702,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInNot**](../../components/schema/RefInNot.md) |  | 
+[**RefInNot**](../../components/schema/ref_in_not.RefInNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -773,7 +773,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInNot**](../../components/schema/RefInNot.md) |  | 
+[**RefInNot**](../../components/schema/ref_in_not.RefInNot.md) |  | 
 
 
 ### Authorization
@@ -791,7 +791,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema import ref_in_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -805,7 +805,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInOneof(None)
+    body = ref_in_oneof.RefInOneof(None)
     try:
         api_response = api_instance.post_ref_in_oneof_request_body(
             body=body,
@@ -828,7 +828,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/ref_in_oneof.RefInOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -899,7 +899,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/ref_in_oneof.RefInOneof.md) |  | 
 
 
 ### Authorization
@@ -917,7 +917,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import ref_api
-from unit_test_api.components.schema.ref_in_property import RefInProperty
+from unit_test_api.components.schema import ref_in_property
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -931,7 +931,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = ref_api.RefApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInProperty(None)
+    body = ref_in_property.RefInProperty(None)
     try:
         api_response = api_instance.post_ref_in_property_request_body(
             body=body,
@@ -954,7 +954,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -1025,7 +1025,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Authorization

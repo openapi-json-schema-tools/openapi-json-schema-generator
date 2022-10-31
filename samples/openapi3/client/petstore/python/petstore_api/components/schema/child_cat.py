@@ -96,7 +96,7 @@ class ChildCat(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                ParentPet,
+                parent_pet.ParentPet,
                 cls.all_of_1,
             ]
 
@@ -114,4 +114,4 @@ class ChildCat(
             **kwargs,
         )
 
-from petstore_api.components.schema.parent_pet import ParentPet
+from petstore_api.components.schema import parent_pet

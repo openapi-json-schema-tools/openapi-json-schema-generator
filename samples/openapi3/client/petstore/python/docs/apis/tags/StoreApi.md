@@ -255,13 +255,13 @@ headers | Unset | headers were not defined |
 # <a id="get_order_by_id.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Order**](../../components/schema/Order.md) |  | 
+[**Order**](../../components/schema/order.Order.md) |  | 
 
 
 # <a id="get_order_by_id.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Order**](../../components/schema/Order.md) |  | 
+[**Order**](../../components/schema/order.Order.md) |  | 
 
 
 #### <a id="get_order_by_id.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -294,7 +294,7 @@ Place an order for a pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import store_api
-from petstore_api.components.schema.order import Order
+from petstore_api.components.schema import order
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -308,7 +308,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = store_api.StoreApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Order(
+    body = order.Order(
         id=1,
         pet_id=1,
         quantity=1,
@@ -341,7 +341,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="place_order.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Order**](../../components/schema/Order.md) |  | 
+[**Order**](../../components/schema/order.Order.md) |  | 
 
 
 ### Return Types, Responses
@@ -362,13 +362,13 @@ headers | Unset | headers were not defined |
 # <a id="place_order.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Order**](../../components/schema/Order.md) |  | 
+[**Order**](../../components/schema/order.Order.md) |  | 
 
 
 # <a id="place_order.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Order**](../../components/schema/Order.md) |  | 
+[**Order**](../../components/schema/order.Order.md) |  | 
 
 
 #### <a id="place_order.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>

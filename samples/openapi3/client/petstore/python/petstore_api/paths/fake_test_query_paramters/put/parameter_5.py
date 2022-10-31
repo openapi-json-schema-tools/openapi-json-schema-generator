@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.string_with_validation import StringWithValidation
+from petstore_api.components.schema import string_with_validation
 
 
-schema = StringWithValidation
+schema = string_with_validation.StringWithValidation
 
 
 parameter_oapg = api_client.QueryParameter(

@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.model_not import ModelNot
+from unit_test_api.components.schema import model_not
 
 from .. import path
 from . import response_for_200

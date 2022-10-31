@@ -28,7 +28,7 @@ Add a new pet to the store
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.components.schema.pet import Pet
+from petstore_api.components.schema import pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -112,9 +112,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Pet(
+    body = pet.Pet(
         id=1,
-        category=Category(
+        category=category.Category(
             id=1,
             name="default-name",
         ),
@@ -123,7 +123,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             "photo_urls_example"
         ],
         tags=[
-            Tag(
+            tag.Tag(
                 id=1,
                 name="name_example",
             )
@@ -154,13 +154,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="add_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 # <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 ### Return Types, Responses
@@ -478,7 +478,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
+[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
 
 # <a id="find_pets_by_status.response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -490,7 +490,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
+[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
 
 #### <a id="find_pets_by_status.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -670,7 +670,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
+[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
 
 # <a id="find_pets_by_tags.response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -682,7 +682,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) | [**Pet**]({{complexTypePrefix}}Pet.md) |  | 
+[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
 
 #### <a id="find_pets_by_tags.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -788,13 +788,13 @@ headers | Unset | headers were not defined |
 # <a id="get_pet_by_id.response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 # <a id="get_pet_by_id.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 #### <a id="get_pet_by_id.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
@@ -828,7 +828,7 @@ Update an existing pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.components.schema.pet import Pet
+from petstore_api.components.schema import pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -912,9 +912,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Pet(
+    body = pet.Pet(
         id=1,
-        category=Category(
+        category=category.Category(
             id=1,
             name="default-name",
         ),
@@ -923,7 +923,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             "photo_urls_example"
         ],
         tags=[
-            Tag(
+            tag.Tag(
                 id=1,
                 name="name_example",
             )
@@ -954,13 +954,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="update_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 # <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 ### Return Types, Responses
@@ -1245,7 +1245,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_file_with_required_file.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 
 ### Authorization
@@ -1377,7 +1377,7 @@ headers | Unset | headers were not defined |
 # <a id="upload_image.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 
 ### Authorization

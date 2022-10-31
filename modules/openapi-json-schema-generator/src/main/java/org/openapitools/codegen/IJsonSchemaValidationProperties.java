@@ -349,7 +349,8 @@ public interface IJsonSchemaValidationProperties {
                 DefaultCodegenTest.mapParamImportInnerObject
                 */
                 String refClass = this.getRefClass();
-                if (refClass != null) {
+                if (refClass != null && refClass.contains(".")) {
+                    // self reference classes do not contain periods
                     imports.add(refClass);
                 }
                 /*
@@ -364,7 +365,8 @@ public interface IJsonSchemaValidationProperties {
         } else {
             // referenced or inline schemas
             String refClass = this.getRefClass();
-            if (refClass != null) {
+            if (refClass != null && refClass.contains(".")) {
+                // self reference classes do not contain periods
                 imports.add(refClass);
             }
             String baseType = this.getBaseType();

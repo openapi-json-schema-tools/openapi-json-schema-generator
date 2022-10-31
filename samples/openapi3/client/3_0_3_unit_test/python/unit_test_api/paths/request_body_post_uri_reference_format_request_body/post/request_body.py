@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
+from unit_test_api.components.schema import uri_reference_format
 
 
-application_json = UriReferenceFormat
+application_json = uri_reference_format.UriReferenceFormat
 
 parameter_oapg = api_client.RequestBody(
     content={

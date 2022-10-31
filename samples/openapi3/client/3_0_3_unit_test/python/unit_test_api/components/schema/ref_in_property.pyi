@@ -38,15 +38,15 @@ class RefInProperty(
         class properties:
         
             @staticmethod
-            def a() -> typing.Type['PropertyNamedRefThatIsNotAReference']:
-                return PropertyNamedRefThatIsNotAReference
+            def a() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+                return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
             __annotations__ = {
                 "a": a,
             }
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> 'PropertyNamedRefThatIsNotAReference': ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -57,7 +57,7 @@ class RefInProperty(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> typing.Union['PropertyNamedRefThatIsNotAReference', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -69,7 +69,7 @@ class RefInProperty(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        a: typing.Union['PropertyNamedRefThatIsNotAReference', schemas.Unset] = schemas.unset,
+        a: typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'RefInProperty':
@@ -81,4 +81,4 @@ class RefInProperty(
             **kwargs,
         )
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

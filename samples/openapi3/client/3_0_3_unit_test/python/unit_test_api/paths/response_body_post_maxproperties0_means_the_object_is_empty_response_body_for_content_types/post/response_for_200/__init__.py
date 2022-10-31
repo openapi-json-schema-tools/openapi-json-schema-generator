@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
+from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
 
 # body schemas
-application_json = Maxproperties0MeansTheObjectIsEmpty
+application_json = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty
 
 
 @dataclasses.dataclass
