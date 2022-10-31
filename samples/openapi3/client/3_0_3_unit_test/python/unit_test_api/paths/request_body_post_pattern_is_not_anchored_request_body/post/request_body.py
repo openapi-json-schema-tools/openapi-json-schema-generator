@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema import pattern_is_not_anchored
 
 
-application_json = PatternIsNotAnchored
+application_json = pattern_is_not_anchored.PatternIsNotAnchored
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -38,14 +38,14 @@ class Foo(
         class properties:
         
             @staticmethod
-            def bar() -> typing.Type['Bar']:
-                return Bar
+            def bar() -> typing.Type['bar.Bar']:
+                return bar.Bar
             __annotations__ = {
                 "bar": bar,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> 'Bar': ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> 'bar.Bar': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -56,7 +56,7 @@ class Foo(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union['Bar', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union['bar.Bar', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -68,7 +68,7 @@ class Foo(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        bar: typing.Union['Bar', schemas.Unset] = schemas.unset,
+        bar: typing.Union['bar.Bar', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Foo':
@@ -80,4 +80,4 @@ class Foo(
             **kwargs,
         )
 
-from petstore_api.components.schema.bar import Bar
+from petstore_api.components.schema import bar

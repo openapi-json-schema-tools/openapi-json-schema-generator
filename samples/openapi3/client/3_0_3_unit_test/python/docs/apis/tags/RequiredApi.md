@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema import required_default_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -37,7 +37,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = required_api.RequiredApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredDefaultValidation(None)
+    body = required_default_validation.RequiredDefaultValidation(None)
     try:
         api_response = api_instance.post_required_default_validation_request_body(
             body=body,
@@ -60,7 +60,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -131,7 +131,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_default_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Authorization
@@ -149,7 +149,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_validation import RequiredValidation
+from unit_test_api.components.schema import required_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -163,7 +163,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = required_api.RequiredApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredValidation(None)
+    body = required_validation.RequiredValidation(None)
     try:
         api_response = api_instance.post_required_validation_request_body(
             body=body,
@@ -186,7 +186,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -257,7 +257,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Authorization
@@ -275,7 +275,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema import required_with_empty_array
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -289,7 +289,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = required_api.RequiredApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredWithEmptyArray(None)
+    body = required_with_empty_array.RequiredWithEmptyArray(None)
     try:
         api_response = api_instance.post_required_with_empty_array_request_body(
             body=body,
@@ -312,7 +312,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses
@@ -383,7 +383,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_empty_array_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Authorization
@@ -401,7 +401,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import required_api
-from unit_test_api.components.schema.required_with_escaped_characters import RequiredWithEscapedCharacters
+from unit_test_api.components.schema import required_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -415,7 +415,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = required_api.RequiredApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredWithEscapedCharacters(None)
+    body = required_with_escaped_characters.RequiredWithEscapedCharacters(None)
     try:
         api_response = api_instance.post_required_with_escaped_characters_request_body(
             body=body,
@@ -438,7 +438,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/required_with_escaped_characters.RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -509,7 +509,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/required_with_escaped_characters.RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Authorization

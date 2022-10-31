@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.string_with_validation import StringWithValidation
+from petstore_api.components.schema import string_with_validation
 
 from .. import path
 from . import response_for_200

@@ -33,7 +33,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.date_time_format import DateTimeFormat
+from unit_test_api.components.schema import date_time_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -47,7 +47,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = DateTimeFormat(None)
+    body = date_time_format.DateTimeFormat(None)
     try:
         api_response = api_instance.post_date_time_format_request_body(
             body=body,
@@ -70,7 +70,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_date_time_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/date_time_format.DateTimeFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -141,7 +141,7 @@ headers | Unset | headers were not defined |
 # <a id="post_date_time_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/date_time_format.DateTimeFormat.md) |  | 
 
 
 ### Authorization
@@ -159,7 +159,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.email_format import EmailFormat
+from unit_test_api.components.schema import email_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -173,7 +173,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EmailFormat(None)
+    body = email_format.EmailFormat(None)
     try:
         api_response = api_instance.post_email_format_request_body(
             body=body,
@@ -196,7 +196,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_email_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/email_format.EmailFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -267,7 +267,7 @@ headers | Unset | headers were not defined |
 # <a id="post_email_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/email_format.EmailFormat.md) |  | 
 
 
 ### Authorization
@@ -285,7 +285,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.hostname_format import HostnameFormat
+from unit_test_api.components.schema import hostname_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -299,7 +299,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = HostnameFormat(None)
+    body = hostname_format.HostnameFormat(None)
     try:
         api_response = api_instance.post_hostname_format_request_body(
             body=body,
@@ -322,7 +322,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_hostname_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/hostname_format.HostnameFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -393,7 +393,7 @@ headers | Unset | headers were not defined |
 # <a id="post_hostname_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/hostname_format.HostnameFormat.md) |  | 
 
 
 ### Authorization
@@ -411,7 +411,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.ipv4_format import Ipv4Format
+from unit_test_api.components.schema import ipv4_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -425,7 +425,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Ipv4Format(None)
+    body = ipv4_format.Ipv4Format(None)
     try:
         api_response = api_instance.post_ipv4_format_request_body(
             body=body,
@@ -448,7 +448,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv4_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/ipv4_format.Ipv4Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -519,7 +519,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ipv4_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/ipv4_format.Ipv4Format.md) |  | 
 
 
 ### Authorization
@@ -537,7 +537,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.ipv6_format import Ipv6Format
+from unit_test_api.components.schema import ipv6_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -551,7 +551,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Ipv6Format(None)
+    body = ipv6_format.Ipv6Format(None)
     try:
         api_response = api_instance.post_ipv6_format_request_body(
             body=body,
@@ -574,7 +574,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv6_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/ipv6_format.Ipv6Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -645,7 +645,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ipv6_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/ipv6_format.Ipv6Format.md) |  | 
 
 
 ### Authorization
@@ -663,7 +663,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
+from unit_test_api.components.schema import json_pointer_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -677,7 +677,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = JsonPointerFormat(None)
+    body = json_pointer_format.JsonPointerFormat(None)
     try:
         api_response = api_instance.post_json_pointer_format_request_body(
             body=body,
@@ -700,7 +700,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_json_pointer_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/json_pointer_format.JsonPointerFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -771,7 +771,7 @@ headers | Unset | headers were not defined |
 # <a id="post_json_pointer_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/json_pointer_format.JsonPointerFormat.md) |  | 
 
 
 ### Authorization
@@ -789,7 +789,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.uri_format import UriFormat
+from unit_test_api.components.schema import uri_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -803,7 +803,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UriFormat(None)
+    body = uri_format.UriFormat(None)
     try:
         api_response = api_instance.post_uri_format_request_body(
             body=body,
@@ -826,7 +826,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../components/schema/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/uri_format.UriFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -897,7 +897,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../components/schema/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/uri_format.UriFormat.md) |  | 
 
 
 ### Authorization
@@ -915,7 +915,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
+from unit_test_api.components.schema import uri_reference_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -929,7 +929,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UriReferenceFormat(None)
+    body = uri_reference_format.UriReferenceFormat(None)
     try:
         api_response = api_instance.post_uri_reference_format_request_body(
             body=body,
@@ -952,7 +952,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_reference_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -1023,7 +1023,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_reference_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
 
 
 ### Authorization
@@ -1041,7 +1041,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema.uri_template_format import UriTemplateFormat
+from unit_test_api.components.schema import uri_template_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1055,7 +1055,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = format_api.FormatApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UriTemplateFormat(None)
+    body = uri_template_format.UriTemplateFormat(None)
     try:
         api_response = api_instance.post_uri_template_format_request_body(
             body=body,
@@ -1078,7 +1078,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_template_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/uri_template_format.UriTemplateFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -1149,7 +1149,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_template_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/uri_template_format.UriTemplateFormat.md) |  | 
 
 
 ### Authorization

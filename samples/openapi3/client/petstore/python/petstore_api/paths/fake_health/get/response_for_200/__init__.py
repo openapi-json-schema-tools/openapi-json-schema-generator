@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.health_check_result import HealthCheckResult
+from petstore_api.components.schema import health_check_result
 
 # body schemas
-application_json = HealthCheckResult
+application_json = health_check_result.HealthCheckResult
 
 
 @dataclasses.dataclass

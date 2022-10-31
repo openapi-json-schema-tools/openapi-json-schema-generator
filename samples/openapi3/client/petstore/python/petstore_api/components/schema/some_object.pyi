@@ -46,7 +46,7 @@ class SomeObject(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                ObjectInterface,
+                object_interface.ObjectInterface,
             ]
 
 
@@ -63,4 +63,4 @@ class SomeObject(
             **kwargs,
         )
 
-from petstore_api.components.schema.object_interface import ObjectInterface
+from petstore_api.components.schema import object_interface

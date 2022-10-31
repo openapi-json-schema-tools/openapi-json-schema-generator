@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_properties_api
-from unit_test_api.components.schema.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
+from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,7 +33,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = max_properties_api.MaxPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Maxproperties0MeansTheObjectIsEmpty(None)
+    body = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty(None)
     try:
         api_response = api_instance.post_maxproperties0_means_the_object_is_empty_request_body(
             body=body,
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties0_means_the_object_is_empty_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxproperties0_means_the_object_is_empty_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_properties_api
-from unit_test_api.components.schema.maxproperties_validation import MaxpropertiesValidation
+from unit_test_api.components.schema import maxproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +159,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = max_properties_api.MaxPropertiesApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaxpropertiesValidation(None)
+    body = maxproperties_validation.MaxpropertiesValidation(None)
     try:
         api_response = api_instance.post_maxproperties_validation_request_body(
             body=body,
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/maxproperties_validation.MaxpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxproperties_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/maxproperties_validation.MaxpropertiesValidation.md) |  | 
 
 
 ### Authorization

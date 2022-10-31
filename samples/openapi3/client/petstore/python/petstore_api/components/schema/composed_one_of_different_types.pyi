@@ -97,8 +97,8 @@ class ComposedOneOfDifferentTypes(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                NumberWithValidations,
-                Animal,
+                number_with_validations.NumberWithValidations,
+                animal.Animal,
                 cls.one_of_2,
                 cls.one_of_3,
                 cls.one_of_4,
@@ -120,5 +120,5 @@ class ComposedOneOfDifferentTypes(
             **kwargs,
         )
 
-from petstore_api.components.schema.animal import Animal
-from petstore_api.components.schema.number_with_validations import NumberWithValidations
+from petstore_api.components.schema import animal
+from petstore_api.components.schema import number_with_validations

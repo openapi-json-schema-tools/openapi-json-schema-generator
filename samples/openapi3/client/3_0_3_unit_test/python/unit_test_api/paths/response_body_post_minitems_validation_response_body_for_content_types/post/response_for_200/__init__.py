@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.minitems_validation import MinitemsValidation
+from unit_test_api.components.schema import minitems_validation
 
 # body schemas
-application_json = MinitemsValidation
+application_json = minitems_validation.MinitemsValidation
 
 
 @dataclasses.dataclass

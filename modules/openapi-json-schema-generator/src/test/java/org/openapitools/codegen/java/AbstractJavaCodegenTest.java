@@ -655,8 +655,6 @@ public class AbstractJavaCodegenTest {
         Assert.assertEquals(parameter.dataType, "Date");
         Assert.assertEquals(parameter.isDate, true);
         Assert.assertEquals(parameter.defaultValue, "1974-01-01");
-        Assert.assertEquals(imports.size(), 1);
-        Assert.assertEquals(imports.iterator().next(), "Date");
 
         Assert.assertNotNull(parameter.getSchema());
         Assert.assertEquals(parameter.getSchema().baseType, "Date");
@@ -675,8 +673,6 @@ public class AbstractJavaCodegenTest {
         Assert.assertEquals(parameter.dataType, "Date");
         Assert.assertEquals(parameter.isDateTime, true);
         Assert.assertEquals(parameter.defaultValue, "1973-12-19T03:39:57-08:00");
-        Assert.assertEquals(imports.size(), 1);
-        Assert.assertEquals(imports.iterator().next(), "Date");
 
         Assert.assertNotNull(parameter.getSchema());
         Assert.assertEquals(parameter.getSchema().baseType, "Date");

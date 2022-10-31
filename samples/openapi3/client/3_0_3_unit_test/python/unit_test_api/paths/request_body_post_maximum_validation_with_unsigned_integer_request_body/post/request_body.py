@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
+from unit_test_api.components.schema import maximum_validation_with_unsigned_integer
 
 
-application_json = MaximumValidationWithUnsignedInteger
+application_json = maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger
 
 parameter_oapg = api_client.RequestBody(
     content={

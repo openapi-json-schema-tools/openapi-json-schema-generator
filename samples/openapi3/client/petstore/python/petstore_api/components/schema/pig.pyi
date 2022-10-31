@@ -39,8 +39,8 @@ class Pig(
         def discriminator():
             return {
                 'className': {
-                    'BasquePig': BasquePig,
-                    'DanishPig': DanishPig,
+                    'BasquePig': basque_pig.BasquePig,
+                    'DanishPig': danish_pig.DanishPig,
                 }
             }
         
@@ -55,8 +55,8 @@ class Pig(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                BasquePig,
-                DanishPig,
+                basque_pig.BasquePig,
+                danish_pig.DanishPig,
             ]
 
 
@@ -73,5 +73,5 @@ class Pig(
             **kwargs,
         )
 
-from petstore_api.components.schema.basque_pig import BasquePig
-from petstore_api.components.schema.danish_pig import DanishPig
+from petstore_api.components.schema import basque_pig
+from petstore_api.components.schema import danish_pig

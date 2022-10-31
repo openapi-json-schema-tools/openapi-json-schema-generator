@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.ref_in_property import RefInProperty
+from unit_test_api.components.schema import ref_in_property
 
 # body schemas
-application_json = RefInProperty
+application_json = ref_in_property.RefInProperty
 
 
 @dataclasses.dataclass

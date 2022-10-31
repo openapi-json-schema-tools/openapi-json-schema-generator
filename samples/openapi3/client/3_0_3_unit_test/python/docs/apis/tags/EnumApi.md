@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema import enum_with0_does_not_match_false
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,7 +45,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWith0DoesNotMatchFalse(0)
+    body = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse(0)
     try:
         api_response = api_instance.post_enum_with0_does_not_match_false_request_body(
             body=body,
@@ -68,7 +68,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with0_does_not_match_false_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../components/schema/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Return Types, Responses
@@ -139,7 +139,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with0_does_not_match_false_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../components/schema/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Authorization
@@ -157,7 +157,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
+from unit_test_api.components.schema import enum_with1_does_not_match_true
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,7 +171,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWith1DoesNotMatchTrue(1)
+    body = enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue(1)
     try:
         api_response = api_instance.post_enum_with1_does_not_match_true_request_body(
             body=body,
@@ -194,7 +194,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with1_does_not_match_true_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../components/schema/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Return Types, Responses
@@ -265,7 +265,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with1_does_not_match_true_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../components/schema/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Authorization
@@ -283,7 +283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema import enum_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -297,7 +297,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWithEscapedCharacters("foo\nbar")
+    body = enum_with_escaped_characters.EnumWithEscapedCharacters("foo\nbar")
     try:
         api_response = api_instance.post_enum_with_escaped_characters_request_body(
             body=body,
@@ -320,7 +320,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../components/schema/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -391,7 +391,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../components/schema/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Authorization
@@ -409,7 +409,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
+from unit_test_api.components.schema import enum_with_false_does_not_match0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -423,7 +423,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWithFalseDoesNotMatch0(False)
+    body = enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0(False)
     try:
         api_response = api_instance.post_enum_with_false_does_not_match0_request_body(
             body=body,
@@ -446,7 +446,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_false_does_not_match0_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../components/schema/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Return Types, Responses
@@ -517,7 +517,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with_false_does_not_match0_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../components/schema/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Authorization
@@ -535,7 +535,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
+from unit_test_api.components.schema import enum_with_true_does_not_match1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -549,7 +549,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWithTrueDoesNotMatch1(True)
+    body = enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1(True)
     try:
         api_response = api_instance.post_enum_with_true_does_not_match1_request_body(
             body=body,
@@ -572,7 +572,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_true_does_not_match1_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../components/schema/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Return Types, Responses
@@ -643,7 +643,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with_true_does_not_match1_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../components/schema/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Authorization
@@ -661,7 +661,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema import enums_in_properties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -675,7 +675,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumsInProperties(
+    body = enums_in_properties.EnumsInProperties(
         foo="foo",
         bar="bar",
     )
@@ -701,7 +701,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enums_in_properties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../components/schema/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/enums_in_properties.EnumsInProperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -772,7 +772,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enums_in_properties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../components/schema/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/enums_in_properties.EnumsInProperties.md) |  | 
 
 
 ### Authorization
@@ -790,7 +790,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema import nul_characters_in_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -804,7 +804,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NulCharactersInStrings("hello\x00there")
+    body = nul_characters_in_strings.NulCharactersInStrings("hello\x00there")
     try:
         api_response = api_instance.post_nul_characters_in_strings_request_body(
             body=body,
@@ -827,7 +827,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nul_characters_in_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../components/schema/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -898,7 +898,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nul_characters_in_strings_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../components/schema/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
 
 
 ### Authorization
@@ -916,7 +916,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import enum_api
-from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
+from unit_test_api.components.schema import simple_enum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -930,7 +930,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = enum_api.EnumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = SimpleEnumValidation(1)
+    body = simple_enum_validation.SimpleEnumValidation(1)
     try:
         api_response = api_instance.post_simple_enum_validation_request_body(
             body=body,
@@ -953,7 +953,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_simple_enum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../components/schema/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/simple_enum_validation.SimpleEnumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -1024,7 +1024,7 @@ headers | Unset | headers were not defined |
 # <a id="post_simple_enum_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../components/schema/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/simple_enum_validation.SimpleEnumValidation.md) |  | 
 
 
 ### Authorization
