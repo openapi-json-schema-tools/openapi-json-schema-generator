@@ -3864,7 +3864,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     public String toRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
-        return toModelName(refPieces[-1]);
+        return toModelName(refPieces[refPieces.length-1]);
     }
 
     /**

@@ -3219,7 +3219,7 @@ public class DefaultCodegenTest {
 
         // CodegenOperation puts the inline schema into schemas and refs it
         assertTrue(co.responses.get(0).isModel);
-        assertEquals(co.responses.get(0).baseType, "objectWithOptionalAndRequiredProps_request");
+        assertEquals(co.responses.get(0).baseType, "ObjectWithOptionalAndRequiredPropsRequest");
         modelName = "objectWithOptionalAndRequiredProps_request";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
@@ -3232,7 +3232,7 @@ public class DefaultCodegenTest {
         cm = codegen.fromModel(modelName, sc);
         CodegenProperty cp = cm.getVars().get(0);
         assertTrue(cp.isModel);
-        assertEquals(cp.refClass, "objectWithOptionalAndRequiredProps_request");
+        assertEquals(cp.refClass, "ObjectWithOptionalAndRequiredPropsRequest");
     }
 
     @Test
@@ -4059,7 +4059,7 @@ public class DefaultCodegenTest {
         CodegenProperty cp = mt.getSchema();
         assertTrue(cp.isMap);
         assertTrue(cp.isModel);
-        assertEquals(cp.refClass, "object");
+        assertEquals(cp.refClass, null);
         assertEquals(cp.baseName, "schema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
@@ -4068,7 +4068,7 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
-        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.refClass, "Coordinates");
         assertEquals(cp.baseName, "schema");
     }
 
@@ -4110,7 +4110,7 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertEquals(cp.baseName, "application/json");
-        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.refClass, "Coordinates");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
@@ -4195,7 +4195,7 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
-        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.refClass, "Coordinates");
         assertEquals(cp.baseName, "application/json");
 
         mt = content.get("text/plain");
@@ -4211,7 +4211,7 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
-        assertEquals(cp.refClass, "coordinates");
+        assertEquals(cp.refClass, "Coordinates");
         assertEquals(cp.baseName, "application/json");
 
         mt = content.get("text/plain");
