@@ -34,9 +34,6 @@ class SelfReferencingObjectModel(
 
 
     class MetaOapg:
-        required = {
-            "selfRef",
-        }
         
         class properties:
         
@@ -51,8 +48,6 @@ class SelfReferencingObjectModel(
         def additional_properties() -> typing.Type['SelfReferencingObjectModel']:
             return SelfReferencingObjectModel
     
-    selfRef: 'SelfReferencingObjectModel'
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> 'SelfReferencingObjectModel': ...
     
@@ -64,7 +59,7 @@ class SelfReferencingObjectModel(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["selfRef"]) -> 'SelfReferencingObjectModel': ...
+    def get_item_oapg(self, name: typing_extensions.Literal["selfRef"]) -> typing.Union['SelfReferencingObjectModel', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union['SelfReferencingObjectModel', schemas.Unset]: ...
@@ -75,7 +70,7 @@ class SelfReferencingObjectModel(
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        selfRef: 'SelfReferencingObjectModel',
+        selfRef: typing.Union['SelfReferencingObjectModel', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: 'SelfReferencingObjectModel',
     ) -> 'SelfReferencingObjectModel':

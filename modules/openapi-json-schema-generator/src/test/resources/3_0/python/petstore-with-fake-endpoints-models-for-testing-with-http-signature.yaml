@@ -3014,8 +3014,6 @@ components:
       properties:
         selfRef:
           $ref: '#/components/schemas/SelfReferencingObjectModel'
-      required:
-        - selfRef
       additionalProperties:
         $ref: '#/components/schemas/SelfReferencingObjectModel'
     SelfReferencingArrayModel:
