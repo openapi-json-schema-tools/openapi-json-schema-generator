@@ -63,9 +63,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = AdditionalPropertiesWithArrayOfEnums(
+    body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums(
         key=[
-            EnumClass("-efg")
+            enum_class.EnumClass("-efg")
         ],
     )
     try:
@@ -147,8 +147,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = AnimalFarm([
-        Animal()
+    body = animal_farm.AnimalFarm([
+        animal.Animal()
     ])
     try:
         api_response = api_instance.array_model(
@@ -227,8 +227,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ArrayOfEnums([
-        StringEnum("placed")
+    body = array_of_enums.ArrayOfEnums([
+        string_enum.StringEnum("placed")
     ])
     try:
         # Array of Enums
@@ -309,12 +309,12 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = FileSchemaTestClass(
-        file=File(
+    body = file_schema_test_class.FileSchemaTestClass(
+        file=file.File(
             source_uri="source_uri_example",
         ),
         files=[
-            File()
+            file.File()
         ],
     )
     try:
@@ -388,7 +388,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     query_params = {
         'query': "query_example",
     }
-    body = User(
+    body = user.User(
         id=1,
         username="username_example",
         first_name="first_name_example",
@@ -490,7 +490,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = Boolean(True)
+    body = boolean.Boolean(True)
     try:
         api_response = api_instance.boolean(
             body=body,
@@ -666,7 +666,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Client(
+    body = client.Client(
         client="client_example",
     )
     try:
@@ -748,7 +748,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ComposedOneOfDifferentTypes(None)
+    body = composed_one_of_different_types.ComposedOneOfDifferentTypes(None)
     try:
         api_response = api_instance.composed_one_of_different_types(
             body=body,
@@ -1859,7 +1859,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = JSONPatchRequest([
+    body = json_patch_request.JSONPatchRequest([
         None
     ])
     try:
@@ -2013,7 +2013,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Mammal(
+    body = mammal.Mammal(
         has_baleen=True,
         has_teeth=True,
         class_name="whale",
@@ -2096,7 +2096,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = NumberWithValidations(10)
+    body = number_with_validations.NumberWithValidations(10)
     try:
         api_response = api_instance.number_with_validations(
             body=body,
@@ -2261,10 +2261,10 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ObjectModelWithRefProps(
-        my_number=NumberWithValidations(10),
-        my_string=String("my_string_example"),
-        my_boolean=Boolean(True),
+    body = object_model_with_ref_props.ObjectModelWithRefProps(
+        my_number=10,
+        my_string="my_string_example",
+        my_boolean=True,
     )
     try:
         api_response = api_instance.object_model_with_ref_props(
@@ -2758,7 +2758,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         'context': [
         "context_example"
     ],
-        'refParam': StringWithValidation("refParam_example"),
+        'refParam': string_with_validation.StringWithValidation("refParam_example"),
     }
     try:
         api_response = api_instance.query_parameter_collection_format(
@@ -2900,8 +2900,8 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'mapBean': Foo(
-        bar=Bar("bar"),
+        'mapBean': foo.Foo(
+        bar=bar.Bar("bar"),
     ),
     }
     try:
@@ -3032,7 +3032,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = String("parameter_body_example")
+    body = string.String("parameter_body_example")
     try:
         api_response = api_instance.string(
             body=body,
@@ -3111,7 +3111,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = StringEnum("placed")
+    body = string_enum.StringEnum("placed")
     try:
         api_response = api_instance.string_enum(
             body=body,

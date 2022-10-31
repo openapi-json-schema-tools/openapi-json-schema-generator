@@ -1512,12 +1512,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toModelName(openAPIType);
     }
 
-    public String getModelName(Schema sc) {
-        if (sc.get$ref() != null) {
-            Schema unaliasedSchema = unaliasSchema(sc);
-            if (unaliasedSchema.get$ref() != null) {
-                return toModelName(ModelUtils.getSimpleRef(sc.get$ref()));
-            }
+    public String getSchemaRefClass(Schema sc) {
+        String ref = sc.get$ref();
+        if (ref != null) {
+            return toRefClass(ref, "");
         }
         return null;
     }
@@ -1679,13 +1677,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toExampleValue(Schema schema) {
-        String modelName = getModelName(schema);
+        String modelName = getSchemaRefClass(schema);
         Object objExample = getObjectExample(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
     public String toExampleValue(Schema schema, Object objExample) {
-        String modelName = getModelName(schema);
+        String modelName = getSchemaRefClass(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
@@ -1783,7 +1781,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 LOGGER.warn("Unable to find referenced schema " + schema.get$ref() + "\n");
                 return fullPrefix + "None" + closeChars;
             }
-            String refModelName = getModelName(schema);
+            String refModelName = getSchemaRefClass(schema);
             return toExampleValueRecursive(refModelName, refSchema, objExample, indentationLevel, prefix, exampleLine, includedSchemas);
         } else if (ModelUtils.isNullType(schema)) {
             // The 'null' type is allowed in OAS 3.1 and above. It is not supported by OAS 3.0.x,
@@ -1955,7 +1953,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             ArraySchema arrayschema = (ArraySchema) schema;
             Schema itemSchema = arrayschema.getItems();
-            String itemModelName = getModelName(itemSchema);
+            String itemModelName = getSchemaRefClass(itemSchema);
             if(includedSchemas.contains(schema)) {
                 return "";
             }
@@ -2035,7 +2033,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (modelName == null) {
                     addPropPrefix = ensureQuotes(key) + ": ";
                 }
-                String addPropsModelName = getModelName(addPropsSchema);
+                String addPropsModelName = getSchemaRefClass(addPropsSchema);
                 if(includedSchemas.contains(schema)) {
                     return "";
                 }
@@ -2083,7 +2081,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 propModelName = null;
                 propExample = discProp.example;
             } else {
-                propModelName = getModelName(propSchema);
+                propModelName = getSchemaRefClass(propSchema);
                 propExample = exampleFromStringOrArraySchema(
                         propSchema,
                         null,

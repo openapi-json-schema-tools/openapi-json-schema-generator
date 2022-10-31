@@ -308,7 +308,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = store_api.StoreApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Order(
+    body = order.Order(
         id=1,
         pet_id=1,
         quantity=1,
