@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.invalid_string_value_for_default import InvalidStringValueForDefault
+from unit_test_api.components.schema import invalid_string_value_for_default
 
 from .. import path
 from . import response_for_200

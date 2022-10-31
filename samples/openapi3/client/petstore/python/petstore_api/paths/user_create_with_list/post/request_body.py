@@ -24,7 +24,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.user import User
+from petstore_api.components.schema import user
 
 
 
@@ -37,12 +37,12 @@ class application_json(
     class MetaOapg:
         
         @staticmethod
-        def items() -> typing.Type['User']:
-            return User
+        def items() -> typing.Type['user.User']:
+            return user.User
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['User'], typing.List['User']],
+        _arg: typing.Union[typing.Tuple['user.User'], typing.List['user.User']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'application_json':
         return super().__new__(
@@ -51,7 +51,7 @@ class application_json(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'User':
+    def __getitem__(self, i: int) -> 'user.User':
         return super().__getitem__(i)
 
 parameter_oapg = api_client.RequestBody(

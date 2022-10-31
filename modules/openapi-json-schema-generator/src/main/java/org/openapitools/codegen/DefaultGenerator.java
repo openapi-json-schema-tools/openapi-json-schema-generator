@@ -1283,18 +1283,21 @@ public class DefaultGenerator implements Generator {
         List<ModelMap> modelMaps = new ArrayList<>();
         Set<String> allImports = new LinkedHashSet<>();
         for (Map.Entry<String, Schema> definitionsEntry : definitions.entrySet()) {
-            String key = definitionsEntry.getKey();
+            String schemaName = definitionsEntry.getKey();
             Schema schema = definitionsEntry.getValue();
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
-            CodegenModel cm = config.fromModel(key, schema);
+            CodegenModel cm = config.fromModel(schemaName, schema);
             ModelMap mo = new ModelMap();
             mo.setModel(cm);
-            mo.put("importPath", config.toModelImport(cm.classname));
+            mo.put("importPath", config.toModelImport(config.toRefClass("#/components/schemas/"+schemaName, "")));
             modelMaps.add(mo);
 
             cm.removeSelfReferenceImport();
 
+            if (cm.imports == null || cm.imports.size() == 0) {
+                continue;
+            }
             allImports.addAll(cm.imports);
         }
         objs.setModels(modelMaps);
@@ -1302,7 +1305,7 @@ public class DefaultGenerator implements Generator {
         for (String nextImport : allImports) {
             String mapping = config.importMapping().get(nextImport);
             if (mapping == null) {
-                mapping = config.toModelImport(nextImport);
+                mapping = nextImport;
             }
             if (mapping != null && !config.defaultIncludes().contains(mapping)) {
                 importSet.add(mapping);

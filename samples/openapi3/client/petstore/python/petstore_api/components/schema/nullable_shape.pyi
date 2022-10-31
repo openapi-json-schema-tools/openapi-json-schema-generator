@@ -49,8 +49,8 @@ class NullableShape(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                Triangle,
-                Quadrilateral,
+                triangle.Triangle,
+                quadrilateral.Quadrilateral,
                 cls.one_of_2,
             ]
 
@@ -68,5 +68,5 @@ class NullableShape(
             **kwargs,
         )
 
-from petstore_api.components.schema.quadrilateral import Quadrilateral
-from petstore_api.components.schema.triangle import Triangle
+from petstore_api.components.schema import quadrilateral
+from petstore_api.components.schema import triangle

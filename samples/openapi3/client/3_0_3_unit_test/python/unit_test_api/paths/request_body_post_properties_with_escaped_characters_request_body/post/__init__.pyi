@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema import properties_with_escaped_characters
 
 from . import response_for_200
 from . import request_body

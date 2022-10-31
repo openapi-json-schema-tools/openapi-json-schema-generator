@@ -36,12 +36,12 @@ class AnimalFarm(
     class MetaOapg:
         
         @staticmethod
-        def items() -> typing.Type['Animal']:
-            return Animal
+        def items() -> typing.Type['animal.Animal']:
+            return animal.Animal
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['Animal'], typing.List['Animal']],
+        _arg: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AnimalFarm':
         return super().__new__(
@@ -50,7 +50,7 @@ class AnimalFarm(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'Animal':
+    def __getitem__(self, i: int) -> 'animal.Animal':
         return super().__getitem__(i)
 
-from petstore_api.components.schema.animal import Animal
+from petstore_api.components.schema import animal

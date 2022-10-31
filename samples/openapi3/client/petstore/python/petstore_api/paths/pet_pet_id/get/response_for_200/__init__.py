@@ -15,11 +15,11 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.pet import Pet
+from petstore_api.components.schema import pet
 
 # body schemas
-application_xml = Pet
-application_json = Pet
+application_xml = pet.Pet
+application_json = pet.Pet
 
 
 @dataclasses.dataclass

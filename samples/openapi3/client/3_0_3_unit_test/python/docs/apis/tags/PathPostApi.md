@@ -189,7 +189,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema import additionalproperties_allows_a_schema_which_should_validate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -203,7 +203,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesAllowsASchemaWhichShouldValidate(
+    body = additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate(
         foo=None,
         bar=None,
     )
@@ -229,7 +229,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_allows_a_schema_which_should_validate_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
+[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
 
 
 ### Return Types, Responses
@@ -300,7 +300,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_allows_a_schema_which_should_validate_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
+[**AdditionalpropertiesAllowsASchemaWhichShouldValidate**](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md) |  | 
 
 
 ### Authorization
@@ -318,7 +318,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.additionalproperties_are_allowed_by_default import AdditionalpropertiesAreAllowedByDefault
+from unit_test_api.components.schema import additionalproperties_are_allowed_by_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -332,7 +332,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesAreAllowedByDefault(None)
+    body = additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault(None)
     try:
         api_response = api_instance.post_additionalproperties_are_allowed_by_default_request_body(
             body=body,
@@ -355,7 +355,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_are_allowed_by_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/AdditionalpropertiesAreAllowedByDefault.md) |  | 
+[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -426,7 +426,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_are_allowed_by_default_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/AdditionalpropertiesAreAllowedByDefault.md) |  | 
+[**AdditionalpropertiesAreAllowedByDefault**](../../components/schema/additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.md) |  | 
 
 
 ### Authorization
@@ -444,7 +444,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.additionalproperties_can_exist_by_itself import AdditionalpropertiesCanExistByItself
+from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -458,7 +458,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesCanExistByItself(
+    body = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself(
         key=True,
     )
     try:
@@ -483,7 +483,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_can_exist_by_itself_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../components/schema/AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../components/schema/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Return Types, Responses
@@ -554,7 +554,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_can_exist_by_itself_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../components/schema/AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../components/schema/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Authorization
@@ -572,7 +572,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
+from unit_test_api.components.schema import additionalproperties_should_not_look_in_applicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -586,7 +586,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AdditionalpropertiesShouldNotLookInApplicators(None)
+    body = additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators(None)
     try:
         api_response = api_instance.post_additionalproperties_should_not_look_in_applicators_request_body(
             body=body,
@@ -609,7 +609,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_additionalproperties_should_not_look_in_applicators_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
+[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
 
 
 ### Return Types, Responses
@@ -680,7 +680,7 @@ headers | Unset | headers were not defined |
 # <a id="post_additionalproperties_should_not_look_in_applicators_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
+[**AdditionalpropertiesShouldNotLookInApplicators**](../../components/schema/additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators.md) |  | 
 
 
 ### Authorization
@@ -698,7 +698,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_combined_with_anyof_oneof import AllofCombinedWithAnyofOneof
+from unit_test_api.components.schema import allof_combined_with_anyof_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -712,7 +712,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofCombinedWithAnyofOneof(None)
+    body = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof(None)
     try:
         api_response = api_instance.post_allof_combined_with_anyof_oneof_request_body(
             body=body,
@@ -735,7 +735,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_combined_with_anyof_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../components/schema/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -806,7 +806,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_combined_with_anyof_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../components/schema/AllofCombinedWithAnyofOneof.md) |  | 
+[**AllofCombinedWithAnyofOneof**](../../components/schema/allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Authorization
@@ -824,7 +824,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof import Allof
+from unit_test_api.components.schema import allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -838,7 +838,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Allof(None)
+    body = allof.Allof(None)
     try:
         api_response = api_instance.post_allof_request_body(
             body=body,
@@ -861,7 +861,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../components/schema/Allof.md) |  | 
+[**Allof**](../../components/schema/allof.Allof.md) |  | 
 
 
 ### Return Types, Responses
@@ -932,7 +932,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Allof**](../../components/schema/Allof.md) |  | 
+[**Allof**](../../components/schema/allof.Allof.md) |  | 
 
 
 ### Authorization
@@ -950,7 +950,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema import allof_simple_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -964,7 +964,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofSimpleTypes(None)
+    body = allof_simple_types.AllofSimpleTypes(None)
     try:
         api_response = api_instance.post_allof_simple_types_request_body(
             body=body,
@@ -987,7 +987,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_simple_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../components/schema/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/allof_simple_types.AllofSimpleTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -1058,7 +1058,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_simple_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../components/schema/AllofSimpleTypes.md) |  | 
+[**AllofSimpleTypes**](../../components/schema/allof_simple_types.AllofSimpleTypes.md) |  | 
 
 
 ### Authorization
@@ -1076,7 +1076,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_with_base_schema import AllofWithBaseSchema
+from unit_test_api.components.schema import allof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1090,7 +1090,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithBaseSchema({})
+    body = allof_with_base_schema.AllofWithBaseSchema({})
     try:
         api_response = api_instance.post_allof_with_base_schema_request_body(
             body=body,
@@ -1113,7 +1113,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../components/schema/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/allof_with_base_schema.AllofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1184,7 +1184,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithBaseSchema**](../../components/schema/AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../components/schema/allof_with_base_schema.AllofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -1202,7 +1202,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_with_one_empty_schema import AllofWithOneEmptySchema
+from unit_test_api.components.schema import allof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1216,7 +1216,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithOneEmptySchema(None)
+    body = allof_with_one_empty_schema.AllofWithOneEmptySchema(None)
     try:
         api_response = api_instance.post_allof_with_one_empty_schema_request_body(
             body=body,
@@ -1239,7 +1239,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../components/schema/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/allof_with_one_empty_schema.AllofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1310,7 +1310,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_one_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithOneEmptySchema**](../../components/schema/AllofWithOneEmptySchema.md) |  | 
+[**AllofWithOneEmptySchema**](../../components/schema/allof_with_one_empty_schema.AllofWithOneEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -1328,7 +1328,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_with_the_first_empty_schema import AllofWithTheFirstEmptySchema
+from unit_test_api.components.schema import allof_with_the_first_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1342,7 +1342,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithTheFirstEmptySchema(None)
+    body = allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema(None)
     try:
         api_response = api_instance.post_allof_with_the_first_empty_schema_request_body(
             body=body,
@@ -1365,7 +1365,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_the_first_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../components/schema/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1436,7 +1436,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_the_first_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheFirstEmptySchema**](../../components/schema/AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../components/schema/allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -1454,7 +1454,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema import allof_with_the_last_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1468,7 +1468,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithTheLastEmptySchema(None)
+    body = allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema(None)
     try:
         api_response = api_instance.post_allof_with_the_last_empty_schema_request_body(
             body=body,
@@ -1491,7 +1491,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_the_last_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../components/schema/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -1562,7 +1562,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_the_last_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTheLastEmptySchema**](../../components/schema/AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../components/schema/allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -1580,7 +1580,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.allof_with_two_empty_schemas import AllofWithTwoEmptySchemas
+from unit_test_api.components.schema import allof_with_two_empty_schemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1594,7 +1594,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AllofWithTwoEmptySchemas(None)
+    body = allof_with_two_empty_schemas.AllofWithTwoEmptySchemas(None)
     try:
         api_response = api_instance.post_allof_with_two_empty_schemas_request_body(
             body=body,
@@ -1617,7 +1617,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_allof_with_two_empty_schemas_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../components/schema/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/allof_with_two_empty_schemas.AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Return Types, Responses
@@ -1688,7 +1688,7 @@ headers | Unset | headers were not defined |
 # <a id="post_allof_with_two_empty_schemas_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofWithTwoEmptySchemas**](../../components/schema/AllofWithTwoEmptySchemas.md) |  | 
+[**AllofWithTwoEmptySchemas**](../../components/schema/allof_with_two_empty_schemas.AllofWithTwoEmptySchemas.md) |  | 
 
 
 ### Authorization
@@ -1706,7 +1706,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema import anyof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1720,7 +1720,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofComplexTypes(None)
+    body = anyof_complex_types.AnyofComplexTypes(None)
     try:
         api_response = api_instance.post_anyof_complex_types_request_body(
             body=body,
@@ -1743,7 +1743,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofComplexTypes**](../../components/schema/AnyofComplexTypes.md) |  | 
+[**AnyofComplexTypes**](../../components/schema/anyof_complex_types.AnyofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -1814,7 +1814,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_complex_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofComplexTypes**](../../components/schema/AnyofComplexTypes.md) |  | 
+[**AnyofComplexTypes**](../../components/schema/anyof_complex_types.AnyofComplexTypes.md) |  | 
 
 
 ### Authorization
@@ -1832,7 +1832,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.anyof import Anyof
+from unit_test_api.components.schema import anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1846,7 +1846,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Anyof(None)
+    body = anyof.Anyof(None)
     try:
         api_response = api_instance.post_anyof_request_body(
             body=body,
@@ -1869,7 +1869,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Anyof**](../../components/schema/Anyof.md) |  | 
+[**Anyof**](../../components/schema/anyof.Anyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -1940,7 +1940,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Anyof**](../../components/schema/Anyof.md) |  | 
+[**Anyof**](../../components/schema/anyof.Anyof.md) |  | 
 
 
 ### Authorization
@@ -1958,7 +1958,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
+from unit_test_api.components.schema import anyof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1972,7 +1972,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithBaseSchema("parameter_body_example")
+    body = anyof_with_base_schema.AnyofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_anyof_with_base_schema_request_body(
             body=body,
@@ -1995,7 +1995,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithBaseSchema**](../../components/schema/AnyofWithBaseSchema.md) |  | 
+[**AnyofWithBaseSchema**](../../components/schema/anyof_with_base_schema.AnyofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -2066,7 +2066,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithBaseSchema**](../../components/schema/AnyofWithBaseSchema.md) |  | 
+[**AnyofWithBaseSchema**](../../components/schema/anyof_with_base_schema.AnyofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -2084,7 +2084,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema import anyof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2098,7 +2098,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithOneEmptySchema(None)
+    body = anyof_with_one_empty_schema.AnyofWithOneEmptySchema(None)
     try:
         api_response = api_instance.post_anyof_with_one_empty_schema_request_body(
             body=body,
@@ -2121,7 +2121,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithOneEmptySchema**](../../components/schema/AnyofWithOneEmptySchema.md) |  | 
+[**AnyofWithOneEmptySchema**](../../components/schema/anyof_with_one_empty_schema.AnyofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -2192,7 +2192,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_with_one_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithOneEmptySchema**](../../components/schema/AnyofWithOneEmptySchema.md) |  | 
+[**AnyofWithOneEmptySchema**](../../components/schema/anyof_with_one_empty_schema.AnyofWithOneEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -2210,7 +2210,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema import array_type_matches_arrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2224,7 +2224,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ArrayTypeMatchesArrays([
+    body = array_type_matches_arrays.ArrayTypeMatchesArrays([
         None
     ])
     try:
@@ -2249,7 +2249,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_array_type_matches_arrays_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/array_type_matches_arrays.ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Return Types, Responses
@@ -2320,7 +2320,7 @@ headers | Unset | headers were not defined |
 # <a id="post_array_type_matches_arrays_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../components/schema/ArrayTypeMatchesArrays.md) |  | 
+[**ArrayTypeMatchesArrays**](../../components/schema/array_type_matches_arrays.ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Authorization
@@ -2338,7 +2338,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema import boolean_type_matches_booleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2352,7 +2352,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = BooleanTypeMatchesBooleans(True)
+    body = boolean_type_matches_booleans.BooleanTypeMatchesBooleans(True)
     try:
         api_response = api_instance.post_boolean_type_matches_booleans_request_body(
             body=body,
@@ -2375,7 +2375,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_boolean_type_matches_booleans_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Return Types, Responses
@@ -2446,7 +2446,7 @@ headers | Unset | headers were not defined |
 # <a id="post_boolean_type_matches_booleans_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../components/schema/BooleanTypeMatchesBooleans.md) |  | 
+[**BooleanTypeMatchesBooleans**](../../components/schema/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Authorization
@@ -2464,7 +2464,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.by_int import ByInt
+from unit_test_api.components.schema import by_int
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2478,7 +2478,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ByInt(None)
+    body = by_int.ByInt(None)
     try:
         api_response = api_instance.post_by_int_request_body(
             body=body,
@@ -2501,7 +2501,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_int_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../components/schema/ByInt.md) |  | 
+[**ByInt**](../../components/schema/by_int.ByInt.md) |  | 
 
 
 ### Return Types, Responses
@@ -2572,7 +2572,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_int_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../components/schema/ByInt.md) |  | 
+[**ByInt**](../../components/schema/by_int.ByInt.md) |  | 
 
 
 ### Authorization
@@ -2590,7 +2590,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.by_number import ByNumber
+from unit_test_api.components.schema import by_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2604,7 +2604,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ByNumber(None)
+    body = by_number.ByNumber(None)
     try:
         api_response = api_instance.post_by_number_request_body(
             body=body,
@@ -2627,7 +2627,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../components/schema/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/by_number.ByNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -2698,7 +2698,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_number_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../components/schema/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/by_number.ByNumber.md) |  | 
 
 
 ### Authorization
@@ -2716,7 +2716,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.by_small_number import BySmallNumber
+from unit_test_api.components.schema import by_small_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2730,7 +2730,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = BySmallNumber(None)
+    body = by_small_number.BySmallNumber(None)
     try:
         api_response = api_instance.post_by_small_number_request_body(
             body=body,
@@ -2753,7 +2753,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_small_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/by_small_number.BySmallNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -2824,7 +2824,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_small_number_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/by_small_number.BySmallNumber.md) |  | 
 
 
 ### Authorization
@@ -2842,7 +2842,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.date_time_format import DateTimeFormat
+from unit_test_api.components.schema import date_time_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2856,7 +2856,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = DateTimeFormat(None)
+    body = date_time_format.DateTimeFormat(None)
     try:
         api_response = api_instance.post_date_time_format_request_body(
             body=body,
@@ -2879,7 +2879,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_date_time_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/date_time_format.DateTimeFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -2950,7 +2950,7 @@ headers | Unset | headers were not defined |
 # <a id="post_date_time_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DateTimeFormat**](../../components/schema/DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../components/schema/date_time_format.DateTimeFormat.md) |  | 
 
 
 ### Authorization
@@ -2968,7 +2968,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.email_format import EmailFormat
+from unit_test_api.components.schema import email_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2982,7 +2982,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EmailFormat(None)
+    body = email_format.EmailFormat(None)
     try:
         api_response = api_instance.post_email_format_request_body(
             body=body,
@@ -3005,7 +3005,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_email_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/email_format.EmailFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -3076,7 +3076,7 @@ headers | Unset | headers were not defined |
 # <a id="post_email_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EmailFormat**](../../components/schema/EmailFormat.md) |  | 
+[**EmailFormat**](../../components/schema/email_format.EmailFormat.md) |  | 
 
 
 ### Authorization
@@ -3094,7 +3094,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.enum_with0_does_not_match_false import EnumWith0DoesNotMatchFalse
+from unit_test_api.components.schema import enum_with0_does_not_match_false
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3108,7 +3108,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWith0DoesNotMatchFalse(0)
+    body = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse(0)
     try:
         api_response = api_instance.post_enum_with0_does_not_match_false_request_body(
             body=body,
@@ -3131,7 +3131,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with0_does_not_match_false_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../components/schema/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Return Types, Responses
@@ -3202,7 +3202,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with0_does_not_match_false_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith0DoesNotMatchFalse**](../../components/schema/EnumWith0DoesNotMatchFalse.md) |  | 
+[**EnumWith0DoesNotMatchFalse**](../../components/schema/enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.md) |  | 
 
 
 ### Authorization
@@ -3220,7 +3220,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.enum_with1_does_not_match_true import EnumWith1DoesNotMatchTrue
+from unit_test_api.components.schema import enum_with1_does_not_match_true
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3234,7 +3234,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWith1DoesNotMatchTrue(1)
+    body = enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue(1)
     try:
         api_response = api_instance.post_enum_with1_does_not_match_true_request_body(
             body=body,
@@ -3257,7 +3257,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with1_does_not_match_true_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../components/schema/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Return Types, Responses
@@ -3328,7 +3328,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with1_does_not_match_true_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../components/schema/EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Authorization
@@ -3346,7 +3346,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
+from unit_test_api.components.schema import enum_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3360,7 +3360,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWithEscapedCharacters("foo\nbar")
+    body = enum_with_escaped_characters.EnumWithEscapedCharacters("foo\nbar")
     try:
         api_response = api_instance.post_enum_with_escaped_characters_request_body(
             body=body,
@@ -3383,7 +3383,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../components/schema/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -3454,7 +3454,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../components/schema/EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Authorization
@@ -3472,7 +3472,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
+from unit_test_api.components.schema import enum_with_false_does_not_match0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3486,7 +3486,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWithFalseDoesNotMatch0(False)
+    body = enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0(False)
     try:
         api_response = api_instance.post_enum_with_false_does_not_match0_request_body(
             body=body,
@@ -3509,7 +3509,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_false_does_not_match0_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../components/schema/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Return Types, Responses
@@ -3580,7 +3580,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with_false_does_not_match0_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithFalseDoesNotMatch0**](../../components/schema/EnumWithFalseDoesNotMatch0.md) |  | 
+[**EnumWithFalseDoesNotMatch0**](../../components/schema/enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0.md) |  | 
 
 
 ### Authorization
@@ -3598,7 +3598,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
+from unit_test_api.components.schema import enum_with_true_does_not_match1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3612,7 +3612,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumWithTrueDoesNotMatch1(True)
+    body = enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1(True)
     try:
         api_response = api_instance.post_enum_with_true_does_not_match1_request_body(
             body=body,
@@ -3635,7 +3635,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enum_with_true_does_not_match1_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../components/schema/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Return Types, Responses
@@ -3706,7 +3706,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enum_with_true_does_not_match1_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithTrueDoesNotMatch1**](../../components/schema/EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../components/schema/enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Authorization
@@ -3724,7 +3724,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema import enums_in_properties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3738,7 +3738,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = EnumsInProperties(
+    body = enums_in_properties.EnumsInProperties(
         foo="foo",
         bar="bar",
     )
@@ -3764,7 +3764,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_enums_in_properties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../components/schema/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/enums_in_properties.EnumsInProperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -3835,7 +3835,7 @@ headers | Unset | headers were not defined |
 # <a id="post_enums_in_properties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumsInProperties**](../../components/schema/EnumsInProperties.md) |  | 
+[**EnumsInProperties**](../../components/schema/enums_in_properties.EnumsInProperties.md) |  | 
 
 
 ### Authorization
@@ -3853,7 +3853,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema import forbidden_property
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3867,7 +3867,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ForbiddenProperty(None)
+    body = forbidden_property.ForbiddenProperty(None)
     try:
         api_response = api_instance.post_forbidden_property_request_body(
             body=body,
@@ -3890,7 +3890,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -3961,7 +3961,7 @@ headers | Unset | headers were not defined |
 # <a id="post_forbidden_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Authorization
@@ -3979,7 +3979,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.hostname_format import HostnameFormat
+from unit_test_api.components.schema import hostname_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3993,7 +3993,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = HostnameFormat(None)
+    body = hostname_format.HostnameFormat(None)
     try:
         api_response = api_instance.post_hostname_format_request_body(
             body=body,
@@ -4016,7 +4016,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_hostname_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/hostname_format.HostnameFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -4087,7 +4087,7 @@ headers | Unset | headers were not defined |
 # <a id="post_hostname_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../components/schema/HostnameFormat.md) |  | 
+[**HostnameFormat**](../../components/schema/hostname_format.HostnameFormat.md) |  | 
 
 
 ### Authorization
@@ -4105,7 +4105,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
+from unit_test_api.components.schema import integer_type_matches_integers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4119,7 +4119,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = IntegerTypeMatchesIntegers(1)
+    body = integer_type_matches_integers.IntegerTypeMatchesIntegers(1)
     try:
         api_response = api_instance.post_integer_type_matches_integers_request_body(
             body=body,
@@ -4142,7 +4142,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_integer_type_matches_integers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/integer_type_matches_integers.IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Return Types, Responses
@@ -4213,7 +4213,7 @@ headers | Unset | headers were not defined |
 # <a id="post_integer_type_matches_integers_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**IntegerTypeMatchesIntegers**](../../components/schema/IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../components/schema/integer_type_matches_integers.IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Authorization
@@ -4231,7 +4231,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+from unit_test_api.components.schema import invalid_instance_should_not_raise_error_when_float_division_inf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4245,7 +4245,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(1)
+    body = invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(1)
     try:
         api_response = api_instance.post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body(
             body=body,
@@ -4268,7 +4268,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Return Types, Responses
@@ -4339,7 +4339,7 @@ headers | Unset | headers were not defined |
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Authorization
@@ -4357,7 +4357,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.invalid_string_value_for_default import InvalidStringValueForDefault
+from unit_test_api.components.schema import invalid_string_value_for_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4371,7 +4371,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = InvalidStringValueForDefault(None)
+    body = invalid_string_value_for_default.InvalidStringValueForDefault(None)
     try:
         api_response = api_instance.post_invalid_string_value_for_default_request_body(
             body=body,
@@ -4394,7 +4394,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_string_value_for_default_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../components/schema/InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../components/schema/invalid_string_value_for_default.InvalidStringValueForDefault.md) |  | 
 
 
 ### Return Types, Responses
@@ -4465,7 +4465,7 @@ headers | Unset | headers were not defined |
 # <a id="post_invalid_string_value_for_default_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../components/schema/InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../components/schema/invalid_string_value_for_default.InvalidStringValueForDefault.md) |  | 
 
 
 ### Authorization
@@ -4483,7 +4483,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ipv4_format import Ipv4Format
+from unit_test_api.components.schema import ipv4_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4497,7 +4497,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Ipv4Format(None)
+    body = ipv4_format.Ipv4Format(None)
     try:
         api_response = api_instance.post_ipv4_format_request_body(
             body=body,
@@ -4520,7 +4520,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv4_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/ipv4_format.Ipv4Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -4591,7 +4591,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ipv4_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../components/schema/Ipv4Format.md) |  | 
+[**Ipv4Format**](../../components/schema/ipv4_format.Ipv4Format.md) |  | 
 
 
 ### Authorization
@@ -4609,7 +4609,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ipv6_format import Ipv6Format
+from unit_test_api.components.schema import ipv6_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4623,7 +4623,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Ipv6Format(None)
+    body = ipv6_format.Ipv6Format(None)
     try:
         api_response = api_instance.post_ipv6_format_request_body(
             body=body,
@@ -4646,7 +4646,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ipv6_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/ipv6_format.Ipv6Format.md) |  | 
 
 
 ### Return Types, Responses
@@ -4717,7 +4717,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ipv6_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../components/schema/Ipv6Format.md) |  | 
+[**Ipv6Format**](../../components/schema/ipv6_format.Ipv6Format.md) |  | 
 
 
 ### Authorization
@@ -4735,7 +4735,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
+from unit_test_api.components.schema import json_pointer_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4749,7 +4749,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = JsonPointerFormat(None)
+    body = json_pointer_format.JsonPointerFormat(None)
     try:
         api_response = api_instance.post_json_pointer_format_request_body(
             body=body,
@@ -4772,7 +4772,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_json_pointer_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/json_pointer_format.JsonPointerFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -4843,7 +4843,7 @@ headers | Unset | headers were not defined |
 # <a id="post_json_pointer_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../components/schema/JsonPointerFormat.md) |  | 
+[**JsonPointerFormat**](../../components/schema/json_pointer_format.JsonPointerFormat.md) |  | 
 
 
 ### Authorization
@@ -4861,7 +4861,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.maximum_validation import MaximumValidation
+from unit_test_api.components.schema import maximum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4875,7 +4875,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaximumValidation(None)
+    body = maximum_validation.MaximumValidation(None)
     try:
         api_response = api_instance.post_maximum_validation_request_body(
             body=body,
@@ -4898,7 +4898,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maximum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidation**](../../components/schema/MaximumValidation.md) |  | 
+[**MaximumValidation**](../../components/schema/maximum_validation.MaximumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -4969,7 +4969,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maximum_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidation**](../../components/schema/MaximumValidation.md) |  | 
+[**MaximumValidation**](../../components/schema/maximum_validation.MaximumValidation.md) |  | 
 
 
 ### Authorization
@@ -4987,7 +4987,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
+from unit_test_api.components.schema import maximum_validation_with_unsigned_integer
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5001,7 +5001,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaximumValidationWithUnsignedInteger(None)
+    body = maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger(None)
     try:
         api_response = api_instance.post_maximum_validation_with_unsigned_integer_request_body(
             body=body,
@@ -5024,7 +5024,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maximum_validation_with_unsigned_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidationWithUnsignedInteger**](../../components/schema/MaximumValidationWithUnsignedInteger.md) |  | 
+[**MaximumValidationWithUnsignedInteger**](../../components/schema/maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -5095,7 +5095,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maximum_validation_with_unsigned_integer_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidationWithUnsignedInteger**](../../components/schema/MaximumValidationWithUnsignedInteger.md) |  | 
+[**MaximumValidationWithUnsignedInteger**](../../components/schema/maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.md) |  | 
 
 
 ### Authorization
@@ -5113,7 +5113,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.maxitems_validation import MaxitemsValidation
+from unit_test_api.components.schema import maxitems_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5127,7 +5127,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaxitemsValidation(None)
+    body = maxitems_validation.MaxitemsValidation(None)
     try:
         api_response = api_instance.post_maxitems_validation_request_body(
             body=body,
@@ -5150,7 +5150,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxitemsValidation**](../../components/schema/MaxitemsValidation.md) |  | 
+[**MaxitemsValidation**](../../components/schema/maxitems_validation.MaxitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5221,7 +5221,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxitems_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxitemsValidation**](../../components/schema/MaxitemsValidation.md) |  | 
+[**MaxitemsValidation**](../../components/schema/maxitems_validation.MaxitemsValidation.md) |  | 
 
 
 ### Authorization
@@ -5239,7 +5239,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.maxlength_validation import MaxlengthValidation
+from unit_test_api.components.schema import maxlength_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5253,7 +5253,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaxlengthValidation(None)
+    body = maxlength_validation.MaxlengthValidation(None)
     try:
         api_response = api_instance.post_maxlength_validation_request_body(
             body=body,
@@ -5276,7 +5276,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxlengthValidation**](../../components/schema/MaxlengthValidation.md) |  | 
+[**MaxlengthValidation**](../../components/schema/maxlength_validation.MaxlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5347,7 +5347,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxlength_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxlengthValidation**](../../components/schema/MaxlengthValidation.md) |  | 
+[**MaxlengthValidation**](../../components/schema/maxlength_validation.MaxlengthValidation.md) |  | 
 
 
 ### Authorization
@@ -5365,7 +5365,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.maxproperties0_means_the_object_is_empty import Maxproperties0MeansTheObjectIsEmpty
+from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5379,7 +5379,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Maxproperties0MeansTheObjectIsEmpty(None)
+    body = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty(None)
     try:
         api_response = api_instance.post_maxproperties0_means_the_object_is_empty_request_body(
             body=body,
@@ -5402,7 +5402,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties0_means_the_object_is_empty_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Return Types, Responses
@@ -5473,7 +5473,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxproperties0_means_the_object_is_empty_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../components/schema/maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Authorization
@@ -5491,7 +5491,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.maxproperties_validation import MaxpropertiesValidation
+from unit_test_api.components.schema import maxproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5505,7 +5505,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaxpropertiesValidation(None)
+    body = maxproperties_validation.MaxpropertiesValidation(None)
     try:
         api_response = api_instance.post_maxproperties_validation_request_body(
             body=body,
@@ -5528,7 +5528,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maxproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/maxproperties_validation.MaxpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5599,7 +5599,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maxproperties_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxpropertiesValidation**](../../components/schema/MaxpropertiesValidation.md) |  | 
+[**MaxpropertiesValidation**](../../components/schema/maxproperties_validation.MaxpropertiesValidation.md) |  | 
 
 
 ### Authorization
@@ -5617,7 +5617,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.minimum_validation import MinimumValidation
+from unit_test_api.components.schema import minimum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5631,7 +5631,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinimumValidation(None)
+    body = minimum_validation.MinimumValidation(None)
     try:
         api_response = api_instance.post_minimum_validation_request_body(
             body=body,
@@ -5654,7 +5654,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minimum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../components/schema/MinimumValidation.md) |  | 
+[**MinimumValidation**](../../components/schema/minimum_validation.MinimumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5725,7 +5725,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minimum_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../components/schema/MinimumValidation.md) |  | 
+[**MinimumValidation**](../../components/schema/minimum_validation.MinimumValidation.md) |  | 
 
 
 ### Authorization
@@ -5743,7 +5743,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema import minimum_validation_with_signed_integer
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5757,7 +5757,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinimumValidationWithSignedInteger(None)
+    body = minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger(None)
     try:
         api_response = api_instance.post_minimum_validation_with_signed_integer_request_body(
             body=body,
@@ -5780,7 +5780,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minimum_validation_with_signed_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../components/schema/MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -5851,7 +5851,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minimum_validation_with_signed_integer_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../components/schema/MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Authorization
@@ -5869,7 +5869,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.minitems_validation import MinitemsValidation
+from unit_test_api.components.schema import minitems_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5883,7 +5883,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinitemsValidation(None)
+    body = minitems_validation.MinitemsValidation(None)
     try:
         api_response = api_instance.post_minitems_validation_request_body(
             body=body,
@@ -5906,7 +5906,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinitemsValidation**](../../components/schema/MinitemsValidation.md) |  | 
+[**MinitemsValidation**](../../components/schema/minitems_validation.MinitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -5977,7 +5977,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minitems_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinitemsValidation**](../../components/schema/MinitemsValidation.md) |  | 
+[**MinitemsValidation**](../../components/schema/minitems_validation.MinitemsValidation.md) |  | 
 
 
 ### Authorization
@@ -5995,7 +5995,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.minlength_validation import MinlengthValidation
+from unit_test_api.components.schema import minlength_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6009,7 +6009,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinlengthValidation(None)
+    body = minlength_validation.MinlengthValidation(None)
     try:
         api_response = api_instance.post_minlength_validation_request_body(
             body=body,
@@ -6032,7 +6032,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minlength_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinlengthValidation**](../../components/schema/MinlengthValidation.md) |  | 
+[**MinlengthValidation**](../../components/schema/minlength_validation.MinlengthValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -6103,7 +6103,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minlength_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinlengthValidation**](../../components/schema/MinlengthValidation.md) |  | 
+[**MinlengthValidation**](../../components/schema/minlength_validation.MinlengthValidation.md) |  | 
 
 
 ### Authorization
@@ -6121,7 +6121,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
+from unit_test_api.components.schema import minproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6135,7 +6135,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MinpropertiesValidation(None)
+    body = minproperties_validation.MinpropertiesValidation(None)
     try:
         api_response = api_instance.post_minproperties_validation_request_body(
             body=body,
@@ -6158,7 +6158,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_minproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinpropertiesValidation**](../../components/schema/MinpropertiesValidation.md) |  | 
+[**MinpropertiesValidation**](../../components/schema/minproperties_validation.MinpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -6229,7 +6229,7 @@ headers | Unset | headers were not defined |
 # <a id="post_minproperties_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinpropertiesValidation**](../../components/schema/MinpropertiesValidation.md) |  | 
+[**MinpropertiesValidation**](../../components/schema/minproperties_validation.MinpropertiesValidation.md) |  | 
 
 
 ### Authorization
@@ -6247,7 +6247,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_allof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6261,7 +6261,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedAllofToCheckValidationSemantics(None)
+    body = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_allof_to_check_validation_semantics_request_body(
             body=body,
@@ -6284,7 +6284,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_allof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../components/schema/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -6355,7 +6355,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_allof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../components/schema/NestedAllofToCheckValidationSemantics.md) |  | 
+[**NestedAllofToCheckValidationSemantics**](../../components/schema/nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization
@@ -6373,7 +6373,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_anyof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6387,7 +6387,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedAnyofToCheckValidationSemantics(None)
+    body = nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_anyof_to_check_validation_semantics_request_body(
             body=body,
@@ -6410,7 +6410,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_anyof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAnyofToCheckValidationSemantics**](../../components/schema/NestedAnyofToCheckValidationSemantics.md) |  | 
+[**NestedAnyofToCheckValidationSemantics**](../../components/schema/nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -6481,7 +6481,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_anyof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAnyofToCheckValidationSemantics**](../../components/schema/NestedAnyofToCheckValidationSemantics.md) |  | 
+[**NestedAnyofToCheckValidationSemantics**](../../components/schema/nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization
@@ -6499,7 +6499,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.nested_items import NestedItems
+from unit_test_api.components.schema import nested_items
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6513,7 +6513,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedItems([
+    body = nested_items.NestedItems([
         [
             [
                 [
@@ -6544,7 +6544,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedItems**](../../components/schema/NestedItems.md) |  | 
+[**NestedItems**](../../components/schema/nested_items.NestedItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -6615,7 +6615,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_items_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedItems**](../../components/schema/NestedItems.md) |  | 
+[**NestedItems**](../../components/schema/nested_items.NestedItems.md) |  | 
 
 
 ### Authorization
@@ -6633,7 +6633,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_oneof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6647,7 +6647,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedOneofToCheckValidationSemantics(None)
+    body = nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_oneof_to_check_validation_semantics_request_body(
             body=body,
@@ -6670,7 +6670,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_oneof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -6741,7 +6741,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedOneofToCheckValidationSemantics**](../../components/schema/NestedOneofToCheckValidationSemantics.md) |  | 
+[**NestedOneofToCheckValidationSemantics**](../../components/schema/nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization
@@ -6759,7 +6759,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
+from unit_test_api.components.schema import not_more_complex_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6773,7 +6773,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NotMoreComplexSchema(None)
+    body = not_more_complex_schema.NotMoreComplexSchema(None)
     try:
         api_response = api_instance.post_not_more_complex_schema_request_body(
             body=body,
@@ -6796,7 +6796,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -6867,7 +6867,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_more_complex_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
 
 
 ### Authorization
@@ -6885,7 +6885,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.model_not import ModelNot
+from unit_test_api.components.schema import model_not
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6899,7 +6899,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ModelNot(None)
+    body = model_not.ModelNot(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
@@ -6922,7 +6922,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../components/schema/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/model_not.ModelNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -6993,7 +6993,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../components/schema/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/model_not.ModelNot.md) |  | 
 
 
 ### Authorization
@@ -7011,7 +7011,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema import nul_characters_in_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7025,7 +7025,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NulCharactersInStrings("hello\x00there")
+    body = nul_characters_in_strings.NulCharactersInStrings("hello\x00there")
     try:
         api_response = api_instance.post_nul_characters_in_strings_request_body(
             body=body,
@@ -7048,7 +7048,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nul_characters_in_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../components/schema/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -7119,7 +7119,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nul_characters_in_strings_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../components/schema/NulCharactersInStrings.md) |  | 
+[**NulCharactersInStrings**](../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
 
 
 ### Authorization
@@ -7137,7 +7137,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema import null_type_matches_only_the_null_object
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7151,7 +7151,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NullTypeMatchesOnlyTheNullObject(None)
+    body = null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject(None)
     try:
         api_response = api_instance.post_null_type_matches_only_the_null_object_request_body(
             body=body,
@@ -7174,7 +7174,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_null_type_matches_only_the_null_object_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Return Types, Responses
@@ -7245,7 +7245,7 @@ headers | Unset | headers were not defined |
 # <a id="post_null_type_matches_only_the_null_object_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Authorization
@@ -7263,7 +7263,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema import number_type_matches_numbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7277,7 +7277,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NumberTypeMatchesNumbers(3.14)
+    body = number_type_matches_numbers.NumberTypeMatchesNumbers(3.14)
     try:
         api_response = api_instance.post_number_type_matches_numbers_request_body(
             body=body,
@@ -7300,7 +7300,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_number_type_matches_numbers_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/number_type_matches_numbers.NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Return Types, Responses
@@ -7371,7 +7371,7 @@ headers | Unset | headers were not defined |
 # <a id="post_number_type_matches_numbers_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberTypeMatchesNumbers**](../../components/schema/NumberTypeMatchesNumbers.md) |  | 
+[**NumberTypeMatchesNumbers**](../../components/schema/number_type_matches_numbers.NumberTypeMatchesNumbers.md) |  | 
 
 
 ### Authorization
@@ -7389,7 +7389,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema import object_properties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7403,7 +7403,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ObjectPropertiesValidation(None)
+    body = object_properties_validation.ObjectPropertiesValidation(None)
     try:
         api_response = api_instance.post_object_properties_validation_request_body(
             body=body,
@@ -7426,7 +7426,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_properties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectPropertiesValidation**](../../components/schema/ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../components/schema/object_properties_validation.ObjectPropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -7497,7 +7497,7 @@ headers | Unset | headers were not defined |
 # <a id="post_object_properties_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectPropertiesValidation**](../../components/schema/ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../components/schema/object_properties_validation.ObjectPropertiesValidation.md) |  | 
 
 
 ### Authorization
@@ -7515,7 +7515,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
+from unit_test_api.components.schema import object_type_matches_objects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7529,7 +7529,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ObjectTypeMatchesObjects()
+    body = object_type_matches_objects.ObjectTypeMatchesObjects()
     try:
         api_response = api_instance.post_object_type_matches_objects_request_body(
             body=body,
@@ -7552,7 +7552,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_object_type_matches_objects_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Return Types, Responses
@@ -7623,7 +7623,7 @@ headers | Unset | headers were not defined |
 # <a id="post_object_type_matches_objects_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../components/schema/ObjectTypeMatchesObjects.md) |  | 
+[**ObjectTypeMatchesObjects**](../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Authorization
@@ -7641,7 +7641,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
+from unit_test_api.components.schema import oneof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7655,7 +7655,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofComplexTypes(None)
+    body = oneof_complex_types.OneofComplexTypes(None)
     try:
         api_response = api_instance.post_oneof_complex_types_request_body(
             body=body,
@@ -7678,7 +7678,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/oneof_complex_types.OneofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -7749,7 +7749,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_complex_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofComplexTypes**](../../components/schema/OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../components/schema/oneof_complex_types.OneofComplexTypes.md) |  | 
 
 
 ### Authorization
@@ -7767,7 +7767,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.oneof import Oneof
+from unit_test_api.components.schema import oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7781,7 +7781,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Oneof(None)
+    body = oneof.Oneof(None)
     try:
         api_response = api_instance.post_oneof_request_body(
             body=body,
@@ -7804,7 +7804,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../components/schema/Oneof.md) |  | 
+[**Oneof**](../../components/schema/oneof.Oneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -7875,7 +7875,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Oneof**](../../components/schema/Oneof.md) |  | 
+[**Oneof**](../../components/schema/oneof.Oneof.md) |  | 
 
 
 ### Authorization
@@ -7893,7 +7893,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
+from unit_test_api.components.schema import oneof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7907,7 +7907,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithBaseSchema("parameter_body_example")
+    body = oneof_with_base_schema.OneofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_oneof_with_base_schema_request_body(
             body=body,
@@ -7930,7 +7930,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/oneof_with_base_schema.OneofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -8001,7 +8001,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../components/schema/OneofWithBaseSchema.md) |  | 
+[**OneofWithBaseSchema**](../../components/schema/oneof_with_base_schema.OneofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -8019,7 +8019,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.oneof_with_empty_schema import OneofWithEmptySchema
+from unit_test_api.components.schema import oneof_with_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8033,7 +8033,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithEmptySchema(None)
+    body = oneof_with_empty_schema.OneofWithEmptySchema(None)
     try:
         api_response = api_instance.post_oneof_with_empty_schema_request_body(
             body=body,
@@ -8056,7 +8056,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/oneof_with_empty_schema.OneofWithEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -8127,7 +8127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../components/schema/OneofWithEmptySchema.md) |  | 
+[**OneofWithEmptySchema**](../../components/schema/oneof_with_empty_schema.OneofWithEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -8145,7 +8145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.oneof_with_required import OneofWithRequired
+from unit_test_api.components.schema import oneof_with_required
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8159,7 +8159,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = OneofWithRequired()
+    body = oneof_with_required.OneofWithRequired()
     try:
         api_response = api_instance.post_oneof_with_required_request_body(
             body=body,
@@ -8182,7 +8182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_oneof_with_required_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/oneof_with_required.OneofWithRequired.md) |  | 
 
 
 ### Return Types, Responses
@@ -8253,7 +8253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_oneof_with_required_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithRequired**](../../components/schema/OneofWithRequired.md) |  | 
+[**OneofWithRequired**](../../components/schema/oneof_with_required.OneofWithRequired.md) |  | 
 
 
 ### Authorization
@@ -8271,7 +8271,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema import pattern_is_not_anchored
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8285,7 +8285,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PatternIsNotAnchored(None)
+    body = pattern_is_not_anchored.PatternIsNotAnchored(None)
     try:
         api_response = api_instance.post_pattern_is_not_anchored_request_body(
             body=body,
@@ -8308,7 +8308,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_pattern_is_not_anchored_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternIsNotAnchored**](../../components/schema/PatternIsNotAnchored.md) |  | 
+[**PatternIsNotAnchored**](../../components/schema/pattern_is_not_anchored.PatternIsNotAnchored.md) |  | 
 
 
 ### Return Types, Responses
@@ -8379,7 +8379,7 @@ headers | Unset | headers were not defined |
 # <a id="post_pattern_is_not_anchored_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternIsNotAnchored**](../../components/schema/PatternIsNotAnchored.md) |  | 
+[**PatternIsNotAnchored**](../../components/schema/pattern_is_not_anchored.PatternIsNotAnchored.md) |  | 
 
 
 ### Authorization
@@ -8397,7 +8397,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.pattern_validation import PatternValidation
+from unit_test_api.components.schema import pattern_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8411,7 +8411,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PatternValidation(None)
+    body = pattern_validation.PatternValidation(None)
     try:
         api_response = api_instance.post_pattern_validation_request_body(
             body=body,
@@ -8434,7 +8434,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_pattern_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternValidation**](../../components/schema/PatternValidation.md) |  | 
+[**PatternValidation**](../../components/schema/pattern_validation.PatternValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -8505,7 +8505,7 @@ headers | Unset | headers were not defined |
 # <a id="post_pattern_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternValidation**](../../components/schema/PatternValidation.md) |  | 
+[**PatternValidation**](../../components/schema/pattern_validation.PatternValidation.md) |  | 
 
 
 ### Authorization
@@ -8523,7 +8523,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema import properties_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8537,7 +8537,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PropertiesWithEscapedCharacters(None)
+    body = properties_with_escaped_characters.PropertiesWithEscapedCharacters(None)
     try:
         api_response = api_instance.post_properties_with_escaped_characters_request_body(
             body=body,
@@ -8560,7 +8560,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_properties_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../components/schema/PropertiesWithEscapedCharacters.md) |  | 
+[**PropertiesWithEscapedCharacters**](../../components/schema/properties_with_escaped_characters.PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -8631,7 +8631,7 @@ headers | Unset | headers were not defined |
 # <a id="post_properties_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../components/schema/PropertiesWithEscapedCharacters.md) |  | 
+[**PropertiesWithEscapedCharacters**](../../components/schema/properties_with_escaped_characters.PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Authorization
@@ -8649,7 +8649,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8663,7 +8663,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PropertyNamedRefThatIsNotAReference(None)
+    body = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None)
     try:
         api_response = api_instance.post_property_named_ref_that_is_not_a_reference_request_body(
             body=body,
@@ -8686,7 +8686,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_property_named_ref_that_is_not_a_reference_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses
@@ -8757,7 +8757,7 @@ headers | Unset | headers were not defined |
 # <a id="post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertyNamedRefThatIsNotAReference**](../../components/schema/PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Authorization
@@ -8775,7 +8775,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_additionalproperties import RefInAdditionalproperties
+from unit_test_api.components.schema import ref_in_additionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8789,8 +8789,8 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInAdditionalproperties(
-        key=PropertyNamedRefThatIsNotAReference(None),
+    body = ref_in_additionalproperties.RefInAdditionalproperties(
+        key=property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None),
     )
     try:
         api_response = api_instance.post_ref_in_additionalproperties_request_body(
@@ -8814,7 +8814,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_additionalproperties_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses
@@ -8885,7 +8885,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_additionalproperties_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../components/schema/RefInAdditionalproperties.md) |  | 
+[**RefInAdditionalproperties**](../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Authorization
@@ -8903,7 +8903,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_allof import RefInAllof
+from unit_test_api.components.schema import ref_in_allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8917,7 +8917,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInAllof(None)
+    body = ref_in_allof.RefInAllof(None)
     try:
         api_response = api_instance.post_ref_in_allof_request_body(
             body=body,
@@ -8940,7 +8940,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_allof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/ref_in_allof.RefInAllof.md) |  | 
 
 
 ### Return Types, Responses
@@ -9011,7 +9011,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_allof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAllof**](../../components/schema/RefInAllof.md) |  | 
+[**RefInAllof**](../../components/schema/ref_in_allof.RefInAllof.md) |  | 
 
 
 ### Authorization
@@ -9029,7 +9029,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_anyof import RefInAnyof
+from unit_test_api.components.schema import ref_in_anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9043,7 +9043,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInAnyof(None)
+    body = ref_in_anyof.RefInAnyof(None)
     try:
         api_response = api_instance.post_ref_in_anyof_request_body(
             body=body,
@@ -9066,7 +9066,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -9137,7 +9137,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAnyof**](../../components/schema/RefInAnyof.md) |  | 
+[**RefInAnyof**](../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Authorization
@@ -9155,7 +9155,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_items import RefInItems
+from unit_test_api.components.schema import ref_in_items
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9169,8 +9169,8 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInItems([
-        PropertyNamedRefThatIsNotAReference(None)
+    body = ref_in_items.RefInItems([
+        property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None)
     ])
     try:
         api_response = api_instance.post_ref_in_items_request_body(
@@ -9194,7 +9194,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_items_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../components/schema/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/ref_in_items.RefInItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -9265,7 +9265,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_items_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInItems**](../../components/schema/RefInItems.md) |  | 
+[**RefInItems**](../../components/schema/ref_in_items.RefInItems.md) |  | 
 
 
 ### Authorization
@@ -9283,7 +9283,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_not import RefInNot
+from unit_test_api.components.schema import ref_in_not
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9297,7 +9297,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInNot(None)
+    body = ref_in_not.RefInNot(None)
     try:
         api_response = api_instance.post_ref_in_not_request_body(
             body=body,
@@ -9320,7 +9320,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInNot**](../../components/schema/RefInNot.md) |  | 
+[**RefInNot**](../../components/schema/ref_in_not.RefInNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -9391,7 +9391,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInNot**](../../components/schema/RefInNot.md) |  | 
+[**RefInNot**](../../components/schema/ref_in_not.RefInNot.md) |  | 
 
 
 ### Authorization
@@ -9409,7 +9409,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_oneof import RefInOneof
+from unit_test_api.components.schema import ref_in_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9423,7 +9423,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInOneof(None)
+    body = ref_in_oneof.RefInOneof(None)
     try:
         api_response = api_instance.post_ref_in_oneof_request_body(
             body=body,
@@ -9446,7 +9446,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_oneof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/ref_in_oneof.RefInOneof.md) |  | 
 
 
 ### Return Types, Responses
@@ -9517,7 +9517,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_oneof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInOneof**](../../components/schema/RefInOneof.md) |  | 
+[**RefInOneof**](../../components/schema/ref_in_oneof.RefInOneof.md) |  | 
 
 
 ### Authorization
@@ -9535,7 +9535,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.ref_in_property import RefInProperty
+from unit_test_api.components.schema import ref_in_property
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9549,7 +9549,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RefInProperty(None)
+    body = ref_in_property.RefInProperty(None)
     try:
         api_response = api_instance.post_ref_in_property_request_body(
             body=body,
@@ -9572,7 +9572,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_ref_in_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -9643,7 +9643,7 @@ headers | Unset | headers were not defined |
 # <a id="post_ref_in_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../components/schema/RefInProperty.md) |  | 
+[**RefInProperty**](../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Authorization
@@ -9661,7 +9661,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.required_default_validation import RequiredDefaultValidation
+from unit_test_api.components.schema import required_default_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9675,7 +9675,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredDefaultValidation(None)
+    body = required_default_validation.RequiredDefaultValidation(None)
     try:
         api_response = api_instance.post_required_default_validation_request_body(
             body=body,
@@ -9698,7 +9698,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_default_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -9769,7 +9769,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_default_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredDefaultValidation**](../../components/schema/RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Authorization
@@ -9787,7 +9787,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.required_validation import RequiredValidation
+from unit_test_api.components.schema import required_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9801,7 +9801,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredValidation(None)
+    body = required_validation.RequiredValidation(None)
     try:
         api_response = api_instance.post_required_validation_request_body(
             body=body,
@@ -9824,7 +9824,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -9895,7 +9895,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../components/schema/RequiredValidation.md) |  | 
+[**RequiredValidation**](../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Authorization
@@ -9913,7 +9913,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema import required_with_empty_array
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9927,7 +9927,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredWithEmptyArray(None)
+    body = required_with_empty_array.RequiredWithEmptyArray(None)
     try:
         api_response = api_instance.post_required_with_empty_array_request_body(
             body=body,
@@ -9950,7 +9950,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_empty_array_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses
@@ -10021,7 +10021,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_empty_array_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../components/schema/RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Authorization
@@ -10039,7 +10039,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.required_with_escaped_characters import RequiredWithEscapedCharacters
+from unit_test_api.components.schema import required_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10053,7 +10053,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = RequiredWithEscapedCharacters(None)
+    body = required_with_escaped_characters.RequiredWithEscapedCharacters(None)
     try:
         api_response = api_instance.post_required_with_escaped_characters_request_body(
             body=body,
@@ -10076,7 +10076,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_required_with_escaped_characters_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/required_with_escaped_characters.RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -10147,7 +10147,7 @@ headers | Unset | headers were not defined |
 # <a id="post_required_with_escaped_characters_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEscapedCharacters**](../../components/schema/RequiredWithEscapedCharacters.md) |  | 
+[**RequiredWithEscapedCharacters**](../../components/schema/required_with_escaped_characters.RequiredWithEscapedCharacters.md) |  | 
 
 
 ### Authorization
@@ -10165,7 +10165,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
+from unit_test_api.components.schema import simple_enum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10179,7 +10179,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = SimpleEnumValidation(1)
+    body = simple_enum_validation.SimpleEnumValidation(1)
     try:
         api_response = api_instance.post_simple_enum_validation_request_body(
             body=body,
@@ -10202,7 +10202,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_simple_enum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../components/schema/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/simple_enum_validation.SimpleEnumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -10273,7 +10273,7 @@ headers | Unset | headers were not defined |
 # <a id="post_simple_enum_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**SimpleEnumValidation**](../../components/schema/SimpleEnumValidation.md) |  | 
+[**SimpleEnumValidation**](../../components/schema/simple_enum_validation.SimpleEnumValidation.md) |  | 
 
 
 ### Authorization
@@ -10291,7 +10291,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
+from unit_test_api.components.schema import string_type_matches_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10305,7 +10305,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = StringTypeMatchesStrings("parameter_body_example")
+    body = string_type_matches_strings.StringTypeMatchesStrings("parameter_body_example")
     try:
         api_response = api_instance.post_string_type_matches_strings_request_body(
             body=body,
@@ -10328,7 +10328,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_string_type_matches_strings_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/string_type_matches_strings.StringTypeMatchesStrings.md) |  | 
 
 
 ### Return Types, Responses
@@ -10399,7 +10399,7 @@ headers | Unset | headers were not defined |
 # <a id="post_string_type_matches_strings_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringTypeMatchesStrings**](../../components/schema/StringTypeMatchesStrings.md) |  | 
+[**StringTypeMatchesStrings**](../../components/schema/string_type_matches_strings.StringTypeMatchesStrings.md) |  | 
 
 
 ### Authorization
@@ -10417,7 +10417,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.the_default_keyword_does_not_do_anything_if_the_property_is_missing import TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+from unit_test_api.components.schema import the_default_keyword_does_not_do_anything_if_the_property_is_missing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10431,7 +10431,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
+    body = the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
         alpha=5,
     )
     try:
@@ -10456,7 +10456,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
+[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
 
 
 ### Return Types, Responses
@@ -10527,7 +10527,7 @@ headers | Unset | headers were not defined |
 # <a id="post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
+[**TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing**](../../components/schema/the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md) |  | 
 
 
 ### Authorization
@@ -10545,7 +10545,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.uniqueitems_false_validation import UniqueitemsFalseValidation
+from unit_test_api.components.schema import uniqueitems_false_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10559,7 +10559,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UniqueitemsFalseValidation(None)
+    body = uniqueitems_false_validation.UniqueitemsFalseValidation(None)
     try:
         api_response = api_instance.post_uniqueitems_false_validation_request_body(
             body=body,
@@ -10582,7 +10582,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uniqueitems_false_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../components/schema/UniqueitemsFalseValidation.md) |  | 
+[**UniqueitemsFalseValidation**](../../components/schema/uniqueitems_false_validation.UniqueitemsFalseValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -10653,7 +10653,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uniqueitems_false_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../components/schema/UniqueitemsFalseValidation.md) |  | 
+[**UniqueitemsFalseValidation**](../../components/schema/uniqueitems_false_validation.UniqueitemsFalseValidation.md) |  | 
 
 
 ### Authorization
@@ -10671,7 +10671,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.uniqueitems_validation import UniqueitemsValidation
+from unit_test_api.components.schema import uniqueitems_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10685,7 +10685,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UniqueitemsValidation(None)
+    body = uniqueitems_validation.UniqueitemsValidation(None)
     try:
         api_response = api_instance.post_uniqueitems_validation_request_body(
             body=body,
@@ -10708,7 +10708,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uniqueitems_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../components/schema/UniqueitemsValidation.md) |  | 
+[**UniqueitemsValidation**](../../components/schema/uniqueitems_validation.UniqueitemsValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -10779,7 +10779,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uniqueitems_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../components/schema/UniqueitemsValidation.md) |  | 
+[**UniqueitemsValidation**](../../components/schema/uniqueitems_validation.UniqueitemsValidation.md) |  | 
 
 
 ### Authorization
@@ -10797,7 +10797,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.uri_format import UriFormat
+from unit_test_api.components.schema import uri_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10811,7 +10811,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UriFormat(None)
+    body = uri_format.UriFormat(None)
     try:
         api_response = api_instance.post_uri_format_request_body(
             body=body,
@@ -10834,7 +10834,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../components/schema/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/uri_format.UriFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -10905,7 +10905,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriFormat**](../../components/schema/UriFormat.md) |  | 
+[**UriFormat**](../../components/schema/uri_format.UriFormat.md) |  | 
 
 
 ### Authorization
@@ -10923,7 +10923,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
+from unit_test_api.components.schema import uri_reference_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10937,7 +10937,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UriReferenceFormat(None)
+    body = uri_reference_format.UriReferenceFormat(None)
     try:
         api_response = api_instance.post_uri_reference_format_request_body(
             body=body,
@@ -10960,7 +10960,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_reference_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -11031,7 +11031,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_reference_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../components/schema/UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
 
 
 ### Authorization
@@ -11049,7 +11049,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import path_post_api
-from unit_test_api.components.schema.uri_template_format import UriTemplateFormat
+from unit_test_api.components.schema import uri_template_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -11063,7 +11063,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = UriTemplateFormat(None)
+    body = uri_template_format.UriTemplateFormat(None)
     try:
         api_response = api_instance.post_uri_template_format_request_body(
             body=body,
@@ -11086,7 +11086,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_uri_template_format_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/uri_template_format.UriTemplateFormat.md) |  | 
 
 
 ### Return Types, Responses
@@ -11157,7 +11157,7 @@ headers | Unset | headers were not defined |
 # <a id="post_uri_template_format_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../components/schema/UriTemplateFormat.md) |  | 
+[**UriTemplateFormat**](../../components/schema/uri_template_format.UriTemplateFormat.md) |  | 
 
 
 ### Authorization

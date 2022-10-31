@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
+from unit_test_api.components.schema import anyof_with_base_schema
 
 
-application_json = AnyofWithBaseSchema
+application_json = anyof_with_base_schema.AnyofWithBaseSchema
 
 parameter_oapg = api_client.RequestBody(
     content={

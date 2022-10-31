@@ -1081,7 +1081,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema) {
+    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
         /**
          * we have a custom version of this function so we only set isMap to true if
          * ModelUtils.isMapSchema
@@ -1089,7 +1089,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
          */
         if (schema.getProperties() != null || schema.getRequired() != null && !(schema instanceof ComposedSchema)) {
             // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null);
+            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
         }
         if (ModelUtils.isMapSchema(schema)) {
             // an object or anyType composed schema that has additionalProperties set
@@ -1103,6 +1103,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
             }
         }
         // process 'additionalProperties'
-        setAddProps(schema, m);
+        setAddProps(schema, m, sourceJsonPath);
     }
 }

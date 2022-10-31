@@ -81,7 +81,7 @@ public class JavaInheritanceTest {
         Assert.assertEquals(cm.name, "sample");
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.parent, "Base");
-        Assert.assertEquals(cm.imports, Sets.newHashSet("Base"));
+        Assert.assertEquals(cm.imports, Sets.newHashSet("Base", "Schemas"));
     }
 
     @Test(description = "composed model has the required attributes on the child")

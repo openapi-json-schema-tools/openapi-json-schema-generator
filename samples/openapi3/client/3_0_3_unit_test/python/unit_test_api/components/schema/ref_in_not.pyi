@@ -36,8 +36,8 @@ class RefInNot(
     class MetaOapg:
         
         @staticmethod
-        def not_schema() -> typing.Type['PropertyNamedRefThatIsNotAReference']:
-            return PropertyNamedRefThatIsNotAReference
+        def not_schema() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+            return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
 
 
     def __new__(
@@ -53,4 +53,4 @@ class RefInNot(
             **kwargs,
         )
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

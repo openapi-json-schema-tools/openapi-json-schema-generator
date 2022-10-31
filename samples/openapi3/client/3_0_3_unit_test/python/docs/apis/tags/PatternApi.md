@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import pattern_api
-from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema import pattern_is_not_anchored
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,7 +33,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = pattern_api.PatternApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PatternIsNotAnchored(None)
+    body = pattern_is_not_anchored.PatternIsNotAnchored(None)
     try:
         api_response = api_instance.post_pattern_is_not_anchored_request_body(
             body=body,
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_pattern_is_not_anchored_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternIsNotAnchored**](../../components/schema/PatternIsNotAnchored.md) |  | 
+[**PatternIsNotAnchored**](../../components/schema/pattern_is_not_anchored.PatternIsNotAnchored.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_pattern_is_not_anchored_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternIsNotAnchored**](../../components/schema/PatternIsNotAnchored.md) |  | 
+[**PatternIsNotAnchored**](../../components/schema/pattern_is_not_anchored.PatternIsNotAnchored.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import pattern_api
-from unit_test_api.components.schema.pattern_validation import PatternValidation
+from unit_test_api.components.schema import pattern_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +159,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = pattern_api.PatternApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = PatternValidation(None)
+    body = pattern_validation.PatternValidation(None)
     try:
         api_response = api_instance.post_pattern_validation_request_body(
             body=body,
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_pattern_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternValidation**](../../components/schema/PatternValidation.md) |  | 
+[**PatternValidation**](../../components/schema/pattern_validation.PatternValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_pattern_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PatternValidation**](../../components/schema/PatternValidation.md) |  | 
+[**PatternValidation**](../../components/schema/pattern_validation.PatternValidation.md) |  | 
 
 
 ### Authorization

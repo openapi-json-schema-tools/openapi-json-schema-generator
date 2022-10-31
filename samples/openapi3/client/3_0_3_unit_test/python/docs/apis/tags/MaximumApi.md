@@ -19,7 +19,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import maximum_api
-from unit_test_api.components.schema.maximum_validation import MaximumValidation
+from unit_test_api.components.schema import maximum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -33,7 +33,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = maximum_api.MaximumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaximumValidation(None)
+    body = maximum_validation.MaximumValidation(None)
     try:
         api_response = api_instance.post_maximum_validation_request_body(
             body=body,
@@ -56,7 +56,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maximum_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidation**](../../components/schema/MaximumValidation.md) |  | 
+[**MaximumValidation**](../../components/schema/maximum_validation.MaximumValidation.md) |  | 
 
 
 ### Return Types, Responses
@@ -127,7 +127,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maximum_validation_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidation**](../../components/schema/MaximumValidation.md) |  | 
+[**MaximumValidation**](../../components/schema/maximum_validation.MaximumValidation.md) |  | 
 
 
 ### Authorization
@@ -145,7 +145,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import maximum_api
-from unit_test_api.components.schema.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
+from unit_test_api.components.schema import maximum_validation_with_unsigned_integer
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +159,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = maximum_api.MaximumApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = MaximumValidationWithUnsignedInteger(None)
+    body = maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger(None)
     try:
         api_response = api_instance.post_maximum_validation_with_unsigned_integer_request_body(
             body=body,
@@ -182,7 +182,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_maximum_validation_with_unsigned_integer_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidationWithUnsignedInteger**](../../components/schema/MaximumValidationWithUnsignedInteger.md) |  | 
+[**MaximumValidationWithUnsignedInteger**](../../components/schema/maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.md) |  | 
 
 
 ### Return Types, Responses
@@ -253,7 +253,7 @@ headers | Unset | headers were not defined |
 # <a id="post_maximum_validation_with_unsigned_integer_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaximumValidationWithUnsignedInteger**](../../components/schema/MaximumValidationWithUnsignedInteger.md) |  | 
+[**MaximumValidationWithUnsignedInteger**](../../components/schema/maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.md) |  | 
 
 
 ### Authorization

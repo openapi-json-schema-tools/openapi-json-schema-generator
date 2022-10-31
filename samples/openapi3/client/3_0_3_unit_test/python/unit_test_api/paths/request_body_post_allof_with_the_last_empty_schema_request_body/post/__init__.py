@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema import allof_with_the_last_empty_schema
 
 from .. import path
 from . import response_for_200

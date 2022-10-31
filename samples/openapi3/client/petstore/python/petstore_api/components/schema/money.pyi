@@ -43,21 +43,21 @@ class Money(
             amount = schemas.DecimalSchema
         
             @staticmethod
-            def currency() -> typing.Type['Currency']:
-                return Currency
+            def currency() -> typing.Type['currency.Currency']:
+                return currency.Currency
             __annotations__ = {
                 "amount": amount,
                 "currency": currency,
             }
     
     amount: MetaOapg.properties.amount
-    currency: 'Currency'
+    currency: 'currency.Currency'
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> 'Currency': ...
+    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -71,7 +71,7 @@ class Money(
     def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["currency"]) -> 'Currency': ...
+    def get_item_oapg(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -84,7 +84,7 @@ class Money(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         amount: typing.Union[MetaOapg.properties.amount, str, ],
-        currency: 'Currency',
+        currency: 'currency.Currency',
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Money':
@@ -97,4 +97,4 @@ class Money(
             **kwargs,
         )
 
-from petstore_api.components.schema.currency import Currency
+from petstore_api.components.schema import currency

@@ -69,8 +69,8 @@ class Pet(
             id = schemas.Int64Schema
         
             @staticmethod
-            def category() -> typing.Type['Category']:
-                return Category
+            def category() -> typing.Type['category.Category']:
+                return category.Category
             
             
             class tags(
@@ -81,12 +81,12 @@ class Pet(
                 class MetaOapg:
                     
                     @staticmethod
-                    def items() -> typing.Type['Tag']:
-                        return Tag
+                    def items() -> typing.Type['tag.Tag']:
+                        return tag.Tag
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['Tag'], typing.List['Tag']],
+                    _arg: typing.Union[typing.Tuple['tag.Tag'], typing.List['tag.Tag']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'tags':
                     return super().__new__(
@@ -95,7 +95,7 @@ class Pet(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> 'Tag':
+                def __getitem__(self, i: int) -> 'tag.Tag':
                     return super().__getitem__(i)
             
             
@@ -145,7 +145,7 @@ class Pet(
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'Category': ...
+    def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'category.Category': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["tags"]) -> MetaOapg.properties.tags: ...
@@ -171,7 +171,7 @@ class Pet(
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["category"]) -> typing.Union['Category', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["category"]) -> typing.Union['category.Category', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["tags"]) -> typing.Union[MetaOapg.properties.tags, schemas.Unset]: ...
@@ -192,7 +192,7 @@ class Pet(
         photoUrls: typing.Union[MetaOapg.properties.photoUrls, list, tuple, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
         id: typing.Union[MetaOapg.properties.id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        category: typing.Union['Category', schemas.Unset] = schemas.unset,
+        category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
         tags: typing.Union[MetaOapg.properties.tags, list, tuple, schemas.Unset] = schemas.unset,
         status: typing.Union[MetaOapg.properties.status, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -211,5 +211,5 @@ class Pet(
             **kwargs,
         )
 
-from petstore_api.components.schema.category import Category
-from petstore_api.components.schema.tag import Tag
+from petstore_api.components.schema import category
+from petstore_api.components.schema import tag

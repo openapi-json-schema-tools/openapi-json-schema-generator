@@ -3,9 +3,9 @@
 .travis.yml
 README.md
 docs/apis/tags/DefaultApi.md
-docs/components/schema/AdditionOperator.md
-docs/components/schema/Operator.md
-docs/components/schema/SubtractionOperator.md
+docs/components/schema/addition_operator.AdditionOperator.md
+docs/components/schema/operator.Operator.md
+docs/components/schema/subtraction_operator.SubtractionOperator.md
 git_push.sh
 requirements.txt
 setup.cfg

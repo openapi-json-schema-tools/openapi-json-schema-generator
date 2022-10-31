@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema.by_int import ByInt
+from unit_test_api.components.schema import by_int
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -37,7 +37,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = multiple_of_api.MultipleOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ByInt(None)
+    body = by_int.ByInt(None)
     try:
         api_response = api_instance.post_by_int_request_body(
             body=body,
@@ -60,7 +60,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_int_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../components/schema/ByInt.md) |  | 
+[**ByInt**](../../components/schema/by_int.ByInt.md) |  | 
 
 
 ### Return Types, Responses
@@ -131,7 +131,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_int_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByInt**](../../components/schema/ByInt.md) |  | 
+[**ByInt**](../../components/schema/by_int.ByInt.md) |  | 
 
 
 ### Authorization
@@ -149,7 +149,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema.by_number import ByNumber
+from unit_test_api.components.schema import by_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -163,7 +163,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = multiple_of_api.MultipleOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ByNumber(None)
+    body = by_number.ByNumber(None)
     try:
         api_response = api_instance.post_by_number_request_body(
             body=body,
@@ -186,7 +186,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../components/schema/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/by_number.ByNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -257,7 +257,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_number_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../components/schema/ByNumber.md) |  | 
+[**ByNumber**](../../components/schema/by_number.ByNumber.md) |  | 
 
 
 ### Authorization
@@ -275,7 +275,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema.by_small_number import BySmallNumber
+from unit_test_api.components.schema import by_small_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -289,7 +289,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = multiple_of_api.MultipleOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = BySmallNumber(None)
+    body = by_small_number.BySmallNumber(None)
     try:
         api_response = api_instance.post_by_small_number_request_body(
             body=body,
@@ -312,7 +312,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_by_small_number_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/by_small_number.BySmallNumber.md) |  | 
 
 
 ### Return Types, Responses
@@ -383,7 +383,7 @@ headers | Unset | headers were not defined |
 # <a id="post_by_small_number_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BySmallNumber**](../../components/schema/BySmallNumber.md) |  | 
+[**BySmallNumber**](../../components/schema/by_small_number.BySmallNumber.md) |  | 
 
 
 ### Authorization
@@ -401,7 +401,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf import InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+from unit_test_api.components.schema import invalid_instance_should_not_raise_error_when_float_division_inf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -415,7 +415,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = multiple_of_api.MultipleOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(1)
+    body = invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(1)
     try:
         api_response = api_instance.post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body(
             body=body,
@@ -438,7 +438,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Return Types, Responses
@@ -509,7 +509,7 @@ headers | Unset | headers were not defined |
 # <a id="post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
+[**InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf**](../../components/schema/invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md) |  | 
 
 
 ### Authorization

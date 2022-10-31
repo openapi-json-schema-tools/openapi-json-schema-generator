@@ -1783,4 +1783,12 @@ public class ModelUtils {
 
         return new SemVer(version);
     }
+
+    public static String decodeSlashes(String fragment) {
+        return fragment.replace("~1", "/");
+    }
+
+    public static String encodeSlashes(String fragment) {
+        return fragment.replace("/", "~1");
+    }
 }

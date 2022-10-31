@@ -103,7 +103,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                ObjectWithOptionalTestProp,
+                object_with_optional_test_prop.ObjectWithOptionalTestProp,
                 cls.all_of_1,
             ]
 
@@ -121,4 +121,4 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             **kwargs,
         )
 
-from petstore_api.components.schema.object_with_optional_test_prop import ObjectWithOptionalTestProp
+from petstore_api.components.schema import object_with_optional_test_prop

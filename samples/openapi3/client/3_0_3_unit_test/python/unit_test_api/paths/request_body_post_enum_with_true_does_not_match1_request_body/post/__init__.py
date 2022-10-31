@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
+from unit_test_api.components.schema import enum_with_true_does_not_match1
 
 from .. import path
 from . import response_for_200
