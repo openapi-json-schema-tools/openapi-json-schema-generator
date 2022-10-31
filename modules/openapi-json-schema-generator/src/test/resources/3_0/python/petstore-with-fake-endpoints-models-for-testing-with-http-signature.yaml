@@ -2302,11 +2302,11 @@ components:
       type: object
       properties:
         myNumber:
-          $ref: '#/definitions/NumberWithValidations'
+          $ref: '#/components/schemas/NumberWithValidations'
         myString:
-          $ref: '#/definitions/String'
+          $ref: '#/components/schemas/String'
         myBoolean:
-          $ref: '#/definitions/Boolean'
+          $ref: '#/components/schemas/Boolean'
     NumberWithValidations:
       type: number
       minimum: 10
@@ -3025,3 +3025,14 @@ components:
         propertyName: discriminator
       anyOf:
         - $ref: '#/components/schemas/AbstractStepMessage'
+    SelfReferencingObjectModel:
+      type: object
+      properties:
+        selfRef:
+          $ref: '#/components/schemas/SelfReferencingObjectModel'
+      additionalProperties:
+        $ref: '#/components/schemas/SelfReferencingObjectModel'
+    SelfReferencingArrayModel:
+      type: array
+      items:
+        $ref: '#/components/schemas/SelfReferencingArrayModel'

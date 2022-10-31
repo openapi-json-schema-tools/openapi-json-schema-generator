@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from this_package import schemas  # noqa: F401
 
-from this_package.components.schema.operator import Operator
+from this_package.components.schema import operator
 
 from .. import path
 from . import response_for_200

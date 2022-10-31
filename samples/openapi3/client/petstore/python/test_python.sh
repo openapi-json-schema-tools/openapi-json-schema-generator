@@ -1,4 +1,4 @@
-#!/bin/bash
+=#!/bin/bash
 
 REQUIREMENTS_FILE=dev-requirements.txt
 REQUIREMENTS_OUT=dev-requirements.txt.log

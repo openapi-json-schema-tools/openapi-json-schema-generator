@@ -117,6 +117,8 @@ from petstore_api.components.schema.quadrilateral import Quadrilateral
 from petstore_api.components.schema.quadrilateral_interface import QuadrilateralInterface
 from petstore_api.components.schema.read_only_first import ReadOnlyFirst
 from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
+from petstore_api.components.schema.self_referencing_array_model import SelfReferencingArrayModel
+from petstore_api.components.schema.self_referencing_object_model import SelfReferencingObjectModel
 from petstore_api.components.schema.shape import Shape
 from petstore_api.components.schema.shape_or_null import ShapeOrNull
 from petstore_api.components.schema.simple_quadrilateral import SimpleQuadrilateral

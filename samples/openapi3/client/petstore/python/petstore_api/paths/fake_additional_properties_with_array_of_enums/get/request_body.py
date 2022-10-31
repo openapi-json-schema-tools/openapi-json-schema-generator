@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
+from petstore_api.components.schema import additional_properties_with_array_of_enums
 
 
-application_json = AdditionalPropertiesWithArrayOfEnums
+application_json = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
 
 parameter_oapg = api_client.RequestBody(
     content={

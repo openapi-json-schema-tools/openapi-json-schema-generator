@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.date_time_format import DateTimeFormat
+from unit_test_api.components.schema import date_time_format
 
 # body schemas
-application_json = DateTimeFormat
+application_json = date_time_format.DateTimeFormat
 
 
 @dataclasses.dataclass

@@ -111,7 +111,7 @@ class SimpleQuadrilateral(
             # classes don't exist yet because their module has not finished
             # loading
             return [
-                QuadrilateralInterface,
+                quadrilateral_interface.QuadrilateralInterface,
                 cls.all_of_1,
             ]
 
@@ -129,4 +129,4 @@ class SimpleQuadrilateral(
             **kwargs,
         )
 
-from petstore_api.components.schema.quadrilateral_interface import QuadrilateralInterface
+from petstore_api.components.schema import quadrilateral_interface

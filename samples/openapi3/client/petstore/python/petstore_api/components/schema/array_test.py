@@ -122,12 +122,12 @@ class ArrayTest(
                         class MetaOapg:
                             
                             @staticmethod
-                            def items() -> typing.Type['ReadOnlyFirst']:
-                                return ReadOnlyFirst
+                            def items() -> typing.Type['read_only_first.ReadOnlyFirst']:
+                                return read_only_first.ReadOnlyFirst
                     
                         def __new__(
                             cls,
-                            _arg: typing.Union[typing.Tuple['ReadOnlyFirst'], typing.List['ReadOnlyFirst']],
+                            _arg: typing.Union[typing.Tuple['read_only_first.ReadOnlyFirst'], typing.List['read_only_first.ReadOnlyFirst']],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                         ) -> 'items':
                             return super().__new__(
@@ -136,7 +136,7 @@ class ArrayTest(
                                 _configuration=_configuration,
                             )
                     
-                        def __getitem__(self, i: int) -> 'ReadOnlyFirst':
+                        def __getitem__(self, i: int) -> 'read_only_first.ReadOnlyFirst':
                             return super().__getitem__(i)
             
                 def __new__(
@@ -210,4 +210,4 @@ class ArrayTest(
             **kwargs,
         )
 
-from petstore_api.components.schema.read_only_first import ReadOnlyFirst
+from petstore_api.components.schema import read_only_first

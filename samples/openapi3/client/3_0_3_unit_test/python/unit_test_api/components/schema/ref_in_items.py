@@ -36,12 +36,12 @@ class RefInItems(
     class MetaOapg:
         
         @staticmethod
-        def items() -> typing.Type['PropertyNamedRefThatIsNotAReference']:
-            return PropertyNamedRefThatIsNotAReference
+        def items() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+            return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['PropertyNamedRefThatIsNotAReference'], typing.List['PropertyNamedRefThatIsNotAReference']],
+        _arg: typing.Union[typing.Tuple['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference'], typing.List['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'RefInItems':
         return super().__new__(
@@ -50,7 +50,7 @@ class RefInItems(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'PropertyNamedRefThatIsNotAReference':
+    def __getitem__(self, i: int) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
         return super().__getitem__(i)
 
-from unit_test_api.components.schema.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.model_not import ModelNot
+from unit_test_api.components.schema import model_not
 
 
-application_json = ModelNot
+application_json = model_not.ModelNot
 
 parameter_oapg = api_client.RequestBody(
     content={

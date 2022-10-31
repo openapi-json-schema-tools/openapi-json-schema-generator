@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
+from unit_test_api.components.schema import forbidden_property
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -35,7 +35,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = model_not_api.ModelNotApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ForbiddenProperty(None)
+    body = forbidden_property.ForbiddenProperty(None)
     try:
         api_response = api_instance.post_forbidden_property_request_body(
             body=body,
@@ -58,7 +58,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_forbidden_property_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -129,7 +129,7 @@ headers | Unset | headers were not defined |
 # <a id="post_forbidden_property_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../components/schema/ForbiddenProperty.md) |  | 
+[**ForbiddenProperty**](../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Authorization
@@ -147,7 +147,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
+from unit_test_api.components.schema import not_more_complex_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,7 +161,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = model_not_api.ModelNotApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NotMoreComplexSchema(None)
+    body = not_more_complex_schema.NotMoreComplexSchema(None)
     try:
         api_response = api_instance.post_not_more_complex_schema_request_body(
             body=body,
@@ -184,7 +184,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_more_complex_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -255,7 +255,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_more_complex_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../components/schema/NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
 
 
 ### Authorization
@@ -273,7 +273,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import model_not_api
-from unit_test_api.components.schema.model_not import ModelNot
+from unit_test_api.components.schema import model_not
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -287,7 +287,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = model_not_api.ModelNotApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = ModelNot(None)
+    body = model_not.ModelNot(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
@@ -310,7 +310,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_not_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../components/schema/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/model_not.ModelNot.md) |  | 
 
 
 ### Return Types, Responses
@@ -381,7 +381,7 @@ headers | Unset | headers were not defined |
 # <a id="post_not_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../components/schema/ModelNot.md) |  | 
+[**ModelNot**](../../components/schema/model_not.ModelNot.md) |  | 
 
 
 ### Authorization

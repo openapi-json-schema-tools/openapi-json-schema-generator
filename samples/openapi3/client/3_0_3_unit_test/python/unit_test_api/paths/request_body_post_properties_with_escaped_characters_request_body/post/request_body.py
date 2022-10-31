@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema import properties_with_escaped_characters
 
 
-application_json = PropertiesWithEscapedCharacters
+application_json = properties_with_escaped_characters.PropertiesWithEscapedCharacters
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.components.schema.operator import Operator
+from this_package.components.schema import operator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
@@ -30,7 +30,7 @@ with this_package.ApiClient(configuration) as api_client:
     api_instance = default_api.DefaultApi(api_client)
 
     # example passing only optional values
-    body = Operator(
+    body = operator.Operator(
         a=3.14,
         b=3.14,
         operator_id="ADD",
@@ -57,7 +57,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_operators.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Operator**](../../components/schema/Operator.md) |  | 
+[**Operator**](../../components/schema/operator.Operator.md) |  | 
 
 
 ### Return Types, Responses

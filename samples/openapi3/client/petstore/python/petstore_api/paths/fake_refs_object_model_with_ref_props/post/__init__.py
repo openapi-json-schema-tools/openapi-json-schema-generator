@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
+from petstore_api.components.schema import object_model_with_ref_props
 
 from .. import path
 from . import response_for_200

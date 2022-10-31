@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.required_with_empty_array import RequiredWithEmptyArray
+from unit_test_api.components.schema import required_with_empty_array
 
 
-application_json = RequiredWithEmptyArray
+application_json = required_with_empty_array.RequiredWithEmptyArray
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.minimum_validation_with_signed_integer import MinimumValidationWithSignedInteger
+from unit_test_api.components.schema import minimum_validation_with_signed_integer
 
 
-application_json = MinimumValidationWithSignedInteger
+application_json = minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger
 
 parameter_oapg = api_client.RequestBody(
     content={

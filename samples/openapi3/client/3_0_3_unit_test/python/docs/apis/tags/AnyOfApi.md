@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
+from unit_test_api.components.schema import anyof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -39,7 +39,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofComplexTypes(None)
+    body = anyof_complex_types.AnyofComplexTypes(None)
     try:
         api_response = api_instance.post_anyof_complex_types_request_body(
             body=body,
@@ -62,7 +62,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_complex_types_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofComplexTypes**](../../components/schema/AnyofComplexTypes.md) |  | 
+[**AnyofComplexTypes**](../../components/schema/anyof_complex_types.AnyofComplexTypes.md) |  | 
 
 
 ### Return Types, Responses
@@ -133,7 +133,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_complex_types_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofComplexTypes**](../../components/schema/AnyofComplexTypes.md) |  | 
+[**AnyofComplexTypes**](../../components/schema/anyof_complex_types.AnyofComplexTypes.md) |  | 
 
 
 ### Authorization
@@ -151,7 +151,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof import Anyof
+from unit_test_api.components.schema import anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -165,7 +165,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Anyof(None)
+    body = anyof.Anyof(None)
     try:
         api_response = api_instance.post_anyof_request_body(
             body=body,
@@ -188,7 +188,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Anyof**](../../components/schema/Anyof.md) |  | 
+[**Anyof**](../../components/schema/anyof.Anyof.md) |  | 
 
 
 ### Return Types, Responses
@@ -259,7 +259,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Anyof**](../../components/schema/Anyof.md) |  | 
+[**Anyof**](../../components/schema/anyof.Anyof.md) |  | 
 
 
 ### Authorization
@@ -277,7 +277,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
+from unit_test_api.components.schema import anyof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -291,7 +291,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithBaseSchema("parameter_body_example")
+    body = anyof_with_base_schema.AnyofWithBaseSchema("parameter_body_example")
     try:
         api_response = api_instance.post_anyof_with_base_schema_request_body(
             body=body,
@@ -314,7 +314,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_with_base_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithBaseSchema**](../../components/schema/AnyofWithBaseSchema.md) |  | 
+[**AnyofWithBaseSchema**](../../components/schema/anyof_with_base_schema.AnyofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -385,7 +385,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_with_base_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithBaseSchema**](../../components/schema/AnyofWithBaseSchema.md) |  | 
+[**AnyofWithBaseSchema**](../../components/schema/anyof_with_base_schema.AnyofWithBaseSchema.md) |  | 
 
 
 ### Authorization
@@ -403,7 +403,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema import anyof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -417,7 +417,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = AnyofWithOneEmptySchema(None)
+    body = anyof_with_one_empty_schema.AnyofWithOneEmptySchema(None)
     try:
         api_response = api_instance.post_anyof_with_one_empty_schema_request_body(
             body=body,
@@ -440,7 +440,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_anyof_with_one_empty_schema_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithOneEmptySchema**](../../components/schema/AnyofWithOneEmptySchema.md) |  | 
+[**AnyofWithOneEmptySchema**](../../components/schema/anyof_with_one_empty_schema.AnyofWithOneEmptySchema.md) |  | 
 
 
 ### Return Types, Responses
@@ -511,7 +511,7 @@ headers | Unset | headers were not defined |
 # <a id="post_anyof_with_one_empty_schema_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnyofWithOneEmptySchema**](../../components/schema/AnyofWithOneEmptySchema.md) |  | 
+[**AnyofWithOneEmptySchema**](../../components/schema/anyof_with_one_empty_schema.AnyofWithOneEmptySchema.md) |  | 
 
 
 ### Authorization
@@ -529,7 +529,7 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import any_of_api
-from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
+from unit_test_api.components.schema import nested_anyof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -543,7 +543,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = any_of_api.AnyOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = NestedAnyofToCheckValidationSemantics(None)
+    body = nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics(None)
     try:
         api_response = api_instance.post_nested_anyof_to_check_validation_semantics_request_body(
             body=body,
@@ -566,7 +566,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="post_nested_anyof_to_check_validation_semantics_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAnyofToCheckValidationSemantics**](../../components/schema/NestedAnyofToCheckValidationSemantics.md) |  | 
+[**NestedAnyofToCheckValidationSemantics**](../../components/schema/nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics.md) |  | 
 
 
 ### Return Types, Responses
@@ -637,7 +637,7 @@ headers | Unset | headers were not defined |
 # <a id="post_nested_anyof_to_check_validation_semantics_response_body_for_content_types.response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAnyofToCheckValidationSemantics**](../../components/schema/NestedAnyofToCheckValidationSemantics.md) |  | 
+[**NestedAnyofToCheckValidationSemantics**](../../components/schema/nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization

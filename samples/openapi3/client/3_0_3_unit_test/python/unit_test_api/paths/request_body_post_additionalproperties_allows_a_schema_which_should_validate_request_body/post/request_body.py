@@ -24,10 +24,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema import additionalproperties_allows_a_schema_which_should_validate
 
 
-application_json = AdditionalpropertiesAllowsASchemaWhichShouldValidate
+application_json = additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
 
 parameter_oapg = api_client.RequestBody(
     content={

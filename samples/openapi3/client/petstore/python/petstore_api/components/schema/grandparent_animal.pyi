@@ -42,8 +42,8 @@ class GrandparentAnimal(
         def discriminator():
             return {
                 'pet_type': {
-                    'ChildCat': ChildCat,
-                    'ParentPet': ParentPet,
+                    'ChildCat': child_cat.ChildCat,
+                    'ParentPet': parent_pet.ParentPet,
                 }
             }
         
@@ -91,5 +91,5 @@ class GrandparentAnimal(
             **kwargs,
         )
 
-from petstore_api.components.schema.child_cat import ChildCat
-from petstore_api.components.schema.parent_pet import ParentPet
+from petstore_api.components.schema import child_cat
+from petstore_api.components.schema import parent_pet

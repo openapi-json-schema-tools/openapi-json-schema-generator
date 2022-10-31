@@ -15,10 +15,10 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema.maximum_validation import MaximumValidation
+from unit_test_api.components.schema import maximum_validation
 
 # body schemas
-application_json = MaximumValidation
+application_json = maximum_validation.MaximumValidation
 
 
 @dataclasses.dataclass
