@@ -51,6 +51,14 @@ class RequestField(RequestFieldBase):
             return False
         return self.__dict__ == other.__dict__
 
+    def __repr__(self):
+        self_dict = {
+            'name': self._name,
+            'filename': self._filename,
+            'headers': self.headers,
+        }
+        return json.dumps(self_dict)
+
 
 class JSONEncoder(json.JSONEncoder):
     compact_separators = (',', ':')
@@ -1411,7 +1419,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             request_field.make_multipart(content_type='application/octet-stream')
         elif isinstance(value, FileIO):
             # TODO use content.encoding to limit allowed content types if they are present
-            request_field = RequestField.from_tuple(key, (os.path.basename(value.name), value.read()))
+            request_field = RequestField.from_tuples(key, (os.path.basename(value.name), value.read()))
             value.close()
         else:
             request_field = self.__multipart_json_item(key=key, value=value)

@@ -468,7 +468,11 @@ class TestFakeApi(ApiTestMixin):
                             name='file',
                             data=file_bytes,
                             filename=file_name,
-                            headers={'Content-Type': 'application/octet-stream'}
+                            headers={
+                                'Content-Location': None,
+                                'Content-Type': 'image/png',
+                                "Content-Disposition": "form-data; name=\"file\"; filename=\"1px_pic1.png\""
+                            }
                         ),
                     ),
                     content_type='multipart/form-data'
@@ -492,7 +496,11 @@ class TestFakeApi(ApiTestMixin):
                     api_client.RequestField(
                         name='file',
                         data=file_bytes,
-                        headers={'Content-Type': 'application/octet-stream'}
+                        headers={
+                            'Content-Type': 'application/octet-stream',
+                            "Content-Disposition": "form-data; name=\"file\"",
+                            "Content-Location": None
+                        }
                     ),
                 ),
                 content_type='multipart/form-data'
@@ -547,13 +555,22 @@ class TestFakeApi(ApiTestMixin):
                             name='files',
                             data=file_bytes,
                             filename=file_name,
-                            headers={'Content-Type': 'application/octet-stream'}
+                            headers={
+                                'Content-Type': 'image/png',
+                                "Content-Disposition": "form-data; name=\"files\"; filename=\"1px_pic1.png\"",
+                                "Content-Location": None
+                            }
                         ),
                         api_client.RequestField(
                             name='files',
                             data=file_bytes,
                             filename=file_name,
-                            headers={'Content-Type': 'application/octet-stream'}
+                            headers={
+                                'Content-Type': 'image/png',
+                                "Content-Disposition": "form-data; name=\"files\"; filename=\"1px_pic1.png\"",
+                                "Content-Location": None
+
+                            }
                         ),
                     ),
                     content_type='multipart/form-data'
@@ -578,12 +595,20 @@ class TestFakeApi(ApiTestMixin):
                     api_client.RequestField(
                         name='files',
                         data=file_bytes,
-                        headers={'Content-Type': 'application/octet-stream'}
+                        headers={
+                            'Content-Type': 'application/octet-stream',
+                            "Content-Disposition": "form-data; name=\"files\"",
+                            "Content-Location": None
+                        }
                     ),
                     api_client.RequestField(
                         name='files',
                         data=file_bytes,
-                        headers={'Content-Type': 'application/octet-stream'}
+                        headers={
+                            'Content-Type': 'application/octet-stream',
+                            "Content-Disposition": "form-data; name=\"files\"",
+                            "Content-Location": None
+                        }
                     ),
                 ),
                 content_type='multipart/form-data'
@@ -650,17 +675,22 @@ class TestFakeApi(ApiTestMixin):
            content_type=content_type,
            accept_content_types=(content_type,)
        )
+       self.maxDiff = None
        self.assert_request_called_with(
            mock_request,
            'http://petstore.swagger.io:80/v2/fake/inlineComposition/?compositionAtRoot=a&someProp=a',
            accept_content_type=content_type,
            content_type=content_type,
            fields=(
-               api_client.RequestField(
-                   name='someProp',
-                   data=single_char_str,
-                   headers={'Content-Type': 'text/plain'}
-               ),
+                api_client.RequestField(
+                    name='someProp',
+                    data=single_char_str,
+                    headers={
+                        'Content-Type': 'text/plain',
+                        "Content-Disposition": "form-data; name=\"someProp\"",
+                        "Content-Location": None
+                    }
+                ),
            ),
        )
        self.assertEqual(api_response.body, {'someProp': single_char_str})
