@@ -675,7 +675,6 @@ class TestFakeApi(ApiTestMixin):
            content_type=content_type,
            accept_content_types=(content_type,)
        )
-       self.maxDiff = None
        self.assert_request_called_with(
            mock_request,
            'http://petstore.swagger.io:80/v2/fake/inlineComposition/?compositionAtRoot=a&someProp=a',

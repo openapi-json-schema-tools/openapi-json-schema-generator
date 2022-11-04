@@ -71,21 +71,53 @@ class TestParameter(unittest.TestCase):
             dict(
                 fields=(
                     api_client.RequestField(
-                        name='some_null', data='null', headers={'Content-Type': 'application/json'}),
+                        name='some_null', data='null', headers={
+                            'Content-Type': 'application/json',
+                            "Content-Disposition": "form-data; name=\"some_null\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_bool', data='true', headers={'Content-Type': 'application/json'}),
+                        name='some_bool', data='true', headers={
+                            'Content-Type': 'application/json',
+                            "Content-Disposition": "form-data; name=\"some_bool\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_str', data='a', headers={'Content-Type': 'text/plain'}),
+                        name='some_str', data='a', headers={
+                            'Content-Type': 'text/plain',
+                            "Content-Disposition": "form-data; name=\"some_str\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_int', data='1', headers={'Content-Type': 'application/json'}),
+                        name='some_int', data='1', headers={
+                            'Content-Type': 'application/json',
+                            "Content-Disposition": "form-data; name=\"some_int\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_float', data='3.14', headers={'Content-Type': 'application/json'}),
+                        name='some_float', data='3.14', headers={
+                            'Content-Type': 'application/json',
+                            "Content-Disposition": "form-data; name=\"some_float\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_list', data='[]', headers={'Content-Type': 'application/json'}),
+                        name='some_list', data='[]', headers={
+                            'Content-Type': 'application/json',
+                            "Content-Disposition": "form-data; name=\"some_list\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_dict', data='{}', headers={'Content-Type': 'application/json'}),
+                        name='some_dict', data='{}', headers={
+                            'Content-Type': 'application/json',
+                            "Content-Disposition": "form-data; name=\"some_dict\"",
+                            "Content-Location": None
+                        }),
                     api_client.RequestField(
-                        name='some_bytes', data=b'abc', headers={'Content-Type': 'application/octet-stream'})
+                        name='some_bytes', data=b'abc', headers={
+                            'Content-Type': 'application/octet-stream',
+                            "Content-Disposition": "form-data; name=\"some_bytes\"",
+                            "Content-Location": None
+                        })
                 )
             )
         )
