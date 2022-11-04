@@ -1404,7 +1404,6 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return request_field
 
     def __multipart_form_item(self, key: str, value: Schema) -> RequestField:
-        content_type = None
         if isinstance(value, str):
             request_field = RequestField(name=key, data=str(value))
             request_field.make_multipart(content_type='text/plain')
