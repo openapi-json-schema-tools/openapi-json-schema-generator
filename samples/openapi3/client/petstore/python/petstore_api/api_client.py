@@ -1401,11 +1401,16 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return RequestField(name=key, data=json.dumps(json_value), headers={'Content-Type': 'application/json'})
 
     def __multipart_form_item(self, key: str, value: Schema) -> RequestField:
+        content_type = None
         if isinstance(value, str):
-            return RequestField(name=key, data=str(value), headers={'Content-Type': 'text/plain'})
+            content_type = 'text/plain'
+            request_field = RequestField(name=key, data=str(value), headers={'Content-Type': 'text/plain'})
         elif isinstance(value, bytes):
-            return RequestField(name=key, data=value, headers={'Content-Type': 'application/octet-stream'})
+            content_type = 'application/octet-stream'
+            request_field = RequestField(name=key, data=value, headers={'Content-Type': 'application/octet-stream'})
         elif isinstance(value, FileIO):
+            # TODO get content type using urllib3
+            content_type = 'application/octet-stream'
             request_field = RequestField(
                 name=key,
                 data=value.read(),
@@ -1413,9 +1418,11 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                 headers={'Content-Type': 'application/octet-stream'}
             )
             value.close()
-            return request_field
         else:
-            return self.__multipart_json_item(key=key, value=value)
+            content_type = 'application/json'
+            request_field = self.__multipart_json_item(key=key, value=value)
+        request_field.make_multipart(content_type=content_type)
+        return request_field
 
     def __serialize_multipart_form_data(
         self, in_data: Schema
