@@ -28,21 +28,21 @@ from petstore_api import schemas  # noqa: F401
 from . import path
 
 # Query params
-RequiredStringGroupSchema = schemas.IntSchema
+RequiredStringGroupSchema = schemas.StrSchema
 RequiredInt64GroupSchema = schemas.Int64Schema
-StringGroupSchema = schemas.IntSchema
+StringGroupSchema = schemas.StrSchema
 Int64GroupSchema = schemas.Int64Schema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
-        'required_string_group': typing.Union[RequiredStringGroupSchema, decimal.Decimal, int, ],
+        'required_string_group': typing.Union[RequiredStringGroupSchema, str, ],
         'required_int64_group': typing.Union[RequiredInt64GroupSchema, decimal.Decimal, int, ],
     }
 )
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'string_group': typing.Union[StringGroupSchema, decimal.Decimal, int, ],
+        'string_group': typing.Union[StringGroupSchema, str, ],
         'int64_group': typing.Union[Int64GroupSchema, decimal.Decimal, int, ],
     },
     total=False
@@ -80,18 +80,58 @@ request_query_int64_group = api_client.QueryParameter(
     explode=True,
 )
 # Header params
-RequiredBooleanGroupSchema = schemas.BoolSchema
-BooleanGroupSchema = schemas.BoolSchema
+
+
+class RequiredBooleanGroupSchema(
+    schemas.EnumBase,
+    schemas.StrSchema
+):
+
+
+    class MetaOapg:
+        enum_value_to_name = {
+            "true": "TRUE",
+            "false": "FALSE",
+        }
+    
+    @schemas.classproperty
+    def TRUE(cls):
+        return cls("true")
+    
+    @schemas.classproperty
+    def FALSE(cls):
+        return cls("false")
+
+
+class BooleanGroupSchema(
+    schemas.EnumBase,
+    schemas.StrSchema
+):
+
+
+    class MetaOapg:
+        enum_value_to_name = {
+            "true": "TRUE",
+            "false": "FALSE",
+        }
+    
+    @schemas.classproperty
+    def TRUE(cls):
+        return cls("true")
+    
+    @schemas.classproperty
+    def FALSE(cls):
+        return cls("false")
 RequestRequiredHeaderParams = typing_extensions.TypedDict(
     'RequestRequiredHeaderParams',
     {
-        'required_boolean_group': typing.Union[RequiredBooleanGroupSchema, bool, ],
+        'required_boolean_group': typing.Union[RequiredBooleanGroupSchema, str, ],
     }
 )
 RequestOptionalHeaderParams = typing_extensions.TypedDict(
     'RequestOptionalHeaderParams',
     {
-        'boolean_group': typing.Union[BooleanGroupSchema, bool, ],
+        'boolean_group': typing.Union[BooleanGroupSchema, str, ],
     },
     total=False
 )

@@ -37,17 +37,6 @@ class Configuration(object):
       The dict value is an API key prefix when generating the auth data.
     :param username: Username for HTTP basic authentication
     :param password: Password for HTTP basic authentication
-    :param discard_unknown_keys: Boolean value indicating whether to discard
-      unknown properties. A server may send a response that includes additional
-      properties that are not known by the client in the following scenarios:
-      1. The OpenAPI document is incomplete, i.e. it does not match the server
-         implementation.
-      2. The client was generated using an older version of the OpenAPI document
-         and the server has been upgraded since then.
-      If a schema in the OpenAPI document defines the additionalProperties attribute,
-      then all undeclared properties received by the server are injected into the
-      additional properties map. In that case, there are undeclared properties, and
-      nothing to discard.
     :param disabled_client_side_validations (string): Comma-separated list of
       JSON schema validation keywords to disable JSON schema structural validation
       rules. The following keywords may be specified: multipleOf, maximum,
@@ -162,17 +151,29 @@ conf = {{{packageName}}}.Configuration(
 
     _default = None
 
-    def __init__(self, host=None,
-                 api_key=None, api_key_prefix=None,
-                 username=None, password=None,
-                 discard_unknown_keys=False,
-                 disabled_client_side_validations="",
-{{#if hasHttpSignatureMethods}}
-                 signing_info=None,
+    def __init__(
+        self,
+        host=None,
+{{#if hasApiKeyMethods}}
+        api_key=None,
+        api_key_prefix=None,
 {{/if}}
-                 server_index=None, server_variables=None,
-                 server_operation_index=None, server_operation_variables=None,
-                 ):
+{{#if hasHttpBasicMethods}}
+        username=None,
+        password=None,
+{{/if}}
+        disabled_client_side_validations="",
+{{#if hasHttpSignatureMethods}}
+        signing_info=None,
+{{/if}}
+        server_index=None,
+        server_variables=None,
+        server_operation_index=None,
+        server_operation_variables=None,
+{{#or hasOAuthMethods hasBearerMethods}}
+        access_token=None,
+{{/or}}
+    ):
         """Constructor
         """
         self._base_path = "{{{basePath}}}" if host is None else host
@@ -190,6 +191,7 @@ conf = {{{packageName}}}.Configuration(
         """Temp file folder for downloading files
         """
         # Authentication Settings
+{{#if hasApiKeyMethods}}
         self.api_key = {}
         if api_key:
             self.api_key = api_key
@@ -203,13 +205,15 @@ conf = {{{packageName}}}.Configuration(
         self.refresh_api_key_hook = None
         """function hook to refresh API key if expired
         """
+{{/if}}
+{{#if hasHttpBasicMethods}}
         self.username = username
         """Username for HTTP basic authentication
         """
         self.password = password
         """Password for HTTP basic authentication
         """
-        self.discard_unknown_keys = discard_unknown_keys
+{{/if}}
         self.disabled_client_side_validations = disabled_client_side_validations
 {{#if hasHttpSignatureMethods}}
         if signing_info is not None:
@@ -218,18 +222,11 @@ conf = {{{packageName}}}.Configuration(
         """The HTTP signing configuration
         """
 {{/if}}
-{{#if hasOAuthMethods}}
-        self.access_token = None
+{{#or hasOAuthMethods hasBearerMethods}}
+        self.access_token = access_token
         """access token for OAuth/Bearer
         """
-{{/if}}
-{{#unless hasOAuthMethods}}
-{{#if hasBearerMethods}}
-        self.access_token = None
-        """access token for OAuth/Bearer
-        """
-{{/if}}
-{{/unless}}
+{{/or}}
         self.logger = {}
         """Logging Settings
         """
