@@ -1328,11 +1328,11 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'required_string_group': 1,
+        'required_string_group': "required_string_group_example",
         'required_int64_group': 1,
     }
     header_params = {
-        'required_boolean_group': True,
+        'required_boolean_group': "true",
     }
     try:
         # Fake endpoint to test group parameters (optional)
@@ -1345,14 +1345,14 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'required_string_group': 1,
+        'required_string_group': "required_string_group_example",
         'required_int64_group': 1,
-        'string_group': 1,
+        'string_group': "string_group_example",
         'int64_group': 1,
     }
     header_params = {
-        'required_boolean_group': True,
-        'boolean_group': True,
+        'required_boolean_group': "true",
+        'boolean_group': "true",
     }
     try:
         # Fake endpoint to test group parameters (optional)
@@ -1389,7 +1389,7 @@ int64_group | Int64GroupSchema | | optional
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+str,  | str,  |  | 
 
 # RequiredInt64GroupSchema
 
@@ -1403,7 +1403,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+str,  | str,  |  | 
 
 # Int64GroupSchema
 
@@ -1425,14 +1425,14 @@ boolean_group | BooleanGroupSchema | | optional
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bool,  | BoolClass,  |  | 
+str,  | str,  |  | must be one of ["true", "false", ] 
 
 # BooleanGroupSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bool,  | BoolClass,  |  | 
+str,  | str,  |  | must be one of ["true", "false", ] 
 
 ### Return Types, Responses
 

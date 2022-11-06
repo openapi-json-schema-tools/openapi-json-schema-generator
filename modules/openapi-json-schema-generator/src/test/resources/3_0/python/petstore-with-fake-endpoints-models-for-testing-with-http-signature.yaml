@@ -791,13 +791,16 @@ paths:
           description: Required String in group parameters
           required: true
           schema:
-            type: integer
+            type: string
         - name: required_boolean_group
           in: header
           description: Required Boolean in group parameters
           required: true
           schema:
-            type: boolean
+            type: string
+            enum:
+              - true
+              - false
         - name: required_int64_group
           in: query
           description: Required Integer in group parameters
@@ -809,12 +812,15 @@ paths:
           in: query
           description: String in group parameters
           schema:
-            type: integer
+            type: string
         - name: boolean_group
           in: header
           description: Boolean in group parameters
           schema:
-            type: boolean
+            type: string
+            enum:
+              - true
+              - false
         - name: int64_group
           in: query
           description: Integer in group parameters
