@@ -1944,6 +1944,15 @@ public class DefaultCodegen implements CodegenConfig {
         setParameterExampleValue(codegenParameter);
     }
 
+    protected CodegenProperty getParameterSchema(CodegenParameter param) {
+        CodegenProperty p = param.getSchema();
+        if (p == null) {
+            String firstContentType = (String) param.getContent().keySet().toArray()[0];
+            p = param.getContent().get(firstContentType).getSchema();
+        }
+        return p;
+    }
+
     /**
      * Sets the content type, style, and explode of the parameter based on the encoding specified
      * in the request body.
@@ -1968,7 +1977,12 @@ public class DefaultCodegen implements CodegenConfig {
 
                 codegenParameter.style = style.toString();
                 codegenParameter.isDeepObject = Encoding.StyleEnum.DEEP_OBJECT == style;
-                codegenParameter.isExplode = explode;
+
+                if(getParameterSchema(codegenParameter).isContainer) {
+                    codegenParameter.isExplode = explode;
+                } else {
+                    codegenParameter.isExplode = false;
+                }
 
             } else {
                 LOGGER.debug("encoding not specified for {}", codegenParameter.baseName);
@@ -4303,7 +4317,8 @@ public class DefaultCodegen implements CodegenConfig {
 
                 // add example
                 if (schemas != null && !isSkipOperationExample()) {
-                    op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), bodyParam.baseType);
+                    String firstContentType = (String) requestBody.getContent().keySet().toArray()[0];
+                    op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), requestBody.getContent().get(firstContentType).getSchema());
                 }
             }
         }
@@ -6310,7 +6325,7 @@ public class DefaultCodegen implements CodegenConfig {
         LOGGER.debug("Debugging fromFormProperty {}: {}", name, propertySchema);
         CodegenProperty codegenProperty = fromProperty(name, propertySchema, false, false, sourceJsonPath);
 
-        Schema ps = unaliasSchema(propertySchema);
+        codegenParameter.setSchema(codegenProperty);
 
         codegenParameter.baseName = codegenProperty.baseName;
         codegenParameter.paramName = toParamName(codegenParameter.baseName);
@@ -6488,7 +6503,6 @@ public class DefaultCodegen implements CodegenConfig {
             // object type schema or composed schema with properties defined
             this.addBodyModelSchema(codegenParameter, name, schema, imports, bodyParameterName, false, sourceJsonPath);
         }
-        addVarsRequiredVarsAdditionalProps(schema, codegenParameter, sourceJsonPath);
     }
 
     protected void updateRequestBodyForArray(CodegenParameter codegenParameter, Schema schema, String name, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
@@ -6704,7 +6718,6 @@ public class DefaultCodegen implements CodegenConfig {
             } else {
                 updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
             }
-            addVarsRequiredVarsAdditionalProps(schema, codegenParameter, sourceJsonPath);
         } else {
             // referenced schemas
             updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);

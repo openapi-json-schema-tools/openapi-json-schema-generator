@@ -425,7 +425,7 @@ public class DefaultGeneratorTest {
         CodegenParameter codegenParameter = config.fromRequestBody(
                 body, new HashSet<>(), "body", null);
 
-        Assert.assertEquals(codegenParameter.pattern, escapedPattern);
+        Assert.assertEquals(codegenParameter.getContent().get("*/*").getSchema().pattern, escapedPattern);
 
         // Validate when converting to response
         ApiResponse response = operation.getResponses().get("200");
