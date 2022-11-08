@@ -28,6 +28,7 @@ public class CodegenResponse {
     public boolean is3xx;
     public boolean is4xx;
     public boolean is5xx;
+    public boolean isDefault;
     public String message;
     public List<Map<String, Object>> examples;
     public boolean hasHeaders;
@@ -41,7 +42,7 @@ public class CodegenResponse {
     public int hashCode() {
         return Objects.hash(headers, code, message, examples, hasHeaders,
                 jsonSchema, vendorExtensions,
-                is1xx, is2xx, is3xx, is4xx, is5xx,
+                is1xx, is2xx, is3xx, is4xx, is5xx, isDefault,
                 responseHeaders, content,
                 ref, imports);
     }
@@ -57,6 +58,7 @@ public class CodegenResponse {
                 is3xx == that.is3xx &&
                 is4xx == that.is4xx &&
                 is5xx == that.is5xx &&
+                isDefault == that.isDefault &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(content, that.getContent()) &&
@@ -96,6 +98,7 @@ public class CodegenResponse {
         sb.append(", is3xx='").append(is3xx).append('\'');
         sb.append(", is4xx='").append(is4xx).append('\'');
         sb.append(", is5xx='").append(is5xx).append('\'');
+        sb.append(", isDefault='").append(isDefault).append('\'');
         sb.append(", message='").append(message).append('\'');
         sb.append(", examples=").append(examples);
         sb.append(", hasHeaders=").append(hasHeaders);
