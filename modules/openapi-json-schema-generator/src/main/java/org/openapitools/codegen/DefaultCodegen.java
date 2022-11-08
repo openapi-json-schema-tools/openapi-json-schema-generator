@@ -4216,40 +4216,33 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 r.setContent(getContent(response.getContent(), r.imports, "", responseSourceJsonPath + "/content"));
 
-                if (!addSchemaImportsFromV3SpecLocations) {
-                    if (r.baseType != null &&
-                            !defaultIncludes.contains(r.baseType) &&
-                            !languageSpecificPrimitives.contains(r.baseType)) {
-                        imports.add(r.baseType);
-                    }
-                    if ("set".equals(r.containerType) && typeMapping.containsKey(r.containerType)) {
-                        op.uniqueItems = true;
-                        imports.add(typeMapping.get(r.containerType));
-                    }
-                }
-
                 op.responses.add(r);
-                if (Boolean.TRUE.equals(r.isBinary) && Boolean.TRUE.equals(r.is2xx) && Boolean.FALSE.equals(op.isResponseBinary)) {
-                    op.isResponseBinary = Boolean.TRUE;
-                }
-                if (Boolean.TRUE.equals(r.isFile) && Boolean.TRUE.equals(r.is2xx) && Boolean.FALSE.equals(op.isResponseFile)) {
-                    op.isResponseFile = Boolean.TRUE;
+                // TODO remove this, the response should not know what is inside it
+                if (r.is2xx) {
+                    for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
+                        CodegenMediaType cm = entry.getValue();
+                        CodegenProperty cp = cm.getSchema();
+                        if (cp.isBinary) {
+                            op.isResponseBinary = Boolean.TRUE;
+                        } else if (cp.isFile) {
+                            op.isResponseFile = Boolean.TRUE;
+                        }
+                    }
                 }
                 if (Boolean.TRUE.equals(r.isDefault)) {
                     op.defaultReturnType = Boolean.TRUE;
                 }
-
                 // check if any 4xx or 5xx response has an error response object defined
-                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx)) &&
-                        Boolean.FALSE.equals(r.primitiveType) && Boolean.FALSE.equals(r.simpleType)) {
-                    op.hasErrorResponseObject = Boolean.TRUE;
+                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx))) {
+                    for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
+                        CodegenMediaType cm = entry.getValue();
+                        CodegenProperty cp = cm.getSchema();
+                        if (cp.isArray || cp.isMap) {
+                            op.hasErrorResponseObject = Boolean.TRUE;
+                            break;
+                        }
+                    }
                 }
-            }
-
-            // check if the operation can both return a 2xx response with a body and without
-            if (op.responses.stream().anyMatch(response -> response.is2xx && response.dataType != null) &&
-                    op.responses.stream().anyMatch(response -> response.is2xx && response.dataType == null)) {
-                op.isResponseOptional = Boolean.TRUE;
             }
 
             op.responses.sort((a, b) -> {
@@ -4471,14 +4464,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        Schema responseSchema;
-        if (this.openAPI != null && this.openAPI.getComponents() != null) {
-            responseSchema = unaliasSchema(ModelUtils.getSchemaFromResponse(response));
-        } else { // no model/alias defined
-            responseSchema = ModelUtils.getSchemaFromResponse(response);
-        }
-        r.schema = responseSchema;
-
         r.message = escapeText(response.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment
@@ -4495,116 +4480,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         addHeaders(response, r.headers, usedSourceJsonPath + "/headers");
         r.hasHeaders = !r.headers.isEmpty();
-
-        if (r.schema == null) {
-            r.primitiveType = true;
-            r.simpleType = true;
-            return r;
-        }
-
-        ModelUtils.syncValidationProperties(responseSchema, r);
-        if (responseSchema.getPattern() != null) {
-            r.setPattern(toRegularExpression(responseSchema.getPattern()));
-        }
-
-        CodegenProperty cp = fromProperty("response", responseSchema, false, false, usedSourceJsonPath);
-        r.dataType = getTypeDeclaration(responseSchema);
-
-        if (!ModelUtils.isArraySchema(responseSchema)) {
-            if (cp.refClass != null) {
-                if (cp.items != null) {
-                    r.baseType = cp.items.refClass;
-                } else {
-                    r.baseType = cp.refClass;
-                }
-                r.isModel = true;
-            } else {
-                r.baseType = cp.baseType;
-            }
-        }
-
-        r.setTypeProperties(responseSchema);
-        r.setComposedSchemas(getComposedSchemas(responseSchema, sourceJsonPath));
-        if (ModelUtils.isArraySchema(responseSchema)) {
-            r.simpleType = false;
-            r.isArray = true;
-            r.containerType = cp.containerType;
-            ArraySchema as = (ArraySchema) responseSchema;
-            CodegenProperty items = fromProperty(
-                    "response", getSchemaItems(as), false, false, usedSourceJsonPath);
-            r.setItems(items);
-            CodegenProperty innerCp = items;
-
-            while (innerCp != null) {
-                r.baseType = innerCp.baseType;
-                innerCp = innerCp.items;
-            }
-        } else if (ModelUtils.isFileSchema(responseSchema) && !ModelUtils.isStringSchema(responseSchema)) {
-            // swagger v2 only, type file
-            r.isFile = true;
-        } else if (ModelUtils.isStringSchema(responseSchema)) {
-            if (ModelUtils.isEmailSchema(responseSchema)) {
-                r.isEmail = true;
-            } else if (ModelUtils.isUUIDSchema(responseSchema)) {
-                r.isUuid = true;
-            } else if (ModelUtils.isByteArraySchema(responseSchema)) {
-                r.setIsString(false);
-                r.isByteArray = true;
-            } else if (ModelUtils.isBinarySchema(responseSchema)) {
-                r.isFile = true; // file = binary in OAS3
-                r.isBinary = true;
-            } else if (ModelUtils.isDateSchema(responseSchema)) {
-                r.setIsString(false); // for backward compatibility with 2.x
-                r.isDate = true;
-            } else if (ModelUtils.isDateTimeSchema(responseSchema)) {
-                r.setIsString(false); // for backward compatibility with 2.x
-                r.isDateTime = true;
-            } else if (ModelUtils.isDecimalSchema(responseSchema)) { // type: string, format: number
-                r.isDecimal = true;
-                r.setIsString(false);
-                r.isNumeric = true;
-            }
-        } else if (ModelUtils.isIntegerSchema(responseSchema)) { // integer type
-            r.isNumeric = Boolean.TRUE;
-            if (ModelUtils.isLongSchema(responseSchema)) { // int64/long format
-                r.isLong = Boolean.TRUE;
-            } else {
-                r.isInteger = Boolean.TRUE; // older use case, int32 and unbounded int
-                if (ModelUtils.isShortSchema(responseSchema)) { // int32
-                    r.setIsShort(Boolean.TRUE);
-                }
-            }
-        } else if (ModelUtils.isNumberSchema(responseSchema)) {
-            r.isNumeric = Boolean.TRUE;
-            if (ModelUtils.isFloatSchema(responseSchema)) { // float
-                r.isFloat = Boolean.TRUE;
-            } else if (ModelUtils.isDoubleSchema(responseSchema)) { // double
-                r.isDouble = Boolean.TRUE;
-            }
-        } else if (ModelUtils.isTypeObjectSchema(responseSchema)) {
-            if (ModelUtils.isFreeFormObject(openAPI, responseSchema)) {
-                r.isFreeFormObject = true;
-            } else {
-                r.isModel = true;
-            }
-            r.simpleType = false;
-            r.containerType = cp.containerType;
-            addVarsRequiredVarsAdditionalProps(responseSchema, r, usedSourceJsonPath);
-        } else if (ModelUtils.isAnyType(responseSchema)) {
-            addVarsRequiredVarsAdditionalProps(responseSchema, r, usedSourceJsonPath);
-        } else if (!ModelUtils.isBooleanSchema(responseSchema)) {
-            // referenced schemas
-            LOGGER.debug("Property type is not primitive: {}", cp.dataType);
-        }
-
-        r.primitiveType = (r.baseType == null || languageSpecificPrimitives().contains(r.baseType));
-
-        if (r.baseType == null) {
-            r.isMap = false;
-            r.isArray = false;
-            r.primitiveType = true;
-            r.simpleType = true;
-        }
 
         return r;
     }
