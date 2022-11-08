@@ -431,8 +431,7 @@ public class DefaultGeneratorTest {
         ApiResponse response = operation.getResponses().get("200");
         CodegenResponse codegenResponse = config.fromResponse("200", response, null);
 
-        Assert.assertEquals(((Schema) codegenResponse.schema).getPattern(), expectedPattern);
-        Assert.assertEquals(codegenResponse.pattern, escapedPattern);
+        Assert.assertEquals(codegenResponse.getContent().get("*/*").getSchema().getPattern(), escapedPattern);
     }
 
     @Test

@@ -4196,29 +4196,10 @@ public class DefaultCodegen implements CodegenConfig {
                 addProducesInfo(response, op);
                 String usedSourceJsonPath = sourceJsonPath + "/responses";
                 CodegenResponse r = fromResponse(key, response, usedSourceJsonPath);
-                String responseSourceJsonPath = usedSourceJsonPath;
-                if (r.isDefault) {
-                    responseSourceJsonPath += "/default";
-                } else {
-                    responseSourceJsonPath += "/" + r.code;
-                }
-
-                Map<String, Header> headers = response.getHeaders();
-                if (headers != null) {
-                    List<CodegenParameter> responseHeaders = new ArrayList<>();
-                    for (Entry<String, Header> entry : headers.entrySet()) {
-                        String headerName = entry.getKey();
-                        Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
-                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "", responseSourceJsonPath + "/headers/" + headerName);
-                        responseHeaders.add(responseHeader);
-                    }
-                    r.setResponseHeaders(responseHeaders);
-                }
-                r.setContent(getContent(response.getContent(), r.imports, "", responseSourceJsonPath + "/content"));
 
                 op.responses.add(r);
                 // TODO remove this, the response should not know what is inside it
-                if (r.is2xx) {
+                if (r.is2xx && r.getContent() != null) {
                     for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
                         CodegenMediaType cm = entry.getValue();
                         CodegenProperty cp = cm.getSchema();
@@ -4233,7 +4214,7 @@ public class DefaultCodegen implements CodegenConfig {
                     op.defaultReturnType = Boolean.TRUE;
                 }
                 // check if any 4xx or 5xx response has an error response object defined
-                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx))) {
+                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx)) && r.getContent() != null) {
                     for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
                         CodegenMediaType cm = entry.getValue();
                         CodegenProperty cp = cm.getSchema();
@@ -4478,8 +4459,22 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             usedSourceJsonPath = usedSourceJsonPath + r.code;
         }
+        // TODO remove these two because the info is in responseHeaders
         addHeaders(response, r.headers, usedSourceJsonPath + "/headers");
         r.hasHeaders = !r.headers.isEmpty();
+
+        Map<String, Header> headers = response.getHeaders();
+        if (headers != null) {
+            List<CodegenParameter> responseHeaders = new ArrayList<>();
+            for (Entry<String, Header> entry : headers.entrySet()) {
+                String headerName = entry.getKey();
+                Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
+                CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "", usedSourceJsonPath + "/headers/" + headerName);
+                responseHeaders.add(responseHeader);
+            }
+            r.setResponseHeaders(responseHeaders);
+        }
+        r.setContent(getContent(response.getContent(), r.imports, "", usedSourceJsonPath + "/content"));
 
         return r;
     }

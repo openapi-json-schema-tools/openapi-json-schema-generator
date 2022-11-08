@@ -1257,9 +1257,9 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
         CodegenResponse cr = co.responses.get(0);
-        Assert.assertEquals(cr.baseType, "Pet");
-        Assert.assertEquals(cr.dataType, "List<Pet>");
-        Assert.assertEquals(cr.containerType, "array");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "Pet");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<Pet>");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
 
         Assert.assertTrue(co.imports.contains("Pet"));
     }
@@ -1341,9 +1341,9 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
         CodegenResponse cr = co.responses.get(0);
-        Assert.assertEquals(cr.baseType, "Pet");
-        Assert.assertEquals(cr.dataType, "List<List<Pet>>");
-        Assert.assertEquals(cr.containerType, "array");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "Pet");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
 
         Assert.assertTrue(co.imports.contains("Pet"));
     }
