@@ -661,24 +661,6 @@ public class AbstractJavaCodegenTest {
     }
 
     @Test
-    public void dateDefaultValueIsIsoDateTime() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml");
-        final P_AbstractJavaCodegen codegen = new P_AbstractJavaCodegen();
-        codegen.setOpenAPI(openAPI);
-
-        Set<String> imports = new HashSet<>();
-        CodegenParameter parameter = codegen.fromParameter(
-                openAPI.getPaths().get("/thingy/{date}").getGet().getParameters().get(1), imports, "1");
-
-        Assert.assertEquals(parameter.getSchema().dataType, "Date");
-        Assert.assertEquals(parameter.getSchema().isDateTime, true);
-        Assert.assertEquals(parameter.getSchema().defaultValue, "OffsetDateTime.parse(\"1973-12-19T03:39:57-08:00[America/Los_Angeles]\", java.time.format.DateTimeFormatter.ISO_ZONED_DATE_TIME.withZone(java.time.ZoneId.systemDefault()))");
-
-        Assert.assertNotNull(parameter.getSchema());
-        Assert.assertEquals(parameter.getSchema().baseType, "Date");
-    }
-
-    @Test
     public void getTypeDeclarationGivenSchemaMappingTest() {
         final P_AbstractJavaCodegen codegen = new P_AbstractJavaCodegen();
         codegen.schemaMapping().put("MyStringType", "com.example.foo");
