@@ -855,7 +855,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
                 // import okhttp3.MultipartBody if any parameter is a file
                 for (CodegenParameter param : operation.allParams) {
-                    if (Boolean.TRUE.equals(param.isFile)) {
+                    if (Boolean.TRUE.equals(param.getSchema() != null && Boolean.TRUE.equals(param.getSchema().isFile))) {
                         operations.put("x-kotlin-multipart-import", true);
                     }
                 }
@@ -881,8 +881,9 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                 // modify the data type of binary form parameters to a more friendly type for ktor builds
                 if ((JVM_KTOR.equals(getLibrary()) || MULTIPLATFORM.equals(getLibrary())) && operation.allParams != null) {
                     for (CodegenParameter param : operation.allParams) {
-                        if (param.dataFormat != null && param.dataFormat.equals("binary")) {
-                            param.baseType = param.dataType = "io.ktor.client.request.forms.InputProvider";
+                        CodegenProperty cp = param.getSchema();
+                        if (cp != null && cp.dataFormat != null && cp.dataFormat.equals("binary")) {
+                            cp.baseType = cp.dataType = "io.ktor.client.request.forms.InputProvider";
                         }
                     }
                 }

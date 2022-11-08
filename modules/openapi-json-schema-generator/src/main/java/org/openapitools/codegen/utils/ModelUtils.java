@@ -35,7 +35,7 @@ import io.swagger.v3.parser.util.RemoteUrl;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.CodegenModel;
-import org.openapitools.codegen.IJsonSchemaValidationProperties;
+import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.model.ModelMap;
 import org.openapitools.codegen.model.ModelsMap;
@@ -1623,8 +1623,8 @@ public class ModelUtils {
         return (schema.get$ref() == null && schema.getType() == null);
     }
 
-    public static void syncValidationProperties(Schema schema, IJsonSchemaValidationProperties target) {
-        // TODO move this method to IJsonSchemaValidationProperties
+    public static void syncValidationProperties(Schema schema, JsonSchema target) {
+        // TODO move this method to JsonSchema
         if (schema != null && target != null) {
             if (isNullType(schema) || schema.get$ref() != null || isBooleanSchema(schema)) {
                 return;
@@ -1668,25 +1668,25 @@ public class ModelUtils {
         }
     }
 
-    private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, IJsonSchemaValidationProperties target) {
+    private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, JsonSchema target) {
         if (minItems != null) target.setMinItems(minItems);
         if (maxItems != null) target.setMaxItems(maxItems);
         if (uniqueItems != null) target.setUniqueItems(uniqueItems);
         if (uniqueItems != null) target.setUniqueItemsBoolean(uniqueItems);
     }
 
-    private static void setObjectValidations(Integer minProperties, Integer maxProperties, IJsonSchemaValidationProperties target) {
+    private static void setObjectValidations(Integer minProperties, Integer maxProperties, JsonSchema target) {
         if (minProperties != null) target.setMinProperties(minProperties);
         if (maxProperties != null) target.setMaxProperties(maxProperties);
     }
 
-    private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, IJsonSchemaValidationProperties target) {
+    private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, JsonSchema target) {
         if (minLength != null) target.setMinLength(minLength);
         if (maxLength != null) target.setMaxLength(maxLength);
         if (pattern != null) target.setPattern(pattern);
     }
 
-    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, IJsonSchemaValidationProperties target) {
+    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, JsonSchema target) {
         if (multipleOf != null) target.setMultipleOf(multipleOf);
         if (minimum != null) {
             if (isIntegerSchema(schema)) {

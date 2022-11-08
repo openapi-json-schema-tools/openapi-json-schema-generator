@@ -28,6 +28,7 @@ import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
 
 import org.apache.commons.io.FileUtils;
+import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.api.TemplatePathLocator;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapitools.codegen.model.ModelMap;
@@ -67,7 +68,6 @@ import java.util.stream.Collectors;
 
 import static org.openapitools.codegen.utils.OnceLogger.once;
 import static org.openapitools.codegen.utils.StringUtils.camelize;
-import static org.openapitools.codegen.utils.StringUtils.escape;
 import static org.openapitools.codegen.utils.StringUtils.underscore;
 
 public class PythonClientCodegen extends AbstractPythonCodegen {
@@ -741,7 +741,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     they are not.
      */
     @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath){
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath){
         setAddProps(schema, property, sourceJsonPath);
         if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
             // if anyType schema has properties then add them
@@ -1128,19 +1128,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public CodegenParameter fromRequestBody(RequestBody body, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
         CodegenParameter cp = super.fromRequestBody(body, imports, bodyParameterName, sourceJsonPath);
         cp.baseName = "body";
-        Schema schema = ModelUtils.getSchemaFromRequestBody(body);
-        if (schema.get$ref() == null) {
-            return cp;
-        }
-        Schema unaliasedSchema = unaliasSchema(schema);
-        CodegenProperty unaliasedProp = fromProperty(
-                "body", unaliasedSchema, false, false, sourceJsonPath);
-        Boolean dataTypeMismatch = !cp.dataType.equals(unaliasedProp.dataType);
-        Boolean baseTypeMismatch = !cp.baseType.equals(unaliasedProp.refClass) && unaliasedProp.refClass != null;
-        if (dataTypeMismatch || baseTypeMismatch) {
-            cp.dataType = unaliasedProp.dataType;
-            cp.baseType = unaliasedProp.refClass;
-        }
         return cp;
     }
 
@@ -1183,10 +1170,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toParamName(codegenParameter.baseName);
-            codegenParameter.baseType = codegenModel.classname;
-            codegenParameter.dataType = getTypeDeclaration(codegenModel.classname);
             codegenParameter.description = codegenModel.description;
-            codegenParameter.isNullable = codegenModel.isNullable;
         } else {
             CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
 
@@ -1210,13 +1194,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
 
                 codegenParameter.paramName = toParamName(codegenParameter.baseName);
-                codegenParameter.baseType = codegenModelName;
-                codegenParameter.dataType = getTypeDeclaration(codegenModelName);
                 codegenParameter.description = codegenModelDescription;
             }
-
-            // set nullable
-            setParameterNullable(codegenParameter, codegenProperty);
         }
 
     }
@@ -1383,15 +1362,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
 
         return enumVars;
-    }
-
-    @Override
-    public void postProcessParameter(CodegenParameter p) {
-        postProcessPattern(p.pattern, p.vendorExtensions);
-        if (p.baseType != null && languageSpecificPrimitives.contains(p.baseType)) {
-            // set baseType to null so the api docs will not point to a model for languageSpecificPrimitives
-            p.baseType = null;
-        }
     }
 
     /**
@@ -2262,7 +2232,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @param property the property for the above schema
      */
     @Override
-    protected void setAddProps(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath){
+    protected void setAddProps(Schema schema, JsonSchema property, String sourceJsonPath){
         Schema addPropsSchema = getSchemaFromBooleanOrSchema(schema.getAdditionalProperties());
         if (addPropsSchema == null) {
             return;

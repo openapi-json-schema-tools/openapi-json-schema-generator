@@ -769,13 +769,14 @@ public class JavaModelTest {
         final Parameter parameter = new QueryParameter()
                 .description("this is a description")
                 .name("limit")
+                .schema(new Schema())
                 .required(true);
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenParameter cm = codegen.fromParameter(parameter, new HashSet<>(), "0");
+        final CodegenParameter p = codegen.fromParameter(parameter, new HashSet<>(), "0");
 
-        Assert.assertNull(cm.allowableValues);
-        Assert.assertEquals(cm.description, "this is a description");
+        Assert.assertNull(p.getSchema().allowableValues);
+        Assert.assertEquals(p.description, "this is a description");
     }
 
     @Test(description = "types used by inner properties should be imported")
@@ -1224,15 +1225,15 @@ public class JavaModelTest {
         final CodegenOperation co = codegen.fromOperation("testSchema", "GET", operation, null);
 
         Assert.assertEquals(co.bodyParams.size(), 1);
-        CodegenParameter cp1 = co.bodyParams.get(0);
-        Assert.assertEquals(cp1.baseType, "Pet");
-        Assert.assertEquals(cp1.dataType, "List<Pet>");
-        Assert.assertTrue(cp1.isContainer);
-        Assert.assertTrue(cp1.isArray);
-        Assert.assertFalse(cp1.isMap);
-        Assert.assertEquals(cp1.items.baseType, "Pet");
-        Assert.assertEquals(cp1.items.refClass, "Pet");
-        Assert.assertEquals(cp1.items.dataType, "Pet");
+        CodegenParameter cp1 = co.bodyParam;
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().baseType, "List");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().dataType, "List<Pet>");
+        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isContainer);
+        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isArray);
+        Assert.assertFalse(cp1.getContent().get("application/json").getSchema().isMap);
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.baseType, "Pet");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.refClass, "Pet");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.dataType, "Pet");
 
         Assert.assertEquals(co.responses.size(), 1);
 
@@ -1256,11 +1257,11 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
         CodegenResponse cr = co.responses.get(0);
-        Assert.assertEquals(cr.baseType, "Pet");
-        Assert.assertEquals(cr.dataType, "List<Pet>");
-        Assert.assertEquals(cr.containerType, "array");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<Pet>");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
 
-        Assert.assertTrue(co.imports.contains("Pet"));
+        Assert.assertTrue(cr.imports.contains("Pet"));
     }
 
     @Test(description = "convert an array of array schema")
@@ -1304,18 +1305,18 @@ public class JavaModelTest {
         final CodegenOperation co = codegen.fromOperation("testSchema", "GET", operation, null);
 
         Assert.assertEquals(co.bodyParams.size(), 1);
-        CodegenParameter cp1 = co.bodyParams.get(0);
-        Assert.assertEquals(cp1.baseType, "List");
-        Assert.assertEquals(cp1.dataType, "List<List<Pet>>");
-        Assert.assertTrue(cp1.isContainer);
-        Assert.assertTrue(cp1.isArray);
-        Assert.assertFalse(cp1.isMap);
-        Assert.assertEquals(cp1.items.baseType, "List");
-        Assert.assertEquals(cp1.items.items.refClass, "Pet");
-        Assert.assertEquals(cp1.items.dataType, "List<Pet>");
-        Assert.assertEquals(cp1.items.items.baseType, "Pet");
-        Assert.assertEquals(cp1.items.items.refClass, "Pet");
-        Assert.assertEquals(cp1.items.items.dataType, "Pet");
+        CodegenParameter cp1 = co.bodyParam;
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().baseType, "List");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
+        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isContainer);
+        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isArray);
+        Assert.assertFalse(cp1.getContent().get("application/json").getSchema().isMap);
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.baseType, "List");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.items.refClass, "Pet");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.dataType, "List<Pet>");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.items.baseType, "Pet");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.items.refClass, "Pet");
+        Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.items.dataType, "Pet");
 
         Assert.assertEquals(co.responses.size(), 1);
 
@@ -1340,11 +1341,11 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
         CodegenResponse cr = co.responses.get(0);
-        Assert.assertEquals(cr.baseType, "Pet");
-        Assert.assertEquals(cr.dataType, "List<List<Pet>>");
-        Assert.assertEquals(cr.containerType, "array");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
 
-        Assert.assertTrue(co.imports.contains("Pet"));
+        Assert.assertTrue(cr.imports.contains("Pet"));
     }
 
     @Test
