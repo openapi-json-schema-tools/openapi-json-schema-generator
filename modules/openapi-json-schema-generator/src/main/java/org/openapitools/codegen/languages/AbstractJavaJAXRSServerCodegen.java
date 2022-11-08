@@ -223,21 +223,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
                         if ("0".equals(resp.code)) {
                             resp.code = "200";
                         }
-
-                        if (resp.baseType == null) {
-                            resp.dataType = "void";
-                            resp.baseType = "Void";
-                            // set vendorExtensions.x-java-is-response-void to true as baseType is set to "Void"
-                            resp.vendorExtensions.put("x-java-is-response-void", true);
-                        }
-
-                        if ("array".equals(resp.containerType)) {
-                            resp.containerType = "List";
-                        } else if ("set".equals(resp.containerType)) {
-                            resp.containerType = "Set";
-                        } else if ("map".equals(resp.containerType)) {
-                            resp.containerType = "Map";
-                        }
                     }
                 }
 

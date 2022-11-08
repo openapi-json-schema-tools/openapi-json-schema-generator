@@ -95,8 +95,8 @@ public class JavaClientCodegenTest {
         CodegenParameter codegenParameter1 = codegen.fromRequestBody(
                 body1, new HashSet<String>(), null, null);
         Assert.assertEquals(codegenParameter1.description, "A list of ids");
-        Assert.assertEquals(codegenParameter1.dataType, "List<String>");
-        Assert.assertEquals(codegenParameter1.baseType, "String");
+        Assert.assertEquals(codegenParameter1.getContent().get("application/json").getSchema().dataType, "List<String>");
+        Assert.assertEquals(codegenParameter1.getContent().get("application/json").getSchema().baseType, "List");
 
         RequestBody body2 = new RequestBody();
         body2.setDescription("A list of list of values");
@@ -104,8 +104,8 @@ public class JavaClientCodegenTest {
         CodegenParameter codegenParameter2 = codegen.fromRequestBody(
                 body2, new HashSet<String>(), null, null);
         Assert.assertEquals(codegenParameter2.description, "A list of list of values");
-        Assert.assertEquals(codegenParameter2.dataType, "List<List<Integer>>");
-        Assert.assertEquals(codegenParameter2.baseType, "List");
+        Assert.assertEquals(codegenParameter2.getContent().get("application/json").getSchema().dataType, "List<List<Integer>>");
+        Assert.assertEquals(codegenParameter2.getContent().get("application/json").getSchema().baseType, "List");
 
         RequestBody body3 = new RequestBody();
         body3.setDescription("A list of points");
@@ -117,8 +117,8 @@ public class JavaClientCodegenTest {
         CodegenParameter codegenParameter3 = codegen.fromRequestBody(
                 body3, new HashSet<String>(), null, null);
         Assert.assertEquals(codegenParameter3.description, "A list of points");
-        Assert.assertEquals(codegenParameter3.dataType, "List<Point>");
-        Assert.assertEquals(codegenParameter3.baseType, "Point");
+        Assert.assertEquals(codegenParameter3.getContent().get("application/json").getSchema().dataType, "List<Point>");
+        Assert.assertEquals(codegenParameter3.getContent().get("application/json").getSchema().baseType, "List");
     }
 
     @Test
@@ -447,38 +447,6 @@ public class JavaClientCodegenTest {
     }
 
     @Test
-    public void testJdkHttpClientWithAndWithoutDiscriminator() throws Exception {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(CodegenConstants.API_PACKAGE, "xyz.abcdef.api");
-        properties.put(CodegenConstants.MODEL_PACKAGE, "xyz.abcdef.model");
-        properties.put(CodegenConstants.INVOKER_PACKAGE, "xyz.abcdef.invoker");
-
-        File output = Files.createTempDirectory("test").toFile();
-        output.deleteOnExit();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.NATIVE)
-                .setAdditionalProperties(properties)
-                .setInputSpec("src/test/resources/2_0/petstore-with-fake-endpoints-models-for-testing.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        generator.setGeneratorPropertyDefault(CodegenConstants.MODELS, "true");
-        generator.setGeneratorPropertyDefault(CodegenConstants.APIS, "true");
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        Assert.assertEquals(files.size(), 162);
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/xyz/abcdef/model/Dog.java"),
-                "import xyz.abcdef.invoker.JSON;");
-        TestUtils.assertFileNotContains(Paths.get(output + "/src/main/java/xyz/abcdef/model/DogAllOf.java"),
-                "import xyz.abcdef.invoker.JSON;");
-    }
-
-    @Test
     public void testJdkHttpAsyncClient() throws Exception {
         Map<String, Object> properties = new HashMap<>();
         properties.put(CodegenConstants.API_PACKAGE, "xyz.abcdef.api");
@@ -741,7 +709,11 @@ public class JavaClientCodegenTest {
         CodegenParameter codegenParameter = new CodegenParameter();
         codegenParameter.paramName = name;
         codegenParameter.baseName = name;
-        codegenParameter.dataType = "String";
+        Schema sc = new Schema();
+        sc.setType("string");
+        final JavaClientCodegen codegen = new JavaClientCodegen();
+        CodegenProperty cp = codegen.fromProperty("schema", sc, false, false, null);
+        codegenParameter.setSchema(cp);
         return codegenParameter;
     }
 
@@ -1192,65 +1164,6 @@ public class JavaClientCodegenTest {
         final Path defaultApi = Paths.get(output + "/src/main/java/xyz/abcdef/ApiClient.java");
         TestUtils.assertFileContains(defaultApi, "value instanceof Map");
     }
-    
-    /**
-     * See https://github.com/OpenAPITools/openapi-generator/issues/8352
-     */
-    @Test
-    public void testWebClientWithFreeFormInQueryParameters() throws IOException {
-        final Map<String, Object> properties = new HashMap<>();
-        properties.put(CodegenConstants.API_PACKAGE, "xyz.abcdef.api");
-
-        final File output = Files.createTempDirectory("test")
-                .toFile();
-        output.deleteOnExit();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator().setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.WEBCLIENT)
-                .setAdditionalProperties(properties)
-                .setInputSpec("src/test/resources/3_0/issue8352.yaml")
-                .setOutputDir(output.getAbsolutePath()
-                        .replace("\\", "/"));
-
-        final DefaultGenerator generator = new DefaultGenerator();
-        final List<File> files = generator.opts(configurator.toClientOptInput())
-                .generate();
-        files.forEach(File::deleteOnExit);
-
-        validateJavaSourceFiles(files);
-
-        final Path defaultApi = Paths.get(output + "/src/main/java/xyz/abcdef/ApiClient.java");
-        TestUtils.assertFileContains(defaultApi, "value instanceof Map");
-    }
-
-    /**
-     * See https://github.com/OpenAPITools/openapi-generator/issues/11242
-     */
-    @Test
-    public void testNativeClientWhiteSpacePathParamEncoding() throws IOException {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(CodegenConstants.API_PACKAGE, "xyz.abcdef.api");
-
-        File output = Files.createTempDirectory("test").toFile();
-        output.deleteOnExit();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.NATIVE)
-                .setAdditionalProperties(properties)
-                .setInputSpec("src/test/resources/3_0/issue11242.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        Assert.assertEquals(files.size(), 35);
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/xyz/abcdef/ApiClient.java"),
-                "public static String urlEncode(String s) { return URLEncoder.encode(s, UTF_8).replaceAll(\"\\\\+\", \"%20\"); }");
-    }
 
     @Test
     public void testExtraAnnotationsNative() throws IOException {
@@ -1322,70 +1235,6 @@ public class JavaClientCodegenTest {
         testExtraAnnotations(JavaClientCodegen.APACHE);
     }
 
-    @Test
-    public void testDefaultMicroprofileRestClientVersion() throws Exception {
-        File output = Files.createTempDirectory("test").toFile();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.MICROPROFILE)
-                .setInputSpec("src/test/resources/3_0/petstore.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        TestUtils.ensureContainsFile(files, output, "pom.xml");
-
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<microprofile.rest.client.api.version>2.0</microprofile.rest.client.api.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<smallrye.rest.client.version>1.2.1</smallrye.rest.client.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<java.version>1.8</java.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/org/openapitools/client/api/PetApi.java"),
-                "import javax.");
-
-        output.deleteOnExit();
-    }
-
-    @Test
-    public void testMicroprofileRestClientVersion_1_4_1() throws Exception {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(JavaClientCodegen.MICROPROFILE_REST_CLIENT_VERSION, "1.4.1");
-
-        File output = Files.createTempDirectory("test").toFile();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setAdditionalProperties(properties)
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.MICROPROFILE)
-                .setInputSpec("src/test/resources/3_0/petstore.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        TestUtils.ensureContainsFile(files, output, "pom.xml");
-
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<microprofile.rest.client.api.version>1.4.1</microprofile.rest.client.api.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<smallrye.rest.client.version>1.2.1</smallrye.rest.client.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<java.version>1.8</java.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/org/openapitools/client/api/PetApi.java"),
-                "import javax.");
-
-        output.deleteOnExit();
-    }
-
     @Test(expectedExceptions = IllegalArgumentException.class, expectedExceptionsMessageRegExp = "Version incorrectVersion of MicroProfile Rest Client is not supported or incorrect. Supported versions are 1.4.1, 2.0, 3.0")
     public void testMicroprofileRestClientIncorrectVersion() throws Exception {
         Map<String, Object> properties = new HashMap<>();
@@ -1405,40 +1254,6 @@ public class JavaClientCodegenTest {
         DefaultGenerator generator = new DefaultGenerator();
         generator.opts(clientOptInput).generate();
         fail("Expected an exception that did not occur");
-    }
-
-    @Test
-    public void testMicroprofileRestClientVersion_3_0() throws Exception {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(JavaClientCodegen.MICROPROFILE_REST_CLIENT_VERSION, "3.0");
-
-        File output = Files.createTempDirectory("test").toFile();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setAdditionalProperties(properties)
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.MICROPROFILE)
-                .setInputSpec("src/test/resources/3_0/petstore.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-        final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(clientOptInput).generate();
-
-        TestUtils.ensureContainsFile(files, output, "pom.xml");
-
-        validateJavaSourceFiles(files);
-
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<microprofile.rest.client.api.version>3.0</microprofile.rest.client.api.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<jersey.mp.rest.client.version>3.0.4</jersey.mp.rest.client.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/pom.xml"),
-                "<java.version>11</java.version>");
-        TestUtils.assertFileContains(Paths.get(output + "/src/main/java/org/openapitools/client/api/PetApi.java"),
-                "import jakarta.");
-
-        output.deleteOnExit();
     }
 
     @Test
@@ -1499,38 +1314,6 @@ public class JavaClientCodegenTest {
                 "this.nullableProperty = nullableProperty == null ? JsonNullable.<String>undefined() : JsonNullable.of(nullableProperty);",
                 "this.notNullableProperty = notNullableProperty;"
             );
-    }
-
-    @Test
-    public void testRestTemplateResponseTypeWithUseAbstractionForFiles() throws IOException {
-
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(CodegenConstants.API_PACKAGE, "xyz.abcdef.api");
-        properties.put(JavaClientCodegen.USE_ABSTRACTION_FOR_FILES, true);
-
-        File output = Files.createTempDirectory("test").toFile();
-        output.deleteOnExit();
-
-        final CodegenConfigurator configurator = new CodegenConfigurator()
-                .setGeneratorName("java")
-                .setLibrary(JavaClientCodegen.RESTTEMPLATE)
-                .setAdditionalProperties(properties)
-                .setInputSpec("src/test/resources/3_0/issue13146_file_abstraction_response.yaml")
-                .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
-
-
-        DefaultGenerator generator = new DefaultGenerator();
-        List<File> files = generator.opts(configurator.toClientOptInput()).generate();
-        files.forEach(File::deleteOnExit);
-
-        validateJavaSourceFiles(files);
-
-        Path defaultApi = Paths.get(output + "/src/main/java/xyz/abcdef/api/ResourceApi.java");
-        TestUtils.assertFileContains(defaultApi,
-                                     "org.springframework.core.io.Resource resourceInResponse()",
-                                     "ResponseEntity<org.springframework.core.io.Resource> resourceInResponseWithHttpInfo()",
-                                     "ParameterizedTypeReference<org.springframework.core.io.Resource> localReturnType = new ParameterizedTypeReference<org.springframework.core.io.Resource>()"
-        );
     }
 
     public void testExtraAnnotations(String library) throws IOException {

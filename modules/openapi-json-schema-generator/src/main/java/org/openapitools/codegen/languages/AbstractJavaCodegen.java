@@ -1085,7 +1085,11 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        boolean isModel = (codegenParameter.isModel || (codegenParameter.isContainer && codegenParameter.getItems().isModel));
+        boolean isModel = false;
+        CodegenProperty cp = codegenParameter.getSchema();
+        if (cp != null && (cp.isModel || (cp.isContainer && cp.getItems().isModel))) {
+            isModel = true;
+        }
 
         Content content = requestBody.getContent();
 
@@ -1120,8 +1124,9 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public void setParameterExampleValue(CodegenParameter p) {
+    public void setParameterExampleValue(CodegenParameter param) {
         String example;
+        CodegenProperty p = getParameterSchema(param);
 
         boolean hasAllowableValues = p.allowableValues != null && !p.allowableValues.isEmpty();
         if (hasAllowableValues) {
@@ -1141,7 +1146,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         if ("String".equals(type)) {
             if (example == null) {
-                example = p.paramName + "_example";
+                example = param.paramName + "_example";
             }
             example = "\"" + escapeText(example) + "\"";
         } else if ("Integer".equals(type) || "Short".equals(type)) {
@@ -1225,7 +1230,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             example = "new HashMap()";
         }
 
-        p.example = example;
+        param.example = example;
     }
 
     @Override
@@ -1404,8 +1409,9 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         for (CodegenOperation op : operationList) {
             Collection<String> operationImports = new ConcurrentSkipListSet<>();
             for (CodegenParameter p : op.allParams) {
-                if (importMapping.containsKey(p.dataType)) {
-                    operationImports.add(importMapping.get(p.dataType));
+                CodegenProperty cp = getParameterSchema(p);
+                if (importMapping.containsKey(cp.dataType)) {
+                    operationImports.add(importMapping.get(cp.dataType));
                 }
             }
             op.vendorExtensions.put("x-java-import", operationImports);

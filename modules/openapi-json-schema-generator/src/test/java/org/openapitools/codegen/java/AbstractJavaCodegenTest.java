@@ -652,27 +652,9 @@ public class AbstractJavaCodegenTest {
         Set<String> imports = new HashSet<>();
         CodegenParameter parameter = codegen.fromParameter(openAPI.getPaths().get("/thingy/{date}").getGet().getParameters().get(2), imports, "2");
 
-        Assert.assertEquals(parameter.dataType, "Date");
-        Assert.assertEquals(parameter.isDate, true);
-        Assert.assertEquals(parameter.defaultValue, "1974-01-01");
-
-        Assert.assertNotNull(parameter.getSchema());
-        Assert.assertEquals(parameter.getSchema().baseType, "Date");
-    }
-
-    @Test
-    public void dateDefaultValueIsIsoDateTime() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml");
-        final P_AbstractJavaCodegen codegen = new P_AbstractJavaCodegen();
-        codegen.setOpenAPI(openAPI);
-
-        Set<String> imports = new HashSet<>();
-        CodegenParameter parameter = codegen.fromParameter(
-                openAPI.getPaths().get("/thingy/{date}").getGet().getParameters().get(1), imports, "1");
-
-        Assert.assertEquals(parameter.dataType, "Date");
-        Assert.assertEquals(parameter.isDateTime, true);
-        Assert.assertEquals(parameter.defaultValue, "1973-12-19T03:39:57-08:00");
+        Assert.assertEquals(parameter.getSchema().dataType, "Date");
+        Assert.assertEquals(parameter.getSchema().isDate, true);
+        Assert.assertEquals(parameter.getSchema().defaultValue, "LocalDate.parse(\"1974-01-01\")");
 
         Assert.assertNotNull(parameter.getSchema());
         Assert.assertEquals(parameter.getSchema().baseType, "Date");
