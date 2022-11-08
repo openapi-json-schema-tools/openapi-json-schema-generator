@@ -4203,10 +4203,12 @@ public class DefaultCodegen implements CodegenConfig {
                     for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
                         CodegenMediaType cm = entry.getValue();
                         CodegenProperty cp = cm.getSchema();
-                        if (cp.isBinary) {
-                            op.isResponseBinary = Boolean.TRUE;
-                        } else if (cp.isFile) {
-                            op.isResponseFile = Boolean.TRUE;
+                        if (cp != null) {
+                            if (cp.isBinary) {
+                                op.isResponseBinary = Boolean.TRUE;
+                            } else if (cp.isFile) {
+                                op.isResponseFile = Boolean.TRUE;
+                            }
                         }
                     }
                 }
@@ -4218,7 +4220,7 @@ public class DefaultCodegen implements CodegenConfig {
                     for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
                         CodegenMediaType cm = entry.getValue();
                         CodegenProperty cp = cm.getSchema();
-                        if (cp.isArray || cp.isMap) {
+                        if (cp.isArray || cp.isMap || cp.refClass != null) {
                             op.hasErrorResponseObject = Boolean.TRUE;
                             break;
                         }

@@ -2757,14 +2757,14 @@ public class DefaultCodegenTest {
         assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), anyTypeSchema);
         assertTrue(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
         mapWithAddPropsTrue = co.responses.get(1);
-        assertEquals(mapWithAddPropsTrue.getContent().get("application/json").getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties(), anyTypeSchema);
+        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalPropertiesIsAnyType());
         mapWithAddPropsFalse = co.responses.get(2);
-        assertNull(mapWithAddPropsFalse.getContent().get("application/json").getSchema().getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
+        assertFalse(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalPropertiesIsAnyType());
         mapWithAddPropsSchema = co.responses.get(3);
-        assertEquals(mapWithAddPropsSchema.getContent().get("application/json").getSchema().getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties(), stringCp);
+        assertFalse(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalPropertiesIsAnyType());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
@@ -3197,7 +3197,7 @@ public class DefaultCodegenTest {
 
         // CodegenOperation puts the inline schema into schemas and refs it
         assertTrue(co.responses.get(0).getContent().get("application/json").getSchema().isModel);
-        assertEquals(co.responses.get(0).getContent().get("application/json").getSchema().baseType, "ObjectWithOptionalAndRequiredPropsRequest");
+        assertEquals(co.responses.get(0).getContent().get("application/json").getSchema().baseType, "objectWithOptionalAndRequiredProps_request");
         modelName = "objectWithOptionalAndRequiredProps_request";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
@@ -3987,7 +3987,7 @@ public class DefaultCodegenTest {
         assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
         cr = co.responses.get(3);
         assertTrue(cr.is5xx);
-        assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
+        assertFalse(cr.getContent().get("application/application").getSchema().isPrimitiveType);
 
         path = "/pet";
         operation = openAPI.getPaths().get(path).getPut();
