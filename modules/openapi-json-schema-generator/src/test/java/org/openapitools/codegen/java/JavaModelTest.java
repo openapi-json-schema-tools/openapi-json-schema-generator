@@ -1257,11 +1257,11 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
         CodegenResponse cr = co.responses.get(0);
-        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "Pet");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<Pet>");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
 
-        Assert.assertTrue(co.imports.contains("Pet"));
+        Assert.assertTrue(cr.imports.contains("Pet"));
     }
 
     @Test(description = "convert an array of array schema")
@@ -1341,11 +1341,11 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
         CodegenResponse cr = co.responses.get(0);
-        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "Pet");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
 
-        Assert.assertTrue(co.imports.contains("Pet"));
+        Assert.assertTrue(cr.imports.contains("Pet"));
     }
 
     @Test
