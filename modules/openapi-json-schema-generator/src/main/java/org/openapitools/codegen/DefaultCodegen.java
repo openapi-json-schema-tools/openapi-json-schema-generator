@@ -1881,38 +1881,7 @@ public class DefaultCodegen implements CodegenConfig {
         // TODO need to revise how to obtain the example value
         if (codegenParameter.vendorExtensions != null && codegenParameter.vendorExtensions.containsKey("x-example")) {
             codegenParameter.example = Json.pretty(codegenParameter.vendorExtensions.get("x-example"));
-        } else if (Boolean.TRUE.equals(codegenParameter.isBoolean)) {
-            codegenParameter.example = "true";
-        } else if (Boolean.TRUE.equals(codegenParameter.isLong)) {
-            codegenParameter.example = "789";
-        } else if (Boolean.TRUE.equals(codegenParameter.isInteger)) {
-            codegenParameter.example = "56";
-        } else if (Boolean.TRUE.equals(codegenParameter.isFloat)) {
-            codegenParameter.example = "3.4";
-        } else if (Boolean.TRUE.equals(codegenParameter.isDouble)) {
-            codegenParameter.example = "1.2";
-        } else if (Boolean.TRUE.equals(codegenParameter.isNumber)) {
-            codegenParameter.example = "8.14";
-        } else if (Boolean.TRUE.equals(codegenParameter.isBinary)) {
-            codegenParameter.example = "BINARY_DATA_HERE";
-        } else if (Boolean.TRUE.equals(codegenParameter.isByteArray)) {
-            codegenParameter.example = "BYTE_ARRAY_DATA_HERE";
-        } else if (Boolean.TRUE.equals(codegenParameter.isFile)) {
-            codegenParameter.example = "/path/to/file.txt";
-        } else if (Boolean.TRUE.equals(codegenParameter.isDate)) {
-            codegenParameter.example = "2013-10-20";
-        } else if (Boolean.TRUE.equals(codegenParameter.isDateTime)) {
-            codegenParameter.example = "2013-10-20T19:20:30+01:00";
-        } else if (Boolean.TRUE.equals(codegenParameter.isUuid)) {
-            codegenParameter.example = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
-        } else if (Boolean.TRUE.equals(codegenParameter.isUri)) {
-            codegenParameter.example = "https://openapi-generator.tech";
-        } else if (Boolean.TRUE.equals(codegenParameter.isString)) {
-            codegenParameter.example = codegenParameter.paramName + "_example";
-        } else if (Boolean.TRUE.equals(codegenParameter.isFreeFormObject)) {
-            codegenParameter.example = "Object";
         }
-
     }
 
     /**
@@ -1975,6 +1944,15 @@ public class DefaultCodegen implements CodegenConfig {
         setParameterExampleValue(codegenParameter);
     }
 
+    protected CodegenProperty getParameterSchema(CodegenParameter param) {
+        CodegenProperty p = param.getSchema();
+        if (p == null) {
+            String firstContentType = (String) param.getContent().keySet().toArray()[0];
+            p = param.getContent().get(firstContentType).getSchema();
+        }
+        return p;
+    }
+
     /**
      * Sets the content type, style, and explode of the parameter based on the encoding specified
      * in the request body.
@@ -1986,39 +1964,26 @@ public class DefaultCodegen implements CodegenConfig {
         if (mediaType != null && mediaType.getEncoding() != null) {
             Encoding encoding = mediaType.getEncoding().get(codegenParameter.baseName);
             if (encoding != null) {
-                boolean styleGiven = true;
                 Encoding.StyleEnum style = encoding.getStyle();
                 if(style == null || style == Encoding.StyleEnum.FORM) {
                     // (Unfortunately, swagger-parser-v3 will always provide 'form'
                     // when style is not specified, so we can't detect that)
                     style = Encoding.StyleEnum.FORM;
-                    styleGiven = false;
                 }
-                boolean explodeGiven = true;
                 Boolean explode = encoding.getExplode();
-                if(explode == null) {
+                if (explode == null) {
                     explode = style == Encoding.StyleEnum.FORM; // Default to True when form, False otherwise
-                    explodeGiven = false;
-                }
-
-                if(!styleGiven && !explodeGiven) {
-                    // Ignore contentType if style or explode are specified.
-                    codegenParameter.contentType = encoding.getContentType();
                 }
 
                 codegenParameter.style = style.toString();
                 codegenParameter.isDeepObject = Encoding.StyleEnum.DEEP_OBJECT == style;
 
-                if(codegenParameter.isContainer) {
+                if(getParameterSchema(codegenParameter).isContainer) {
                     codegenParameter.isExplode = explode;
-                    String collectionFormat = getCollectionFormat(codegenParameter);
-                    codegenParameter.collectionFormat = StringUtils.isEmpty(collectionFormat) ? "csv" : collectionFormat;
-                    codegenParameter.isCollectionFormatMulti = "multi".equals(collectionFormat);
                 } else {
                     codegenParameter.isExplode = false;
-                    codegenParameter.collectionFormat = null;
-                    codegenParameter.isCollectionFormatMulti = false;
                 }
+
             } else {
                 LOGGER.debug("encoding not specified for {}", codegenParameter.baseName);
             }
@@ -3009,7 +2974,7 @@ public class DefaultCodegen implements CodegenConfig {
         return m;
     }
 
-    protected void setAddProps(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath) {
+    protected void setAddProps(Schema schema, JsonSchema property, String sourceJsonPath) {
         if (schema.equals(new Schema())) {
             // if we are trying to set additionalProperties on an empty schema stop recursing
             return;
@@ -4231,60 +4196,36 @@ public class DefaultCodegen implements CodegenConfig {
                 addProducesInfo(response, op);
                 String usedSourceJsonPath = sourceJsonPath + "/responses";
                 CodegenResponse r = fromResponse(key, response, usedSourceJsonPath);
-                String responseSourceJsonPath = usedSourceJsonPath;
-                if (r.isDefault) {
-                    responseSourceJsonPath += "/default";
-                } else {
-                    responseSourceJsonPath += "/" + r.code;
-                }
-
-                Map<String, Header> headers = response.getHeaders();
-                if (headers != null) {
-                    List<CodegenParameter> responseHeaders = new ArrayList<>();
-                    for (Entry<String, Header> entry : headers.entrySet()) {
-                        String headerName = entry.getKey();
-                        Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
-                        CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "", responseSourceJsonPath + "/headers/" + headerName);
-                        responseHeaders.add(responseHeader);
-                    }
-                    r.setResponseHeaders(responseHeaders);
-                }
-                r.setContent(getContent(response.getContent(), r.imports, "", responseSourceJsonPath + "/content"));
-
-                if (!addSchemaImportsFromV3SpecLocations) {
-                    if (r.baseType != null &&
-                            !defaultIncludes.contains(r.baseType) &&
-                            !languageSpecificPrimitives.contains(r.baseType)) {
-                        imports.add(r.baseType);
-                    }
-                    if ("set".equals(r.containerType) && typeMapping.containsKey(r.containerType)) {
-                        op.uniqueItems = true;
-                        imports.add(typeMapping.get(r.containerType));
-                    }
-                }
 
                 op.responses.add(r);
-                if (Boolean.TRUE.equals(r.isBinary) && Boolean.TRUE.equals(r.is2xx) && Boolean.FALSE.equals(op.isResponseBinary)) {
-                    op.isResponseBinary = Boolean.TRUE;
-                }
-                if (Boolean.TRUE.equals(r.isFile) && Boolean.TRUE.equals(r.is2xx) && Boolean.FALSE.equals(op.isResponseFile)) {
-                    op.isResponseFile = Boolean.TRUE;
+                // TODO remove this, the response should not know what is inside it
+                if (r.is2xx && r.getContent() != null) {
+                    for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
+                        CodegenMediaType cm = entry.getValue();
+                        CodegenProperty cp = cm.getSchema();
+                        if (cp != null) {
+                            if (cp.isBinary) {
+                                op.isResponseBinary = Boolean.TRUE;
+                            } else if (cp.isFile) {
+                                op.isResponseFile = Boolean.TRUE;
+                            }
+                        }
+                    }
                 }
                 if (Boolean.TRUE.equals(r.isDefault)) {
                     op.defaultReturnType = Boolean.TRUE;
                 }
-
                 // check if any 4xx or 5xx response has an error response object defined
-                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx)) &&
-                        Boolean.FALSE.equals(r.primitiveType) && Boolean.FALSE.equals(r.simpleType)) {
-                    op.hasErrorResponseObject = Boolean.TRUE;
+                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx)) && r.getContent() != null) {
+                    for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
+                        CodegenMediaType cm = entry.getValue();
+                        CodegenProperty cp = cm.getSchema();
+                        if (cp.isArray || cp.isMap || cp.refClass != null) {
+                            op.hasErrorResponseObject = Boolean.TRUE;
+                            break;
+                        }
+                    }
                 }
-            }
-
-            // check if the operation can both return a 2xx response with a body and without
-            if (op.responses.stream().anyMatch(response -> response.is2xx && response.dataType != null) &&
-                    op.responses.stream().anyMatch(response -> response.is2xx && response.dataType == null)) {
-                op.isResponseOptional = Boolean.TRUE;
             }
 
             op.responses.sort((a, b) -> {
@@ -4352,7 +4293,8 @@ public class DefaultCodegen implements CodegenConfig {
 
                 // add example
                 if (schemas != null && !isSkipOperationExample()) {
-                    op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), bodyParam.baseType);
+                    String firstContentType = (String) requestBody.getContent().keySet().toArray()[0];
+                    op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), requestBody.getContent().get(firstContentType).getSchema());
                 }
             }
         }
@@ -4377,7 +4319,7 @@ public class DefaultCodegen implements CodegenConfig {
                 } else if (param instanceof CookieParameter || "cookie".equalsIgnoreCase(param.getIn())) {
                     cookieParams.add(p.copy());
                 } else {
-                    LOGGER.warn("Unknown parameter type {} for {}", p.baseType, p.baseName);
+                    LOGGER.warn("Unknown parameter type for {}", p.baseName);
                 }
 
             }
@@ -4505,14 +4447,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        Schema responseSchema;
-        if (this.openAPI != null && this.openAPI.getComponents() != null) {
-            responseSchema = unaliasSchema(ModelUtils.getSchemaFromResponse(response));
-        } else { // no model/alias defined
-            responseSchema = ModelUtils.getSchemaFromResponse(response);
-        }
-        r.schema = responseSchema;
-
         r.message = escapeText(response.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment
@@ -4527,118 +4461,22 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             usedSourceJsonPath = usedSourceJsonPath + r.code;
         }
+        // TODO remove these two because the info is in responseHeaders
         addHeaders(response, r.headers, usedSourceJsonPath + "/headers");
         r.hasHeaders = !r.headers.isEmpty();
 
-        if (r.schema == null) {
-            r.primitiveType = true;
-            r.simpleType = true;
-            return r;
+        Map<String, Header> headers = response.getHeaders();
+        if (headers != null) {
+            List<CodegenParameter> responseHeaders = new ArrayList<>();
+            for (Entry<String, Header> entry : headers.entrySet()) {
+                String headerName = entry.getKey();
+                Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
+                CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "", usedSourceJsonPath + "/headers/" + headerName);
+                responseHeaders.add(responseHeader);
+            }
+            r.setResponseHeaders(responseHeaders);
         }
-
-        ModelUtils.syncValidationProperties(responseSchema, r);
-        if (responseSchema.getPattern() != null) {
-            r.setPattern(toRegularExpression(responseSchema.getPattern()));
-        }
-
-        CodegenProperty cp = fromProperty("response", responseSchema, false, false, usedSourceJsonPath);
-        r.dataType = getTypeDeclaration(responseSchema);
-
-        if (!ModelUtils.isArraySchema(responseSchema)) {
-            if (cp.refClass != null) {
-                if (cp.items != null) {
-                    r.baseType = cp.items.refClass;
-                } else {
-                    r.baseType = cp.refClass;
-                }
-                r.isModel = true;
-            } else {
-                r.baseType = cp.baseType;
-            }
-        }
-
-        r.setTypeProperties(responseSchema);
-        r.setComposedSchemas(getComposedSchemas(responseSchema, sourceJsonPath));
-        if (ModelUtils.isArraySchema(responseSchema)) {
-            r.simpleType = false;
-            r.isArray = true;
-            r.containerType = cp.containerType;
-            ArraySchema as = (ArraySchema) responseSchema;
-            CodegenProperty items = fromProperty(
-                    "response", getSchemaItems(as), false, false, usedSourceJsonPath);
-            r.setItems(items);
-            CodegenProperty innerCp = items;
-
-            while (innerCp != null) {
-                r.baseType = innerCp.baseType;
-                innerCp = innerCp.items;
-            }
-        } else if (ModelUtils.isFileSchema(responseSchema) && !ModelUtils.isStringSchema(responseSchema)) {
-            // swagger v2 only, type file
-            r.isFile = true;
-        } else if (ModelUtils.isStringSchema(responseSchema)) {
-            if (ModelUtils.isEmailSchema(responseSchema)) {
-                r.isEmail = true;
-            } else if (ModelUtils.isUUIDSchema(responseSchema)) {
-                r.isUuid = true;
-            } else if (ModelUtils.isByteArraySchema(responseSchema)) {
-                r.setIsString(false);
-                r.isByteArray = true;
-            } else if (ModelUtils.isBinarySchema(responseSchema)) {
-                r.isFile = true; // file = binary in OAS3
-                r.isBinary = true;
-            } else if (ModelUtils.isDateSchema(responseSchema)) {
-                r.setIsString(false); // for backward compatibility with 2.x
-                r.isDate = true;
-            } else if (ModelUtils.isDateTimeSchema(responseSchema)) {
-                r.setIsString(false); // for backward compatibility with 2.x
-                r.isDateTime = true;
-            } else if (ModelUtils.isDecimalSchema(responseSchema)) { // type: string, format: number
-                r.isDecimal = true;
-                r.setIsString(false);
-                r.isNumeric = true;
-            }
-        } else if (ModelUtils.isIntegerSchema(responseSchema)) { // integer type
-            r.isNumeric = Boolean.TRUE;
-            if (ModelUtils.isLongSchema(responseSchema)) { // int64/long format
-                r.isLong = Boolean.TRUE;
-            } else {
-                r.isInteger = Boolean.TRUE; // older use case, int32 and unbounded int
-                if (ModelUtils.isShortSchema(responseSchema)) { // int32
-                    r.setIsShort(Boolean.TRUE);
-                }
-            }
-        } else if (ModelUtils.isNumberSchema(responseSchema)) {
-            r.isNumeric = Boolean.TRUE;
-            if (ModelUtils.isFloatSchema(responseSchema)) { // float
-                r.isFloat = Boolean.TRUE;
-            } else if (ModelUtils.isDoubleSchema(responseSchema)) { // double
-                r.isDouble = Boolean.TRUE;
-            }
-        } else if (ModelUtils.isTypeObjectSchema(responseSchema)) {
-            if (ModelUtils.isFreeFormObject(openAPI, responseSchema)) {
-                r.isFreeFormObject = true;
-            } else {
-                r.isModel = true;
-            }
-            r.simpleType = false;
-            r.containerType = cp.containerType;
-            addVarsRequiredVarsAdditionalProps(responseSchema, r, usedSourceJsonPath);
-        } else if (ModelUtils.isAnyType(responseSchema)) {
-            addVarsRequiredVarsAdditionalProps(responseSchema, r, usedSourceJsonPath);
-        } else if (!ModelUtils.isBooleanSchema(responseSchema)) {
-            // referenced schemas
-            LOGGER.debug("Property type is not primitive: {}", cp.dataType);
-        }
-
-        r.primitiveType = (r.baseType == null || languageSpecificPrimitives().contains(r.baseType));
-
-        if (r.baseType == null) {
-            r.isMap = false;
-            r.isArray = false;
-            r.primitiveType = true;
-            r.simpleType = true;
-        }
+        r.setContent(getContent(response.getContent(), r.imports, "", usedSourceJsonPath + "/content"));
 
         return r;
     }
@@ -4722,56 +4560,6 @@ public class DefaultCodegen implements CodegenConfig {
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
     }
 
-
-    private void updateParameterForMap(CodegenParameter codegenParameter, Schema parameterSchema, Set<String> imports, String sourceJsonPath) {
-        CodegenProperty codegenProperty = fromProperty(
-                "inner", getAdditionalProperties(parameterSchema), false, false, sourceJsonPath);
-        codegenParameter.items = codegenProperty;
-        codegenParameter.mostInnerItems = codegenProperty.mostInnerItems;
-        codegenParameter.baseType = codegenProperty.dataType;
-        codegenParameter.isContainer = true;
-        codegenParameter.isMap = true;
-
-        if (!addSchemaImportsFromV3SpecLocations) {
-            // recursively add import
-            while (codegenProperty != null) {
-                imports.add(codegenProperty.baseType);
-                codegenProperty = codegenProperty.items;
-            }
-        }
-    }
-
-    protected void updateParameterForString(CodegenParameter codegenParameter, Schema parameterSchema) {
-        if (ModelUtils.isEmailSchema(parameterSchema)) {
-            codegenParameter.isEmail = true;
-        } else if (ModelUtils.isUUIDSchema(parameterSchema)) {
-            codegenParameter.isUuid = true;
-        } else if (ModelUtils.isByteArraySchema(parameterSchema)) {
-            codegenParameter.setIsString(false);
-            codegenParameter.isByteArray = true;
-            codegenParameter.isPrimitiveType = true;
-        } else if (ModelUtils.isBinarySchema(parameterSchema)) {
-            codegenParameter.isBinary = true;
-            codegenParameter.isFile = true; // file = binary in OAS3
-            codegenParameter.isPrimitiveType = true;
-        } else if (ModelUtils.isDateSchema(parameterSchema)) {
-            codegenParameter.setIsString(false); // for backward compatibility with 2.x
-            codegenParameter.isDate = true;
-            codegenParameter.isPrimitiveType = true;
-        } else if (ModelUtils.isDateTimeSchema(parameterSchema)) {
-            codegenParameter.setIsString(false); // for backward compatibility with 2.x
-            codegenParameter.isDateTime = true;
-            codegenParameter.isPrimitiveType = true;
-        } else if (ModelUtils.isDecimalSchema(parameterSchema)) { // type: string, format: number
-            codegenParameter.setIsString(false);
-            codegenParameter.isDecimal = true;
-            codegenParameter.isPrimitiveType = true;
-        }
-        if (Boolean.TRUE.equals(codegenParameter.isString)) {
-            codegenParameter.isPrimitiveType = true;
-        }
-    }
-
     /**
      * Convert OAS Parameter object to Codegen Parameter object
      *
@@ -4806,11 +4594,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         // the parameter model name is obtained from the schema $ref
         // e.g. #/components/schemas/list_pageQuery_parameter => toModelName(list_pageQuery_parameter)
-        String parameterModelName = null;
-
         if (parameter.getSchema() != null) {
             parameterSchema = unaliasSchema(parameter.getSchema());
-            parameterModelName = getParameterDataType(parameter, parameterSchema);
             CodegenProperty prop;
             String usedSourceJsonPath = sourceJsonPath + "/schema";
             if (getUseInlineModelResolver()) {
@@ -4840,9 +4625,7 @@ public class DefaultCodegen implements CodegenConfig {
                 once(LOGGER).warn("Multiple schemas found in content, returning only the first one");
             }
             Map.Entry<String, MediaType> entry = content.entrySet().iterator().next();
-            codegenParameter.contentType = entry.getKey();
             parameterSchema = entry.getValue().getSchema();
-            parameterModelName = getParameterDataType(parameter, parameterSchema);
         } else {
             parameterSchema = null;
         }
@@ -4879,17 +4662,6 @@ public class DefaultCodegen implements CodegenConfig {
             parameterSchema = getReferencedSchemaWhenNotEnum(parameterSchema);
         }
 
-        ModelUtils.syncValidationProperties(parameterSchema, codegenParameter);
-        codegenParameter.setTypeProperties(parameterSchema);
-        codegenParameter.setComposedSchemas(getComposedSchemas(parameterSchema, sourceJsonPath));
-
-        if (Boolean.TRUE.equals(parameterSchema.getNullable())) { // use nullable defined in the spec
-            codegenParameter.isNullable = true;
-        }
-
-        // set default value
-        codegenParameter.defaultValue = toDefaultParameterValue(parameterSchema);
-
         if (parameter.getStyle() != null) {
             codegenParameter.style = parameter.getStyle().toString();
             codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == parameter.getStyle();
@@ -4903,78 +4675,6 @@ public class DefaultCodegen implements CodegenConfig {
         // https://swagger.io/docs/specification/serialization/
         String collectionFormat = null;
 
-        if (ModelUtils.isFileSchema(parameterSchema) && !ModelUtils.isStringSchema(parameterSchema)) {
-            // swagger v2 only, type file
-            codegenParameter.isFile = true;
-        } else if (ModelUtils.isStringSchema(parameterSchema)) {
-            updateParameterForString(codegenParameter, parameterSchema);
-        } else if (ModelUtils.isBooleanSchema(parameterSchema)) {
-            codegenParameter.isPrimitiveType = true;
-        } else if (ModelUtils.isNumberSchema(parameterSchema)) {
-            codegenParameter.isPrimitiveType = true;
-            if (ModelUtils.isFloatSchema(parameterSchema)) { // float
-                codegenParameter.isFloat = true;
-            } else if (ModelUtils.isDoubleSchema(parameterSchema)) { // double
-                codegenParameter.isDouble = true;
-            }
-        } else if (ModelUtils.isIntegerSchema(parameterSchema)) { // integer type
-            codegenParameter.isPrimitiveType = true;
-            if (ModelUtils.isLongSchema(parameterSchema)) { // int64/long format
-                codegenParameter.isLong = true;
-            } else {
-                codegenParameter.isInteger = true;
-                if (ModelUtils.isShortSchema(parameterSchema)) { // int32/short format
-                    codegenParameter.isShort = true;
-                } else { // unbounded integer
-                    ;
-                }
-            }
-        } else if (ModelUtils.isTypeObjectSchema(parameterSchema)) {
-            if (ModelUtils.isMapSchema(parameterSchema)) { // for map parameter
-                updateParameterForMap(codegenParameter, parameterSchema, imports, sourceJsonPath);
-            }
-            if (ModelUtils.isFreeFormObject(openAPI, parameterSchema)) {
-                codegenParameter.isFreeFormObject = true;
-            }
-            addVarsRequiredVarsAdditionalProps(parameterSchema, codegenParameter, sourceJsonPath);
-        } else if (ModelUtils.isNullType(parameterSchema)) {
-            ;
-        } else if (ModelUtils.isAnyType(parameterSchema)) {
-            // any schema with no type set, composed schemas often do this
-            if (ModelUtils.isMapSchema(parameterSchema)) { // for map parameter
-                updateParameterForMap(codegenParameter, parameterSchema, imports, sourceJsonPath);
-            }
-            addVarsRequiredVarsAdditionalProps(parameterSchema, codegenParameter, sourceJsonPath);
-        } else if (ModelUtils.isArraySchema(parameterSchema)) {
-            final ArraySchema arraySchema = (ArraySchema) parameterSchema;
-            Schema inner = getSchemaItems(arraySchema);
-
-            collectionFormat = getCollectionFormat(parameter);
-            // default to csv:
-            collectionFormat = StringUtils.isEmpty(collectionFormat) ? "csv" : collectionFormat;
-            CodegenProperty itemsProperty = fromProperty(
-                    "inner",
-                    inner,
-                    false,
-                    false,
-                    sourceJsonPath
-            );
-            codegenParameter.items = itemsProperty;
-            codegenParameter.mostInnerItems = itemsProperty.mostInnerItems;
-            codegenParameter.baseType = itemsProperty.dataType;
-            codegenParameter.isContainer = true;
-            if (!addSchemaImportsFromV3SpecLocations) {
-                // recursively add import
-                while (itemsProperty != null) {
-                    imports.add(itemsProperty.baseType);
-                    itemsProperty = itemsProperty.items;
-                }
-            }
-        } else {
-            // referenced schemas
-            ;
-        }
-
         CodegenProperty codegenProperty = fromProperty(
                 parameter.getName(),
                 parameterSchema,
@@ -4982,88 +4682,23 @@ public class DefaultCodegen implements CodegenConfig {
                 false,
                 sourceJsonPath
         );
-        if (Boolean.TRUE.equals(codegenProperty.isModel)) {
-            codegenParameter.isModel = true;
-        }
 
-        if (parameterModelName != null) {
-            codegenParameter.dataType = parameterModelName;
-        } else {
-            codegenParameter.dataType = codegenProperty.dataType;
-        }
         if (!addSchemaImportsFromV3SpecLocations) {
             if (ModelUtils.isSet(parameterSchema)) {
                 imports.add(codegenProperty.baseType);
             }
         }
-        codegenParameter.dataFormat = codegenProperty.dataFormat;
         if (parameter.getRequired() != null) {
             codegenParameter.required = parameter.getRequired().booleanValue();
         }
 
-        // enum
-        updateCodegenPropertyEnum(codegenProperty);
-        codegenParameter.isEnum = codegenProperty.isEnum;
-        codegenParameter._enum = codegenProperty._enum;
-        codegenParameter.allowableValues = codegenProperty.allowableValues;
 
-        if (codegenProperty.isEnum) {
-            codegenParameter.datatypeWithEnum = codegenProperty.datatypeWithEnum;
-            codegenParameter.enumName = codegenProperty.enumName;
-            if (codegenProperty.defaultValue != null) {
-                codegenParameter.enumDefaultValue = codegenProperty.defaultValue.replace(codegenProperty.enumName + ".", "");
-            }
-        }
-
-        if (codegenProperty.items != null && codegenProperty.items.isEnum) {
-            codegenParameter.datatypeWithEnum = codegenProperty.datatypeWithEnum;
-            codegenParameter.enumName = codegenProperty.enumName;
-            codegenParameter.items = codegenProperty.items;
-            codegenParameter.mostInnerItems = codegenProperty.mostInnerItems;
-        }
-
-        codegenParameter.collectionFormat = collectionFormat;
-        if ("multi".equals(collectionFormat)) {
-            codegenParameter.isCollectionFormatMulti = true;
-        }
         String priorJsonPathFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
         codegenParameter.paramName = toParamName(priorJsonPathFragment);
         if (!addSchemaImportsFromV3SpecLocations) {
             // import
             if (codegenProperty.refClass != null) {
                 imports.add(codegenProperty.refClass);
-            }
-        }
-        codegenParameter.pattern = toRegularExpression(parameterSchema.getPattern());
-
-        if (codegenParameter.isQueryParam && codegenParameter.isDeepObject && loadDeepObjectIntoItems) {
-            Schema schema = parameterSchema;
-            if (schema.get$ref() != null) {
-                schema = ModelUtils.getReferencedSchema(openAPI, schema);
-            }
-            codegenParameter.items = fromProperty(codegenParameter.paramName, schema, false, false, sourceJsonPath);
-            // https://swagger.io/docs/specification/serialization/
-            if (schema != null) {
-                Map<String, Schema<?>> properties = schema.getProperties();
-                List<String> requiredVarNames = new ArrayList<>();
-                if (schema.getRequired() != null) {
-                    requiredVarNames.addAll(schema.getRequired());
-                }
-                if (properties != null) {
-                    codegenParameter.items.vars =
-                            properties.entrySet().stream()
-                                    .map(entry -> {
-                                        CodegenProperty property = fromProperty(entry.getKey(), entry.getValue(), requiredVarNames.contains(entry.getKey()), false, priorJsonPathFragment);
-                                        property.baseName = codegenParameter.baseName + "[" + entry.getKey() + "]";
-                                        return property;
-                                    }).collect(Collectors.toList());
-                } else {
-                    //LOGGER.error("properties is null: {}", schema);
-                }
-            } else {
-                LOGGER.warn(
-                        "No object schema found for deepObject parameter{} deepObject won't have specific properties",
-                        codegenParameter);
             }
         }
 
@@ -5441,11 +5076,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    protected void addImports(CodegenModel m, IJsonSchemaValidationProperties type) {
+    protected void addImports(CodegenModel m, JsonSchema type) {
         addImports(m.imports, type);
     }
 
-    protected void addImports(Set<String> importsToBeAddedTo, IJsonSchemaValidationProperties type) {
+    protected void addImports(Set<String> importsToBeAddedTo, JsonSchema type) {
         addImports(importsToBeAddedTo, type.getImports(importContainerType, importBaseType, generatorMetadata.getFeatureSet()));
     }
 
@@ -5550,12 +5185,12 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Add variables (properties) to codegen model (list of properties, various flags, etc)
      *
-     * @param m          Must be an instance of IJsonSchemaValidationProperties, may be model or property...
+     * @param m          Must be an instance of JsonSchema, may be model or property...
      * @param vars       list of codegen properties (e.g. vars, allVars) to be updated with the new properties
      * @param properties a map of properties (schema)
      * @param mandatory  a set of required properties' name
      */
-    protected void addVars(IJsonSchemaValidationProperties m, List<CodegenProperty> vars, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath) {
+    protected void addVars(JsonSchema m, List<CodegenProperty> vars, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath) {
         if (properties == null) {
             return;
         }
@@ -6136,86 +5771,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Set CodegenParameter boolean flag using CodegenProperty.
-     * NOTE: This is deprecated and can be removed in 6.0.0
-     * This logic has been folded into the original call sites and long term will be moved into
-     * IJsonSchemaValidationProperties.setTypeProperties and overrides like updateModelForObject
-     *
-     * @param parameter Codegen Parameter
-     * @param property  Codegen property
-     */
-    public void setParameterBooleanFlagWithCodegenProperty(CodegenParameter parameter, CodegenProperty property) {
-        if (parameter == null) {
-            LOGGER.error("Codegen Parameter cannot be null.");
-            return;
-        }
-
-        if (property == null) {
-            LOGGER.error("Codegen Property cannot be null.");
-            return;
-        }
-        if (Boolean.TRUE.equals(property.isEmail) && Boolean.TRUE.equals(property.isString)) {
-            parameter.isEmail = true;
-        } else if (Boolean.TRUE.equals(property.isUuid) && Boolean.TRUE.equals(property.isString)) {
-            parameter.isUuid = true;
-        } else if (Boolean.TRUE.equals(property.isByteArray)) {
-            parameter.isByteArray = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isBinary)) {
-            parameter.isBinary = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isString)) {
-            parameter.isString = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isBoolean)) {
-            parameter.isBoolean = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isLong)) {
-            parameter.isLong = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isInteger)) {
-            parameter.isInteger = true;
-            parameter.isPrimitiveType = true;
-            if (Boolean.TRUE.equals(property.isShort)) {
-                parameter.isShort = true;
-            } else if (Boolean.TRUE.equals(property.isUnboundedInteger)) {
-                parameter.isUnboundedInteger = true;
-            }
-        } else if (Boolean.TRUE.equals(property.isDouble)) {
-            parameter.isDouble = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isFloat)) {
-            parameter.isFloat = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isDecimal)) {
-            parameter.isDecimal = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isNumber)) {
-            parameter.isNumber = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isDate)) {
-            parameter.isDate = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isDateTime)) {
-            parameter.isDateTime = true;
-            parameter.isPrimitiveType = true;
-        } else if (Boolean.TRUE.equals(property.isFreeFormObject)) {
-            parameter.isFreeFormObject = true;
-        } else if (Boolean.TRUE.equals(property.isAnyType)) {
-            parameter.isAnyType = true;
-        } else {
-            LOGGER.debug("Property type is not primitive: {}", property.dataType);
-        }
-
-        if (Boolean.TRUE.equals(property.isFile)) {
-            parameter.isFile = true;
-        }
-        if (Boolean.TRUE.equals(property.isModel)) {
-            parameter.isModel = true;
-        }
-    }
-
-    /**
      * Update codegen property's enum by adding "enumVars" (with name and value)
      *
      * @param var list of CodegenProperty
@@ -6642,134 +6197,13 @@ public class DefaultCodegen implements CodegenConfig {
         LOGGER.debug("Debugging fromFormProperty {}: {}", name, propertySchema);
         CodegenProperty codegenProperty = fromProperty(name, propertySchema, false, false, sourceJsonPath);
 
-        Schema ps = unaliasSchema(propertySchema);
-        ModelUtils.syncValidationProperties(ps, codegenParameter);
-        codegenParameter.setTypeProperties(ps);
-        codegenParameter.setComposedSchemas(getComposedSchemas(ps, sourceJsonPath));
-        if (ps.getPattern() != null) {
-            codegenParameter.pattern = toRegularExpression(ps.getPattern());
-        }
+        codegenParameter.setSchema(codegenProperty);
 
-        codegenParameter.baseType = codegenProperty.baseType;
-        codegenParameter.dataType = codegenProperty.dataType;
-        codegenParameter.defaultValue = toDefaultParameterValue(propertySchema);
         codegenParameter.baseName = codegenProperty.baseName;
         codegenParameter.paramName = toParamName(codegenParameter.baseName);
-        codegenParameter.dataFormat = codegenProperty.dataFormat;
         // non-array/map
         updateCodegenPropertyEnum(codegenProperty);
-        codegenParameter.isEnum = codegenProperty.isEnum;
-        codegenParameter._enum = codegenProperty._enum;
-        codegenParameter.allowableValues = codegenProperty.allowableValues;
 
-        if (ModelUtils.isFileSchema(ps) && !ModelUtils.isStringSchema(ps)) {
-            // swagger v2 only, type file
-            codegenParameter.isFile = true;
-        } else if (ModelUtils.isStringSchema(ps)) {
-            if (ModelUtils.isEmailSchema(ps)) {
-                codegenParameter.isEmail = true;
-            } else if (ModelUtils.isUUIDSchema(ps)) {
-                codegenParameter.isUuid = true;
-            } else if (ModelUtils.isByteArraySchema(ps)) {
-                codegenParameter.setIsString(false);
-                codegenParameter.isByteArray = true;
-                codegenParameter.isPrimitiveType = true;
-            } else if (ModelUtils.isBinarySchema(ps)) {
-                codegenParameter.isBinary = true;
-                codegenParameter.isFile = true; // file = binary in OAS3
-                codegenParameter.isPrimitiveType = true;
-            } else if (ModelUtils.isDateSchema(ps)) {
-                codegenParameter.setIsString(false); // for backward compatibility with 2.x
-                codegenParameter.isDate = true;
-                codegenParameter.isPrimitiveType = true;
-            } else if (ModelUtils.isDateTimeSchema(ps)) {
-                codegenParameter.setIsString(false); // for backward compatibility with 2.x
-                codegenParameter.isDateTime = true;
-                codegenParameter.isPrimitiveType = true;
-            } else if (ModelUtils.isDecimalSchema(ps)) { // type: string, format: number
-                codegenParameter.setIsString(false);
-                codegenParameter.isDecimal = true;
-                codegenParameter.isPrimitiveType = true;
-            }
-            if (Boolean.TRUE.equals(codegenParameter.isString)) {
-                codegenParameter.isPrimitiveType = true;
-            }
-        } else if (ModelUtils.isBooleanSchema(ps)) {
-            codegenParameter.isPrimitiveType = true;
-        } else if (ModelUtils.isNumberSchema(ps)) {
-            codegenParameter.isPrimitiveType = true;
-            if (ModelUtils.isFloatSchema(ps)) { // float
-                codegenParameter.isFloat = true;
-            } else if (ModelUtils.isDoubleSchema(ps)) { // double
-                codegenParameter.isDouble = true;
-            }
-        } else if (ModelUtils.isIntegerSchema(ps)) { // integer type
-            codegenParameter.isPrimitiveType = true;
-            if (ModelUtils.isLongSchema(ps)) { // int64/long format
-                codegenParameter.isLong = true;
-            } else {
-                codegenParameter.isInteger = true;
-                if (ModelUtils.isShortSchema(ps)) { // int32/short format
-                    codegenParameter.isShort = true;
-                } else { // unbounded integer
-                    ;
-                }
-            }
-        } else if (ModelUtils.isTypeObjectSchema(ps)) {
-            if (ModelUtils.isFreeFormObject(openAPI, ps)) {
-                codegenParameter.isFreeFormObject = true;
-            }
-        } else if (ModelUtils.isNullType(ps)) {
-            ;
-        } else if (ModelUtils.isAnyType(ps)) {
-            // any schema with no type set, composed schemas often do this
-            ;
-        } else if (ModelUtils.isArraySchema(ps)) {
-            Schema inner = getSchemaItems((ArraySchema) ps);
-            CodegenProperty arrayInnerProperty = fromProperty("inner", inner, false, false, sourceJsonPath);
-            codegenParameter.items = arrayInnerProperty;
-            codegenParameter.mostInnerItems = arrayInnerProperty.mostInnerItems;
-            codegenParameter.isPrimitiveType = false;
-            codegenParameter.isContainer = true;
-            // hoist items data into the array property
-            // TODO this hoisting code is generator specific and should be isolated into updateFormPropertyForArray
-            codegenParameter.baseType = arrayInnerProperty.dataType;
-            codegenParameter.defaultValue = arrayInnerProperty.getDefaultValue();
-            if (codegenParameter.items.isFile) {
-                codegenParameter.isFile = true;
-                codegenParameter.dataFormat = codegenParameter.items.dataFormat;
-            }
-            if (arrayInnerProperty._enum != null) {
-                codegenParameter._enum = arrayInnerProperty._enum;
-            }
-            if (arrayInnerProperty.baseType != null && arrayInnerProperty.enumName != null) {
-                codegenParameter.datatypeWithEnum = codegenParameter.dataType.replace(arrayInnerProperty.baseType, arrayInnerProperty.enumName);
-            } else {
-                LOGGER.warn("Could not compute datatypeWithEnum from {}, {}", arrayInnerProperty.baseType, arrayInnerProperty.enumName);
-            }
-            // end of hoisting
-
-            // collectionFormat for form parameter does not consider
-            // style and explode from encoding at this point
-            String collectionFormat = getCollectionFormat(codegenParameter);
-            codegenParameter.collectionFormat = StringUtils.isEmpty(collectionFormat) ? "csv" : collectionFormat;
-            codegenParameter.isCollectionFormatMulti = "multi".equals(collectionFormat);
-
-            if (!addSchemaImportsFromV3SpecLocations) {
-                // recursively add import
-                while (arrayInnerProperty != null) {
-                    imports.add(arrayInnerProperty.baseType);
-                    arrayInnerProperty = arrayInnerProperty.items;
-                }
-            }
-        } else {
-            // referenced schemas
-            ;
-        }
-
-        if (Boolean.TRUE.equals(codegenProperty.isModel)) {
-            codegenParameter.isModel = true;
-        }
 
         codegenParameter.isFormParam = Boolean.TRUE;
         codegenParameter.description = escapeText(codegenProperty.description);
@@ -6783,14 +6217,6 @@ public class DefaultCodegen implements CodegenConfig {
             codegenParameter.required = Boolean.TRUE;
         }
 
-        if (codegenProperty.isEnum) {
-            codegenParameter.datatypeWithEnum = codegenProperty.datatypeWithEnum;
-            codegenParameter.enumName = codegenProperty.enumName;
-            if (codegenProperty.defaultValue != null) {
-                codegenParameter.enumDefaultValue = codegenProperty.defaultValue.replace(codegenProperty.enumName + ".", "");
-            }
-        }
-
         if (!addSchemaImportsFromV3SpecLocations) {
             // import
             if (codegenProperty.refClass != null) {
@@ -6798,8 +6224,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         setParameterExampleValue(codegenParameter);
-        // set nullable
-        setParameterNullable(codegenParameter, codegenProperty);
 
         return codegenParameter;
     }
@@ -6810,9 +6234,6 @@ public class DefaultCodegen implements CodegenConfig {
             schema.setName(name);
             codegenModel = fromModel(name, schema);
         }
-        if (codegenModel != null) {
-            codegenParameter.isModel = true;
-        }
 
         if (codegenModel != null && (codegenModel.hasVars || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
@@ -6821,13 +6242,7 @@ public class DefaultCodegen implements CodegenConfig {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toParamName(codegenParameter.baseName);
-            codegenParameter.baseType = codegenModel.classname;
-            codegenParameter.dataType = getTypeDeclaration(codegenModel.classname);
             codegenParameter.description = codegenModel.description;
-            codegenParameter.isNullable = codegenModel.isNullable;
-            if (!addSchemaImportsFromV3SpecLocations) {
-                imports.add(codegenParameter.baseType);
-            }
         } else {
             CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
 
@@ -6840,10 +6255,7 @@ public class DefaultCodegen implements CodegenConfig {
                 String codegenModelName = codegenProperty.getRefClass();
                 codegenParameter.baseName = codegenModelName;
                 codegenParameter.paramName = toParamName(codegenParameter.baseName);
-                codegenParameter.baseType = codegenParameter.baseName;
-                codegenParameter.dataType = getTypeDeclaration(codegenModelName);
                 codegenParameter.description = codegenProperty.getDescription();
-                codegenParameter.isNullable = codegenProperty.isNullable;
             } else {
                 if (ModelUtils.isMapSchema(schema)) {// http body is map
                     LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
@@ -6871,12 +6283,8 @@ public class DefaultCodegen implements CodegenConfig {
                     }
 
                     codegenParameter.paramName = toParamName(codegenParameter.baseName);
-                    codegenParameter.baseType = codegenModelName;
-                    codegenParameter.dataType = getTypeDeclaration(codegenModelName);
                     codegenParameter.description = codegenModelDescription;
                     if (!addSchemaImportsFromV3SpecLocations) {
-                        imports.add(codegenParameter.baseType);
-
                         if (codegenProperty.refClass != null) {
                             imports.add(codegenProperty.refClass);
                         }
@@ -6884,8 +6292,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
 
-            // set nullable
-            setParameterNullable(codegenParameter, codegenProperty);
         }
     }
 
@@ -6918,16 +6324,6 @@ public class DefaultCodegen implements CodegenConfig {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toParamName(codegenParameter.baseName);
-            codegenParameter.items = codegenProperty.items;
-            codegenParameter.mostInnerItems = codegenProperty.mostInnerItems;
-            codegenParameter.dataType = getTypeDeclaration(schema);
-            codegenParameter.baseType = getSchemaType(inner);
-            codegenParameter.isContainer = Boolean.TRUE;
-            codegenParameter.isMap = Boolean.TRUE;
-            codegenParameter.isNullable = codegenProperty.isNullable;
-
-            // set nullable
-            setParameterNullable(codegenParameter, codegenProperty);
         }
     }
 
@@ -6939,13 +6335,8 @@ public class DefaultCodegen implements CodegenConfig {
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
-            codegenParameter.isPrimitiveType = true;
-            codegenParameter.baseType = codegenProperty.baseType;
-            codegenParameter.dataType = codegenProperty.dataType;
             codegenParameter.description = codegenProperty.description;
             codegenParameter.paramName = toParamName(codegenParameter.baseName);
-            codegenParameter.pattern = codegenProperty.pattern;
-            codegenParameter.isNullable = codegenProperty.isNullable;
 
             if (!addSchemaImportsFromV3SpecLocations) {
                 if (codegenProperty.refClass != null) {
@@ -6953,8 +6344,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        // set nullable
-        setParameterNullable(codegenParameter, codegenProperty);
     }
 
     protected void updateRequestBodyForObject(CodegenParameter codegenParameter, Schema schema, String name, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
@@ -6964,7 +6353,6 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (isFreeFormObject(schema)) {
             // non-composed object type with no properties + additionalProperties
             // additionalProperties must be null, ObjectSchema, or empty Schema
-            codegenParameter.isFreeFormObject = true;
 
             // HTTP request body is free form object
             CodegenProperty codegenProperty = fromProperty(
@@ -6980,20 +6368,13 @@ public class DefaultCodegen implements CodegenConfig {
                 } else {
                     codegenParameter.baseName = bodyParameterName;
                 }
-                codegenParameter.isPrimitiveType = true;
-                codegenParameter.baseType = codegenProperty.baseType;
-                codegenParameter.dataType = codegenProperty.dataType;
                 codegenParameter.description = codegenProperty.description;
-                codegenParameter.isNullable = codegenProperty.isNullable;
                 codegenParameter.paramName = toParamName(codegenParameter.baseName);
             }
-            // set nullable
-            setParameterNullable(codegenParameter, codegenProperty);
         } else if (ModelUtils.isObjectSchema(schema)) {
             // object type schema or composed schema with properties defined
             this.addBodyModelSchema(codegenParameter, name, schema, imports, bodyParameterName, false, sourceJsonPath);
         }
-        addVarsRequiredVarsAdditionalProps(schema, codegenParameter, sourceJsonPath);
     }
 
     protected void updateRequestBodyForArray(CodegenParameter codegenParameter, Schema schema, String name, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
@@ -7001,7 +6382,6 @@ public class DefaultCodegen implements CodegenConfig {
             this.addBodyModelSchema(codegenParameter, name, schema, imports, bodyParameterName, true, sourceJsonPath);
         } else {
             final ArraySchema arraySchema = (ArraySchema) schema;
-            Schema inner = getSchemaItems(arraySchema);
             CodegenProperty codegenProperty = fromProperty("property", arraySchema, false, false, sourceJsonPath);
             if (codegenProperty == null) {
                throw new RuntimeException("CodegenProperty cannot be null. arraySchema for debugging: " + arraySchema);
@@ -7038,15 +6418,6 @@ public class DefaultCodegen implements CodegenConfig {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toArrayModelParamName(codegenParameter.baseName);
-            codegenParameter.items = codegenProperty.items;
-            codegenParameter.mostInnerItems = codegenProperty.mostInnerItems;
-            codegenParameter.dataType = getTypeDeclaration(arraySchema);
-            codegenParameter.baseType = getSchemaType(inner);
-            codegenParameter.isContainer = Boolean.TRUE;
-            codegenParameter.isNullable = codegenProperty.isNullable;
-
-            // set nullable
-            setParameterNullable(codegenParameter, codegenProperty);
 
             if (!addSchemaImportsFromV3SpecLocations) {
                 while (codegenProperty != null) {
@@ -7059,29 +6430,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected void updateRequestBodyForString(CodegenParameter codegenParameter, Schema schema, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
         updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, sourceJsonPath);
-        if (ModelUtils.isByteArraySchema(schema)) {
-            codegenParameter.setIsString(false);
-            codegenParameter.isByteArray = true;
-        } else if (ModelUtils.isBinarySchema(schema)) {
-            codegenParameter.isBinary = true;
-            codegenParameter.isFile = true; // file = binary in OAS3
-        } else if (ModelUtils.isUUIDSchema(schema)) {
-            codegenParameter.isUuid = true;
-        } else if (ModelUtils.isURISchema(schema)) {
-            codegenParameter.isUri = true;
-        } else if (ModelUtils.isEmailSchema(schema)) {
-            codegenParameter.isEmail = true;
-        } else if (ModelUtils.isDateSchema(schema)) { // date format
-            codegenParameter.setIsString(false); // for backward compatibility with 2.x
-            codegenParameter.isDate = true;
-        } else if (ModelUtils.isDateTimeSchema(schema)) { // date-time format
-            codegenParameter.setIsString(false); // for backward compatibility with 2.x
-            codegenParameter.isDateTime = true;
-        } else if (ModelUtils.isDecimalSchema(schema)) { // type: string, format: number
-            codegenParameter.isDecimal = true;
-            codegenParameter.setIsString(false);
-        }
-        codegenParameter.pattern = toRegularExpression(schema.getPattern());
     }
 
     private CodegenParameter headerToCodegenParameter(Header header, String headerName, Set<String> imports, String mediaTypeSchemaSuffix, String sourceJsonPath) {
@@ -7211,9 +6559,6 @@ public class DefaultCodegen implements CodegenConfig {
         Schema unaliasedSchema = unaliasSchema(schema);
         schema = ModelUtils.getReferencedSchema(this.openAPI, schema);
 
-        ModelUtils.syncValidationProperties(unaliasedSchema, codegenParameter);
-        codegenParameter.setTypeProperties(unaliasedSchema);
-        codegenParameter.setComposedSchemas(getComposedSchemas(unaliasedSchema, sourceJsonPath));
         // TODO in the future switch al the below schema usages to unaliasedSchema
         // because it keeps models as refs and will not get their referenced schemas
         String usedSourceJsonPath = sourceJsonPath + "/schema";
@@ -7223,30 +6568,14 @@ public class DefaultCodegen implements CodegenConfig {
             updateRequestBodyForObject(codegenParameter, schema, name, imports, bodyParameterName, sourceJsonPath);
         } else if (ModelUtils.isIntegerSchema(schema)) { // integer type
             updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
-            codegenParameter.isNumeric = Boolean.TRUE;
-            if (ModelUtils.isLongSchema(schema)) { // int64/long format
-                codegenParameter.isLong = Boolean.TRUE;
-            } else {
-                codegenParameter.isInteger = Boolean.TRUE; // older use case, int32 and unbounded int
-                if (ModelUtils.isShortSchema(schema)) { // int32
-                    codegenParameter.setIsShort(Boolean.TRUE);
-                }
-            }
         } else if (ModelUtils.isBooleanSchema(schema)) { // boolean type
             updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
         } else if (ModelUtils.isFileSchema(schema) && !ModelUtils.isStringSchema(schema)) {
             // swagger v2 only, type file
-            codegenParameter.isFile = true;
         } else if (ModelUtils.isStringSchema(schema)) {
             updateRequestBodyForString(codegenParameter, schema, imports, bodyParameterName, usedSourceJsonPath);
         } else if (ModelUtils.isNumberSchema(schema)) {
             updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
-            codegenParameter.isNumeric = Boolean.TRUE;
-            if (ModelUtils.isFloatSchema(schema)) { // float
-                codegenParameter.isFloat = Boolean.TRUE;
-            } else if (ModelUtils.isDoubleSchema(schema)) { // double
-                codegenParameter.isDouble = Boolean.TRUE;
-            }
         } else if (ModelUtils.isNullType(schema)) {
             updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
         } else if (ModelUtils.isAnyType(schema)) {
@@ -7261,7 +6590,6 @@ public class DefaultCodegen implements CodegenConfig {
             } else {
                 updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
             }
-            addVarsRequiredVarsAdditionalProps(schema, codegenParameter, sourceJsonPath);
         } else {
             // referenced schemas
             updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, usedSourceJsonPath);
@@ -7277,7 +6605,7 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenParameter;
     }
 
-    protected void addRequiredVarsMap(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath) {
+    protected void addRequiredVarsMap(Schema schema, JsonSchema property, String sourceJsonPath) {
         /*
         this should be called after vars and additionalProperties are set
         Features added by storing codegenProperty values:
@@ -7335,7 +6663,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, IJsonSchemaValidationProperties property, String sourceJsonPath) {
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath) {
         setAddProps(schema, property, sourceJsonPath);
         Set<String> mandatory = schema.getRequired() == null ? Collections.emptySet()
                 : new TreeSet<>(schema.getRequired());
@@ -7471,13 +6799,6 @@ public class DefaultCodegen implements CodegenConfig {
             codegenServerVariables.add(codegenServerVariable);
         }
         return codegenServerVariables;
-    }
-
-    protected void setParameterNullable(CodegenParameter parameter, CodegenProperty property) {
-        if (parameter == null || property == null) {
-            return;
-        }
-        parameter.isNullable = property.isNullable;
     }
 
     /**
@@ -7914,7 +7235,7 @@ public class DefaultCodegen implements CodegenConfig {
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null
      * This will be used in openapi 3.1.0 spec processing to ensure that Booleans become Schemas
      * Because our generators only understand Schemas
-     * Note: use getIsBooleanSchemaTrue or getIsBooleanSchemaFalse on the IJsonSchemaValidationProperties
+     * Note: use getIsBooleanSchemaTrue or getIsBooleanSchemaFalse on the JsonSchema
      * if you need to be able to detect if the original schema's value was true or false
      *
      * @param schema the input Boolean or Schema data to convert to a Schema
