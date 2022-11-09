@@ -99,7 +99,7 @@ class AbstractStepMessage(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         description: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         discriminator: typing.Union[MetaOapg.properties.discriminator, str, ],
@@ -108,7 +108,7 @@ class AbstractStepMessage(
     ) -> 'AbstractStepMessage':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             sequenceNumber=sequenceNumber,
             description=description,
             discriminator=discriminator,
