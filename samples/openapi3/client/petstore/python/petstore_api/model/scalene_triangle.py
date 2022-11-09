@@ -98,7 +98,8 @@ class ScaleneTriangle(
                     triangleType=triangleType,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -127,4 +128,5 @@ class ScaleneTriangle(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.triangle_interface import TriangleInterface

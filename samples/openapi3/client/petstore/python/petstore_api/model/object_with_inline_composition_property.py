@@ -80,7 +80,8 @@ class ObjectWithInlineCompositionProperty(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "someProp": someProp,
             }
     

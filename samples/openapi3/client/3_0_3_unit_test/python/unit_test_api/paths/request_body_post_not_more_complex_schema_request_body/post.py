@@ -87,6 +87,7 @@ class SchemaForRequestBodyApplicationJson(
                     **kwargs,
                 )
 
+
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
@@ -99,6 +100,7 @@ class SchemaForRequestBodyApplicationJson(
             _configuration=_configuration,
             **kwargs,
         )
+
 
 request_body_body = api_client.RequestBody(
     content={

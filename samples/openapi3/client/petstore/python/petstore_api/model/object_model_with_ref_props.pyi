@@ -101,4 +101,5 @@ class ObjectModelWithRefProps(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.number_with_validations import NumberWithValidations

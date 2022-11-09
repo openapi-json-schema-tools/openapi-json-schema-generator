@@ -53,6 +53,7 @@ class SchemaForRequestBodyApplicationJson(
             **kwargs,
         )
 
+
 request_body_body = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(

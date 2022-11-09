@@ -72,5 +72,6 @@ class Quadrilateral(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.complex_quadrilateral import ComplexQuadrilateral
 from petstore_api.model.simple_quadrilateral import SimpleQuadrilateral

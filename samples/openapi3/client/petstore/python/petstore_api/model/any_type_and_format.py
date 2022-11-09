@@ -59,7 +59,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class date(
                 schemas.DateBase,
@@ -82,7 +83,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class date_time(
                 schemas.DateTimeBase,
@@ -105,7 +107,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class number(
                 schemas.DecimalBase,
@@ -128,7 +131,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class binary(
                 schemas.BinaryBase,
@@ -151,7 +155,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class int32(
                 schemas.Int32Base,
@@ -174,7 +179,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class int64(
                 schemas.Int64Base,
@@ -197,7 +203,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class double(
                 schemas.Float64Base,
@@ -220,7 +227,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class _float(
                 schemas.Float32Base,
@@ -243,7 +251,8 @@ class AnyTypeAndFormat(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "uuid": uuid,
                 "date": date,
                 "date-time": date_time,

@@ -92,7 +92,8 @@ class EquilateralTriangle(
                     triangleType=triangleType,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -121,4 +122,5 @@ class EquilateralTriangle(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.triangle_interface import TriangleInterface

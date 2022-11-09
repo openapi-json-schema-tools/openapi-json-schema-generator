@@ -59,6 +59,7 @@ class EnumQueryStringArraySchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -186,6 +187,7 @@ class EnumHeaderStringArraySchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -278,7 +280,8 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             
@@ -347,6 +350,7 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
             _configuration=_configuration,
             **kwargs,
         )
+
 
 request_body_body = api_client.RequestBody(
     content={

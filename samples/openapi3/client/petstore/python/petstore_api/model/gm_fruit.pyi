@@ -92,5 +92,6 @@ class GmFruit(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.apple import Apple
 from petstore_api.model.banana import Banana

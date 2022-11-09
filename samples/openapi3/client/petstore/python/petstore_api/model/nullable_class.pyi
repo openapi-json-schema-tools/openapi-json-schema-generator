@@ -55,7 +55,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class number_prop(
                 schemas.NumberBase,
@@ -74,7 +75,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class boolean_prop(
                 schemas.BoolBase,
@@ -93,7 +95,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class string_prop(
                 schemas.StrBase,
@@ -112,7 +115,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class date_prop(
                 schemas.DateBase,
@@ -136,7 +140,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class datetime_prop(
                 schemas.DateTimeBase,
@@ -160,7 +165,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class array_nullable_prop(
                 schemas.ListBase,
@@ -183,7 +189,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class array_and_items_nullable_prop(
                 schemas.ListBase,
@@ -215,7 +222,8 @@ class NullableClass(
                                 *_args,
                                 _configuration=_configuration,
                                 **kwargs,
-                            )            
+                            )
+            
             
                 def __new__(
                     cls,
@@ -226,7 +234,8 @@ class NullableClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class array_items_nullable(
                 schemas.ListSchema
@@ -255,7 +264,8 @@ class NullableClass(
                                 *_args,
                                 _configuration=_configuration,
                                 **kwargs,
-                            )            
+                            )
+            
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, None, ]]],
@@ -265,7 +275,8 @@ class NullableClass(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             
@@ -300,7 +311,8 @@ class NullableClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class object_and_items_nullable_prop(
                 schemas.DictBase,
@@ -332,7 +344,8 @@ class NullableClass(
                                 *_args,
                                 _configuration=_configuration,
                                 **kwargs,
-                            )            
+                            )
+            
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     # dict_instance[name] accessor
@@ -352,7 +365,8 @@ class NullableClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class object_items_nullable(
                 schemas.DictSchema
@@ -381,7 +395,8 @@ class NullableClass(
                                 *_args,
                                 _configuration=_configuration,
                                 **kwargs,
-                            )                
+                            )
+                
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
@@ -400,7 +415,8 @@ class NullableClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "integer_prop": integer_prop,
                 "number_prop": number_prop,
                 "boolean_prop": boolean_prop,
@@ -435,7 +451,8 @@ class NullableClass(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )    
+                )
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> MetaOapg.properties.integer_prop: ...
     

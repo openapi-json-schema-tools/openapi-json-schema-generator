@@ -49,6 +49,7 @@ class ArrayOfEnums(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> 'StringEnum':
         return super().__getitem__(i)
 

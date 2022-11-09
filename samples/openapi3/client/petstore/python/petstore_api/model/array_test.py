@@ -55,7 +55,8 @@ class ArrayTest(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             
@@ -85,7 +86,8 @@ class ArrayTest(
                                 cls,
                                 _arg,
                                 _configuration=_configuration,
-                            )                    
+                            )
+                    
                         def __getitem__(self, i: int) -> MetaOapg.items:
                             return super().__getitem__(i)
             
@@ -98,7 +100,8 @@ class ArrayTest(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             
@@ -131,7 +134,8 @@ class ArrayTest(
                                 cls,
                                 _arg,
                                 _configuration=_configuration,
-                            )                    
+                            )
+                    
                         def __getitem__(self, i: int) -> 'ReadOnlyFirst':
                             return super().__getitem__(i)
             
@@ -144,7 +148,8 @@ class ArrayTest(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             __annotations__ = {
@@ -204,4 +209,5 @@ class ArrayTest(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.read_only_first import ReadOnlyFirst

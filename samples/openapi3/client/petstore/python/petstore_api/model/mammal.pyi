@@ -74,6 +74,7 @@ class Mammal(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.pig import Pig
 from petstore_api.model.whale import Whale
 from petstore_api.model.zebra import Zebra

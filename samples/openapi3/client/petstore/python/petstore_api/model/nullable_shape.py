@@ -67,5 +67,6 @@ class NullableShape(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.quadrilateral import Quadrilateral
 from petstore_api.model.triangle import Triangle

@@ -60,7 +60,8 @@ class ComposedOneOfDifferentTypes(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class one_of_5(
             schemas.ListSchema
@@ -81,7 +82,8 @@ class ComposedOneOfDifferentTypes(
                     cls,
                     _arg,
                     _configuration=_configuration,
-                )        
+                )
+        
             def __getitem__(self, i: int) -> MetaOapg.items:
                 return super().__getitem__(i)
         
@@ -130,5 +132,6 @@ class ComposedOneOfDifferentTypes(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.animal import Animal
 from petstore_api.model.number_with_validations import NumberWithValidations

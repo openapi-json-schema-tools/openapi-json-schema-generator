@@ -57,7 +57,8 @@ class SchemaForRequestBodyMultipartFormData(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             __annotations__ = {
@@ -99,6 +100,7 @@ class SchemaForRequestBodyMultipartFormData(
             _configuration=_configuration,
             **kwargs,
         )
+
 
 request_body_body = api_client.RequestBody(
     content={

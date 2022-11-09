@@ -83,7 +83,8 @@ class Dog(
                     breed=breed,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -112,4 +113,5 @@ class Dog(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.animal import Animal

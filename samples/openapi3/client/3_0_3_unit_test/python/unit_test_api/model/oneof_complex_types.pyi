@@ -89,7 +89,8 @@ class OneofComplexTypes(
                     bar=bar,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class one_of_1(
             schemas.AnyTypeSchema,
@@ -144,7 +145,8 @@ class OneofComplexTypes(
                     foo=foo,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def one_of(cls):

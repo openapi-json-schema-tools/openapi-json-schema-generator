@@ -51,6 +51,7 @@ class SchemaForRequestBodyApplicationJson(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> 'User':
         return super().__getitem__(i)
 

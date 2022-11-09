@@ -48,6 +48,7 @@ class TagsSchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 RequestRequiredQueryParams = typing_extensions.TypedDict(
@@ -97,6 +98,7 @@ class SchemaFor200ResponseBodyApplicationXml(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> 'Pet':
         return super().__getitem__(i)
 
@@ -122,6 +124,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> 'Pet':
         return super().__getitem__(i)
 

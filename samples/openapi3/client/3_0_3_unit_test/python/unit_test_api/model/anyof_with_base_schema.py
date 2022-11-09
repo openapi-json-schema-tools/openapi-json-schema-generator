@@ -57,7 +57,8 @@ class AnyofWithBaseSchema(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class any_of_1(
             schemas.AnyTypeSchema,
@@ -79,7 +80,8 @@ class AnyofWithBaseSchema(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def any_of(cls):

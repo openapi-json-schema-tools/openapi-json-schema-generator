@@ -84,6 +84,7 @@ class SchemaFor200ResponseBodyApplicationJson(
                     **kwargs,
                 )
 
+
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
@@ -96,6 +97,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             _configuration=_configuration,
             **kwargs,
         )
+
 
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):

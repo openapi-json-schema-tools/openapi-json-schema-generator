@@ -98,7 +98,8 @@ class AllofWithBaseSchema(
                     foo=foo,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class all_of_1(
             schemas.AnyTypeSchema,
@@ -153,7 +154,8 @@ class AllofWithBaseSchema(
                     baz=baz,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):

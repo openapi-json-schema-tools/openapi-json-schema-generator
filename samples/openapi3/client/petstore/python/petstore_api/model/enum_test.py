@@ -268,6 +268,7 @@ class EnumTest(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.integer_enum import IntegerEnum
 from petstore_api.model.integer_enum_one_value import IntegerEnumOneValue
 from petstore_api.model.integer_enum_with_default_value import IntegerEnumWithDefaultValue

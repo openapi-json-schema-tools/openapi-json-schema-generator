@@ -50,6 +50,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             **kwargs,
         )
 
+
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse

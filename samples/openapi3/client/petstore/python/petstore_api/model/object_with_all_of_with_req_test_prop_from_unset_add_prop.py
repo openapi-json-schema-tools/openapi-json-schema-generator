@@ -90,7 +90,8 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                     name=name,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -119,4 +120,5 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.object_with_optional_test_prop import ObjectWithOptionalTestProp

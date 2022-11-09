@@ -56,7 +56,8 @@ class AdditionalPropertiesWithArrayOfEnums(
                     cls,
                     _arg,
                     _configuration=_configuration,
-                )        
+                )
+        
             def __getitem__(self, i: int) -> 'EnumClass':
                 return super().__getitem__(i)
     
@@ -79,4 +80,5 @@ class AdditionalPropertiesWithArrayOfEnums(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.enum_class import EnumClass

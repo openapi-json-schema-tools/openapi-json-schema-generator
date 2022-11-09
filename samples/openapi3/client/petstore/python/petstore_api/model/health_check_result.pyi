@@ -57,7 +57,8 @@ class HealthCheckResult(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "NullableMessage": NullableMessage,
             }
     

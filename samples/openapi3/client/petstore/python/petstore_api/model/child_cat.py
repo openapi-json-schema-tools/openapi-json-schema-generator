@@ -83,7 +83,8 @@ class ChildCat(
                     name=name,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -112,4 +113,5 @@ class ChildCat(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.parent_pet import ParentPet

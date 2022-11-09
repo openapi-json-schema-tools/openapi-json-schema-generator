@@ -70,7 +70,8 @@ class NestedAnyofToCheckValidationSemantics(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def any_of(cls):

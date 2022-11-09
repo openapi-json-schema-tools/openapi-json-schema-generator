@@ -74,6 +74,7 @@ class Triangle(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.equilateral_triangle import EquilateralTriangle
 from petstore_api.model.isosceles_triangle import IsoscelesTriangle
 from petstore_api.model.scalene_triangle import ScaleneTriangle

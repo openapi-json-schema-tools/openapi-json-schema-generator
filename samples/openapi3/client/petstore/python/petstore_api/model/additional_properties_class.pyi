@@ -64,7 +64,8 @@ class AdditionalPropertiesClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class map_of_map_property(
                 schemas.DictSchema
@@ -100,7 +101,8 @@ class AdditionalPropertiesClass(
                                 *_args,
                                 _configuration=_configuration,
                                 **kwargs,
-                            )                
+                            )
+                
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
@@ -119,7 +121,8 @@ class AdditionalPropertiesClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            anytype_1 = schemas.AnyTypeSchema
+                    )
+            anytype_1 = schemas.AnyTypeSchema
             map_with_undeclared_properties_anytype_1 = schemas.DictSchema
             map_with_undeclared_properties_anytype_2 = schemas.DictSchema
             
@@ -150,7 +153,8 @@ class AdditionalPropertiesClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class empty_map(
                 schemas.DictSchema
@@ -169,7 +173,8 @@ class AdditionalPropertiesClass(
                         cls,
                         *_args,
                         _configuration=_configuration,
-                    )            
+                    )
+            
             
             class map_with_undeclared_properties_string(
                 schemas.DictSchema
@@ -197,7 +202,8 @@ class AdditionalPropertiesClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "map_property": map_property,
                 "map_of_map_property": map_of_map_property,
                 "anytype_1": anytype_1,

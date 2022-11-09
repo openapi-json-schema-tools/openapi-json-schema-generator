@@ -74,6 +74,7 @@ class CompositionAtRootSchema(
             **kwargs,
         )
 
+
 class CompositionInPropertySchema(
     schemas.DictSchema
 ):
@@ -126,7 +127,8 @@ class CompositionInPropertySchema(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "someProp": someProp,
             }
     
@@ -164,7 +166,8 @@ class CompositionInPropertySchema(
             someProp=someProp,
             _configuration=_configuration,
             **kwargs,
-        )RequestRequiredQueryParams = typing_extensions.TypedDict(
+        )
+RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
     }
@@ -242,6 +245,7 @@ class SchemaForRequestBodyApplicationJson(
             **kwargs,
         )
 
+
 class SchemaForRequestBodyMultipartFormData(
     schemas.DictSchema
 ):
@@ -294,7 +298,8 @@ class SchemaForRequestBodyMultipartFormData(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "someProp": someProp,
             }
     
@@ -333,6 +338,7 @@ class SchemaForRequestBodyMultipartFormData(
             _configuration=_configuration,
             **kwargs,
         )
+
 
 request_body_any_type = api_client.RequestBody(
     content={
@@ -388,6 +394,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             **kwargs,
         )
 
+
 class SchemaFor200ResponseBodyMultipartFormData(
     schemas.DictSchema
 ):
@@ -440,7 +447,8 @@ class SchemaFor200ResponseBodyMultipartFormData(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "someProp": someProp,
             }
     
@@ -479,6 +487,7 @@ class SchemaFor200ResponseBodyMultipartFormData(
             _configuration=_configuration,
             **kwargs,
         )
+
 
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):

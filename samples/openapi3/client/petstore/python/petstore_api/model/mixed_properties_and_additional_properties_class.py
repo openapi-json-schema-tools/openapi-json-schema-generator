@@ -69,7 +69,8 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            __annotations__ = {
+                    )
+            __annotations__ = {
                 "uuid": uuid,
                 "dateTime": dateTime,
                 "map": map,
@@ -126,4 +127,5 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.animal import Animal

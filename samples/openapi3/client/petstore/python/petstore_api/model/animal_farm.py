@@ -49,6 +49,7 @@ class AnimalFarm(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> 'Animal':
         return super().__getitem__(i)
 

@@ -72,6 +72,7 @@ class JSONPatchRequest(
                     _configuration=_configuration,
                     **kwargs,
                 )
+
     def __new__(
         cls,
         _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
@@ -82,6 +83,7 @@ class JSONPatchRequest(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 

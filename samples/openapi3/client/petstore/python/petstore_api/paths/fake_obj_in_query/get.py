@@ -76,7 +76,8 @@ class MapBeanSchema(
             keyword=keyword,
             _configuration=_configuration,
             **kwargs,
-        )RequestRequiredQueryParams = typing_extensions.TypedDict(
+        )
+RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
     }

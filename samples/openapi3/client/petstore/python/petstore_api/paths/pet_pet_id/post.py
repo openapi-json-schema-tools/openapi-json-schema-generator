@@ -115,6 +115,7 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
             **kwargs,
         )
 
+
 request_body_body = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(

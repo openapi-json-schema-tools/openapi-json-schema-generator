@@ -62,4 +62,5 @@ class SomeObject(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.object_interface import ObjectInterface

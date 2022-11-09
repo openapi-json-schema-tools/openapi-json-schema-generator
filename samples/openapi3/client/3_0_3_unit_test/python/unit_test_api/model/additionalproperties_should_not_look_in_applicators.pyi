@@ -85,7 +85,8 @@ class AdditionalpropertiesShouldNotLookInApplicators(
                     foo=foo,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):

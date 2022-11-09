@@ -96,4 +96,5 @@ class Money(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.currency import Currency

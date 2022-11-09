@@ -62,7 +62,8 @@ class FileSchemaTestClass(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> 'File':
                     return super().__getitem__(i)
             __annotations__ = {
@@ -113,4 +114,5 @@ class FileSchemaTestClass(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.file import File

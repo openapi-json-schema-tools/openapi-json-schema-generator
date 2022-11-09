@@ -63,7 +63,8 @@ class AdditionalPropertiesValidator(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class all_of_1(
             schemas.DictSchema
@@ -93,7 +94,8 @@ class AdditionalPropertiesValidator(
                             *_args,
                             _configuration=_configuration,
                             **kwargs,
-                        )            
+                        )
+            
             def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                 # dict_instance[name] accessor
                 return super().__getitem__(name)
@@ -112,7 +114,8 @@ class AdditionalPropertiesValidator(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class all_of_2(
             schemas.DictSchema
@@ -142,7 +145,8 @@ class AdditionalPropertiesValidator(
                             *_args,
                             _configuration=_configuration,
                             **kwargs,
-                        )            
+                        )
+            
             def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                 # dict_instance[name] accessor
                 return super().__getitem__(name)
@@ -161,7 +165,8 @@ class AdditionalPropertiesValidator(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):

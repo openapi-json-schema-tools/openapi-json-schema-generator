@@ -56,7 +56,8 @@ class Oneof(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def one_of(cls):

@@ -47,6 +47,7 @@ class PipeSchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -69,6 +70,7 @@ class IoutilSchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -91,6 +93,7 @@ class HttpSchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -113,6 +116,7 @@ class UrlSchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -135,6 +139,7 @@ class ContextSchema(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 RefParamSchema = StringWithValidation

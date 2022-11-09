@@ -115,6 +115,7 @@ class SchemaForRequestBodyMultipartFormData(
             **kwargs,
         )
 
+
 request_body_body = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(

@@ -98,7 +98,8 @@ class SimpleQuadrilateral(
                     quadrilateralType=quadrilateralType,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -127,4 +128,5 @@ class SimpleQuadrilateral(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.quadrilateral_interface import QuadrilateralInterface

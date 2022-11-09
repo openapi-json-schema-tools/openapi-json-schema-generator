@@ -62,7 +62,8 @@ class Pet(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             id = schemas.Int64Schema
@@ -92,7 +93,8 @@ class Pet(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> 'Tag':
                     return super().__getitem__(i)
             
@@ -208,5 +210,6 @@ class Pet(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.category import Category
 from petstore_api.model.tag import Tag

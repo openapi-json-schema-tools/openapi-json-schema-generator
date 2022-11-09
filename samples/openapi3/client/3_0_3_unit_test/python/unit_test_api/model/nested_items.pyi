@@ -69,7 +69,8 @@ class NestedItems(
                                     cls,
                                     _arg,
                                     _configuration=_configuration,
-                                )                        
+                                )
+                        
                             def __getitem__(self, i: int) -> MetaOapg.items:
                                 return super().__getitem__(i)
                 
@@ -82,7 +83,8 @@ class NestedItems(
                             cls,
                             _arg,
                             _configuration=_configuration,
-                        )                
+                        )
+                
                     def __getitem__(self, i: int) -> MetaOapg.items:
                         return super().__getitem__(i)
         
@@ -95,7 +97,8 @@ class NestedItems(
                     cls,
                     _arg,
                     _configuration=_configuration,
-                )        
+                )
+        
             def __getitem__(self, i: int) -> MetaOapg.items:
                 return super().__getitem__(i)
 
@@ -109,5 +112,6 @@ class NestedItems(
             _arg,
             _configuration=_configuration,
         )
+
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)

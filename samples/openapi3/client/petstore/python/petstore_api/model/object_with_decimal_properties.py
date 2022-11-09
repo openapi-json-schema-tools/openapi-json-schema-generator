@@ -99,4 +99,5 @@ class ObjectWithDecimalProperties(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.money import Money

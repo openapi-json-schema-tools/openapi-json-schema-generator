@@ -72,5 +72,6 @@ class Pig(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.basque_pig import BasquePig
 from petstore_api.model.danish_pig import DanishPig

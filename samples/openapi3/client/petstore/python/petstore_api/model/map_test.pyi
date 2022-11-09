@@ -72,7 +72,8 @@ class MapTest(
                                 *_args,
                                 _configuration=_configuration,
                                 **kwargs,
-                            )                
+                            )
+                
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
@@ -91,7 +92,8 @@ class MapTest(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class map_of_enum_string(
                 schemas.DictSchema
@@ -132,7 +134,8 @@ class MapTest(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            
+                    )
+            
             
             class direct_map(
                 schemas.DictSchema
@@ -160,7 +163,8 @@ class MapTest(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )        
+                    )
+        
             @staticmethod
             def indirect_map() -> typing.Type['StringBooleanMap']:
                 return StringBooleanMap
@@ -230,4 +234,5 @@ class MapTest(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.string_boolean_map import StringBooleanMap

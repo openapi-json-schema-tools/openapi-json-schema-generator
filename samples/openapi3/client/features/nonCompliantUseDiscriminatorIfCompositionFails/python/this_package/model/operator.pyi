@@ -74,5 +74,6 @@ class Operator(
             _configuration=_configuration,
             **kwargs,
         )
+
 from this_package.model.addition_operator import AdditionOperator
 from this_package.model.subtraction_operator import SubtractionOperator

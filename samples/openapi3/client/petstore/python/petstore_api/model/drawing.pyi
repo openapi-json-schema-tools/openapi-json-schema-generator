@@ -70,7 +70,8 @@ class Drawing(
                         cls,
                         _arg,
                         _configuration=_configuration,
-                    )            
+                    )
+            
                 def __getitem__(self, i: int) -> 'Shape':
                     return super().__getitem__(i)
             __annotations__ = {
@@ -141,6 +142,7 @@ class Drawing(
             _configuration=_configuration,
             **kwargs,
         )
+
 from petstore_api.model.fruit import Fruit
 from petstore_api.model.nullable_shape import NullableShape
 from petstore_api.model.shape import Shape

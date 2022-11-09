@@ -66,7 +66,8 @@ class User(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            anyTypeProp = schemas.AnyTypeSchema
+                    )
+            anyTypeProp = schemas.AnyTypeSchema
             
             
             class anyTypeExceptNullProp(
@@ -89,7 +90,8 @@ class User(
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )            anyTypePropNullable = schemas.AnyTypeSchema
+                    )
+            anyTypePropNullable = schemas.AnyTypeSchema
             __annotations__ = {
                 "id": id,
                 "username": username,

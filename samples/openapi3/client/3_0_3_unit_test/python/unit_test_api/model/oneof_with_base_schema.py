@@ -57,7 +57,8 @@ class OneofWithBaseSchema(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class one_of_1(
             schemas.AnyTypeSchema,
@@ -79,7 +80,8 @@ class OneofWithBaseSchema(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def one_of(cls):

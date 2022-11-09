@@ -56,7 +56,8 @@ class AllofCombinedWithAnyofOneof(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class one_of_0(
             schemas.AnyTypeSchema,
@@ -78,7 +79,8 @@ class AllofCombinedWithAnyofOneof(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         
         class any_of_0(
             schemas.AnyTypeSchema,
@@ -100,7 +102,8 @@ class AllofCombinedWithAnyofOneof(
                     *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )        
+                )
+        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):

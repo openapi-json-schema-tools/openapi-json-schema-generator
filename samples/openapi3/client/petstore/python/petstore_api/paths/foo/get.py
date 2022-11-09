@@ -83,6 +83,7 @@ class SchemaFor0ResponseBodyApplicationJson(
             **kwargs,
         )
 
+
 @dataclass
 class ApiResponseForDefault(api_client.ApiResponse):
     response: urllib3.HTTPResponse
