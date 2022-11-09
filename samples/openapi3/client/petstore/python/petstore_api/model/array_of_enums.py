@@ -41,15 +41,14 @@ class ArrayOfEnums(
 
     def __new__(
         cls,
-        arg: typing.Union[typing.Tuple['StringEnum'], typing.List['StringEnum']],
+        _arg: typing.Union[typing.Tuple['StringEnum'], typing.List['StringEnum']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ArrayOfEnums':
         return super().__new__(
             cls,
-            arg,
+            _arg,
             _configuration=_configuration,
         )
-
     def __getitem__(self, i: int) -> 'StringEnum':
         return super().__getitem__(i)
 

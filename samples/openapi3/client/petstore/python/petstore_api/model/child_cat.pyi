@@ -72,19 +72,18 @@ class ChildCat(
         
             def __new__(
                 cls,
-                *args: typing.Union[dict, frozendict.frozendict, ],
+                *_args: typing.Union[dict, frozendict.frozendict, ],
                 name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
             ) -> 'all_of_1':
                 return super().__new__(
                     cls,
-                    *args,
+                    *_args,
                     name=name,
                     _configuration=_configuration,
                     **kwargs,
-                )
-        
+                )        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -103,15 +102,14 @@ class ChildCat(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ChildCat':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.parent_pet import ParentPet

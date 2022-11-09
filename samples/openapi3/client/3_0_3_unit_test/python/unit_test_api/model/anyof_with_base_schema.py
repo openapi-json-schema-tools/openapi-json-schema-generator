@@ -48,17 +48,16 @@ class AnyofWithBaseSchema(
         
             def __new__(
                 cls,
-                *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
             ) -> 'any_of_0':
                 return super().__new__(
                     cls,
-                    *args,
+                    *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )
-        
+                )        
         
         class any_of_1(
             schemas.AnyTypeSchema,
@@ -71,17 +70,16 @@ class AnyofWithBaseSchema(
         
             def __new__(
                 cls,
-                *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
             ) -> 'any_of_1':
                 return super().__new__(
                     cls,
-                    *args,
+                    *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )
-        
+                )        
         @classmethod
         @functools.lru_cache()
         def any_of(cls):
@@ -100,11 +98,11 @@ class AnyofWithBaseSchema(
 
     def __new__(
         cls,
-        *args: typing.Union[str, ],
+        *_args: typing.Union[str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AnyofWithBaseSchema':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             _configuration=_configuration,
         )

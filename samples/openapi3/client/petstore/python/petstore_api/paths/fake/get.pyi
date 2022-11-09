@@ -51,15 +51,14 @@ class EnumQueryStringArraySchema(
 
     def __new__(
         cls,
-        arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'EnumQueryStringArraySchema':
         return super().__new__(
             cls,
-            arg,
+            _arg,
             _configuration=_configuration,
         )
-
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -179,15 +178,14 @@ class EnumHeaderStringArraySchema(
 
     def __new__(
         cls,
-        arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'EnumHeaderStringArraySchema':
         return super().__new__(
             cls,
-            arg,
+            _arg,
             _configuration=_configuration,
         )
-
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)
 
@@ -273,15 +271,14 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'enum_form_string_array':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             
@@ -336,7 +333,7 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         enum_form_string_array: typing.Union[MetaOapg.properties.enum_form_string_array, list, tuple, schemas.Unset] = schemas.unset,
         enum_form_string: typing.Union[MetaOapg.properties.enum_form_string, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -344,13 +341,12 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
     ) -> 'SchemaForRequestBodyApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             enum_form_string_array=enum_form_string_array,
             enum_form_string=enum_form_string,
             _configuration=_configuration,
             **kwargs,
         )
-
 
 request_body_body = api_client.RequestBody(
     content={

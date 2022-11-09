@@ -55,15 +55,14 @@ class FileSchemaTestClass(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple['File'], typing.List['File']],
+                    _arg: typing.Union[typing.Tuple['File'], typing.List['File']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'files':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> 'File':
                     return super().__getitem__(i)
             __annotations__ = {
@@ -100,7 +99,7 @@ class FileSchemaTestClass(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         file: typing.Union['File', schemas.Unset] = schemas.unset,
         files: typing.Union[MetaOapg.properties.files, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -108,11 +107,10 @@ class FileSchemaTestClass(
     ) -> 'FileSchemaTestClass':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             file=file,
             files=files,
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.file import File

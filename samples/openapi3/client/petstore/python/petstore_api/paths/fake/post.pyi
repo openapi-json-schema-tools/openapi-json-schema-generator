@@ -219,7 +219,7 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
         pattern_without_delimiter: typing.Union[MetaOapg.properties.pattern_without_delimiter, str, ],
         byte: typing.Union[MetaOapg.properties.byte, str, ],
@@ -238,7 +238,7 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
     ) -> 'SchemaForRequestBodyApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             number=number,
             pattern_without_delimiter=pattern_without_delimiter,
             byte=byte,
@@ -255,7 +255,6 @@ class SchemaForRequestBodyApplicationXWwwFormUrlencoded(
             _configuration=_configuration,
             **kwargs,
         )
-
 
 request_body_body = api_client.RequestBody(
     content={

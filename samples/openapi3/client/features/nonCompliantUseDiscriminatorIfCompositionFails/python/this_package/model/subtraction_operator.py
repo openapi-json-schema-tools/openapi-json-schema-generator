@@ -82,7 +82,7 @@ class SubtractionOperator(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         a: typing.Union[MetaOapg.properties.a, decimal.Decimal, int, float, ],
         b: typing.Union[MetaOapg.properties.b, decimal.Decimal, int, float, ],
         operator_id: typing.Union[MetaOapg.properties.operator_id, str, ],
@@ -90,7 +90,7 @@ class SubtractionOperator(
     ) -> 'SubtractionOperator':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             a=a,
             b=b,
             operator_id=operator_id,

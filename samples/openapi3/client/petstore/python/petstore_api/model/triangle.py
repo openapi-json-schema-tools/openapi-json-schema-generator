@@ -64,17 +64,16 @@ class Triangle(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Triangle':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.equilateral_triangle import EquilateralTriangle
 from petstore_api.model.isosceles_triangle import IsoscelesTriangle
 from petstore_api.model.scalene_triangle import ScaleneTriangle

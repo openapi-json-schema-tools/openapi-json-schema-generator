@@ -48,15 +48,14 @@ class RefInAdditionalproperties(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: 'PropertyNamedRefThatIsNotAReference',
     ) -> 'RefInAdditionalproperties':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             _configuration=_configuration,
             **kwargs,
         )
-
 from unit_test_api.model.property_named_ref_that_is_not_a_reference import PropertyNamedRefThatIsNotAReference

@@ -51,17 +51,16 @@ class ComposedOneOfDifferentTypes(
         
             def __new__(
                 cls,
-                *args: typing.Union[dict, frozendict.frozendict, ],
+                *_args: typing.Union[dict, frozendict.frozendict, ],
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
             ) -> 'one_of_4':
                 return super().__new__(
                     cls,
-                    *args,
+                    *_args,
                     _configuration=_configuration,
                     **kwargs,
-                )
-        
+                )        
         
         class one_of_5(
             schemas.ListSchema
@@ -75,15 +74,14 @@ class ComposedOneOfDifferentTypes(
         
             def __new__(
                 cls,
-                arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
+                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
             ) -> 'one_of_5':
                 return super().__new__(
                     cls,
-                    arg,
+                    _arg,
                     _configuration=_configuration,
-                )
-        
+                )        
             def __getitem__(self, i: int) -> MetaOapg.items:
                 return super().__getitem__(i)
         
@@ -122,16 +120,15 @@ class ComposedOneOfDifferentTypes(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ComposedOneOfDifferentTypes':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.animal import Animal
 from petstore_api.model.number_with_validations import NumberWithValidations

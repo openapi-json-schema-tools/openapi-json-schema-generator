@@ -60,17 +60,16 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             
                 def __new__(
                     cls,
-                    *args: typing.Union[dict, frozendict.frozendict, ],
+                    *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: 'Animal',
                 ) -> 'map':
                     return super().__new__(
                         cls,
-                        *args,
+                        *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )
-            __annotations__ = {
+                    )            __annotations__ = {
                 "uuid": uuid,
                 "dateTime": dateTime,
                 "map": map,
@@ -111,7 +110,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         uuid: typing.Union[MetaOapg.properties.uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
         dateTime: typing.Union[MetaOapg.properties.dateTime, str, datetime, schemas.Unset] = schemas.unset,
         map: typing.Union[MetaOapg.properties.map, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -120,12 +119,11 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     ) -> 'MixedPropertiesAndAdditionalPropertiesClass':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             uuid=uuid,
             dateTime=dateTime,
             map=map,
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.animal import Animal

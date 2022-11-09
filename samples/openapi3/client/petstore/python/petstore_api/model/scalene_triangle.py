@@ -87,19 +87,18 @@ class ScaleneTriangle(
         
             def __new__(
                 cls,
-                *args: typing.Union[dict, frozendict.frozendict, ],
+                *_args: typing.Union[dict, frozendict.frozendict, ],
                 triangleType: typing.Union[MetaOapg.properties.triangleType, str, schemas.Unset] = schemas.unset,
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
             ) -> 'all_of_1':
                 return super().__new__(
                     cls,
-                    *args,
+                    *_args,
                     triangleType=triangleType,
                     _configuration=_configuration,
                     **kwargs,
-                )
-        
+                )        
         @classmethod
         @functools.lru_cache()
         def all_of(cls):
@@ -118,15 +117,14 @@ class ScaleneTriangle(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ScaleneTriangle':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.triangle_interface import TriangleInterface

@@ -52,15 +52,14 @@ class SchemaForRequestBodyMultipartFormData(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'files':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             __annotations__ = {
@@ -90,19 +89,18 @@ class SchemaForRequestBodyMultipartFormData(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         files: typing.Union[MetaOapg.properties.files, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaForRequestBodyMultipartFormData':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             files=files,
             _configuration=_configuration,
             **kwargs,
         )
-
 
 request_body_body = api_client.RequestBody(
     content={

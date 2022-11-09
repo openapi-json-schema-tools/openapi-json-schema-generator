@@ -63,15 +63,14 @@ class Drawing(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple['Shape'], typing.List['Shape']],
+                    _arg: typing.Union[typing.Tuple['Shape'], typing.List['Shape']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'shapes':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> 'Shape':
                     return super().__getitem__(i)
             __annotations__ = {
@@ -124,7 +123,7 @@ class Drawing(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         mainShape: typing.Union['Shape', schemas.Unset] = schemas.unset,
         shapeOrNull: typing.Union['ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['NullableShape', schemas.Unset] = schemas.unset,
@@ -134,7 +133,7 @@ class Drawing(
     ) -> 'Drawing':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             mainShape=mainShape,
             shapeOrNull=shapeOrNull,
             nullableShape=nullableShape,
@@ -142,7 +141,6 @@ class Drawing(
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.fruit import Fruit
 from petstore_api.model.nullable_shape import NullableShape
 from petstore_api.model.shape import Shape

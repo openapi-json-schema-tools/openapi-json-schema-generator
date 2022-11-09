@@ -62,56 +62,52 @@ class NestedItems(
                         
                             def __new__(
                                 cls,
-                                arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
+                                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
                                 _configuration: typing.Optional[schemas.Configuration] = None,
                             ) -> 'items':
                                 return super().__new__(
                                     cls,
-                                    arg,
+                                    _arg,
                                     _configuration=_configuration,
-                                )
-                        
+                                )                        
                             def __getitem__(self, i: int) -> MetaOapg.items:
                                 return super().__getitem__(i)
                 
                     def __new__(
                         cls,
-                        arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
+                        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
                         _configuration: typing.Optional[schemas.Configuration] = None,
                     ) -> 'items':
                         return super().__new__(
                             cls,
-                            arg,
+                            _arg,
                             _configuration=_configuration,
-                        )
-                
+                        )                
                     def __getitem__(self, i: int) -> MetaOapg.items:
                         return super().__getitem__(i)
         
             def __new__(
                 cls,
-                arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
+                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
             ) -> 'items':
                 return super().__new__(
                     cls,
-                    arg,
+                    _arg,
                     _configuration=_configuration,
-                )
-        
+                )        
             def __getitem__(self, i: int) -> MetaOapg.items:
                 return super().__getitem__(i)
 
     def __new__(
         cls,
-        arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'NestedItems':
         return super().__new__(
             cls,
-            arg,
+            _arg,
             _configuration=_configuration,
         )
-
     def __getitem__(self, i: int) -> MetaOapg.items:
         return super().__getitem__(i)

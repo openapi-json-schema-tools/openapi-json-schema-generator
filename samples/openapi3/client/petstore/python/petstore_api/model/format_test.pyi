@@ -96,15 +96,14 @@ class FormatTest(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'arrayWithUniqueItems':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             
@@ -302,7 +301,7 @@ class FormatTest(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         date: typing.Union[MetaOapg.properties.date, str, date, ],
         number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
         password: typing.Union[MetaOapg.properties.password, str, ],
@@ -328,7 +327,7 @@ class FormatTest(
     ) -> 'FormatTest':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             date=date,
             number=number,
             password=password,

@@ -57,17 +57,16 @@ class User(
             
                 def __new__(
                     cls,
-                    *args: typing.Union[dict, frozendict.frozendict, None, ],
+                    *_args: typing.Union[dict, frozendict.frozendict, None, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'objectWithNoDeclaredPropsNullable':
                     return super().__new__(
                         cls,
-                        *args,
+                        *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )
-            anyTypeProp = schemas.AnyTypeSchema
+                    )            anyTypeProp = schemas.AnyTypeSchema
             
             
             class anyTypeExceptNullProp(
@@ -81,17 +80,16 @@ class User(
             
                 def __new__(
                     cls,
-                    *args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'anyTypeExceptNullProp':
                     return super().__new__(
                         cls,
-                        *args,
+                        *_args,
                         _configuration=_configuration,
                         **kwargs,
-                    )
-            anyTypePropNullable = schemas.AnyTypeSchema
+                    )            anyTypePropNullable = schemas.AnyTypeSchema
             __annotations__ = {
                 "id": id,
                 "username": username,
@@ -203,7 +201,7 @@ class User(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[MetaOapg.properties.id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         username: typing.Union[MetaOapg.properties.username, str, schemas.Unset] = schemas.unset,
         firstName: typing.Union[MetaOapg.properties.firstName, str, schemas.Unset] = schemas.unset,
@@ -222,7 +220,7 @@ class User(
     ) -> 'User':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             id=id,
             username=username,
             firstName=firstName,

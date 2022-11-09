@@ -55,15 +55,14 @@ class Pet(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'photoUrls':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             id = schemas.Int64Schema
@@ -86,15 +85,14 @@ class Pet(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple['Tag'], typing.List['Tag']],
+                    _arg: typing.Union[typing.Tuple['Tag'], typing.List['Tag']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'tags':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
-                    )
-            
+                    )            
                 def __getitem__(self, i: int) -> 'Tag':
                     return super().__getitem__(i)
             
@@ -180,7 +178,7 @@ class Pet(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         photoUrls: typing.Union[MetaOapg.properties.photoUrls, list, tuple, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
         id: typing.Union[MetaOapg.properties.id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
@@ -192,7 +190,7 @@ class Pet(
     ) -> 'Pet':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             photoUrls=photoUrls,
             name=name,
             id=id,
@@ -202,6 +200,5 @@ class Pet(
             _configuration=_configuration,
             **kwargs,
         )
-
 from petstore_api.model.category import Category
 from petstore_api.model.tag import Tag
