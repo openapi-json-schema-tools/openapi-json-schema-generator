@@ -197,4 +197,17 @@ public class PythonClientTest {
         Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("DOTALL", "IGNORECASE", "MULTILINE"));
     }
+
+    @Test
+    public void testEnumNames() {
+        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/schema_enum_names.yaml");
+        PythonClientCodegen codegen = new PythonClientCodegen();
+        codegen.setOpenAPI(openAPI);
+
+        String modelName = "StringEnum";
+        Schema schema = openAPI.getComponents().getSchemas().get(modelName);
+
+        CodegenModel cm = codegen.fromModel(modelName, schema);
+        Assert.assertEquals(cm.getAllowableValues(), null);
+    }
 }
