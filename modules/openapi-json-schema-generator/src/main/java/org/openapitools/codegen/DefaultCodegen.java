@@ -699,7 +699,6 @@ public class DefaultCodegen implements CodegenConfig {
      * @return maps of models with better enum support
      */
     public ModelsMap postProcessModelsEnum(ModelsMap objs) {
-        // TODO remove this
         for (ModelMap mo : objs.getModels()) {
             CodegenModel cm = mo.getModel();
 
@@ -2917,19 +2916,15 @@ public class DefaultCodegen implements CodegenConfig {
             m.xmlNamespace = schema.getXml().getNamespace();
             m.xmlName = schema.getXml().getName();
         }
-        m.dataType = getSchemaType(schema);
-        if (schema.getEnum() != null && !schema.getEnum().isEmpty()) {
+        if (!ModelUtils.isAnyType(schema) && !ModelUtils.isTypeObjectSchema(schema) && !ModelUtils.isArraySchema(schema) && schema.get$ref() == null && schema.getEnum() != null && !schema.getEnum().isEmpty()) {
             // TODO remove the anyType check here in the future ANyType models can have enums defined
             m.isEnum = true;
             // comment out below as allowableValues is not set in post processing model enum
             m.allowableValues = new HashMap<>();
-            List<Object> values = schema.getEnum();
-
-            List<Map<String, Object>> enumVars = buildEnumVars(values, m.dataType);
-            // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-            updateEnumVarsWithExtensions(enumVars, m.getVendorExtensions(), m.dataType);
-            m.allowableValues.put("enumVars", enumVars);
-
+            m.allowableValues.put("values", schema.getEnum());
+        }
+        if (!ModelUtils.isArraySchema(schema)) {
+            m.dataType = getSchemaType(schema);
         }
         if (!ModelUtils.isAnyType(schema) && Boolean.TRUE.equals(schema.getNullable())) {
             m.isNullable = Boolean.TRUE;
