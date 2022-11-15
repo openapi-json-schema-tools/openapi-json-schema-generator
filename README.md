@@ -97,9 +97,11 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 
 | OpenAPI JSON Schema Generator Version | Release Date | Notes                                                                                                                                                                                                                             |
 |---------------------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.0.3                                 | 2022-11-14   | - Fixes multipart from content-disposition bug<br/>- Fixes addProps referenced when it doesn't exists<br/>- Allows arg + args properties                                                                                          |
 | 1.0.2                                 | 2022-10-20   | - Endpoint overload type hints improved<br/>- Fixes application/x-www-form-urlencoded body value<br/>- Fixes type hint for required property not defined in properties                                                            |
 | 1.0.1                                 | 2022-10-10   | - Endpoint overload type hints improved<br/>- Fixes query param content type json serialization<br/>- Applies default headers before header params                                                                                |
 | 1.0.0                                 | 2022-10-04   | - Endpoint overload type hints improved<br/>- Fixes Attribute error when using auth header<br/>- Fixes for refed properties with invalid names<br/>- Fixes regex patterns without trailing slashes break Python client generation |
+
 OpenAPI Spec compatibility: 3.0.0 - 3.0.3
 
 ### [1.2 - Build Projects](#table-of-contents)
