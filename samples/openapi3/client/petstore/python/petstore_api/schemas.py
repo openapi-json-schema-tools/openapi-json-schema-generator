@@ -2339,6 +2339,9 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
+    class MetaOapg:
+        types = {bytes}
+
     def __new__(cls, _arg: bytes, **kwargs: Configuration):
         return super(Schema, cls).__new__(cls, _arg)
 
@@ -2363,6 +2366,8 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
+    class MetaOapg:
+        types = {FileIO}
 
     def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: Configuration):
         return super(Schema, cls).__new__(cls, _arg)
