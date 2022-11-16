@@ -34,6 +34,7 @@ class MinpropertiesValidation(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

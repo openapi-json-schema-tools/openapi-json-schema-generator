@@ -34,6 +34,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -44,6 +45,9 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     inclusive_maximum = 3
             __annotations__ = {
                 "alpha": alpha,

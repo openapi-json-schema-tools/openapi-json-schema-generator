@@ -34,6 +34,7 @@ class JsonPointerFormat(
 
 
     class MetaOapg:
+        types = None
         format = 'json-pointer'
 
 

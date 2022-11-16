@@ -34,6 +34,7 @@ class MaxitemsValidation(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

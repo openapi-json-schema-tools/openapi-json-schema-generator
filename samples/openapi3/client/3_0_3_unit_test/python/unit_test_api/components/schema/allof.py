@@ -34,6 +34,7 @@ class Allof(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_0(
@@ -42,6 +43,7 @@ class Allof(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "bar",
                 }
@@ -98,6 +100,7 @@ class Allof(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "foo",
                 }

@@ -34,6 +34,7 @@ class RefInProperty(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
         

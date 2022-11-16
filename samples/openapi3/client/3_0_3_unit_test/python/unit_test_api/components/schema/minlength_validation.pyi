@@ -34,6 +34,7 @@ class MinlengthValidation(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

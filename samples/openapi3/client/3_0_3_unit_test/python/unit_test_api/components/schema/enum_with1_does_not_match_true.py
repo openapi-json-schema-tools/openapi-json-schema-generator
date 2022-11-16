@@ -35,6 +35,9 @@ class EnumWith1DoesNotMatchTrue(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         enum_value_to_name = {
             1: "POSITIVE_1",
         }

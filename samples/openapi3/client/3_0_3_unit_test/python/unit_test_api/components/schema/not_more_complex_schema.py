@@ -34,6 +34,7 @@ class NotMoreComplexSchema(
 
 
     class MetaOapg:
+        types = None
         
         
         class not_schema(
@@ -42,6 +43,7 @@ class NotMoreComplexSchema(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 
                 class properties:
                     foo = schemas.StrSchema
