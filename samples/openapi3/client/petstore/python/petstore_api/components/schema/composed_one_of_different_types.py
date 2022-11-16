@@ -36,6 +36,7 @@ class ComposedOneOfDifferentTypes(
 
 
     class MetaOapg:
+        types = None
         one_of_2 = schemas.NoneSchema
         one_of_3 = schemas.DateSchema
         

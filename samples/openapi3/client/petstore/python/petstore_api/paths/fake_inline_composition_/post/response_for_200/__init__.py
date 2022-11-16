@@ -24,6 +24,7 @@ class application_json(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_0(
@@ -79,6 +80,7 @@ class multipart_form_data(
             
             
                 class MetaOapg:
+                    types = None
                     
                     
                     class all_of_0(

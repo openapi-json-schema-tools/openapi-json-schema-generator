@@ -35,6 +35,9 @@ class AdditionalPropertiesValidator(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         
         
         class all_of_0(
@@ -80,6 +83,7 @@ class AdditionalPropertiesValidator(
                 
                 
                     class MetaOapg:
+                        types = None
                         min_length = 3
                 
                 
@@ -131,6 +135,7 @@ class AdditionalPropertiesValidator(
                 
                 
                     class MetaOapg:
+                        types = None
                         max_length = 5
                 
                 

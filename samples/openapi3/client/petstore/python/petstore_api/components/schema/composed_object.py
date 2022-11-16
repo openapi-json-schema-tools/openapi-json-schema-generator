@@ -35,6 +35,9 @@ class ComposedObject(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         all_of_0 = schemas.AnyTypeSchema
         
         @classmethod

@@ -45,6 +45,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'uuid'
             
             
@@ -69,6 +70,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'date'
             
             
@@ -93,6 +95,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'date-time'
             
             
@@ -117,6 +120,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'number'
             
             
@@ -141,6 +145,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'binary'
             
             
@@ -165,6 +170,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'int32'
             
             
@@ -189,6 +195,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'int64'
             
             
@@ -213,6 +220,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'double'
             
             
@@ -237,6 +245,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
+                    types = None
                     format = 'float'
             
             

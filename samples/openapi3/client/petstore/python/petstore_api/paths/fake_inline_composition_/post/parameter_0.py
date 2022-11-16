@@ -33,6 +33,7 @@ class schema(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_0(

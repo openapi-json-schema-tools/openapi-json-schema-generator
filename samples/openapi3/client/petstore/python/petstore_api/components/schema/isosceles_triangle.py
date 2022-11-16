@@ -34,6 +34,7 @@ class IsoscelesTriangle(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_1(

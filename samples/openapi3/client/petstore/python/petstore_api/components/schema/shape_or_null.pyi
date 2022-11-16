@@ -36,6 +36,7 @@ class ShapeOrNull(
 
 
     class MetaOapg:
+        types = None
         
         @staticmethod
         def discriminator():

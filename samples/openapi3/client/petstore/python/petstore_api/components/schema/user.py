@@ -55,6 +55,13 @@ class User(
             ):
             
             
+                class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        frozendict.frozendict,
+                    }
+            
+            
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, None, ],
@@ -76,6 +83,7 @@ class User(
             
             
                 class MetaOapg:
+                    types = None
                     not_schema = schemas.NoneSchema
             
             
