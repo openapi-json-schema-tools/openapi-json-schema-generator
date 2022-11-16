@@ -34,6 +34,7 @@ class Quadrilateral(
 
 
     class MetaOapg:
+        types = None
         
         @staticmethod
         def discriminator():

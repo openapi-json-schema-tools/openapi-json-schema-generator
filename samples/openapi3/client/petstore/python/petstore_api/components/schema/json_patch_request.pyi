@@ -42,6 +42,7 @@ class JSONPatchRequest(
         
         
             class MetaOapg:
+                types = None
                 
                 @classmethod
                 @functools.lru_cache()

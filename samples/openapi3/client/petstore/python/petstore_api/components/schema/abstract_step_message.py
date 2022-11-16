@@ -37,6 +37,9 @@ class AbstractStepMessage(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         required = {
             "sequenceNumber",
             "description",

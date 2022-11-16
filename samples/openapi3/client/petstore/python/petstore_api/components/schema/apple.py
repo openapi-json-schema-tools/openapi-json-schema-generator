@@ -37,6 +37,10 @@ class Apple(
 
 
     class MetaOapg:
+        types = {
+            schemas.NoneClass,
+            frozendict.frozendict,
+        }
         required = {
             "cultivar",
         }
