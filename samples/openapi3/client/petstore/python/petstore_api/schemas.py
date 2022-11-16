@@ -2033,8 +2033,6 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
-    class MetaOapg:
-        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[Configuration] = None):
@@ -2065,12 +2063,12 @@ class NumberSchema(
     Schema,
     DecimalMixin
 ):
-    class MetaOapg:
-        pass
     """
     This is used for type: number with no format
     Both integers AND floats are accepted
     """
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.Union[int, float], _configuration: typing.Optional[Configuration] = None):
@@ -2114,9 +2112,6 @@ class IntBase:
 
 
 class IntSchema(IntBase, NumberSchema):
-    class MetaOapg:
-        pass
-
     @classmethod
     def from_openapi_data_oapg(cls, arg: int, _configuration: typing.Optional[Configuration] = None):
         return super().from_openapi_data_oapg(arg, _configuration=_configuration)
@@ -2157,7 +2152,6 @@ class Int32Schema(
     class MetaOapg:
         format = 'int32'
 
-
 class Int64Base:
     __inclusive_minimum = decimal.Decimal(-9223372036854775808)
     __inclusive_maximum = decimal.Decimal(9223372036854775807)
@@ -2189,7 +2183,6 @@ class Int64Schema(
 ):
     class MetaOapg:
         format = 'int64'
-
 
 class Float32Base:
     __inclusive_minimum = decimal.Decimal(-3.4028234663852886e+38)
@@ -2375,6 +2368,7 @@ class BinarySchema(
 ):
     class MetaOapg:
         format = 'binary'
+
         @staticmethod
         def one_of():
             return [
