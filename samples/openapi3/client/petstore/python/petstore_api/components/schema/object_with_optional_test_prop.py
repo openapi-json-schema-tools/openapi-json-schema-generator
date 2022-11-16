@@ -34,6 +34,7 @@ class ObjectWithOptionalTestProp(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             test = schemas.StrSchema

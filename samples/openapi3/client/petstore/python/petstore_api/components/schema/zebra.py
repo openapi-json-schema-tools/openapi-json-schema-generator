@@ -34,6 +34,7 @@ class Zebra(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "className",
         }
@@ -48,6 +49,9 @@ class Zebra(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "zebra": "ZEBRA",
                     }
@@ -64,6 +68,9 @@ class Zebra(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "plains": "PLAINS",
                         "mountain": "MOUNTAIN",

@@ -34,6 +34,7 @@ class ArrayTest(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             

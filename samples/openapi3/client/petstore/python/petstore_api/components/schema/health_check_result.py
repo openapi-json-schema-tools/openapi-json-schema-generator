@@ -36,6 +36,7 @@ class HealthCheckResult(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             

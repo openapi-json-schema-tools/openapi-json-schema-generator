@@ -43,6 +43,7 @@ class ScaleneTriangle(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 
                 class properties:
                     
@@ -54,6 +55,9 @@ class ScaleneTriangle(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             enum_value_to_name = {
                                 "ScaleneTriangle": "SCALENE_TRIANGLE",
                             }

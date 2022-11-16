@@ -34,6 +34,7 @@ class Banana(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "lengthCm",
         }

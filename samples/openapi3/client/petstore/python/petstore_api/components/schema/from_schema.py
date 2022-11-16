@@ -34,6 +34,7 @@ class FromSchema(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             data = schemas.StrSchema

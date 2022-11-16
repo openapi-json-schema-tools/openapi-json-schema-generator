@@ -34,4 +34,7 @@ class StringWithValidation(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         min_length = 7

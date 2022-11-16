@@ -43,6 +43,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 required = {
                     "test",
                 }

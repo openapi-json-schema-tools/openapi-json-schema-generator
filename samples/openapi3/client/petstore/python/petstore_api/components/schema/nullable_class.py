@@ -34,6 +34,7 @@ class NullableClass(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -447,6 +448,7 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     
                     
                     class additional_properties(

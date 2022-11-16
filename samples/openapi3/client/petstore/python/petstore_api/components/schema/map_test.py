@@ -34,6 +34,7 @@ class MapTest(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -44,6 +45,7 @@ class MapTest(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     
                     
                     class additional_properties(
@@ -52,6 +54,7 @@ class MapTest(
                     
                     
                         class MetaOapg:
+                            types = {frozendict.frozendict}
                             additional_properties = schemas.StrSchema
                         
                         def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -101,6 +104,7 @@ class MapTest(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     
                     
                     class additional_properties(
@@ -110,6 +114,9 @@ class MapTest(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             enum_value_to_name = {
                                 "UPPER": "UPPER",
                                 "lower": "LOWER",
@@ -150,6 +157,7 @@ class MapTest(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     additional_properties = schemas.BoolSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:

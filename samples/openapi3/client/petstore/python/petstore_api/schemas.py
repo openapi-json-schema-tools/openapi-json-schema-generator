@@ -2030,7 +2030,7 @@ class ComposedSchema(
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
     class MetaOapg:
-        pass
+        types = None
 
     @classmethod
     def from_openapi_data_oapg(cls, *args: typing.Any, _configuration: typing.Optional[Configuration] = None, **kwargs):
@@ -2047,7 +2047,7 @@ class ListSchema(
     TupleMixin
 ):
     class MetaOapg:
-        pass
+        types = {tuple}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[Configuration] = None):
@@ -2063,7 +2063,7 @@ class NoneSchema(
     NoneMixin
 ):
     class MetaOapg:
-        pass
+        types = {NoneClass}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: None, _configuration: typing.Optional[Configuration] = None):
@@ -2083,7 +2083,7 @@ class NumberSchema(
     Both integers AND floats are accepted
     """
     class MetaOapg:
-        pass
+        types = {decimal.Decimal}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.Union[int, float], _configuration: typing.Optional[Configuration] = None):
@@ -2165,6 +2165,7 @@ class Int32Schema(
     IntSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'int32'
 
 class Int64Base:
@@ -2197,6 +2198,7 @@ class Int64Schema(
     IntSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'int64'
 
 class Float32Base:
@@ -2229,6 +2231,7 @@ class Float32Schema(
     NumberSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'float'
 
     @classmethod
@@ -2265,6 +2268,7 @@ class Float64Schema(
     NumberSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'double'
 
     @classmethod
@@ -2285,7 +2289,7 @@ class StrSchema(
     - type: string, format: date
     """
     class MetaOapg:
-        pass
+        types = {str}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: str, _configuration: typing.Optional[Configuration] = None) -> 'StrSchema':
@@ -2297,6 +2301,7 @@ class StrSchema(
 
 class UUIDSchema(UUIDBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'uuid'
 
     def __new__(cls, _arg: typing.Union[str, uuid.UUID], **kwargs: Configuration):
@@ -2305,6 +2310,7 @@ class UUIDSchema(UUIDBase, StrSchema):
 
 class DateSchema(DateBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'date'
 
     def __new__(cls, _arg: typing.Union[str, date], **kwargs: Configuration):
@@ -2313,6 +2319,7 @@ class DateSchema(DateBase, StrSchema):
 
 class DateTimeSchema(DateTimeBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'date-time'
 
     def __new__(cls, _arg: typing.Union[str, datetime], **kwargs: Configuration):
@@ -2321,6 +2328,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
 
 class DecimalSchema(DecimalBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'number'
 
     def __new__(cls, _arg: str, **kwargs: Configuration):
@@ -2382,6 +2390,7 @@ class BinarySchema(
     BinaryMixin
 ):
     class MetaOapg:
+        types = {FileIO, bytes}
         format = 'binary'
 
         @staticmethod
@@ -2401,7 +2410,7 @@ class BoolSchema(
     BoolMixin
 ):
     class MetaOapg:
-        pass
+        types = {BoolClass}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: bool, _configuration: typing.Optional[Configuration] = None):
@@ -2423,7 +2432,7 @@ class AnyTypeSchema(
 ):
     # Python representation of a schema defined as true or {}
     class MetaOapg:
-        pass
+        types = None
 
 
 class UnsetAnyTypeSchema(AnyTypeSchema):
@@ -2441,6 +2450,7 @@ class NotAnyTypeSchema(
     """
 
     class MetaOapg:
+        types = None
         not_schema = AnyTypeSchema
 
     def __new__(
@@ -2461,7 +2471,7 @@ class DictSchema(
     FrozenDictMixin
 ):
     class MetaOapg:
-        pass
+        types = {frozendict.frozendict}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.Dict[str, typing.Any], _configuration: typing.Optional[Configuration] = None):

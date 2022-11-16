@@ -35,6 +35,9 @@ class StringEnumWithDefaultValue(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         enum_value_to_name = {
             "placed": "PLACED",
             "approved": "APPROVED",

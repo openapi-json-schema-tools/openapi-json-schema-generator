@@ -34,6 +34,7 @@ class Order(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             id = schemas.Int64Schema
@@ -49,6 +50,9 @@ class Order(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "placed": "PLACED",
                         "approved": "APPROVED",

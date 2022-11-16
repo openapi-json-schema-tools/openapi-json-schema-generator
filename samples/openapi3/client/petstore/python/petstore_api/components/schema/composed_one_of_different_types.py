@@ -47,6 +47,7 @@ class ComposedOneOfDifferentTypes(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 max_properties = 4
                 min_properties = 4
         
@@ -95,6 +96,9 @@ class ComposedOneOfDifferentTypes(
         
         
             class MetaOapg:
+                types = {
+                    str,
+                }
                 format = 'date-time'
                 regex=[{
                     'pattern': r'^2020.*',  # noqa: E501

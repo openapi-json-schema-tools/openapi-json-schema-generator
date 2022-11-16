@@ -33,6 +33,7 @@ class application_x_www_form_urlencoded(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -52,6 +53,9 @@ class application_x_www_form_urlencoded(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             enum_value_to_name = {
                                 ">": "GREATER_THAN",
                                 "$": "DOLLAR",
@@ -87,6 +91,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "_abc": "_ABC",
                         "-efg": "EFG",

@@ -34,6 +34,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             uuid = schemas.UUIDSchema
@@ -46,6 +47,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     
                     @staticmethod
                     def additional_properties() -> typing.Type['animal.Animal']:
