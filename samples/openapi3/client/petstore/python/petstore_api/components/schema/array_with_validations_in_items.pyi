@@ -35,6 +35,7 @@ class ArrayWithValidationsInItems(
 
     class MetaOapg:
         types = {tuple}
+        max_items = 2
         
         
         class items(

@@ -233,6 +233,7 @@ class BoolClass(Singleton):
 
 
 class MetaOapgTyped:
+    types: typing.Optional[typing.Set[typing.Type]]
     exclusive_maximum: typing.Union[int, float]
     inclusive_maximum: typing.Union[int, float]
     exclusive_minimum: typing.Union[int, float]
@@ -264,6 +265,7 @@ class Schema:
     """
     __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
     _types: typing.Set[typing.Type]
+    MetaOapg: MetaOapgTyped
 
     @staticmethod
     def __get_valid_classes_phrase(input_classes):
@@ -345,11 +347,11 @@ class Schema:
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
         base_class = type(arg)
-        if base_class not in cls._types:
+        if cls.MetaOapg.types is not None and base_class not in cls.MetaOapg.types:
             raise cls.__get_type_error(
                 arg,
                 validation_metadata.path_to_item,
-                cls._types,
+                cls.MetaOapg.types,
                 key_type=False,
             )
 

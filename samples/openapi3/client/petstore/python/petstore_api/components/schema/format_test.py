@@ -141,6 +141,7 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     unique_items = True
                     items = schemas.NumberSchema
             

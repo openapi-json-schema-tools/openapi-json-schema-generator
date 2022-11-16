@@ -57,6 +57,7 @@ class Drawing(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     @staticmethod
                     def items() -> typing.Type['shape.Shape']:

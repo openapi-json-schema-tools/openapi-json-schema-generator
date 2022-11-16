@@ -45,6 +45,7 @@ class ArrayTest(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     items = schemas.StrSchema
             
                 def __new__(
@@ -68,6 +69,7 @@ class ArrayTest(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     
                     class items(
@@ -76,6 +78,7 @@ class ArrayTest(
                     
                     
                         class MetaOapg:
+                            types = {tuple}
                             items = schemas.Int64Schema
                     
                         def __new__(
@@ -113,6 +116,7 @@ class ArrayTest(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     
                     class items(
@@ -121,6 +125,7 @@ class ArrayTest(
                     
                     
                         class MetaOapg:
+                            types = {tuple}
                             
                             @staticmethod
                             def items() -> typing.Type['read_only_first.ReadOnlyFirst']:

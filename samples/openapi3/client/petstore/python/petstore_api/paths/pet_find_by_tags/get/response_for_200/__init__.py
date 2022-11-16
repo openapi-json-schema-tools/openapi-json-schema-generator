@@ -26,6 +26,7 @@ class application_xml(
 
 
     class MetaOapg:
+        types = {tuple}
         
         @staticmethod
         def items() -> typing.Type['pet.Pet']:
@@ -52,6 +53,7 @@ class application_json(
 
 
     class MetaOapg:
+        types = {tuple}
         
         @staticmethod
         def items() -> typing.Type['pet.Pet']:
