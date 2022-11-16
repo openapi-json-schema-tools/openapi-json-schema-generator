@@ -58,6 +58,7 @@ class EnumArrays(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     
                     class items(

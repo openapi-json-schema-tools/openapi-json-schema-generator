@@ -26,6 +26,7 @@ class application_json(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
         

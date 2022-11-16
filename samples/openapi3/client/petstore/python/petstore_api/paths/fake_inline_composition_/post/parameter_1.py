@@ -33,6 +33,7 @@ class schema(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -52,6 +53,9 @@ class schema(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             min_length = 1
                     
                     @classmethod

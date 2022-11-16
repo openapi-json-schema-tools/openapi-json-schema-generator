@@ -34,6 +34,7 @@ class BasquePig(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "className",
         }
@@ -48,6 +49,9 @@ class BasquePig(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "BasquePig": "BASQUE_PIG",
                     }

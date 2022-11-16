@@ -34,6 +34,7 @@ class ArrayOfArrayOfNumberOnly(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             

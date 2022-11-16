@@ -42,6 +42,9 @@ class schema(
         
         
             class MetaOapg:
+                types = {
+                    str,
+                }
                 min_length = 1
         
         @classmethod

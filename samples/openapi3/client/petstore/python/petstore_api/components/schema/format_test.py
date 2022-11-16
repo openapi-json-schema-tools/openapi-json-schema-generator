@@ -34,6 +34,7 @@ class FormatTest(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "date",
             "number",
@@ -50,6 +51,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     inclusive_maximum = 543.2
                     inclusive_minimum = 32.1
                     multiple_of = 32.5
@@ -63,6 +67,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     format = 'password'
                     max_length = 64
                     min_length = 10
@@ -74,6 +81,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     inclusive_maximum = 100
                     inclusive_minimum = 10
                     multiple_of = 2
@@ -86,6 +96,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'int32'
                     inclusive_maximum = 200
                     inclusive_minimum = 20
@@ -98,6 +111,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'float'
                     inclusive_maximum = 987.6
                     inclusive_minimum = 54.3
@@ -110,6 +126,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'double'
                     inclusive_maximum = 123.4
                     inclusive_minimum = 67.8
@@ -146,6 +165,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'[a-z]',  # noqa: E501
                         'flags': (
@@ -164,6 +186,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'^\d{10}$',  # noqa: E501
                     }]
@@ -175,6 +200,9 @@ class FormatTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'^image_\d{1,3}$',  # noqa: E501
                         'flags': (

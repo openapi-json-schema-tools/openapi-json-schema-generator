@@ -22,6 +22,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 
 
     class MetaOapg:
+        {{> model_templates/types }}
 {{#if getFormat}}
         format = '{{getFormat}}'
 {{/if}}

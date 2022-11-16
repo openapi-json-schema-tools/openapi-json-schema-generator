@@ -34,6 +34,7 @@ class User(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             id = schemas.Int64Schema

@@ -34,6 +34,9 @@ class DateTimeWithValidations(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         format = 'date-time'
         regex=[{
             'pattern': r'^2020.*',  # noqa: E501

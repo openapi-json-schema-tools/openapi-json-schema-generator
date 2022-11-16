@@ -33,6 +33,9 @@ class application_json(
         
         
             class MetaOapg:
+                types = {
+                    str,
+                }
                 min_length = 1
         
         @classmethod
@@ -70,6 +73,7 @@ class multipart_form_data(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -89,6 +93,9 @@ class multipart_form_data(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             min_length = 1
                     
                     @classmethod

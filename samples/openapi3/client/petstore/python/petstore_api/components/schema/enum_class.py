@@ -35,6 +35,9 @@ class EnumClass(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         enum_value_to_name = {
             "_abc": "_ABC",
             "-efg": "EFG",

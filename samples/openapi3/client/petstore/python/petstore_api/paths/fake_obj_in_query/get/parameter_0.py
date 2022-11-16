@@ -33,6 +33,7 @@ class schema(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             keyword = schemas.StrSchema

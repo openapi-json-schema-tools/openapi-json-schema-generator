@@ -34,6 +34,7 @@ class AdditionalPropertiesClass(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -44,6 +45,7 @@ class AdditionalPropertiesClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     additional_properties = schemas.StrSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -73,6 +75,7 @@ class AdditionalPropertiesClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     
                     
                     class additional_properties(
@@ -81,6 +84,7 @@ class AdditionalPropertiesClass(
                     
                     
                         class MetaOapg:
+                            types = {frozendict.frozendict}
                             additional_properties = schemas.StrSchema
                         
                         def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -133,6 +137,7 @@ class AdditionalPropertiesClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     additional_properties = schemas.AnyTypeSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -162,6 +167,7 @@ class AdditionalPropertiesClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     additional_properties = schemas.NotAnyTypeSchema
             
                 def __new__(
@@ -182,6 +188,7 @@ class AdditionalPropertiesClass(
             
             
                 class MetaOapg:
+                    types = {frozendict.frozendict}
                     additional_properties = schemas.StrSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
