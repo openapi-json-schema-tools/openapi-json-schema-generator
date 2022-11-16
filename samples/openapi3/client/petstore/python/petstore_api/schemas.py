@@ -264,7 +264,6 @@ class Schema:
     """
     __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
     _types: typing.Set[typing.Type]
-    MetaOapg = MetaOapgTyped
 
     @staticmethod
     def __get_valid_classes_phrase(input_classes):
@@ -971,8 +970,6 @@ class StrBase(ValidatorBase):
         arg: str,
         validation_metadata: ValidationMetadata
     ):
-        if not hasattr(cls, 'MetaOapg'):
-            return
         if (cls._is_json_validation_enabled_oapg('maxLength', validation_metadata.configuration) and
                 hasattr(cls.MetaOapg, 'max_length') and
                 len(arg) > cls.MetaOapg.max_length):
@@ -1234,8 +1231,6 @@ class NumberBase(ValidatorBase):
         arg,
         validation_metadata: ValidationMetadata
     ):
-        if not hasattr(cls, 'MetaOapg'):
-            return
         if cls._is_json_validation_enabled_oapg('multipleOf',
                                       validation_metadata.configuration) and hasattr(cls.MetaOapg, 'multiple_of'):
             multiple_of_value = cls.MetaOapg.multiple_of
@@ -1356,8 +1351,6 @@ class ListBase(ValidatorBase):
     def __check_tuple_validations(
             cls, arg,
             validation_metadata: ValidationMetadata):
-        if not hasattr(cls, 'MetaOapg'):
-            return
         if (cls._is_json_validation_enabled_oapg('maxItems', validation_metadata.configuration) and
                 hasattr(cls.MetaOapg, 'max_items') and
                 len(arg) > cls.MetaOapg.max_items):
@@ -1476,9 +1469,7 @@ class Discriminable:
         discriminated_cls = disc[disc_property_name].get(disc_payload_value)
         if discriminated_cls is not None:
             return discriminated_cls
-        if not hasattr(cls, 'MetaOapg'):
-            return None
-        elif not (
+        if not (
             hasattr(cls.MetaOapg, 'all_of') or
             hasattr(cls.MetaOapg, 'one_of') or
             hasattr(cls.MetaOapg, 'any_of')
@@ -1621,8 +1612,6 @@ class DictBase(Discriminable, ValidatorBase):
         arg,
         validation_metadata: ValidationMetadata
     ):
-        if not hasattr(cls, 'MetaOapg'):
-            return
         if (cls._is_json_validation_enabled_oapg('maxProperties', validation_metadata.configuration) and
                 hasattr(cls.MetaOapg, 'max_properties') and
                 len(arg) > cls.MetaOapg.max_properties):
@@ -2040,6 +2029,9 @@ class ComposedSchema(
     Schema,
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
+    class MetaOapg:
+        pass
+
     @classmethod
     def from_openapi_data_oapg(cls, *args: typing.Any, _configuration: typing.Optional[Configuration] = None, **kwargs):
         if not args:
@@ -2054,6 +2046,8 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[Configuration] = None):
@@ -2068,6 +2062,8 @@ class NoneSchema(
     Schema,
     NoneMixin
 ):
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: None, _configuration: typing.Optional[Configuration] = None):
@@ -2082,6 +2078,8 @@ class NumberSchema(
     Schema,
     DecimalMixin
 ):
+    class MetaOapg:
+        pass
     """
     This is used for type: number with no format
     Both integers AND floats are accepted
@@ -2129,6 +2127,8 @@ class IntBase:
 
 
 class IntSchema(IntBase, NumberSchema):
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: int, _configuration: typing.Optional[Configuration] = None):
@@ -2167,7 +2167,8 @@ class Int32Schema(
     Int32Base,
     IntSchema
 ):
-    pass
+    class MetaOapg:
+        format = 'int32'
 
 
 class Int64Base:
@@ -2199,7 +2200,8 @@ class Int64Schema(
     Int64Base,
     IntSchema
 ):
-    pass
+    class MetaOapg:
+        format = 'int64'
 
 
 class Float32Base:
@@ -2231,6 +2233,8 @@ class Float32Schema(
     Float32Base,
     NumberSchema
 ):
+    class MetaOapg:
+        format = 'float'
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: float, _configuration: typing.Optional[Configuration] = None):
@@ -2265,6 +2269,8 @@ class Float64Schema(
     Float64Base,
     NumberSchema
 ):
+    class MetaOapg:
+        format = 'double'
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: float, _configuration: typing.Optional[Configuration] = None):
@@ -2283,6 +2289,8 @@ class StrSchema(
     - type: string (format unset)
     - type: string, format: date
     """
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: str, _configuration: typing.Optional[Configuration] = None) -> 'StrSchema':
@@ -2293,24 +2301,32 @@ class StrSchema(
 
 
 class UUIDSchema(UUIDBase, StrSchema):
+    class MetaOapg:
+        format = 'uuid'
 
     def __new__(cls, _arg: typing.Union[str, uuid.UUID], **kwargs: Configuration):
         return super().__new__(cls, _arg, **kwargs)
 
 
 class DateSchema(DateBase, StrSchema):
+    class MetaOapg:
+        format = 'date'
 
     def __new__(cls, _arg: typing.Union[str, date], **kwargs: Configuration):
         return super().__new__(cls, _arg, **kwargs)
 
 
 class DateTimeSchema(DateTimeBase, StrSchema):
+    class MetaOapg:
+        format = 'date-time'
 
     def __new__(cls, _arg: typing.Union[str, datetime], **kwargs: Configuration):
         return super().__new__(cls, _arg, **kwargs)
 
 
 class DecimalSchema(DecimalBase, StrSchema):
+    class MetaOapg:
+        format = 'number'
 
     def __new__(cls, _arg: str, **kwargs: Configuration):
         """
@@ -2371,6 +2387,7 @@ class BinarySchema(
     BinaryMixin
 ):
     class MetaOapg:
+        format = 'binary'
         @staticmethod
         def one_of():
             return [
@@ -2387,6 +2404,8 @@ class BoolSchema(
     Schema,
     BoolMixin
 ):
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: bool, _configuration: typing.Optional[Configuration] = None):
@@ -2407,7 +2426,8 @@ class AnyTypeSchema(
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):
     # Python representation of a schema defined as true or {}
-    pass
+    class MetaOapg:
+        pass
 
 
 class UnsetAnyTypeSchema(AnyTypeSchema):
@@ -2444,6 +2464,9 @@ class DictSchema(
     Schema,
     FrozenDictMixin
 ):
+    class MetaOapg:
+        pass
+
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.Dict[str, typing.Any], _configuration: typing.Optional[Configuration] = None):
         return super().from_openapi_data_oapg(arg, _configuration=_configuration)
