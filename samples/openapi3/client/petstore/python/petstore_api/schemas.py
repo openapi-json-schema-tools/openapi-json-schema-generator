@@ -2033,6 +2033,8 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
+    class MetaOapg:
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[Configuration] = None):
