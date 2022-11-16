@@ -35,6 +35,7 @@ class application_json(
 
 
     class MetaOapg:
+        types = {tuple}
         
         @staticmethod
         def items() -> typing.Type['user.User']:

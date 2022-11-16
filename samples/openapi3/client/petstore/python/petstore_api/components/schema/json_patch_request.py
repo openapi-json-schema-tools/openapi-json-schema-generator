@@ -34,6 +34,7 @@ class JSONPatchRequest(
 
 
     class MetaOapg:
+        types = {tuple}
         
         
         class items(

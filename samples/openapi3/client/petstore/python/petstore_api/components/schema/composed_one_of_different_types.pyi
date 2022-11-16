@@ -66,6 +66,8 @@ class ComposedOneOfDifferentTypes(
         
             class MetaOapg:
                 types = {tuple}
+                max_items = 4
+                min_items = 4
                 items = schemas.AnyTypeSchema
         
             def __new__(

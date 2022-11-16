@@ -295,6 +295,7 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     
                     class items(
