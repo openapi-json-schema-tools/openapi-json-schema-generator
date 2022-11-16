@@ -34,6 +34,7 @@ class ByInt(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

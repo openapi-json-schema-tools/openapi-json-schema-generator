@@ -34,6 +34,7 @@ class MaxitemsValidation(
 
 
     class MetaOapg:
+        types = None
         max_items = 2
 
 

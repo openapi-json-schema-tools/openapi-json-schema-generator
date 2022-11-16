@@ -34,6 +34,7 @@ class NestedItems(
 
 
     class MetaOapg:
+        types = {tuple}
         
         
         class items(
@@ -42,6 +43,7 @@ class NestedItems(
         
         
             class MetaOapg:
+                types = {tuple}
                 
                 
                 class items(
@@ -50,6 +52,7 @@ class NestedItems(
                 
                 
                     class MetaOapg:
+                        types = {tuple}
                         
                         
                         class items(
@@ -58,6 +61,7 @@ class NestedItems(
                         
                         
                             class MetaOapg:
+                                types = {tuple}
                                 items = schemas.NumberSchema
                         
                             def __new__(

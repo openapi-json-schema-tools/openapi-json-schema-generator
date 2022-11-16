@@ -34,6 +34,7 @@ class AnyofWithOneEmptySchema(
 
 
     class MetaOapg:
+        types = None
         any_of_0 = schemas.NumberSchema
         any_of_1 = schemas.AnyTypeSchema
         

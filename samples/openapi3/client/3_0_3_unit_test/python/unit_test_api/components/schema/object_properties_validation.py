@@ -34,6 +34,7 @@ class ObjectPropertiesValidation(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             foo = schemas.IntSchema

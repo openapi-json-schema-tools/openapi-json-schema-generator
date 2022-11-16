@@ -34,6 +34,7 @@ class MinimumValidation(
 
 
     class MetaOapg:
+        types = None
         inclusive_minimum = 1.1
 
 

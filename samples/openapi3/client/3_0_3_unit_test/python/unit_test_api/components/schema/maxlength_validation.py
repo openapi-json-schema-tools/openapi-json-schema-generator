@@ -34,6 +34,7 @@ class MaxlengthValidation(
 
 
     class MetaOapg:
+        types = None
         max_length = 2
 
 

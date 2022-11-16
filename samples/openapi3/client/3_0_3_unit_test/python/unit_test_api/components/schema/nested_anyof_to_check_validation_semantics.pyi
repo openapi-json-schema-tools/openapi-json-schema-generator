@@ -34,6 +34,7 @@ class NestedAnyofToCheckValidationSemantics(
 
 
     class MetaOapg:
+        types = None
         
         
         class any_of_0(
@@ -42,6 +43,7 @@ class NestedAnyofToCheckValidationSemantics(
         
         
             class MetaOapg:
+                types = None
                 any_of_0 = schemas.NoneSchema
                 
                 @classmethod

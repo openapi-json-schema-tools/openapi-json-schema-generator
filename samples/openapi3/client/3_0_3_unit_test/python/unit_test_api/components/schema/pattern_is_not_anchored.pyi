@@ -34,6 +34,7 @@ class PatternIsNotAnchored(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

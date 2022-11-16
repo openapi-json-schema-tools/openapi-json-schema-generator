@@ -34,6 +34,7 @@ class UniqueitemsFalseValidation(
 
 
     class MetaOapg:
+        types = None
         unique_items = False
 
 

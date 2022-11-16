@@ -220,6 +220,7 @@ class BoolClass(Singleton):
 
 
 class MetaOapgTyped:
+    types: typing.Optional[typing.Set[typing.Type]]
     exclusive_maximum: typing.Union[int, float]
     inclusive_maximum: typing.Union[int, float]
     exclusive_minimum: typing.Union[int, float]
@@ -250,7 +251,7 @@ class Schema:
     the base class of all swagger/openapi schemas/models
     """
     __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
-    _types: typing.Set[typing.Type]
+    MetaOapg: MetaOapgTyped
 
     @staticmethod
     def __get_valid_classes_phrase(input_classes):
@@ -332,11 +333,11 @@ class Schema:
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
         base_class = type(arg)
-        if base_class not in cls._types:
+        if cls.MetaOapg.types is not None and base_class not in cls.MetaOapg.types:
             raise cls.__get_type_error(
                 arg,
                 validation_metadata.path_to_item,
-                cls._types,
+                cls.MetaOapg.types,
                 key_type=False,
             )
 
@@ -707,145 +708,145 @@ if typing.TYPE_CHECKING:
 else:
     # qty 1
     class NoneMixin:
-        _types = {NoneClass}
+        pass
     class FrozenDictMixin:
-        _types = {frozendict.frozendict}
+        pass
     class TupleMixin:
-        _types = {tuple}
+        pass
     class StrMixin:
-        _types = {str}
+        pass
     class DecimalMixin:
-        _types = {decimal.Decimal}
+        pass
     class BoolMixin:
-        _types = {BoolClass}
+        pass
     class BytesMixin:
-        _types = {bytes}
+        pass
     class FileMixin:
-        _types = {FileIO}
+        pass
     # qty 2
     class BinaryMixin:
-        _types = {bytes, FileIO}
+        pass
     class NoneFrozenDictMixin:
-        _types = {NoneClass, frozendict.frozendict}
+        pass
     class NoneTupleMixin:
-        _types = {NoneClass, tuple}
+        pass
     class NoneStrMixin:
-        _types = {NoneClass, str}
+        pass
     class NoneDecimalMixin:
-        _types = {NoneClass, decimal.Decimal}
+        pass
     class NoneBoolMixin:
-        _types = {NoneClass, BoolClass}
+        pass
     class FrozenDictTupleMixin:
-        _types = {frozendict.frozendict, tuple}
+        pass
     class FrozenDictStrMixin:
-        _types = {frozendict.frozendict, str}
+        pass
     class FrozenDictDecimalMixin:
-        _types = {frozendict.frozendict, decimal.Decimal}
+        pass
     class FrozenDictBoolMixin:
-        _types = {frozendict.frozendict, BoolClass}
+        pass
     class TupleStrMixin:
-        _types = {tuple, str}
+        pass
     class TupleDecimalMixin:
-        _types = {tuple, decimal.Decimal}
+        pass
     class TupleBoolMixin:
-        _types = {tuple, BoolClass}
+        pass
     class StrDecimalMixin:
-        _types = {str, decimal.Decimal}
+        pass
     class StrBoolMixin:
-        _types = {str, BoolClass}
+        pass
     class DecimalBoolMixin:
-        _types = {decimal.Decimal, BoolClass}
+        pass
     # qty 3
     class NoneFrozenDictTupleMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple}
+        pass
     class NoneFrozenDictStrMixin:
-        _types = {NoneClass, frozendict.frozendict, str}
+        pass
     class NoneFrozenDictDecimalMixin:
-        _types = {NoneClass, frozendict.frozendict, decimal.Decimal}
+        pass
     class NoneFrozenDictBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, BoolClass}
+        pass
     class NoneTupleStrMixin:
-        _types = {NoneClass, tuple, str}
+        pass
     class NoneTupleDecimalMixin:
-        _types = {NoneClass, tuple, decimal.Decimal}
+        pass
     class NoneTupleBoolMixin:
-        _types = {NoneClass, tuple, BoolClass}
+        pass
     class NoneStrDecimalMixin:
-        _types = {NoneClass, str, decimal.Decimal}
+        pass
     class NoneStrBoolMixin:
-        _types = {NoneClass, str, BoolClass}
+        pass
     class NoneDecimalBoolMixin:
-        _types = {NoneClass, decimal.Decimal, BoolClass}
+        pass
     class FrozenDictTupleStrMixin:
-        _types = {frozendict.frozendict, tuple, str}
+        pass
     class FrozenDictTupleDecimalMixin:
-        _types = {frozendict.frozendict, tuple, decimal.Decimal}
+        pass
     class FrozenDictTupleBoolMixin:
-        _types = {frozendict.frozendict, tuple, BoolClass}
+        pass
     class FrozenDictStrDecimalMixin:
-        _types = {frozendict.frozendict, str, decimal.Decimal}
+        pass
     class FrozenDictStrBoolMixin:
-        _types = {frozendict.frozendict, str, BoolClass}
+        pass
     class FrozenDictDecimalBoolMixin:
-        _types = {frozendict.frozendict, decimal.Decimal, BoolClass}
+        pass
     class TupleStrDecimalMixin:
-        _types = {tuple, str, decimal.Decimal}
+        pass
     class TupleStrBoolMixin:
-        _types = {tuple, str, BoolClass}
+        pass
     class TupleDecimalBoolMixin:
-        _types = {tuple, decimal.Decimal, BoolClass}
+        pass
     class StrDecimalBoolMixin:
-        _types = {str, decimal.Decimal, BoolClass}
+        pass
     # qty 4
     class NoneFrozenDictTupleStrMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, str}
+        pass
     class NoneFrozenDictTupleDecimalMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, decimal.Decimal}
+        pass
     class NoneFrozenDictTupleBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, BoolClass}
+        pass
     class NoneFrozenDictStrDecimalMixin:
-        _types = {NoneClass, frozendict.frozendict, str, decimal.Decimal}
+        pass
     class NoneFrozenDictStrBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, str, BoolClass}
+        pass
     class NoneFrozenDictDecimalBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, decimal.Decimal, BoolClass}
+        pass
     class NoneTupleStrDecimalMixin:
-        _types = {NoneClass, tuple, str, decimal.Decimal}
+        pass
     class NoneTupleStrBoolMixin:
-        _types = {NoneClass, tuple, str, BoolClass}
+        pass
     class NoneTupleDecimalBoolMixin:
-        _types = {NoneClass, tuple, decimal.Decimal, BoolClass}
+        pass
     class NoneStrDecimalBoolMixin:
-        _types = {NoneClass, str, decimal.Decimal, BoolClass}
+        pass
     class FrozenDictTupleStrDecimalMixin:
-        _types = {frozendict.frozendict, tuple, str, decimal.Decimal}
+        pass
     class FrozenDictTupleStrBoolMixin:
-        _types = {frozendict.frozendict, tuple, str, BoolClass}
+        pass
     class FrozenDictTupleDecimalBoolMixin:
-        _types = {frozendict.frozendict, tuple, decimal.Decimal, BoolClass}
+        pass
     class FrozenDictStrDecimalBoolMixin:
-        _types = {frozendict.frozendict, str, decimal.Decimal, BoolClass}
+        pass
     class TupleStrDecimalBoolMixin:
-        _types = {tuple, str, decimal.Decimal, BoolClass}
+        pass
     # qty 5
     class NoneFrozenDictTupleStrDecimalMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, str, decimal.Decimal}
+        pass
     class NoneFrozenDictTupleStrBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, str, BoolClass}
+        pass
     class NoneFrozenDictTupleDecimalBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, decimal.Decimal, BoolClass}
+        pass
     class NoneFrozenDictStrDecimalBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, str, decimal.Decimal, BoolClass}
+        pass
     class NoneTupleStrDecimalBoolMixin:
-        _types = {NoneClass, tuple, str, decimal.Decimal, BoolClass}
+        pass
     class FrozenDictTupleStrDecimalBoolMixin:
-        _types = {frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass}
+        pass
     # qty 6
     class NoneFrozenDictTupleStrDecimalBoolMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass}
+        pass
     # qty 8
     class NoneFrozenDictTupleStrDecimalBoolFileBytesMixin:
-        _types = {NoneClass, frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass, FileIO, bytes}
+        pass
 
 
 class ValidatorBase:
@@ -2043,7 +2044,7 @@ class ComposedSchema(
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
     class MetaOapg:
-        pass
+        types = None
 
     @classmethod
     def from_openapi_data_oapg(cls, *args: typing.Any, _configuration: typing.Optional[Configuration] = None, **kwargs):
@@ -2059,6 +2060,8 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
+    class MetaOapg:
+        types = {tuple}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[Configuration] = None):
@@ -2074,7 +2077,7 @@ class NoneSchema(
     NoneMixin
 ):
     class MetaOapg:
-        pass
+        types = {NoneClass}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: None, _configuration: typing.Optional[Configuration] = None):
@@ -2094,7 +2097,7 @@ class NumberSchema(
     Both integers AND floats are accepted
     """
     class MetaOapg:
-        pass
+        types = {decimal.Decimal}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.Union[int, float], _configuration: typing.Optional[Configuration] = None):
@@ -2176,6 +2179,7 @@ class Int32Schema(
     IntSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'int32'
 
 class Int64Base:
@@ -2208,6 +2212,7 @@ class Int64Schema(
     IntSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'int64'
 
 class Float32Base:
@@ -2240,6 +2245,7 @@ class Float32Schema(
     NumberSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'float'
 
     @classmethod
@@ -2276,6 +2282,7 @@ class Float64Schema(
     NumberSchema
 ):
     class MetaOapg:
+        types = {decimal.Decimal}
         format = 'double'
 
     @classmethod
@@ -2296,7 +2303,7 @@ class StrSchema(
     - type: string, format: date
     """
     class MetaOapg:
-        pass
+        types = {str}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: str, _configuration: typing.Optional[Configuration] = None) -> 'StrSchema':
@@ -2308,6 +2315,7 @@ class StrSchema(
 
 class UUIDSchema(UUIDBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'uuid'
 
     def __new__(cls, _arg: typing.Union[str, uuid.UUID], **kwargs: Configuration):
@@ -2316,6 +2324,7 @@ class UUIDSchema(UUIDBase, StrSchema):
 
 class DateSchema(DateBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'date'
 
     def __new__(cls, _arg: typing.Union[str, date], **kwargs: Configuration):
@@ -2324,6 +2333,7 @@ class DateSchema(DateBase, StrSchema):
 
 class DateTimeSchema(DateTimeBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'date-time'
 
     def __new__(cls, _arg: typing.Union[str, datetime], **kwargs: Configuration):
@@ -2332,6 +2342,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
 
 class DecimalSchema(DecimalBase, StrSchema):
     class MetaOapg:
+        types = {str}
         format = 'number'
 
     def __new__(cls, _arg: str, **kwargs: Configuration):
@@ -2353,6 +2364,9 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
+    class MetaOapg:
+        types = {bytes}
+
     def __new__(cls, _arg: bytes, **kwargs: Configuration):
         return super(Schema, cls).__new__(cls, _arg)
 
@@ -2377,6 +2391,8 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
+    class MetaOapg:
+        types = {FileIO}
 
     def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: Configuration):
         return super(Schema, cls).__new__(cls, _arg)
@@ -2393,6 +2409,7 @@ class BinarySchema(
     BinaryMixin
 ):
     class MetaOapg:
+        types = {FileIO, bytes}
         format = 'binary'
 
         @staticmethod
@@ -2412,7 +2429,7 @@ class BoolSchema(
     BoolMixin
 ):
     class MetaOapg:
-        pass
+        types = {BoolClass}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: bool, _configuration: typing.Optional[Configuration] = None):
@@ -2434,7 +2451,7 @@ class AnyTypeSchema(
 ):
     # Python representation of a schema defined as true or {}
     class MetaOapg:
-        pass
+        types = None
 
 
 class UnsetAnyTypeSchema(AnyTypeSchema):
@@ -2452,6 +2469,7 @@ class NotAnyTypeSchema(
     """
 
     class MetaOapg:
+        types = None
         not_schema = AnyTypeSchema
 
     def __new__(
@@ -2472,7 +2490,7 @@ class DictSchema(
     FrozenDictMixin
 ):
     class MetaOapg:
-        pass
+        types = {frozendict.frozendict}
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: typing.Dict[str, typing.Any], _configuration: typing.Optional[Configuration] = None):
