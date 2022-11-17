@@ -83,7 +83,6 @@ Definitely!
     - [3.2 - Workflow Integration](#32---workflow-integration-maven-gradle-github-cicd)
     - [3.3 - Online Generators](#33---online-openapi-json-schema-generator)
     - [3.4 - License Information on Generated Code](#34---license-information-on-generated-code)
-    - [3.5 - IDE Integration](#35---ide-integration)
   - [4 - Companies/Projects using OpenAPI JSON Schema Generator](#4---companiesprojects-using-openapi-json-schema-generator)
   - [5 - About Us](#5---about-us)
     - [5.1 - History of OpenAPI JSON Schema Generator](#51---history-of-openapi-json-schema-generator)
@@ -375,8 +374,8 @@ Below is a timeline of those events and some of their reasons:
 
 #### Timeline of python generator development
 - June 28, 2019 (v4.0.3) - [old python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/3244)
-- Dec 20, 2020 (v5.0.0) [old python-experimental becomes python](https://github.com/OpenAPITools/openapi-generator/pull/7965)
-- Jan 5, 2022 (v5.4.0) [new python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/8325)
+- Nov 17, 2020 (v5.0.0) [old python-experimental becomes python](https://github.com/OpenAPITools/openapi-generator/pull/7965)
+- Jan 4, 2021 (v5.4.0) [new python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/8325)
 - Sept 19, 2022 - meeting to discuss openapi 3.1.0 + python client, removal of python client mentioned as an option, not a requirement
 - Sept 22, 2022 (v6.2.0) - [new python-experimental switched in as the primary python client](https://github.com/OpenAPITools/openapi-generator/pull/13501)
 - Sept 23, 2022 - communication clarified that removal of the python generator is required
