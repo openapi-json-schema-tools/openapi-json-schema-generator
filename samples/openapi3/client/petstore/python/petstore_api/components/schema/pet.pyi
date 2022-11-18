@@ -51,6 +51,7 @@ class Pet(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     items = schemas.StrSchema
             
                 def __new__(
@@ -79,6 +80,7 @@ class Pet(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     @staticmethod
                     def items() -> typing.Type['tag.Tag']:

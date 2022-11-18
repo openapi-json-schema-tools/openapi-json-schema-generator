@@ -34,6 +34,7 @@ class AllofSimpleTypes(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_0(
@@ -42,6 +43,7 @@ class AllofSimpleTypes(
         
         
             class MetaOapg:
+                types = None
                 inclusive_maximum = 30
         
         
@@ -65,6 +67,7 @@ class AllofSimpleTypes(
         
         
             class MetaOapg:
+                types = None
                 inclusive_minimum = 20
         
         

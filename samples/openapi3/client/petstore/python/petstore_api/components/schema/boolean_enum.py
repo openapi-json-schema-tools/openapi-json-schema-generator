@@ -35,6 +35,9 @@ class BooleanEnum(
 
 
     class MetaOapg:
+        types = {
+            schemas.BoolClass,
+        }
         enum_value_to_name = {
             schemas.BoolClass.TRUE: "TRUE",
         }

@@ -34,6 +34,7 @@ class InvalidStringValueForDefault(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             
@@ -44,6 +45,9 @@ class InvalidStringValueForDefault(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     min_length = 4
             __annotations__ = {
                 "bar": bar,

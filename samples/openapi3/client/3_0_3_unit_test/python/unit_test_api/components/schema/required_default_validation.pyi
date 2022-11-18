@@ -34,6 +34,7 @@ class RequiredDefaultValidation(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             foo = schemas.AnyTypeSchema

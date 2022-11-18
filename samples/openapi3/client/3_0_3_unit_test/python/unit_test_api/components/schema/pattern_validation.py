@@ -34,6 +34,7 @@ class PatternValidation(
 
 
     class MetaOapg:
+        types = None
         regex=[{
             'pattern': r'^a*$',  # noqa: E501
         }]

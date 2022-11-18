@@ -34,6 +34,7 @@ class NotMoreComplexSchema(
 
 
     class MetaOapg:
+        types = None
         
         
         class not_schema(

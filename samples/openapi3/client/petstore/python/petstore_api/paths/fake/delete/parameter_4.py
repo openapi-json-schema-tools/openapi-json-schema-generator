@@ -34,6 +34,9 @@ class schema(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         enum_value_to_name = {
             "true": "TRUE",
             "false": "FALSE",

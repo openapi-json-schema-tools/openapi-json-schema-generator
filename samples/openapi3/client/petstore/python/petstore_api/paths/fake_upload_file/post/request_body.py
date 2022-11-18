@@ -33,6 +33,7 @@ class multipart_form_data(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "file",
         }

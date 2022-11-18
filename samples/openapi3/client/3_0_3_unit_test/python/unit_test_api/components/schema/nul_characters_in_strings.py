@@ -35,6 +35,9 @@ class NulCharactersInStrings(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         enum_value_to_name = {
             "hello\x00there": "HELLOTHERE",
         }

@@ -36,6 +36,13 @@ class NullableString(
     """
 
 
+    class MetaOapg:
+        types = {
+            schemas.NoneClass,
+            str,
+        }
+
+
     def __new__(
         cls,
         *_args: typing.Union[None, str, ],

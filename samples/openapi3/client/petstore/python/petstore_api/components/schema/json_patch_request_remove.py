@@ -34,6 +34,7 @@ class JSONPatchRequestRemove(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "op",
             "path",
@@ -50,6 +51,9 @@ class JSONPatchRequestRemove(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "remove": "REMOVE",
                     }

@@ -35,6 +35,9 @@ class Currency(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         enum_value_to_name = {
             "eur": "EUR",
             "usd": "USD",

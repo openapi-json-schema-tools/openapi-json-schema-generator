@@ -34,6 +34,7 @@ class AllofWithBaseSchema(
 
 
     class MetaOapg:
+        types = None
         required = {
             "bar",
         }
@@ -51,6 +52,7 @@ class AllofWithBaseSchema(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "foo",
                 }
@@ -107,6 +109,7 @@ class AllofWithBaseSchema(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "baz",
                 }

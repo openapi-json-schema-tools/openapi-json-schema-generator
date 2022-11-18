@@ -34,6 +34,7 @@ class BySmallNumber(
 
 
     class MetaOapg:
+        types = None
         multiple_of = 0.00010
 
 

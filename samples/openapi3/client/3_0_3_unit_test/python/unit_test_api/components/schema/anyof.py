@@ -34,6 +34,7 @@ class Anyof(
 
 
     class MetaOapg:
+        types = None
         any_of_0 = schemas.IntSchema
         
         
@@ -43,6 +44,7 @@ class Anyof(
         
         
             class MetaOapg:
+                types = None
                 inclusive_minimum = 2
         
         

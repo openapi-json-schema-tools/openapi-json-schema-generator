@@ -42,6 +42,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         
         
             class MetaOapg:
+                types = {tuple}
                 
                 @staticmethod
                 def items() -> typing.Type['enum_class.EnumClass']:

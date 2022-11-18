@@ -34,6 +34,7 @@ class ComplexQuadrilateral(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_1(
@@ -42,6 +43,7 @@ class ComplexQuadrilateral(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 
                 class properties:
                     
@@ -53,6 +55,9 @@ class ComplexQuadrilateral(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             enum_value_to_name = {
                                 "ComplexQuadrilateral": "COMPLEX_QUADRILATERAL",
                             }

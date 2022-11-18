@@ -34,6 +34,7 @@ class AdditionOperator(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "a",
             "b",

@@ -34,6 +34,7 @@ class AllofCombinedWithAnyofOneof(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_0(
@@ -42,6 +43,7 @@ class AllofCombinedWithAnyofOneof(
         
         
             class MetaOapg:
+                types = None
         
         
             def __new__(
@@ -64,6 +66,7 @@ class AllofCombinedWithAnyofOneof(
         
         
             class MetaOapg:
+                types = None
         
         
             def __new__(
@@ -86,6 +89,7 @@ class AllofCombinedWithAnyofOneof(
         
         
             class MetaOapg:
+                types = None
         
         
             def __new__(

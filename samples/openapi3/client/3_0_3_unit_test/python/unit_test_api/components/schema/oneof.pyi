@@ -34,6 +34,7 @@ class Oneof(
 
 
     class MetaOapg:
+        types = None
         one_of_0 = schemas.IntSchema
         
         
@@ -43,6 +44,7 @@ class Oneof(
         
         
             class MetaOapg:
+                types = None
         
         
             def __new__(

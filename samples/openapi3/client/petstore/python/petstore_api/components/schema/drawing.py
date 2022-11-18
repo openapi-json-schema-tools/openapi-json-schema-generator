@@ -34,6 +34,7 @@ class Drawing(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
         
@@ -56,6 +57,7 @@ class Drawing(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     @staticmethod
                     def items() -> typing.Type['shape.Shape']:

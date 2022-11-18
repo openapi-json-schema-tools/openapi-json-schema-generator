@@ -34,6 +34,7 @@ class MinitemsValidation(
 
 
     class MetaOapg:
+        types = None
         min_items = 1
 
 

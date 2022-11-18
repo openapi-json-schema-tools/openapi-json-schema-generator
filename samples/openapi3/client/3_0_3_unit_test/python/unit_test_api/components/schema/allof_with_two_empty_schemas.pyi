@@ -34,6 +34,7 @@ class AllofWithTwoEmptySchemas(
 
 
     class MetaOapg:
+        types = None
         all_of_0 = schemas.AnyTypeSchema
         all_of_1 = schemas.AnyTypeSchema
         

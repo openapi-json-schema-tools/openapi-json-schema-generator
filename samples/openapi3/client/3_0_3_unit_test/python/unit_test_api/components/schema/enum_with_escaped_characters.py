@@ -35,6 +35,9 @@ class EnumWithEscapedCharacters(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         enum_value_to_name = {
             "foo\nbar": "FOO_BAR",
             "foo\rbar": "FOO_BAR",

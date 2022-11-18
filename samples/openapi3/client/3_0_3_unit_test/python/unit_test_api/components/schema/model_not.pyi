@@ -34,6 +34,7 @@ class ModelNot(
 
 
     class MetaOapg:
+        types = None
         not_schema = schemas.IntSchema
 
 

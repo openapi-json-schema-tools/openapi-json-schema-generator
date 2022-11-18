@@ -35,6 +35,9 @@ class ComposedNumber(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         all_of_0 = schemas.AnyTypeSchema
         
         @classmethod

@@ -44,6 +44,7 @@ class ObjectWithInlineCompositionProperty(
             
             
                 class MetaOapg:
+                    types = None
                     
                     
                     class all_of_0(

@@ -34,6 +34,7 @@ class RefInNot(
 
 
     class MetaOapg:
+        types = None
         
         @staticmethod
         def not_schema() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:

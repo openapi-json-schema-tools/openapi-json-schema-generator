@@ -34,6 +34,7 @@ class EnumsInProperties(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "bar",
         }
@@ -48,6 +49,9 @@ class EnumsInProperties(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "bar": "BAR",
                     }
@@ -64,6 +68,9 @@ class EnumsInProperties(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "foo": "FOO",
                     }

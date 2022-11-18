@@ -230,8 +230,8 @@ public class PythonClientTest {
         final PythonClientCodegen codegen = new PythonClientCodegen();
         codegen.setPackageName("openapi.client");
 
-        String importValue = codegen.toModelImport("model_name");
-        Assert.assertEquals(importValue, "from openapi.client.model.model_name import ModelName");
+        String importValue = codegen.toModelImport("model_name.ModelName");
+        Assert.assertEquals(importValue, "from openapi.client.components.schema import model_name");
     }
 
     @Test

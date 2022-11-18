@@ -33,6 +33,7 @@ class application_x_www_form_urlencoded(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "param",
             "param2",
