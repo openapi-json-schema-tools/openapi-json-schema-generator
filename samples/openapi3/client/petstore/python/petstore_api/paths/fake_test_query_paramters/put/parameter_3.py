@@ -35,6 +35,7 @@ class schema(
 
 
     class MetaOapg:
+        types = {tuple}
         items = schemas.StrSchema
 
     def __new__(

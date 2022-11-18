@@ -34,6 +34,7 @@ class EnumArrays(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -45,6 +46,9 @@ class EnumArrays(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         ">=": "GREATER_THAN_EQUALS",
                         "$": "DOLLAR",
@@ -65,6 +69,7 @@ class EnumArrays(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     
                     class items(
@@ -74,6 +79,9 @@ class EnumArrays(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             enum_value_to_name = {
                                 "fish": "FISH",
                                 "crab": "CRAB",

@@ -34,6 +34,7 @@ class MaximumValidation(
 
 
     class MetaOapg:
+        types = None
         inclusive_maximum = 3.0
 
 

@@ -34,6 +34,7 @@ class User(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             id = schemas.Int64Schema
@@ -53,6 +54,13 @@ class User(
                 schemas.Schema,
                 schemas.NoneFrozenDictMixin
             ):
+            
+            
+                class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        frozendict.frozendict,
+                    }
             
             
                 def __new__(
@@ -76,6 +84,7 @@ class User(
             
             
                 class MetaOapg:
+                    types = None
                     not_schema = schemas.NoneSchema
             
             

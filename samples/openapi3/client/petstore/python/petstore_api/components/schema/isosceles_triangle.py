@@ -34,6 +34,7 @@ class IsoscelesTriangle(
 
 
     class MetaOapg:
+        types = None
         
         
         class all_of_1(
@@ -42,6 +43,7 @@ class IsoscelesTriangle(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 
                 class properties:
                     
@@ -53,6 +55,9 @@ class IsoscelesTriangle(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             enum_value_to_name = {
                                 "IsoscelesTriangle": "ISOSCELES_TRIANGLE",
                             }

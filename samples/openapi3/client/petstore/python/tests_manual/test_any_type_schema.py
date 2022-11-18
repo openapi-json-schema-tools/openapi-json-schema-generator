@@ -39,6 +39,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testDictSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -56,6 +58,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testListSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -73,6 +77,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testStrSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -90,6 +96,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testNumberSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -114,6 +122,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testIntSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -135,6 +145,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testBoolSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -159,6 +171,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testNoneSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -176,6 +190,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testDateSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -193,6 +209,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testDateTimeSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [
@@ -210,6 +228,8 @@ class TestAnyTypeSchema(unittest.TestCase):
     def testDecimalSchema(self):
         class Model(ComposedSchema):
             class MetaOapg:
+                types = None
+
                 @staticmethod
                 def all_of():
                     return [

@@ -34,6 +34,7 @@ class Ipv4Format(
 
 
     class MetaOapg:
+        types = None
         format = 'ipv4'
 
 

@@ -36,6 +36,7 @@ class Name(
 
 
     class MetaOapg:
+        types = None
         required = {
             "name",
         }

@@ -34,6 +34,7 @@ class Mammal(
 
 
     class MetaOapg:
+        types = None
         
         @staticmethod
         def discriminator():

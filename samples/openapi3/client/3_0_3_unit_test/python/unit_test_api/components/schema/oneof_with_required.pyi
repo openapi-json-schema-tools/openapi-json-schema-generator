@@ -35,6 +35,9 @@ class OneofWithRequired(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         
         
         class one_of_0(
@@ -43,6 +46,7 @@ class OneofWithRequired(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "bar",
                     "foo",
@@ -72,6 +76,7 @@ class OneofWithRequired(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "foo",
                     "baz",

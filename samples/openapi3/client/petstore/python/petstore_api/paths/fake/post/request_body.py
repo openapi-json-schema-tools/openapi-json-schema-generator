@@ -33,6 +33,7 @@ class application_x_www_form_urlencoded(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "number",
             "pattern_without_delimiter",
@@ -49,6 +50,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     inclusive_maximum = 100
                     inclusive_minimum = 10
             
@@ -59,6 +63,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'int32'
                     inclusive_maximum = 200
                     inclusive_minimum = 20
@@ -71,6 +78,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     inclusive_maximum = 543.2
                     inclusive_minimum = 32.1
             
@@ -81,6 +91,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'float'
                     inclusive_maximum = 987.6
             
@@ -91,6 +104,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'double'
                     inclusive_maximum = 123.4
                     inclusive_minimum = 67.8
@@ -102,6 +118,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'[a-z]',  # noqa: E501
                         'flags': (
@@ -116,6 +135,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'^[A-Z].*',  # noqa: E501
                     }]
@@ -131,6 +153,9 @@ class application_x_www_form_urlencoded(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     format = 'password'
                     max_length = 64
                     min_length = 10

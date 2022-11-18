@@ -34,6 +34,7 @@ class GmFruit(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             color = schemas.StrSchema

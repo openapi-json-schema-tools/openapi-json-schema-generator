@@ -34,6 +34,7 @@ class AnimalFarm(
 
 
     class MetaOapg:
+        types = {tuple}
         
         @staticmethod
         def items() -> typing.Type['animal.Animal']:

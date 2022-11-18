@@ -34,6 +34,7 @@ class MaximumValidation(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

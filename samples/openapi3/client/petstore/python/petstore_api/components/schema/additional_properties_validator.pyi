@@ -35,6 +35,9 @@ class AdditionalPropertiesValidator(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         
         
         class all_of_0(
@@ -80,6 +83,7 @@ class AdditionalPropertiesValidator(
                 
                 
                     class MetaOapg:
+                        types = None
                 
                 
                     def __new__(
@@ -130,6 +134,7 @@ class AdditionalPropertiesValidator(
                 
                 
                     class MetaOapg:
+                        types = None
                 
                 
                     def __new__(

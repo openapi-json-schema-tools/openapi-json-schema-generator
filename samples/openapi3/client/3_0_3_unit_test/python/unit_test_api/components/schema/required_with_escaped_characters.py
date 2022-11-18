@@ -34,6 +34,7 @@ class RequiredWithEscapedCharacters(
 
 
     class MetaOapg:
+        types = None
         required = {
             "foo\"bar",
             "foo\nbar",

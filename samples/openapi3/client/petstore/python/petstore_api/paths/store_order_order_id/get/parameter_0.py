@@ -33,6 +33,9 @@ class schema(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         format = 'int64'
         inclusive_maximum = 5
         inclusive_minimum = 1

@@ -38,6 +38,10 @@ class StringEnum(
 
 
     class MetaOapg:
+        types = {
+            schemas.NoneClass,
+            str,
+        }
         enum_value_to_name = {
             "placed": "PLACED",
             "approved": "APPROVED",

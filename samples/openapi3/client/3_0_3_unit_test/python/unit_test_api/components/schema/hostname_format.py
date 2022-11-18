@@ -34,6 +34,7 @@ class HostnameFormat(
 
 
     class MetaOapg:
+        types = None
         format = 'hostname'
 
 

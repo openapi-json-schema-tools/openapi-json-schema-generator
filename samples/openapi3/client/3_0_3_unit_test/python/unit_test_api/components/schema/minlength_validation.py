@@ -34,6 +34,7 @@ class MinlengthValidation(
 
 
     class MetaOapg:
+        types = None
         min_length = 2
 
 
