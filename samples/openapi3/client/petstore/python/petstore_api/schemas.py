@@ -153,7 +153,7 @@ def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_t
     current_path_to_item = validation_metadata.path_to_item
     other_path_to_schemas = {}
     for path_to_item, schemas in validation_metadata.validated_path_to_schemas.items():
-        if len(path_to_item) <= current_path_to_item:
+        if len(path_to_item) <= len(current_path_to_item):
             continue
         path_begins_with_current_path = path_to_item[:len(current_path_to_item)] == current_path_to_item
         if path_begins_with_current_path:
@@ -1805,18 +1805,11 @@ def cast_to_allowed_types(
     if isinstance(arg, Schema):
         # store the already run validations
         schema_classes = set()
-        source_schema_was_unset = len(arg.__class__.__bases__) == 2 and UnsetAnyTypeSchema in arg.__class__.__bases__
-        if not source_schema_was_unset:
-            """
-            Do not include UnsetAnyTypeSchema and its base class because
-            it did not exist in the original spec schema definition
-            It was added to ensure that all instances are of type Schema and the allowed base types
-            """
-            for cls in arg.__class__.__bases__:
-                if cls is Singleton:
-                    # Skip Singleton
-                    continue
-                schema_classes.add(cls)
+        for cls in arg.__class__.__bases__:
+            if cls is Singleton:
+                # Skip Singleton
+                continue
+            schema_classes.add(cls)
         validated_path_to_schemas[path_to_item] = schema_classes
 
     type_error = ApiTypeError(f"Invalid type. Required value type is str and passed type was {type(arg)} at {path_to_item}")
