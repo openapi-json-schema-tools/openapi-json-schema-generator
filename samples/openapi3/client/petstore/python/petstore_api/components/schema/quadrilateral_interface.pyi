@@ -34,6 +34,7 @@ class QuadrilateralInterface(
 
 
     class MetaOapg:
+        types = None
         required = {
             "shapeType",
             "quadrilateralType",

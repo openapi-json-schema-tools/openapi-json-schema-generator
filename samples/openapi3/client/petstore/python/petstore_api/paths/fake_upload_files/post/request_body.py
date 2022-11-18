@@ -33,6 +33,7 @@ class multipart_form_data(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -43,6 +44,7 @@ class multipart_form_data(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     items = schemas.BinarySchema
             
                 def __new__(

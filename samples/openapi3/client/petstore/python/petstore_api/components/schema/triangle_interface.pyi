@@ -34,6 +34,7 @@ class TriangleInterface(
 
 
     class MetaOapg:
+        types = None
         required = {
             "shapeType",
             "triangleType",

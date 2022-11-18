@@ -34,6 +34,7 @@ class AdditionalpropertiesShouldNotLookInApplicators(
 
 
     class MetaOapg:
+        types = None
         additional_properties = schemas.BoolSchema
         
         
@@ -43,6 +44,7 @@ class AdditionalpropertiesShouldNotLookInApplicators(
         
         
             class MetaOapg:
+                types = None
                 
                 class properties:
                     foo = schemas.AnyTypeSchema

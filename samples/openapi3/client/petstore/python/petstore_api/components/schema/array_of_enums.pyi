@@ -34,6 +34,7 @@ class ArrayOfEnums(
 
 
     class MetaOapg:
+        types = {tuple}
         
         @staticmethod
         def items() -> typing.Type['string_enum.StringEnum']:

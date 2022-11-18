@@ -34,6 +34,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
 
 
     class MetaOapg:
+        types = None
         any_of_0 = schemas.DictSchema
         any_of_1 = schemas.DateSchema
         any_of_2 = schemas.DateTimeSchema
@@ -51,6 +52,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
         
         
             class MetaOapg:
+                types = {tuple}
                 items = schemas.AnyTypeSchema
         
             def __new__(

@@ -36,6 +36,7 @@ class ClassModel(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             _class = schemas.StrSchema

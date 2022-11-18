@@ -34,6 +34,7 @@ class Operator(
 
 
     class MetaOapg:
+        types = None
         
         @staticmethod
         def discriminator():

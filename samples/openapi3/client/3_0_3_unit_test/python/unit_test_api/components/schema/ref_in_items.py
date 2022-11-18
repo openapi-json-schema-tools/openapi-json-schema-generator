@@ -34,6 +34,7 @@ class RefInItems(
 
 
     class MetaOapg:
+        types = {tuple}
         
         @staticmethod
         def items() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:

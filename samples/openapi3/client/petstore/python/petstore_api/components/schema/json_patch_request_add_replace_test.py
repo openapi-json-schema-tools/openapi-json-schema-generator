@@ -34,6 +34,7 @@ class JSONPatchRequestAddReplaceTest(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "op",
             "path",
@@ -52,6 +53,9 @@ class JSONPatchRequestAddReplaceTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "add": "ADD",
                         "replace": "REPLACE",

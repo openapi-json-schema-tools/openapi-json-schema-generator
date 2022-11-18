@@ -35,6 +35,9 @@ class ParentPet(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         
         @staticmethod
         def discriminator():

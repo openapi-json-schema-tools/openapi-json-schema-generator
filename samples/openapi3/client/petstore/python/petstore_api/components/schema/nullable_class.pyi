@@ -46,6 +46,13 @@ class NullableClass(
             ):
             
             
+                class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        decimal.Decimal,
+                    }
+            
+            
                 def __new__(
                     cls,
                     *_args: typing.Union[None, decimal.Decimal, int, ],
@@ -64,6 +71,13 @@ class NullableClass(
                 schemas.Schema,
                 schemas.NoneDecimalMixin
             ):
+            
+            
+                class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        decimal.Decimal,
+                    }
             
             
                 def __new__(
@@ -86,6 +100,13 @@ class NullableClass(
             ):
             
             
+                class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        schemas.BoolClass,
+                    }
+            
+            
                 def __new__(
                     cls,
                     *_args: typing.Union[None, bool, ],
@@ -104,6 +125,13 @@ class NullableClass(
                 schemas.Schema,
                 schemas.NoneStrMixin
             ):
+            
+            
+                class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        str,
+                    }
             
             
                 def __new__(
@@ -128,6 +156,10 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        str,
+                    }
                     format = 'date'
             
             
@@ -153,6 +185,10 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        str,
+                    }
                     format = 'date-time'
             
             
@@ -177,6 +213,10 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        tuple,
+                    }
                     items = schemas.DictSchema
             
             
@@ -201,6 +241,10 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        tuple,
+                    }
                     
                     
                     class items(
@@ -209,6 +253,13 @@ class NullableClass(
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
+                    
+                    
+                        class MetaOapg:
+                            types = {
+                                schemas.NoneClass,
+                                frozendict.frozendict,
+                            }
                     
                     
                         def __new__(
@@ -243,6 +294,7 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     
                     class items(
@@ -251,6 +303,13 @@ class NullableClass(
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
+                    
+                    
+                        class MetaOapg:
+                            types = {
+                                schemas.NoneClass,
+                                frozendict.frozendict,
+                            }
                     
                     
                         def __new__(
@@ -290,6 +349,10 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        frozendict.frozendict,
+                    }
                     additional_properties = schemas.DictSchema
             
                 
@@ -323,6 +386,10 @@ class NullableClass(
             
             
                 class MetaOapg:
+                    types = {
+                        schemas.NoneClass,
+                        frozendict.frozendict,
+                    }
                     
                     
                     class additional_properties(
@@ -331,6 +398,13 @@ class NullableClass(
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
+                    
+                    
+                        class MetaOapg:
+                            types = {
+                                schemas.NoneClass,
+                                frozendict.frozendict,
+                            }
                     
                     
                         def __new__(
@@ -382,6 +456,13 @@ class NullableClass(
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
+                    
+                    
+                        class MetaOapg:
+                            types = {
+                                schemas.NoneClass,
+                                frozendict.frozendict,
+                            }
                     
                     
                         def __new__(
@@ -438,6 +519,13 @@ class NullableClass(
             schemas.Schema,
             schemas.NoneFrozenDictMixin
         ):
+        
+        
+            class MetaOapg:
+                types = {
+                    schemas.NoneClass,
+                    frozendict.frozendict,
+                }
         
         
             def __new__(

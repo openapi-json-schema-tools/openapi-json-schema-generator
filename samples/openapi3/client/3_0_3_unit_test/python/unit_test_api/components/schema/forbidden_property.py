@@ -34,6 +34,7 @@ class ForbiddenProperty(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             foo = schemas.NotAnyTypeSchema

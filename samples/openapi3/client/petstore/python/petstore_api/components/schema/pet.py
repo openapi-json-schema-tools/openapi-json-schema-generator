@@ -36,6 +36,7 @@ class Pet(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "photoUrls",
             "name",
@@ -51,6 +52,7 @@ class Pet(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     items = schemas.StrSchema
             
                 def __new__(
@@ -79,6 +81,7 @@ class Pet(
             
             
                 class MetaOapg:
+                    types = {tuple}
                     
                     @staticmethod
                     def items() -> typing.Type['tag.Tag']:
@@ -106,6 +109,9 @@ class Pet(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "available": "AVAILABLE",
                         "pending": "PENDING",

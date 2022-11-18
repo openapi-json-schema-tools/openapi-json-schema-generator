@@ -34,6 +34,7 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             foo = schemas.AnyTypeSchema

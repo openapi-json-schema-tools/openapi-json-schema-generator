@@ -35,6 +35,9 @@ class AnyofWithBaseSchema(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         
         
         class any_of_0(
@@ -43,6 +46,7 @@ class AnyofWithBaseSchema(
         
         
             class MetaOapg:
+                types = None
         
         
             def __new__(
@@ -65,6 +69,7 @@ class AnyofWithBaseSchema(
         
         
             class MetaOapg:
+                types = None
         
         
             def __new__(

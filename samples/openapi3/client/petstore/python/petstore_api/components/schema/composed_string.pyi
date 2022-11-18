@@ -35,6 +35,9 @@ class ComposedString(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         all_of_0 = schemas.AnyTypeSchema
         
         @classmethod

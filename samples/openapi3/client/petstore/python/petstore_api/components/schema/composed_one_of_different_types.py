@@ -36,6 +36,7 @@ class ComposedOneOfDifferentTypes(
 
 
     class MetaOapg:
+        types = None
         one_of_2 = schemas.NoneSchema
         one_of_3 = schemas.DateSchema
         
@@ -46,6 +47,7 @@ class ComposedOneOfDifferentTypes(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 max_properties = 4
                 min_properties = 4
         
@@ -69,6 +71,7 @@ class ComposedOneOfDifferentTypes(
         
         
             class MetaOapg:
+                types = {tuple}
                 max_items = 4
                 min_items = 4
                 items = schemas.AnyTypeSchema
@@ -94,6 +97,9 @@ class ComposedOneOfDifferentTypes(
         
         
             class MetaOapg:
+                types = {
+                    str,
+                }
                 format = 'date-time'
                 regex=[{
                     'pattern': r'^2020.*',  # noqa: E501

@@ -34,6 +34,7 @@ class OneofComplexTypes(
 
 
     class MetaOapg:
+        types = None
         
         
         class one_of_0(
@@ -42,6 +43,7 @@ class OneofComplexTypes(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "bar",
                 }
@@ -98,6 +100,7 @@ class OneofComplexTypes(
         
         
             class MetaOapg:
+                types = None
                 required = {
                     "foo",
                 }

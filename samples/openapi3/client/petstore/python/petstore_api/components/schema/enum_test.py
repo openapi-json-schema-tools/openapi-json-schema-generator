@@ -34,6 +34,7 @@ class EnumTest(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "enum_string_required",
         }
@@ -48,6 +49,9 @@ class EnumTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "UPPER": "UPPER",
                         "lower": "LOWER",
@@ -74,6 +78,9 @@ class EnumTest(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "UPPER": "UPPER",
                         "lower": "LOWER",
@@ -100,6 +107,9 @@ class EnumTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'int32'
                     enum_value_to_name = {
                         1: "POSITIVE_1",
@@ -122,6 +132,9 @@ class EnumTest(
             
             
                 class MetaOapg:
+                    types = {
+                        decimal.Decimal,
+                    }
                     format = 'double'
                     enum_value_to_name = {
                         1.1: "POSITIVE_1_PT_1",

@@ -34,5 +34,8 @@ class UUIDString(
 
 
     class MetaOapg:
+        types = {
+            str,
+        }
         format = 'uuid'
         min_length = 1

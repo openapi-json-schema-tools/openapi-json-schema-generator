@@ -34,6 +34,7 @@ class FruitReq(
 
 
     class MetaOapg:
+        types = None
         one_of_0 = schemas.NoneSchema
         
         @classmethod

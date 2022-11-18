@@ -34,6 +34,7 @@ class ObjectModelWithArgAndArgsProperties(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "args",
             "arg",

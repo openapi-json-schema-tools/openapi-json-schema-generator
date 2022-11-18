@@ -34,6 +34,7 @@ class PropertyNamedRefThatIsNotAReference(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             ref = schemas.StrSchema
