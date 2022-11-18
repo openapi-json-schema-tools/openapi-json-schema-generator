@@ -12,8 +12,8 @@
 import decimal
 import unittest
 
-from petstore_api.model import pet
-from petstore_api.model import category
+from petstore_api.components.schema import pet
+from petstore_api.components.schema import category
 
 
 class TesttPet(unittest.TestCase):
