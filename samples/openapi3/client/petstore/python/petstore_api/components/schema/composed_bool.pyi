@@ -35,6 +35,9 @@ class ComposedBool(
 
 
     class MetaOapg:
+        types = {
+            schemas.BoolClass,
+        }
         all_of_0 = schemas.AnyTypeSchema
         
         @classmethod

@@ -35,6 +35,9 @@ class SimpleEnumValidation(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         enum_value_to_name = {
             1: "POSITIVE_1",
             2: "POSITIVE_2",

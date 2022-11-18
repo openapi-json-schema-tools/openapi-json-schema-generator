@@ -37,6 +37,10 @@ class Apple(
 
 
     class MetaOapg:
+        types = {
+            schemas.NoneClass,
+            frozendict.frozendict,
+        }
         required = {
             "cultivar",
         }
@@ -50,6 +54,9 @@ class Apple(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'^[a-zA-Z\s]*$',  # noqa: E501
                     }]
@@ -61,6 +68,9 @@ class Apple(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     regex=[{
                         'pattern': r'^[A-Z\s]*$',  # noqa: E501
                         'flags': (

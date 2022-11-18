@@ -35,6 +35,9 @@ class ComposedNone(
 
 
     class MetaOapg:
+        types = {
+            schemas.NoneClass,
+        }
         all_of_0 = schemas.AnyTypeSchema
         
         @classmethod

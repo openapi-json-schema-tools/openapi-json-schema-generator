@@ -34,6 +34,7 @@ class AllofWithTheLastEmptySchema(
 
 
     class MetaOapg:
+        types = None
         all_of_0 = schemas.NumberSchema
         all_of_1 = schemas.AnyTypeSchema
         

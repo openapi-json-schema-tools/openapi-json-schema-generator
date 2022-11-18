@@ -34,6 +34,7 @@ class Pig(
 
 
     class MetaOapg:
+        types = None
         
         @staticmethod
         def discriminator():

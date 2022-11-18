@@ -34,6 +34,7 @@ class RefInAnyof(
 
 
     class MetaOapg:
+        types = None
         
         @classmethod
         @functools.lru_cache()

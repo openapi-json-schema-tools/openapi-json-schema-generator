@@ -34,6 +34,7 @@ class ArrayWithValidationsInItems(
 
 
     class MetaOapg:
+        types = {tuple}
         max_items = 2
         
         
@@ -43,6 +44,9 @@ class ArrayWithValidationsInItems(
         
         
             class MetaOapg:
+                types = {
+                    decimal.Decimal,
+                }
                 format = 'int64'
                 inclusive_maximum = 7
 

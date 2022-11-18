@@ -34,6 +34,7 @@ class MaximumValidationWithUnsignedInteger(
 
 
     class MetaOapg:
+        types = None
 
 
     def __new__(

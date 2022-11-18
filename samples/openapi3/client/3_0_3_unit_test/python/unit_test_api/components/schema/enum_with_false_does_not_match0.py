@@ -35,6 +35,9 @@ class EnumWithFalseDoesNotMatch0(
 
 
     class MetaOapg:
+        types = {
+            schemas.BoolClass,
+        }
         enum_value_to_name = {
             schemas.BoolClass.FALSE: "FALSE",
         }

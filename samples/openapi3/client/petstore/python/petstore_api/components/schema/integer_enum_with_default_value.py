@@ -35,6 +35,9 @@ class IntegerEnumWithDefaultValue(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         enum_value_to_name = {
             0: "POSITIVE_0",
             1: "POSITIVE_1",

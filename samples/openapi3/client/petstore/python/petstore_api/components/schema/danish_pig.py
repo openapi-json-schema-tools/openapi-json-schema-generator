@@ -34,6 +34,7 @@ class DanishPig(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         required = {
             "className",
         }
@@ -48,6 +49,9 @@ class DanishPig(
             
             
                 class MetaOapg:
+                    types = {
+                        str,
+                    }
                     enum_value_to_name = {
                         "DanishPig": "DANISH_PIG",
                     }

@@ -35,6 +35,9 @@ class AdditionalPropertiesValidator(
 
 
     class MetaOapg:
+        types = {
+            frozendict.frozendict,
+        }
         
         
         class all_of_0(
@@ -43,6 +46,7 @@ class AdditionalPropertiesValidator(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 additional_properties = schemas.AnyTypeSchema
             
             def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -72,6 +76,7 @@ class AdditionalPropertiesValidator(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 
                 
                 class additional_properties(
@@ -80,6 +85,7 @@ class AdditionalPropertiesValidator(
                 
                 
                     class MetaOapg:
+                        types = None
                         min_length = 3
                 
                 
@@ -123,6 +129,7 @@ class AdditionalPropertiesValidator(
         
         
             class MetaOapg:
+                types = {frozendict.frozendict}
                 
                 
                 class additional_properties(
@@ -131,6 +138,7 @@ class AdditionalPropertiesValidator(
                 
                 
                     class MetaOapg:
+                        types = None
                         max_length = 5
                 
                 

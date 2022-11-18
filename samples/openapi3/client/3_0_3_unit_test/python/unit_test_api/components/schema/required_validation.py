@@ -34,6 +34,7 @@ class RequiredValidation(
 
 
     class MetaOapg:
+        types = None
         required = {
             "foo",
         }

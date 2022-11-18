@@ -34,4 +34,7 @@ class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         multiple_of = 0.123456789

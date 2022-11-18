@@ -34,5 +34,8 @@ class NumberWithValidations(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         inclusive_maximum = 20
         inclusive_minimum = 10

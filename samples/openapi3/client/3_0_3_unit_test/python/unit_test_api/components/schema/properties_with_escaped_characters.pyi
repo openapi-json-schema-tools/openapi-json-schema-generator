@@ -34,6 +34,7 @@ class PropertiesWithEscapedCharacters(
 
 
     class MetaOapg:
+        types = None
         
         class properties:
             foo_nbar = schemas.NumberSchema

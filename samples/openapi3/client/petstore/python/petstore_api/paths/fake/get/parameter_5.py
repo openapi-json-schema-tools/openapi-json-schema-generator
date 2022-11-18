@@ -34,6 +34,9 @@ class schema(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         format = 'double'
         enum_value_to_name = {
             1.1: "POSITIVE_1_PT_1",

@@ -34,6 +34,7 @@ class AnyTypeNotString(
 
 
     class MetaOapg:
+        types = None
         not_schema = schemas.StrSchema
 
 

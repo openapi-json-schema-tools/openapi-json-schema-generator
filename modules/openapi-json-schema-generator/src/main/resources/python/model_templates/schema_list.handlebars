@@ -14,24 +14,16 @@ class {{> model_templates/classname }}(
 {{/if}}
     """
 {{/if}}
-{{#if isStub}}
-{{#if items}}
-
-
-    class MetaOapg:
-        {{> model_templates/list_partial }}
-{{/if}}
-{{else}}
 {{#or getItems hasValidation}}
 
 
     class MetaOapg:
+        types = {tuple}
 {{#if hasValidation}}
         {{> model_templates/validations }}
 {{/if}}
         {{> model_templates/list_partial }}
 {{/or}}
-{{/if}}
 
     {{> model_templates/new }}
 

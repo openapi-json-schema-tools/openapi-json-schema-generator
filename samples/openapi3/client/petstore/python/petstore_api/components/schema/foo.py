@@ -34,6 +34,7 @@ class Foo(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
         

@@ -34,5 +34,8 @@ class IntegerMin15(
 
 
     class MetaOapg:
+        types = {
+            decimal.Decimal,
+        }
         format = 'int64'
         inclusive_minimum = 15

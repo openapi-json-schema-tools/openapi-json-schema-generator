@@ -34,6 +34,7 @@ class ObjectWithInlineCompositionProperty(
 
 
     class MetaOapg:
+        types = {frozendict.frozendict}
         
         class properties:
             
@@ -44,6 +45,7 @@ class ObjectWithInlineCompositionProperty(
             
             
                 class MetaOapg:
+                    types = None
                     
                     
                     class all_of_0(
@@ -52,6 +54,9 @@ class ObjectWithInlineCompositionProperty(
                     
                     
                         class MetaOapg:
+                            types = {
+                                str,
+                            }
                             min_length = 1
                     
                     @classmethod
