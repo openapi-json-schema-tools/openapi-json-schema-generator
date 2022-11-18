@@ -153,7 +153,7 @@ def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_t
     current_path_to_item = validation_metadata.path_to_item
     other_path_to_schemas = {}
     for path_to_item, schemas in validation_metadata.validated_path_to_schemas.items():
-        if len(path_to_item) <= current_path_to_item:
+        if len(path_to_item) <= len(current_path_to_item):
             continue
         path_begins_with_current_path = path_to_item[:len(current_path_to_item)] == current_path_to_item
         if path_begins_with_current_path:
