@@ -141,6 +141,19 @@ class ValidationMetadata(frozendict.frozendict):
         return self.get('validated_path_to_schemas')
 
 
+def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_to_schemas: dict):
+    # this is called if validation_ran_earlier and deeper loactions need to be added
+    current_path_to_item = validation_metadata.path_to_item
+    other_path_to_schemas = {}
+    for path_to_item, schemas in validation_metadata.validated_path_to_schemas.items():
+        if len(path_to_item) <= current_path_to_item:
+            continue
+        path_begins_with_current_path = path_to_item[:len(current_path_to_item)] == current_path_to_item
+        if path_begins_with_current_path:
+            other_path_to_schemas[path_to_item] = schemas
+    update(path_to_schemas, other_path_to_schemas)
+
+
 class Singleton:
     """
     Enums and singletons are the same
