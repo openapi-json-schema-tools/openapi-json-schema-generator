@@ -153,7 +153,7 @@ def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_t
     current_path_to_item = validation_metadata.path_to_item
     other_path_to_schemas = {}
     for path_to_item, schemas in validation_metadata.validated_path_to_schemas.items():
-        if len(path_to_item) <= len(current_path_to_item):
+        if len(path_to_item) <= current_path_to_item:
             continue
         path_begins_with_current_path = path_to_item[:len(current_path_to_item)] == current_path_to_item
         if path_begins_with_current_path:
@@ -412,7 +412,6 @@ class Schema:
             update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
-        print(f'_path_to_schemas {_path_to_schemas}')
         path_to_schemas = {}
         for path, schema_classes in _path_to_schemas.items():
             """
@@ -1665,8 +1664,6 @@ class DictBase(Discriminable, ValidatorBase):
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
-        import pdb
-        pdb.set_trace()
         if isinstance(arg, frozendict.frozendict):
             cls.__check_dict_validations(arg, validation_metadata)
         _path_to_schemas = super()._validate_oapg(arg, validation_metadata=validation_metadata)
@@ -1723,11 +1720,6 @@ class DictBase(Discriminable, ValidatorBase):
         for property_name_js, value in arg.items():
             property_path_to_item = path_to_item + (property_name_js,)
             property_cls = path_to_schemas[property_path_to_item]
-            print(f'property_name_js {property_name_js}')
-            print(f'value {value}')
-            print(f'property_cls {property_cls}')
-            print(f'property_cls.__bases__ {property_cls.__bases__}')
-            print(f'property_path_to_item {property_path_to_item}')
             new_value = property_cls._get_new_instance_without_conversion_oapg(
                 value,
                 property_path_to_item,
