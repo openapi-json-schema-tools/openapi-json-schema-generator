@@ -70,7 +70,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        used_path = path.value
+        used_path = path
         # TODO add cookie handling
 
         response = self.api_client.call_api(

@@ -115,7 +115,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
-        used_path = path.value
+        used_path = path
 
         prefix_separator_iterator = None
         for parameter in RequestQueryParameters.parameters:

@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.fake_case_sensitive_params import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.FAKE_CASESENSITIVEPARAMS
+path = "/fake/case-sensitive-params"
