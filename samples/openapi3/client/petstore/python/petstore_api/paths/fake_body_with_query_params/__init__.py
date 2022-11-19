@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.fake_body_with_query_params import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.FAKE_BODYWITHQUERYPARAMS
+path = "/fake/body-with-query-params"

@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.fake_refs_array_of_enums import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.FAKE_REFS_ARRAYOFENUMS
+path = "/fake/refs/array-of-enums"

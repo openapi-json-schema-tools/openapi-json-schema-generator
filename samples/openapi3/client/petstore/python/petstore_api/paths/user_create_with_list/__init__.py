@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.user_create_with_list import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.USER_CREATE_WITH_LIST
+path = "/user/createWithList"

@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.fake_refs_boolean import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.FAKE_REFS_BOOLEAN
+path = "/fake/refs/boolean"

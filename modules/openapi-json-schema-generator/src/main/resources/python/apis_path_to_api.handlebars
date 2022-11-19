@@ -1,6 +1,5 @@
 import typing_extensions
 
-from {{packageName}}.paths import PathValues
 {{#each pathModuleToApiClassname}}
 from {{packageName}}.apis.paths.{{@key}} import {{this}}
 {{/each}}
@@ -8,16 +7,16 @@ from {{packageName}}.apis.paths.{{@key}} import {{this}}
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
-{{#each pathEnumToApiClassname}}
-        PathValues.{{@key}}: {{this}},
+{{#each pathToApiClassname}}
+        "{{{@key}}}": {{this}},
 {{/each}}
     }
 )
 
 path_to_api = PathToApi(
     {
-{{#each pathEnumToApiClassname}}
-        PathValues.{{@key}}: {{this}},
+{{#each pathToApiClassname}}
+        "{{{@key}}}": {{this}},
 {{/each}}
     }
 )
