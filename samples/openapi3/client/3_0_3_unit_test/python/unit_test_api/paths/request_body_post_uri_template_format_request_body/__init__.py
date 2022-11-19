@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from unit_test_api.paths.request_body_post_uri_template_format_request_body import Api
 
-from unit_test_api.paths import PathValues
-
-path = PathValues.REQUEST_BODY_POST_URI_TEMPLATE_FORMAT_REQUEST_BODY
+path = "/requestBody/postUriTemplateFormatRequestBody"

@@ -1,6 +1,5 @@
 import typing_extensions
 
-from {{packageName}}.apis.tags import TagValues
 {{#each tagModuleNameToApiClassname}}
 from {{packageName}}.apis.tags.{{@key}} import {{this}}
 {{/each}}
@@ -8,16 +7,16 @@ from {{packageName}}.apis.tags.{{@key}} import {{this}}
 TagToApi = typing_extensions.TypedDict(
     'TagToApi',
     {
-{{#each tagEnumToApiClassname}}
-        TagValues.{{@key}}: {{this}},
+{{#each tagToApiClassname}}
+        "{{{@key}}}": {{this}},
 {{/each}}
     }
 )
 
 tag_to_api = TagToApi(
     {
-{{#each tagEnumToApiClassname}}
-        TagValues.{{@key}}: {{this}},
+{{#each tagToApiClassname}}
+        "{{{@key}}}": {{this}},
 {{/each}}
     }
 )

@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.pet_pet_id_upload_image import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.PET_PET_ID_UPLOAD_IMAGE
+path = "/pet/{petId}/uploadImage"
