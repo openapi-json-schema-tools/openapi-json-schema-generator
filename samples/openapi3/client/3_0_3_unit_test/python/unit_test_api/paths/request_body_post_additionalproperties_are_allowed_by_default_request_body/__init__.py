@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from unit_test_api.paths.request_body_post_additionalproperties_are_allowed_by_default_request_body import Api
 
-from unit_test_api.paths import PathValues
-
-path = PathValues.REQUEST_BODY_POST_ADDITIONALPROPERTIES_ARE_ALLOWED_BY_DEFAULT_REQUEST_BODY
+path = "/requestBody/postAdditionalpropertiesAreAllowedByDefaultRequestBody"

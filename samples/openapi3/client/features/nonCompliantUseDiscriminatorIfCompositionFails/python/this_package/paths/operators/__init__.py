@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from this_package.paths.operators import Api
 
-from this_package.paths import PathValues
-
-path = PathValues.OPERATORS
+path = "/operators"
