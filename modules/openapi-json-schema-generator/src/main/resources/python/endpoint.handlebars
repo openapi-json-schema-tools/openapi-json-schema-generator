@@ -156,7 +156,7 @@ class BaseApi(api_client.Api):
     {{#if cookieParams}}
         self._verify_typed_dict_inputs_oapg(RequestCookieParameters.Params, cookie_params)
     {{/if}}
-        used_path = path.value
+        used_path = path
     {{#if pathParams}}
 
         _path_params = {}

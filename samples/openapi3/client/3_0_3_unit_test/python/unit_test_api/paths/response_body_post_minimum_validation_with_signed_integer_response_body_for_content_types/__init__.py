@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from unit_test_api.paths.response_body_post_minimum_validation_with_signed_integer_response_body_for_content_types import Api
 
-from unit_test_api.paths import PathValues
-
-path = PathValues.RESPONSE_BODY_POST_MINIMUM_VALIDATION_WITH_SIGNED_INTEGER_RESPONSE_BODY_FOR_CONTENT_TYPES
+path = "/responseBody/postMinimumValidationWithSignedIntegerResponseBodyForContentTypes"

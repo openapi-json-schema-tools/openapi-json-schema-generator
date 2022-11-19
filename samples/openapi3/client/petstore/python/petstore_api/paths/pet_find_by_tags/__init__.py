@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.pet_find_by_tags import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.PET_FIND_BY_TAGS
+path = "/pet/findByTags"
