@@ -101,10 +101,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     // for apis.tags imports
     private Map<String, String> tagModuleNameToApiClassname = new LinkedHashMap<>();
-    // for apis.tags enum tag definition
-    private Map<String, String> enumToTag = new LinkedHashMap<>();
     // for apis.tags tag api definition
-    private Map<String, String> tagEnumToApiClassname = new LinkedHashMap<>();
+    private Map<String, String> tagToApiClassname = new LinkedHashMap<>();
 
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
 
@@ -556,9 +554,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String tagModuleName = toApiFilename(tagName);
                 String apiClassname = toApiName(tagName);
                 tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
-                String tagEnum = toEnumVarName(tagName, "str");
-                enumToTag.put(tagEnum, tagName);
-                tagEnumToApiClassname.put(tagEnum, apiClassname);
+                tagToApiClassname.put(tagName, apiClassname);
             }
         }
 
@@ -574,9 +570,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     String tagModuleName = toApiFilename(tagName);
                     String apiClassname = toApiName(tagName);
                     tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
-                    String tagEnum = toEnumVarName(tagName, "str");
-                    enumToTag.put(tagEnum, tagName);
-                    tagEnumToApiClassname.put(tagEnum, apiClassname);
+                    tagToApiClassname.put(tagName, apiClassname);
                 }
             }
             String path = co.path;
@@ -673,7 +667,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         tagToApiMap.put("packageName", packageName);
         tagToApiMap.put("apiClassname", "Api");
         tagToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
-        tagToApiMap.put("tagEnumToApiClassname", tagEnumToApiClassname);
+        tagToApiMap.put("tagToApiClassname", tagToApiClassname);
         outputFilename = packageFilename(Arrays.asList(apiPackage, "tag_to_api.py"));
         apisFiles.add(Arrays.asList(tagToApiMap, "apis_tag_to_api.handlebars", outputFilename));
         // apis.path_to_api.py
@@ -687,7 +681,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // apis.paths.__init__.py
         Map<String, Object> initApiTagsMap = new HashMap<>();
         initApiTagsMap.put("packageName", packageName);
-        initApiTagsMap.put("enumToTag", enumToTag);
         outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
         apisFiles.add(Arrays.asList(initApiTagsMap, "__init__apis_tags.handlebars", outputFilename));
 
