@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.user_username import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.USER_USERNAME
+path = "/user/{username}"

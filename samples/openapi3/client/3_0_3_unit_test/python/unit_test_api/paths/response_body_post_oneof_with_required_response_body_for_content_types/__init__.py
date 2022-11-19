@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from unit_test_api.paths.response_body_post_oneof_with_required_response_body_for_content_types import Api
 
-from unit_test_api.paths import PathValues
-
-path = PathValues.RESPONSE_BODY_POST_ONEOF_WITH_REQUIRED_RESPONSE_BODY_FOR_CONTENT_TYPES
+path = "/responseBody/postOneofWithRequiredResponseBodyForContentTypes"

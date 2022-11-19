@@ -1,6 +1,5 @@
 import typing_extensions
 
-from petstore_api.apis.tags import TagValues
 from petstore_api.apis.tags.pet_api import PetApi
 from petstore_api.apis.tags.store_api import StoreApi
 from petstore_api.apis.tags.user_api import UserApi
@@ -12,24 +11,24 @@ from petstore_api.apis.tags.fake_classname_tags123_api import FakeClassnameTags1
 TagToApi = typing_extensions.TypedDict(
     'TagToApi',
     {
-        TagValues.PET: PetApi,
-        TagValues.STORE: StoreApi,
-        TagValues.USER: UserApi,
-        TagValues.ANOTHERFAKE: AnotherFakeApi,
-        TagValues.DEFAULT: DefaultApi,
-        TagValues.FAKE: FakeApi,
-        TagValues.FAKE_CLASSNAME_TAGS_123: FakeClassnameTags123Api,
+        "pet": PetApi,
+        "store": StoreApi,
+        "user": UserApi,
+        "$another-fake?": AnotherFakeApi,
+        "default": DefaultApi,
+        "fake": FakeApi,
+        "fake_classname_tags 123#$%^": FakeClassnameTags123Api,
     }
 )
 
 tag_to_api = TagToApi(
     {
-        TagValues.PET: PetApi,
-        TagValues.STORE: StoreApi,
-        TagValues.USER: UserApi,
-        TagValues.ANOTHERFAKE: AnotherFakeApi,
-        TagValues.DEFAULT: DefaultApi,
-        TagValues.FAKE: FakeApi,
-        TagValues.FAKE_CLASSNAME_TAGS_123: FakeClassnameTags123Api,
+        "pet": PetApi,
+        "store": StoreApi,
+        "user": UserApi,
+        "$another-fake?": AnotherFakeApi,
+        "default": DefaultApi,
+        "fake": FakeApi,
+        "fake_classname_tags 123#$%^": FakeClassnameTags123Api,
     }
 )

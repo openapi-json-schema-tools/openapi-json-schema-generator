@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.fake_additional_properties_with_array_of_enums import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.FAKE_ADDITIONALPROPERTIESWITHARRAYOFENUMS
+path = "/fake/additional-properties-with-array-of-enums"

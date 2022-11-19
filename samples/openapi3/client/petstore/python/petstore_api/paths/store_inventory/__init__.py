@@ -2,6 +2,4 @@
 # if you need the ability to import all endpoints from this module, import them with
 # from petstore_api.paths.store_inventory import Api
 
-from petstore_api.paths import PathValues
-
-path = PathValues.STORE_INVENTORY
+path = "/store/inventory"
