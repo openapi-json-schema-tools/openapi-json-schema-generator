@@ -658,15 +658,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
         testFiles.add(Arrays.asList(new HashMap<>(), "__init__test_paths.handlebars", outputFilename));
 
-        Map<String, String> pathValToVar = new LinkedHashMap<>();
         Map<String, String> pathModuleToApiClassname = new LinkedHashMap<>();
-        Map<String, String> pathEnumToApiClassname = new LinkedHashMap<>();
+        Map<String, String> pathToApiClassname = new LinkedHashMap<>();
         for (Map.Entry<String, PathItem> pathsEntry : paths.entrySet()) {
             String path = pathsEntry.getKey();
             String pathEnumVar = toEnumVarName(path, "str");
-            pathValToVar.put(path, pathEnumVar);
             String apiClassName = toModelName(path);
-            pathEnumToApiClassname.put(pathEnumVar, apiClassName);
+            pathToApiClassname.put(path, apiClassName);
             pathModuleToApiClassname.put(toVarName(path), apiClassName);
         }
         // Note: __init__apis.handlebars is generated as a supporting file
@@ -683,7 +681,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         allByPathsFileMap.put("packageName", packageName);
         allByPathsFileMap.put("apiClassname", "Api");
         allByPathsFileMap.put("pathModuleToApiClassname", pathModuleToApiClassname);
-        allByPathsFileMap.put("pathEnumToApiClassname", pathEnumToApiClassname);
+        allByPathsFileMap.put("pathToApiClassname", pathToApiClassname);
         outputFilename = packageFilename(Arrays.asList(apiPackage, "path_to_api.py"));
         apisFiles.add(Arrays.asList(allByPathsFileMap, "apis_path_to_api.handlebars", outputFilename));
         // apis.paths.__init__.py
@@ -697,7 +695,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         Map<String, Object> initOperationMap = new HashMap<>();
         initOperationMap.put("packageName", packageName);
         initOperationMap.put("apiClassname", "Api");
-        initOperationMap.put("pathValToVar", pathValToVar);
         outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
         pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths_enum.handlebars", outputFilename));
         // apis.paths.__init__.py
@@ -708,17 +705,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
             String pathModule = entry.getKey();
             String path = entry.getValue();
-            String pathVar = pathValToVar.get(path);
             Map<String, Object> pathApiMap = new HashMap<>();
             pathApiMap.put("packageName", packageName);
             pathApiMap.put("pathModule", pathModule);
             pathApiMap.put("apiClassName", "Api");
-            pathApiMap.put("pathVar", pathVar);
+            pathApiMap.put("path", path);
             outputFilename = packageFilename(Arrays.asList("paths", pathModule, "__init__.py"));
             pathsFiles.add(Arrays.asList(pathApiMap, "__init__paths_x.handlebars", outputFilename));
 
             PathItem pi = openAPI.getPaths().get(path);
-            String apiClassName = pathEnumToApiClassname.get(pathVar);
+            String apiClassName = pathToApiClassname.get(path);
             Map<String, Object> operationMap = new HashMap<>();
             operationMap.put("packageName", packageName);
             operationMap.put("pathModule", pathModule);
