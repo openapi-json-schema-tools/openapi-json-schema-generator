@@ -1,6 +1,10 @@
 # coding: utf-8
 
 {{>partial_header}}
+import dataclasses
+import typing
+
+import urllib3
 
 
 class OpenApiException(Exception):
@@ -90,9 +94,17 @@ class ApiKeyError(OpenApiException, KeyError):
         super(ApiKeyError, self).__init__(full_msg)
 
 
-class ApiException(OpenApiException):
+T = TypeVar("T")
 
-    def __init__(self, status=None, reason=None, api_response: '{{packageName}}.api_client.ApiResponse' = None):
+
+@dataclasses.dataclass
+class ApiException(OpenApiException, Generic[T]):
+    status: typing.Optional[str]
+    reason: typing.Optional[str]
+    api_response: typing.Optional[T]
+    headers: typing.Optional[urllib3.HTTPHeaderDict]
+
+    def __init__(self, status=None, reason=None, api_response: typing.Optional[T] = None):
         if api_response:
             self.status = api_response.response.status
             self.reason = api_response.response.reason
