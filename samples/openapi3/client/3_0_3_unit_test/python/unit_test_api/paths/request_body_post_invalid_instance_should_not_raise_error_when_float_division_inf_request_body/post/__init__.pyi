@@ -25,8 +25,6 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema import invalid_instance_should_not_raise_error_when_float_division_inf
-
 from . import response_for_200
 from . import request_body
 

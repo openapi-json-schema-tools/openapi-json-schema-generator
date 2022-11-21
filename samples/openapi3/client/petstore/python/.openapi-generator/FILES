@@ -146,6 +146,10 @@ petstore_api/apis/tags/pet_api.py
 petstore_api/apis/tags/store_api.py
 petstore_api/apis/tags/user_api.py
 petstore_api/components/__init__.py
+petstore_api/components/request_bodies/__init__.py
+petstore_api/components/request_bodies/client_request_body.py
+petstore_api/components/request_bodies/pet_request_body.py
+petstore_api/components/request_bodies/user_array_request_body.py
 petstore_api/components/schema/__init__.py
 petstore_api/components/schema/abstract_step_message.py
 petstore_api/components/schema/abstract_step_message.pyi

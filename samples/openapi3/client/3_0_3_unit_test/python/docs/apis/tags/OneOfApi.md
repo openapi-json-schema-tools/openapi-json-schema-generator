@@ -27,7 +27,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema import nested_oneof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,7 +152,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema import oneof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -279,7 +277,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema import oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -405,7 +402,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema import oneof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -531,7 +527,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema import oneof_with_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -657,7 +652,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import one_of_api
-from unit_test_api.components.schema import oneof_with_required
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

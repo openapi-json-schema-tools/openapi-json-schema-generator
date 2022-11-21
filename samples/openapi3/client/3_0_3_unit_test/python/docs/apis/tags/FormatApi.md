@@ -33,7 +33,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import date_time_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +158,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import email_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,7 +283,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import hostname_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -411,7 +408,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import ipv4_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -537,7 +533,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import ipv6_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -663,7 +658,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import json_pointer_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -789,7 +783,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import uri_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -915,7 +908,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import uri_reference_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1041,7 +1033,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import format_api
-from unit_test_api.components.schema import uri_template_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

@@ -19,7 +19,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import default_api
-from unit_test_api.components.schema import invalid_string_value_for_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,7 +144,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import default_api
-from unit_test_api.components.schema import the_default_keyword_does_not_do_anything_if_the_property_is_missing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

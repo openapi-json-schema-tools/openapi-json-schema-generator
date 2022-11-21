@@ -21,6 +21,7 @@ import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
@@ -80,6 +81,12 @@ public interface CodegenConfig {
     String modelDocFileFolder();
 
     String modelPackage();
+
+    String packageName();
+
+    String requestBodyFileFolder();
+
+    String requestBodyFilename(String componentName);
 
     String toApiName(String name);
 
@@ -151,6 +158,8 @@ public interface CodegenConfig {
 
     Map<String, String> modelTemplateFiles();
 
+    Map<String, String> requestBodyTemplateFiles();
+
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
@@ -176,6 +185,8 @@ public interface CodegenConfig {
     String toApiFilename(String name);
 
     String toModelFilename(String name);
+
+    String toModuleFilename(String name);
 
     String toApiTestFilename(String name);
 
@@ -332,4 +343,8 @@ public interface CodegenConfig {
     boolean getAddSuffixToDuplicateOperationNicknames();
 
     String toRefClass(String ref, String sourceJsonPath);
+
+    CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath);
+
+    String getBodyParameterName(CodegenOperation co);
 }

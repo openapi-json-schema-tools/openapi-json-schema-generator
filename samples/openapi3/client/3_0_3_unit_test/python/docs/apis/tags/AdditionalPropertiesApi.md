@@ -23,7 +23,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema import additionalproperties_allows_a_schema_which_should_validate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -152,7 +151,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema import additionalproperties_are_allowed_by_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -278,7 +276,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -406,7 +403,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import additional_properties_api
-from unit_test_api.components.schema import additionalproperties_should_not_look_in_applicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

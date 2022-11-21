@@ -26,7 +26,6 @@ This can only be done by the logged in user.
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -111,7 +110,6 @@ Creates list of users with given input array
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -204,7 +202,6 @@ Creates list of users with given input array
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -676,7 +673,6 @@ This can only be done by the logged in user.
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.

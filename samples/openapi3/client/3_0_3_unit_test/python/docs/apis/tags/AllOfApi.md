@@ -33,7 +33,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_combined_with_anyof_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +158,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,7 +283,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_simple_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -411,7 +408,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -537,7 +533,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -663,7 +658,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_with_the_first_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -789,7 +783,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_with_the_last_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -915,7 +908,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import allof_with_two_empty_schemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1041,7 +1033,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import all_of_api
-from unit_test_api.components.schema import nested_allof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

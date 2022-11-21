@@ -23,7 +23,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema import by_int
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,7 +148,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema import by_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -275,7 +273,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema import by_small_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -401,7 +398,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import multiple_of_api
-from unit_test_api.components.schema import invalid_instance_should_not_raise_error_when_float_division_inf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

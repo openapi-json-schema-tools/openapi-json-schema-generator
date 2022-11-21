@@ -19,6 +19,7 @@ this_package/api_client.py
 this_package/apis/__init__.py
 this_package/apis/tags/default_api.py
 this_package/components/__init__.py
+this_package/components/request_bodies/__init__.py
 this_package/components/schema/__init__.py
 this_package/components/schema/addition_operator.py
 this_package/components/schema/addition_operator.pyi

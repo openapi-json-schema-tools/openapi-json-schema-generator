@@ -189,7 +189,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import additionalproperties_allows_a_schema_which_should_validate
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -318,7 +317,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import additionalproperties_are_allowed_by_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -444,7 +442,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -572,7 +569,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import additionalproperties_should_not_look_in_applicators
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -698,7 +694,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_combined_with_anyof_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -824,7 +819,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -950,7 +944,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_simple_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1076,7 +1069,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1202,7 +1194,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1328,7 +1319,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_with_the_first_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1454,7 +1444,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_with_the_last_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1580,7 +1569,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import allof_with_two_empty_schemas
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1706,7 +1694,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import anyof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1832,7 +1819,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1958,7 +1944,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import anyof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2084,7 +2069,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import anyof_with_one_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2210,7 +2194,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import array_type_matches_arrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2338,7 +2321,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import boolean_type_matches_booleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2464,7 +2446,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import by_int
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2590,7 +2571,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import by_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2716,7 +2696,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import by_small_number
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2842,7 +2821,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import date_time_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -2968,7 +2946,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import email_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3094,7 +3071,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import enum_with0_does_not_match_false
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3220,7 +3196,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import enum_with1_does_not_match_true
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3346,7 +3321,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import enum_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3472,7 +3446,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import enum_with_false_does_not_match0
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3598,7 +3571,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import enum_with_true_does_not_match1
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3724,7 +3696,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import enums_in_properties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3853,7 +3824,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import forbidden_property
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -3979,7 +3949,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import hostname_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4105,7 +4074,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import integer_type_matches_integers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4231,7 +4199,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import invalid_instance_should_not_raise_error_when_float_division_inf
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4357,7 +4324,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import invalid_string_value_for_default
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4483,7 +4449,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ipv4_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4609,7 +4574,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ipv6_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4735,7 +4699,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import json_pointer_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4861,7 +4824,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import maximum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -4987,7 +4949,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import maximum_validation_with_unsigned_integer
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5113,7 +5074,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import maxitems_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5239,7 +5199,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import maxlength_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5365,7 +5324,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5491,7 +5449,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import maxproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5617,7 +5574,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import minimum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5743,7 +5699,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import minimum_validation_with_signed_integer
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5869,7 +5824,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import minitems_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -5995,7 +5949,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import minlength_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6121,7 +6074,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import minproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6247,7 +6199,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import nested_allof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6373,7 +6324,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import nested_anyof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6499,7 +6449,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import nested_items
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6633,7 +6582,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import nested_oneof_to_check_validation_semantics
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6759,7 +6707,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import not_more_complex_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -6885,7 +6832,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import model_not
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7011,7 +6957,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import nul_characters_in_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7137,7 +7082,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import null_type_matches_only_the_null_object
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7263,7 +7207,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import number_type_matches_numbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7389,7 +7332,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import object_properties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7515,7 +7457,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import object_type_matches_objects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7641,7 +7582,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import oneof_complex_types
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7767,7 +7707,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -7893,7 +7832,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import oneof_with_base_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8019,7 +7957,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import oneof_with_empty_schema
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8145,7 +8082,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import oneof_with_required
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8271,7 +8207,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import pattern_is_not_anchored
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8397,7 +8332,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import pattern_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8523,7 +8457,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import properties_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8649,7 +8582,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8775,7 +8707,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_additionalproperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -8903,7 +8834,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_allof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9029,7 +8959,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_anyof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9155,7 +9084,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_items
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9283,7 +9211,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_not
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9409,7 +9336,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_oneof
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9535,7 +9461,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import ref_in_property
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9661,7 +9586,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import required_default_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9787,7 +9711,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import required_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -9913,7 +9836,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import required_with_empty_array
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10039,7 +9961,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import required_with_escaped_characters
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10165,7 +10086,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import simple_enum_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10291,7 +10211,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import string_type_matches_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10417,7 +10336,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import the_default_keyword_does_not_do_anything_if_the_property_is_missing
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10545,7 +10463,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import uniqueitems_false_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10671,7 +10588,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import uniqueitems_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10797,7 +10713,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import uri_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -10923,7 +10838,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import uri_reference_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -11049,7 +10963,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import content_type_json_api
-from unit_test_api.components.schema import uri_template_format
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

@@ -29,7 +29,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import array_type_matches_arrays
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,7 +156,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import boolean_type_matches_booleans
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -283,7 +281,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import integer_type_matches_integers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -409,7 +406,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import null_type_matches_only_the_null_object
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -535,7 +531,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import number_type_matches_numbers
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -661,7 +656,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import object_type_matches_objects
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -787,7 +781,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import type_api
-from unit_test_api.components.schema import string_type_matches_strings
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.

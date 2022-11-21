@@ -19,7 +19,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_properties_api
-from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,7 +144,6 @@ No authorization required
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import max_properties_api
-from unit_test_api.components.schema import maxproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
