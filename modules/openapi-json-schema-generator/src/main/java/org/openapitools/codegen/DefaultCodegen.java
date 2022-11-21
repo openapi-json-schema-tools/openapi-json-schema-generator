@@ -4078,7 +4078,6 @@ public class DefaultCodegen implements CodegenConfig {
                 op.examples = new ExampleGenerator(schemas, this.openAPI).generateFromResponseSchema(exampleStatusCode, responseSchema, getProducesInfo(this.openAPI, operation));
             }
 
-            op.defaultResponse = toDefaultValue(responseSchema);
             op.returnType = cm.dataType;
             op.returnFormat = cm.dataFormat;
             op.hasReference = schemas != null && schemas.containsKey(op.returnBaseType);
@@ -4216,6 +4215,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 if (Boolean.TRUE.equals(r.isDefault)) {
                     op.defaultReturnType = Boolean.TRUE;
+                    op.defaultResponse = r;
                 }
                 // check if any 4xx or 5xx response has an error response object defined
                 if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx)) && r.getContent() != null) {

@@ -15,18 +15,15 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-
-class BodySchemas:
-    # body schemas
-    application_json = schemas.DictSchema
-    pass
+# body schemas
+application_json = schemas.DictSchema
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        BodySchemas.application_json,
+        application_json,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -35,7 +32,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=BodySchemas.application_json,
+            schema=application_json,
         ),
     },
 )

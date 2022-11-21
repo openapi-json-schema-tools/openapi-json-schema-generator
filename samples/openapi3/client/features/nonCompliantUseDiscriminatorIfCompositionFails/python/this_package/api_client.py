@@ -936,12 +936,19 @@ class TypedDictInputVerifier:
             )
 
 
-class OpenApiResponse(JSONDetector, TypedDictInputVerifier):
+T = typing.TypeVar("T")
+
+
+@dataclasses.dataclass
+class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
+    response_cls: typing.Type[T]
+    content: typing.Optional[typing.Dict[str, MediaType]]
+    headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]]
 
     def __init__(
         self,
-        response_cls: typing.Type[ApiResponse] = ApiResponse,
+        response_cls: typing.Type[T],
         content: typing.Optional[typing.Dict[str, MediaType]] = None,
         headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]] = None,
     ):
@@ -1026,7 +1033,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier):
             for part in msg.get_payload()
         }
 
-    def deserialize(self, response: urllib3.HTTPResponse, configuration: Configuration) -> ApiResponse:
+    def deserialize(self, response: urllib3.HTTPResponse, configuration: Configuration) -> T:
         content_type = response.getheader('content-type')
         deserialized_body = unset
         streamed = response.supports_chunked_reads()

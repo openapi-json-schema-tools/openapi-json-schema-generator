@@ -1203,10 +1203,10 @@ headers | Unset | headers were not defined |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_404.BodySchemas.application_json](#enum_parameters.response_for_404.BodySchemas.application_json), ] |  |
+body | typing.Union[[response_for_404.application_json](#enum_parameters.response_for_404.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="enum_parameters.response_for_404.BodySchemas.application_json" >response_for_404.BodySchemas.application_json</a>
+# <a id="enum_parameters.response_for_404.application_json" >response_for_404.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
