@@ -115,11 +115,11 @@ class ApiException(OpenApiException, typing.Generic[T]):
         error_message = "({0})\n"\
                         "Reason: {1}\n".format(self.status, self.reason)
         if self.api_response:
-            if self.api_response.response.headers:
+            if self.api_response.response.getheaders():
                 error_message += "HTTP response headers: {0}\n".format(
-                    self.api_response.response.headers)
-            if self.api_response.response.body:
-                error_message += "HTTP response body: {0}\n".format(self.api_response.response.body)
+                    self.api_response.response.getheaders())
+            if self.api_response.response.data:
+                error_message += "HTTP response body: {0}\n".format(self.api_response.response.data)
 
         return error_message
 

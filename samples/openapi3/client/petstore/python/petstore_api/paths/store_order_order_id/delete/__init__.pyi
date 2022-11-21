@@ -133,7 +133,7 @@ class BaseApi(api_client.Api):
         if not 200 <= response.status <= 299:
             raise exceptions.ApiException(
                 status=response.status,
-                reason='non 2XX response',
+                reason=response.reason,
                 api_response=api_response
             )
 
