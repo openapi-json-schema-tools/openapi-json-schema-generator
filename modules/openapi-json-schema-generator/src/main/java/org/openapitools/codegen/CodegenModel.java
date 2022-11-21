@@ -173,6 +173,7 @@ public class CodegenModel implements JsonSchema {
     private boolean isUuid;
     private Map<String, CodegenProperty> requiredVarsMap;
     private String ref;
+    private String refModule;
 
     public String getAdditionalPropertiesType() {
         return additionalPropertiesType;
@@ -241,6 +242,10 @@ public class CodegenModel implements JsonSchema {
     public void setRef(String ref) {
         this.ref = ref;
     }
+
+    public String getRefModule() { return refModule; }
+
+    public void setRefModule(String refModule) { this.refModule=refModule; }
 
     @Override
     public boolean getSchemaIsFromAdditionalProperties() {
@@ -1023,6 +1028,7 @@ public class CodegenModel implements JsonSchema {
                 Objects.equals(format, that.getFormat()) &&
                 Objects.equals(uniqueItemsBoolean, that.getUniqueItemsBoolean()) &&
                 Objects.equals(ref, that.getRef()) &&
+                Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
                 Objects.equals(composedSchemas, that.composedSchemas) &&
                 Objects.equals(parent, that.parent) &&
@@ -1098,7 +1104,7 @@ public class CodegenModel implements JsonSchema {
                 getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, getComposedSchemas(), hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
                 uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains);
+                format, dependentRequired, contains, refModule);
     }
 
     @Override
@@ -1198,6 +1204,7 @@ public class CodegenModel implements JsonSchema {
         sb.append(", isUUID=").append(isUuid);
         sb.append(", requiredVarsMap=").append(requiredVarsMap);
         sb.append(", ref=").append(ref);
+        sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
         sb.append(", isBooleanSchemaTrue=").append(isBooleanSchemaTrue);
         sb.append(", isBooleanSchemaFalse=").append(isBooleanSchemaFalse);

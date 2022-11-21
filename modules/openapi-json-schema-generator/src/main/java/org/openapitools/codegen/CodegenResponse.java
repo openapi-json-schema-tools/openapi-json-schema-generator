@@ -37,6 +37,7 @@ public class CodegenResponse {
     private LinkedHashMap<String, CodegenMediaType> content;
     private String ref;
     public Set<String> imports = new TreeSet<>();
+    private String refModule;
 
     @Override
     public int hashCode() {
@@ -44,7 +45,7 @@ public class CodegenResponse {
                 jsonSchema, vendorExtensions,
                 is1xx, is2xx, is3xx, is4xx, is5xx, isDefault,
                 responseHeaders, content,
-                ref, imports);
+                ref, imports, refModule);
     }
 
     @Override
@@ -68,7 +69,8 @@ public class CodegenResponse {
                 Objects.equals(message, that.message) &&
                 Objects.equals(examples, that.examples) &&
                 Objects.equals(jsonSchema, that.jsonSchema) &&
-                Objects.equals(vendorExtensions, that.vendorExtensions);
+                Objects.equals(vendorExtensions, that.vendorExtensions) &&
+                Objects.equals(refModule, that.getRefModule());
 
     }
 
@@ -107,6 +109,7 @@ public class CodegenResponse {
         sb.append(", responseHeaders=").append(responseHeaders);
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
+        sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
         sb.append('}');
         return sb.toString();
@@ -132,4 +135,9 @@ public class CodegenResponse {
     public String getRef() { return ref; }
 
     public void setRef(String ref) { this.ref=ref; }
+
+    public String getRefModule() { return refModule; }
+
+    public void setRefModule(String refModule) { this.refModule=refModule; }
+
 }
