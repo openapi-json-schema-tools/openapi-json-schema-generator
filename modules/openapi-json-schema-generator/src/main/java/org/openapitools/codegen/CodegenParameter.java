@@ -46,6 +46,7 @@ public class CodegenParameter {
     private boolean hasMultipleTypes = false;
     private LinkedHashMap<String, CodegenMediaType> content;
     private String ref;
+    private String refModule;
 
     public CodegenParameter copy() {
         CodegenParameter output = new CodegenParameter();
@@ -75,6 +76,9 @@ public class CodegenParameter {
         if (this.ref != null) {
             output.setRef(this.ref);
         }
+        if (this.refModule != null) {
+            output.setRefModule(this.refModule);
+        }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
@@ -86,7 +90,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref);
+        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule);
     }
 
     @Override
@@ -104,6 +108,7 @@ public class CodegenParameter {
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
                 Objects.equals(ref, that.getRef()) &&
+                Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(content, that.getContent()) &&
                 Objects.equals(schema, that.getSchema()) &&
                 Objects.equals(baseName, that.baseName) &&
@@ -144,6 +149,7 @@ public class CodegenParameter {
         sb.append(", schema=").append(schema);
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
+        sb.append(", refModule=").append(refModule);
         sb.append('}');
         return sb.toString();
     }
@@ -169,5 +175,8 @@ public class CodegenParameter {
 
     public void setRef(String ref) { this.ref=ref; }
 
+    public String getRefModule() { return refModule; }
+
+    public void setRefModule(String refModule) { this.refModule=refModule; }
 }
 
