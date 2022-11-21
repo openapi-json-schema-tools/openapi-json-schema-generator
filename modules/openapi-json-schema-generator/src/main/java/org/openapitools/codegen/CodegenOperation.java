@@ -21,6 +21,7 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.tags.Tag;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CodegenOperation {
     public final List<CodegenProperty> responseHeaders = new ArrayList<CodegenProperty>();
@@ -33,7 +34,7 @@ public class CodegenOperation {
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public CodegenProperty returnProperty;
     public String path, operationId, returnType, returnFormat, httpMethod, returnBaseType,
-            returnContainer, summary, unescapedNotes, notes, baseName, defaultResponse;
+            returnContainer, summary, unescapedNotes, notes, baseName;
     public CodegenDiscriminator discriminator;
     public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
@@ -51,6 +52,7 @@ public class CodegenOperation {
     public List<CodegenSecurity> authMethods;
     public List<Tag> tags;
     public List<CodegenResponse> responses = new ArrayList<CodegenResponse>();
+    public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();
     public Set<String> imports = new HashSet<String>();
     public List<Map<String, String>> examples;
@@ -195,6 +197,10 @@ public class CodegenOperation {
 
     public boolean getAllResponsesAreErrors() {
         return responses.stream().allMatch(response -> response.is4xx || response.is5xx);
+    }
+
+    public List<CodegenResponse> getNonDefaultResponses() {
+        return responses.stream().filter(response -> !response.isDefault).collect(Collectors.toList());
     }
 
     /**

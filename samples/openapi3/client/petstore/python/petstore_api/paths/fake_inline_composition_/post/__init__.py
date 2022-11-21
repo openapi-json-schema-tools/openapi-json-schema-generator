@@ -57,9 +57,16 @@ class RequestQueryParameters:
         parameter_0.parameter_oapg,
         parameter_1.parameter_oapg,
     ]
-_status_code_to_response = {
+
+__StatusCodeToResponse = typing_extensions.TypedDict(
+    '__StatusCodeToResponse',
+    {
+        '200': api_client.OpenApiResponse[response_for_200.ApiResponse],
+    }
+)
+_status_code_to_response = __StatusCodeToResponse({
     '200': response_for_200.response,
-}
+})
 _all_accept_content_types = (
     'application/json',
     'multipart/form-data',
@@ -195,9 +202,12 @@ class BaseApi(api_client.Api):
         if skip_deserialization:
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
-            response_for_status = _status_code_to_response.get(str(response.status))
-            if response_for_status:
-                api_response = response_for_status.deserialize(response, self.api_client.configuration)
+            status = str(response.status)
+            if status in _status_code_to_response:
+                status: typing_extensions.Literal[
+                    '200',
+                ]
+                api_response = _status_code_to_response[status].deserialize(response, self.api_client.configuration)
             else:
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 
