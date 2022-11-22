@@ -109,7 +109,6 @@ class ApiException(OpenApiException, typing.Generic[T]):
     status: int
     reason: str
     api_response: typing.Optional[T] = None
-    headers: typing.Optional[HTTPHeaderDict]
 
     @property
     def body(self) -> typing.Union[str, bytes, None]:
