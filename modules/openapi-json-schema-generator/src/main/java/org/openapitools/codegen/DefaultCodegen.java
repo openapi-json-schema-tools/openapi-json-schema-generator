@@ -2934,8 +2934,7 @@ public class DefaultCodegen implements CodegenConfig {
         m.setFormat(schema.getFormat());
         m.setComposedSchemas(getComposedSchemas(schema));
         if (ModelUtils.isArraySchema(schema)) {
-            String itemName = getItemsName(null, name);
-            CodegenProperty arrayProperty = fromProperty(itemName, schema, false);
+            CodegenProperty arrayProperty = fromProperty(name, schema, false);
             m.setItems(arrayProperty.items);
             m.arrayModelType = arrayProperty.complexType;
             addParentContainer(m, name, schema);
@@ -7910,16 +7909,10 @@ public class DefaultCodegen implements CodegenConfig {
     protected String handleSpecialCharacters(String name) { return name; }
 
     public String getItemsName(Schema containingSchema, String containingSchemaName) {
-        String itemName = null;
-        if (containingSchema != null) {
-            // fromProperty use case
-            if (containingSchema.getExtensions() != null && containingSchema.getExtensions().get("x-item-name") != null) {
-                return containingSchema.getExtensions().get("x-item-name").toString();
-            }
-            return toVarName(containingSchemaName);
+        if (containingSchema.getExtensions() != null && containingSchema.getExtensions().get("x-item-name") != null) {
+            return containingSchema.getExtensions().get("x-item-name").toString();
         }
-        // fromModel use case
-        return containingSchemaName;
+        return toVarName(containingSchemaName);
     }
 
     public String getAdditionalPropertiesName() {
