@@ -2934,7 +2934,8 @@ public class DefaultCodegen implements CodegenConfig {
         m.setFormat(schema.getFormat());
         m.setComposedSchemas(getComposedSchemas(schema));
         if (ModelUtils.isArraySchema(schema)) {
-            CodegenProperty arrayProperty = fromProperty(name, schema, false);
+            String itemName = getItemsName(null, name);
+            CodegenProperty arrayProperty = fromProperty(itemName, schema, false);
             m.setItems(arrayProperty.items);
             m.arrayModelType = arrayProperty.complexType;
             addParentContainer(m, name, schema);
@@ -3032,17 +3033,17 @@ public class DefaultCodegen implements CodegenConfig {
         if (schema.getAdditionalProperties() == null) {
             if (!disallowAdditionalPropertiesIfNotPresent) {
                 isAdditionalPropertiesTrue = true;
-                addPropProp = fromProperty("", new Schema(), false);
+                addPropProp = fromProperty(getAdditionalPropertiesName(), new Schema(), false);
                 additionalPropertiesIsAnyType = true;
             }
         } else if (schema.getAdditionalProperties() instanceof Boolean) {
             if (Boolean.TRUE.equals(schema.getAdditionalProperties())) {
                 isAdditionalPropertiesTrue = true;
-                addPropProp = fromProperty("", new Schema(), false);
+                addPropProp = fromProperty(getAdditionalPropertiesName(), new Schema(), false);
                 additionalPropertiesIsAnyType = true;
             }
         } else {
-            addPropProp = fromProperty("", (Schema) schema.getAdditionalProperties(), false);
+            addPropProp = fromProperty(getAdditionalPropertiesName(), (Schema) schema.getAdditionalProperties(), false);
             if (ModelUtils.isAnyType((Schema) schema.getAdditionalProperties())) {
                 additionalPropertiesIsAnyType = true;
             }
@@ -3850,13 +3851,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             // handle inner property
-            String itemName = null;
-            if (p.getExtensions() != null && p.getExtensions().get("x-item-name") != null) {
-                itemName = p.getExtensions().get("x-item-name").toString();
-            }
-            if (itemName == null) {
-                itemName = property.name;
-            }
+            String itemName = getItemsName(p, name);
             ArraySchema arraySchema = (ArraySchema) p;
             Schema innerSchema = unaliasSchema(getSchemaItems(arraySchema));
             CodegenProperty cp = fromProperty(itemName, innerSchema, false);
@@ -7913,6 +7908,24 @@ public class DefaultCodegen implements CodegenConfig {
     Into strings that can be rendered in the language that the generator will output to
     */
     protected String handleSpecialCharacters(String name) { return name; }
+
+    public String getItemsName(Schema containingSchema, String containingSchemaName) {
+        String itemName = null;
+        if (containingSchema != null) {
+            // fromProperty use case
+            if (containingSchema.getExtensions() != null && containingSchema.getExtensions().get("x-item-name") != null) {
+                return containingSchema.getExtensions().get("x-item-name").toString();
+            }
+            return toVarName(containingSchemaName);
+        }
+        // fromModel use case
+        return containingSchemaName;
+    }
+
+    public String getAdditionalPropertiesName() {
+        return "additional_properties";
+    }
+
 
     /**
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null
