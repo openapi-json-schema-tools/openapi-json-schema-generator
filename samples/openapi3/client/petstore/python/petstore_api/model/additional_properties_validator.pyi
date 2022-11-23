@@ -79,6 +79,9 @@ class AdditionalPropertiesValidator(
                 ):
                 
                 
+                    class MetaOapg:
+                
+                
                     def __new__(
                         cls,
                         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
@@ -124,6 +127,9 @@ class AdditionalPropertiesValidator(
                 class additional_properties(
                     schemas.AnyTypeSchema,
                 ):
+                
+                
+                    class MetaOapg:
                 
                 
                     def __new__(

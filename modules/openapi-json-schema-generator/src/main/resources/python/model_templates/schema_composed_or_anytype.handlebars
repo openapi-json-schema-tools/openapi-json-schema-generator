@@ -31,19 +31,10 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 {{/if}}
     """
 {{/if}}
-{{#if isStub}}
-{{#or composedSchemas getItems additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars getFormat isEnum}}
-
-
-    class MetaOapg:
-{{/or}}
-{{else}}
 {{#or hasValidation composedSchemas getItems additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars getFormat isEnum}}
 
 
     class MetaOapg:
-{{/or}}
-{{/if}}
 {{#if getFormat}}
         format = '{{getFormat}}'
 {{/if}}
@@ -70,6 +61,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 {{#if composedSchemas}}
         {{> model_templates/composed_schemas }}
 {{/if}}
+{{/or}}
 {{#if isEnum}}
     {{> model_templates/enums }}
 {{/if}}
