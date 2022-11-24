@@ -76,7 +76,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/pets/petType/{type}");
         CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
-        Assert.assertEquals(Sets.intersection(operation.imports, Sets.newHashSet("PetByType")).size(), 1);
+        Assert.assertEquals(Sets.intersection(operation.pathParams.get(0).imports, Sets.newHashSet("PetByType")).size(), 1);
     }
 
     @Test
