@@ -24,9 +24,9 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+from petstore_api.components.request_bodies import user_array_request_body as request_body
 
 from . import response_for_default
-from . import request_body
 
 
 

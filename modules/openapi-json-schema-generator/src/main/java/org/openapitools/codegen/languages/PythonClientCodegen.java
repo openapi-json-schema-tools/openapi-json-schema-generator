@@ -424,7 +424,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
         }
-        supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+        if (openAPI.getComponents() != null && openAPI.getComponents().getRequestBodies() != null) {
+            supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+        }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
 
