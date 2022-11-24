@@ -1,13 +1,7 @@
 {{#with bodyParam}}
-{{#if refModule}}
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**request_body**](../../components/request_bodies/{{refModule}}.md) | {{#if description}}{{description}}{{/if}} | {{#unless required}}optional{{/unless}}
-{{else}}
     {{#each content}}
     {{#with this.schema}}
 {{> api_doc_schema_type_hint complexTypePrefix="../../components/schema/" }}
     {{/with}}
     {{/each}}
-{{/if}}
 {{/with}}

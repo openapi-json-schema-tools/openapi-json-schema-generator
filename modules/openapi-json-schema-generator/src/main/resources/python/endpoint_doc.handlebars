@@ -49,7 +49,11 @@ Method | HTTP request | Description
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with bodyParam}}
+    {{#if refModule}}
+[**{{baseName}}**](../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+    {{else}}
 [{{baseName}}](#{{operationId}}.request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../operationId}}.request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+    {{/if}}
     {{/with}}
     {{#if queryParams}}
 [query_params](#{{operationId}}.RequestQueryParameters) | [RequestQueryParameters.Params](#{{operationId}}.RequestQueryParameters.Params) | |
@@ -80,9 +84,11 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
     {{#if bodyParam}}
+    {{#unless bodyParam.refModule}}
 
 ### <a id="{{operationId}}.request_body" >body</a>
 {{> request_body_doc bodyParam=bodyParam anchorPrefix=operationId schemaNamePrefix1="request_body" }}
+    {{/unless}}
     {{/if}}
     {{#if queryParams}}
 
