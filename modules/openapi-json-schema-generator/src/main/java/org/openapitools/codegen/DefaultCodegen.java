@@ -6585,7 +6585,8 @@ public class DefaultCodegen implements CodegenConfig {
         codegenParameter.required = usedBody.getRequired() != null ? usedBody.getRequired() : Boolean.FALSE;
         codegenParameter.isBodyParam = Boolean.TRUE;
         if (bodyRef != null) {
-            codegenParameter.setRefModule(toRefModule(bodyRef, "requestBodies"));
+            String refModule = toRefModule(bodyRef, "requestBodies");
+            codegenParameter.setRefModule(refModule);
         }
         if (usedBody.getExtensions() != null) {
             codegenParameter.vendorExtensions.putAll(usedBody.getExtensions());

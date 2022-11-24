@@ -149,16 +149,9 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="add_pet.request_body" >body</a>
-# <a id="add_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
-# <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
+[**request_body**](../../components/request_bodies/pet_request_body.md) |  | 
 
 ### Return Types, Responses
 
@@ -946,16 +939,9 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="update_pet.request_body" >body</a>
-# <a id="update_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
-# <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
+[**request_body**](../../components/request_bodies/pet_request_body.md) |  | 
 
 ### Return Types, Responses
 
