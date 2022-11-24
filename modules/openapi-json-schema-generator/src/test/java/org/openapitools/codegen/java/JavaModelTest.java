@@ -472,8 +472,8 @@ public class JavaModelTest {
         Assert.assertTrue(property.isContainer);
 
         final CodegenProperty itemsProperty = property.items;
-        Assert.assertEquals(itemsProperty.baseName, "items");
-        Assert.assertEquals(itemsProperty.name, "items");
+        Assert.assertEquals(itemsProperty.baseName, "child");
+        Assert.assertEquals(itemsProperty.name, "child");
     }
 
     @Test(description = "convert an array model")
@@ -978,7 +978,7 @@ public class JavaModelTest {
         Assert.assertNotNull(property2.items);
         CodegenProperty items = property2.items;
         Assert.assertEquals(items.xmlName, "i");
-        Assert.assertEquals(items.baseName, "items");
+        Assert.assertEquals(items.baseName, "array");
     }
 
     @Test(description = "convert a boolean parameter")
@@ -1237,8 +1237,8 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
 
-        Assert.assertTrue(co.imports.contains("List"));
-        Assert.assertTrue(co.imports.contains("Pet"));
+        Assert.assertTrue(cp1.imports.contains("List"));
+        Assert.assertTrue(cp1.imports.contains("Pet"));
     }
 
     @Test(description = "convert an array schema in an ApiResponse")
@@ -1320,8 +1320,8 @@ public class JavaModelTest {
 
         Assert.assertEquals(co.responses.size(), 1);
 
-        Assert.assertTrue(co.imports.contains("Pet"));
-        Assert.assertTrue(co.imports.contains("List"));
+        Assert.assertTrue(cp1.imports.contains("Pet"));
+        Assert.assertTrue(cp1.imports.contains("List"));
     }
 
     @Test(description = "convert an array schema in an ApiResponse")
