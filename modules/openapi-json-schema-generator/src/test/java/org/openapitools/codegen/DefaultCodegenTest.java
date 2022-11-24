@@ -256,7 +256,7 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
 
-        Assert.assertEquals(codegenParameter.getSchema().defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test
