@@ -434,19 +434,42 @@ public class DefaultGenerator implements Generator {
                 templateData.put("requestBody", requestBody);
                 templateData.put("imports", requestBody.imports);
 
+                Boolean generateRequestBodies = Boolean.TRUE;
                 try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateApiTests, CodegenConstants.REQUEST_BODIES, fileFolder);
+                    File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES, fileFolder);
                     if (written != null) {
                         files.add(written);
                         if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "request-body");
+                            config.postProcessFile(written, "requestBody");
                         }
                     }
                 } catch (Exception e) {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
             }
-            // TODO generate the requestBody documentation also
+            // TODO make this a property that can be turned off and on
+            Boolean generateRequestBodyDocumentation = Boolean.TRUE;
+            for (String templateName : config.requestBodyDocTemplateFiles().keySet()) {
+                String docExtension = config.getDocExtension();
+                String suffix = docExtension != null ? docExtension : config.requestBodyDocTemplateFiles().get(templateName);
+                String filename = config.modelDocFileFolder() + File.separator + config.toRequestBodyDocFilename(modelName) + suffix;
+
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                // TODO add module name here
+                templateData.put("requestBody", requestBody);
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "requestBody-doc");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
         }
     }
 
