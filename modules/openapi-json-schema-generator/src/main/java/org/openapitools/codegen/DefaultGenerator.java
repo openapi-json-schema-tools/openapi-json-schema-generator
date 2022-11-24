@@ -422,11 +422,10 @@ public class DefaultGenerator implements Generator {
         }
         for (Map.Entry<String, RequestBody> entry: requestBodies.entrySet()) {
             String componentName = entry.getKey();
-            RequestBody originalRequestBody = entry.getValue();
+            RequestBody specRequestBody = entry.getValue();
             String sourceJsonPath = "#/components/requestBodies/" + componentName;
-            Set<String> imports = new LinkedHashSet<>();
             String bodyParameterName = config.getBodyParameterName(null);
-            CodegenParameter requestBody = config.fromRequestBody(originalRequestBody, bodyParameterName, sourceJsonPath);
+            CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
                 String fileFolder = config.requestBodyFileFolder();
                 String filename = config.requestBodyFileFolder() + File.separatorChar + config.requestBodyFilename(componentName);

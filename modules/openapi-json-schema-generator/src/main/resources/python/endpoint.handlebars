@@ -23,7 +23,11 @@ from .. import path
 from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
 {{/each}}
 {{#if bodyParam}}
+{{#if refModule}}
+from {{packageName}}.components.request_bodies import {{refModule}} as request_body
+{{else}}
 from . import request_body
+{{/if}}
 {{/if}}
 {{#each allParams}}
 from . import {{paramName}}

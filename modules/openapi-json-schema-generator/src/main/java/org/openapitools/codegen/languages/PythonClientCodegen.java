@@ -595,11 +595,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "__init__.py"));
             pathsFiles.add(Arrays.asList(endpointMap, "endpoint.handlebars", outputFilename));
 
-            // paths.some_path.post.request_body.py
-            if (co.bodyParam != null) {
+            // paths.some_path.post.request_body.py, only written if there is no refModule
+            if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
                 Map<String, Object> paramMap = new HashMap<>();
                 paramMap.put("requestBody", co.bodyParam);
-                // TODO consolidate imports into body param only
                 paramMap.put("imports", co.bodyParam.imports);
                 paramMap.put("packageName", packageName);
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
