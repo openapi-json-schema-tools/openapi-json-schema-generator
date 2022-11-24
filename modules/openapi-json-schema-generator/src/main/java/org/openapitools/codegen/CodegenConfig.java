@@ -80,13 +80,13 @@ public interface CodegenConfig {
 
     String modelDocFileFolder();
 
+    String requestBodyDocFileFolder();
+
     String modelPackage();
 
     String packageName();
 
     String requestBodyFileFolder();
-
-    String requestBodyFilename(String componentName);
 
     String toApiName(String name);
 
@@ -160,6 +160,8 @@ public interface CodegenConfig {
 
     Map<String, String> requestBodyTemplateFiles();
 
+    Map<String, String> requestBodyDocTemplateFiles();
+
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
@@ -195,6 +197,10 @@ public interface CodegenConfig {
     String toApiDocFilename(String name);
 
     String toModelDocFilename(String name);
+
+    String toRequestBodyFilename(String componentName);
+
+    String toRequestBodyDocFilename(String componentName);
 
     String toModelImport(String refClass);
 

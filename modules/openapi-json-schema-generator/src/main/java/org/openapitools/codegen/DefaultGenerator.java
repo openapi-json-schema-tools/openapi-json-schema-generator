@@ -426,15 +426,17 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/requestBodies/" + componentName;
             String bodyParameterName = config.getBodyParameterName(null);
             CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
+            Boolean generateRequestBodies = Boolean.TRUE;
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
+                String docExtension = config.getDocExtension();
+                String suffix = docExtension != null ? docExtension : config.requestBodyDocTemplateFiles().get(templateName);
                 String fileFolder = config.requestBodyFileFolder();
-                String filename = config.requestBodyFileFolder() + File.separatorChar + config.requestBodyFilename(componentName);
+                String filename = config.requestBodyFileFolder() + File.separatorChar + config.toRequestBodyFilename(componentName) + suffix;
+
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("requestBody", requestBody);
                 templateData.put("imports", requestBody.imports);
-
-                Boolean generateRequestBodies = Boolean.TRUE;
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES, fileFolder);
                     if (written != null) {
@@ -452,11 +454,11 @@ public class DefaultGenerator implements Generator {
             for (String templateName : config.requestBodyDocTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
                 String suffix = docExtension != null ? docExtension : config.requestBodyDocTemplateFiles().get(templateName);
-                String filename = config.modelDocFileFolder() + File.separator + config.toRequestBodyDocFilename(modelName) + suffix;
+                String filename = config.requestBodyDocFileFolder() + File.separator + config.toRequestBodyDocFilename(componentName) + suffix;
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
-                // TODO add module name here
+                templateData.put("operationId", "bogus");
                 templateData.put("requestBody", requestBody);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);

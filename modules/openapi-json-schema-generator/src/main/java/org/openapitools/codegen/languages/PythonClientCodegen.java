@@ -84,6 +84,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String packageUrl;
     protected String apiDocPath = "docs/apis/tags/";
     protected String modelDocPath = "docs/components/schema/";
+    protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -305,8 +306,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiTemplateFiles.put("api." + templateExtension, ".py");
         modelTestTemplateFiles.put("model_test." + templateExtension, ".py");
         modelDocTemplateFiles.put("model_doc." + templateExtension, ".md");
-        apiDocTemplateFiles.put("api_doc." + templateExtension, ".md");
-        requestBodyTemplateFiles.put("endpoint_request_body." + templateExtension, ".py");
+        apiDocTemplateFiles.put("endpoint_doc." + templateExtension, ".md");
+        requestBodyTemplateFiles.put("request_body." + templateExtension, ".py");
+        requestBodyDocTemplateFiles.put("request_body_doc." + templateExtension, ".py");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -2559,6 +2561,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toApiName(name);
     }
 
+    public String toRequestBodyFilename(String componentName) {
+        return toModuleFilename(componentName) + "_request_body";
+    }
+
+    public String toRequestBodyDocFilename(String componentName) {
+        return toRequestBodyFilename(componentName);
+    }
+
+    public String requestBodyDocFileFolder() {
+        return outputFolder + "/" + requestBodyDocPath;
+    }
+
     @Override
     public String addRegularExpressionDelimiter(String pattern) {
         if (StringUtils.isEmpty(pattern)) {
@@ -2822,10 +2836,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return refClass;
         }
         return null;
-    }
-
-    public String requestBodyFilename(String componentName) {
-        return toModuleFilename(componentName) + "_request_body.py";
     }
 
     @Override
