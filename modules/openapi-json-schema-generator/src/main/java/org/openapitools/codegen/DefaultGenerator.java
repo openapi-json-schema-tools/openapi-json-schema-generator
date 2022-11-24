@@ -460,7 +460,7 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("operationId", "bogus");
                 templateData.put("bodyParam", requestBody);
-                templateData.put("complexTypePrefix", "../components/schema/");
+                templateData.put("complexTypePrefix", "../../components/schema/");
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {
