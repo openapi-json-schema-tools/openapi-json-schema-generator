@@ -1,8 +1,7 @@
 {{#with bodyParam}}
-### <a id="{{operationId}}.request_body" >body</a>
     {{#each content}}
     {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix=../../complexTypePrefix }}
     {{/with}}
     {{/each}}
 {{/with}}

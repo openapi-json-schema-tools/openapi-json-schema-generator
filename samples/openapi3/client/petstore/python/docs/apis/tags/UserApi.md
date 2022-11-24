@@ -73,7 +73,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="create_user.request_body" >body</a>
-
 # <a id="create_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
@@ -159,7 +158,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="create_users_with_array_input.request_body" >body</a>
-
 # <a id="create_users_with_array_input.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
@@ -170,7 +168,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) |  | 
+[**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) |  | 
 
 ### Return Types, Responses
 
@@ -251,7 +249,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="create_users_with_list_input.request_body" >body</a>
-
 # <a id="create_users_with_list_input.request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
@@ -262,7 +259,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) |  | 
+[**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) |  | 
 
 ### Return Types, Responses
 
@@ -725,7 +722,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="update_user.request_body" >body</a>
-
 # <a id="update_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

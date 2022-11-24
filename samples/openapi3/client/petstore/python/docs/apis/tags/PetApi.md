@@ -149,12 +149,10 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="add_pet.request_body" >body</a>
-
 # <a id="add_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) |  | 
-
 
 # <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
@@ -477,7 +475,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 # <a id="find_pets_by_status.response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -489,7 +487,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 #### <a id="find_pets_by_status.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -669,7 +667,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 # <a id="find_pets_by_tags.response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -681,7 +679,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 #### <a id="find_pets_by_tags.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -948,12 +946,10 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="update_pet.request_body" >body</a>
-
 # <a id="update_pet.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) |  | 
-
 
 # <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
 Type | Description  | Notes
@@ -1071,7 +1067,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="update_pet_with_form.request_body" >body</a>
-
 # <a id="update_pet_with_form.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
 
 ## Model Type Info
@@ -1197,7 +1192,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="upload_file_with_required_file.request_body" >body</a>
-
 # <a id="upload_file_with_required_file.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
@@ -1329,7 +1323,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="upload_image.request_body" >body</a>
-
 # <a id="upload_image.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info

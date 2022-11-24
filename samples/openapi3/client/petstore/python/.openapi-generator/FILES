@@ -9,6 +9,9 @@ docs/apis/tags/FakeClassnameTags123Api.md
 docs/apis/tags/PetApi.md
 docs/apis/tags/StoreApi.md
 docs/apis/tags/UserApi.md
+docs/components/request_bodies/client_request_body.md
+docs/components/request_bodies/pet_request_body.md
+docs/components/request_bodies/user_array_request_body.md
 docs/components/schema/abstract_step_message.AbstractStepMessage.md
 docs/components/schema/additional_properties_class.AdditionalPropertiesClass.md
 docs/components/schema/additional_properties_validator.AdditionalPropertiesValidator.md

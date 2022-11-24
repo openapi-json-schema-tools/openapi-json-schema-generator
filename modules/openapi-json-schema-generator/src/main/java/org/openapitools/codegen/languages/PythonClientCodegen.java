@@ -308,7 +308,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         modelDocTemplateFiles.put("model_doc." + templateExtension, ".md");
         apiDocTemplateFiles.put("endpoint_doc." + templateExtension, ".md");
         requestBodyTemplateFiles.put("request_body." + templateExtension, ".py");
-        requestBodyDocTemplateFiles.put("request_body_doc." + templateExtension, ".py");
+        requestBodyDocTemplateFiles.put("request_body_doc." + templateExtension, ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -606,7 +606,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 paramMap.put("imports", co.bodyParam.imports);
                 paramMap.put("packageName", packageName);
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
-                pathsFiles.add(Arrays.asList(paramMap, "endpoint_request_body.handlebars", outputFilename));
+                pathsFiles.add(Arrays.asList(paramMap, "request_body.handlebars", outputFilename));
             }
             // paths.some_path.post.parameter_0.py
             Integer i = 0;

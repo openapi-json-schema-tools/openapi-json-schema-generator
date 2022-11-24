@@ -1,4 +1,3 @@
-
 # {{#if schemaNamePrefix1}}{{#if anchorPrefix}}<a id="{{anchorPrefix}}.{{> api_doc_schema_fancy_schema_name }}" >{{/if}}{{> api_doc_schema_fancy_schema_name }}{{#if anchorPrefix}}</a>{{/if}}{{else}}{{baseName}}{{/if}}
 {{#if refClass}}
 Type | Description  | Notes
@@ -6,5 +5,5 @@ Type | Description  | Notes
 [**{{dataType}}**]({{complexTypePrefix}}{{refClass}}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
 
 {{else}}
-{{> schema_doc complexTypePrefix="{{complexTypePrefix}}" }}
+{{> schema_doc }}
 {{/if}}
