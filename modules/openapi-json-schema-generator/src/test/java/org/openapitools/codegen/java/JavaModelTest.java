@@ -773,7 +773,7 @@ public class JavaModelTest {
                 .required(true);
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenParameter p = codegen.fromParameter(parameter, new HashSet<>(), "0");
+        final CodegenParameter p = codegen.fromParameter(parameter, "0");
 
         Assert.assertNull(p.getSchema().allowableValues);
         Assert.assertEquals(p.description, "this is a description");

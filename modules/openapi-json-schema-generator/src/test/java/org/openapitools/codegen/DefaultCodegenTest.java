@@ -107,7 +107,7 @@ public class DefaultCodegenTest {
     public void testParameterEmptyDescription() {
         DefaultCodegen codegen = new DefaultCodegen();
 
-        codegen.fromRequestBody(null, new HashSet<>(), null, null);
+        codegen.fromRequestBody(null, null, null);
     }
 
     @Test
@@ -241,9 +241,8 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Schema requestBodySchema = ModelUtils.getReferencedSchema(openAPI,
-                ModelUtils.getSchemaFromRequestBody(openAPI.getPaths().get("/fake").getGet().getRequestBody()));
-        CodegenParameter codegenParameter = codegen.fromFormProperty("enum_form_string", (Schema) requestBodySchema.getProperties().get("enum_form_string"), new HashSet<String>(), null);
+        RequestBody reqBody = openAPI.getPaths().get("/fake").getGet().getRequestBody();
+        CodegenParameter codegenParameter = codegen.fromFormProperty("enum_form_string", reqBody, null);
 
         Assert.assertEquals(codegenParameter.getSchema().defaultValue, "EnumUnderscoreformUnderscorestringEnum._EFG");
     }
@@ -254,11 +253,8 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Schema requestBodySchema = ModelUtils.getSchemaFromRequestBody(openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody());
-        // dereference
-        requestBodySchema = ModelUtils.getReferencedSchema(openAPI, requestBodySchema);
-        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", (Schema) requestBodySchema.getProperties().get("visitDate"),
-                new HashSet<>(), null);
+        RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
+        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
 
         Assert.assertEquals(codegenParameter.getSchema().defaultValue, "1971-12-19T03:39:57-08:00");
     }
@@ -2073,11 +2069,11 @@ public class DefaultCodegenTest {
         RequestBody requestBody = openAPI.getPaths().get("/api/instruments").getPost().getRequestBody();
 
         HashSet<String> imports = new HashSet<>();
-        codegen.fromRequestBody(requestBody, imports, "", null);
+        CodegenParameter param = codegen.fromRequestBody(requestBody, "", null);
 
         HashSet<String> expected = Sets.newHashSet("InstrumentDefinition", "map");
 
-        Assert.assertEquals(imports, expected);
+        Assert.assertEquals(param.imports, expected);
     }
 
     @Test
@@ -2157,11 +2153,9 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Set<String> imports = new HashSet<>();
-
         RequestBody body = openAPI.getPaths().get("/examples").getPost().getRequestBody();
 
-        CodegenParameter codegenParameter = codegen.fromRequestBody(body, imports, "", null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", null);
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isContainer);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.isModel);
@@ -2175,11 +2169,9 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Set<String> imports = new HashSet<>();
-
         RequestBody body = openAPI.getPaths().get("/examples").getPost().getRequestBody();
 
-        CodegenParameter codegenParameter = codegen.fromRequestBody(body, imports, "", null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", null);
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isContainer);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.isModel);
@@ -2237,7 +2229,6 @@ public class DefaultCodegenTest {
                                     .getGet()
                                     .getParameters()
                                     .get(0),
-                            new HashSet<>(),
                             "0"
                     );
         }
@@ -4207,9 +4198,8 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(requestBodySchema2.get$ref());
         Assert.assertEquals(requestBodySchema2.get$ref(), "#/components/schemas/updatePetWithForm_request");
 
-        Schema requestBodySchema3 = ModelUtils.getReferencedSchema(openAPI, requestBodySchema);
-        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate",
-                (Schema) requestBodySchema3.getProperties().get("visitDate"), new HashSet<>(), null);
+        RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
+        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
 
         Assert.assertEquals(codegenParameter.getSchema().defaultValue, "1971-12-19T03:39:57-08:00");
     }
