@@ -1,7 +1,7 @@
 {{#with bodyParam}}
     {{#each content}}
     {{#with this.schema}}
-{{> api_doc_schema_type_hint anchorPrefix=../operationId schemaNamePrefix1="request_body" complexTypePrefix=../../complexTypePrefix }}
+{{> api_doc_schema_type_hint complexTypePrefix="../../components/schema/" }}
     {{/with}}
     {{/each}}
 {{/with}}

@@ -82,7 +82,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{#if bodyParam}}
 
 ### <a id="{{operationId}}.request_body" >body</a>
-{{> request_body_doc bodyParam=bodyParam operationId=operationId complexTypePrefix="../../components/schema/" }}
+{{> request_body_doc bodyParam=bodyParam anchorPrefix=operationId schemaNamePrefix1="request_body" }}
     {{/if}}
     {{#if queryParams}}
 

@@ -454,13 +454,14 @@ public class DefaultGenerator implements Generator {
             for (String templateName : config.requestBodyDocTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
                 String suffix = docExtension != null ? docExtension : config.requestBodyDocTemplateFiles().get(templateName);
-                String filename = config.requestBodyDocFileFolder() + File.separator + config.toRequestBodyDocFilename(componentName) + suffix;
+                String docFilename = config.toRequestBodyDocFilename(componentName);
+                String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
-                templateData.put("operationId", "bogus");
+                templateData.put("anchorPrefix", "");
+                templateData.put("schemaNamePrefix1", config.packageName() + ".components.request_bodies." + docFilename);
                 templateData.put("bodyParam", requestBody);
-                templateData.put("complexTypePrefix", "../../components/schema/");
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {
