@@ -2626,6 +2626,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return underscore(packageName.replaceAll("[^\\w]+", ""));
     }
 
+    @Override
+    public String packageName() {
+        return packageName;
+    }
+
     /**
      * A custom version of this method is needed to ensure that the form object parameter is kept as-is
      * as an object and is not exploded into separate parameters
