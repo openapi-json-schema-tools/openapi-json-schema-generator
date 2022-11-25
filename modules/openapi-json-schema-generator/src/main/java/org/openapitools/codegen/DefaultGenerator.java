@@ -512,7 +512,7 @@ public class DefaultGenerator implements Generator {
                     paramMap.put("imports", cp.imports);
                     paramMap.put("packageName", packageName);
                     outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));
-                    pathsFiles.add(Arrays.asList(paramMap, "endpoint_parameter.handlebars", outputFilename));
+                    pathsFiles.add(Arrays.asList(paramMap, "parameter.handlebars", outputFilename));
                     i++;
                 }
 
@@ -525,14 +525,14 @@ public class DefaultGenerator implements Generator {
                     responseMap.put("packageName", packageName);
                     String responseModuleName = (response.isDefault)? "response_for_default" : "response_for_"+response.code;
                     String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  "__init__.py"));
-                    pathsFiles.add(Arrays.asList(responseMap, "endpoint_response.handlebars", responseFilename));
+                    pathsFiles.add(Arrays.asList(responseMap, "response.handlebars", responseFilename));
                     for (CodegenParameter header: response.getResponseHeaders()) {
                         Map<String, Object> headerMap = new HashMap<>();
                         headerMap.put("parameter", header);
                         headerMap.put("imports", header.imports);
                         headerMap.put("packageName", packageName);
                         String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
-                        pathsFiles.add(Arrays.asList(headerMap, "endpoint_response_header.handlebars", headerFilename));
+                        pathsFiles.add(Arrays.asList(headerMap, "header.handlebars", headerFilename));
                     }
                 }
             /*
@@ -547,7 +547,7 @@ public class DefaultGenerator implements Generator {
                 endpointTestMap.put("operation", co);
                 endpointTestMap.put("packageName", packageName);
                 outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
-                testFiles.add(Arrays.asList(endpointTestMap, "api_test.handlebars", outputFilename));
+                testFiles.add(Arrays.asList(endpointTestMap, "endpoint_test.handlebars", outputFilename));
                 outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
                 testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
             }
