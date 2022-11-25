@@ -245,7 +245,6 @@ unit_test_api/apis/tags/response_content_content_type_schema_api.py
 unit_test_api/apis/tags/type_api.py
 unit_test_api/apis/tags/unique_items_api.py
 unit_test_api/components/__init__.py
-unit_test_api/components/request_bodies/__init__.py
 unit_test_api/components/schema/__init__.py
 unit_test_api/components/schema/additionalproperties_allows_a_schema_which_should_validate.py
 unit_test_api/components/schema/additionalproperties_allows_a_schema_which_should_validate.pyi
