@@ -17,7 +17,6 @@ Method | HTTP request | Description
 ```python
 import unit_test_api
 from unit_test_api.apis.tags import min_properties_api
-from unit_test_api.components.schema import minproperties_validation
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -50,7 +49,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="post_minproperties_validation_request_body.request_body" >body</a>
-
 # <a id="post_minproperties_validation_request_body.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

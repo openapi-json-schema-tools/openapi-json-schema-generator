@@ -76,7 +76,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/pets/petType/{type}");
         CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
-        Assert.assertEquals(Sets.intersection(operation.imports, Sets.newHashSet("PetByType")).size(), 1);
+        Assert.assertEquals(Sets.intersection(operation.pathParams.get(0).imports, Sets.newHashSet("PetByType")).size(), 1);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class DefaultCodegenTest {
     public void testParameterEmptyDescription() {
         DefaultCodegen codegen = new DefaultCodegen();
 
-        codegen.fromRequestBody(null, new HashSet<>(), null, null);
+        codegen.fromRequestBody(null, null, null);
     }
 
     @Test
@@ -241,11 +241,10 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Schema requestBodySchema = ModelUtils.getReferencedSchema(openAPI,
-                ModelUtils.getSchemaFromRequestBody(openAPI.getPaths().get("/fake").getGet().getRequestBody()));
-        CodegenParameter codegenParameter = codegen.fromFormProperty("enum_form_string", (Schema) requestBodySchema.getProperties().get("enum_form_string"), new HashSet<String>(), null);
+        RequestBody reqBody = openAPI.getPaths().get("/fake").getGet().getRequestBody();
+        CodegenParameter codegenParameter = codegen.fromFormProperty("enum_form_string", reqBody, null);
 
-        Assert.assertEquals(codegenParameter.getSchema().defaultValue, "EnumUnderscoreformUnderscorestringEnum._EFG");
+        Assert.assertEquals(codegenParameter.getSchema().getVars().get(1).defaultValue, "-efg");
     }
 
     @Test
@@ -254,13 +253,10 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Schema requestBodySchema = ModelUtils.getSchemaFromRequestBody(openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody());
-        // dereference
-        requestBodySchema = ModelUtils.getReferencedSchema(openAPI, requestBodySchema);
-        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", (Schema) requestBodySchema.getProperties().get("visitDate"),
-                new HashSet<>(), null);
+        RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
+        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
 
-        Assert.assertEquals(codegenParameter.getSchema().defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test
@@ -2073,11 +2069,11 @@ public class DefaultCodegenTest {
         RequestBody requestBody = openAPI.getPaths().get("/api/instruments").getPost().getRequestBody();
 
         HashSet<String> imports = new HashSet<>();
-        codegen.fromRequestBody(requestBody, imports, "", null);
+        CodegenParameter param = codegen.fromRequestBody(requestBody, "", null);
 
         HashSet<String> expected = Sets.newHashSet("InstrumentDefinition", "map");
 
-        Assert.assertEquals(imports, expected);
+        Assert.assertEquals(param.imports, expected);
     }
 
     @Test
@@ -2157,11 +2153,9 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Set<String> imports = new HashSet<>();
-
         RequestBody body = openAPI.getPaths().get("/examples").getPost().getRequestBody();
 
-        CodegenParameter codegenParameter = codegen.fromRequestBody(body, imports, "", null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", null);
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isContainer);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.isModel);
@@ -2175,11 +2169,9 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Set<String> imports = new HashSet<>();
-
         RequestBody body = openAPI.getPaths().get("/examples").getPost().getRequestBody();
 
-        CodegenParameter codegenParameter = codegen.fromRequestBody(body, imports, "", null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", null);
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isContainer);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.isModel);
@@ -2237,7 +2229,6 @@ public class DefaultCodegenTest {
                                     .getGet()
                                     .getParameters()
                                     .get(0),
-                            new HashSet<>(),
                             "0"
                     );
         }
@@ -2449,15 +2440,8 @@ public class DefaultCodegenTest {
                 "post",
                 path.getPost(),
                 path.getServers());
-        assertEquals(operation.formParams.size(), 3,
-                "The list of parameters should include inherited type");
-
-        final List<String> names = operation.formParams.stream()
-                .map(param -> param.paramName)
-                .collect(Collectors.toList());
-        assertTrue(names.contains("password"));
-        assertTrue(names.contains("passwordConfirmation"));
-        assertTrue(names.contains("oldPassword"));
+        assertEquals(operation.formParams.size(), 1,
+                "The list of parameters only includes the ref type");
     }
 
     @Test
@@ -4096,34 +4080,24 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
         List<CodegenParameter> formParams = co.formParams;
 
-        assertEquals(formParams.get(0).paramName, "intParam");
-        assertFalse(formParams.get(0).getSchema().isContainer);
-        assertFalse(formParams.get(0).isExplode); // Should not be true for non-container
+        assertEquals(formParams.get(0).getSchema().getVars().get(0).baseName, "int-param");
+        assertFalse(formParams.get(0).getSchema().getVars().get(0).isContainer);
 
-        assertEquals(formParams.get(1).paramName, "explodeTrue");
-        assertTrue(formParams.get(1).getSchema().isContainer);
-        assertEquals(formParams.get(1).style, Encoding.StyleEnum.FORM.toString());
-        assertTrue(formParams.get(1).isExplode);
+        assertEquals(formParams.get(0).getSchema().getVars().get(1).baseName, "explode-true");
+        assertTrue(formParams.get(0).getSchema().getVars().get(1).isContainer);
 
-        assertEquals(formParams.get(2).paramName, "explodeFalse");
-        assertTrue(formParams.get(2).getSchema().isContainer);
-        assertEquals(formParams.get(2).style, Encoding.StyleEnum.FORM.toString());
-        assertFalse(formParams.get(2).isExplode);
+        assertEquals(formParams.get(0).getSchema().getVars().get(2).baseName, "explode-false");
+        assertTrue(formParams.get(0).getSchema().getVars().get(2).isContainer);
 
-        assertEquals(formParams.get(3).paramName, "noStyleNoExplode");
-        assertTrue(formParams.get(3).getSchema().isContainer);
-        assertEquals(formParams.get(3).style, Encoding.StyleEnum.FORM.toString());
-        assertTrue(formParams.get(3).isExplode); // Defaults to true for style == FORM
+        assertEquals(formParams.get(0).getSchema().getVars().get(3).baseName, "no-style-no-explode");
+        assertTrue(formParams.get(0).getSchema().getVars().get(3).isContainer);
 
-        assertEquals(formParams.get(4).paramName, "styleSpecified");
-        assertTrue(formParams.get(4).getSchema().isContainer);
-        assertEquals(formParams.get(4).style, Encoding.StyleEnum.SPACE_DELIMITED.toString());
-        assertFalse(formParams.get(4).isExplode);
+        assertEquals(formParams.get(0).getSchema().getVars().get(4).baseName, "style-specified");
+        assertTrue(formParams.get(0).getSchema().getVars().get(4).isContainer);
 
-        assertEquals(formParams.get(5).paramName, "styleSpecifiedNoExplode");
-        assertTrue(formParams.get(5).getSchema().isContainer);
-        assertEquals(formParams.get(5).style, Encoding.StyleEnum.SPACE_DELIMITED.toString());
-        assertFalse(formParams.get(5).isExplode); // Defaults to false for style other than FORM
+        assertEquals(formParams.get(0).getSchema().getVars().get(5).baseName, "style-specified-no-explode");
+        assertTrue(formParams.get(0).getSchema().getVars().get(5).isContainer);
+
     }
 
     @Test
@@ -4207,11 +4181,10 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(requestBodySchema2.get$ref());
         Assert.assertEquals(requestBodySchema2.get$ref(), "#/components/schemas/updatePetWithForm_request");
 
-        Schema requestBodySchema3 = ModelUtils.getReferencedSchema(openAPI, requestBodySchema);
-        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate",
-                (Schema) requestBodySchema3.getProperties().get("visitDate"), new HashSet<>(), null);
+        RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
+        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
 
-        Assert.assertEquals(codegenParameter.getSchema().defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test

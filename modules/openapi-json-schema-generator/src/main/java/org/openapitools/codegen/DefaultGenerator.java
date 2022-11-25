@@ -27,6 +27,7 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.security.*;
 import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.io.FilenameUtils;
@@ -403,6 +404,74 @@ public class DefaultGenerator implements Generator {
                 files.add(written);
                 if (config.isEnablePostProcessFile() && !dryRun) {
                     config.postProcessFile(written, "model");
+                }
+            }
+        }
+    }
+
+    @Override
+    public String requestBodyFileFolder() {
+        return "";
+    }
+
+    void generateRequestBodies(List<File> files) {
+        final Map<String, RequestBody> requestBodies = this.openAPI.getComponents().getRequestBodies();
+        if (requestBodies == null) {
+            LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
+            return;
+        }
+        for (Map.Entry<String, RequestBody> entry: requestBodies.entrySet()) {
+            String componentName = entry.getKey();
+            RequestBody specRequestBody = entry.getValue();
+            String sourceJsonPath = "#/components/requestBodies/" + componentName;
+            String bodyParameterName = config.getBodyParameterName(null);
+            CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
+            Boolean generateRequestBodies = Boolean.TRUE;
+            for (String templateName : config.requestBodyTemplateFiles().keySet()) {
+                String docExtension = config.getDocExtension();
+                String suffix = docExtension != null ? docExtension : config.requestBodyTemplateFiles().get(templateName);
+                String fileFolder = config.requestBodyFileFolder();
+                String filename = config.requestBodyFileFolder() + File.separatorChar + config.toRequestBodyFilename(componentName) + suffix;
+
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("requestBody", requestBody);
+                templateData.put("imports", requestBody.imports);
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES, fileFolder);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "requestBody");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
+            // TODO make this a property that can be turned off and on
+            Boolean generateRequestBodyDocumentation = Boolean.TRUE;
+            for (String templateName : config.requestBodyDocTemplateFiles().keySet()) {
+                String docExtension = config.getDocExtension();
+                String suffix = docExtension != null ? docExtension : config.requestBodyDocTemplateFiles().get(templateName);
+                String docFilename = config.toRequestBodyDocFilename(componentName);
+                String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
+
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("anchorPrefix", "");
+                templateData.put("schemaNamePrefix1", config.packageName() + ".components.request_bodies." + docFilename);
+                templateData.put("bodyParam", requestBody);
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "requestBody-doc");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
             }
         }
@@ -909,6 +978,8 @@ public class DefaultGenerator implements Generator {
         List<String> filteredSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
         List<ModelMap> allModels = new ArrayList<>();
         generateModels(files, allModels, filteredSchemas);
+        // requestBodies
+        generateRequestBodies(files);
         // apis
         List<OperationsMap> allOperations = new ArrayList<>();
         generateApis(files, allOperations, allModels);

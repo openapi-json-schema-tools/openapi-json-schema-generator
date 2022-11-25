@@ -84,6 +84,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String packageUrl;
     protected String apiDocPath = "docs/apis/tags/";
     protected String modelDocPath = "docs/components/schema/";
+    protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -305,7 +306,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiTemplateFiles.put("api." + templateExtension, ".py");
         modelTestTemplateFiles.put("model_test." + templateExtension, ".py");
         modelDocTemplateFiles.put("model_doc." + templateExtension, ".md");
-        apiDocTemplateFiles.put("api_doc." + templateExtension, ".md");
+        apiDocTemplateFiles.put("endpoint_doc." + templateExtension, ".md");
+        requestBodyTemplateFiles.put("request_body." + templateExtension, ".py");
+        requestBodyDocTemplateFiles.put("request_body_doc." + templateExtension, ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -423,6 +426,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
         }
+        if (openAPI.getComponents() != null && openAPI.getComponents().getRequestBodies() != null) {
+            supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+        }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
 
@@ -467,6 +473,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
         }
     }
+
+    @Override
+    public String requestBodyFileFolder() {
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+    }
+
 
     public String packageFilename(List<String> pathSegments) {
         String prefix = outputFolder + File.separatorChar + packagePath() + File.separatorChar;
@@ -587,15 +599,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "__init__.py"));
             pathsFiles.add(Arrays.asList(endpointMap, "endpoint.handlebars", outputFilename));
 
-            // paths.some_path.post.request_body.py
-            if (co.bodyParam != null) {
+            // paths.some_path.post.request_body.py, only written if there is no refModule
+            if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
                 Map<String, Object> paramMap = new HashMap<>();
                 paramMap.put("requestBody", co.bodyParam);
-                // TODO consolidate imports into body param only
-                paramMap.put("imports", co.imports);
+                paramMap.put("imports", co.bodyParam.imports);
                 paramMap.put("packageName", packageName);
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
-                pathsFiles.add(Arrays.asList(paramMap, "endpoint_request_body.handlebars", outputFilename));
+                pathsFiles.add(Arrays.asList(paramMap, "request_body.handlebars", outputFilename));
             }
             // paths.some_path.post.parameter_0.py
             Integer i = 0;
@@ -603,7 +614,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Map<String, Object> paramMap = new HashMap<>();
                 paramMap.put("parameter", cp);
                 // TODO consolidate imports into body param only
-                paramMap.put("imports", co.imports);
+                paramMap.put("imports", cp.imports);
                 paramMap.put("packageName", packageName);
                 outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  toParamName(i.toString())+".py"));
                 pathsFiles.add(Arrays.asList(paramMap, "endpoint_parameter.handlebars", outputFilename));
@@ -629,7 +640,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     Map<String, Object> headerMap = new HashMap<>();
                     headerMap.put("parameter", header);
                     // TODO consolidate imports into header param only
-                    headerMap.put("imports", co.imports);
+                    headerMap.put("imports", header.imports);
                     headerMap.put("packageName", packageName);
                     String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, toParamName(header.baseName) + ".py"));
                     pathsFiles.add(Arrays.asList(headerMap, "endpoint_response_header.handlebars", headerFilename));
@@ -971,8 +982,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
-    public CodegenParameter fromParameter(Parameter parameter, Set<String> imports, String priorJsonPathFragment) {
-        CodegenParameter cp = super.fromParameter(parameter, imports, priorJsonPathFragment);
+    public CodegenParameter fromParameter(Parameter parameter, String priorJsonPathFragment) {
+        CodegenParameter cp = super.fromParameter(parameter, priorJsonPathFragment);
+        fixSchemaImports(cp.imports);
         if (parameter.getStyle() != null) {
             switch(parameter.getStyle()) {
                 case MATRIX:
@@ -1110,19 +1122,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // overwriting defaultValue omitted from here
     }
 
+    public String getBodyParameterName(CodegenOperation co) {
+        return "body";
+    }
+
     /***
      * We have a custom version of this method to produce links to models when they are
      * primitive type (not map, not array, not object) and include validations or are enums
      *
      * @param body requesst body
-     * @param imports import collection
      * @param bodyParameterName body parameter name
      * @return the resultant CodegenParameter
      */
     @Override
-    public CodegenParameter fromRequestBody(RequestBody body, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
-        CodegenParameter cp = super.fromRequestBody(body, imports, bodyParameterName, sourceJsonPath);
-        cp.baseName = "body";
+    public CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath) {
+        CodegenParameter cp = super.fromRequestBody(body, bodyParameterName, sourceJsonPath);
+        fixSchemaImports(cp.imports);
         return cp;
     }
 
@@ -2185,14 +2200,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * toExampleValueRecursive
      *
      * @param name           the property name
-     * @param propertySchema the property schema
-     * @param imports        our import set
+     * @param body the RequestBody definition
      * @return the resultant CodegenParameter
      */
     @Override
-    public CodegenParameter fromFormProperty(String name, Schema propertySchema, Set<String> imports, String sourceJsonPath) {
-        CodegenParameter cp = super.fromFormProperty(name, propertySchema, imports, sourceJsonPath);
+    public CodegenParameter fromFormProperty(String name, RequestBody body, String sourceJsonPath) {
+        CodegenParameter cp = super.fromFormProperty(name, body, sourceJsonPath);
         Parameter p = new Parameter();
+        Schema schema = ModelUtils.getSchemaFromRequestBody(body);
+        Schema propertySchema = ModelUtils.getReferencedSchema(this.openAPI, schema);
         p.setSchema(propertySchema);
         p.setName(cp.paramName);
         setParameterExampleValue(cp, p);
@@ -2545,6 +2561,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toApiName(name);
     }
 
+    public String toRequestBodyFilename(String componentName) {
+        return toModuleFilename(componentName) + "_request_body";
+    }
+
+    public String toRequestBodyDocFilename(String componentName) {
+        return toRequestBodyFilename(componentName);
+    }
+
+    public String requestBodyDocFileFolder() {
+        return outputFolder + "/" + requestBodyDocPath;
+    }
+
     @Override
     public String addRegularExpressionDelimiter(String pattern) {
         if (StringUtils.isEmpty(pattern)) {
@@ -2612,21 +2640,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return underscore(packageName.replaceAll("[^\\w]+", ""));
     }
 
+    @Override
+    public String packageName() {
+        return packageName;
+    }
+
     /**
      * A custom version of this method is needed to ensure that the form object parameter is kept as-is
      * as an object and is not exploded into separate parameters
      * @param body the body that is being handled
-     * @param imports the imports for this body
      * @return the list of length one containing a single type object CodegenParameter
      */
     @Override
-    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, Set<String> imports, String sourceJsonPath) {
+    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, String sourceJsonPath) {
         List<CodegenParameter> parameters = new ArrayList<>();
         LOGGER.debug("debugging fromRequestBodyToFormParameters= {}", body);
-        Schema schema = ModelUtils.getSchemaFromRequestBody(body);
-        schema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-        CodegenParameter cp = fromFormProperty("body", schema, imports, sourceJsonPath);
-        cp.setContent(getContent(body.getContent(), imports, "", sourceJsonPath));
+        CodegenParameter cp = fromFormProperty("body", body, sourceJsonPath);
         cp.isFormParam = false;
         cp.isBodyParam = true;
         parameters.add(cp);
@@ -2768,7 +2797,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return "parameter_" + name;
         } catch (NumberFormatException nfe) {
             // for header parameters in responses
-            return "parameter_" + toModelFilename(name);
+            return "parameter_" + toModuleFilename(name);
         }
     }
 

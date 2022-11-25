@@ -48,6 +48,8 @@ public class CodegenParameter {
     private String ref;
     private String refModule;
 
+    public Set<String> imports = new HashSet<String>();
+
     public CodegenParameter copy() {
         CodegenParameter output = new CodegenParameter();
         output.baseName = this.baseName;
@@ -79,6 +81,9 @@ public class CodegenParameter {
         if (this.refModule != null) {
             output.setRefModule(this.refModule);
         }
+        if (this.imports != null) {
+            output.imports = imports;
+        }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
@@ -90,7 +95,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule);
+        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
     }
 
     @Override
@@ -108,6 +113,7 @@ public class CodegenParameter {
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
                 Objects.equals(ref, that.getRef()) &&
+                Objects.equals(imports, that.imports) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(content, that.getContent()) &&
                 Objects.equals(schema, that.getSchema()) &&
@@ -150,6 +156,7 @@ public class CodegenParameter {
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
+        sb.append(", imports=").append(imports);
         sb.append('}');
         return sb.toString();
     }

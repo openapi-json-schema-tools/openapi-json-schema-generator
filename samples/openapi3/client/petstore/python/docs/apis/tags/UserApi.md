@@ -26,7 +26,6 @@ This can only be done by the logged in user.
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -74,7 +73,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="create_user.request_body" >body</a>
-
 # <a id="create_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
@@ -111,7 +109,6 @@ Creates list of users with given input array
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,25 +151,11 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#create_users_with_array_input.request_body) | typing.Union[[request_body.application_json](#create_users_with_array_input.request_body.application_json)] | required |
+[**body**](../../components/request_bodies/user_array_request_body.md) | typing.Union[[request_body.application_json](../../components/request_bodies/user_array_request_body.md#petstore_api.components.request_bodies.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="create_users_with_array_input.request_body" >body</a>
-
-# <a id="create_users_with_array_input.request_body.application_json" >request_body.application_json</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) |  | 
 
 ### Return Types, Responses
 
@@ -204,7 +187,6 @@ Creates list of users with given input array
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -247,25 +229,11 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#create_users_with_list_input.request_body) | typing.Union[[request_body.application_json](#create_users_with_list_input.request_body.application_json)] | required |
+[**body**](../../components/request_bodies/user_array_request_body.md) | typing.Union[[request_body.application_json](../../components/request_bodies/user_array_request_body.md#petstore_api.components.request_bodies.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="create_users_with_list_input.request_body" >body</a>
-
-# <a id="create_users_with_list_input.request_body.application_json" >request_body.application_json</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) | [**User**]({{complexTypePrefix}}user.User.md) |  | 
 
 ### Return Types, Responses
 
@@ -676,7 +644,6 @@ This can only be done by the logged in user.
 ```python
 import petstore_api
 from petstore_api.apis.tags import user_api
-from petstore_api.components.schema import user
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -729,7 +696,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="update_user.request_body" >body</a>
-
 # <a id="update_user.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

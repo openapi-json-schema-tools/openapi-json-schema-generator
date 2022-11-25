@@ -294,7 +294,6 @@ Place an order for a pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import store_api
-from petstore_api.components.schema import order
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -337,7 +336,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="place_order.request_body" >body</a>
-
 # <a id="place_order.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

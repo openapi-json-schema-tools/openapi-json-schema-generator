@@ -649,8 +649,7 @@ public class AbstractJavaCodegenTest {
         final P_AbstractJavaCodegen codegen = new P_AbstractJavaCodegen();
         codegen.setOpenAPI(openAPI);
 
-        Set<String> imports = new HashSet<>();
-        CodegenParameter parameter = codegen.fromParameter(openAPI.getPaths().get("/thingy/{date}").getGet().getParameters().get(2), imports, "2");
+        CodegenParameter parameter = codegen.fromParameter(openAPI.getPaths().get("/thingy/{date}").getGet().getParameters().get(2), "2");
 
         Assert.assertEquals(parameter.getSchema().dataType, "Date");
         Assert.assertEquals(parameter.getSchema().isDate, true);

@@ -28,7 +28,6 @@ Add a new pet to the store
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.components.schema import pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -142,26 +141,12 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#add_pet.request_body) | typing.Union[[request_body.application_json](#add_pet.request_body.application_json), [request_body.application_xml](#add_pet.request_body.application_xml)] | required |
+[**body**](../../components/request_bodies/pet_request_body.md) | typing.Union[[request_body.application_json](../../components/request_bodies/pet_request_body.md#petstore_api.components.request_bodies.application_json), [request_body.application_xml](../../components/request_bodies/pet_request_body.md#petstore_api.components.request_bodies.application_xml)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="add_pet.request_body" >body</a>
-
-# <a id="add_pet.request_body.application_json" >request_body.application_json</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
-
-# <a id="add_pet.request_body.application_xml" >request_body.application_xml</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
 
 ### Return Types, Responses
 
@@ -478,7 +463,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 # <a id="find_pets_by_status.response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -490,7 +475,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 #### <a id="find_pets_by_status.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -670,7 +655,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 # <a id="find_pets_by_tags.response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -682,7 +667,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) | [**Pet**]({{complexTypePrefix}}pet.Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 #### <a id="find_pets_by_tags.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
@@ -828,7 +813,6 @@ Update an existing pet
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
-from petstore_api.components.schema import pet
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -942,26 +926,12 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#update_pet.request_body) | typing.Union[[request_body.application_json](#update_pet.request_body.application_json), [request_body.application_xml](#update_pet.request_body.application_xml)] | required |
+[**body**](../../components/request_bodies/pet_request_body.md) | typing.Union[[request_body.application_json](../../components/request_bodies/pet_request_body.md#petstore_api.components.request_bodies.application_json), [request_body.application_xml](../../components/request_bodies/pet_request_body.md#petstore_api.components.request_bodies.application_xml)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="update_pet.request_body" >body</a>
-
-# <a id="update_pet.request_body.application_json" >request_body.application_json</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
-
-# <a id="update_pet.request_body.application_xml" >request_body.application_xml</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
-
 
 ### Return Types, Responses
 
@@ -1073,7 +1043,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="update_pet_with_form.request_body" >body</a>
-
 # <a id="update_pet_with_form.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
 
 ## Model Type Info
@@ -1199,7 +1168,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="upload_file_with_required_file.request_body" >body</a>
-
 # <a id="upload_file_with_required_file.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
@@ -1331,7 +1299,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="upload_image.request_body" >body</a>
-
 # <a id="upload_image.request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info

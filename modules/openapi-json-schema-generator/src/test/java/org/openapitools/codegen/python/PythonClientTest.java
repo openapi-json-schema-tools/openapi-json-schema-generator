@@ -249,8 +249,8 @@ public class PythonClientTest {
         items.setType("object");
         arraySchema.setItems(items);
 
-        CodegenProperty objSchemaProp = codegen.fromProperty("objSchemaProp", objSchema, false, false);
-        CodegenProperty arraySchemaProp = codegen.fromProperty("arraySchemaProp", arraySchema, false, false);
+        CodegenProperty objSchemaProp = codegen.fromProperty("objSchemaProp", objSchema, false, false, "");
+        CodegenProperty arraySchemaProp = codegen.fromProperty("arraySchemaProp", arraySchema, false, false, "");
         Assert.assertEquals(objSchemaProp.getAdditionalProperties().baseName, "additional_properties");
         Assert.assertEquals(arraySchemaProp.getItems().baseName, "items");
 
