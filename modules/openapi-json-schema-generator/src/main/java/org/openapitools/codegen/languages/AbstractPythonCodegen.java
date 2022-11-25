@@ -610,8 +610,16 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     public String toModelFilename(String name) {
         // underscore the model file name
         // PhoneNumber => phone_number
+        return toModuleFilename(name);
+    }
+
+    @Override
+    public String toModuleFilename(String name) {
+        // underscore the model file name
+        // PhoneNumber => phone_number
         return underscore(dropDots(toModelName(name)));
     }
+
 
     @Override
     public String toModelTestFilename(String name) {

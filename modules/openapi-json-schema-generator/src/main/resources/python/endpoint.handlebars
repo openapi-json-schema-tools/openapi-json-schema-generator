@@ -14,17 +14,24 @@ from urllib3._collections import HTTPHeaderDict
 from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schema_types }}
 {{> model_templates/imports_schemas }}
+{{#with operation}}
+{{#with bodyParam}}
+{{#if refModule}}
+from {{packageName}}.components.request_bodies import {{refModule}} as request_body
+{{/if}}
+{{/with}}
 
 {{#unless isStub}}
 from .. import path
 {{/unless}}
-{{#with operation}}
 {{#each responses}}
 from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
 {{/each}}
-{{#if bodyParam}}
+{{#with bodyParam}}
+{{#unless refModule}}
 from . import request_body
-{{/if}}
+{{/unless}}
+{{/with}}
 {{#each allParams}}
 from . import {{paramName}}
 {{/each}}

@@ -23,5 +23,7 @@ import java.util.List;
 public interface Generator {
     Generator opts(ClientOptInput opts);
 
+    String requestBodyFileFolder();
+
     List<File> generate();
 }

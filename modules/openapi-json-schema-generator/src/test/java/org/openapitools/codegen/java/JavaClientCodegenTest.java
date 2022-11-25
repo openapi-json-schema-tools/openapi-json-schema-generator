@@ -93,7 +93,7 @@ public class JavaClientCodegenTest {
         body1.setDescription("A list of ids");
         body1.setContent(new Content().addMediaType("application/json", new MediaType().schema(new ArraySchema().items(new StringSchema()))));
         CodegenParameter codegenParameter1 = codegen.fromRequestBody(
-                body1, new HashSet<String>(), null, null);
+                body1, null, null);
         Assert.assertEquals(codegenParameter1.description, "A list of ids");
         Assert.assertEquals(codegenParameter1.getContent().get("application/json").getSchema().dataType, "List<String>");
         Assert.assertEquals(codegenParameter1.getContent().get("application/json").getSchema().baseType, "List");
@@ -102,7 +102,7 @@ public class JavaClientCodegenTest {
         body2.setDescription("A list of list of values");
         body2.setContent(new Content().addMediaType("application/json", new MediaType().schema(new ArraySchema().items(new ArraySchema().items(new IntegerSchema())))));
         CodegenParameter codegenParameter2 = codegen.fromRequestBody(
-                body2, new HashSet<String>(), null, null);
+                body2, null, null);
         Assert.assertEquals(codegenParameter2.description, "A list of list of values");
         Assert.assertEquals(codegenParameter2.getContent().get("application/json").getSchema().dataType, "List<List<Integer>>");
         Assert.assertEquals(codegenParameter2.getContent().get("application/json").getSchema().baseType, "List");
@@ -115,7 +115,7 @@ public class JavaClientCodegenTest {
         point.addProperties("x", new IntegerSchema().format(SchemaTypeUtil.INTEGER32_FORMAT));
         point.addProperties("y", new IntegerSchema().format(SchemaTypeUtil.INTEGER32_FORMAT));
         CodegenParameter codegenParameter3 = codegen.fromRequestBody(
-                body3, new HashSet<String>(), null, null);
+                body3, null, null);
         Assert.assertEquals(codegenParameter3.description, "A list of points");
         Assert.assertEquals(codegenParameter3.getContent().get("application/json").getSchema().dataType, "List<Point>");
         Assert.assertEquals(codegenParameter3.getContent().get("application/json").getSchema().baseType, "List");

@@ -87,9 +87,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         expected_reason = '404'
         self.assertEqual(exc.status, expected_status)
         self.assertEqual(exc.reason, expected_reason)
-        self.assertEqual(exc.body, response_body_bytes)
         expected_headers = {'content-type': 'application/json'}
-        self.assertEqual(exc.headers, expected_headers)
         self.assertEqual(exc.api_response.response.status, expected_status)
         self.assertEqual(exc.api_response.response.reason, expected_reason)
         self.assertEqual(exc.api_response.response.data, response_body_bytes)

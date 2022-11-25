@@ -423,7 +423,7 @@ public class DefaultGeneratorTest {
         Operation operation = openAPI.getPaths().get("/fake/StringRegex").getPost();
         RequestBody body = operation.getRequestBody();
         CodegenParameter codegenParameter = config.fromRequestBody(
-                body, new HashSet<>(), "body", null);
+                body, "body", null);
 
         Assert.assertEquals(codegenParameter.getContent().get("*/*").getSchema().pattern, escapedPattern);
 
