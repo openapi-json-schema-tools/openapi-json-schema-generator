@@ -488,12 +488,16 @@ public class DefaultGenerator implements Generator {
                 if (!pathModuleToPath.containsKey(pathModuleName)) {
                     pathModuleToPath.put(pathModuleName, path);
                 }
-                Map<String, Object> endpointMap = new HashMap<>();
-                endpointMap.put("operation", co);
-                endpointMap.put("imports", co.imports);
-                endpointMap.put("packageName", packageName);
-                outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "__init__.py"));
-                pathsFiles.add(Arrays.asList(endpointMap, "endpoint.handlebars", outputFilename));
+                for (Map.Entry<String, String> entry: config.pathEndpointTemplateFiles().entrySet()) {
+                    String templateFile = entry.getKey();
+                    String renderedOutputFilename = entry.getValue();
+                    outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
+                    Map<String, Object> endpointMap = new HashMap<>();
+                    endpointMap.put("operation", co);
+                    endpointMap.put("imports", co.imports);
+                    endpointMap.put("packageName", packageName);
+                    pathsFiles.add(Arrays.asList(endpointMap, templateFile, outputFilename));
+                }
 
                 // paths.some_path.post.request_body.py, only written if there is no refModule
                 if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
@@ -535,14 +539,6 @@ public class DefaultGenerator implements Generator {
                         pathsFiles.add(Arrays.asList(headerMap, "header.handlebars", headerFilename));
                     }
                 }
-            /*
-            This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
-            dict_instance["someProp"] is of type SomeClass.properties.someProp
-            See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
-             */
-                String stubOutputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, "__init__.pyi"));
-                pathsFiles.add(Arrays.asList(endpointMap, "endpoint_stub.handlebars", stubOutputFilename));
-
                 Map<String, Object> endpointTestMap = new HashMap<>();
                 endpointTestMap.put("operation", co);
                 endpointTestMap.put("packageName", packageName);

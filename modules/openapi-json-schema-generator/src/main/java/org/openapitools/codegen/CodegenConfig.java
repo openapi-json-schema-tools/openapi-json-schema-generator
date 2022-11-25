@@ -164,6 +164,8 @@ public interface CodegenConfig {
 
     Map<String, String> requestBodyDocTemplateFiles();
 
+    Map<String, String> pathEndpointTemplateFiles();
+
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
