@@ -703,7 +703,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 fixSchemaImports(response.imports);
             }
         }
-        generateEndpoints(objs);
         return objs;
     }
 
@@ -2564,7 +2563,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String toParamName(String name) {
+    public String toParameterFileName(String name) {
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint

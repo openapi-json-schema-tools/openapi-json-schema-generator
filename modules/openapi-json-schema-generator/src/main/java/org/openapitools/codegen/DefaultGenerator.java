@@ -512,7 +512,7 @@ public class DefaultGenerator implements Generator {
                     // TODO consolidate imports into body param only
                     paramMap.put("imports", cp.imports);
                     paramMap.put("packageName", packageName);
-                    outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  toParamName(i.toString())+".py"));
+                    outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));
                     pathsFiles.add(Arrays.asList(paramMap, "endpoint_parameter.handlebars", outputFilename));
                     i++;
                 }
@@ -532,7 +532,7 @@ public class DefaultGenerator implements Generator {
                         headerMap.put("parameter", header);
                         headerMap.put("imports", header.imports);
                         headerMap.put("packageName", packageName);
-                        String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, toParamName(header.baseName) + ".py"));
+                        String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
                         pathsFiles.add(Arrays.asList(headerMap, "endpoint_response_header.handlebars", headerFilename));
                     }
                 }

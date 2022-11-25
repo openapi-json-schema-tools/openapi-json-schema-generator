@@ -1485,6 +1485,10 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(name);
     }
 
+    public String toParameterFileName(String basename) {
+        return toModuleFilename(basename);
+    }
+
     /**
      * Return the capitalized file name of the model test
      *
