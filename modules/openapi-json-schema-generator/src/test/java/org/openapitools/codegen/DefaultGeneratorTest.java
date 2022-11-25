@@ -654,7 +654,8 @@ public class DefaultGeneratorTest {
         List<ModelMap> allModels = new ArrayList<>();
         generator.generateModels(files, allModels, filteredSchemas);
         List<OperationsMap> allOperations = new ArrayList<>();
-        generator.generateApis(files, allOperations, allModels);
+        Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
+        generator.generateApis(files, allOperations, allModels, paths);
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(allOperations, allModels);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
@@ -680,7 +681,8 @@ public class DefaultGeneratorTest {
         List<ModelMap> allModels = new ArrayList<>();
         generator.generateModels(files, allModels, filteredSchemas);
         List<OperationsMap> allOperations = new ArrayList<>();
-        generator.generateApis(files, allOperations, allModels);
+        Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
+        generator.generateApis(files, allOperations, allModels, paths);
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(allOperations, allModels);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
