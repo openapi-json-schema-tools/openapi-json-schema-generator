@@ -509,7 +509,6 @@ public class DefaultGenerator implements Generator {
                 for (CodegenParameter cp: co.allParams) {
                     Map<String, Object> paramMap = new HashMap<>();
                     paramMap.put("parameter", cp);
-                    // TODO consolidate imports into body param only
                     paramMap.put("imports", cp.imports);
                     paramMap.put("packageName", packageName);
                     outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));

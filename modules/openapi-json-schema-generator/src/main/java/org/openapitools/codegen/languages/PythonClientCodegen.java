@@ -956,7 +956,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
-            codegenParameter.paramName = toParamName(codegenParameter.baseName);
+            codegenParameter.paramName = toParameterFileName(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
             CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
@@ -980,7 +980,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     codegenParameter.baseName = bodyParameterName;
                 }
 
-                codegenParameter.paramName = toParamName(codegenParameter.baseName);
+                codegenParameter.paramName = toParameterFileName(codegenParameter.baseName);
                 codegenParameter.description = codegenModelDescription;
             }
         }
@@ -2572,6 +2572,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             // for header parameters in responses
             return "parameter_" + toModuleFilename(name);
         }
+    }
+
+    @Override
+    public String toParamName(String basename) {
+        return toParameterFileName(basename);
     }
 
     public String toRefClass(String ref, String sourceJsonPath) {

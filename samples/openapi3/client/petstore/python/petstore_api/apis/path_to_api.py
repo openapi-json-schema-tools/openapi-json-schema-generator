@@ -35,12 +35,12 @@ from petstore_api.apis.paths.fake_body_with_file_schema import FakeBodyWithFileS
 from petstore_api.apis.paths.fake_case_sensitive_params import FakeCaseSensitiveParams
 from petstore_api.apis.paths.fake_test_query_paramters import FakeTestQueryParamters
 from petstore_api.apis.paths.fake_pet_id_upload_image_with_required_file import FakePetIdUploadImageWithRequiredFile
-from petstore_api.apis.paths.fake_parameter_collisions_1_a_b_ab_self_a_b_ import FakeParameterCollisions1ABAbSelfAB
+from petstore_api.apis.paths.fake_parameter_collisions1_abab_self_ab import FakeParameterCollisions1ABAbSelfAB
 from petstore_api.apis.paths.fake_upload_file import FakeUploadFile
 from petstore_api.apis.paths.fake_upload_files import FakeUploadFiles
 from petstore_api.apis.paths.fake_upload_download_file import FakeUploadDownloadFile
 from petstore_api.apis.paths.fake_health import FakeHealth
-from petstore_api.apis.paths.fake_inline_composition_ import FakeInlineComposition
+from petstore_api.apis.paths.fake_inline_composition import FakeInlineComposition
 from petstore_api.apis.paths.fake_obj_in_query import FakeObjInQuery
 from petstore_api.apis.paths.fake_ref_obj_in_query import FakeRefObjInQuery
 from petstore_api.apis.paths.fake_json_with_charset import FakeJsonWithCharset

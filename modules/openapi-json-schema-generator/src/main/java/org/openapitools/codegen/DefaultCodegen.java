@@ -1485,6 +1485,7 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(name);
     }
 
+    @Override
     public String toParameterFileName(String basename) {
         return toModuleFilename(basename);
     }
