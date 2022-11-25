@@ -244,7 +244,7 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/fake").getGet().getRequestBody();
         CodegenParameter codegenParameter = codegen.fromFormProperty("enum_form_string", reqBody, null);
 
-        Assert.assertEquals(codegenParameter.getSchema().defaultValue, "EnumUnderscoreformUnderscorestringEnum._EFG");
+        Assert.assertEquals(codegenParameter.getSchema().getVars().get(1).defaultValue, "-efg");
     }
 
     @Test
@@ -2440,15 +2440,8 @@ public class DefaultCodegenTest {
                 "post",
                 path.getPost(),
                 path.getServers());
-        assertEquals(operation.formParams.size(), 3,
-                "The list of parameters should include inherited type");
-
-        final List<String> names = operation.formParams.stream()
-                .map(param -> param.paramName)
-                .collect(Collectors.toList());
-        assertTrue(names.contains("password"));
-        assertTrue(names.contains("passwordConfirmation"));
-        assertTrue(names.contains("oldPassword"));
+        assertEquals(operation.formParams.size(), 1,
+                "The list of parameters only includes the ref type");
     }
 
     @Test
@@ -4087,34 +4080,24 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
         List<CodegenParameter> formParams = co.formParams;
 
-        assertEquals(formParams.get(0).paramName, "intParam");
-        assertFalse(formParams.get(0).getSchema().isContainer);
-        assertFalse(formParams.get(0).isExplode); // Should not be true for non-container
+        assertEquals(formParams.get(0).getSchema().getVars().get(0).baseName, "int-param");
+        assertFalse(formParams.get(0).getSchema().getVars().get(0).isContainer);
 
-        assertEquals(formParams.get(1).paramName, "explodeTrue");
-        assertTrue(formParams.get(1).getSchema().isContainer);
-        assertEquals(formParams.get(1).style, Encoding.StyleEnum.FORM.toString());
-        assertTrue(formParams.get(1).isExplode);
+        assertEquals(formParams.get(0).getSchema().getVars().get(1).baseName, "explode-true");
+        assertTrue(formParams.get(0).getSchema().getVars().get(1).isContainer);
 
-        assertEquals(formParams.get(2).paramName, "explodeFalse");
-        assertTrue(formParams.get(2).getSchema().isContainer);
-        assertEquals(formParams.get(2).style, Encoding.StyleEnum.FORM.toString());
-        assertFalse(formParams.get(2).isExplode);
+        assertEquals(formParams.get(0).getSchema().getVars().get(2).baseName, "explode-false");
+        assertTrue(formParams.get(0).getSchema().getVars().get(2).isContainer);
 
-        assertEquals(formParams.get(3).paramName, "noStyleNoExplode");
-        assertTrue(formParams.get(3).getSchema().isContainer);
-        assertEquals(formParams.get(3).style, Encoding.StyleEnum.FORM.toString());
-        assertTrue(formParams.get(3).isExplode); // Defaults to true for style == FORM
+        assertEquals(formParams.get(0).getSchema().getVars().get(3).baseName, "no-style-no-explode");
+        assertTrue(formParams.get(0).getSchema().getVars().get(3).isContainer);
 
-        assertEquals(formParams.get(4).paramName, "styleSpecified");
-        assertTrue(formParams.get(4).getSchema().isContainer);
-        assertEquals(formParams.get(4).style, Encoding.StyleEnum.SPACE_DELIMITED.toString());
-        assertFalse(formParams.get(4).isExplode);
+        assertEquals(formParams.get(0).getSchema().getVars().get(4).baseName, "style-specified");
+        assertTrue(formParams.get(0).getSchema().getVars().get(4).isContainer);
 
-        assertEquals(formParams.get(5).paramName, "styleSpecifiedNoExplode");
-        assertTrue(formParams.get(5).getSchema().isContainer);
-        assertEquals(formParams.get(5).style, Encoding.StyleEnum.SPACE_DELIMITED.toString());
-        assertFalse(formParams.get(5).isExplode); // Defaults to false for style other than FORM
+        assertEquals(formParams.get(0).getSchema().getVars().get(5).baseName, "style-specified-no-explode");
+        assertTrue(formParams.get(0).getSchema().getVars().get(5).isContainer);
+
     }
 
     @Test
@@ -4201,7 +4184,7 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
 
-        Assert.assertEquals(codegenParameter.getSchema().defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test
