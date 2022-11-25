@@ -539,6 +539,10 @@ public class DefaultCodegen implements CodegenConfig {
         return packageName;
     }
 
+    public String packagePath() {
+        return packageName.replace('.', File.separatorChar);
+    }
+
     /**
      * Index all CodegenModels by model name.
      *
@@ -1477,6 +1481,9 @@ public class DefaultCodegen implements CodegenConfig {
         return camelize(name);
     }
 
+    public String toPathFileName(String name) {
+        return toModuleFilename(name);
+    }
 
     /**
      * Return the capitalized file name of the model test

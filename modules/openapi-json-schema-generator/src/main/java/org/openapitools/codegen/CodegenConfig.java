@@ -90,6 +90,8 @@ public interface CodegenConfig {
 
     String toApiName(String name);
 
+    String toPathFileName(String path);
+
     String toApiVarName(String name);
 
     String toModelName(String name);
@@ -127,6 +129,8 @@ public interface CodegenConfig {
     void setInputSpec(String inputSpec);
 
     String getOutputDir();
+
+    String packagePath();
 
     void setOutputDir(String dir);
 
