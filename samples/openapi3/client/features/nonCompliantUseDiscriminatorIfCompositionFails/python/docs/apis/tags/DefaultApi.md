@@ -16,7 +16,6 @@ Method | HTTP request | Description
 ```python
 import this_package
 from this_package.apis.tags import default_api
-from this_package.components.schema import operator
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,7 +52,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="post_operators.request_body" >body</a>
-
 # <a id="post_operators.request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

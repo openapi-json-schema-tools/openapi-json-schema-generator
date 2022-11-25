@@ -25,8 +25,6 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema import enum_with1_does_not_match_true
-
 from . import response_for_200
 from . import request_body
 

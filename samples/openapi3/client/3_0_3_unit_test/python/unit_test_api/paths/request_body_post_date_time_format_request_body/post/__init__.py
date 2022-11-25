@@ -25,8 +25,6 @@ import frozendict  # noqa: F401
 
 from unit_test_api import schemas  # noqa: F401
 
-from unit_test_api.components.schema import date_time_format
-
 from .. import path
 from . import response_for_200
 from . import request_body
