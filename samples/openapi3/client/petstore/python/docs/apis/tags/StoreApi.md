@@ -5,10 +5,10 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_order**](#delete_order) | **delete** /store/order/{order_id} | Delete purchase order by ID
-[**get_inventory**](#get_inventory) | **get** /store/inventory | Returns pet inventories by status
-[**get_order_by_id**](#get_order_by_id) | **get** /store/order/{order_id} | Find purchase order by ID
-[**place_order**](#place_order) | **post** /store/order | Place an order for a pet
+[**delete_order**](../../components/paths/store_order_order_id/delete.md) | **delete** /store/order/{order_id} | Delete purchase order by ID
+[**get_inventory**](../../components/paths/store_inventory/get.md) | **get** /store/inventory | Returns pet inventories by status
+[**get_order_by_id**](../../components/paths/store_order_order_id/get.md) | **get** /store/order/{order_id} | Find purchase order by ID
+[**place_order**](../../components/paths/store_order/post.md) | **post** /store/order | Place an order for a pet
 
 # **delete_order**
 <a name="delete_order"></a>

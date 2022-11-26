@@ -5,15 +5,15 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_pet**](#add_pet) | **post** /pet | Add a new pet to the store
-[**delete_pet**](#delete_pet) | **delete** /pet/{petId} | Deletes a pet
-[**find_pets_by_status**](#find_pets_by_status) | **get** /pet/findByStatus | Finds Pets by status
-[**find_pets_by_tags**](#find_pets_by_tags) | **get** /pet/findByTags | Finds Pets by tags
-[**get_pet_by_id**](#get_pet_by_id) | **get** /pet/{petId} | Find pet by ID
-[**update_pet**](#update_pet) | **put** /pet | Update an existing pet
-[**update_pet_with_form**](#update_pet_with_form) | **post** /pet/{petId} | Updates a pet in the store with form data
-[**upload_file_with_required_file**](#upload_file_with_required_file) | **post** /fake/{petId}/uploadImageWithRequiredFile | uploads an image (required)
-[**upload_image**](#upload_image) | **post** /pet/{petId}/uploadImage | uploads an image
+[**add_pet**](../../components/paths/pet/post.md) | **post** /pet | Add a new pet to the store
+[**delete_pet**](../../components/paths/pet_pet_id/delete.md) | **delete** /pet/{petId} | Deletes a pet
+[**find_pets_by_status**](../../components/paths/pet_find_by_status/get.md) | **get** /pet/findByStatus | Finds Pets by status
+[**find_pets_by_tags**](../../components/paths/pet_find_by_tags/get.md) | **get** /pet/findByTags | Finds Pets by tags
+[**get_pet_by_id**](../../components/paths/pet_pet_id/get.md) | **get** /pet/{petId} | Find pet by ID
+[**update_pet**](../../components/paths/pet/put.md) | **put** /pet | Update an existing pet
+[**update_pet_with_form**](../../components/paths/pet_pet_id/post.md) | **post** /pet/{petId} | Updates a pet in the store with form data
+[**upload_file_with_required_file**](../../components/paths/fake_pet_id_upload_image_with_required_file/post.md) | **post** /fake/{petId}/uploadImageWithRequiredFile | uploads an image (required)
+[**upload_image**](../../components/paths/pet_pet_id_upload_image/post.md) | **post** /pet/{petId}/uploadImage | uploads an image
 
 # **add_pet**
 <a name="add_pet"></a>

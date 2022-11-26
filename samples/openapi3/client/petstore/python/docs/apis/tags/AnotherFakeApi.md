@@ -5,7 +5,7 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**call_123_test_special_tags**](#call_123_test_special_tags) | **patch** /another-fake/dummy | To test special tags
+[**call_123_test_special_tags**](../../components/paths/another_fake_dummy/patch.md) | **patch** /another-fake/dummy | To test special tags
 
 # **call_123_test_special_tags**
 <a name="call_123_test_special_tags"></a>

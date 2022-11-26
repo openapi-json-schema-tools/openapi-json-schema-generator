@@ -5,7 +5,7 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**foo_get**](#foo_get) | **get** /foo | 
+[**foo_get**](../../components/paths/foo/get.md) | **get** /foo | 
 
 # **foo_get**
 <a name="foo_get"></a>

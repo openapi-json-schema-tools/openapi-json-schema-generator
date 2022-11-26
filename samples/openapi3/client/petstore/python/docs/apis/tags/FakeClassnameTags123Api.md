@@ -5,7 +5,7 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**classname**](#classname) | **patch** /fake_classname_test | To test class name in snake case
+[**classname**](../../components/paths/fake_classname_test/patch.md) | **patch** /fake_classname_test | To test class name in snake case
 
 # **classname**
 <a name="classname"></a>

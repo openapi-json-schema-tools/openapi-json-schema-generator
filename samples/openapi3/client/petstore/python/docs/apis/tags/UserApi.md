@@ -5,14 +5,14 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_user**](#create_user) | **post** /user | Create user
-[**create_users_with_array_input**](#create_users_with_array_input) | **post** /user/createWithArray | Creates list of users with given input array
-[**create_users_with_list_input**](#create_users_with_list_input) | **post** /user/createWithList | Creates list of users with given input array
-[**delete_user**](#delete_user) | **delete** /user/{username} | Delete user
-[**get_user_by_name**](#get_user_by_name) | **get** /user/{username} | Get user by user name
-[**login_user**](#login_user) | **get** /user/login | Logs user into the system
-[**logout_user**](#logout_user) | **get** /user/logout | Logs out current logged in user session
-[**update_user**](#update_user) | **put** /user/{username} | Updated user
+[**create_user**](../../components/paths/user/post.md) | **post** /user | Create user
+[**create_users_with_array_input**](../../components/paths/user_create_with_array/post.md) | **post** /user/createWithArray | Creates list of users with given input array
+[**create_users_with_list_input**](../../components/paths/user_create_with_list/post.md) | **post** /user/createWithList | Creates list of users with given input array
+[**delete_user**](../../components/paths/user_username/delete.md) | **delete** /user/{username} | Delete user
+[**get_user_by_name**](../../components/paths/user_username/get.md) | **get** /user/{username} | Get user by user name
+[**login_user**](../../components/paths/user_login/get.md) | **get** /user/login | Logs user into the system
+[**logout_user**](../../components/paths/user_logout/get.md) | **get** /user/logout | Logs out current logged in user session
+[**update_user**](../../components/paths/user_username/put.md) | **put** /user/{username} | Updated user
 
 # **create_user**
 <a name="create_user"></a>
