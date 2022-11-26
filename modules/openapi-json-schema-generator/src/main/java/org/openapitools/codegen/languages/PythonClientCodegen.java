@@ -316,6 +316,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
+        pathEndpointRequestBodyTemplateFiles.put("request_body.handlebars", "request_body.py");
+        pathEndpointParameterTemplateFiles.put("parameter.handlebars", )
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");

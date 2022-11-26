@@ -500,24 +500,31 @@ public class DefaultGenerator implements Generator {
                 }
 
                 // paths.some_path.post.request_body.py, only written if there is no refModule
-                if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
-                    Map<String, Object> paramMap = new HashMap<>();
-                    paramMap.put("requestBody", co.bodyParam);
-                    paramMap.put("imports", co.bodyParam.imports);
-                    paramMap.put("packageName", packageName);
-                    outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  "request_body.py"));
-                    pathsFiles.add(Arrays.asList(paramMap, "request_body.handlebars", outputFilename));
+                for (Map.Entry<String, String> entry: config.pathEndpointRequestBodyTemplateFiles().entrySet()) {
+                    String templateFile = entry.getKey();
+                    String renderedOutputFilename = entry.getValue();
+                    if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
+                        Map<String, Object> paramMap = new HashMap<>();
+                        paramMap.put("requestBody", co.bodyParam);
+                        paramMap.put("imports", co.bodyParam.imports);
+                        paramMap.put("packageName", packageName);
+                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
+                        pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
+                    }
                 }
+
                 // paths.some_path.post.parameter_0.py
-                Integer i = 0;
-                for (CodegenParameter cp: co.allParams) {
-                    Map<String, Object> paramMap = new HashMap<>();
-                    paramMap.put("parameter", cp);
-                    paramMap.put("imports", cp.imports);
-                    paramMap.put("packageName", packageName);
-                    outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));
-                    pathsFiles.add(Arrays.asList(paramMap, "parameter.handlebars", outputFilename));
-                    i++;
+                for (String templateFile: config.pathEndpointParameterTemplateFiles()) {
+                    Integer i = 0;
+                    for (CodegenParameter cp: co.allParams) {
+                        Map<String, Object> paramMap = new HashMap<>();
+                        paramMap.put("parameter", cp);
+                        paramMap.put("imports", cp.imports);
+                        paramMap.put("packageName", packageName);
+                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));
+                        pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
+                        i++;
+                    }
                 }
 
                 for (CodegenResponse response: co.responses) {
