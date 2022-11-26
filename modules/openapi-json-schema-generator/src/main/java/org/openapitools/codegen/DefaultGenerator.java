@@ -531,19 +531,26 @@ public class DefaultGenerator implements Generator {
                     // paths.some_path.post.response_for_200.__init__.py (file per response)
                     // response is a package because responses have Headers which can be refed
                     // so each inline header should be a module in the response package
-                    Map<String, Object> responseMap = new HashMap<>();
-                    responseMap.put("response", response);
-                    responseMap.put("packageName", packageName);
-                    String responseModuleName = (response.isDefault)? "response_for_default" : "response_for_"+response.code;
-                    String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  "__init__.py"));
-                    pathsFiles.add(Arrays.asList(responseMap, "response.handlebars", responseFilename));
-                    for (CodegenParameter header: response.getResponseHeaders()) {
-                        Map<String, Object> headerMap = new HashMap<>();
-                        headerMap.put("parameter", header);
-                        headerMap.put("imports", header.imports);
-                        headerMap.put("packageName", packageName);
-                        String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
-                        pathsFiles.add(Arrays.asList(headerMap, "header.handlebars", headerFilename));
+
+                    for (Map.Entry<String, String> entry: config.pathEndpointResponseTemplateFiles().entrySet()) {
+                        String templateFile = entry.getKey();
+                        String renderedOutputFilename = entry.getValue();
+                        Map<String, Object> responseMap = new HashMap<>();
+                        responseMap.put("response", response);
+                        responseMap.put("packageName", packageName);
+                        String responseModuleName = (response.isDefault)? "response_for_default" : "response_for_"+response.code;
+                        String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
+                        pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
+                        for (CodegenParameter header: response.getResponseHeaders()) {
+                            for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                Map<String, Object> headerMap = new HashMap<>();
+                                headerMap.put("parameter", header);
+                                headerMap.put("imports", header.imports);
+                                headerMap.put("packageName", packageName);
+                                String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
+                                pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                            }
+                        }
                     }
                 }
                 Map<String, Object> endpointTestMap = new HashMap<>();

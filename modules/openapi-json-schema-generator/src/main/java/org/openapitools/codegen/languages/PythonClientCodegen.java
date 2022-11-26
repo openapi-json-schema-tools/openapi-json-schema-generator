@@ -317,7 +317,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
          */
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
         pathEndpointRequestBodyTemplateFiles.put("request_body.handlebars", "request_body.py");
-        pathEndpointParameterTemplateFiles.put("parameter.handlebars", )
+        pathEndpointParameterTemplateFiles.add("parameter.handlebars");
+        pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
+        pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
