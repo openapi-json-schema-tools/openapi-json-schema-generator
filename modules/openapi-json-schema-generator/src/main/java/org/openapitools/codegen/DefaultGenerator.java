@@ -426,13 +426,19 @@ public class DefaultGenerator implements Generator {
         return prefix + suffix;
     }
 
-    private void generateFiles(List<List<Object>> processTemplateToFileInfos, boolean shouldGenerate, String skippedByOption) {
+    private void generateFiles(List<List<Object>> processTemplateToFileInfos, boolean shouldGenerate, String skippedByOption, List<File> files) {
         for (List<Object> processTemplateToFileInfo: processTemplateToFileInfos) {
             Map<String, Object> templateData = (Map<String, Object>) processTemplateToFileInfo.get(0);
             String templateName = (String) processTemplateToFileInfo.get(1);
             String outputFilename = (String) processTemplateToFileInfo.get(2);
             try {
-                processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
+                File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, skippedByOption);
+                    }
+                }
             } catch (IOException e) {
                 LOGGER.error("Error when writing template file {}", e.toString());
             }
@@ -470,6 +476,8 @@ public class DefaultGenerator implements Generator {
 
         HashMap<String, String> pathModuleToPath = new HashMap<>();
         String packageName = config.packageName();
+        Map<String, Object> initOperationMap = new HashMap<>();
+        initOperationMap.put("packageName", packageName);
         // paths.some_path.post.__init__.py (single endpoint definition)
         // responses are adjacent to the init file
         for (List<CodegenOperation> coList: operationsMap.values()) {
@@ -553,18 +561,18 @@ public class DefaultGenerator implements Generator {
                         }
                     }
                 }
-                Map<String, Object> endpointTestMap = new HashMap<>();
-                endpointTestMap.put("operation", co);
-                endpointTestMap.put("packageName", packageName);
-                outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
-                testFiles.add(Arrays.asList(endpointTestMap, "endpoint_test.handlebars", outputFilename));
-                outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
-                testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
+                for (String templateFile: config.pathEndpointTestTemplateFiles()) {
+                    Map<String, Object> endpointTestMap = new HashMap<>();
+                    endpointTestMap.put("operation", co);
+                    endpointTestMap.put("packageName", packageName);
+                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
+                    testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
+                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
+                    testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
+
+                }
             }
         }
-        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
-        testFiles.add(Arrays.asList(new HashMap<>(), "__init__test_paths.handlebars", outputFilename));
-
         Map<String, String> pathModuleToApiClassname = new LinkedHashMap<>();
         Map<String, String> pathToApiClassname = new LinkedHashMap<>();
         for (Map.Entry<String, PathItem> pathsEntry : paths.entrySet()) {
@@ -573,6 +581,31 @@ public class DefaultGenerator implements Generator {
             pathToApiClassname.put(path, apiClassName);
             pathModuleToApiClassname.put(config.toPathFileName(path), apiClassName);
         }
+        if (!config.pathEndpointTemplateFiles().isEmpty()) {
+            // paths.__init__.py
+            outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
+            pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
+
+            // paths.some_path.__init__.py
+            for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
+                String pathModule = entry.getKey();
+                String path = entry.getValue();
+                String apiClassName = pathToApiClassname.get(path);
+                Map<String, Object> pathApiMap = new HashMap<>();
+                pathApiMap.put("packageName", packageName);
+                pathApiMap.put("pathModule", pathModule);
+                pathApiMap.put("apiClassName", apiClassName);
+                pathApiMap.put("path", path);
+                outputFilename = packageFilename(Arrays.asList("paths", pathModule, "__init__.py"));
+                pathsFiles.add(Arrays.asList(pathApiMap, "__init__paths_x.handlebars", outputFilename));
+            }
+        }
+
+        if (!config.pathEndpointTestTemplateFiles().isEmpty()) {
+            outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
+            testFiles.add(Arrays.asList(new HashMap<>(), "__init__test_paths.handlebars", outputFilename));
+        }
+
         // Note: __init__apis.handlebars is generated as a supporting file
         // apis.tag_to_api.py
         Map<String, Object> tagToApiMap = new HashMap<>();
@@ -591,36 +624,21 @@ public class DefaultGenerator implements Generator {
         allByPathsFileMap.put("pathToApiClassname", pathToApiClassname);
         outputFilename = packageFilename(Arrays.asList(apiPackage, "path_to_api.py"));
         apisFiles.add(Arrays.asList(allByPathsFileMap, "apis_path_to_api.handlebars", outputFilename));
-        // apis.paths.__init__.py
+        // apis.tags.__init__.py
         Map<String, Object> initApiTagsMap = new HashMap<>();
         initApiTagsMap.put("packageName", packageName);
         outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
         apisFiles.add(Arrays.asList(initApiTagsMap, "__init__apis_tags.handlebars", outputFilename));
 
-        // paths.__init__.py (contains path str enum)
-        Map<String, Object> initOperationMap = new HashMap<>();
-        initOperationMap.put("packageName", packageName);
-        initOperationMap.put("apiClassname", "Api");
-        outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
-        pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths_enum.handlebars", outputFilename));
         // apis.paths.__init__.py
         outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
         apisFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
-        // paths.some_path.__init__.py
         // apis.paths.some_path.py
         for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
             String pathModule = entry.getKey();
             String path = entry.getValue();
-            Map<String, Object> pathApiMap = new HashMap<>();
-            pathApiMap.put("packageName", packageName);
-            pathApiMap.put("pathModule", pathModule);
-            pathApiMap.put("apiClassName", "Api");
-            pathApiMap.put("path", path);
-            outputFilename = packageFilename(Arrays.asList("paths", pathModule, "__init__.py"));
-            pathsFiles.add(Arrays.asList(pathApiMap, "__init__paths_x.handlebars", outputFilename));
-
-            PathItem pi = openAPI.getPaths().get(path);
             String apiClassName = pathToApiClassname.get(path);
+            PathItem pi = openAPI.getPaths().get(path);
             Map<String, Object> operationMap = new HashMap<>();
             operationMap.put("packageName", packageName);
             operationMap.put("pathModule", pathModule);
@@ -631,9 +649,9 @@ public class DefaultGenerator implements Generator {
         }
         boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
         boolean shouldGenerateApiTests = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
-        generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS);
-        generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS);
-        generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS);
+        generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS, files);
+        generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS, files);
+        generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS, files);
 
     }
 

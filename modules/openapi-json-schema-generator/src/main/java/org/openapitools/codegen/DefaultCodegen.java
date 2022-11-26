@@ -183,6 +183,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
     protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
+    protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
     protected Map<String, String> pathEndpointRequestBodyTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointParameterTemplateFiles = new HashSet<>();
     protected Map<String, String> pathEndpointResponseTemplateFiles = new HashMap<>();
@@ -1209,6 +1210,9 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public Map<String, String> pathEndpointTemplateFiles() { return pathEndpointTemplateFiles; }
+
+    @Override
+    public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }
 
     @Override
     public Map<String, String> pathEndpointRequestBodyTemplateFiles() { return pathEndpointRequestBodyTemplateFiles; }
