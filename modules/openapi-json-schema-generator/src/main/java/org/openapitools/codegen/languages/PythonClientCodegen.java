@@ -296,21 +296,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             this.ignoreProcessor = new CodegenIgnoreProcessor(this.getOutputDir());
         }
 
-        modelTemplateFiles.put("model." + templateExtension, ".py");
+        modelTemplateFiles.put("model.handlebars", ".py");
         /*
         This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        modelTemplateFiles.put("model_stub." + templateExtension, ".pyi");
-        apiTemplateFiles.put("api." + templateExtension, ".py");
+        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
+        apiTemplateFiles.put("api.handlebars", ".py");
         apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
-        modelTestTemplateFiles.put("model_test." + templateExtension, ".py");
-        modelDocTemplateFiles.put("model_doc." + templateExtension, ".md");
-        apiDocTemplateFiles.put("endpoint_doc." + templateExtension, ".md");
-        requestBodyTemplateFiles.put("request_body." + templateExtension, ".py");
-        requestBodyDocTemplateFiles.put("request_body_doc." + templateExtension, ".md");
+        modelTestTemplateFiles.put("model_test.handlebars", ".py");
+        modelDocTemplateFiles.put("model_doc.handlebars", ".md");
+        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
+        requestBodyTemplateFiles.put("request_body.handlebars", ".py");
+        requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
         pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
         /*
         This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that

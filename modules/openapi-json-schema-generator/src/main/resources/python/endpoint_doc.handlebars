@@ -1,15 +1,3 @@
-<a name="__pageTop"></a>
-# {{packageName}}.{{apiPackage}}.tags.{{classFilename}}.{{classname}}{{#if description}}
-{{description}}{{/if}}
-
-All URIs are relative to *{{basePath}}*
-
-Method | HTTP request | Description
-------------- | ------------- | -------------
-{{#with operations}}{{#each operation}}[**{{operationId}}**](#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#if summary}}{{summary}}{{/if}}
-{{/each}}{{/with}}
-
-{{#with operations}}
 {{#each operation}}
 # **{{{operationId}}}**
 <a name="{{{operationId}}}"></a>
@@ -241,4 +229,3 @@ Key | Accessed Type | Description  | Notes
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 {{/each}}
-{{/with}}

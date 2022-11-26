@@ -170,6 +170,8 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointTestTemplateFiles();
 
+    Set<String> pathEndpointDocTemplateFiles();
+
     Map<String, String> pathEndpointRequestBodyTemplateFiles();
 
     Set<String> pathEndpointParameterTemplateFiles();

@@ -454,6 +454,7 @@ public class DefaultGenerator implements Generator {
         List<List<Object>> pathsFiles = new ArrayList<>();
         List<List<Object>> apisFiles = new ArrayList<>();
         List<List<Object>> testFiles = new ArrayList<>();
+        List<List<Object>> apiDocFiles = new ArrayList<>();
         String outputFilename;
 
         // endpoint tags may not exist in the root of the spec file
@@ -571,6 +572,14 @@ public class DefaultGenerator implements Generator {
                     testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
 
                 }
+                for (String templateFile: config.pathEndpointDocTemplateFiles()) {
+                    Map<String, Object> endpointInfo = new HashMap<>();
+                    List<CodegenOperation> operation = Arrays.asList(co);
+                    endpointInfo.put("operation", operation);
+                    endpointInfo.put("packageName", packageName);
+                    outputFilename = filenameFromRoot(Arrays.asList("docs", "paths", "test_" + pathModuleName, co.httpMethod + ".md"));
+                    apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
+                }
             }
         }
         Map<String, String> pathModuleToApiClassname = new LinkedHashMap<>();
@@ -652,9 +661,11 @@ public class DefaultGenerator implements Generator {
 
         boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
         boolean shouldGenerateApiTests = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
+        boolean shouldGenerateApiDocs = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_DOCS);
         generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS, files);
         generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS, files);
         generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS, files);
+        generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
     }
 
     void generateRequestBodies(List<File> files) {
