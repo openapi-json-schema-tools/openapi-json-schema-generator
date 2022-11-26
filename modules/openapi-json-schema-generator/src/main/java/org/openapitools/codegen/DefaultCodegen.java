@@ -179,6 +179,7 @@ public class DefaultCodegen implements CodegenConfig {
     API templates may be written multiple times; APIs are grouped by tag and the file is written once per tag group.
     */
     protected Map<String, String> apiTemplateFiles = new HashMap<>();
+    protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
@@ -1196,6 +1197,9 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> apiTemplateFiles() {
         return apiTemplateFiles;
     }
+
+    @Override
+    public Map<String, String> apiXToApiTemplateFiles() { return apiXToApiTemplateFiles; }
 
     @Override
     public Map<String, String> modelTemplateFiles() {

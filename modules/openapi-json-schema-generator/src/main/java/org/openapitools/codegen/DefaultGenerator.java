@@ -608,51 +608,53 @@ public class DefaultGenerator implements Generator {
 
         // Note: __init__apis.handlebars is generated as a supporting file
         // apis.tag_to_api.py
-        Map<String, Object> tagToApiMap = new HashMap<>();
-        tagToApiMap.put("packageName", packageName);
-        tagToApiMap.put("apiClassname", "Api");
-        tagToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
-        tagToApiMap.put("tagToApiClassname", tagToApiClassname);
-        String apiPackage = config.apiPackage();
-        outputFilename = packageFilename(Arrays.asList(apiPackage, "tag_to_api.py"));
-        apisFiles.add(Arrays.asList(tagToApiMap, "apis_tag_to_api.handlebars", outputFilename));
         // apis.path_to_api.py
-        Map<String, Object> allByPathsFileMap = new HashMap<>();
-        allByPathsFileMap.put("packageName", packageName);
-        allByPathsFileMap.put("apiClassname", "Api");
-        allByPathsFileMap.put("pathModuleToApiClassname", pathModuleToApiClassname);
-        allByPathsFileMap.put("pathToApiClassname", pathToApiClassname);
-        outputFilename = packageFilename(Arrays.asList(apiPackage, "path_to_api.py"));
-        apisFiles.add(Arrays.asList(allByPathsFileMap, "apis_path_to_api.handlebars", outputFilename));
-        // apis.tags.__init__.py
-        Map<String, Object> initApiTagsMap = new HashMap<>();
-        initApiTagsMap.put("packageName", packageName);
-        outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
-        apisFiles.add(Arrays.asList(initApiTagsMap, "__init__apis_tags.handlebars", outputFilename));
-
-        // apis.paths.__init__.py
-        outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
-        apisFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
-        // apis.paths.some_path.py
-        for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
-            String pathModule = entry.getKey();
-            String path = entry.getValue();
-            String apiClassName = pathToApiClassname.get(path);
-            PathItem pi = openAPI.getPaths().get(path);
-            Map<String, Object> operationMap = new HashMap<>();
-            operationMap.put("packageName", packageName);
-            operationMap.put("pathModule", pathModule);
-            operationMap.put("apiClassName", apiClassName);
-            operationMap.put("pathItem", pi);
-            outputFilename = packageFilename(Arrays.asList("apis", "paths", pathModule + ".py"));
-            apisFiles.add(Arrays.asList(operationMap, "apis_path_module.handlebars", outputFilename));
+        String apiPackage = config.apiPackage();
+        for (Map.Entry<String, String> entry: config.apiXToApiTemplateFiles().entrySet()) {
+            String templateFile = entry.getKey();
+            String renderedOutputFilename = entry.getValue();
+            Map<String, Object> xToApiMap = new HashMap<>();
+            xToApiMap.put("packageName", packageName);
+            xToApiMap.put("apiClassname", "Api");
+            xToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
+            xToApiMap.put("tagToApiClassname", tagToApiClassname);
+            xToApiMap.put("pathModuleToApiClassname", pathModuleToApiClassname);
+            xToApiMap.put("pathToApiClassname", pathToApiClassname);
+            outputFilename = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
+            apisFiles.add(Arrays.asList(xToApiMap, templateFile, outputFilename));
         }
+
+        if (!config.apiXToApiTemplateFiles().isEmpty()) {
+            // apis.tags.__init__.py
+            Map<String, Object> initApiTagsMap = new HashMap<>();
+            initApiTagsMap.put("packageName", packageName);
+            outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
+            apisFiles.add(Arrays.asList(initApiTagsMap, "__init__apis_tags.handlebars", outputFilename));
+
+            // apis.paths.__init__.py
+            outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
+            apisFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
+            // apis.paths.some_path.py
+            for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
+                String pathModule = entry.getKey();
+                String path = entry.getValue();
+                String apiClassName = pathToApiClassname.get(path);
+                PathItem pi = openAPI.getPaths().get(path);
+                Map<String, Object> operationMap = new HashMap<>();
+                operationMap.put("packageName", packageName);
+                operationMap.put("pathModule", pathModule);
+                operationMap.put("apiClassName", apiClassName);
+                operationMap.put("pathItem", pi);
+                outputFilename = packageFilename(Arrays.asList("apis", "paths", pathModule + ".py"));
+                apisFiles.add(Arrays.asList(operationMap, "apis_path_module.handlebars", outputFilename));
+            }
+        }
+
         boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
         boolean shouldGenerateApiTests = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
         generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS, files);
         generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS, files);
         generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS, files);
-
     }
 
     void generateRequestBodies(List<File> files) {

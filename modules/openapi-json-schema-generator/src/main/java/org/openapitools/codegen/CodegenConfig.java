@@ -158,6 +158,8 @@ public interface CodegenConfig {
 
     Map<String, String> apiTemplateFiles();
 
+    Map<String, String> apiXToApiTemplateFiles();
+
     Map<String, String> modelTemplateFiles();
 
     Map<String, String> requestBodyTemplateFiles();
