@@ -577,7 +577,7 @@ public class DefaultGenerator implements Generator {
                     List<CodegenOperation> operation = Arrays.asList(co);
                     endpointInfo.put("operation", operation);
                     endpointInfo.put("packageName", packageName);
-                    outputFilename = filenameFromRoot(Arrays.asList("docs", "paths", "test_" + pathModuleName, co.httpMethod + ".md"));
+                    outputFilename = filenameFromRoot(Arrays.asList("docs", "paths", pathModuleName, co.httpMethod + ".md"));
                     apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                 }
             }
