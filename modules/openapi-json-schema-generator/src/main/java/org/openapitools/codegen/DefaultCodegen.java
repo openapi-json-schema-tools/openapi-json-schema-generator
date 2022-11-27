@@ -26,6 +26,7 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
+import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -4232,6 +4233,17 @@ public class DefaultCodegen implements CodegenConfig {
             // use path-level servers
             op.servers = fromServers(servers);
         }
+
+        // tags
+        List<CodegenTag> codegenTags = new ArrayList<>();
+        for (String tagName: operation.getTags()) {
+            CodegenTag codegenTag = new CodegenTag();
+            codegenTag.setName(tagName);
+            codegenTag.setModuleName(toApiFilename(tagName));
+            codegenTag.setClassName(toApiName(tagName));
+            codegenTags.add(codegenTag);
+        }
+        op.tags = codegenTags;
 
         // store the original operationId for plug-in
         op.operationIdOriginal = operation.getOperationId();

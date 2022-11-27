@@ -464,6 +464,7 @@ public class DefaultGenerator implements Generator {
         Map<String, String> tagModuleNameToApiClassname = new LinkedHashMap<>();
         // for apis.tags tag api definition
         Map<String, String> tagToApiClassname = new LinkedHashMap<>();
+        Map<String, String> tagToTagModule = new LinkedHashMap<>();
 
         if (tags != null) {
             for (Tag tag: tags) {
@@ -472,6 +473,7 @@ public class DefaultGenerator implements Generator {
                 String apiClassname = config.toApiName(tagName);
                 tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
                 tagToApiClassname.put(tagName, apiClassname);
+                tagToTagModule.put(tagName, tagModuleName);
             }
         }
 
@@ -490,6 +492,7 @@ public class DefaultGenerator implements Generator {
                         String apiClassname = config.toApiName(tagName);
                         tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
                         tagToApiClassname.put(tagName, apiClassname);
+                        tagToTagModule.put(tagName, tagModuleName);
                     }
                 }
                 String path = co.path;
@@ -578,11 +581,8 @@ public class DefaultGenerator implements Generator {
                     endpointInfo.put("operation", operation);
                     endpointInfo.put("packageName", packageName);
                     endpointInfo.put("apiPackage", config.apiPackage());
-                    String classFilename = config.toApiFilename(co.tags.get(0).getName());
-                    endpointInfo.put("classFilename", classFilename);
-                    // need the actual classname
-                    endpointInfo.put("classname", "SomeApi");
-                    outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", classFilename, co.operationId + ".md"));
+                    String moduleName = co.tags.get(0).getModuleName();
+                    outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", moduleName, co.operationId + ".md"));
                     apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                 }
             }
@@ -1485,7 +1485,6 @@ public class DefaultGenerator implements Generator {
         for (Tag tag : tags) {
             try {
                 CodegenOperation codegenOperation = config.fromOperation(resourcePath, httpMethod, operation, path.getServers());
-                codegenOperation.tags = new ArrayList<>(tags);
                 config.addOperationToGroup(config.sanitizeTag(tag.getName()), resourcePath, operation, codegenOperation, operations);
 
                 List<SecurityRequirement> securities = operation.getSecurity();
