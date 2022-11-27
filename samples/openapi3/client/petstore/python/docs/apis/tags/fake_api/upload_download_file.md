@@ -35,15 +35,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_download_file.request_body) | typing.Union[[request_body.application_octet_stream](#upload_download_file.request_body.application_octet_stream)] | required |
+[body](#request_body) | typing.Union[[request_body.application_octet_stream](#request_body.application_octet_stream)] | required |
 content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/octet-stream', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="upload_download_file.request_body" >body</a>
-# <a id="upload_download_file.request_body.application_octet_stream" >request_body.application_octet_stream</a>
+### <a id="request_body" >body</a>
+# request_body.application_octet_stream
 
 file to upload
 
@@ -57,16 +57,16 @@ bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#upload_download_file.response_for_200.ApiResponse) | successful operation
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
 
-#### <a id="upload_download_file.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_octet_stream](#upload_download_file.response_for_200.application_octet_stream), ] |  |
+body | typing.Union[[response_for_200.application_octet_stream](#response_for_200.application_octet_stream), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_download_file.response_for_200.application_octet_stream" >response_for_200.application_octet_stream</a>
+# response_for_200.application_octet_stream
 
 file to download
 

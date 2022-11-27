@@ -62,16 +62,16 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#classname.response_for_200.ApiResponse) | successful operation
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
 
-#### <a id="classname.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#classname.response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="classname.response_for_200.application_json" >response_for_200.application_json</a>
+# response_for_200.application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../components/schema/client.Client.md) |  | 

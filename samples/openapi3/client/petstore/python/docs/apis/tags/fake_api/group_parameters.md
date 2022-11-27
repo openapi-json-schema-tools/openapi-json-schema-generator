@@ -73,67 +73,67 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#group_parameters.RequestQueryParameters) | [RequestQueryParameters.Params](#group_parameters.RequestQueryParameters.Params) | |
-[header_params](#group_parameters.RequestHeaderParameters) | [RequestHeaderParameters.Params](#group_parameters.RequestHeaderParameters.Params) | |
+[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
+[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="group_parameters.RequestQueryParameters" >query_params</a>
-#### <a id="group_parameters.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="RequestQueryParameters" >query_params</a>
+#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [parameter_0.schema](#group_parameters.parameter_0.schema) | | 
-required_int64_group | [parameter_2.schema](#group_parameters.parameter_2.schema) | | 
-string_group | [parameter_3.schema](#group_parameters.parameter_3.schema) | | optional
-int64_group | [parameter_5.schema](#group_parameters.parameter_5.schema) | | optional
+required_string_group | [parameter_0.schema](#parameter_0.schema) | | 
+required_int64_group | [parameter_2.schema](#parameter_2.schema) | | 
+string_group | [parameter_3.schema](#parameter_3.schema) | | optional
+int64_group | [parameter_5.schema](#parameter_5.schema) | | optional
 
 
-# <a id="group_parameters.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="group_parameters.parameter_2.schema" >parameter_2.schema</a>
+# parameter_2.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# <a id="group_parameters.parameter_3.schema" >parameter_3.schema</a>
+# parameter_3.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="group_parameters.parameter_5.schema" >parameter_5.schema</a>
+# parameter_5.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-### <a id="group_parameters.RequestHeaderParameters" >header_params</a>
-#### <a id="group_parameters.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+### <a id="RequestHeaderParameters" >header_params</a>
+#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [parameter_1.schema](#group_parameters.parameter_1.schema) | | 
-boolean_group | [parameter_4.schema](#group_parameters.parameter_4.schema) | | optional
+required_boolean_group | [parameter_1.schema](#parameter_1.schema) | | 
+boolean_group | [parameter_4.schema](#parameter_4.schema) | | optional
 
-# <a id="group_parameters.parameter_1.schema" >parameter_1.schema</a>
+# parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ] 
 
-# <a id="group_parameters.parameter_4.schema" >parameter_4.schema</a>
+# parameter_4.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -145,9 +145,9 @@ str,  | str,  |  | must be one of ["true", "false", ]
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#group_parameters.response_for_200.ApiResponse) | succeeded
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | succeeded
 
-#### <a id="group_parameters.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

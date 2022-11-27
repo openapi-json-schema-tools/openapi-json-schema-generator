@@ -42,16 +42,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#inline_composition.request_body) | typing.Union[[request_body.application_json](#inline_composition.request_body.application_json), [request_body.multipart_form_data](#inline_composition.request_body.multipart_form_data), Unset] | optional, default is unset |
-[query_params](#inline_composition.RequestQueryParameters) | [RequestQueryParameters.Params](#inline_composition.RequestQueryParameters.Params) | |
+[body](#request_body) | typing.Union[[request_body.application_json](#request_body.application_json), [request_body.multipart_form_data](#request_body.multipart_form_data), Unset] | optional, default is unset |
+[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', 'multipart/form-data', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="inline_composition.request_body" >body</a>
-# <a id="inline_composition.request_body.application_json" >request_body.application_json</a>
+### <a id="request_body" >body</a>
+# request_body.application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -70,7 +70,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-# <a id="inline_composition.request_body.multipart_form_data" >request_body.multipart_form_data</a>
+# request_body.multipart_form_data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -103,16 +103,16 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### <a id="inline_composition.RequestQueryParameters" >query_params</a>
-#### <a id="inline_composition.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="RequestQueryParameters" >query_params</a>
+#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [parameter_0.schema](#inline_composition.parameter_0.schema) | | optional
-compositionInProperty | [parameter_1.schema](#inline_composition.parameter_1.schema) | | optional
+compositionAtRoot | [parameter_0.schema](#parameter_0.schema) | | optional
+compositionInProperty | [parameter_1.schema](#parameter_1.schema) | | optional
 
 
-# <a id="inline_composition.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -132,7 +132,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.parameter_1.schema" >parameter_1.schema</a>
+# parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -170,16 +170,16 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#inline_composition.response_for_200.ApiResponse) | success
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | success
 
-#### <a id="inline_composition.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#inline_composition.response_for_200.application_json), [response_for_200.multipart_form_data](#inline_composition.response_for_200.multipart_form_data), ] |  |
+body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), [response_for_200.multipart_form_data](#response_for_200.multipart_form_data), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="inline_composition.response_for_200.application_json" >response_for_200.application_json</a>
+# response_for_200.application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -199,7 +199,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="inline_composition.response_for_200.multipart_form_data" >response_for_200.multipart_form_data</a>
+# response_for_200.multipart_form_data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

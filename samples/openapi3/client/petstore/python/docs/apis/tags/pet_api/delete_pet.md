@@ -66,34 +66,34 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[header_params](#delete_pet.RequestHeaderParameters) | [RequestHeaderParameters.Params](#delete_pet.RequestHeaderParameters.Params) | |
-[path_params](#delete_pet.RequestPathParameters) | [RequestPathParameters.Params](#delete_pet.RequestPathParameters.Params) | |
+[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="delete_pet.RequestHeaderParameters" >header_params</a>
-#### <a id="delete_pet.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+### <a id="RequestHeaderParameters" >header_params</a>
+#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [parameter_0.schema](#delete_pet.parameter_0.schema) | | optional
+api_key | [parameter_0.schema](#parameter_0.schema) | | optional
 
-# <a id="delete_pet.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-### <a id="delete_pet.RequestPathParameters" >path_params</a>
-#### <a id="delete_pet.RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="RequestPathParameters" >path_params</a>
+#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [parameter_1.schema](#delete_pet.parameter_1.schema) | | 
+petId | [parameter_1.schema](#parameter_1.schema) | | 
 
-# <a id="delete_pet.parameter_1.schema" >parameter_1.schema</a>
+# parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -105,9 +105,9 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#delete_pet.response_for_400.ApiResponse) | Invalid pet value
+400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid pet value
 
-#### <a id="delete_pet.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -51,37 +51,25 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_parameter_collection_format.RequestQueryParameters) | [RequestQueryParameters.Params](#query_parameter_collection_format.RequestQueryParameters.Params) | |
+[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="query_parameter_collection_format.RequestQueryParameters" >query_params</a>
-#### <a id="query_parameter_collection_format.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="RequestQueryParameters" >query_params</a>
+#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-pipe | [parameter_0.schema](#query_parameter_collection_format.parameter_0.schema) | | 
-ioutil | [parameter_1.schema](#query_parameter_collection_format.parameter_1.schema) | | 
-http | [parameter_2.schema](#query_parameter_collection_format.parameter_2.schema) | | 
-url | [parameter_3.schema](#query_parameter_collection_format.parameter_3.schema) | | 
-context | [parameter_4.schema](#query_parameter_collection_format.parameter_4.schema) | | 
-refParam | [parameter_5.schema](#query_parameter_collection_format.parameter_5.schema) | | 
+pipe | [parameter_0.schema](#parameter_0.schema) | | 
+ioutil | [parameter_1.schema](#parameter_1.schema) | | 
+http | [parameter_2.schema](#parameter_2.schema) | | 
+url | [parameter_3.schema](#parameter_3.schema) | | 
+context | [parameter_4.schema](#parameter_4.schema) | | 
+refParam | [parameter_5.schema](#parameter_5.schema) | | 
 
 
-# <a id="query_parameter_collection_format.parameter_0.schema" >parameter_0.schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
-
-# <a id="query_parameter_collection_format.parameter_1.schema" >parameter_1.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -93,7 +81,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.parameter_2.schema" >parameter_2.schema</a>
+# parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -105,7 +93,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.parameter_3.schema" >parameter_3.schema</a>
+# parameter_2.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -117,7 +105,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.parameter_4.schema" >parameter_4.schema</a>
+# parameter_3.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -129,7 +117,19 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | 
 
-# <a id="query_parameter_collection_format.parameter_5.schema" >parameter_5.schema</a>
+# parameter_4.schema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# parameter_5.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 
@@ -140,9 +140,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#query_parameter_collection_format.response_for_200.ApiResponse) | Success
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
 
-#### <a id="query_parameter_collection_format.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

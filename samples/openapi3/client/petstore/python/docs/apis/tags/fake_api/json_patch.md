@@ -38,14 +38,14 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#json_patch.request_body) | typing.Union[[request_body.application_json_patchjson](#json_patch.request_body.application_json_patchjson), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[request_body.application_json_patchjson](#request_body.application_json_patchjson), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="json_patch.request_body" >body</a>
-# <a id="json_patch.request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
+### <a id="request_body" >body</a>
+# request_body.application_json_patchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**JSONPatchRequest**](../../components/schema/json_patch_request.JSONPatchRequest.md) |  | 
@@ -56,9 +56,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#json_patch.response_for_200.ApiResponse) | OK
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | OK
 
-#### <a id="json_patch.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

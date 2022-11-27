@@ -37,20 +37,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[path_params](#get_user_by_name.RequestPathParameters) | [RequestPathParameters.Params](#get_user_by_name.RequestPathParameters.Params) | |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="get_user_by_name.RequestPathParameters" >path_params</a>
-#### <a id="get_user_by_name.RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="RequestPathParameters" >path_params</a>
+#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_0.schema](#get_user_by_name.parameter_0.schema) | | 
+username | [parameter_0.schema](#parameter_0.schema) | | 
 
-# <a id="get_user_by_name.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -62,37 +62,37 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#get_user_by_name.response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#get_user_by_name.response_for_400.ApiResponse) | Invalid username supplied
-404 | [response_for_404.ApiResponse](#get_user_by_name.response_for_404.ApiResponse) | User not found
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid username supplied
+404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | User not found
 
-#### <a id="get_user_by_name.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_xml](#get_user_by_name.response_for_200.application_xml), [response_for_200.application_json](#get_user_by_name.response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="get_user_by_name.response_for_200.application_xml" >response_for_200.application_xml</a>
+# response_for_200.application_xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) |  | 
 
 
-# <a id="get_user_by_name.response_for_200.application_json" >response_for_200.application_json</a>
+# response_for_200.application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) |  | 
 
 
-#### <a id="get_user_by_name.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="get_user_by_name.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -64,15 +64,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#update_pet_with_form.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#update_pet_with_form.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
-[path_params](#update_pet_with_form.RequestPathParameters) | [RequestPathParameters.Params](#update_pet_with_form.RequestPathParameters.Params) | |
+[body](#request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="update_pet_with_form.request_body" >body</a>
-# <a id="update_pet_with_form.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
+### <a id="request_body" >body</a>
+# request_body.application_x_www_form_urlencoded
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -86,14 +86,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **status** | str,  | str,  | Updated status of the pet | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### <a id="update_pet_with_form.RequestPathParameters" >path_params</a>
-#### <a id="update_pet_with_form.RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="RequestPathParameters" >path_params</a>
+#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [parameter_0.schema](#update_pet_with_form.parameter_0.schema) | | 
+petId | [parameter_0.schema](#parameter_0.schema) | | 
 
-# <a id="update_pet_with_form.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -105,9 +105,9 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-405 | [response_for_405.ApiResponse](#update_pet_with_form.response_for_405.ApiResponse) | Invalid input
+405 | [response_for_405.ApiResponse](#response_for_405.ApiResponse) | Invalid input
 
-#### <a id="update_pet_with_form.response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
+#### <a id="response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

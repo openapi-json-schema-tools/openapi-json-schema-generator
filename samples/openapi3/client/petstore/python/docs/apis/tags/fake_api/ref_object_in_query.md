@@ -38,20 +38,20 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#ref_object_in_query.RequestQueryParameters) | [RequestQueryParameters.Params](#ref_object_in_query.RequestQueryParameters.Params) | |
+[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="ref_object_in_query.RequestQueryParameters" >query_params</a>
-#### <a id="ref_object_in_query.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="RequestQueryParameters" >query_params</a>
+#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [parameter_0.schema](#ref_object_in_query.parameter_0.schema) | | optional
+mapBean | [parameter_0.schema](#parameter_0.schema) | | optional
 
 
-# <a id="ref_object_in_query.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Foo**](../../components/schema/foo.Foo.md) |  | 
@@ -62,9 +62,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#ref_object_in_query.response_for_200.ApiResponse) | ok
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | ok
 
-#### <a id="ref_object_in_query.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -50,14 +50,14 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#create_user.request_body) | typing.Union[[request_body.application_json](#create_user.request_body.application_json)] | required |
+[body](#request_body) | typing.Union[[request_body.application_json](#request_body.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="create_user.request_body" >body</a>
-# <a id="create_user.request_body.application_json" >request_body.application_json</a>
+### <a id="request_body" >body</a>
+# request_body.application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) |  | 
@@ -68,9 +68,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#create_user.response_for_default.ApiResponse) | successful operation
+default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | successful operation
 
-#### <a id="create_user.response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

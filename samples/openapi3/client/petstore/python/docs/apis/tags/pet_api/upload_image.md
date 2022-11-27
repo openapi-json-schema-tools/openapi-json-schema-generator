@@ -66,16 +66,16 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#upload_image.request_body) | typing.Union[[request_body.multipart_form_data](#upload_image.request_body.multipart_form_data), Unset] | optional, default is unset |
-[path_params](#upload_image.RequestPathParameters) | [RequestPathParameters.Params](#upload_image.RequestPathParameters.Params) | |
+[body](#request_body) | typing.Union[[request_body.multipart_form_data](#request_body.multipart_form_data), Unset] | optional, default is unset |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="upload_image.request_body" >body</a>
-# <a id="upload_image.request_body.multipart_form_data" >request_body.multipart_form_data</a>
+### <a id="request_body" >body</a>
+# request_body.multipart_form_data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -89,14 +89,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **file** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### <a id="upload_image.RequestPathParameters" >path_params</a>
-#### <a id="upload_image.RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="RequestPathParameters" >path_params</a>
+#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [parameter_0.schema](#upload_image.parameter_0.schema) | | 
+petId | [parameter_0.schema](#parameter_0.schema) | | 
 
-# <a id="upload_image.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -108,16 +108,16 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#upload_image.response_for_200.ApiResponse) | successful operation
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
 
-#### <a id="upload_image.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#upload_image.response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="upload_image.response_for_200.application_json" >response_for_200.application_json</a>
+# response_for_200.application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 

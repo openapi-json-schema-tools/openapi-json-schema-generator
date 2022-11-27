@@ -54,28 +54,28 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#update_user.request_body) | typing.Union[[request_body.application_json](#update_user.request_body.application_json)] | required |
-[path_params](#update_user.RequestPathParameters) | [RequestPathParameters.Params](#update_user.RequestPathParameters.Params) | |
+[body](#request_body) | typing.Union[[request_body.application_json](#request_body.application_json)] | required |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="update_user.request_body" >body</a>
-# <a id="update_user.request_body.application_json" >request_body.application_json</a>
+### <a id="request_body" >body</a>
+# request_body.application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) |  | 
 
 
-### <a id="update_user.RequestPathParameters" >path_params</a>
-#### <a id="update_user.RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="RequestPathParameters" >path_params</a>
+#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_0.schema](#update_user.parameter_0.schema) | | 
+username | [parameter_0.schema](#parameter_0.schema) | | 
 
-# <a id="update_user.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -87,17 +87,17 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#update_user.response_for_400.ApiResponse) | Invalid user supplied
-404 | [response_for_404.ApiResponse](#update_user.response_for_404.ApiResponse) | User not found
+400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid user supplied
+404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | User not found
 
-#### <a id="update_user.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="update_user.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

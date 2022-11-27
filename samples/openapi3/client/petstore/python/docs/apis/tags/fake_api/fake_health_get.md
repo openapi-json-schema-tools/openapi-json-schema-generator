@@ -36,16 +36,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#fake_health_get.response_for_200.ApiResponse) | The instance started successfully
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | The instance started successfully
 
-#### <a id="fake_health_get.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#fake_health_get.response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="fake_health_get.response_for_200.application_json" >response_for_200.application_json</a>
+# response_for_200.application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**HealthCheckResult**](../../components/schema/health_check_result.HealthCheckResult.md) |  | 

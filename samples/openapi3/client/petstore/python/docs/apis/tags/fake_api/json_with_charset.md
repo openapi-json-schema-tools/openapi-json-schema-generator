@@ -35,15 +35,15 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#json_with_charset.request_body) | typing.Union[[request_body.application_json_charsetutf_8](#json_with_charset.request_body.application_json_charsetutf_8), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[request_body.application_json_charsetutf_8](#request_body.application_json_charsetutf_8), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json; charset&#x3D;utf-8' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json; charset&#x3D;utf-8', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="json_with_charset.request_body" >body</a>
-# <a id="json_with_charset.request_body.application_json_charsetutf_8" >request_body.application_json_charsetutf_8</a>
+### <a id="request_body" >body</a>
+# request_body.application_json_charsetutf_8
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -55,16 +55,16 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#json_with_charset.response_for_200.ApiResponse) | success
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | success
 
-#### <a id="json_with_charset.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json_charsetutf_8](#json_with_charset.response_for_200.application_json_charsetutf_8), ] |  |
+body | typing.Union[[response_for_200.application_json_charsetutf_8](#response_for_200.application_json_charsetutf_8), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="json_with_charset.response_for_200.application_json_charsetutf_8" >response_for_200.application_json_charsetutf_8</a>
+# response_for_200.application_json_charsetutf_8
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

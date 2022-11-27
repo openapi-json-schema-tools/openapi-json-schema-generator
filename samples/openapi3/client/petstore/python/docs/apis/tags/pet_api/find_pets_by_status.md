@@ -112,21 +112,21 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#find_pets_by_status.RequestQueryParameters) | [RequestQueryParameters.Params](#find_pets_by_status.RequestQueryParameters.Params) | |
+[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="find_pets_by_status.RequestQueryParameters" >query_params</a>
-#### <a id="find_pets_by_status.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="RequestQueryParameters" >query_params</a>
+#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [parameter_0.schema](#find_pets_by_status.parameter_0.schema) | | 
+status | [parameter_0.schema](#parameter_0.schema) | | 
 
 
-# <a id="find_pets_by_status.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -143,17 +143,17 @@ items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#find_pets_by_status.response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#find_pets_by_status.response_for_400.ApiResponse) | Invalid status value
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid status value
 
-#### <a id="find_pets_by_status.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_xml](#find_pets_by_status.response_for_200.application_xml), [response_for_200.application_json](#find_pets_by_status.response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="find_pets_by_status.response_for_200.application_xml" >response_for_200.application_xml</a>
+# response_for_200.application_xml
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -165,7 +165,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
-# <a id="find_pets_by_status.response_for_200.application_json" >response_for_200.application_json</a>
+# response_for_200.application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -177,7 +177,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
-#### <a id="find_pets_by_status.response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

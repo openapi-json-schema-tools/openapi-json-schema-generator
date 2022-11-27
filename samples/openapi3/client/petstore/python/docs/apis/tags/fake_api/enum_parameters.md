@@ -57,17 +57,17 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#enum_parameters.request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#enum_parameters.request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
-[query_params](#enum_parameters.RequestQueryParameters) | [RequestQueryParameters.Params](#enum_parameters.RequestQueryParameters.Params) | |
-[header_params](#enum_parameters.RequestHeaderParameters) | [RequestHeaderParameters.Params](#enum_parameters.RequestHeaderParameters.Params) | |
+[body](#request_body) | typing.Union[[request_body.application_x_www_form_urlencoded](#request_body.application_x_www_form_urlencoded), Unset] | optional, default is unset |
+[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
+[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="enum_parameters.request_body" >body</a>
-# <a id="enum_parameters.request_body.application_x_www_form_urlencoded" >request_body.application_x_www_form_urlencoded</a>
+### <a id="request_body" >body</a>
+# request_body.application_x_www_form_urlencoded
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -95,18 +95,18 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-### <a id="enum_parameters.RequestQueryParameters" >query_params</a>
-#### <a id="enum_parameters.RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="RequestQueryParameters" >query_params</a>
+#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [parameter_2.schema](#enum_parameters.parameter_2.schema) | | optional
-enum_query_string | [parameter_3.schema](#enum_parameters.parameter_3.schema) | | optional
-enum_query_integer | [parameter_4.schema](#enum_parameters.parameter_4.schema) | | optional
-enum_query_double | [parameter_5.schema](#enum_parameters.parameter_5.schema) | | optional
+enum_query_string_array | [parameter_2.schema](#parameter_2.schema) | | optional
+enum_query_string | [parameter_3.schema](#parameter_3.schema) | | optional
+enum_query_integer | [parameter_4.schema](#parameter_4.schema) | | optional
+enum_query_double | [parameter_5.schema](#parameter_5.schema) | | optional
 
 
-# <a id="enum_parameters.parameter_2.schema" >parameter_2.schema</a>
+# parameter_2.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -118,36 +118,36 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.parameter_3.schema" >parameter_3.schema</a>
+# parameter_3.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
-# <a id="enum_parameters.parameter_4.schema" >parameter_4.schema</a>
+# parameter_4.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-# <a id="enum_parameters.parameter_5.schema" >parameter_5.schema</a>
+# parameter_5.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2, ] value must be a 64 bit float
 
-### <a id="enum_parameters.RequestHeaderParameters" >header_params</a>
-#### <a id="enum_parameters.RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+### <a id="RequestHeaderParameters" >header_params</a>
+#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [parameter_0.schema](#enum_parameters.parameter_0.schema) | | optional
-enum_header_string | [parameter_1.schema](#enum_parameters.parameter_1.schema) | | optional
+enum_header_string_array | [parameter_0.schema](#parameter_0.schema) | | optional
+enum_header_string | [parameter_1.schema](#parameter_1.schema) | | optional
 
-# <a id="enum_parameters.parameter_0.schema" >parameter_0.schema</a>
+# parameter_0.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -159,7 +159,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="enum_parameters.parameter_1.schema" >parameter_1.schema</a>
+# parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -171,24 +171,24 @@ str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the ser
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#enum_parameters.response_for_200.ApiResponse) | Success
-404 | [response_for_404.ApiResponse](#enum_parameters.response_for_404.ApiResponse) | Not found
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
+404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | Not found
 
-#### <a id="enum_parameters.response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="enum_parameters.response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_404.application_json](#enum_parameters.response_for_404.application_json), ] |  |
+body | typing.Union[[response_for_404.application_json](#response_for_404.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="enum_parameters.response_for_404.application_json" >response_for_404.application_json</a>
+# response_for_404.application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
