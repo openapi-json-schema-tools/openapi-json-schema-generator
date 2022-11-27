@@ -475,7 +475,7 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        HashMap<String, String> pathModuleToPath = new HashMap<>();
+        HashMap<String, String> pathToPathModule = new HashMap<>();
         String packageName = config.packageName();
         Map<String, Object> initOperationMap = new HashMap<>();
         initOperationMap.put("packageName", packageName);
@@ -494,8 +494,8 @@ public class DefaultGenerator implements Generator {
                 }
                 String path = co.path;
                 String pathModuleName = co.nickname;
-                if (!pathModuleToPath.containsKey(pathModuleName)) {
-                    pathModuleToPath.put(pathModuleName, path);
+                if (!pathToPathModule.containsKey(path)) {
+                    pathToPathModule.put(path, pathModuleName);
                 }
                 for (Map.Entry<String, String> entry: config.pathEndpointTemplateFiles().entrySet()) {
                     String templateFile = entry.getKey();
@@ -578,12 +578,11 @@ public class DefaultGenerator implements Generator {
                     endpointInfo.put("operation", operation);
                     endpointInfo.put("packageName", packageName);
                     endpointInfo.put("apiPackage", config.apiPackage());
-
-                    // need the api module name for the tag
-                    endpointInfo.put("classFilename", "api_module_name_for_tag");
-                    // need the
+                    String classFilename = config.toApiFilename(co.tags.get(0).getName());
+                    endpointInfo.put("classFilename", classFilename);
+                    // need the actual classname
                     endpointInfo.put("classname", "SomeApi");
-                    outputFilename = filenameFromRoot(Arrays.asList("docs", "paths", pathModuleName, co.httpMethod + ".md"));
+                    outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", classFilename, co.operationId + ".md"));
                     apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                 }
             }
@@ -602,9 +601,9 @@ public class DefaultGenerator implements Generator {
             pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
 
             // paths.some_path.__init__.py
-            for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
-                String pathModule = entry.getKey();
-                String path = entry.getValue();
+            for (Map.Entry<String, String> entry: pathToPathModule.entrySet()) {
+                String path = entry.getKey();
+                String pathModule = entry.getValue();
                 String apiClassName = pathToApiClassname.get(path);
                 Map<String, Object> pathApiMap = new HashMap<>();
                 pathApiMap.put("packageName", packageName);
@@ -650,9 +649,9 @@ public class DefaultGenerator implements Generator {
             outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
             apisFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
             // apis.paths.some_path.py
-            for (Map.Entry<String, String> entry: pathModuleToPath.entrySet()) {
-                String pathModule = entry.getKey();
-                String path = entry.getValue();
+            for (Map.Entry<String, String> entry: pathToPathModule.entrySet()) {
+                String path = entry.getKey();
+                String pathModule = entry.getValue();
                 String apiClassName = pathToApiClassname.get(path);
                 PathItem pi = openAPI.getPaths().get(path);
                 Map<String, Object> operationMap = new HashMap<>();
