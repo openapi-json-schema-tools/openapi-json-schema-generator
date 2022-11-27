@@ -51,7 +51,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# request_body.application_json
+# <a id="request_body.application_json" >request_body.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -70,7 +70,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-# request_body.multipart_form_data
+# <a id="request_body.multipart_form_data" >request_body.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -179,7 +179,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), [response_for_200.multipart_form_data](#response_for_200.multipart_form_data), ] |  |
 headers | Unset | headers were not defined |
 
-# response_for_200.application_json
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -199,7 +199,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# response_for_200.multipart_form_data
+# <a id="response_for_200.multipart_form_data" >response_for_200.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

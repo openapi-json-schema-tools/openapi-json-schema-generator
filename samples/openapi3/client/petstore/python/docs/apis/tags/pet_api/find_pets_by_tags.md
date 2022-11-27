@@ -153,7 +153,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# response_for_200.application_xml
+# <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -165,7 +165,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
-# response_for_200.application_json
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

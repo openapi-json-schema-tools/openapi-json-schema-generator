@@ -43,7 +43,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# request_body.application_json_charsetutf_8
+# <a id="request_body.application_json_charsetutf_8" >request_body.application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -64,7 +64,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.application_json_charsetutf_8](#response_for_200.application_json_charsetutf_8), ] |  |
 headers | Unset | headers were not defined |
 
-# response_for_200.application_json_charsetutf_8
+# <a id="response_for_200.application_json_charsetutf_8" >response_for_200.application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

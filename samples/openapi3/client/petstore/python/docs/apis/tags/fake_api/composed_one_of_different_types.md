@@ -43,7 +43,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# request_body.application_json
+# <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ComposedOneOfDifferentTypes**](../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
@@ -63,7 +63,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# response_for_200.application_json
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ComposedOneOfDifferentTypes**](../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 

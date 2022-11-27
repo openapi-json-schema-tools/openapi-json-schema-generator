@@ -179,7 +179,7 @@ headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{code}}.Headers
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../components/schema/" }}
     {{/with}}
 {{/each}}
 {{#if responseHeaders}}
@@ -206,14 +206,14 @@ Key | Accessed Type | Description  | Notes
         {{#if schema}}
             {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
             {{/with}}
         {{else}}
             {{#each getContent}}
                 {{#with this}}
                     {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
                     {{/with}}
                 {{/with}}
             {{/each}}

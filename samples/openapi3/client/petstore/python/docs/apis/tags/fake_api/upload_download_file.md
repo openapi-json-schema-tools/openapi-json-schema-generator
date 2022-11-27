@@ -43,7 +43,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# request_body.application_octet_stream
+# <a id="request_body.application_octet_stream" >request_body.application_octet_stream</a>
 
 file to upload
 
@@ -66,7 +66,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.application_octet_stream](#response_for_200.application_octet_stream), ] |  |
 headers | Unset | headers were not defined |
 
-# response_for_200.application_octet_stream
+# <a id="response_for_200.application_octet_stream" >response_for_200.application_octet_stream</a>
 
 file to download
 
