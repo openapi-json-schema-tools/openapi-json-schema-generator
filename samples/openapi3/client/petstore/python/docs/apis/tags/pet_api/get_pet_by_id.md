@@ -31,7 +31,7 @@ configuration.api_key['api_key'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pet_api.SomeApi(api_client)
+    api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
     path_params = {
@@ -44,7 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->get_pet_by_id: %s\n" % e)
+        print("Exception when calling ->get_pet_by_id: %s\n" % e)
 ```
 ### Parameters
 

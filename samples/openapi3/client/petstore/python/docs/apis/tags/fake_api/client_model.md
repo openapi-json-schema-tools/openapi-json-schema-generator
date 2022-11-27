@@ -20,7 +20,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fake_api.SomeApi(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
     body = client.Client(
@@ -33,7 +33,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->client_model: %s\n" % e)
+        print("Exception when calling ->client_model: %s\n" % e)
 ```
 ### Parameters
 

@@ -18,7 +18,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fake_api.SomeApi(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
     query_params = {
@@ -32,7 +32,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->ref_object_in_query: %s\n" % e)
+        print("Exception when calling ->ref_object_in_query: %s\n" % e)
 ```
 ### Parameters
 

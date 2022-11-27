@@ -49,7 +49,7 @@ public class CodegenOperation {
     public List<CodegenParameter> requiredParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> optionalParams = new ArrayList<CodegenParameter>();
     public List<CodegenSecurity> authMethods;
-    public List<CodegenTag> tags;
+    public Map<String, CodegenTag> tags;
     public List<CodegenResponse> responses = new ArrayList<CodegenResponse>();
     public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();

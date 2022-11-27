@@ -1,6 +1,14 @@
 ```python
 import {{{packageName}}}
-from {{packageName}}.{{apiPackage}}.tags import {{classFilename}}
+{{#if tag}}
+from {{packageName}}.{{apiPackage}}.tags import {{tag.getModuleName}}
+{{else}}
+{{#each tags}}
+{{#if @first}}
+from {{packageName}}.{{apiPackage}}.tags import {{getModuleName}}
+{{/if}}
+{{/each}}
+{{/if}}
 {{#each imports}}
 {{{.}}}
 {{/each}}
@@ -9,7 +17,15 @@ from pprint import pprint
 # Enter a context with an instance of the API client
 with {{{packageName}}}.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = {{tags.1.getModuleName}}.{{{tags.1.getClassName}}}(api_client)
+{{#if tag}}
+    api_instance = {{tag.getModuleName}}.{{tag.getClassName}}(api_client)
+{{else}}
+{{#each tags}}
+{{#if @first}}
+    api_instance = {{getModuleName}}.{{getClassName}}(api_client)
+{{/if}}
+{{/each}}
+{{/if}}
 {{#if requiredParams}}
 
     # example passing only required values which don't have defaults set

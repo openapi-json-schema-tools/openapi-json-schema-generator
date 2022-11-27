@@ -31,7 +31,7 @@ configuration.api_key['api_key_query'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fake_classname_tags123_api.SomeApi(api_client)
+    api_instance = fake_classname_tags123_api.FakeClassnameTags123Api(api_client)
 
     # example passing only required values which don't have defaults set
     body = client.Client(
@@ -44,7 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->classname: %s\n" % e)
+        print("Exception when calling ->classname: %s\n" % e)
 ```
 ### Parameters
 

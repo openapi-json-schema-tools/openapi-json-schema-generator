@@ -486,10 +486,10 @@ public class DefaultGenerator implements Generator {
         for (List<CodegenOperation> coList: operationsMap.values()) {
             for (CodegenOperation co: coList) {
                 if (co.tags != null) {
-                    for (Tag tag: co.tags) {
-                        String tagName = tag.getName();
-                        String tagModuleName = config.toApiFilename(tagName);
-                        String apiClassname = config.toApiName(tagName);
+                    for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
+                        String tagName = entry.getKey();
+                        String tagModuleName = entry.getValue().getModuleName();
+                        String apiClassname = entry.getValue().getClassName();
                         tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
                         tagToApiClassname.put(tagName, apiClassname);
                         tagToTagModule.put(tagName, tagModuleName);
@@ -576,14 +576,17 @@ public class DefaultGenerator implements Generator {
 
                 }
                 for (String templateFile: config.pathEndpointDocTemplateFiles()) {
-                    Map<String, Object> endpointInfo = new HashMap<>();
-                    List<CodegenOperation> operation = Arrays.asList(co);
-                    endpointInfo.put("operation", operation);
-                    endpointInfo.put("packageName", packageName);
-                    endpointInfo.put("apiPackage", config.apiPackage());
-                    String moduleName = co.tags.get(0).getModuleName();
-                    outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", moduleName, co.operationId + ".md"));
-                    apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
+                    for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
+                        CodegenTag tag = entry.getValue();
+                        Map<String, Object> endpointInfo = new HashMap<>();
+                        List<CodegenOperation> operation = Arrays.asList(co);
+                        endpointInfo.put("operation", operation);
+                        endpointInfo.put("packageName", packageName);
+                        endpointInfo.put("apiPackage", config.apiPackage());
+                        endpointInfo.put("tag", tag);
+                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.getModuleName(), co.operationId + ".md"));
+                        apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
+                    }
                 }
             }
         }

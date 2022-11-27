@@ -29,7 +29,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pet_api.SomeApi(api_client)
+    api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
     path_params = {
@@ -44,7 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             header_params=header_params,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->delete_pet: %s\n" % e)
+        print("Exception when calling ->delete_pet: %s\n" % e)
 
     # example passing only optional values
     path_params = {
@@ -60,7 +60,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             header_params=header_params,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->delete_pet: %s\n" % e)
+        print("Exception when calling ->delete_pet: %s\n" % e)
 ```
 ### Parameters
 

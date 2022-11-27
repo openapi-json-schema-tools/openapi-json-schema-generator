@@ -20,7 +20,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = user_api.SomeApi(api_client)
+    api_instance = user_api.UserApi(api_client)
 
     # example passing only required values which don't have defaults set
     path_params = {
@@ -48,7 +48,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             body=body,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->update_user: %s\n" % e)
+        print("Exception when calling ->update_user: %s\n" % e)
 ```
 ### Parameters
 

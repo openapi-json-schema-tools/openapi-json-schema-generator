@@ -18,7 +18,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fake_api.SomeApi(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
     path_params = {
@@ -44,7 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->parameter_collisions: %s\n" % e)
+        print("Exception when calling ->parameter_collisions: %s\n" % e)
 
     # example passing only optional values
     path_params = {
@@ -86,7 +86,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->parameter_collisions: %s\n" % e)
+        print("Exception when calling ->parameter_collisions: %s\n" % e)
 ```
 ### Parameters
 

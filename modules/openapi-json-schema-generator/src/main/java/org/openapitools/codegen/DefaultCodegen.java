@@ -4235,13 +4235,23 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         // tags
-        List<CodegenTag> codegenTags = new ArrayList<>();
-        for (String tagName: operation.getTags()) {
+        List<String> operationtTagNames = operation.getTags();
+        Map<String, CodegenTag> codegenTags = new HashMap<>();
+        if (operationtTagNames != null) {
+            for (String tagName: operation.getTags()) {
+                CodegenTag codegenTag = new CodegenTag();
+                codegenTag.setName(tagName);
+                codegenTag.setModuleName(toApiFilename(tagName));
+                codegenTag.setClassName(toApiName(tagName));
+                codegenTags.put(tagName, codegenTag);
+            }
+        } else {
+            String tagName = "default";
             CodegenTag codegenTag = new CodegenTag();
             codegenTag.setName(tagName);
             codegenTag.setModuleName(toApiFilename(tagName));
             codegenTag.setClassName(toApiName(tagName));
-            codegenTags.add(codegenTag);
+            codegenTags.put(tagName, codegenTag);
         }
         op.tags = codegenTags;
 

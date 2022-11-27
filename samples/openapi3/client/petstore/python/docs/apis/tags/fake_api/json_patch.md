@@ -20,7 +20,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fake_api.SomeApi(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
     body = json_patch_request.JSONPatchRequest([
@@ -32,7 +32,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             body=body,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->json_patch: %s\n" % e)
+        print("Exception when calling ->json_patch: %s\n" % e)
 ```
 ### Parameters
 

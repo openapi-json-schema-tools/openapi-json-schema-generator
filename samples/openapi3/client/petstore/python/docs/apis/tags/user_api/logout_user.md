@@ -18,14 +18,14 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = user_api.SomeApi(api_client)
+    api_instance = user_api.UserApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
         # Logs out current logged in user session
         api_response = api_instance.logout_user()
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->logout_user: %s\n" % e)
+        print("Exception when calling ->logout_user: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.

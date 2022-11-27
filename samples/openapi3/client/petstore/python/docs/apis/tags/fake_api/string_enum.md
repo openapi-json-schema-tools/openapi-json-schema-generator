@@ -19,7 +19,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = fake_api.SomeApi(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
     body = string_enum.StringEnum("placed")
@@ -29,7 +29,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling SomeApi->string_enum: %s\n" % e)
+        print("Exception when calling ->string_enum: %s\n" % e)
 ```
 ### Parameters
 
