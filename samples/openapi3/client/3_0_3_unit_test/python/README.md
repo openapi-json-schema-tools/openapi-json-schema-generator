@@ -431,9 +431,6 @@ HTTP request | Method | Description
  - [UriReferenceFormat](docs/components/schema/uri_reference_format.UriReferenceFormat.md)
  - [UriTemplateFormat](docs/components/schema/uri_template_format.UriTemplateFormat.md)
 
-## Documentation For Component RequestBodies
-
-
 ## Documentation For Authorization
 
  All endpoints do not require authorization.

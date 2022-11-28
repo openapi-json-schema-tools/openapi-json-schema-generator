@@ -677,12 +677,13 @@ public class DefaultGenerator implements Generator {
         generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
     }
 
-    void generateRequestBodies(List<File> files, TreeMap<String, CodegenParameter> requestBodies) {
+    private TreeMap<String, CodegenParameter> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (specRequestBodies == null) {
             LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
-            return;
+            return null;
         }
+        TreeMap<String, CodegenParameter> requestBodies = new TreeMap<>();
         for (Map.Entry<String, RequestBody> entry: specRequestBodies.entrySet()) {
             String componentName = entry.getKey();
             RequestBody specRequestBody = entry.getValue();
@@ -743,6 +744,8 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        requestBodies = new TreeMap<>(requestBodies);
+        return requestBodies;
     }
 
     void generateModels(List<File> files, List<ModelMap> allModels, List<String> unusedModels) {
@@ -1262,9 +1265,7 @@ public class DefaultGenerator implements Generator {
         List<ModelMap> allModels = new ArrayList<>();
         generateModels(files, allModels, filteredSchemas);
         // requestBodies
-        TreeMap<String, CodegenParameter> requestBodies = new TreeMap<>();
-        generateRequestBodies(files, requestBodies);
-        requestBodies = new TreeMap<>(requestBodies);
+        TreeMap<String, CodegenParameter> requestBodies = generateRequestBodies(files);
         // paths input
         Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         // apis

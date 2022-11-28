@@ -178,9 +178,6 @@ HTTP request | Method | Description
  - [Operator](docs/components/schema/operator.Operator.md)
  - [SubtractionOperator](docs/components/schema/subtraction_operator.SubtractionOperator.md)
 
-## Documentation For Component RequestBodies
-
-
 ## Documentation For Authorization
 
  All endpoints do not require authorization.
