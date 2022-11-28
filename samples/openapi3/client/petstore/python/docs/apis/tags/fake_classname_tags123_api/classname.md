@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **classname**
 <a name="classname"></a>
 
@@ -79,7 +80,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-[api_key_query](../../../README.md#api_key_query)
+[api_key_query](../../../../README.md#api_key_query)
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_classname_tags123_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

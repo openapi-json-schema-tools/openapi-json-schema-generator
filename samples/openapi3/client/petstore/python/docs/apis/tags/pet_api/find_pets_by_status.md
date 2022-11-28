@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **find_pets_by_status**
 <a name="find_pets_by_status"></a>
 
@@ -186,7 +187,7 @@ headers | Unset | headers were not defined |
 
 ### Authorization
 
-[http_signature_test](../../../README.md#http_signature_test), [petstore_auth](../../../README.md#petstore_auth)
+[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../pet_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

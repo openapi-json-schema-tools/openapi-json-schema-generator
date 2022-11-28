@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **update_user**
 <a name="update_user"></a>
 
@@ -108,5 +109,5 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../user_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

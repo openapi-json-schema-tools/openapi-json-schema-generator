@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **place_order**
 <a name="place_order"></a>
 
@@ -94,5 +95,5 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../store_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

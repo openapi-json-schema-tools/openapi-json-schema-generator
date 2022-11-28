@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **call_123_test_special_tags**
 <a name="call_123_test_special_tags"></a>
 
@@ -70,5 +71,5 @@ Type | Description  | Notes
 
 No authorization required
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../another_fake_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

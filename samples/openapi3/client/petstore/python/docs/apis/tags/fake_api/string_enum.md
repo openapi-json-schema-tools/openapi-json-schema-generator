@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **string_enum**
 <a name="string_enum"></a>
 
@@ -73,5 +74,5 @@ Type | Description  | Notes
 
 No authorization required
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

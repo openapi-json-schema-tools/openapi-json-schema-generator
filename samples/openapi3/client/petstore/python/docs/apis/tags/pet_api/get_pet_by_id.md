@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **get_pet_by_id**
 <a name="get_pet_by_id"></a>
 
@@ -114,7 +115,7 @@ headers | Unset | headers were not defined |
 
 ### Authorization
 
-[api_key](../../../README.md#api_key)
+[api_key](../../../../README.md#api_key)
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../pet_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

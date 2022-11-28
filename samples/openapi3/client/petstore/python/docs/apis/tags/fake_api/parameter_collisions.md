@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **parameter_collisions**
 <a name="parameter_collisions"></a>
 
@@ -313,5 +314,5 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 
 No authorization required
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

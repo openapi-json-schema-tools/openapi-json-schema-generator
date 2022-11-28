@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **group_parameters**
 <a name="group_parameters"></a>
 
@@ -156,7 +157,7 @@ headers | Unset | headers were not defined |
 
 ### Authorization
 
-[bearer_test](../../../README.md#bearer_test)
+[bearer_test](../../../../README.md#bearer_test)
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

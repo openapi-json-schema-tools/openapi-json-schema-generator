@@ -1,3 +1,4 @@
+<a name="top"></a>
 # **body_with_file_schema**
 <a name="body_with_file_schema"></a>
 
@@ -72,5 +73,5 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 
