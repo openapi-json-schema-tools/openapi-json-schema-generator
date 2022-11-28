@@ -934,6 +934,8 @@ public class DefaultGenerator implements Generator {
                 operation.put("apiPackage", config.apiPackage());
                 operation.put("modelPackage", config.modelPackage());
                 operation.putAll(config.additionalProperties());
+                CodegenTag codegenTag = operation.getOperations().getOperation().get(0).tags.get(tag);
+                operation.put("tag", codegenTag);
                 operation.put("classname", config.toApiName(tag));
                 operation.put("classVarName", config.toApiVarName(tag));
                 operation.put("importPath", config.toApiImport(tag));

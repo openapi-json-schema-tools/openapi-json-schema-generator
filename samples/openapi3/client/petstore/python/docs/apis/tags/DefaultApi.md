@@ -1,8 +1,10 @@
-<a name="__pageTop"></a>
+<a name="top"></a>
 # petstore_api.apis.tags.default_api.DefaultApi
 
 All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**foo_get**](//foo_get.md) | **get** /foo | 
+[**foo_get**](default_api/foo_get.md) | **get** /foo | 
+
+[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)

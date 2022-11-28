@@ -1,8 +1,10 @@
-<a name="__pageTop"></a>
+<a name="top"></a>
 # petstore_api.apis.tags.fake_classname_tags123_api.FakeClassnameTags123Api
 
 All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**classname**](//classname.md) | **patch** /fake_classname_test | To test class name in snake case
+[**classname**](fake_classname_tags123_api/classname.md) | **patch** /fake_classname_test | To test class name in snake case
+
+[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
