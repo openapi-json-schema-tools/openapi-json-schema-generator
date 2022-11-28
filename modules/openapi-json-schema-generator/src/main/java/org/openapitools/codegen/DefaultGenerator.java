@@ -583,6 +583,7 @@ public class DefaultGenerator implements Generator {
                         endpointInfo.put("operation", operation);
                         endpointInfo.put("packageName", packageName);
                         endpointInfo.put("apiPackage", config.apiPackage());
+                        endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
                         outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.getModuleName(), co.operationId + ".md"));
                         apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));

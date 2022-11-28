@@ -97,7 +97,15 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
 {{/if}}
     except {{{packageName}}}.ApiException as e:
-        print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)
+{{#if tag}}
+        print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
+{{else}}
+{{#each tags}}
+{{#if @first}}
+        print("Exception when calling {{getClassName}}->{{operationId}}: %s\n" % e)
+{{/if}}
+{{/each}}
+{{/if}}
 {{/if}}
 {{#if optionalParams}}
 
@@ -158,7 +166,15 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
 {{/if}}
     except {{{packageName}}}.ApiException as e:
-        print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)
+{{#if tag}}
+        print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
+{{else}}
+{{#each tags}}
+{{#if @first}}
+        print("Exception when calling {{getClassName}}->{{operationId}}: %s\n" % e)
+{{/if}}
+{{/each}}
+{{/if}}
 {{/if}}
 {{#unless requiredParams}}
 {{#unless optionalParams}}
@@ -173,7 +189,15 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
 {{/if}}
     except {{{packageName}}}.ApiException as e:
-        print("Exception when calling {{classname}}->{{operationId}}: %s\n" % e)
+{{#if tag}}
+        print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
+{{else}}
+{{#each tags}}
+{{#if @first}}
+        print("Exception when calling {{getClassName}}->{{operationId}}: %s\n" % e)
+{{/if}}
+{{/each}}
+{{/if}}
 {{/unless}}
 {{/unless}}
 ```

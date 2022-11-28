@@ -10,10 +10,10 @@ uploads a file and downloads a file using application/octet-stream
 import petstore_api
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
-# Defining the host is optional and defaults to 
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = petstore_api.Configuration(
-    host = ""
+    host = "http://petstore.swagger.io:80/v2"
 )
 
 # Enter a context with an instance of the API client
@@ -30,7 +30,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling ->upload_download_file: %s\n" % e)
+        print("Exception when calling FakeApi->upload_download_file: %s\n" % e)
 ```
 ### Parameters
 

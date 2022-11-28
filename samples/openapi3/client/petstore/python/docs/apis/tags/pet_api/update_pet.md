@@ -11,10 +11,10 @@ Update an existing pet
 import petstore_api
 from petstore_api.apis.tags import pet_api
 from pprint import pprint
-# Defining the host is optional and defaults to 
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = petstore_api.Configuration(
-    host = ""
+    host = "http://petstore.swagger.io:80/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -59,7 +59,7 @@ configuration = petstore_api.Configuration(
 #
 # See petstore_api.signing for a list of all supported parameters.
 configuration = petstore_api.Configuration(
-    host = "",
+    host = "http://petstore.swagger.io:80/v2",
     signing_info = petstore_api.signing.HttpSigningConfiguration(
         key_id = 'my-key-id',
         private_key_path = 'private_key.pem',
@@ -84,7 +84,7 @@ configuration = petstore_api.Configuration(
 
 # Configure OAuth2 access token for authorization: petstore_auth
 configuration = petstore_api.Configuration(
-    host = "",
+    host = "http://petstore.swagger.io:80/v2",
     access_token = 'YOUR_ACCESS_TOKEN'
 )
 # Enter a context with an instance of the API client
@@ -117,7 +117,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             body=body,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling ->update_pet: %s\n" % e)
+        print("Exception when calling PetApi->update_pet: %s\n" % e)
 ```
 ### Parameters
 

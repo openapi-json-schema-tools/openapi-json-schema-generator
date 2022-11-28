@@ -13,10 +13,10 @@ Returns a single pet
 import petstore_api
 from petstore_api.apis.tags import pet_api
 from pprint import pprint
-# Defining the host is optional and defaults to 
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = petstore_api.Configuration(
-    host = ""
+    host = "http://petstore.swagger.io:80/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -45,7 +45,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling ->get_pet_by_id: %s\n" % e)
+        print("Exception when calling PetApi->get_pet_by_id: %s\n" % e)
 ```
 ### Parameters
 

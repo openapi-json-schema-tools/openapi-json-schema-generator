@@ -13,10 +13,10 @@ Fake endpoint for testing various parameters 假端點 偽のエンドポイン�
 import petstore_api
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
-# Defining the host is optional and defaults to 
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = petstore_api.Configuration(
-    host = ""
+    host = "http://petstore.swagger.io:80/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -57,7 +57,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             body=body,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling ->endpoint_parameters: %s\n" % e)
+        print("Exception when calling FakeApi->endpoint_parameters: %s\n" % e)
 ```
 ### Parameters
 

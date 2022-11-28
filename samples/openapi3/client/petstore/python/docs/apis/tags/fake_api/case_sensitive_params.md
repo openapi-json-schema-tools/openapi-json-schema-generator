@@ -11,10 +11,10 @@ Ensures that original naming is used in endpoint params, that way we on't have c
 import petstore_api
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
-# Defining the host is optional and defaults to 
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = petstore_api.Configuration(
-    host = ""
+    host = "http://petstore.swagger.io:80/v2"
 )
 
 # Enter a context with an instance of the API client
@@ -33,7 +33,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
     except petstore_api.ApiException as e:
-        print("Exception when calling ->case_sensitive_params: %s\n" % e)
+        print("Exception when calling FakeApi->case_sensitive_params: %s\n" % e)
 ```
 ### Parameters
 
