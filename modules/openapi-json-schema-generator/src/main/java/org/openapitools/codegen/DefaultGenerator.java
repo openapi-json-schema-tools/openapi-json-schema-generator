@@ -414,18 +414,287 @@ public class DefaultGenerator implements Generator {
         return "";
     }
 
-    void generateRequestBodies(List<File> files) {
-        final Map<String, RequestBody> requestBodies = this.openAPI.getComponents().getRequestBodies();
-        if (requestBodies == null) {
-            LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
+    private String packageFilename(List<String> pathSegments) {
+        String prefix = config.getOutputDir() + File.separatorChar + config.packagePath() + File.separatorChar;
+        String suffix = pathSegments.stream().collect(Collectors.joining(File.separator));
+        return prefix + suffix;
+    }
+
+    private String filenameFromRoot(List<String> pathSegments) {
+        String prefix = config.getOutputDir() + File.separatorChar;
+        String suffix = pathSegments.stream().collect(Collectors.joining(File.separator));
+        return prefix + suffix;
+    }
+
+    private void generateFiles(List<List<Object>> processTemplateToFileInfos, boolean shouldGenerate, String skippedByOption, List<File> files) {
+        for (List<Object> processTemplateToFileInfo: processTemplateToFileInfos) {
+            Map<String, Object> templateData = (Map<String, Object>) processTemplateToFileInfo.get(0);
+            String templateName = (String) processTemplateToFileInfo.get(1);
+            String outputFilename = (String) processTemplateToFileInfo.get(2);
+            try {
+                File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, skippedByOption);
+                    }
+                }
+            } catch (IOException e) {
+                LOGGER.error("Error when writing template file {}", e.toString());
+            }
+        }
+    }
+
+    void generatePaths(List<File> files, Map<String, List<CodegenOperation>> operationsMap) {
+        Paths paths = this.openAPI.getPaths();
+        if (paths == null) {
+            LOGGER.warn("Skipping generation of paths because specification document has no paths.");
             return;
         }
-        for (Map.Entry<String, RequestBody> entry: requestBodies.entrySet()) {
+        List<List<Object>> pathsFiles = new ArrayList<>();
+        List<List<Object>> apisFiles = new ArrayList<>();
+        List<List<Object>> testFiles = new ArrayList<>();
+        List<List<Object>> apiDocFiles = new ArrayList<>();
+        String outputFilename;
+
+        // endpoint tags may not exist in the root of the spec file
+        // this is allowed per openapi
+        // because spec tags may be empty or incomplete, tags are also accumulated from endpoints
+        List<Tag> tags = openAPI.getTags();
+        Map<String, String> tagModuleNameToApiClassname = new LinkedHashMap<>();
+        // for apis.tags tag api definition
+        Map<String, String> tagToApiClassname = new LinkedHashMap<>();
+        Map<String, String> tagToTagModule = new LinkedHashMap<>();
+
+        if (tags != null) {
+            for (Tag tag: tags) {
+                String tagName = tag.getName();
+                String tagModuleName = config.toApiFilename(tagName);
+                String apiClassname = config.toApiName(tagName);
+                tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
+                tagToApiClassname.put(tagName, apiClassname);
+                tagToTagModule.put(tagName, tagModuleName);
+            }
+        }
+
+        HashMap<String, String> pathToPathModule = new HashMap<>();
+        String packageName = config.packageName();
+        Map<String, Object> initOperationMap = new HashMap<>();
+        initOperationMap.put("packageName", packageName);
+        // paths.some_path.post.__init__.py (single endpoint definition)
+        // responses are adjacent to the init file
+        for (List<CodegenOperation> coList: operationsMap.values()) {
+            for (CodegenOperation co: coList) {
+                if (co.tags != null) {
+                    for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
+                        String tagName = entry.getKey();
+                        String tagModuleName = entry.getValue().getModuleName();
+                        String apiClassname = entry.getValue().getClassName();
+                        tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
+                        tagToApiClassname.put(tagName, apiClassname);
+                        tagToTagModule.put(tagName, tagModuleName);
+                    }
+                }
+                String path = co.path;
+                String pathModuleName = co.nickname;
+                if (!pathToPathModule.containsKey(path)) {
+                    pathToPathModule.put(path, pathModuleName);
+                }
+                for (Map.Entry<String, String> entry: config.pathEndpointTemplateFiles().entrySet()) {
+                    String templateFile = entry.getKey();
+                    String renderedOutputFilename = entry.getValue();
+                    outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
+                    Map<String, Object> endpointMap = new HashMap<>();
+                    endpointMap.put("operation", co);
+                    endpointMap.put("imports", co.imports);
+                    endpointMap.put("packageName", packageName);
+                    pathsFiles.add(Arrays.asList(endpointMap, templateFile, outputFilename));
+                }
+
+                // paths.some_path.post.request_body.py, only written if there is no refModule
+                for (Map.Entry<String, String> entry: config.pathEndpointRequestBodyTemplateFiles().entrySet()) {
+                    String templateFile = entry.getKey();
+                    String renderedOutputFilename = entry.getValue();
+                    if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
+                        Map<String, Object> paramMap = new HashMap<>();
+                        paramMap.put("requestBody", co.bodyParam);
+                        paramMap.put("imports", co.bodyParam.imports);
+                        paramMap.put("packageName", packageName);
+                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
+                        pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
+                    }
+                }
+
+                // paths.some_path.post.parameter_0.py
+                for (String templateFile: config.pathEndpointParameterTemplateFiles()) {
+                    Integer i = 0;
+                    for (CodegenParameter cp: co.allParams) {
+                        Map<String, Object> paramMap = new HashMap<>();
+                        paramMap.put("parameter", cp);
+                        paramMap.put("imports", cp.imports);
+                        paramMap.put("packageName", packageName);
+                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));
+                        pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
+                        i++;
+                    }
+                }
+
+                for (CodegenResponse response: co.responses) {
+                    // paths.some_path.post.response_for_200.__init__.py (file per response)
+                    // response is a package because responses have Headers which can be refed
+                    // so each inline header should be a module in the response package
+
+                    for (Map.Entry<String, String> entry: config.pathEndpointResponseTemplateFiles().entrySet()) {
+                        String templateFile = entry.getKey();
+                        String renderedOutputFilename = entry.getValue();
+                        Map<String, Object> responseMap = new HashMap<>();
+                        responseMap.put("response", response);
+                        responseMap.put("packageName", packageName);
+                        String responseModuleName = (response.isDefault)? "response_for_default" : "response_for_"+response.code;
+                        String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
+                        pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
+                        for (CodegenParameter header: response.getResponseHeaders()) {
+                            for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                Map<String, Object> headerMap = new HashMap<>();
+                                headerMap.put("parameter", header);
+                                headerMap.put("imports", header.imports);
+                                headerMap.put("packageName", packageName);
+                                String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
+                                pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                            }
+                        }
+                    }
+                }
+                for (String templateFile: config.pathEndpointTestTemplateFiles()) {
+                    Map<String, Object> endpointTestMap = new HashMap<>();
+                    endpointTestMap.put("operation", co);
+                    endpointTestMap.put("packageName", packageName);
+                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
+                    testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
+                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
+                    testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
+
+                }
+                for (String templateFile: config.pathEndpointDocTemplateFiles()) {
+                    for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
+                        CodegenTag tag = entry.getValue();
+                        Map<String, Object> endpointInfo = new HashMap<>();
+                        List<CodegenOperation> operation = Arrays.asList(co);
+                        endpointInfo.put("operation", operation);
+                        endpointInfo.put("packageName", packageName);
+                        endpointInfo.put("apiPackage", config.apiPackage());
+                        endpointInfo.put("basePath", basePath);
+                        endpointInfo.put("tag", tag);
+                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.getModuleName(), co.operationId + ".md"));
+                        apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
+                    }
+                }
+            }
+        }
+        Map<String, String> pathModuleToApiClassname = new LinkedHashMap<>();
+        Map<String, String> pathToApiClassname = new LinkedHashMap<>();
+        for (Map.Entry<String, PathItem> pathsEntry : paths.entrySet()) {
+            String path = pathsEntry.getKey();
+            String apiClassName = config.toModelName(path);
+            pathToApiClassname.put(path, apiClassName);
+            pathModuleToApiClassname.put(config.toPathFileName(path), apiClassName);
+        }
+        if (!config.pathEndpointTemplateFiles().isEmpty()) {
+            // paths.__init__.py
+            outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
+            pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
+
+            // paths.some_path.__init__.py
+            for (Map.Entry<String, String> entry: pathToPathModule.entrySet()) {
+                String path = entry.getKey();
+                String pathModule = entry.getValue();
+                String apiClassName = pathToApiClassname.get(path);
+                Map<String, Object> pathApiMap = new HashMap<>();
+                pathApiMap.put("packageName", packageName);
+                pathApiMap.put("pathModule", pathModule);
+                pathApiMap.put("apiClassName", apiClassName);
+                pathApiMap.put("path", path);
+                outputFilename = packageFilename(Arrays.asList("paths", pathModule, "__init__.py"));
+                pathsFiles.add(Arrays.asList(pathApiMap, "__init__paths_x.handlebars", outputFilename));
+            }
+        }
+
+        if (!config.pathEndpointTestTemplateFiles().isEmpty()) {
+            outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
+            testFiles.add(Arrays.asList(new HashMap<>(), "__init__test_paths.handlebars", outputFilename));
+        }
+
+        // Note: __init__apis.handlebars is generated as a supporting file
+        // apis.tag_to_api.py
+        // apis.path_to_api.py
+        String apiPackage = config.apiPackage();
+        for (Map.Entry<String, String> entry: config.apiXToApiTemplateFiles().entrySet()) {
+            String templateFile = entry.getKey();
+            String renderedOutputFilename = entry.getValue();
+            Map<String, Object> xToApiMap = new HashMap<>();
+            xToApiMap.put("packageName", packageName);
+            xToApiMap.put("apiClassname", "Api");
+            xToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
+            xToApiMap.put("tagToApiClassname", tagToApiClassname);
+            xToApiMap.put("pathModuleToApiClassname", pathModuleToApiClassname);
+            xToApiMap.put("pathToApiClassname", pathToApiClassname);
+            outputFilename = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
+            apisFiles.add(Arrays.asList(xToApiMap, templateFile, outputFilename));
+        }
+
+        if (!config.apiXToApiTemplateFiles().isEmpty()) {
+            // apis.tags.__init__.py
+            Map<String, Object> initApiTagsMap = new HashMap<>();
+            initApiTagsMap.put("packageName", packageName);
+            outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
+            apisFiles.add(Arrays.asList(initApiTagsMap, "__init__apis_tags.handlebars", outputFilename));
+
+            // apis.paths.__init__.py
+            outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
+            apisFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
+            // apis.paths.some_path.py
+            for (Map.Entry<String, String> entry: pathToPathModule.entrySet()) {
+                String path = entry.getKey();
+                String pathModule = entry.getValue();
+                String apiClassName = pathToApiClassname.get(path);
+                PathItem pi = openAPI.getPaths().get(path);
+                Map<String, Object> operationMap = new HashMap<>();
+                operationMap.put("packageName", packageName);
+                operationMap.put("pathModule", pathModule);
+                operationMap.put("apiClassName", apiClassName);
+                operationMap.put("pathItem", pi);
+                outputFilename = packageFilename(Arrays.asList("apis", "paths", pathModule + ".py"));
+                apisFiles.add(Arrays.asList(operationMap, "apis_path_module.handlebars", outputFilename));
+            }
+        }
+
+        boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
+        boolean shouldGenerateApiTests = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
+        boolean shouldGenerateApiDocs = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_DOCS);
+        generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS, files);
+        generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS, files);
+        generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS, files);
+        generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
+    }
+
+    private TreeMap<String, CodegenParameter> generateRequestBodies(List<File> files) {
+        final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
+        if (specRequestBodies == null) {
+            LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
+            return null;
+        }
+        TreeMap<String, CodegenParameter> requestBodies = new TreeMap<>();
+        for (Map.Entry<String, RequestBody> entry: specRequestBodies.entrySet()) {
             String componentName = entry.getKey();
             RequestBody specRequestBody = entry.getValue();
             String sourceJsonPath = "#/components/requestBodies/" + componentName;
             String bodyParameterName = config.getBodyParameterName(null);
             CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
+            // use refRequestBody so the refModule info will be contained inside the parameter
+            RequestBody specRefRequestBody = new RequestBody();
+            specRefRequestBody.set$ref(sourceJsonPath);
+            CodegenParameter refRequestBody = config.fromRequestBody(specRefRequestBody, bodyParameterName, null);
+            requestBodies.put(componentName, refRequestBody);
             Boolean generateRequestBodies = Boolean.TRUE;
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
@@ -475,6 +744,8 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        requestBodies = new TreeMap<>(requestBodies);
+        return requestBodies;
     }
 
     void generateModels(List<File> files, List<ModelMap> allModels, List<String> unusedModels) {
@@ -639,13 +910,12 @@ public class DefaultGenerator implements Generator {
     }
 
     @SuppressWarnings("unchecked")
-    void generateApis(List<File> files, List<OperationsMap> allOperations, List<ModelMap> allModels) {
+    void generateApis(List<File> files, List<OperationsMap> allOperations, List<ModelMap> allModels, Map<String, List<CodegenOperation>> paths) {
         if (!generateApis) {
             // TODO: Process these anyway and present info via dryRun?
             LOGGER.info("Skipping generation of APIs.");
             return;
         }
-        Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         Set<String> apisToGenerate = null;
         String apiNames = GlobalSettings.getProperty("apis");
         if (apiNames != null && !apiNames.isEmpty()) {
@@ -673,6 +943,8 @@ public class DefaultGenerator implements Generator {
                 operation.put("apiPackage", config.apiPackage());
                 operation.put("modelPackage", config.modelPackage());
                 operation.putAll(config.additionalProperties());
+                CodegenTag codegenTag = operation.getOperations().getOperation().get(0).tags.get(tag);
+                operation.put("tag", codegenTag);
                 operation.put("classname", config.toApiName(tag));
                 operation.put("classVarName", config.toApiVarName(tag));
                 operation.put("importPath", config.toApiImport(tag));
@@ -843,13 +1115,25 @@ public class DefaultGenerator implements Generator {
         generateVersionMetadata(files);
     }
 
-    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels) {
+    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
 
         ApiInfoMap apis = new ApiInfoMap();
         apis.setApis(allOperations);
+
+        TreeMap<String, CodegenOperation> pathAndHttpMethodToOperation = new TreeMap<>();
+        for (OperationsMap om: allOperations) {
+            OperationMap apiOperations = om.getOperations();
+            for (CodegenOperation operation: apiOperations.getOperation()) {
+                String pathAndHttpMethod = operation.path + "|" + operation.httpMethod;
+                if (!pathAndHttpMethodToOperation.containsKey(pathAndHttpMethod)) {
+                    pathAndHttpMethodToOperation.put(pathAndHttpMethod, operation);
+                }
+            }
+        }
+        pathAndHttpMethodToOperation = new TreeMap<>(pathAndHttpMethodToOperation);
 
         URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
 
@@ -863,6 +1147,8 @@ public class DefaultGenerator implements Generator {
         }
         bundle.put("contextPath", contextPath);
         bundle.put("apiInfo", apis);
+        bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
+        bundle.put("requestBodies", requestBodies);
         bundle.put("models", allModels);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
@@ -979,13 +1265,17 @@ public class DefaultGenerator implements Generator {
         List<ModelMap> allModels = new ArrayList<>();
         generateModels(files, allModels, filteredSchemas);
         // requestBodies
-        generateRequestBodies(files);
+        TreeMap<String, CodegenParameter> requestBodies = generateRequestBodies(files);
+        // paths input
+        Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         // apis
         List<OperationsMap> allOperations = new ArrayList<>();
-        generateApis(files, allOperations, allModels);
+        generateApis(files, allOperations, allModels, paths);
+        // paths generation
+        generatePaths(files, paths);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {
@@ -1223,7 +1513,6 @@ public class DefaultGenerator implements Generator {
         for (Tag tag : tags) {
             try {
                 CodegenOperation codegenOperation = config.fromOperation(resourcePath, httpMethod, operation, path.getServers());
-                codegenOperation.tags = new ArrayList<>(tags);
                 config.addOperationToGroup(config.sanitizeTag(tag.getName()), resourcePath, operation, codegenOperation, operations);
 
                 List<SecurityRequirement> securities = operation.getSecurity();

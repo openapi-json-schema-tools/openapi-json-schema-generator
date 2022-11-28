@@ -26,6 +26,7 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
+import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -179,9 +180,17 @@ public class DefaultCodegen implements CodegenConfig {
     API templates may be written multiple times; APIs are grouped by tag and the file is written once per tag group.
     */
     protected Map<String, String> apiTemplateFiles = new HashMap<>();
+    protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
+    protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
+    protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
+    protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
+    protected Map<String, String> pathEndpointRequestBodyTemplateFiles = new HashMap<>();
+    protected Set<String> pathEndpointParameterTemplateFiles = new HashSet<>();
+    protected Map<String, String> pathEndpointResponseTemplateFiles = new HashMap<>();
+    protected Set<String> pathEndpointResponseHeaderTemplateFiles = new HashSet<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
@@ -537,6 +546,10 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String packageName() {
         return packageName;
+    }
+
+    public String packagePath() {
+        return packageName.replace('.', File.separatorChar);
     }
 
     /**
@@ -1188,6 +1201,9 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public Map<String, String> apiXToApiTemplateFiles() { return apiXToApiTemplateFiles; }
+
+    @Override
     public Map<String, String> modelTemplateFiles() {
         return modelTemplateFiles;
     }
@@ -1197,6 +1213,27 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
+
+    @Override
+    public Map<String, String> pathEndpointTemplateFiles() { return pathEndpointTemplateFiles; }
+
+    @Override
+    public Set<String> pathEndpointDocTemplateFiles() { return pathEndpointDocTemplateFiles; }
+
+    @Override
+    public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }
+
+    @Override
+    public Map<String, String> pathEndpointRequestBodyTemplateFiles() { return pathEndpointRequestBodyTemplateFiles; }
+
+    @Override
+    public Set<String> pathEndpointParameterTemplateFiles() { return pathEndpointParameterTemplateFiles; }
+
+    @Override
+    public Map<String, String> pathEndpointResponseTemplateFiles() { return pathEndpointResponseTemplateFiles; }
+
+    @Override
+    public Set<String> pathEndpointResponseHeaderTemplateFiles() { return pathEndpointResponseHeaderTemplateFiles; }
 
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename(componentName);
@@ -1477,6 +1514,14 @@ public class DefaultCodegen implements CodegenConfig {
         return camelize(name);
     }
 
+    public String toPathFileName(String name) {
+        return toModuleFilename(name);
+    }
+
+    @Override
+    public String toParameterFileName(String basename) {
+        return toModuleFilename(basename);
+    }
 
     /**
      * Return the capitalized file name of the model test
@@ -4188,6 +4233,27 @@ public class DefaultCodegen implements CodegenConfig {
             // use path-level servers
             op.servers = fromServers(servers);
         }
+
+        // tags
+        List<String> operationtTagNames = operation.getTags();
+        Map<String, CodegenTag> codegenTags = new HashMap<>();
+        if (operationtTagNames != null) {
+            for (String tagName: operation.getTags()) {
+                CodegenTag codegenTag = new CodegenTag();
+                codegenTag.setName(tagName);
+                codegenTag.setModuleName(toApiFilename(tagName));
+                codegenTag.setClassName(toApiName(tagName));
+                codegenTags.put(tagName, codegenTag);
+            }
+        } else {
+            String tagName = "default";
+            CodegenTag codegenTag = new CodegenTag();
+            codegenTag.setName(tagName);
+            codegenTag.setModuleName(toApiFilename(tagName));
+            codegenTag.setClassName(toApiName(tagName));
+            codegenTags.put(tagName, codegenTag);
+        }
+        op.tags = codegenTags;
 
         // store the original operationId for plug-in
         op.operationIdOriginal = operation.getOperationId();
