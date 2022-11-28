@@ -50,7 +50,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../components/request_bodies/user_array_request_body.md) | typing.Union[[request_body.application_json](../../components/request_bodies/user_array_request_body.md#petstore_api.components.request_bodies.application_json)] | required |
+[**body**](../../../components/request_bodies/user_array_request_body.md) | typing.Union[[request_body.application_json](../../../components/request_bodies/user_array_request_body.md#petstore_api.components.request_bodies.application_json)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client

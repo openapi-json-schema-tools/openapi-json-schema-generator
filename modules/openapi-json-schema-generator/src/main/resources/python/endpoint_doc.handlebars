@@ -38,7 +38,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with bodyParam}}
     {{#if refModule}}
-[**{{baseName}}**](../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[**{{baseName}}**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
 [{{baseName}}](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
@@ -92,7 +92,7 @@ Key | Input Type | Description  | Notes
         {{#each queryParams}}
         {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -109,7 +109,7 @@ Key | Input Type | Description  | Notes
         {{#each headerParams}}
         {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -126,7 +126,7 @@ Key | Input Type | Description  | Notes
         {{#each pathParams}}
         {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -143,7 +143,7 @@ Key | Input Type | Description  | Notes
         {{#each cookieParams}}
         {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
         {{/with}}
         {{/each}}
     {{/if}}
@@ -179,7 +179,7 @@ headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{code}}.Headers
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../../components/schema/" }}
     {{/with}}
 {{/each}}
 {{#if responseHeaders}}
@@ -206,14 +206,14 @@ Key | Accessed Type | Description  | Notes
         {{#if schema}}
             {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
             {{/with}}
         {{else}}
             {{#each getContent}}
                 {{#with this}}
                     {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
                     {{/with}}
                 {{/with}}
             {{/each}}

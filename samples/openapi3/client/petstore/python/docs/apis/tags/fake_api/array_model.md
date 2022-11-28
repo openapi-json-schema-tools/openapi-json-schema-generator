@@ -68,7 +68,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnimalFarm**](../../components/schema/animal_farm.AnimalFarm.md) |  | 
+[**AnimalFarm**](../../../components/schema/animal_farm.AnimalFarm.md) |  | 
 
 
 ### Authorization

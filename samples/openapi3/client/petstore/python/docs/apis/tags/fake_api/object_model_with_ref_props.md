@@ -70,7 +70,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
 
 
 ### Authorization

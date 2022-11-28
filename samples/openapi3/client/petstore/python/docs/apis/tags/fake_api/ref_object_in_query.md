@@ -54,7 +54,7 @@ mapBean | [parameter_0.schema](#parameter_0.schema) | | optional
 # parameter_0.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Foo**](../../components/schema/foo.Foo.md) |  | 
+[**Foo**](../../../components/schema/foo.Foo.md) |  | 
 
 
 ### Return Types, Responses

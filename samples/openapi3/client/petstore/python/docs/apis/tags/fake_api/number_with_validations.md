@@ -66,7 +66,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
 
 
 ### Authorization
