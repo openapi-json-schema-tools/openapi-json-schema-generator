@@ -117,7 +117,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
-            {{> api_test_partial }}
+            {{> endpoint_test_partial }}
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, schemas.Unset)

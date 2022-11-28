@@ -679,7 +679,7 @@ public class DefaultGenerator implements Generator {
 
     void generateRequestBodies(List<File> files, TreeMap<String, CodegenParameter> requestBodies) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
-        if (requestBodies == null) {
+        if (specRequestBodies == null) {
             LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
             return;
         }
