@@ -1115,6 +1115,18 @@ public class DefaultGenerator implements Generator {
         ApiInfoMap apis = new ApiInfoMap();
         apis.setApis(allOperations);
 
+        TreeMap<String, CodegenOperation> pathAndHttpMethodToOperation = new TreeMap<>();
+        for (OperationsMap om: allOperations) {
+            OperationMap apiOperations = om.getOperations();
+            for (CodegenOperation operation: apiOperations.getOperation()) {
+                String pathAndHttpMethod = operation.path + "|" + operation.httpMethod;
+                if (!pathAndHttpMethodToOperation.containsKey(pathAndHttpMethod)) {
+                    pathAndHttpMethodToOperation.put(pathAndHttpMethod, operation);
+                }
+            }
+        }
+        pathAndHttpMethodToOperation = new TreeMap<>(pathAndHttpMethodToOperation);
+
         URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
 
         bundle.put("openAPI", openAPI);
@@ -1127,6 +1139,7 @@ public class DefaultGenerator implements Generator {
         }
         bundle.put("contextPath", contextPath);
         bundle.put("apiInfo", apis);
+        bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
         bundle.put("models", allModels);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());

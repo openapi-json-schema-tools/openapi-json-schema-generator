@@ -16,10 +16,13 @@
 
 All URIs are relative to *{{basePath}}*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-{{#with apiInfo}}{{#each apis}}{{#with operations}}{{#each operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#if summary}}{{summary}}{{/if}}
-{{/each}}{{/with}}{{/each}}{{/with}}
+HTTP request | Method | Description
+------------ | ------ | -------------
+{{#each pathAndHttpMethodToOperation}}
+{{#with this}}
+**{{httpMethod}}** {{path}} | {{#each tags}}[{{getClassName}}]({{apiDocPath}}{{getClassName}}.md).[{{operationId}}]({{apiDocPath}}{{getModuleName}}/{{operationId}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+{{/with}}
+{{/each}}
 
 ## Documentation For Models
 
