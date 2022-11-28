@@ -22,6 +22,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.RequestBody;
+import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
@@ -375,4 +376,6 @@ public interface CodegenConfig {
     CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath);
 
     String getBodyParameterName(CodegenOperation co);
+
+    CodegenResponse fromResponse(String responseCode, ApiResponse response, String sourceJsonPath);
 }

@@ -28,6 +28,7 @@ import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
+import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.*;
 import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.io.FilenameUtils;
@@ -677,6 +678,28 @@ public class DefaultGenerator implements Generator {
         generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
     }
 
+    private TreeMap<String, CodegenResponse> generateResponses(List<File> files) {
+        final Map<String, ApiResponse> specResponses = this.openAPI.getComponents().getResponses();
+        if (specResponses == null) {
+            LOGGER.warn("Skipping generation of responses because specification document has no responses.");
+            return null;
+        }
+        TreeMap<String, CodegenResponse> responses = new TreeMap<>();
+        for (Map.Entry<String, ApiResponse> entry: specResponses.entrySet()) {
+            String componentName = entry.getKey();
+            ApiResponse apiResponse = entry.getValue();
+            String sourceJsonPath = "#/components/responses/" + componentName;
+            CodegenResponse response = config.fromResponse(null, apiResponse, sourceJsonPath);
+            // use refRequestBody so the refModule info will be contained inside the parameter
+            ApiResponse specRefApiResponse = new ApiResponse();
+            specRefApiResponse.set$ref(sourceJsonPath);
+            CodegenResponse refResponse = config.fromResponse(null, specRefApiResponse, null);
+            responses.put(componentName, refResponse);
+            // TODO code to generate file and doc file
+        }
+        return responses;
+    }
+
     private TreeMap<String, CodegenParameter> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (specRequestBodies == null) {
@@ -1115,7 +1138,7 @@ public class DefaultGenerator implements Generator {
         generateVersionMetadata(files);
     }
 
-    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies) {
+    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies, TreeMap<String, CodegenResponse> responses) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1149,6 +1172,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("apiInfo", apis);
         bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
         bundle.put("requestBodies", requestBodies);
+        bundle.put("responses", responses);
         bundle.put("models", allModels);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
@@ -1260,22 +1284,24 @@ public class DefaultGenerator implements Generator {
         processUserDefinedTemplates();
 
         List<File> files = new ArrayList<>();
-        // models
+        // components.schemas / models
         List<String> filteredSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
         List<ModelMap> allModels = new ArrayList<>();
         generateModels(files, allModels, filteredSchemas);
-        // requestBodies
+        // components.requestBodies
         TreeMap<String, CodegenParameter> requestBodies = generateRequestBodies(files);
         // paths input
         Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         // apis
         List<OperationsMap> allOperations = new ArrayList<>();
         generateApis(files, allOperations, allModels, paths);
-        // paths generation
+        // paths
         generatePaths(files, paths);
+        // components.responses
+        TreeMap<String, CodegenResponse> responses = generateResponses(files);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies, responses);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {
