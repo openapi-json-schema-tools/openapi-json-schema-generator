@@ -168,11 +168,11 @@ with this_package.ApiClient(configuration) as api_client:
 
 All URIs are relative to *http://localhost:3000*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*DefaultApi* | [**post_operators**](docs/apis/tags/DefaultApi.md#post_operators) | **post** /operators | 
+HTTP request | Method | Description
+------------ | ------ | -------------
+**post** /operators | [DefaultApi](docs/apis/tags/DefaultApi.md).[post_operators](docs/apis/tags/default_api/post_operators.md)  | 
 
-## Documentation For Models
+## Documentation For Component Schemas (Models)
 
  - [AdditionOperator](docs/components/schema/addition_operator.AdditionOperator.md)
  - [Operator](docs/components/schema/operator.Operator.md)

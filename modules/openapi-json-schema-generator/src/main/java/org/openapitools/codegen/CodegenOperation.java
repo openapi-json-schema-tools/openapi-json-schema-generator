@@ -18,7 +18,6 @@
 package org.openapitools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
-import io.swagger.v3.oas.models.tags.Tag;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -50,7 +49,7 @@ public class CodegenOperation {
     public List<CodegenParameter> requiredParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> optionalParams = new ArrayList<CodegenParameter>();
     public List<CodegenSecurity> authMethods;
-    public List<Tag> tags;
+    public Map<String, CodegenTag> tags;
     public List<CodegenResponse> responses = new ArrayList<CodegenResponse>();
     public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();

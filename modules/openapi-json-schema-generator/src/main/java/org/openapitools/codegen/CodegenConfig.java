@@ -128,6 +128,8 @@ public interface CodegenConfig {
 
     String getOutputDir();
 
+    String packagePath();
+
     void setOutputDir(String dir);
 
     CodegenModel fromModel(String name, Schema schema);
@@ -156,11 +158,27 @@ public interface CodegenConfig {
 
     Map<String, String> apiTemplateFiles();
 
+    Map<String, String> apiXToApiTemplateFiles();
+
     Map<String, String> modelTemplateFiles();
 
     Map<String, String> requestBodyTemplateFiles();
 
     Map<String, String> requestBodyDocTemplateFiles();
+
+    Map<String, String> pathEndpointTemplateFiles();
+
+    Set<String> pathEndpointTestTemplateFiles();
+
+    Set<String> pathEndpointDocTemplateFiles();
+
+    Map<String, String> pathEndpointRequestBodyTemplateFiles();
+
+    Set<String> pathEndpointParameterTemplateFiles();
+
+    Map<String, String> pathEndpointResponseTemplateFiles();
+
+    Set<String> pathEndpointResponseHeaderTemplateFiles();
 
     Map<String, String> apiTestTemplateFiles();
 
@@ -201,6 +219,10 @@ public interface CodegenConfig {
     String toRequestBodyFilename(String componentName);
 
     String toRequestBodyDocFilename(String componentName);
+
+    String toPathFileName(String path);
+
+    String toParameterFileName(String baseName);
 
     String toModelImport(String refClass);
 
