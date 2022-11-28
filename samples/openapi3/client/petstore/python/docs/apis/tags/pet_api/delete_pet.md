@@ -119,5 +119,5 @@ headers | Unset | headers were not defined |
 
 [petstore_auth](../../../../README.md#petstore_auth)
 
-[[Back to top]](#top) [[Back to API]](../pet_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 

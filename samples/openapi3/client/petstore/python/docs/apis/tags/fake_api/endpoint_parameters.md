@@ -122,5 +122,5 @@ headers | Unset | headers were not defined |
 
 [http_basic_test](../../../../README.md#http_basic_test)
 
-[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
 
