@@ -677,18 +677,23 @@ public class DefaultGenerator implements Generator {
         generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
     }
 
-    void generateRequestBodies(List<File> files) {
-        final Map<String, RequestBody> requestBodies = this.openAPI.getComponents().getRequestBodies();
+    void generateRequestBodies(List<File> files, TreeMap<String, CodegenParameter> requestBodies) {
+        final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (requestBodies == null) {
             LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
             return;
         }
-        for (Map.Entry<String, RequestBody> entry: requestBodies.entrySet()) {
+        for (Map.Entry<String, RequestBody> entry: specRequestBodies.entrySet()) {
             String componentName = entry.getKey();
             RequestBody specRequestBody = entry.getValue();
             String sourceJsonPath = "#/components/requestBodies/" + componentName;
             String bodyParameterName = config.getBodyParameterName(null);
             CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
+            // use refRequestBody so the refModule info will be contained inside the parameter
+            RequestBody specRefRequestBody = new RequestBody();
+            specRefRequestBody.set$ref(sourceJsonPath);
+            CodegenParameter refRequestBody = config.fromRequestBody(specRefRequestBody, bodyParameterName, null);
+            requestBodies.put(componentName, refRequestBody);
             Boolean generateRequestBodies = Boolean.TRUE;
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
@@ -1107,7 +1112,7 @@ public class DefaultGenerator implements Generator {
         generateVersionMetadata(files);
     }
 
-    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels) {
+    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1140,6 +1145,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("contextPath", contextPath);
         bundle.put("apiInfo", apis);
         bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
+        bundle.put("requestBodies", requestBodies);
         bundle.put("models", allModels);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
@@ -1256,7 +1262,9 @@ public class DefaultGenerator implements Generator {
         List<ModelMap> allModels = new ArrayList<>();
         generateModels(files, allModels, filteredSchemas);
         // requestBodies
-        generateRequestBodies(files);
+        TreeMap<String, CodegenParameter> requestBodies = new TreeMap<>();
+        generateRequestBodies(files, requestBodies);
+        requestBodies = new TreeMap<>(requestBodies);
         // paths input
         Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         // apis
@@ -1266,7 +1274,7 @@ public class DefaultGenerator implements Generator {
         generatePaths(files, paths);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {

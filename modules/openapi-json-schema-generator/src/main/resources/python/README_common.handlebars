@@ -24,13 +24,21 @@ HTTP request | Method | Description
 {{/with}}
 {{/each}}
 
-## Documentation For Models
+## Documentation For Component Schemas (Models)
 
 {{#each models}}
 {{#with model}}
- - [{{{classname}}}]({{modelDocPath}}{{classFilename}}.{{classname}}.md)
+ - [{{classname}}]({{modelDocPath}}{{classFilename}}.{{classname}}.md)
 {{/with}}
 {{/each}}
+{{#if requestBodies}}
+
+## Documentation For Component RequestBodies
+
+{{#each requestBodies}}
+- {{#with this}}[{{refModule}}](docs/components/request_bodies/{{refModule}}.md){{/with}}
+{{/each}}
+{{/if}}
 
 ## Documentation For Authorization
 

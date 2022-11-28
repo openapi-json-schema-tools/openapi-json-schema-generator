@@ -228,7 +228,7 @@ HTTP request | Method | Description
 **put** /user/{username} | [UserApi](docs/apis/tags/UserApi.md).[update_user](docs/apis/tags/user_api/update_user.md)  | Updated user
 **post** /user | [UserApi](docs/apis/tags/UserApi.md).[create_user](docs/apis/tags/user_api/create_user.md)  | Create user
 
-## Documentation For Models
+## Documentation For Component Schemas (Models)
 
  - [AbstractStepMessage](docs/components/schema/abstract_step_message.AbstractStepMessage.md)
  - [AdditionalPropertiesClass](docs/components/schema/additional_properties_class.AdditionalPropertiesClass.md)
@@ -355,6 +355,12 @@ HTTP request | Method | Description
  - [User](docs/components/schema/user.User.md)
  - [Whale](docs/components/schema/whale.Whale.md)
  - [Zebra](docs/components/schema/zebra.Zebra.md)
+
+## Documentation For Component RequestBodies
+
+- [client_request_body](docs/components/request_bodies/client_request_body.md)
+- [pet_request_body](docs/components/request_bodies/pet_request_body.md)
+- [user_array_request_body](docs/components/request_bodies/user_array_request_body.md)
 
 ## Documentation For Authorization
 
