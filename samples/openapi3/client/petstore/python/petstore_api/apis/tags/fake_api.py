@@ -24,7 +24,7 @@ from petstore_api.paths.fake.get import EnumParameters
 from petstore_api.paths.fake_health.get import FakeHealthGet
 from petstore_api.paths.fake.delete import GroupParameters
 from petstore_api.paths.fake_inline_additional_properties.post import InlineAdditionalProperties
-from petstore_api.paths.fake_inline_composition_.post import InlineComposition
+from petstore_api.paths.fake_inline_composition.post import InlineComposition
 from petstore_api.paths.fake_json_form_data.get import JsonFormData
 from petstore_api.paths.fake_json_patch.patch import JsonPatch
 from petstore_api.paths.fake_json_with_charset.post import JsonWithCharset
@@ -32,7 +32,7 @@ from petstore_api.paths.fake_refs_mammal.post import Mammal
 from petstore_api.paths.fake_refs_number.post import NumberWithValidations
 from petstore_api.paths.fake_obj_in_query.get import ObjectInQuery
 from petstore_api.paths.fake_refs_object_model_with_ref_props.post import ObjectModelWithRefProps
-from petstore_api.paths.fake_parameter_collisions_1_a_b_ab_self_a_b_.post import ParameterCollisions
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post import ParameterCollisions
 from petstore_api.paths.fake_query_param_with_json_content_type.get import QueryParamWithJsonContentType
 from petstore_api.paths.fake_test_query_paramters.put import QueryParameterCollectionFormat
 from petstore_api.paths.fake_ref_obj_in_query.get import RefObjectInQuery
