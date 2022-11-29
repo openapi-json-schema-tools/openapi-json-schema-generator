@@ -4081,75 +4081,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    /**
-     * Override with any special handling of response codes
-     *
-     * @param responses OAS Operation's responses
-     * @return default method response or <code>null</code> if not found
-     */
-    protected ApiResponse findMethodResponse(ApiResponses responses) {
-        String code = null;
-        for (String responseCode : responses.keySet()) {
-            if (responseCode.startsWith("2") || responseCode.equals("default")) {
-                if (code == null || code.compareTo(responseCode) > 0) {
-                    code = responseCode;
-                }
-            }
-        }
-        if (code == null) {
-            return null;
-        }
-        return responses.get(code);
-    }
-
-    /**
-     * Set op's returnBaseType, returnType, examples etc.
-     *
-     * @param operation      endpoint Operation
-     * @param schemas        a map of the schemas in the openapi spec
-     * @param op             endpoint CodegenOperation
-     * @param methodResponse the default ApiResponse for the endpoint
-     */
-    protected void handleMethodResponse(Operation operation,
-                                        Map<String, Schema> schemas,
-                                        CodegenOperation op,
-                                        ApiResponse methodResponse) {
-        handleMethodResponse(operation, schemas, op, methodResponse, Collections.emptyMap());
-    }
-
-    /**
-     * Set op's returnBaseType, returnType, examples etc.
-     *
-     * @param operation      endpoint Operation
-     * @param schemas        a map of the schemas in the openapi spec
-     * @param op             endpoint CodegenOperation
-     * @param methodResponse the default ApiResponse for the endpoint
-     * @param schemaMappings mappings of external types to be omitted by unaliasing
-     */
-    protected void handleMethodResponse(Operation operation,
-                                        Map<String, Schema> schemas,
-                                        CodegenOperation op,
-                                        ApiResponse methodResponse,
-                                        Map<String, String> schemaMappings) {
-        Schema responseSchema = unaliasSchema(ModelUtils.getSchemaFromResponse(methodResponse));
-
-        if (responseSchema != null) {
-            CodegenProperty cm = fromProperty("response", responseSchema, false, false, null);
-
-            // check skipOperationExample, which can be set to true to avoid out of memory errors for large spec
-            if (!isSkipOperationExample()) {
-                // generate examples
-                String exampleStatusCode = "200";
-                for (String key : operation.getResponses().keySet()) {
-                    if (operation.getResponses().get(key) == methodResponse && !key.equals("default")) {
-                        exampleStatusCode = key;
-                    }
-                }
-                op.examples = new ExampleGenerator(schemas, this.openAPI).generateFromResponseSchema(exampleStatusCode, responseSchema, getProducesInfo(this.openAPI, operation));
-            }
-        }
-    }
-
     public String getBodyParameterName(CodegenOperation co) {
         String bodyParameterName = "body";
         if (co != null && co.vendorExtensions != null && co.vendorExtensions.containsKey("x-codegen-request-body-name")) {
@@ -4256,7 +4187,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             op.responses = new TreeMap<>();
-            ApiResponse methodResponse = findMethodResponse(operation.getResponses());
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
                 String key = operationGetResponsesEntry.getKey();
                 ApiResponse response = operationGetResponsesEntry.getValue();
@@ -4299,10 +4229,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
             if (op.wildcardCodeResponses != null) {
                 op.wildcardCodeResponses = new TreeMap<>(op.wildcardCodeResponses);
-            }
-
-            if (methodResponse != null) {
-                handleMethodResponse(operation, schemas, op, methodResponse, importMapping);
             }
         }
 
