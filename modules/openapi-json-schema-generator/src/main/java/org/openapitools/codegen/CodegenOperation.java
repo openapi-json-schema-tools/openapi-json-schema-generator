@@ -46,8 +46,8 @@ public class CodegenOperation {
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
     public TreeMap<String, CodegenResponse> responses = new TreeMap<>();
-    public TreeMap<String, CodegenResponse> statusCodeResponses = new TreeMap<>();
-    public TreeMap<String, CodegenResponse> wildcardCodeResponses = new TreeMap<>();
+    public TreeMap<Integer, CodegenResponse> statusCodeResponses = new TreeMap<>();
+    public TreeMap<Integer, CodegenResponse> wildcardCodeResponses = new TreeMap<>();
 
     public TreeMap<String, CodegenResponse> nonDefaultResponses = new TreeMap<>();
     public CodegenResponse defaultResponse = null;

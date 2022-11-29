@@ -61,29 +61,29 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
- | [response_for_.ApiResponse](#response_for_.ApiResponse) | successful operation
- | [response_for_.ApiResponse](#response_for_.ApiResponse) | Invalid Order
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid Order
 
-#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_.application_xml](#response_for_.application_xml), [response_for_.application_json](#response_for_.application_json), ] |  |
+body | typing.Union[[response_for_application/xml.application_xml](#response_for_application/xml.application_xml), [response_for_application/json.application_json](#response_for_application/json.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_..application_xml" >response_for_..application_xml</a>
+# <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-# <a id="response_for_..application_json" >response_for_..application_json</a>
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
+#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

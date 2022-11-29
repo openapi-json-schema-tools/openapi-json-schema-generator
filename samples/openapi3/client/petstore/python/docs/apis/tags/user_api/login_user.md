@@ -72,35 +72,35 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
- | [response_for_.ApiResponse](#response_for_.ApiResponse) | successful operation
- | [response_for_.ApiResponse](#response_for_.ApiResponse) | Invalid username/password supplied
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid username/password supplied
 
-#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_.application_xml](#response_for_.application_xml), [response_for_.application_json](#response_for_.application_json), ] |  |
-headers | [response_for_.Headers](#response_for_.Headers) |  |
+body | typing.Union[[response_for_application/xml.application_xml](#response_for_application/xml.application_xml), [response_for_application/json.application_json](#response_for_application/json.application_json), ] |  |
+headers | [response_for_200.Headers](#response_for_200.Headers) |  |
 
-# <a id="response_for_..application_xml" >response_for_..application_xml</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="response_for_..application_json" >response_for_..application_json</a>
+# <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-#### <a id="response_for_.Headers" >response_for_.Headers</a>
+
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+#### <a id="response_for_200.Headers" >response_for_200.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-X-Rate-Limit | [response_for_.parameter_x_rate_limit.application_json](#response_for_.parameter_x_rate_limit.application_json) | | optional
-X-Expires-After | [response_for_.parameter_x_expires_after.schema](#response_for_.parameter_x_expires_after.schema) | | optional
+X-Rate-Limit | [response_for_application/json.parameter_x_rate_limit.application_json](#response_for_application/json.parameter_x_rate_limit.application_json) | | optional
+X-Expires-After | [response_for_1.parameter_x_expires_after.schema](#response_for_1.parameter_x_expires_after.schema) | | optional
 
 # <a id="response_for_.parameter_x_rate_limit..application_json" >response_for_.parameter_x_rate_limit..application_json</a>
 
@@ -109,14 +109,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# <a id="response_for_.parameter_x_expires_after..schema" >response_for_.parameter_x_expires_after..schema</a>
+# <a id="response_for_200.parameter_x_expires_after.schema" >response_for_200.parameter_x_expires_after.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
+#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -55,16 +55,16 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
- | [response_for_.ApiResponse](#response_for_.ApiResponse) | success
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | success
 
-#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_.application_json_charsetutf_8](#response_for_.application_json_charsetutf_8), ] |  |
+body | typing.Union[[response_for_application/json; charset&#x3D;utf-8.application_json_charsetutf_8](#response_for_application/json; charset&#x3D;utf-8.application_json_charsetutf_8), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_..application_json_charsetutf_8" >response_for_..application_json_charsetutf_8</a>
+# <a id="response_for_200.application_json_charsetutf_8" >response_for_200.application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

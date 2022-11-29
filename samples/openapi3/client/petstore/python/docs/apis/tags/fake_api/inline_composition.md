@@ -170,16 +170,16 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
- | [response_for_.ApiResponse](#response_for_.ApiResponse) | success
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | success
 
-#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
+#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_.application_json](#response_for_.application_json), [response_for_.multipart_form_data](#response_for_.multipart_form_data), ] |  |
+body | typing.Union[[response_for_application/json.application_json](#response_for_application/json.application_json), [response_for_multipart/form-data.multipart_form_data](#response_for_multipart/form-data.multipart_form_data), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_..application_json" >response_for_..application_json</a>
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -199,7 +199,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# <a id="response_for_..multipart_form_data" >response_for_..multipart_form_data</a>
+# <a id="response_for_200.multipart_form_data" >response_for_200.multipart_form_data</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

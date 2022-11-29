@@ -2,39 +2,14 @@
 response_for_default.ApiResponse,
 {{/if}}
 {{#each statusCodeResponses}}
-{{#eq @key "200"}}
+{{#gte @key 200}}
+{{#lte @key 299}}
 response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "201"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "202"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "203"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "204"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "205"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "206"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "207"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "208"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
-{{#eq @key "226"}}
-response_for_{{@key}}.ApiResponse,
-{{/eq}}
+{{/lte}}
+{{/gte}}
 {{/each}}
 {{#each wildcardCodeResponses}}
-{{#eq @key "2"}}
+{{#eq @key 2}}
 response_for_{{@key}}xx.ApiResponse,
 {{/eq}}
 {{/each}}

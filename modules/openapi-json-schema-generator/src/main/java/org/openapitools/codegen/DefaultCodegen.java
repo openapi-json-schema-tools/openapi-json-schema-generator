@@ -4270,9 +4270,9 @@ public class DefaultCodegen implements CodegenConfig {
                     op.nonDefaultResponses.put(key, r);
                     if (key.endsWith("XX") && key.length() == 3) {
                         String firstNumber = key.substring(0, 1);
-                        op.wildcardCodeResponses.put(firstNumber, r);
+                        op.wildcardCodeResponses.put(Integer.parseInt(firstNumber), r);
                     } else {
-                        op.statusCodeResponses.put(key, r);
+                        op.statusCodeResponses.put(Integer.parseInt(key), r);
                     }
                 }
             }
