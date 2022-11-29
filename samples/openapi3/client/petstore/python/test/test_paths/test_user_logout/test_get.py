@@ -32,7 +32,7 @@ class TestUserLogout(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 0
+    response_status = 
     response_body = ''
 
 

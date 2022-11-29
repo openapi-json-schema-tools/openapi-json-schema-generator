@@ -217,30 +217,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
                     }
                 }
 
-                List<CodegenResponse> responses = operation.responses;
-                if (responses != null) {
-                    for (CodegenResponse resp : responses) {
-                        if ("0".equals(resp.code)) {
-                            resp.code = "200";
-                        }
-                    }
-                }
-
-                if (operation.returnBaseType == null) {
-                    operation.returnType = "void";
-                    operation.returnBaseType = "Void";
-                    // set vendorExtensions.x-java-is-response-void to true as returnBaseType is set to "Void"
-                    operation.vendorExtensions.put("x-java-is-response-void", true);
-                }
-
-                if ("array".equals(operation.returnContainer)) {
-                    operation.returnContainer = "List";
-                } else if ("set".equals(operation.returnContainer)) {
-                    operation.returnContainer = "Set";
-                } else if ("map".equals(operation.returnContainer)) {
-                    operation.returnContainer = "Map";
-                }
-
                 if (commonPath == null) {
                     commonPath = operation.path;
                 } else {

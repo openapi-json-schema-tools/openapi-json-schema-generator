@@ -32,7 +32,6 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.get_order_by_id(
             path_params=path_params,
         )
-        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->get_order_by_id: %s\n" % e)
 ```
@@ -65,37 +64,37 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid ID supplied
-404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | Order not found
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | successful operation
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Invalid ID supplied
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Order not found
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_.application_xml](#response_for_.application_xml), [response_for_.application_json](#response_for_.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
+# <a id="response_for_..application_xml" >response_for_..application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_for_..application_json" >response_for_..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

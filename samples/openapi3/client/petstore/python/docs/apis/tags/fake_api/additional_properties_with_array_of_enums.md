@@ -32,7 +32,6 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.additional_properties_with_array_of_enums(
             body=body,
         )
-        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->additional_properties_with_array_of_enums: %s\n" % e)
 ```
@@ -59,16 +58,16 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Got object with additional properties with array of enums
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Got object with additional properties with array of enums
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_.application_json](#response_for_.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_for_..application_json" >response_for_..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AdditionalPropertiesWithArrayOfEnums**](../../../components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |  | 

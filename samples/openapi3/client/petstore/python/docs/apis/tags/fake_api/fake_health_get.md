@@ -25,7 +25,6 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # Health check endpoint
         api_response = api_instance.fake_health_get()
-        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->fake_health_get: %s\n" % e)
 ```
@@ -37,16 +36,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | The instance started successfully
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | The instance started successfully
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_.application_json](#response_for_.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_for_..application_json" >response_for_..application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 

@@ -36,9 +36,9 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | Success
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Success
 
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

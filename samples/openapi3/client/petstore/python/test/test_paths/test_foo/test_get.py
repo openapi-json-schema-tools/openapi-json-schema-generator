@@ -31,8 +31,8 @@ class TestFoo(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 0
-    response_body_schema = get.response_for_default.application_json
+    response_status = 
+    response_body_schema = get.response_for_.application_json
 
 
 

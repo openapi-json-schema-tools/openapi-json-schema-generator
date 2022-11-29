@@ -32,7 +32,7 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 400
+    response_status = 
     response_body = ''
 
 

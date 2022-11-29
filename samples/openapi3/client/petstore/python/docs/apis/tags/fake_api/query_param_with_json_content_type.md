@@ -30,7 +30,6 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.query_param_with_json_content_type(
             query_params=query_params,
         )
-        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->query_param_with_json_content_type: %s\n" % e)
 ```
@@ -57,16 +56,16 @@ someParam | [parameter_0.schema](#parameter_0.schema) | |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | success
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | success
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_.application_json](#response_for_.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_for_..application_json" >response_for_..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

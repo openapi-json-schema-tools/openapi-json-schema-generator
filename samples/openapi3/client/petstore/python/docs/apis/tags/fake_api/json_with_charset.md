@@ -28,7 +28,6 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.json_with_charset(
             body=body,
         )
-        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->json_with_charset: %s\n" % e)
 ```
@@ -56,16 +55,16 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | success
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | success
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json_charsetutf_8](#response_for_200.application_json_charsetutf_8), ] |  |
+body | typing.Union[[response_for_.application_json_charsetutf_8](#response_for_.application_json_charsetutf_8), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_json_charsetutf_8" >response_for_200.application_json_charsetutf_8</a>
+# <a id="response_for_..application_json_charsetutf_8" >response_for_..application_json_charsetutf_8</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -32,11 +32,11 @@ class TestFakeInlineComposition(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 200
-    response_body_schema = post.response_for_200.application_json
+    response_status = 
+    response_body_schema = post.response_for_.application_json
 
 
-    response_body_schema = post.response_for_200.multipart_form_data
+    response_body_schema = post.response_for_.multipart_form_data
 
 
 

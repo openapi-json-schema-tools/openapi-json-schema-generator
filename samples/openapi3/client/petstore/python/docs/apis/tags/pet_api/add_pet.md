@@ -137,17 +137,17 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
-405 | [response_for_405.ApiResponse](#response_for_405.ApiResponse) | Invalid input
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Success
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Invalid input
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

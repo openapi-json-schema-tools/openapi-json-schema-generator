@@ -32,11 +32,11 @@ class TestUserLogin(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 200
-    response_body_schema = get.response_for_200.application_xml
+    response_status = 
+    response_body_schema = get.response_for_.application_xml
 
 
-    response_body_schema = get.response_for_200.application_json
+    response_body_schema = get.response_for_.application_json
 
 
 

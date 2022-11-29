@@ -23,7 +23,6 @@ with petstore_api.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.foo_get()
-        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling DefaultApi->foo_get: %s\n" % e)
 ```
@@ -35,16 +34,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | response
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | response
 
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_0.application_json](#response_for_0.application_json), ] |  |
+body | typing.Union[[response_for_.application_json](#response_for_.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_0.application_json" >response_for_0.application_json</a>
+# <a id="response_for_..application_json" >response_for_..application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from . import response_for_default
+from . import response_for_
 
 _all_accept_content_types = (
     'application/json',
@@ -41,7 +41,6 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -61,7 +60,6 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -96,7 +94,13 @@ class BaseApi(api_client.Api):
         if skip_deserialization:
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
-            api_response = default_response.deserialize(response, self.api_client.configuration)
+            status = str(response.status)
+            if status in _status_code_to_response:
+                status: typing_extensions.Literal[
+                ]
+                api_response = _status_code_to_response[status].deserialize(response, self.api_client.configuration)
+            else:
+                api_response = default_response.deserialize(response, self.api_client.configuration)
 
         if not 200 <= response.status <= 299:
             raise exceptions.ApiException(
@@ -119,7 +123,6 @@ class FooGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -139,7 +142,6 @@ class FooGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -169,7 +171,6 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -189,7 +190,6 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

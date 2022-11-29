@@ -101,17 +101,17 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
-404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | User not found
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | Success
+ | [response_for_.ApiResponse](#response_for_.ApiResponse) | User not found
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_.ApiResponse" >response_for_.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -32,8 +32,8 @@ class TestFakeUploadFile(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 200
-    response_body_schema = post.response_for_200.application_json
+    response_status = 
+    response_body_schema = post.response_for_.application_json
 
 
 
