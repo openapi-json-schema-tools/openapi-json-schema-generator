@@ -429,7 +429,7 @@ public class DefaultGeneratorTest {
 
         // Validate when converting to response
         ApiResponse response = operation.getResponses().get("200");
-        CodegenResponse codegenResponse = config.fromResponse("200", response, null);
+        CodegenResponse codegenResponse = config.fromResponse(response, null);
 
         Assert.assertEquals(codegenResponse.getContent().get("*/*").getSchema().getPattern(), escapedPattern);
     }

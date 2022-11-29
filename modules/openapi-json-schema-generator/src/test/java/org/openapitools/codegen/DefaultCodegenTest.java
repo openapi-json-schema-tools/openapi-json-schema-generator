@@ -1699,7 +1699,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenResponse cr = codegen.fromResponse("2XX", response2XX, "");
+        CodegenResponse cr = codegen.fromResponse(response2XX, "");
         Assert.assertNotNull(cr);
         Assert.assertTrue(cr.hasHeaders);
     }
@@ -3508,7 +3508,7 @@ public class DefaultCodegenTest {
         ));
         HashSet<String> modelNamesWithRequired = new HashSet(Arrays.asList(
         ));
-        for (CodegenResponse cr : co.responses) {
+        for (CodegenResponse cr : co.responses.values()) {
             boolean hasRequired = cr.getContent().get("application/json").getSchema().getHasRequired();
             if (modelNamesWithoutRequired.contains(cr.message)) {
                 assertFalse(hasRequired);
@@ -3967,10 +3967,8 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "GET", operation, null);
         //assertTrue(co.hasErrorResponseObject);
         cr = co.responses.get(0);
-        assertTrue(cr.is2xx);
         assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
         cr = co.responses.get(3);
-        assertTrue(cr.is5xx);
         assertFalse(cr.getContent().get("application/application").getSchema().isPrimitiveType);
 
         path = "/pet";
@@ -3980,13 +3978,10 @@ public class DefaultCodegenTest {
 
         // 200 response
         cr = co.responses.get(0);
-        assertTrue(cr.is2xx);
         assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
 
         // 400 response
         cr = co.responses.get(1);
-        assertTrue(cr.is4xx);
-        assertEquals(cr.code, "400");
         assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
 
         path = "/pet/findByTags";
@@ -3994,7 +3989,6 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "GET", operation, null);
         assertFalse(co.hasErrorResponseObject);
         cr = co.responses.get(0);
-        assertTrue(cr.is2xx);
         assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
     }
 

@@ -33,7 +33,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 
 {{#each responses}}
     {{#if @first}}
-    response_status = {{@key}}
+    response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
 {{#if content}}
 {{#each content}}
     {{#if schema}}

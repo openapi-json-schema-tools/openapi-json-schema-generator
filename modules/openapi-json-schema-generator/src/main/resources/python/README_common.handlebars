@@ -39,6 +39,14 @@ HTTP request | Method | Description
 - {{#with this}}[{{refModule}}](docs/components/request_bodies/{{refModule}}.md){{/with}}
 {{/each}}
 {{/if}}
+{{#if responses}}
+
+## Documentation For Component RequestBodies
+
+{{#each responses}}
+- {{#with this}}[{{refModule}}](docs/components/request_bodies/{{refModule}}.md){{/with}}
+{{/each}}
+{{/if}}
 
 ## Documentation For Authorization
 
