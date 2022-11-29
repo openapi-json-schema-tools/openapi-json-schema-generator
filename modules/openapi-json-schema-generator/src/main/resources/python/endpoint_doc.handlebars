@@ -185,7 +185,7 @@ Key | Accessed Type | Description  | Notes
     {{#each responseHeaders}}
         {{#if schema}}
             {{#with schema}}
-{{../baseName}} | [response_for_{{../@key}}.{{../paramName}}.schema](#response_for_{{../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [response_for_{{../../@key}}.{{../paramName}}.schema](#response_for_{{../../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
             {{/with}}
         {{else}}
             {{#each getContent}}
