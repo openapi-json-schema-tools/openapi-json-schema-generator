@@ -157,34 +157,33 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-{{#each responses}}
-{{#if isDefault}}
+{{#if defaultResponse}}
 default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
-{{else}}
-{{code}} | [response_for_{{code}}.ApiResponse](#response_for_{{code}}.ApiResponse) | {{message}}
 {{/if}}
+{{#each nonDefaultResponses}}
+{{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/each}}
 {{#each responses}}
-{{#if isDefault}}
+{{#eq @key "default"}}
 
 #### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 {{else}}
 
-#### <a id="response_for_{{code}}.ApiResponse" >response_for_{{code}}.ApiResponse</a>
-{{/if}}
+#### <a id="response_for_{{@key}}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
+{{/eq}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{code}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#response_for_{{code}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{code}}.Headers](#response_for_{{code}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{@key}}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#response_for_{{@key}}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{@key}}}.Headers](#response_for_{{@key}}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key} schemaNamePrefix3="." complexTypePrefix="../../../components/schema/" }}
     {{/with}}
 {{/each}}
 {{#if responseHeaders}}
-#### <a id="response_for_{{code}}.Headers" >response_for_{{code}}.Headers</a>
+#### <a id="response_for_{{@key}}}.Headers" >response_for_{{@key}}}.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
