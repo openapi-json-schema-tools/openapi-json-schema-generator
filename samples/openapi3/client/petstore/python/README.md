@@ -362,6 +362,10 @@ HTTP request | Method | Description
 - [pet_request_body](docs/components/request_bodies/pet_request_body.md)
 - [user_array_request_body](docs/components/request_bodies/user_array_request_body.md)
 
+## Documentation For Component Responses
+
+- [success_description_only_response](docs/components/request_bodies/success_description_only_response.md)
+
 ## Documentation For Authorization
 
 

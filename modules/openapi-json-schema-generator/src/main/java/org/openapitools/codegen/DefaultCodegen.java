@@ -4479,21 +4479,36 @@ public class DefaultCodegen implements CodegenConfig {
      * @return Codegen Response object
      */
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
-        CodegenResponse r = CodegenModelFactory.newInstance(CodegenModelType.RESPONSE);
+        String responseRef = response.get$ref();
+        ApiResponse usedResponse = response;
+        String usedSourceJsonPath = sourceJsonPath;
+        if (responseRef != null) {
+            usedResponse = ModelUtils.getReferencedApiResponse(this.openAPI, response);
+            usedSourceJsonPath = responseRef;
+        }
 
-        r.message = escapeText(response.getDescription());
+        if (usedResponse == null) {
+            LOGGER.error("response in fromResponse cannot be null!");
+            throw new RuntimeException("response in fromResponse cannot be null!");
+        }
+
+        CodegenResponse r = CodegenModelFactory.newInstance(CodegenModelType.RESPONSE);
+        if (responseRef != null) {
+            r.setRef(responseRef);
+            r.setRefModule(toRefModule(responseRef, "responses"));
+        }
+        r.message = escapeText(usedResponse.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment
         //r.examples = toExamples(response.getExamples());
-        r.jsonSchema = Json.pretty(response);
-        if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
-            r.vendorExtensions.putAll(response.getExtensions());
+        r.jsonSchema = Json.pretty(usedResponse);
+        if (usedResponse.getExtensions() != null && !usedResponse.getExtensions().isEmpty()) {
+            r.vendorExtensions.putAll(usedResponse.getExtensions());
         }
-        String usedSourceJsonPath = sourceJsonPath + "/";
 
-        Map<String, Header> headers = response.getHeaders();
+        Map<String, Header> headers = usedResponse.getHeaders();
         if (headers != null) {
-            if (!response.getHeaders().isEmpty()) {
+            if (!usedResponse.getHeaders().isEmpty()) {
                 r.hasHeaders = true;
             }
             List<CodegenParameter> responseHeaders = new ArrayList<>();
@@ -6518,8 +6533,11 @@ public class DefaultCodegen implements CodegenConfig {
         if (!refPieces[2].equals(expectedComponentType)) {
             throw new RuntimeException("Incorrect component type in ref, expected "+expectedComponentType+" and saw "+refPieces[2]);
         }
-        if (expectedComponentType.equals("requestBodies")) {
-            return toRequestBodyFileName(refPieces[3]);
+        switch (expectedComponentType) {
+            case "requestBodies":
+                return toRequestBodyFileName(refPieces[3]);
+            case "responses":
+                return toResponseFilename(refPieces[3]);
         }
         return null;
     }
