@@ -685,9 +685,9 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
-        for (Map.Entry<String, ApiResponse> entry: specResponses.entrySet()) {
-            String componentName = entry.getKey();
-            ApiResponse apiResponse = entry.getValue();
+        for (Map.Entry<String, ApiResponse> responseEntry: specResponses.entrySet()) {
+            String componentName = responseEntry.getKey();
+            ApiResponse apiResponse = responseEntry.getValue();
             String sourceJsonPath = "#/components/responses/" + componentName;
             CodegenResponse response = config.fromResponse(null, apiResponse, sourceJsonPath);
             // use refRequestBody so the refModule info will be contained inside the parameter
@@ -695,7 +695,30 @@ public class DefaultGenerator implements Generator {
             specRefApiResponse.set$ref(sourceJsonPath);
             CodegenResponse refResponse = config.fromResponse(null, specRefApiResponse, null);
             responses.put(componentName, refResponse);
-            // TODO code to generate file and doc file
+            Boolean generateResponses = Boolean.TRUE;
+            for (Map.Entry<String, String> entry : config.responseTemplateFiles().entrySet()) {
+                String templateName = entry.getKey();
+                String fileExtension = entry.getValue();
+                String fileFolder = config.responseFileFolder();
+                String filename = fileFolder + File.separatorChar + config.toResponseFilename(componentName) + fileExtension;
+
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("response", response);
+                templateData.put("imports", response.imports);
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateResponses, CodegenConstants.RESPONSES, fileFolder);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "response");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
+            // TODO code to generate doc file
         }
         return responses;
     }
@@ -723,7 +746,7 @@ public class DefaultGenerator implements Generator {
                 String docExtension = config.getDocExtension();
                 String suffix = docExtension != null ? docExtension : config.requestBodyTemplateFiles().get(templateName);
                 String fileFolder = config.requestBodyFileFolder();
-                String filename = config.requestBodyFileFolder() + File.separatorChar + config.toRequestBodyFilename(componentName) + suffix;
+                String filename = fileFolder + File.separatorChar + config.toRequestBodyFilename(componentName) + suffix;
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());

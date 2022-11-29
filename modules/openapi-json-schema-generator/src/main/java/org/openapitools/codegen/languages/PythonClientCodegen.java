@@ -324,6 +324,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
         pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
+        responseTemplateFiles.put("response.handlebars", ".py");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -2356,6 +2357,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename(componentName) + "_request_body";
     }
+
+    public String toResponseFilename(String componentName) { return toModuleFilename(componentName) + "_response"; }
 
     public String toRequestBodyDocFilename(String componentName) {
         return toRequestBodyFilename(componentName);

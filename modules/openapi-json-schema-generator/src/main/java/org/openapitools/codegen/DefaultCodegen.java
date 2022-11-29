@@ -184,6 +184,8 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> modelTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
+    protected Map<String, String> responseTemplateFiles = new HashMap<>();
+    protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
     protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
@@ -1215,6 +1217,12 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
 
     @Override
+    public Map<String, String> responseTemplateFiles() { return responseTemplateFiles; }
+
+    @Override
+    public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
+
+    @Override
     public Map<String, String> pathEndpointTemplateFiles() { return pathEndpointTemplateFiles; }
 
     @Override
@@ -1240,6 +1248,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
+
+    public String toResponseFilename(String componentName) { return toModuleFilename(componentName); }
 
     @Override
     public String apiFileFolder() {
@@ -7318,6 +7328,11 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String requestBodyFileFolder() {
         return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+    }
+
+    @Override
+    public String responseFileFolder() {
+        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "responses";
     }
 
     @Override
