@@ -75,8 +75,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         response_for_200.ApiResponse,
+        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -96,8 +96,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         response_for_200.ApiResponse,
+        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -169,8 +169,8 @@ class DeleteCoffee(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         response_for_200.ApiResponse,
+        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -190,8 +190,8 @@ class DeleteCoffee(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         response_for_200.ApiResponse,
+        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -221,8 +221,8 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         response_for_200.ApiResponse,
+        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -242,8 +242,8 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
         response_for_200.ApiResponse,
+        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

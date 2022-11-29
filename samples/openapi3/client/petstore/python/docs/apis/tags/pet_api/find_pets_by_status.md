@@ -151,7 +151,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_application/xml.application_xml](#response_for_application/xml.application_xml), [response_for_application/json.application_json](#response_for_application/json.application_json), ] |  |
+body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
 # <a id="response_for_200.application_xml" >response_for_200.application_xml</a>

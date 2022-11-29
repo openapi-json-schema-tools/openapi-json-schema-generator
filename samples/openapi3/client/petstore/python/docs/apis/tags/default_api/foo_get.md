@@ -41,7 +41,7 @@ default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_application/json.application_json](#response_for_application/json.application_json), ] |  |
+body | typing.Union[[response_for_default.application_json](#response_for_default.application_json), ] |  |
 headers | Unset | headers were not defined |
 
 # <a id="response_for_default.application_json" >response_for_default.application_json</a>

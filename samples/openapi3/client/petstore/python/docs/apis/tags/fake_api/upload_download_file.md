@@ -64,7 +64,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_application/octet-stream.application_octet_stream](#response_for_application/octet-stream.application_octet_stream), ] |  |
+body | typing.Union[[response_for_200.application_octet_stream](#response_for_200.application_octet_stream), ] |  |
 headers | Unset | headers were not defined |
 
 # <a id="response_for_200.application_octet_stream" >response_for_200.application_octet_stream</a>
