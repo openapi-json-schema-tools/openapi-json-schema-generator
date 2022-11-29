@@ -32,7 +32,7 @@ class TestUserCreateWithArray(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 
+    response_status = default
     response_body = ''
 
 

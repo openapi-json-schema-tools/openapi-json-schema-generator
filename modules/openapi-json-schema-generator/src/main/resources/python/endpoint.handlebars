@@ -25,7 +25,7 @@ from {{packageName}}.components.request_bodies import {{refModule}} as request_b
 from .. import path
 {{/unless}}
 {{#each responses}}
-from . import response_for_{{#eq @key "default"}}default{{else}}{{@key}}{{/eq}}
+from . import response_for_{{@key}}
 {{/each}}
 {{#with bodyParam}}
 {{#unless refModule}}

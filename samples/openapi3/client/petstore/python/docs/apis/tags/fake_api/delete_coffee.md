@@ -63,7 +63,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | 
+default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | Unexpected error
 200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
 
 #### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>

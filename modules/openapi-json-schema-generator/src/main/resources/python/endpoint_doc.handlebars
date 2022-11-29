@@ -158,19 +158,14 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
+default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{defaultResponse.message}}
 {{/if}}
 {{#each nonDefaultResponses}}
 {{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/each}}
 {{#each responses}}
-{{#eq @key "default"}}
-
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
-{{else}}
 
 #### <a id="response_for_{{@key}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
-{{/eq}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
