@@ -27,9 +27,9 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.request_bodies import pet_request_body as request_body
 
 from .. import path
-from . import response_for_
-from . import response_for_
-from . import response_for_
+from . import response_for_400
+from . import response_for_404
+from . import response_for_405
 
 
 _auth = [

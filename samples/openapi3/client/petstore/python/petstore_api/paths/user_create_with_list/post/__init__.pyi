@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 from petstore_api.components.request_bodies import user_array_request_body as request_body
 
-from . import response_for_
+from . import response_for_default
 
 
 
@@ -40,6 +40,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -51,6 +52,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
     ]: ...
 
 
@@ -73,6 +75,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -149,6 +152,7 @@ class CreateUsersWithListInput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -160,6 +164,7 @@ class CreateUsersWithListInput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
     ]: ...
 
 
@@ -182,6 +187,7 @@ class CreateUsersWithListInput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -214,6 +220,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -225,6 +232,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
     ]: ...
 
 
@@ -247,6 +255,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
+        response_for_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
