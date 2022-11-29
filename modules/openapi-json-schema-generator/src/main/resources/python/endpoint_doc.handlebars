@@ -191,7 +191,7 @@ Key | Accessed Type | Description  | Notes
             {{#each getContent}}
                 {{#with this}}
                     {{#with schema}}
-{{../baseName}} | [response_for_{{../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                     {{/with}}
                 {{/with}}
             {{/each}}
@@ -208,7 +208,7 @@ Key | Accessed Type | Description  | Notes
                 {{#with this}}
                     {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
                     {{/with}}
                 {{/with}}
             {{/each}}

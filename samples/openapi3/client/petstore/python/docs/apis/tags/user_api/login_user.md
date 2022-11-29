@@ -100,10 +100,10 @@ str,  | str,  |  |
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-X-Rate-Limit | [response_for_application/json.parameter_x_rate_limit.application_json](#response_for_application/json.parameter_x_rate_limit.application_json) | | optional
+X-Rate-Limit | [response_for_200.parameter_x_rate_limit.application_json](#response_for_200.parameter_x_rate_limit.application_json) | | optional
 X-Expires-After | [response_for_1.parameter_x_expires_after.schema](#response_for_1.parameter_x_expires_after.schema) | | optional
 
-# <a id="response_for_.parameter_x_rate_limit..application_json" >response_for_.parameter_x_rate_limit..application_json</a>
+# <a id="response_for_200.parameter_x_rate_limit.application_json" >response_for_200.parameter_x_rate_limit.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
