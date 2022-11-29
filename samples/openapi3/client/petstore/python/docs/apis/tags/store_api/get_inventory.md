@@ -38,6 +38,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # Returns pet inventories by status
         api_response = api_instance.get_inventory()
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->get_inventory: %s\n" % e)
 ```

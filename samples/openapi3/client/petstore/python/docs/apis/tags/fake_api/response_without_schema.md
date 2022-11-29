@@ -25,6 +25,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # receives a response without schema
         api_response = api_instance.response_without_schema()
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->response_without_schema: %s\n" % e)
 ```

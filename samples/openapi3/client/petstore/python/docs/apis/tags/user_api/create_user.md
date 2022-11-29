@@ -44,6 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.create_user(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->create_user: %s\n" % e)
 ```

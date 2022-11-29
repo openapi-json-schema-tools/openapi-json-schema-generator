@@ -44,6 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.create_users_with_list_input(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->create_users_with_list_input: %s\n" % e)
 ```

@@ -30,6 +30,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.query_param_with_json_content_type(
             query_params=query_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->query_param_with_json_content_type: %s\n" % e)
 ```

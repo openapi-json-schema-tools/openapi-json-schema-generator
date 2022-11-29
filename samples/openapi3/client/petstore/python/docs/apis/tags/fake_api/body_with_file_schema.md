@@ -35,6 +35,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.body_with_file_schema(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->body_with_file_schema: %s\n" % e)
 ```

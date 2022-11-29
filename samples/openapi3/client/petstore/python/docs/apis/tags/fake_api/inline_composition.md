@@ -35,6 +35,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->inline_composition: %s\n" % e)
 ```

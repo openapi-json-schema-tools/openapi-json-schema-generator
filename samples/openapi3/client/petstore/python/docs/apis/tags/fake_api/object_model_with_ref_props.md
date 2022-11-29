@@ -32,6 +32,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.object_model_with_ref_props(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->object_model_with_ref_props: %s\n" % e)
 ```

@@ -47,6 +47,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
             header_params=header_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 
@@ -67,6 +68,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
             header_params=header_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```

@@ -35,6 +35,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.place_order(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->place_order: %s\n" % e)
 ```

@@ -25,6 +25,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # Logs out current logged in user session
         api_response = api_instance.logout_user()
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->logout_user: %s\n" % e)
 ```

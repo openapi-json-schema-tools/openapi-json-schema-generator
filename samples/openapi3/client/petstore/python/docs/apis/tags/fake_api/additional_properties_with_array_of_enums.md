@@ -32,6 +32,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.additional_properties_with_array_of_enums(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->additional_properties_with_array_of_enums: %s\n" % e)
 ```

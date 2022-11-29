@@ -25,6 +25,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # Health check endpoint
         api_response = api_instance.fake_health_get()
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->fake_health_get: %s\n" % e)
 ```

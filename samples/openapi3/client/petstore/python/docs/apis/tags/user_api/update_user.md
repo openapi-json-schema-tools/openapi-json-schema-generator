@@ -48,6 +48,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             path_params=path_params,
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->update_user: %s\n" % e)
 ```

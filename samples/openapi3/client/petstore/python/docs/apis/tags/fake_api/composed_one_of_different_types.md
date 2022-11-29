@@ -28,6 +28,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.composed_one_of_different_types(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->composed_one_of_different_types: %s\n" % e)
 ```

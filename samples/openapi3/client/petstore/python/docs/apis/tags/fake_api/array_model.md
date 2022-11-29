@@ -30,6 +30,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.array_model(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->array_model: %s\n" % e)
 ```

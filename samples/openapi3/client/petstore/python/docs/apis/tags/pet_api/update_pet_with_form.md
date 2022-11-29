@@ -41,6 +41,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.update_pet_with_form(
             path_params=path_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->update_pet_with_form: %s\n" % e)
 
@@ -58,6 +59,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             path_params=path_params,
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->update_pet_with_form: %s\n" % e)
 ```

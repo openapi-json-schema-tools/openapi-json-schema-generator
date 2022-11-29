@@ -31,6 +31,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.login_user(
             query_params=query_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->login_user: %s\n" % e)
 ```

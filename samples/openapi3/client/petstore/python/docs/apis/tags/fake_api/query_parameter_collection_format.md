@@ -45,6 +45,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.query_parameter_collection_format(
             query_params=query_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->query_parameter_collection_format: %s\n" % e)
 ```

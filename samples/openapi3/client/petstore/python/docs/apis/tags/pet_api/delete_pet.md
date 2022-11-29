@@ -44,6 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             path_params=path_params,
             header_params=header_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->delete_pet: %s\n" % e)
 
@@ -60,6 +61,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             path_params=path_params,
             header_params=header_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->delete_pet: %s\n" % e)
 ```

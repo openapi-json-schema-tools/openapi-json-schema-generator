@@ -43,6 +43,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             header_params=header_params,
             cookie_params=cookie_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
 
@@ -84,6 +85,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             cookie_params=cookie_params,
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
 ```

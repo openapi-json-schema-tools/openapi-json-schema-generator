@@ -30,6 +30,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.inline_additional_properties(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->inline_additional_properties: %s\n" % e)
 ```
