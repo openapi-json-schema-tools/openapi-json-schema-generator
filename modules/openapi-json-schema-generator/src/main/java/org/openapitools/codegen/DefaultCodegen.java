@@ -4255,6 +4255,7 @@ public class DefaultCodegen implements CodegenConfig {
         addConsumesInfo(operation, op);
 
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
+            op.responses = new TreeMap<>();
             ApiResponse methodResponse = findMethodResponse(operation.getResponses());
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
                 String key = operationGetResponsesEntry.getKey();
@@ -4267,21 +4268,38 @@ public class DefaultCodegen implements CodegenConfig {
                 if ("default".equals(key)) {
                     op.defaultResponse = r;
                 } else {
+                    if (op.nonDefaultResponses == null) {
+                        op.nonDefaultResponses = new TreeMap<>();
+                    }
                     op.nonDefaultResponses.put(key, r);
                     if (key.endsWith("XX") && key.length() == 3) {
+                        if (op.wildcardCodeResponses == null) {
+                            op.wildcardCodeResponses = new TreeMap<>();
+                        }
                         String firstNumber = key.substring(0, 1);
                         op.wildcardCodeResponses.put(Integer.parseInt(firstNumber), r);
                     } else {
+                        if (op.statusCodeResponses == null) {
+                            op.statusCodeResponses = new TreeMap<>();
+                        }
                         op.statusCodeResponses.put(Integer.parseInt(key), r);
                     }
                 }
             }
 
             // sort them
-            op.responses = new TreeMap<>(op.responses);
-            op.nonDefaultResponses = new TreeMap<>(op.nonDefaultResponses);
-            op.statusCodeResponses = new TreeMap<>(op.statusCodeResponses);
-            op.wildcardCodeResponses = new TreeMap<>(op.wildcardCodeResponses);
+            if (op.responses != null) {
+                op.responses = new TreeMap<>(op.responses);
+            }
+            if (op.nonDefaultResponses != null) {
+                op.nonDefaultResponses = new TreeMap<>(op.nonDefaultResponses);
+            }
+            if (op.statusCodeResponses != null) {
+                op.statusCodeResponses = new TreeMap<>(op.statusCodeResponses);
+            }
+            if (op.wildcardCodeResponses != null) {
+                op.wildcardCodeResponses = new TreeMap<>(op.wildcardCodeResponses);
+            }
 
             if (methodResponse != null) {
                 handleMethodResponse(operation, schemas, op, methodResponse, importMapping);

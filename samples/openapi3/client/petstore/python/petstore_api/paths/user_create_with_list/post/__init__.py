@@ -32,13 +32,6 @@ from . import response_for_default
 
 
 default_response = response_for_default.response
-__StatusCodeToResponse = typing_extensions.TypedDict(
-    '__StatusCodeToResponse',
-    {
-    }
-)
-_status_code_to_response = __StatusCodeToResponse({
-})
 
 
 class BaseApi(api_client.Api):
@@ -133,13 +126,7 @@ class BaseApi(api_client.Api):
         if skip_deserialization:
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
-            status = str(response.status)
-            if status in _status_code_to_response:
-                status: typing_extensions.Literal[
-                ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.configuration)
-            else:
-                api_response = default_response.deserialize(response, self.api_client.configuration)
+            api_response = default_response.deserialize(response, self.api_client.configuration)
 
         if not 200 <= response.status <= 299:
             raise exceptions.ApiException(

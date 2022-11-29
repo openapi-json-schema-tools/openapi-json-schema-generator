@@ -45,11 +45,11 @@ public class CodegenOperation {
     public List<CodegenParameter> optionalParams = new ArrayList<CodegenParameter>();
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
-    public TreeMap<String, CodegenResponse> responses = new TreeMap<>();
-    public TreeMap<Integer, CodegenResponse> statusCodeResponses = new TreeMap<>();
-    public TreeMap<Integer, CodegenResponse> wildcardCodeResponses = new TreeMap<>();
+    public TreeMap<String, CodegenResponse> responses = null;
+    public TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
+    public TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
 
-    public TreeMap<String, CodegenResponse> nonDefaultResponses = new TreeMap<>();
+    public TreeMap<String, CodegenResponse> nonDefaultResponses = null;
     public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();
     public Set<String> imports = new HashSet<String>();
