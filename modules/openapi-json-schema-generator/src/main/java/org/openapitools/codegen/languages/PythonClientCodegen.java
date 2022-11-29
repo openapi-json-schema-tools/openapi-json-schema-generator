@@ -715,7 +715,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         List<CodegenOperation> operations = val.getOperation();
         for (CodegenOperation operation : operations) {
             fixSchemaImports(operation.imports);
-            for (CodegenResponse response: operation.responses) {
+            for (CodegenResponse response: operation.responses.values()) {
                 fixSchemaImports(response.imports);
             }
         }

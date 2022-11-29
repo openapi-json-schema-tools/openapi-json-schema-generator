@@ -385,5 +385,5 @@ public interface CodegenConfig {
 
     String getBodyParameterName(CodegenOperation co);
 
-    CodegenResponse fromResponse(String responseCode, ApiResponse response, String sourceJsonPath);
+    CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
 }

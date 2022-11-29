@@ -540,10 +540,12 @@ public class DefaultGenerator implements Generator {
                     }
                 }
 
-                for (CodegenResponse response: co.responses) {
+                for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
                     // paths.some_path.post.response_for_200.__init__.py (file per response)
                     // response is a package because responses have Headers which can be refed
                     // so each inline header should be a module in the response package
+                    String code = responseEntry.getKey();
+                    CodegenResponse response = responseEntry.getValue();
 
                     for (Map.Entry<String, String> entry: config.pathEndpointResponseTemplateFiles().entrySet()) {
                         String templateFile = entry.getKey();
@@ -551,7 +553,7 @@ public class DefaultGenerator implements Generator {
                         Map<String, Object> responseMap = new HashMap<>();
                         responseMap.put("response", response);
                         responseMap.put("packageName", packageName);
-                        String responseModuleName = (response.isDefault)? "response_for_default" : "response_for_"+response.code;
+                        String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
                         String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
                         pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
                         for (CodegenParameter header: response.getResponseHeaders()) {
@@ -689,11 +691,11 @@ public class DefaultGenerator implements Generator {
             String componentName = responseEntry.getKey();
             ApiResponse apiResponse = responseEntry.getValue();
             String sourceJsonPath = "#/components/responses/" + componentName;
-            CodegenResponse response = config.fromResponse(null, apiResponse, sourceJsonPath);
+            CodegenResponse response = config.fromResponse(apiResponse, sourceJsonPath);
             // use refRequestBody so the refModule info will be contained inside the parameter
             ApiResponse specRefApiResponse = new ApiResponse();
             specRefApiResponse.set$ref(sourceJsonPath);
-            CodegenResponse refResponse = config.fromResponse(null, specRefApiResponse, null);
+            CodegenResponse refResponse = config.fromResponse(specRefApiResponse, null);
             responses.put(componentName, refResponse);
             Boolean generateResponses = Boolean.TRUE;
             for (Map.Entry<String, String> entry : config.responseTemplateFiles().entrySet()) {

@@ -137,7 +137,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Ok
+200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
 405 | [response_for_405.ApiResponse](#response_for_405.ApiResponse) | Invalid input
 
 #### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>

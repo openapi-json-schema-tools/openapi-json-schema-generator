@@ -4136,21 +4136,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (responseSchema != null) {
             CodegenProperty cm = fromProperty("response", responseSchema, false, false, null);
 
-            if (ModelUtils.isArraySchema(responseSchema)) {
-                ArraySchema as = (ArraySchema) responseSchema;
-                CodegenProperty innerProperty = fromProperty("response", getSchemaItems(as), false, false, null);
-                op.returnBaseType = innerProperty.baseType;
-            } else if (ModelUtils.isMapSchema(responseSchema)) {
-                CodegenProperty innerProperty = fromProperty("response", getAdditionalProperties(responseSchema), false, false, null);
-                op.returnBaseType = innerProperty.baseType;
-            } else {
-                if (cm.refClass != null) {
-                    op.returnBaseType = cm.refClass;
-                } else {
-                    op.returnBaseType = cm.baseType;
-                }
-            }
-
             // check skipOperationExample, which can be set to true to avoid out of memory errors for large spec
             if (!isSkipOperationExample()) {
                 // generate examples
@@ -4162,41 +4147,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 op.examples = new ExampleGenerator(schemas, this.openAPI).generateFromResponseSchema(exampleStatusCode, responseSchema, getProducesInfo(this.openAPI, operation));
             }
-
-            op.returnType = cm.dataType;
-            op.returnFormat = cm.dataFormat;
-            op.hasReference = schemas != null && schemas.containsKey(op.returnBaseType);
-
-            // lookup discriminator
-            Schema schema = null;
-            if (schemas != null) {
-                schema = schemas.get(op.returnBaseType);
-            }
-            if (schema != null) {
-                CodegenModel cmod = fromModel(op.returnBaseType, schema);
-                op.discriminator = cmod.discriminator;
-            }
-
-            if (cm.isContainer) {
-                op.returnContainer = cm.containerType;
-                if ("map".equals(cm.containerType)) {
-                    op.isMap = true;
-                } else if ("list".equalsIgnoreCase(cm.containerType)) {
-                    op.isArray = true;
-                } else if ("array".equalsIgnoreCase(cm.containerType)) {
-                    op.isArray = true;
-                } else if ("set".equalsIgnoreCase(cm.containerType)) {
-                    op.isArray = true;
-                }
-            } else {
-                op.returnSimpleType = true;
-            }
-            if (languageSpecificPrimitives().contains(op.returnBaseType) || op.returnBaseType == null) {
-                op.returnTypeIsPrimitive = true;
-            }
-            op.returnProperty = cm;
         }
-        addHeaders(methodResponse, op.responseHeaders, null);
     }
 
     public String getBodyParameterName(CodegenOperation co) {
@@ -4309,46 +4260,28 @@ public class DefaultCodegen implements CodegenConfig {
                 String key = operationGetResponsesEntry.getKey();
                 ApiResponse response = operationGetResponsesEntry.getValue();
                 addProducesInfo(response, op);
-                String usedSourceJsonPath = sourceJsonPath + "/responses";
-                CodegenResponse r = fromResponse(key, response, usedSourceJsonPath);
+                String usedSourceJsonPath = sourceJsonPath + "/responses/" + key;
+                CodegenResponse r = fromResponse(response, usedSourceJsonPath);
 
-                op.responses.add(r);
-                // TODO remove this, the response should not know what is inside it
-                if (r.is2xx && r.getContent() != null) {
-                    for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
-                        CodegenMediaType cm = entry.getValue();
-                        CodegenProperty cp = cm.getSchema();
-                        if (cp != null) {
-                            if (cp.isBinary) {
-                                op.isResponseBinary = Boolean.TRUE;
-                            } else if (cp.isFile) {
-                                op.isResponseFile = Boolean.TRUE;
-                            }
-                        }
-                    }
-                }
-                if (Boolean.TRUE.equals(r.isDefault)) {
-                    op.defaultReturnType = Boolean.TRUE;
+                op.responses.put(key, r);
+                if ("default".equals(key)) {
                     op.defaultResponse = r;
-                }
-                // check if any 4xx or 5xx response has an error response object defined
-                if ((Boolean.TRUE.equals(r.is4xx) || Boolean.TRUE.equals(r.is5xx)) && r.getContent() != null) {
-                    for (Entry <String, CodegenMediaType> entry: r.getContent().entrySet()) {
-                        CodegenMediaType cm = entry.getValue();
-                        CodegenProperty cp = cm.getSchema();
-                        if (cp.isArray || cp.isMap || cp.refClass != null) {
-                            op.hasErrorResponseObject = Boolean.TRUE;
-                            break;
-                        }
+                } else {
+                    op.nonDefaultResponses.put(key, r);
+                    if (key.endsWith("XX") && key.length() == 3) {
+                        String firstNumber = key.substring(0, 1);
+                        op.wildcardCodeResponses.put(firstNumber, r);
+                    } else {
+                        op.statusCodeResponses.put(key, r);
                     }
                 }
             }
 
-            op.responses.sort((a, b) -> {
-                int aScore = a.isWildcard() ? 2 : a.isRange() ? 1 : 0;
-                int bScore = b.isWildcard() ? 2 : b.isRange() ? 1 : 0;
-                return Integer.compare(aScore, bScore);
-            });
+            // sort them
+            op.responses = new TreeMap<>(op.responses);
+            op.nonDefaultResponses = new TreeMap<>(op.nonDefaultResponses);
+            op.statusCodeResponses = new TreeMap<>(op.statusCodeResponses);
+            op.wildcardCodeResponses = new TreeMap<>(op.wildcardCodeResponses);
 
             if (methodResponse != null) {
                 handleMethodResponse(operation, schemas, op, methodResponse, importMapping);
@@ -4524,38 +4457,11 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Convert OAS Response object to Codegen Response object
      *
-     * @param responseCode HTTP response code
      * @param response     OAS Response object
      * @return Codegen Response object
      */
-    public CodegenResponse fromResponse(String responseCode, ApiResponse response, String sourceJsonPath) {
+    public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
         CodegenResponse r = CodegenModelFactory.newInstance(CodegenModelType.RESPONSE);
-
-        if ("default".equals(responseCode) || "defaultResponse".equals(responseCode)) {
-            r.code = "0";
-            r.isDefault = true;
-        } else {
-            r.code = responseCode;
-            switch (r.code.charAt(0)) {
-                case '1':
-                    r.is1xx = true;
-                    break;
-                case '2':
-                    r.is2xx = true;
-                    break;
-                case '3':
-                    r.is3xx = true;
-                    break;
-                case '4':
-                    r.is4xx = true;
-                    break;
-                case '5':
-                    r.is5xx = true;
-                    break;
-                default:
-                    throw new RuntimeException("Invalid response code " + responseCode);
-            }
-        }
 
         r.message = escapeText(response.getDescription());
         // TODO need to revise and test examples in responses
@@ -4566,17 +4472,12 @@ public class DefaultCodegen implements CodegenConfig {
             r.vendorExtensions.putAll(response.getExtensions());
         }
         String usedSourceJsonPath = sourceJsonPath + "/";
-        if (r.code.equals("0")) {
-            usedSourceJsonPath = usedSourceJsonPath + "default";
-        } else {
-            usedSourceJsonPath = usedSourceJsonPath + r.code;
-        }
-        // TODO remove these two because the info is in responseHeaders
-        addHeaders(response, r.headers, usedSourceJsonPath + "/headers");
-        r.hasHeaders = !r.headers.isEmpty();
 
         Map<String, Header> headers = response.getHeaders();
         if (headers != null) {
+            if (!response.getHeaders().isEmpty()) {
+                r.hasHeaders = true;
+            }
             List<CodegenParameter> responseHeaders = new ArrayList<>();
             for (Entry<String, Header> entry : headers.entrySet()) {
                 String headerName = entry.getKey();
@@ -5055,41 +4956,6 @@ public class DefaultCodegen implements CodegenConfig {
             output.add(kv);
         }
         return output;
-    }
-
-    /**
-     * Add headers to codegen property
-     *
-     * @param response   API response
-     * @param properties list of codegen property
-     */
-    protected void addHeaders(ApiResponse response, List<CodegenProperty> properties, String sourceJsonPath) {
-        if (response.getHeaders() != null) {
-            for (Map.Entry<String, Header> headerEntry : response.getHeaders().entrySet()) {
-                String description = headerEntry.getValue().getDescription();
-                // follow the $ref
-                Header header = ModelUtils.getReferencedHeader(this.openAPI, headerEntry.getValue());
-
-                Schema schema;
-                if (header.getSchema() == null) {
-                    LOGGER.warn("No schema defined for Header '{}', using a String schema", headerEntry.getKey());
-                    schema = new StringSchema();
-                } else {
-                    schema = header.getSchema();
-                }
-                String headerName = headerEntry.getKey();
-                String usedSourceJsonPath = sourceJsonPath + "/" + headerName;
-                CodegenProperty cp = fromProperty(headerName, schema, false, false, usedSourceJsonPath);
-                cp.setDescription(escapeText(description));
-                cp.setUnescapedDescription(description);
-                if (header.getRequired() != null) {
-                    cp.setRequired(header.getRequired());
-                } else {
-                    cp.setRequired(false);
-                }
-                properties.add(cp);
-            }
-        }
     }
 
     /**
