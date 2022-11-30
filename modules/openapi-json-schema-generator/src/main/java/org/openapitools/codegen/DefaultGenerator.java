@@ -721,7 +721,32 @@ public class DefaultGenerator implements Generator {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
             }
-            // TODO code to generate doc file
+            // TODO make this a property that can be turned off and on
+            Boolean generateResponseDocumentation = Boolean.TRUE;
+            for (String templateName : config.responseDocTemplateFiles().keySet()) {
+                String docExtension = config.getDocExtension();
+                String suffix = docExtension != null ? docExtension : config.responseDocTemplateFiles().get(templateName);
+                String docFilename = config.toResponseDocFilename(componentName);
+                String filename = config.responseDocFileFolder() + File.separator + docFilename + suffix;
+
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("anchorPrefix", "");
+                templateData.put("schemaNamePrefix1", config.packageName() + ".components.responses." + docFilename);
+                templateData.put("this", response);
+                templateData.put("@key", componentName);
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "response-doc");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
         }
         return responses;
     }

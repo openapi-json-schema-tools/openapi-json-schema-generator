@@ -1251,6 +1251,8 @@ public class DefaultCodegen implements CodegenConfig {
 
     public String toResponseFilename(String componentName) { return toModuleFilename(componentName); }
 
+    public String toResponseDocFilename(String componentName) { return toModuleFilename(componentName); }
+
     @Override
     public String apiFileFolder() {
         return outputFolder + File.separator + apiPackage().replace('.', File.separatorChar);
@@ -1283,6 +1285,9 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String requestBodyDocFileFolder() { return outputFolder; }
+
+    @Override
+    public String responseDocFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {

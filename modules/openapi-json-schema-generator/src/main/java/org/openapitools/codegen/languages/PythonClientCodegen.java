@@ -85,6 +85,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String apiDocPath = "docs/apis/tags/";
     protected String modelDocPath = "docs/components/schema/";
     protected String requestBodyDocPath = "docs/components/request_bodies/";
+    protected String responseDocPath = "docs/components/responses/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -325,6 +326,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
         responseTemplateFiles.put("response.handlebars", ".py");
+        responseDocTemplateFiles.put("response_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -2337,12 +2339,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String apiDocFileFolder() {
-        return (outputFolder + "/" + apiDocPath);
+        return (outputFolder + File.separator + apiDocPath);
     }
 
     @Override
     public String modelDocFileFolder() {
-        return (outputFolder + "/" + modelDocPath);
+        return (outputFolder + File.separator + modelDocPath);
     }
 
     @Override
@@ -2354,18 +2356,26 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toApiName(name);
     }
 
+    public String toResponseFilename(String componentName) {
+        return toModuleFilename(componentName) + "_response";
+    }
+
+    public String toResponseDocFilename(String componentName) { return toResponseFilename(componentName); }
+
+    public String responseDocFileFolder() {
+        return outputFolder + File.separator + responseDocPath;
+    }
+
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename(componentName) + "_request_body";
     }
-
-    public String toResponseFilename(String componentName) { return toModuleFilename(componentName) + "_response"; }
 
     public String toRequestBodyDocFilename(String componentName) {
         return toRequestBodyFilename(componentName);
     }
 
     public String requestBodyDocFileFolder() {
-        return outputFolder + "/" + requestBodyDocPath;
+        return outputFolder + File.separator + requestBodyDocPath;
     }
 
     @Override

@@ -91,6 +91,8 @@ public interface CodegenConfig {
 
     String responseFileFolder();
 
+    String responseDocFileFolder();
+
     String toApiName(String name);
 
     String toApiVarName(String name);
@@ -228,6 +230,8 @@ public interface CodegenConfig {
     String toRequestBodyDocFilename(String componentName);
 
     String toResponseFilename(String componentName);
+
+    String toResponseDocFilename(String componentName);
 
     String toPathFileName(String path);
 

@@ -1,0 +1,50 @@
+#### <a id="response_for_{{@key}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{../@key}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#response_for_{{../@key}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{@key}}.Headers](#response_for_{{@key}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
+{{#each content}}
+    {{#with this.schema}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." complexTypePrefix="../../../components/schema/" }}
+    {{/with}}
+{{/each}}
+{{#if responseHeaders}}
+#### <a id="response_for_{{@key}}.Headers" >response_for_{{@key}}.Headers</a>
+
+Key | Accessed Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+    {{#each responseHeaders}}
+        {{#if schema}}
+            {{#with schema}}
+{{../baseName}} | [response_for_{{../../@key}}.{{../paramName}}.schema](#response_for_{{../../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+            {{/with}}
+        {{else}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+{{../baseName}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each responseHeaders}}
+        {{#if schema}}
+            {{#with schema}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
+            {{/with}}
+        {{else}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+{{/if}}
