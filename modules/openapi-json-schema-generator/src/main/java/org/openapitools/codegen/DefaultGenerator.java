@@ -702,15 +702,15 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, String> entry : config.responseTemplateFiles().entrySet()) {
                 String templateName = entry.getKey();
                 String fileExtension = entry.getValue();
-                String fileFolder = config.responseFileFolder();
-                String filename = fileFolder + File.separatorChar + config.toResponseFilename(componentName) + fileExtension;
+                String responseFileFolder = config.responseFileFolder();
+                String responseFilename = responseFileFolder + File.separatorChar + config.toResponseFilename(componentName) + fileExtension;
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("response", response);
                 templateData.put("imports", response.imports);
                 try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateResponses, CodegenConstants.RESPONSES, fileFolder);
+                    File written = processTemplateToFile(templateData, templateName, responseFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
                     if (written != null) {
                         files.add(written);
                         if (config.isEnablePostProcessFile() && !dryRun) {
@@ -718,9 +718,31 @@ public class DefaultGenerator implements Generator {
                         }
                     }
                 } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                    throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
                 }
-                // TODO add generation of inline headers here if needed
+                if (response.getResponseHeaders() != null) {
+                    for (CodegenParameter header: response.getResponseHeaders()) {
+                        for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
+                            Map<String, Object> headerMap = new HashMap<>();
+                            headerMap.put("parameter", header);
+                            headerMap.put("imports", header.imports);
+                            headerMap.put("packageName", config.packageName());
+                            String headerFolder = responseFileFolder + File.separatorChar + config.toResponseFilename(componentName);
+                            String headerFilename = responseFileFolder + File.separatorChar + config.toResponseFilename(componentName) + File.separatorChar + config.toParameterFileName(header.baseName) + ".py";
+                            try {
+                                File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, headerFolder);
+                                if (written != null) {
+                                    files.add(written);
+                                    if (config.isEnablePostProcessFile() && !dryRun) {
+                                        config.postProcessFile(written, "response-header");
+                                    }
+                                }
+                            } catch (Exception e) {
+                                throw new RuntimeException("Could not generate file '" + headerFilename + "'", e);
+                            }
+                        }
+                    }
+                }
             }
             // TODO make this a property that can be turned off and on
             Boolean generateResponseDocumentation = Boolean.TRUE;
