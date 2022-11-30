@@ -546,24 +546,25 @@ public class DefaultGenerator implements Generator {
                     // so each inline header should be a module in the response package
                     String code = responseEntry.getKey();
                     CodegenResponse response = responseEntry.getValue();
-
-                    for (Map.Entry<String, String> entry: config.pathEndpointResponseTemplateFiles().entrySet()) {
-                        String templateFile = entry.getKey();
-                        String renderedOutputFilename = entry.getValue();
-                        Map<String, Object> responseMap = new HashMap<>();
-                        responseMap.put("response", response);
-                        responseMap.put("packageName", packageName);
-                        String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
-                        String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
-                        pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
-                        for (CodegenParameter header: response.getResponseHeaders()) {
-                            for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
-                                Map<String, Object> headerMap = new HashMap<>();
-                                headerMap.put("parameter", header);
-                                headerMap.put("imports", header.imports);
-                                headerMap.put("packageName", packageName);
-                                String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
-                                pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                    if (response.getRefModule() == null) {
+                        for (Map.Entry<String, String> entry: config.pathEndpointResponseTemplateFiles().entrySet()) {
+                            String templateFile = entry.getKey();
+                            String renderedOutputFilename = entry.getValue();
+                            Map<String, Object> responseMap = new HashMap<>();
+                            responseMap.put("response", response);
+                            responseMap.put("packageName", packageName);
+                            String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
+                            String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
+                            pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
+                            for (CodegenParameter header: response.getResponseHeaders()) {
+                                for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                    Map<String, Object> headerMap = new HashMap<>();
+                                    headerMap.put("parameter", header);
+                                    headerMap.put("imports", header.imports);
+                                    headerMap.put("packageName", packageName);
+                                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
+                                    pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                                }
                             }
                         }
                     }
