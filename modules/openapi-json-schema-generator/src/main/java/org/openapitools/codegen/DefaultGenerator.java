@@ -803,7 +803,7 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("anchorPrefix", "");
                 templateData.put("schemaNamePrefix1", config.packageName() + ".components.request_bodies." + docFilename);
-                templateData.put("bodyParam", requestBody);
+                templateData.put("bodyParam", refRequestBody);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {
