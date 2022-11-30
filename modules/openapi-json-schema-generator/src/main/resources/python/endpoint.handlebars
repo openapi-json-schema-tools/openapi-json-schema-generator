@@ -20,12 +20,21 @@ from {{packageName}} import api_client, exceptions
 from {{packageName}}.components.request_bodies import {{refModule}} as request_body
 {{/if}}
 {{/with}}
+{{#each responses}}
+{{#with this}}
+{{#if refModule}}
+from {{packageName}}.components.responses import {{refModule}} as response_for_{{@key}}
+{{/if}}
+{{/with}}
+{{/each}}
 
 {{#unless isStub}}
 from .. import path
 {{/unless}}
 {{#each responses}}
+{{#unless refModule}}
 from . import response_for_{{@key}}
+{{/unless}}
 {{/each}}
 {{#with bodyParam}}
 {{#unless refModule}}
