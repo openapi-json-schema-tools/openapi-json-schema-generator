@@ -720,6 +720,7 @@ public class DefaultGenerator implements Generator {
                 } catch (Exception e) {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
+                // TODO add generation of inline headers here if needed
             }
             // TODO make this a property that can be turned off and on
             Boolean generateResponseDocumentation = Boolean.TRUE;
@@ -731,10 +732,8 @@ public class DefaultGenerator implements Generator {
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
-                templateData.put("anchorPrefix", "");
+                templateData.put("response", refResponse);
                 templateData.put("schemaNamePrefix1", config.packageName() + ".components.responses." + docFilename);
-                templateData.put("this", response);
-                templateData.put("@key", componentName);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {

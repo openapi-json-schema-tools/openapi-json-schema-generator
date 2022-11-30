@@ -65,14 +65,7 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | Unexpected error
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | Success
-
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+200 | [success_description_only_response.ApiResponse](../../../components/responses/success_description_only_response.md) | Success
 
 #### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
