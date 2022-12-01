@@ -148,5 +148,4 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to Component Schemas]](../../../../README.md#Component-Schemas) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to README]](../../../../README.md)

@@ -121,5 +121,4 @@ headers | Unset | headers were not defined |
 
 [petstore_auth](../../../../README.md#petstore_auth)
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to Component Schemas]](../../../../README.md#Component-Schemas) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to README]](../../../../README.md)

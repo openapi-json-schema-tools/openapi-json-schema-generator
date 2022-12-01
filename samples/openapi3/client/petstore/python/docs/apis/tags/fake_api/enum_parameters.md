@@ -194,5 +194,4 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to Component Schemas]](../../../../README.md#Component-Schemas) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to README]](../../../../README.md)

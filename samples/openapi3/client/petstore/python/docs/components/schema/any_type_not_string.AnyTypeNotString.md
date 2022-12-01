@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="AnyTypeNotString"></a>
 # petstore_api.components.schema.any_type_not_string.AnyTypeNotString
 
@@ -19,5 +20,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="StringWithValidation"></a>
 # petstore_api.components.schema.string_with_validation.StringWithValidation
 
@@ -6,5 +7,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

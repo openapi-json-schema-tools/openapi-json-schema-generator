@@ -56,5 +56,4 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 [api_key](../../../../README.md#api_key)
 
-[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to Component Schemas]](../../../../README.md#Component-Schemas) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to README]](../../../../README.md)

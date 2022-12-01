@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="Mammal"></a>
 # petstore_api.components.schema.mammal.Mammal
 
@@ -14,5 +15,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Zebra**](zebra.Zebra.md) | [**Zebra**](zebra.Zebra.md) | [**Zebra**](zebra.Zebra.md) |  | 
 [**Pig**](pig.Pig.md) | [**Pig**](pig.Pig.md) | [**Pig**](pig.Pig.md) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

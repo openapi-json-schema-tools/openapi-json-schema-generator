@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="AdditionalPropertiesWithArrayOfEnums"></a>
 # petstore_api.components.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
 
@@ -23,5 +24,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

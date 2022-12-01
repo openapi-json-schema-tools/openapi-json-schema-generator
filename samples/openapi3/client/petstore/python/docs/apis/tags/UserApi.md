@@ -14,4 +14,4 @@ Method | HTTP request | Description
 [**logout_user**](user_api/logout_user.md) | **get** /user/logout | Logs out current logged in user session
 [**update_user**](user_api/update_user.md) | **put** /user/{username} | Updated user
 
-[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="FruitReq"></a>
 # petstore_api.components.schema.fruit_req.FruitReq
 
@@ -21,5 +22,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

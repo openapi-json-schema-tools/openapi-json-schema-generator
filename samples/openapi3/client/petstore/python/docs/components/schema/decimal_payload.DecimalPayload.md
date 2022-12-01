@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="DecimalPayload"></a>
 # petstore_api.components.schema.decimal_payload.DecimalPayload
 
@@ -6,5 +7,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | value must be numeric and storable in decimal.Decimal
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

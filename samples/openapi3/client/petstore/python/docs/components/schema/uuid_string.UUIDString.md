@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="UUIDString"></a>
 # petstore_api.components.schema.uuid_string.UUIDString
 
@@ -6,5 +7,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, uuid.UUID,  | str,  |  | value must be a uuid
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -10,5 +10,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) |  | 
 
-[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="NullableClass"></a>
 # petstore_api.components.schema.nullable_class.NullableClass
 
@@ -144,5 +145,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

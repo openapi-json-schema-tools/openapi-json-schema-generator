@@ -78,5 +78,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to Component Schemas]](../../../../README.md#Component-Schemas) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to README]](../../../../README.md)

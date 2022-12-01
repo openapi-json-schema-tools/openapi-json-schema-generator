@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="SomeObject"></a>
 # petstore_api.components.schema.some_object.SomeObject
 
@@ -12,5 +13,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

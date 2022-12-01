@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="NoAdditionalProperties"></a>
 # petstore_api.components.schema.no_additional_properties.NoAdditionalProperties
 
@@ -12,5 +13,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **id** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 **petId** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

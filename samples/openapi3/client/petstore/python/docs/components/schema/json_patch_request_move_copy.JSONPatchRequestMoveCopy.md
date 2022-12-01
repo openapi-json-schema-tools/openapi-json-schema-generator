@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="JSONPatchRequestMoveCopy"></a>
 # petstore_api.components.schema.json_patch_request_move_copy.JSONPatchRequestMoveCopy
 
@@ -13,5 +14,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **path** | str,  | str,  | A JSON Pointer path. | 
 **from** | str,  | str,  | A JSON Pointer path. | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

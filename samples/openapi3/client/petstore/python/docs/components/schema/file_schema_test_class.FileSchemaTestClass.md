@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="FileSchemaTestClass"></a>
 # petstore_api.components.schema.file_schema_test_class.FileSchemaTestClass
 
@@ -25,5 +26,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**File**](file.File.md) | [**File**](file.File.md) | [**File**](file.File.md) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

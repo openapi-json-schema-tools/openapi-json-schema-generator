@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="EnumArrays"></a>
 # petstore_api.components.schema.enum_arrays.EnumArrays
 
@@ -25,5 +26,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of ["fish", "crab", ] 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)

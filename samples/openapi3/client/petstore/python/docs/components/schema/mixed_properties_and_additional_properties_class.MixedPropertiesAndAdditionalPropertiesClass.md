@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="MixedPropertiesAndAdditionalPropertiesClass"></a>
 # petstore_api.components.schema.mixed_properties_and_additional_properties_class.MixedPropertiesAndAdditionalPropertiesClass
 
@@ -26,5 +27,4 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | any string name can be used but the value must be the correct type | [optional] 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to README]](../../../README.md)
