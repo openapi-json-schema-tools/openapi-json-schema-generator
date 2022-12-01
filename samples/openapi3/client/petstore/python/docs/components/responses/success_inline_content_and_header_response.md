@@ -24,12 +24,12 @@ Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 someHeader | [parameter_some_header.schema](#parameter_some_header.schema) | | optional
 
-# schema
+# <a id="parameter_some_header.schema" >parameter_some_header.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
 

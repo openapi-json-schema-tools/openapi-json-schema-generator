@@ -12,7 +12,7 @@
 {{/each}}
 {{/with}}
 
-## Documentation for API Endpoints
+## Endpoints
 
 All URIs are relative to *{{basePath}}*
 
@@ -24,7 +24,7 @@ HTTP request | Method | Description
 {{/with}}
 {{/each}}
 
-## Documentation For Component Schemas (Models)
+## Component Schemas
 
 {{#each models}}
 {{#with model}}
@@ -33,7 +33,7 @@ HTTP request | Method | Description
 {{/each}}
 {{#if requestBodies}}
 
-## Documentation For Component RequestBodies
+## Component RequestBodies
 
 {{#each requestBodies}}
 - {{#with this}}[{{refModule}}](docs/components/request_bodies/{{refModule}}.md){{/with}}
@@ -41,7 +41,7 @@ HTTP request | Method | Description
 {{/if}}
 {{#if responses}}
 
-## Documentation For Component Responses
+## Component Responses
 
 {{#each responses}}
 - {{#with this}}[{{refModule}}](docs/components/responses/{{refModule}}.md){{/with}}

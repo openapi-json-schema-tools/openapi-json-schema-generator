@@ -10,4 +10,4 @@ Method | HTTP request | Description
 [**get_order_by_id**](store_api/get_order_by_id.md) | **get** /store/order/{order_id} | Find purchase order by ID
 [**place_order**](store_api/place_order.md) | **post** /store/order | Place an order for a pet
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
