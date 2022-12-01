@@ -4211,13 +4211,30 @@ public class DefaultCodegen implements CodegenConfig {
                         if (op.wildcardCodeResponses == null) {
                             op.wildcardCodeResponses = new TreeMap<>();
                         }
-                        String firstNumber = key.substring(0, 1);
-                        op.wildcardCodeResponses.put(Integer.parseInt(firstNumber), r);
+                        Integer firstNumber = Integer.parseInt(key.substring(0, 1));
+                        op.wildcardCodeResponses.put(firstNumber, r);
+                        if (firstNumber > 3 && r.getContent() != null) {
+                            for (CodegenMediaType cm: r.getContent().values()) {
+                                if (cm.getSchema() != null) {
+                                    op.hasErrorResponseObject = true;
+                                    break;
+                                }
+                            }
+                        }
                     } else {
                         if (op.statusCodeResponses == null) {
                             op.statusCodeResponses = new TreeMap<>();
                         }
-                        op.statusCodeResponses.put(Integer.parseInt(key), r);
+                        Integer statusCode = Integer.parseInt(key);
+                        op.statusCodeResponses.put(statusCode, r);
+                        if (statusCode > 299 && r.getContent() != null) {
+                            for (CodegenMediaType cm: r.getContent().values()) {
+                                if (cm.getSchema() != null) {
+                                    op.hasErrorResponseObject = true;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
             }
