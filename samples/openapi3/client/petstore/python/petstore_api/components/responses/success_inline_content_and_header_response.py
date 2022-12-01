@@ -14,7 +14,31 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+from . import parameter_some_header
 
+
+class Header:
+    RequiredParams = typing_extensions.TypedDict(
+        'RequiredParams',
+        {
+        }
+    )
+    OptionalParams = typing_extensions.TypedDict(
+        'OptionalParams',
+        {
+            'someHeader': typing.Union[parameter_some_header.schema, str, ],
+        },
+        total=False
+    )
+
+
+    class Params(RequiredParams, OptionalParams):
+        pass
+
+
+    parameters = [
+        parameter_some_header.parameter_oapg,
+    ]
 # body schemas
 
 
@@ -54,7 +78,7 @@ class ApiResponse(api_client.ApiResponse):
     body: typing.Union[
         application_json,
     ]
-    headers: schemas.Unset = schemas.unset
+    headers: Header.Params
 
 
 response = api_client.OpenApiResponse(
@@ -64,4 +88,5 @@ response = api_client.OpenApiResponse(
             schema=application_json,
         ),
     },
+    headers=Header.parameters
 )
