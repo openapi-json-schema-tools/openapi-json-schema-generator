@@ -122,8 +122,5 @@ class TestRequestBodyPostAllofRequestBody(ApiTestMixin, unittest.TestCase):
                 )
                 self.api.post(body=body)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -92,8 +92,5 @@ class TestRequestBodyPostEnumWithTrueDoesNotMatch1RequestBody(ApiTestMixin, unit
                 )
                 self.api.post(body=body)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

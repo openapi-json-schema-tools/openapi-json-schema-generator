@@ -180,4 +180,4 @@ Method | HTTP request | Description
 [**post_uri_template_format_request_body**](content_type_json_api/post_uri_template_format_request_body.md) | **post** /requestBody/postUriTemplateFormatRequestBody | 
 [**post_uri_template_format_response_body_for_content_types**](content_type_json_api/post_uri_template_format_response_body_for_content_types.md) | **post** /responseBody/postUriTemplateFormatResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

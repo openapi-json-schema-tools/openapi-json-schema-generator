@@ -44,6 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.create_user(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->create_user: %s\n" % e)
 ```
@@ -61,7 +62,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**User**](../../components/schema/user.User.md) |  | 
+[**User**](../../../components/schema/user.User.md) |  | 
 
 
 ### Return Types, Responses
@@ -82,5 +83,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

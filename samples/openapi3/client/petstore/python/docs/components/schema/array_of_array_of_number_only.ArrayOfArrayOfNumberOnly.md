@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="ArrayOfArrayOfNumberOnly"></a>
 # petstore_api.components.schema.array_of_array_of_number_only.ArrayOfArrayOfNumberOnly
 
@@ -36,5 +37,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int, float,  | decimal.Decimal,  |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

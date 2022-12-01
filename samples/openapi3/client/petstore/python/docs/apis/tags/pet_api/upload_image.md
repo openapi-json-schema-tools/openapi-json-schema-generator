@@ -109,24 +109,10 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 
-
+200 | [success_with_json_api_response_response.ApiResponse](../../../components/responses/success_with_json_api_response_response.md) | successful operation
 
 ### Authorization
 
 [petstore_auth](../../../../README.md#petstore_auth)
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

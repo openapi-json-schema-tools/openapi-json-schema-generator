@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="Operator"></a>
 # this_package.components.schema.operator.Operator
 
@@ -13,5 +14,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**AdditionOperator**](addition_operator.AdditionOperator.md) | [**AdditionOperator**](addition_operator.AdditionOperator.md) | [**AdditionOperator**](addition_operator.AdditionOperator.md) |  | 
 [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

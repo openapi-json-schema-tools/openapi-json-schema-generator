@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="AppleReq"></a>
 # petstore_api.components.schema.apple_req.AppleReq
 
@@ -12,5 +13,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **cultivar** | str,  | str,  |  | 
 **mealy** | bool,  | BoolClass,  |  | [optional] 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

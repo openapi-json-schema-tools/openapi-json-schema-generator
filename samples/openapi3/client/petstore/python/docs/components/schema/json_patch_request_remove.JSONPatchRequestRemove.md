@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="JSONPatchRequestRemove"></a>
 # petstore_api.components.schema.json_patch_request_remove.JSONPatchRequestRemove
 
@@ -12,5 +13,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **op** | str,  | str,  | The operation to perform. | must be one of ["remove", ] 
 **path** | str,  | str,  | A JSON Pointer path. | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

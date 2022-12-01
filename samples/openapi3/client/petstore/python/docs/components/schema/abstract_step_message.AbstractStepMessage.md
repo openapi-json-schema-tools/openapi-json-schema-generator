@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="AbstractStepMessage"></a>
 # petstore_api.components.schema.abstract_step_message.AbstractStepMessage
 
@@ -22,5 +23,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

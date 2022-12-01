@@ -32,6 +32,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.delete_order(
             path_params=path_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->delete_order: %s\n" % e)
 ```
@@ -84,5 +85,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

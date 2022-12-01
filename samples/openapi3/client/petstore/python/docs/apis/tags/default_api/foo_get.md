@@ -41,10 +41,10 @@ default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_0.application_json](#response_for_0.application_json), ] |  |
+body | typing.Union[[response_for_default.application_json](#response_for_default.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_0.application_json" >response_for_0.application_json</a>
+# <a id="response_for_default.application_json" >response_for_default.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -61,5 +61,4 @@ Key | Input Type | Accessed Type | Description | Notes
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

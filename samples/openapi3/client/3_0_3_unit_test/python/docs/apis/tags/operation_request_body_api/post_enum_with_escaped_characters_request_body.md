@@ -26,6 +26,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_enum_with_escaped_characters_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling OperationRequestBodyApi->post_enum_with_escaped_characters_request_body: %s\n" % e)
 ```
@@ -43,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
+[**EnumWithEscapedCharacters**](../../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses
@@ -64,5 +65,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../OperationRequestBodyApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../OperationRequestBodyApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

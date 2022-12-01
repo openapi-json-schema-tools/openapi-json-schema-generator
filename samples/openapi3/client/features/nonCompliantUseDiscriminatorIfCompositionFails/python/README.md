@@ -160,11 +160,12 @@ with this_package.ApiClient(configuration) as api_client:
         api_response = api_instance.post_operators(
             body=body,
         )
+        pprint(api_response)
     except this_package.ApiException as e:
         print("Exception when calling DefaultApi->post_operators: %s\n" % e)
 ```
 
-## Documentation for API Endpoints
+## Endpoints
 
 All URIs are relative to *http://localhost:3000*
 
@@ -172,7 +173,7 @@ HTTP request | Method | Description
 ------------ | ------ | -------------
 **post** /operators | [DefaultApi](docs/apis/tags/DefaultApi.md).[post_operators](docs/apis/tags/default_api/post_operators.md)  | 
 
-## Documentation For Component Schemas (Models)
+## Component Schemas
 
  - [AdditionOperator](docs/components/schema/addition_operator.AdditionOperator.md)
  - [Operator](docs/components/schema/operator.Operator.md)

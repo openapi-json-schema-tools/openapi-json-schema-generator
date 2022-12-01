@@ -22,4 +22,4 @@ Method | HTTP request | Description
 [**post_ref_in_property_request_body**](ref_api/post_ref_in_property_request_body.md) | **post** /requestBody/postRefInPropertyRequestBody | 
 [**post_ref_in_property_response_body_for_content_types**](ref_api/post_ref_in_property_response_body_for_content_types.md) | **post** /responseBody/postRefInPropertyResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -1,0 +1,15 @@
+{{#each statusCodeResponses}}
+{{#gte @key 200}}
+{{#lte @key 299}}
+response_for_{{@key}}.ApiResponse,
+{{/lte}}
+{{/gte}}
+{{/each}}
+{{#each wildcardCodeResponses}}
+{{#eq @key 2}}
+response_for_{{@key}}xx.ApiResponse,
+{{/eq}}
+{{/each}}
+{{#if defaultResponse}}
+response_for_default.ApiResponse,
+{{/if}}

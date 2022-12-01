@@ -28,6 +28,8 @@ public class CodegenConstants {
 
     public static final String REQUEST_BODIES = "requestBodies";
     public static final String REQUEST_BODY_DOCS = "requestBodyDocs";
+
+    public static final String RESPONSES = "responses";
     public static final String SUPPORTING_FILES = "supportingFiles";
     public static final String MODEL_TESTS = "modelTests";
     public static final String MODEL_DOCS = "modelDocs";

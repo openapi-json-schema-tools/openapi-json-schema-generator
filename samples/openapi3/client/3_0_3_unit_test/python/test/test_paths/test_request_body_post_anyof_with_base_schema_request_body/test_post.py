@@ -92,8 +92,5 @@ class TestRequestBodyPostAnyofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 )
                 self.api.post(body=body)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

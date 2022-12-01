@@ -104,8 +104,5 @@ class TestRequestBodyPostPropertiesWithEscapedCharactersRequestBody(ApiTestMixin
                 )
                 self.api.post(body=body)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

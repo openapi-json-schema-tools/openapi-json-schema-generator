@@ -41,6 +41,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.update_pet_with_form(
             path_params=path_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->update_pet_with_form: %s\n" % e)
 
@@ -58,6 +59,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             path_params=path_params,
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->update_pet_with_form: %s\n" % e)
 ```
@@ -119,5 +121,4 @@ headers | Unset | headers were not defined |
 
 [petstore_auth](../../../../README.md#petstore_auth)
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

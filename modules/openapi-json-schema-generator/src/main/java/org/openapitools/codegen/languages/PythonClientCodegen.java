@@ -20,10 +20,12 @@ import com.github.curiousoddman.rgxgen.RgxGen;
 import com.github.curiousoddman.rgxgen.config.RgxGenOption;
 import com.github.curiousoddman.rgxgen.config.RgxGenProperties;
 import com.google.common.base.CaseFormat;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
 
@@ -85,6 +87,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String apiDocPath = "docs/apis/tags/";
     protected String modelDocPath = "docs/components/schema/";
     protected String requestBodyDocPath = "docs/components/request_bodies/";
+    protected String responseDocPath = "docs/components/responses/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -324,6 +327,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
         pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
+        responseTemplateFiles.put("response.handlebars", "__init__.py");
+        responseDocTemplateFiles.put("response_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -441,8 +446,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
         }
-        if (openAPI.getComponents() != null && openAPI.getComponents().getRequestBodies() != null) {
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+        Components components = openAPI.getComponents();
+        if (components != null) {
+            if (components.getRequestBodies() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+            }
+            if (components.getResponses() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "responses", "__init__.py"));
+            }
         }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
@@ -714,9 +725,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         List<CodegenOperation> operations = val.getOperation();
         for (CodegenOperation operation : operations) {
             fixSchemaImports(operation.imports);
-            for (CodegenResponse response: operation.responses) {
-                fixSchemaImports(response.imports);
-            }
         }
         return objs;
     }
@@ -809,6 +817,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
     }
 
+    public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
+        CodegenResponse cr = super.fromResponse(response, sourceJsonPath);
+        fixSchemaImports(cr.imports);
+        return cr;
+    }
 
     /**
      * Convert OAS Property object to Codegen Property object
@@ -2336,12 +2349,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String apiDocFileFolder() {
-        return (outputFolder + "/" + apiDocPath);
+        return (outputFolder + File.separator + apiDocPath);
     }
 
     @Override
     public String modelDocFileFolder() {
-        return (outputFolder + "/" + modelDocPath);
+        return (outputFolder + File.separator + modelDocPath);
     }
 
     @Override
@@ -2353,6 +2366,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toApiName(name);
     }
 
+    public String toResponseModuleName(String componentName) {
+        return toModuleFilename(componentName) + "_response";
+    }
+
+    public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }
+
+    public String responseDocFileFolder() {
+        return outputFolder + File.separator + responseDocPath;
+    }
+
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename(componentName) + "_request_body";
     }
@@ -2362,7 +2385,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String requestBodyDocFileFolder() {
-        return outputFolder + "/" + requestBodyDocPath;
+        return outputFolder + File.separator + requestBodyDocPath;
     }
 
     @Override

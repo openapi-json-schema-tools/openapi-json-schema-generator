@@ -93,9 +93,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             {{/if}}
             {{/with}}
         )
-{{#if returnType}}
         pprint(api_response)
-{{/if}}
     except {{{packageName}}}.ApiException as e:
 {{#if tag}}
         print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
@@ -162,9 +160,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             body=body,
             {{/if}}
         )
-{{#if returnType}}
         pprint(api_response)
-{{/if}}
     except {{{packageName}}}.ApiException as e:
 {{#if tag}}
         print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
@@ -185,9 +181,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         # {{{summary}}}
 {{/if}}
         api_response = api_instance.{{{operationId}}}()
-{{#if returnType}}
         pprint(api_response)
-{{/if}}
     except {{{packageName}}}.ApiException as e:
 {{#if tag}}
         print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
