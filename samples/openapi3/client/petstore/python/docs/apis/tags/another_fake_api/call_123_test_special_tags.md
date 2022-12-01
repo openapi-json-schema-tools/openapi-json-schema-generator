@@ -71,4 +71,4 @@ Type | Description  | Notes
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../AnotherFakeApi.md) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../AnotherFakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

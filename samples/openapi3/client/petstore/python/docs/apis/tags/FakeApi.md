@@ -39,4 +39,4 @@ Method | HTTP request | Description
 [**upload_file**](fake_api/upload_file.md) | **post** /fake/uploadFile | uploads a file using multipart/form-data
 [**upload_files**](fake_api/upload_files.md) | **post** /fake/uploadFiles | uploads files using multipart/form-data
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

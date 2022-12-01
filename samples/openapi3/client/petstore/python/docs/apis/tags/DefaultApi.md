@@ -7,4 +7,4 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**foo_get**](default_api/foo_get.md) | **get** /foo | 
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

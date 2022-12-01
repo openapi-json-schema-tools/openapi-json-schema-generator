@@ -14,4 +14,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **path** | str,  | str,  | A JSON Pointer path. | 
 **from** | str,  | str,  | A JSON Pointer path. | 
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

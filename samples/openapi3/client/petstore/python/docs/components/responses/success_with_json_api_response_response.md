@@ -13,4 +13,4 @@ Type | Description  | Notes
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

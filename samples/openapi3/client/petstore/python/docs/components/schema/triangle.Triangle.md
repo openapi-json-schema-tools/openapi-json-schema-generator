@@ -15,4 +15,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) |  | 
 [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) |  | 
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

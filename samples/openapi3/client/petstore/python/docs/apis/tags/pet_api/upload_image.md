@@ -115,4 +115,4 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 [petstore_auth](../../../../README.md#petstore_auth)
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

@@ -27,4 +27,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) |  | 
 [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) |  | 
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

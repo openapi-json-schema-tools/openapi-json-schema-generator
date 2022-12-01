@@ -7,4 +7,4 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**classname**](fake_classname_tags123_api/classname.md) | **patch** /fake_classname_test | To test class name in snake case
 
-[[Back to top]](#top) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)
