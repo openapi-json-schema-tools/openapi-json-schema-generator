@@ -365,6 +365,7 @@ HTTP request | Method | Description
 ## Documentation For Component Responses
 
 - [success_description_only_response](docs/components/responses/success_description_only_response.md)
+- [success_with_json_api_response_response](docs/components/responses/success_with_json_api_response_response.md)
 
 ## Documentation For Authorization
 

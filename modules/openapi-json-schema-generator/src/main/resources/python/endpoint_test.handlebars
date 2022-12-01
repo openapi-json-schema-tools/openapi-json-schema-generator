@@ -34,30 +34,30 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{#each responses}}
     {{#if @first}}
     response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
-{{#if content}}
-{{#each content}}
-    {{#if schema}}
+    {{#if content}}
+    {{#each content}}
+        {{#if schema}}
     response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}
-    {{/if}}
+        {{/if}}
 
-{{#if this.testCases}}
-{{#each testCases}}
-{{#with this }}
+    {{#if this.testCases}}
+    {{#each testCases}}
+    {{#with this }}
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
         accept_content_type = '{{{../@key}}}'
 
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-{{#with data}}
+        {{#with data}}
                 {{> model_templates/payload_renderer endChar='' }}
-{{/with}}
+        {{/with}}
             )
             mock_request.return_value = self.response(
                 self.json_bytes(payload),
                 status=self.response_status
             )
-{{#if valid}}
+        {{#if valid}}
             {{> endpoint_test_partial }}
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
@@ -67,7 +67,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-{{else}}
+        {{else}}
             with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
                 self.api.{{httpMethod}}(
                     accept_content_types=(accept_content_type,)
@@ -79,17 +79,16 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-{{/if}}
-{{/with}}
+        {{/if}}
+    {{/with}}
+    {{/each}}
+    {{/if}}
 
-{{/each}}
-
-{{/if}}
-{{/each}}
-{{else}}
+    {{/each}}
+    {{else}}
     response_body = ''
-{{/if}}
-{{/if}}
+    {{/if}}
+    {{/if}}
 {{/each}}
 {{#if bodyParam}}
 {{#with bodyParam}}
