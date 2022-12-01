@@ -264,11 +264,7 @@ paths:
             format: int64
       responses:
         '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiResponse'
+          $ref: '#/components/responses/SuccessWithJsonApiResponse'
       security:
         - petstore_auth:
             - 'write:pets'
@@ -1652,6 +1648,12 @@ components:
   responses:
     SuccessDescriptionOnly:
       description: Success
+    SuccessWithJsonApiResponse:
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiResponse'
   requestBodies:
     UserArray:
       content:
