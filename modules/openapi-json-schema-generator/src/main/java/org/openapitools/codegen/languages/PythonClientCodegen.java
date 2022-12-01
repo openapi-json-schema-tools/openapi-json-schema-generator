@@ -24,6 +24,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
 
@@ -717,9 +718,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         List<CodegenOperation> operations = val.getOperation();
         for (CodegenOperation operation : operations) {
             fixSchemaImports(operation.imports);
-            for (CodegenResponse response: operation.responses.values()) {
-                fixSchemaImports(response.imports);
-            }
         }
         return objs;
     }
@@ -812,6 +810,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
     }
 
+    public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
+        CodegenResponse cr = super.fromResponse(response, sourceJsonPath);
+        fixSchemaImports(cr.imports);
+        return cr;
+    }
 
     /**
      * Convert OAS Property object to Codegen Property object
