@@ -701,9 +701,9 @@ public class DefaultGenerator implements Generator {
             Boolean generateResponses = Boolean.TRUE;
             for (Map.Entry<String, String> entry : config.responseTemplateFiles().entrySet()) {
                 String templateName = entry.getKey();
-                String fileExtension = entry.getValue();
-                String responseFileFolder = config.responseFileFolder();
-                String responseFilename = responseFileFolder + File.separatorChar + config.toResponseFilename(componentName) + fileExtension;
+                String fileName = entry.getValue();
+                String responseFileFolder = config.responseFileFolder(componentName);
+                String responseFilename = responseFileFolder + File.separatorChar + fileName;
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
@@ -727,10 +727,9 @@ public class DefaultGenerator implements Generator {
                             headerMap.put("parameter", header);
                             headerMap.put("imports", header.imports);
                             headerMap.put("packageName", config.packageName());
-                            String headerFolder = responseFileFolder + File.separatorChar + config.toResponseFilename(componentName);
-                            String headerFilename = responseFileFolder + File.separatorChar + config.toResponseFilename(componentName) + File.separatorChar + config.toParameterFileName(header.baseName) + ".py";
+                            String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(header.baseName) + ".py";
                             try {
-                                File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, headerFolder);
+                                File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
                                 if (written != null) {
                                     files.add(written);
                                     if (config.isEnablePostProcessFile() && !dryRun) {

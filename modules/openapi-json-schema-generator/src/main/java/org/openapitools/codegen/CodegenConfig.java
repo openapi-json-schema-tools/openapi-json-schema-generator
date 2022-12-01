@@ -89,7 +89,7 @@ public interface CodegenConfig {
 
     String requestBodyFileFolder();
 
-    String responseFileFolder();
+    String responseFileFolder(String componentName);
 
     String responseDocFileFolder();
 
@@ -228,8 +228,6 @@ public interface CodegenConfig {
     String toRequestBodyFilename(String componentName);
 
     String toRequestBodyDocFilename(String componentName);
-
-    String toResponseFilename(String componentName);
 
     String toResponseDocFilename(String componentName);
 

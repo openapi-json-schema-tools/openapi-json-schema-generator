@@ -20,6 +20,7 @@ import com.github.curiousoddman.rgxgen.RgxGen;
 import com.github.curiousoddman.rgxgen.config.RgxGenOption;
 import com.github.curiousoddman.rgxgen.config.RgxGenProperties;
 import com.google.common.base.CaseFormat;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
@@ -326,7 +327,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
         pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
-        responseTemplateFiles.put("response.handlebars", ".py");
+        responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
@@ -445,8 +446,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
         }
-        if (openAPI.getComponents() != null && openAPI.getComponents().getRequestBodies() != null) {
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+        Components components = openAPI.getComponents();
+        if (components != null) {
+            if (components.getRequestBodies() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
+            }
+            if (components.getResponses() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "responses", "__init__.py"));
+            }
         }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
@@ -2359,11 +2366,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toApiName(name);
     }
 
-    public String toResponseFilename(String componentName) {
+    public String toResponseModuleName(String componentName) {
         return toModuleFilename(componentName) + "_response";
     }
 
-    public String toResponseDocFilename(String componentName) { return toResponseFilename(componentName); }
+    public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }
 
     public String responseDocFileFolder() {
         return outputFolder + File.separator + responseDocPath;

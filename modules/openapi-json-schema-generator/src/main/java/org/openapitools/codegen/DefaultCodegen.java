@@ -1247,9 +1247,9 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(componentName);
     }
 
-    public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
+    public String toResponseModuleName(String componentName) { return toModuleFilename(componentName); }
 
-    public String toResponseFilename(String componentName) { return toModuleFilename(componentName); }
+    public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     public String toResponseDocFilename(String componentName) { return toModuleFilename(componentName); }
 
@@ -6468,7 +6468,7 @@ public class DefaultCodegen implements CodegenConfig {
             case "requestBodies":
                 return toRequestBodyFileName(refPieces[3]);
             case "responses":
-                return toResponseFilename(refPieces[3]);
+                return toResponseModuleName(refPieces[3]);
         }
         return null;
     }
@@ -7164,8 +7164,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String responseFileFolder() {
-        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "responses";
+    public String responseFileFolder(String componentName) {
+        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "responses" + File.separatorChar + toResponseModuleName(componentName);
     }
 
     @Override
