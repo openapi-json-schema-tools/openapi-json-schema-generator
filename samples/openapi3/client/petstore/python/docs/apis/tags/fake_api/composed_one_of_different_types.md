@@ -47,7 +47,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
+[**ComposedOneOfDifferentTypes**](../../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
 
 
 ### Return Types, Responses

@@ -47,7 +47,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NumberWithValidations**](../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
 
 
 ### Return Types, Responses

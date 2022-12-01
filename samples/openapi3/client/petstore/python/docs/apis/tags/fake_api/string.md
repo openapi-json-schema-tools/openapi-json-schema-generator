@@ -47,7 +47,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**String**](../../components/schema/string.String.md) |  | 
+[**String**](../../../components/schema/string.String.md) |  | 
 
 
 ### Return Types, Responses
