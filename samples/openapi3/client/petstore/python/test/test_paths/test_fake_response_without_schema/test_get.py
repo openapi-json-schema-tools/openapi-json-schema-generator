@@ -34,10 +34,5 @@ class TestFakeResponseWithoutSchema(ApiTestMixin, unittest.TestCase):
 
     response_status = 200
 
-
-
-
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -28,6 +28,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_additionalproperties_can_exist_by_itself_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling ContentTypeJsonApi->post_additionalproperties_can_exist_by_itself_request_body: %s\n" % e)
 ```
@@ -45,7 +46,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdditionalpropertiesCanExistByItself**](../../components/schema/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md) |  | 
+[**AdditionalpropertiesCanExistByItself**](../../../components/schema/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md) |  | 
 
 
 ### Return Types, Responses
@@ -66,5 +67,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

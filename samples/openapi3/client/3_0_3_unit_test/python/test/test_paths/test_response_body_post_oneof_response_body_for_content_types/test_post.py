@@ -142,8 +142,5 @@ class TestResponseBodyPostOneofResponseBodyForContentTypes(ApiTestMixin, unittes
                 accept_content_type=accept_content_type,
             )
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

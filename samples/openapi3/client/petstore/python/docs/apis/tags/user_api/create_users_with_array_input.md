@@ -44,6 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.create_users_with_array_input(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->create_users_with_array_input: %s\n" % e)
 ```
@@ -75,5 +76,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

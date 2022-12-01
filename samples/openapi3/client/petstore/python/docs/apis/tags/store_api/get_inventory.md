@@ -50,30 +50,10 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+200 | [success_inline_content_and_header_response.ApiResponse](../../../components/responses/success_inline_content_and_header_response.md) | successful operation
 
 ### Authorization
 
 [api_key](../../../../README.md#api_key)
 
-[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

@@ -34,8 +34,5 @@ class TestFakeRefsNumber(ApiTestMixin, unittest.TestCase):
     response_status = 200
     response_body_schema = post.response_for_200.application_json
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

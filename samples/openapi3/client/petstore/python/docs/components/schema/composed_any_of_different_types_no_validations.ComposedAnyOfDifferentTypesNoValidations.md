@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="ComposedAnyOfDifferentTypesNoValidations"></a>
 # petstore_api.components.schema.composed_any_of_different_types_no_validations.ComposedAnyOfDifferentTypesNoValidations
 
@@ -144,5 +145,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

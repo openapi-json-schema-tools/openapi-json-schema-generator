@@ -34,6 +34,5 @@ class TestOperators(ApiTestMixin, unittest.TestCase):
     response_status = 200
     response_body = ''
 
-
 if __name__ == '__main__':
     unittest.main()

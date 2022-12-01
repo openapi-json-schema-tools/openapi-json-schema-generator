@@ -15,4 +15,4 @@ Method | HTTP request | Description
 [**upload_file_with_required_file**](pet_api/upload_file_with_required_file.md) | **post** /fake/{petId}/uploadImageWithRequiredFile | uploads an image (required)
 [**upload_image**](pet_api/upload_image.md) | **post** /pet/{petId}/uploadImage | uploads an image
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

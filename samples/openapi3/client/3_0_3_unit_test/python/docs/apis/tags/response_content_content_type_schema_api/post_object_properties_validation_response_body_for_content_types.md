@@ -54,5 +54,4 @@ Type | Description  | Notes
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../ResponseContentContentTypeSchemaApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../ResponseContentContentTypeSchemaApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

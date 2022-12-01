@@ -25,8 +25,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 from petstore_api.components.request_bodies import pet_request_body as request_body
+from petstore_api.components.responses import success_description_only_response as response_for_200
 
-from . import response_for_200
 from . import response_for_405
 
 

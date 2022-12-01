@@ -35,8 +35,5 @@ class TestUserCreateWithArray(ApiTestMixin, unittest.TestCase):
     response_status = 0
     response_body = ''
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -8,4 +8,4 @@ Method | HTTP request | Description
 [**post_minlength_validation_request_body**](min_length_api/post_minlength_validation_request_body.md) | **post** /requestBody/postMinlengthValidationRequestBody | 
 [**post_minlength_validation_response_body_for_content_types**](min_length_api/post_minlength_validation_response_body_for_content_types.md) | **post** /responseBody/postMinlengthValidationResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

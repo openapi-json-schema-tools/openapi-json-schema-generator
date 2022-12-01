@@ -31,6 +31,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         api_response = api_instance.json_form_data(
             body=body,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->json_form_data: %s\n" % e)
 ```
@@ -64,18 +65,10 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+200 | [success_description_only_response.ApiResponse](../../../components/responses/success_description_only_response.md) | Success
 
 ### Authorization
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

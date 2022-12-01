@@ -175,8 +175,5 @@ class TestRequestBodyPostRequiredValidationRequestBody(ApiTestMixin, unittest.Te
                 )
                 self.api.post(body=body)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

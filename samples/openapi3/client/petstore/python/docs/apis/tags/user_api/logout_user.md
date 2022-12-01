@@ -25,6 +25,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # Logs out current logged in user session
         api_response = api_instance.logout_user()
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->logout_user: %s\n" % e)
 ```
@@ -36,18 +37,10 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | successful operation
-
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+default | [.ApiResponse](../../../components/responses/.md) | Success
 
 ### Authorization
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

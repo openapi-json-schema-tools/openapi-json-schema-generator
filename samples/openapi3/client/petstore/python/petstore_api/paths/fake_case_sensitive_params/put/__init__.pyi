@@ -23,8 +23,8 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+from petstore_api.components.responses import success_description_only_response as response_for_200
 
-from . import response_for_200
 from . import parameter_0
 from . import parameter_1
 from . import parameter_2

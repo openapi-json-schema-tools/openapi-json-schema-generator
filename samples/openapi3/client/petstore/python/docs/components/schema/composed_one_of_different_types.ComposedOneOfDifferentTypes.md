@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="ComposedOneOfDifferentTypes"></a>
 # petstore_api.components.schema.composed_one_of_different_types.ComposedOneOfDifferentTypes
 
@@ -60,5 +61,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

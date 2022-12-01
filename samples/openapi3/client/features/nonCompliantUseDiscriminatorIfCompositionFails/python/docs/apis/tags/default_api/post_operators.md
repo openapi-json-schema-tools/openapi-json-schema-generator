@@ -30,6 +30,7 @@ with this_package.ApiClient(configuration) as api_client:
         api_response = api_instance.post_operators(
             body=body,
         )
+        pprint(api_response)
     except this_package.ApiException as e:
         print("Exception when calling DefaultApi->post_operators: %s\n" % e)
 ```
@@ -47,7 +48,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Operator**](../../components/schema/operator.Operator.md) |  | 
+[**Operator**](../../../components/schema/operator.Operator.md) |  | 
 
 
 ### Return Types, Responses
@@ -68,5 +69,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

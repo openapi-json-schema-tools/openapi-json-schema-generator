@@ -22,4 +22,4 @@ Method | HTTP request | Description
 [**post_simple_enum_validation_request_body**](enum_api/post_simple_enum_validation_request_body.md) | **post** /requestBody/postSimpleEnumValidationRequestBody | 
 [**post_simple_enum_validation_response_body_for_content_types**](enum_api/post_simple_enum_validation_response_body_for_content_types.md) | **post** /responseBody/postSimpleEnumValidationResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

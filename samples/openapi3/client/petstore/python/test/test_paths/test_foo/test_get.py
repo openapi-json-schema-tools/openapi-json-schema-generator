@@ -34,8 +34,5 @@ class TestFoo(ApiTestMixin, unittest.TestCase):
     response_status = 0
     response_body_schema = get.response_for_default.application_json
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

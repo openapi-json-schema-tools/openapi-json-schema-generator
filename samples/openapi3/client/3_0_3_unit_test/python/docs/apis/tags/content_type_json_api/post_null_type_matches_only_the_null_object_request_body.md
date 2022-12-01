@@ -26,6 +26,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_null_type_matches_only_the_null_object_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling ContentTypeJsonApi->post_null_type_matches_only_the_null_object_request_body: %s\n" % e)
 ```
@@ -43,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**NullTypeMatchesOnlyTheNullObject**](../../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Return Types, Responses
@@ -64,5 +65,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

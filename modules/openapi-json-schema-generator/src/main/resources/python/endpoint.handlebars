@@ -20,12 +20,21 @@ from {{packageName}} import api_client, exceptions
 from {{packageName}}.components.request_bodies import {{refModule}} as request_body
 {{/if}}
 {{/with}}
+{{#each responses}}
+{{#with this}}
+{{#if refModule}}
+from {{packageName}}.components.responses import {{refModule}} as response_for_{{@key}}
+{{/if}}
+{{/with}}
+{{/each}}
 
 {{#unless isStub}}
 from .. import path
 {{/unless}}
 {{#each responses}}
-from . import response_for_{{#if isDefault}}default{{else}}{{code}}{{/if}}
+{{#unless refModule}}
+from . import response_for_{{@key}}
+{{/unless}}
 {{/each}}
 {{#with bodyParam}}
 {{#unless refModule}}
@@ -102,18 +111,18 @@ _servers = (
 {{#if defaultResponse}}
 default_response = response_for_default.response
 {{/if}}
-{{#if getNonDefaultResponses}}
+{{#if nonDefaultResponses}}
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-{{#each getNonDefaultResponses}}
-        '{{code}}': api_client.OpenApiResponse[response_for_{{code}}.ApiResponse],
+{{#each nonDefaultResponses}}
+        '{{@key}}': api_client.OpenApiResponse[response_for_{{@key}}.ApiResponse],
 {{/each}}
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-{{#each getNonDefaultResponses}}
-    '{{code}}': response_for_{{code}}.response,
+{{#each nonDefaultResponses}}
+    '{{@key}}': response_for_{{@key}}.response,
 {{/each}}
 })
 {{/if}}
@@ -263,12 +272,12 @@ class BaseApi(api_client.Api):
         if skip_deserialization:
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
-{{#if getNonDefaultResponses}}
+{{#if nonDefaultResponses}}
             status = str(response.status)
             if status in _status_code_to_response:
                 status: typing_extensions.Literal[
-{{#each getNonDefaultResponses}}
-                    '{{code}}',
+{{#each nonDefaultResponses}}
+                    '{{@key}}',
 {{/each}}
                 ]
                 api_response = _status_code_to_response[status].deserialize(response, self.api_client.configuration)

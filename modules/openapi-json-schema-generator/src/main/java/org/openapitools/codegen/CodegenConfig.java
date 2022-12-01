@@ -22,6 +22,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.RequestBody;
+import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
@@ -87,6 +88,10 @@ public interface CodegenConfig {
     String packageName();
 
     String requestBodyFileFolder();
+
+    String responseFileFolder(String componentName);
+
+    String responseDocFileFolder();
 
     String toApiName(String name);
 
@@ -180,6 +185,10 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointResponseHeaderTemplateFiles();
 
+    Map<String, String> responseTemplateFiles();
+
+    Map<String, String> responseDocTemplateFiles();
+
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
@@ -219,6 +228,8 @@ public interface CodegenConfig {
     String toRequestBodyFilename(String componentName);
 
     String toRequestBodyDocFilename(String componentName);
+
+    String toResponseDocFilename(String componentName);
 
     String toPathFileName(String path);
 
@@ -375,4 +386,6 @@ public interface CodegenConfig {
     CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath);
 
     String getBodyParameterName(CodegenOperation co);
+
+    CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
 }
