@@ -291,14 +291,7 @@ paths:
       operationId: getInventory
       responses:
         '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: integer
-                  format: int32
+          $ref: '#/components/responses/SuccessInlineContentAndHeader'
       security:
         - api_key: []
   /store/order:
@@ -1654,6 +1647,19 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ApiResponse'
+    SuccessInlineContentAndHeader:
+      description: successful operation
+      headers:
+        someHeader:
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: integer
+              format: int32
   requestBodies:
     UserArray:
       content:
