@@ -26,6 +26,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_object_properties_validation_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling PropertiesApi->post_object_properties_validation_request_body: %s\n" % e)
 ```
@@ -64,5 +65,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../PropertiesApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../PropertiesApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

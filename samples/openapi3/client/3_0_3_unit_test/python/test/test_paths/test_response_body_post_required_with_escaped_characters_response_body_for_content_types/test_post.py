@@ -62,7 +62,6 @@ class TestResponseBodyPostRequiredWithEscapedCharactersResponseBodyForContentTyp
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_object_with_all_properties_present_is_valid_passes(self):
         # object with all properties present is valid
         accept_content_type = 'application/json'
@@ -105,7 +104,6 @@ class TestResponseBodyPostRequiredWithEscapedCharactersResponseBodyForContentTyp
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

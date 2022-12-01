@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="EnumsInProperties"></a>
 # unit_test_api.components.schema.enums_in_properties.EnumsInProperties
 
@@ -13,5 +14,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **foo** | str,  | str,  |  | [optional] must be one of ["foo", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

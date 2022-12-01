@@ -63,7 +63,6 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_do_not_match_string_lacking_nul_fails(self):
         # do not match string lacking nul
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

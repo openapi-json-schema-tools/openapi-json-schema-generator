@@ -62,7 +62,6 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_property_absent_passes(self):
         # property absent
         accept_content_type = 'application/json'
@@ -97,7 +96,6 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

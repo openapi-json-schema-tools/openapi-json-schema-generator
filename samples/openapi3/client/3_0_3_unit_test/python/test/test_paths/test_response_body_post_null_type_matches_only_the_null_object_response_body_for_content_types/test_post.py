@@ -57,7 +57,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_object_is_not_null_fails(self):
         # an object is not null
         accept_content_type = 'application/json'
@@ -82,7 +81,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_false_is_not_null_fails(self):
         # false is not null
         accept_content_type = 'application/json'
@@ -106,7 +104,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_integer_is_not_null_fails(self):
         # an integer is not null
         accept_content_type = 'application/json'
@@ -130,7 +127,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_true_is_not_null_fails(self):
         # true is not null
         accept_content_type = 'application/json'
@@ -154,7 +150,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_zero_is_not_null_fails(self):
         # zero is not null
         accept_content_type = 'application/json'
@@ -178,7 +173,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_empty_string_is_not_null_fails(self):
         # an empty string is not null
         accept_content_type = 'application/json'
@@ -202,7 +196,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_null_is_null_passes(self):
         # null is null
         accept_content_type = 'application/json'
@@ -232,7 +225,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_an_array_is_not_null_fails(self):
         # an array is not null
         accept_content_type = 'application/json'
@@ -257,7 +249,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_a_string_is_not_null_fails(self):
         # a string is not null
         accept_content_type = 'application/json'
@@ -281,7 +272,6 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

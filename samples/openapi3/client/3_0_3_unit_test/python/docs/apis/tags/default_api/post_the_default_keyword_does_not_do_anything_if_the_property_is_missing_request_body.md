@@ -28,6 +28,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling DefaultApi->post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body: %s\n" % e)
 ```
@@ -66,5 +67,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

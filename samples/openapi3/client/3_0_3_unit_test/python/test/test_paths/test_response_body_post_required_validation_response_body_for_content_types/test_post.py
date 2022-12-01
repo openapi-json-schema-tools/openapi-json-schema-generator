@@ -64,7 +64,6 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_present_required_property_is_valid_passes(self):
         # present required property is valid
         accept_content_type = 'application/json'
@@ -97,7 +96,6 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
         accept_content_type = 'application/json'
@@ -127,7 +125,6 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_strings_passes(self):
         # ignores strings
         accept_content_type = 'application/json'
@@ -157,7 +154,6 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_non_present_required_property_is_invalid_fails(self):
         # non-present required property is invalid
         accept_content_type = 'application/json'
@@ -184,7 +180,6 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

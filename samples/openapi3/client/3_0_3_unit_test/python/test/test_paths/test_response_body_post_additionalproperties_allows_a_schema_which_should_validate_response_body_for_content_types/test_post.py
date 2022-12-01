@@ -66,7 +66,6 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
         accept_content_type = 'application/json'
@@ -97,7 +96,6 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
         accept_content_type = 'application/json'
@@ -134,7 +132,6 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

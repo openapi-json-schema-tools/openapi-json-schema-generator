@@ -64,7 +64,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_objects_passes(self):
         # ignores objects
         accept_content_type = 'application/json'
@@ -95,7 +94,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_null_passes(self):
         # ignores null
         accept_content_type = 'application/json'
@@ -125,7 +123,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_floats_passes(self):
         # ignores floats
         accept_content_type = 'application/json'
@@ -155,7 +152,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_a_non_matching_pattern_is_invalid_fails(self):
         # a non-matching pattern is invalid
         accept_content_type = 'application/json'
@@ -179,7 +175,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_ignores_booleans_passes(self):
         # ignores booleans
         accept_content_type = 'application/json'
@@ -209,7 +204,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_a_matching_pattern_is_valid_passes(self):
         # a matching pattern is valid
         accept_content_type = 'application/json'
@@ -239,7 +233,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_integers_passes(self):
         # ignores integers
         accept_content_type = 'application/json'
@@ -269,7 +262,6 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

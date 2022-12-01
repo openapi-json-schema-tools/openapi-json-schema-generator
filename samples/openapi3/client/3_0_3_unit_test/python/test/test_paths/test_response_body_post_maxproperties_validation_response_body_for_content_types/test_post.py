@@ -64,7 +64,6 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_ignores_arrays_passes(self):
         # ignores arrays
         accept_content_type = 'application/json'
@@ -98,7 +97,6 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
         accept_content_type = 'application/json'
@@ -128,7 +126,6 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_ignores_strings_passes(self):
         # ignores strings
         accept_content_type = 'application/json'
@@ -158,7 +155,6 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_shorter_is_valid_passes(self):
         # shorter is valid
         accept_content_type = 'application/json'
@@ -191,7 +187,6 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
         accept_content_type = 'application/json'
@@ -226,7 +221,6 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

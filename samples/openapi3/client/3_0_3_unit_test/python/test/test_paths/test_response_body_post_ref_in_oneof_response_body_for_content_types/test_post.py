@@ -66,7 +66,6 @@ class TestResponseBodyPostRefInOneofResponseBodyForContentTypes(ApiTestMixin, un
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
         accept_content_type = 'application/json'
@@ -93,7 +92,6 @@ class TestResponseBodyPostRefInOneofResponseBodyForContentTypes(ApiTestMixin, un
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

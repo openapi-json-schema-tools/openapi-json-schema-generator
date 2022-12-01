@@ -63,7 +63,6 @@ class TestResponseBodyPostNotResponseBodyForContentTypes(ApiTestMixin, unittest.
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_disallowed_fails(self):
         # disallowed
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostNotResponseBodyForContentTypes(ApiTestMixin, unittest.
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

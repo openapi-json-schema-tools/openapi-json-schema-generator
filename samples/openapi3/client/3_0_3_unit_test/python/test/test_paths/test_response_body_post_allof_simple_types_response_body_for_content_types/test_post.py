@@ -63,7 +63,6 @@ class TestResponseBodyPostAllofSimpleTypesResponseBodyForContentTypes(ApiTestMix
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_mismatch_one_fails(self):
         # mismatch one
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostAllofSimpleTypesResponseBodyForContentTypes(ApiTestMix
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

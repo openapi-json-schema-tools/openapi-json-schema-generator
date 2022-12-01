@@ -156,11 +156,12 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_property_named_ref_that_is_not_a_reference_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling RefApi->post_property_named_ref_that_is_not_a_reference_request_body: %s\n" % e)
 ```
 
-## Documentation for API Endpoints
+## Endpoints
 
 All URIs are relative to *https://someserver.com/v1*
 
@@ -341,7 +342,7 @@ HTTP request | Method | Description
 **post** /responseBody/postUriReferenceFormatResponseBodyForContentTypes | [PathPostApi](docs/apis/tags/PathPostApi.md).[post_uri_reference_format_response_body_for_content_types](docs/apis/tags/path_post_api/post_uri_reference_format_response_body_for_content_types.md) [ContentTypeJsonApi](docs/apis/tags/ContentTypeJsonApi.md).[post_uri_reference_format_response_body_for_content_types](docs/apis/tags/content_type_json_api/post_uri_reference_format_response_body_for_content_types.md) [FormatApi](docs/apis/tags/FormatApi.md).[post_uri_reference_format_response_body_for_content_types](docs/apis/tags/format_api/post_uri_reference_format_response_body_for_content_types.md) [ResponseContentContentTypeSchemaApi](docs/apis/tags/ResponseContentContentTypeSchemaApi.md).[post_uri_reference_format_response_body_for_content_types](docs/apis/tags/response_content_content_type_schema_api/post_uri_reference_format_response_body_for_content_types.md)  | 
 **post** /responseBody/postUriTemplateFormatResponseBodyForContentTypes | [PathPostApi](docs/apis/tags/PathPostApi.md).[post_uri_template_format_response_body_for_content_types](docs/apis/tags/path_post_api/post_uri_template_format_response_body_for_content_types.md) [ContentTypeJsonApi](docs/apis/tags/ContentTypeJsonApi.md).[post_uri_template_format_response_body_for_content_types](docs/apis/tags/content_type_json_api/post_uri_template_format_response_body_for_content_types.md) [FormatApi](docs/apis/tags/FormatApi.md).[post_uri_template_format_response_body_for_content_types](docs/apis/tags/format_api/post_uri_template_format_response_body_for_content_types.md) [ResponseContentContentTypeSchemaApi](docs/apis/tags/ResponseContentContentTypeSchemaApi.md).[post_uri_template_format_response_body_for_content_types](docs/apis/tags/response_content_content_type_schema_api/post_uri_template_format_response_body_for_content_types.md)  | 
 
-## Documentation For Component Schemas (Models)
+## Component Schemas
 
  - [AdditionalpropertiesAllowsASchemaWhichShouldValidate](docs/components/schema/additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md)
  - [AdditionalpropertiesAreAllowedByDefault](docs/components/schema/additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.md)

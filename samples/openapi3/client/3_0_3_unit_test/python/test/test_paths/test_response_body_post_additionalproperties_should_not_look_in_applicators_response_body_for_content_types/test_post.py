@@ -62,7 +62,6 @@ class TestResponseBodyPostAdditionalpropertiesShouldNotLookInApplicatorsResponse
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_valid_test_case_passes(self):
         # valid test case
         accept_content_type = 'application/json'
@@ -97,7 +96,6 @@ class TestResponseBodyPostAdditionalpropertiesShouldNotLookInApplicatorsResponse
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

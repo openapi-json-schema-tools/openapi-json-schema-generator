@@ -63,7 +63,6 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_35_is_not_multiple_of15_fails(self):
         # 35 is not multiple of 1.5
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_zero_is_multiple_of_anything_passes(self):
         # zero is multiple of anything
         accept_content_type = 'application/json'
@@ -117,7 +115,6 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

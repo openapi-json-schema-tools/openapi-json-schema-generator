@@ -67,6 +67,5 @@ class TestResponseBodyPostRequiredWithEmptyArrayResponseBodyForContentTypes(ApiT
 
 
 
-
 if __name__ == '__main__':
     unittest.main()

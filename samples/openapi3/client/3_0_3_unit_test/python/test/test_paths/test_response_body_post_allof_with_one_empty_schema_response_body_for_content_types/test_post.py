@@ -66,6 +66,5 @@ class TestResponseBodyPostAllofWithOneEmptySchemaResponseBodyForContentTypes(Api
 
 
 
-
 if __name__ == '__main__':
     unittest.main()

@@ -57,7 +57,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_a_string_is_still_a_string_even_if_it_looks_like_a_number_passes(self):
         # a string is still a string, even if it looks like a number
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_an_empty_string_is_still_a_string_passes(self):
         # an empty string is still a string
         accept_content_type = 'application/json'
@@ -117,7 +115,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_a_float_is_not_a_string_fails(self):
         # a float is not a string
         accept_content_type = 'application/json'
@@ -141,7 +138,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_object_is_not_a_string_fails(self):
         # an object is not a string
         accept_content_type = 'application/json'
@@ -166,7 +162,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_array_is_not_a_string_fails(self):
         # an array is not a string
         accept_content_type = 'application/json'
@@ -191,7 +186,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_a_boolean_is_not_a_string_fails(self):
         # a boolean is not a string
         accept_content_type = 'application/json'
@@ -215,7 +209,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_null_is_not_a_string_fails(self):
         # null is not a string
         accept_content_type = 'application/json'
@@ -239,7 +232,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_a_string_is_a_string_passes(self):
         # a string is a string
         accept_content_type = 'application/json'
@@ -269,7 +261,6 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

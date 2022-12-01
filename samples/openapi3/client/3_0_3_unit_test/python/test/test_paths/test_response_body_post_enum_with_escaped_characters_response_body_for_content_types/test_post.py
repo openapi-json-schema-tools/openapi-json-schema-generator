@@ -63,7 +63,6 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_member1_is_valid_passes(self):
         # member 1 is valid
         accept_content_type = 'application/json'
@@ -93,7 +92,6 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_another_string_is_invalid_fails(self):
         # another string is invalid
         accept_content_type = 'application/json'
@@ -117,7 +115,6 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

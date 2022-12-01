@@ -16,4 +16,4 @@ Method | HTTP request | Description
 [**post_nested_anyof_to_check_validation_semantics_request_body**](any_of_api/post_nested_anyof_to_check_validation_semantics_request_body.md) | **post** /requestBody/postNestedAnyofToCheckValidationSemanticsRequestBody | 
 [**post_nested_anyof_to_check_validation_semantics_response_body_for_content_types**](any_of_api/post_nested_anyof_to_check_validation_semantics_response_body_for_content_types.md) | **post** /responseBody/postNestedAnyofToCheckValidationSemanticsResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

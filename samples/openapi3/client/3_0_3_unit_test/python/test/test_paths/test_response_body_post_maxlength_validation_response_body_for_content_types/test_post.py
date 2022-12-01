@@ -57,7 +57,6 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_ignores_non_strings_passes(self):
         # ignores non-strings
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_shorter_is_valid_passes(self):
         # shorter is valid
         accept_content_type = 'application/json'
@@ -117,7 +115,6 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_two_supplementary_unicode_code_points_is_long_enough_passes(self):
         # two supplementary Unicode code points is long enough
         accept_content_type = 'application/json'
@@ -147,7 +144,6 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
         accept_content_type = 'application/json'
@@ -177,7 +173,6 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

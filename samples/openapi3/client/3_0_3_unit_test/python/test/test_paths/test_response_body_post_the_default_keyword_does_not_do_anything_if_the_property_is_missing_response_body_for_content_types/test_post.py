@@ -64,7 +64,6 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_an_explicit_property_value_is_checked_against_maximum_passing_passes(self):
         # an explicit property value is checked against maximum (passing)
         accept_content_type = 'application/json'
@@ -97,7 +96,6 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_an_explicit_property_value_is_checked_against_maximum_failing_fails(self):
         # an explicit property value is checked against maximum (failing)
         accept_content_type = 'application/json'
@@ -124,7 +122,6 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

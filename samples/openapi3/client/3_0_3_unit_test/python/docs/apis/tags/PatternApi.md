@@ -10,4 +10,4 @@ Method | HTTP request | Description
 [**post_pattern_validation_request_body**](pattern_api/post_pattern_validation_request_body.md) | **post** /requestBody/postPatternValidationRequestBody | 
 [**post_pattern_validation_response_body_for_content_types**](pattern_api/post_pattern_validation_response_body_for_content_types.md) | **post** /responseBody/postPatternValidationResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

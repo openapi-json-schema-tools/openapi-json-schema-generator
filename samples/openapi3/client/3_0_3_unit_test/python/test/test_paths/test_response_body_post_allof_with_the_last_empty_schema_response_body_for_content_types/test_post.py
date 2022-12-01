@@ -57,7 +57,6 @@ class TestResponseBodyPostAllofWithTheLastEmptySchemaResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_number_is_valid_passes(self):
         # number is valid
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostAllofWithTheLastEmptySchemaResponseBodyForContentTypes
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

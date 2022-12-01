@@ -57,7 +57,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_a_boolean_is_not_an_array_fails(self):
         # a boolean is not an array
         accept_content_type = 'application/json'
@@ -81,7 +80,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_null_is_not_an_array_fails(self):
         # null is not an array
         accept_content_type = 'application/json'
@@ -105,7 +103,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_object_is_not_an_array_fails(self):
         # an object is not an array
         accept_content_type = 'application/json'
@@ -130,7 +127,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_a_string_is_not_an_array_fails(self):
         # a string is not an array
         accept_content_type = 'application/json'
@@ -154,7 +150,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_an_array_is_an_array_passes(self):
         # an array is an array
         accept_content_type = 'application/json'
@@ -185,7 +180,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_an_integer_is_not_an_array_fails(self):
         # an integer is not an array
         accept_content_type = 'application/json'
@@ -209,7 +203,6 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

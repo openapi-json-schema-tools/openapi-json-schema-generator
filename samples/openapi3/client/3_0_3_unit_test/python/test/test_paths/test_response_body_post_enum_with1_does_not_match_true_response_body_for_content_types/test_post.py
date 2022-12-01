@@ -57,7 +57,6 @@ class TestResponseBodyPostEnumWith1DoesNotMatchTrueResponseBodyForContentTypes(A
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_integer_one_is_valid_passes(self):
         # integer one is valid
         accept_content_type = 'application/json'
@@ -87,7 +86,6 @@ class TestResponseBodyPostEnumWith1DoesNotMatchTrueResponseBodyForContentTypes(A
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_float_one_is_valid_passes(self):
         # float one is valid
         accept_content_type = 'application/json'
@@ -117,7 +115,6 @@ class TestResponseBodyPostEnumWith1DoesNotMatchTrueResponseBodyForContentTypes(A
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

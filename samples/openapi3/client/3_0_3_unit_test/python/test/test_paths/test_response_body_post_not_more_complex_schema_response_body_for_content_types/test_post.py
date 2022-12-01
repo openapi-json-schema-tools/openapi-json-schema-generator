@@ -66,7 +66,6 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_mismatch_fails(self):
         # mismatch
         accept_content_type = 'application/json'
@@ -93,7 +92,6 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_match_passes(self):
         # match
         accept_content_type = 'application/json'
@@ -123,7 +121,6 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
 
 
 

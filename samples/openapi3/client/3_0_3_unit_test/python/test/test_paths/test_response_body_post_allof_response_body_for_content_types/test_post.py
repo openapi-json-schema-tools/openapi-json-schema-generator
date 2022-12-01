@@ -68,7 +68,6 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_mismatch_first_fails(self):
         # mismatch first
         accept_content_type = 'application/json'
@@ -95,7 +94,6 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_mismatch_second_fails(self):
         # mismatch second
         accept_content_type = 'application/json'
@@ -122,7 +120,6 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_wrong_type_fails(self):
         # wrong type
         accept_content_type = 'application/json'
@@ -151,7 +148,6 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

@@ -66,7 +66,6 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_wrong_foo_value_fails(self):
         # wrong foo value
         accept_content_type = 'application/json'
@@ -95,7 +94,6 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_both_properties_are_valid_passes(self):
         # both properties are valid
         accept_content_type = 'application/json'
@@ -130,7 +128,6 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
     def test_wrong_bar_value_fails(self):
         # wrong bar value
         accept_content_type = 'application/json'
@@ -159,7 +156,6 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_missing_all_properties_is_invalid_fails(self):
         # missing all properties is invalid
         accept_content_type = 'application/json'
@@ -184,7 +180,6 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
     def test_missing_required_property_is_invalid_fails(self):
         # missing required property is invalid
         accept_content_type = 'application/json'
@@ -211,7 +206,6 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
 
 
 

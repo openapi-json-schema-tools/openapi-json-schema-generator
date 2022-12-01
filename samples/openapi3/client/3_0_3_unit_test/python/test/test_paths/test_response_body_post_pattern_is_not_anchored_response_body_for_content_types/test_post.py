@@ -66,6 +66,5 @@ class TestResponseBodyPostPatternIsNotAnchoredResponseBodyForContentTypes(ApiTes
 
 
 
-
 if __name__ == '__main__':
     unittest.main()
