@@ -1256,7 +1256,7 @@ public class JavaModelTest {
         final CodegenOperation co = codegen.fromOperation("testSchema", "GET", operation, null);
 
         Assert.assertEquals(co.responses.size(), 1);
-        CodegenResponse cr = co.responses.get(0);
+        CodegenResponse cr = co.responses.get("200");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<Pet>");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
@@ -1340,7 +1340,7 @@ public class JavaModelTest {
         final CodegenOperation co = codegen.fromOperation("testSchema", "GET", operation, null);
 
         Assert.assertEquals(co.responses.size(), 1);
-        CodegenResponse cr = co.responses.get(0);
+        CodegenResponse cr = co.responses.get("200");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
