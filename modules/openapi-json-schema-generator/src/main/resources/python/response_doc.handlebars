@@ -1,7 +1,8 @@
 {{#with response}}
 {{#if refModule}}
 <a name="top"></a>
-#### <a id="{{refModule}}.ApiResponse" >{{packageName}}.components.responses.{{refModule}}.ApiResponse</a>
+# {{packageName}}.components.responses.{{refModule}}
+## ApiResponse
 {{else}}
 #### <a id="response_for_{{@key}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
 {{/if}}
@@ -14,7 +15,7 @@ headers | {{#unless responseHeaders}}Unset{{else}}[Headers](#Headers){{/unless}}
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint complexTypePrefix="../../../components/schema/" }}
     {{/with}}
 {{/each}}
 {{else}}
@@ -29,7 +30,7 @@ headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{@key}}.Headers
 {{/if}}
 {{#if responseHeaders}}
 {{#if refModule}}
-#### Headers
+## Headers
 {{else}}
 #### <a id="response_for_{{@key}}.Headers" >response_for_{{@key}}.Headers</a>
 {{/if}}

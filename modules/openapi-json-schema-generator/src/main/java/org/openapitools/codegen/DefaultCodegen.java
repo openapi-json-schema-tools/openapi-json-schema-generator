@@ -4451,7 +4451,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
             r.setResponseHeaders(responseHeaders);
         }
-        r.setContent(getContent(response.getContent(), r.imports, "", usedSourceJsonPath + "/content"));
+        r.setContent(getContent(usedResponse.getContent(), r.imports, "", usedSourceJsonPath + "/content"));
 
         return r;
     }

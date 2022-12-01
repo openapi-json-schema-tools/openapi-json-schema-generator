@@ -755,7 +755,6 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("response", refResponse);
-                templateData.put("schemaNamePrefix1", config.packageName() + ".components.responses." + docFilename);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {
