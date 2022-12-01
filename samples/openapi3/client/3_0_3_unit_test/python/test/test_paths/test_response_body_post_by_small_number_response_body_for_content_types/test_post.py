@@ -57,6 +57,7 @@ class TestResponseBodyPostBySmallNumberResponseBodyForContentTypes(ApiTestMixin,
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_00075_is_multiple_of00001_passes(self):
         # 0.0075 is multiple of 0.0001
         accept_content_type = 'application/json'
@@ -86,8 +87,6 @@ class TestResponseBodyPostBySmallNumberResponseBodyForContentTypes(ApiTestMixin,
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

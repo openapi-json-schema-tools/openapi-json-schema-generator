@@ -66,6 +66,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_unique_array_of_objects_is_valid_passes(self):
         # unique array of objects is valid
         accept_content_type = 'application/json'
@@ -104,6 +105,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_non_unique_array_of_nested_objects_is_valid_passes(self):
         # non-unique array of nested objects is valid
         accept_content_type = 'application/json'
@@ -154,6 +156,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_non_unique_array_of_objects_is_valid_passes(self):
         # non-unique array of objects is valid
         accept_content_type = 'application/json'
@@ -192,6 +195,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_1_and_true_are_unique_passes(self):
         # 1 and true are unique
         accept_content_type = 'application/json'
@@ -224,6 +228,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_unique_array_of_integers_is_valid_passes(self):
         # unique array of integers is valid
         accept_content_type = 'application/json'
@@ -256,6 +261,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_non_unique_array_of_arrays_is_valid_passes(self):
         # non-unique array of arrays is valid
         accept_content_type = 'application/json'
@@ -292,6 +298,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_numbers_are_unique_if_mathematically_unequal_passes(self):
         # numbers are unique if mathematically unequal
         accept_content_type = 'application/json'
@@ -325,6 +332,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_false_is_not_equal_to_zero_passes(self):
         # false is not equal to zero
         accept_content_type = 'application/json'
@@ -357,6 +365,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_unique_array_of_nested_objects_is_valid_passes(self):
         # unique array of nested objects is valid
         accept_content_type = 'application/json'
@@ -407,6 +416,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_0_and_false_are_unique_passes(self):
         # 0 and false are unique
         accept_content_type = 'application/json'
@@ -439,6 +449,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_unique_array_of_arrays_is_valid_passes(self):
         # unique array of arrays is valid
         accept_content_type = 'application/json'
@@ -475,6 +486,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_true_is_not_equal_to_one_passes(self):
         # true is not equal to one
         accept_content_type = 'application/json'
@@ -507,6 +519,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_non_unique_heterogeneous_types_are_valid_passes(self):
         # non-unique heterogeneous types are valid
         accept_content_type = 'application/json'
@@ -547,6 +560,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_unique_heterogeneous_types_are_valid_passes(self):
         # unique heterogeneous types are valid
         accept_content_type = 'application/json'
@@ -585,8 +599,6 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

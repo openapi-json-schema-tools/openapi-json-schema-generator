@@ -57,6 +57,7 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_valid_integer_with_multipleof_float_passes(self):
         # valid integer with multipleOf float
         accept_content_type = 'application/json'
@@ -86,8 +87,6 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

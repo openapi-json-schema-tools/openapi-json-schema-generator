@@ -66,6 +66,7 @@ class TestResponseBodyPostOneofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_neither_oneof_valid_complex_fails(self):
         # neither oneOf valid (complex)
         accept_content_type = 'application/json'
@@ -94,6 +95,7 @@ class TestResponseBodyPostOneofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_both_oneof_valid_complex_fails(self):
         # both oneOf valid (complex)
         accept_content_type = 'application/json'
@@ -122,6 +124,7 @@ class TestResponseBodyPostOneofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_second_oneof_valid_complex_passes(self):
         # second oneOf valid (complex)
         accept_content_type = 'application/json'
@@ -154,8 +157,6 @@ class TestResponseBodyPostOneofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

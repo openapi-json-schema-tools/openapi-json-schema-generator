@@ -76,6 +76,7 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_object_with_strings_is_invalid_fails(self):
         # object with strings is invalid
         accept_content_type = 'application/json'
@@ -112,8 +113,6 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
-
 
 if __name__ == '__main__':
     unittest.main()

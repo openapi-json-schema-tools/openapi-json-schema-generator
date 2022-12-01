@@ -63,6 +63,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid
         accept_content_type = 'application/json'
@@ -92,6 +93,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_above_the_maximum_is_invalid_fails(self):
         # above the maximum is invalid
         accept_content_type = 'application/json'
@@ -115,6 +117,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
         accept_content_type = 'application/json'
@@ -144,8 +147,6 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

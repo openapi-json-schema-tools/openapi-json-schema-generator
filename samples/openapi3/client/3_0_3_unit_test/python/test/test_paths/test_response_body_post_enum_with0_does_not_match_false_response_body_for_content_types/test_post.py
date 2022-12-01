@@ -63,6 +63,7 @@ class TestResponseBodyPostEnumWith0DoesNotMatchFalseResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_float_zero_is_valid_passes(self):
         # float zero is valid
         accept_content_type = 'application/json'
@@ -92,6 +93,7 @@ class TestResponseBodyPostEnumWith0DoesNotMatchFalseResponseBodyForContentTypes(
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_false_is_invalid_fails(self):
         # false is invalid
         accept_content_type = 'application/json'
@@ -115,8 +117,6 @@ class TestResponseBodyPostEnumWith0DoesNotMatchFalseResponseBodyForContentTypes(
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
-
 
 if __name__ == '__main__':
     unittest.main()

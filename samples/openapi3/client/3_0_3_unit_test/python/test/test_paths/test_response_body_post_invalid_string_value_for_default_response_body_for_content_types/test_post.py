@@ -66,6 +66,7 @@ class TestResponseBodyPostInvalidStringValueForDefaultResponseBodyForContentType
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_still_valid_when_the_invalid_default_is_used_passes(self):
         # still valid when the invalid default is used
         accept_content_type = 'application/json'
@@ -96,8 +97,6 @@ class TestResponseBodyPostInvalidStringValueForDefaultResponseBodyForContentType
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

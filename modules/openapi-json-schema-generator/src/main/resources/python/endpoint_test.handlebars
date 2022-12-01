@@ -39,10 +39,10 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
         {{#if schema}}
     response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#if schema.nameInSnakeCase}}{{schema.name}}{{else}}{{schema.baseName}}{{/if}}
         {{/if}}
-
     {{#if this.testCases}}
     {{#each testCases}}
     {{#with this }}
+
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
         accept_content_type = '{{{../@key}}}'
@@ -83,7 +83,6 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     {{/with}}
     {{/each}}
     {{/if}}
-
     {{/each}}
     {{else}}
     response_body = ''
@@ -95,9 +94,9 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{#if required}}
 {{#each content}}
 {{#if this.testCases}}
-
 {{#each testCases}}
 {{#with this }}
+
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         content_type = '{{{../@key}}}'
         # {{description}}
@@ -129,16 +128,13 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
                 self.api.{{httpMethod}}(body=body)
 {{/if}}
 {{/with}}
-
 {{/each}}
-
 {{/if}}
 {{/each}}
 {{/if}}
 {{/with}}
 {{else}}
     {{/if}}
-
 {{/with}}
 
 if __name__ == '__main__':

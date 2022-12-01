@@ -58,6 +58,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_null_is_not_a_number_fails(self):
         # null is not a number
         accept_content_type = 'application/json'
@@ -81,6 +82,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_an_object_is_not_a_number_fails(self):
         # an object is not a number
         accept_content_type = 'application/json'
@@ -105,6 +107,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_a_boolean_is_not_a_number_fails(self):
         # a boolean is not a number
         accept_content_type = 'application/json'
@@ -128,6 +131,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_a_float_is_a_number_passes(self):
         # a float is a number
         accept_content_type = 'application/json'
@@ -157,6 +161,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_a_string_is_still_not_a_number_even_if_it_looks_like_one_fails(self):
         # a string is still not a number, even if it looks like one
         accept_content_type = 'application/json'
@@ -180,6 +185,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_a_string_is_not_a_number_fails(self):
         # a string is not a number
         accept_content_type = 'application/json'
@@ -203,6 +209,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_an_integer_is_a_number_passes(self):
         # an integer is a number
         accept_content_type = 'application/json'
@@ -232,6 +239,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_a_float_with_zero_fractional_part_is_a_number_and_an_integer_passes(self):
         # a float with zero fractional part is a number (and an integer)
         accept_content_type = 'application/json'
@@ -261,8 +269,6 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

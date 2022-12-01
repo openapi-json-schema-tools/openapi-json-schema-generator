@@ -63,6 +63,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_below_the_minimum_is_invalid_fails(self):
         # below the minimum is invalid
         accept_content_type = 'application/json'
@@ -86,6 +87,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_above_the_minimum_is_valid_passes(self):
         # above the minimum is valid
         accept_content_type = 'application/json'
@@ -115,6 +117,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
         accept_content_type = 'application/json'
@@ -144,8 +147,6 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

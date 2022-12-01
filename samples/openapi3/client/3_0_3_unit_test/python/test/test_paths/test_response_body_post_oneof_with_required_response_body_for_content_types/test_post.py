@@ -64,6 +64,7 @@ class TestResponseBodyPostOneofWithRequiredResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_both_invalid_invalid_fails(self):
         # both invalid - invalid
         accept_content_type = 'application/json'
@@ -90,6 +91,7 @@ class TestResponseBodyPostOneofWithRequiredResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_first_valid_valid_passes(self):
         # first valid - valid
         accept_content_type = 'application/json'
@@ -124,6 +126,7 @@ class TestResponseBodyPostOneofWithRequiredResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_second_valid_valid_passes(self):
         # second valid - valid
         accept_content_type = 'application/json'
@@ -158,8 +161,6 @@ class TestResponseBodyPostOneofWithRequiredResponseBodyForContentTypes(ApiTestMi
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
-
-
 
 if __name__ == '__main__':
     unittest.main()

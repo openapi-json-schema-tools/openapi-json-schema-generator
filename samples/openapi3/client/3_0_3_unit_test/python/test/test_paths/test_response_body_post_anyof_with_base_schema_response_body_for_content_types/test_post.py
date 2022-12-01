@@ -63,6 +63,7 @@ class TestResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_both_anyof_invalid_fails(self):
         # both anyOf invalid
         accept_content_type = 'application/json'
@@ -86,6 +87,7 @@ class TestResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_mismatch_base_schema_fails(self):
         # mismatch base schema
         accept_content_type = 'application/json'
@@ -109,8 +111,6 @@ class TestResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
-
 
 if __name__ == '__main__':
     unittest.main()

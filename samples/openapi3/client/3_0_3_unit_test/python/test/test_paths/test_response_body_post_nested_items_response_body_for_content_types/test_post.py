@@ -92,6 +92,7 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
                 _configuration=self._configuration
             )
             assert api_response.body == deserialized_response_body
+
     def test_nested_array_with_invalid_type_fails(self):
         # nested array with invalid type
         accept_content_type = 'application/json'
@@ -144,6 +145,7 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
+
     def test_not_deep_enough_fails(self):
         # not deep enough
         accept_content_type = 'application/json'
@@ -190,8 +192,6 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
-
 
 if __name__ == '__main__':
     unittest.main()
