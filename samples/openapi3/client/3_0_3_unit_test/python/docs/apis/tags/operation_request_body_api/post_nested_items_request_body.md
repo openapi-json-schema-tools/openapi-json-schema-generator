@@ -52,7 +52,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedItems**](../../components/schema/nested_items.NestedItems.md) |  | 
+[**NestedItems**](../../../components/schema/nested_items.NestedItems.md) |  | 
 
 
 ### Return Types, Responses
