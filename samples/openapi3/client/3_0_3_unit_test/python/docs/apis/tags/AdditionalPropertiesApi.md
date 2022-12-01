@@ -14,4 +14,4 @@ Method | HTTP request | Description
 [**post_additionalproperties_should_not_look_in_applicators_request_body**](additional_properties_api/post_additionalproperties_should_not_look_in_applicators_request_body.md) | **post** /requestBody/postAdditionalpropertiesShouldNotLookInApplicatorsRequestBody | 
 [**post_additionalproperties_should_not_look_in_applicators_response_body_for_content_types**](additional_properties_api/post_additionalproperties_should_not_look_in_applicators_response_body_for_content_types.md) | **post** /responseBody/postAdditionalpropertiesShouldNotLookInApplicatorsResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

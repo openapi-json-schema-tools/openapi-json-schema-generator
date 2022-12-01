@@ -216,8 +216,5 @@ class TestRequestBodyPostUriTemplateFormatRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, schemas.Unset)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

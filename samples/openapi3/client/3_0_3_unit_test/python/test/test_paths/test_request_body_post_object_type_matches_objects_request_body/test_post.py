@@ -150,8 +150,5 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 )
                 self.api.post(body=body)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

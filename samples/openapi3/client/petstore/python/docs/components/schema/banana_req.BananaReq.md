@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="BananaReq"></a>
 # petstore_api.components.schema.banana_req.BananaReq
 
@@ -12,5 +13,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **lengthCm** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | 
 **sweet** | bool,  | BoolClass,  |  | [optional] 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

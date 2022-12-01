@@ -20,4 +20,4 @@ Method | HTTP request | Description
 [**post_string_type_matches_strings_request_body**](type_api/post_string_type_matches_strings_request_body.md) | **post** /requestBody/postStringTypeMatchesStringsRequestBody | 
 [**post_string_type_matches_strings_response_body_for_content_types**](type_api/post_string_type_matches_strings_response_body_for_content_types.md) | **post** /responseBody/postStringTypeMatchesStringsResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

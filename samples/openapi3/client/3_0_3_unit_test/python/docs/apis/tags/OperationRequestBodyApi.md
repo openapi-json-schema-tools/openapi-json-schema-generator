@@ -93,4 +93,4 @@ Method | HTTP request | Description
 [**post_uri_reference_format_request_body**](operation_request_body_api/post_uri_reference_format_request_body.md) | **post** /requestBody/postUriReferenceFormatRequestBody | 
 [**post_uri_template_format_request_body**](operation_request_body_api/post_uri_template_format_request_body.md) | **post** /requestBody/postUriTemplateFormatRequestBody | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -157,70 +157,25 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-{{#each responses}}
-{{#if isDefault}}
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
+{{#if defaultResponse}}
+{{#if defaultResponse.refModule}}
+default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{defaultResponse.message}}
 {{else}}
-{{code}} | [response_for_{{code}}.ApiResponse](#response_for_{{code}}.ApiResponse) | {{message}}
+default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{defaultResponse.message}}
+{{/if}}
+{{/if}}
+{{#each nonDefaultResponses}}
+{{#if refModule}}
+{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{message}}
+{{else}}
+{{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/if}}
 {{/each}}
 {{#each responses}}
-{{#if isDefault}}
+{{#unless refModule}}
 
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
-{{else}}
-
-#### <a id="response_for_{{code}}.ApiResponse" >response_for_{{code}}.ApiResponse</a>
-{{/if}}
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{code}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#response_for_{{code}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{code}}.Headers](#response_for_{{code}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
-{{#each content}}
-    {{#with this.schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." complexTypePrefix="../../../components/schema/" }}
-    {{/with}}
-{{/each}}
-{{#if responseHeaders}}
-#### <a id="response_for_{{code}}.Headers" >response_for_{{code}}.Headers</a>
-
-Key | Accessed Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-    {{#each responseHeaders}}
-        {{#if schema}}
-            {{#with schema}}
-{{../baseName}} | [response_for_{{../code}}.{{../paramName}}.schema](#response_for_{{../code}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-{{../baseName}} | [response_for_{{../code}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../code}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                    {{/with}}
-                {{/with}}
-            {{/each}}
-        {{/if}}
-    {{/each}}
-    {{#each responseHeaders}}
-        {{#if schema}}
-            {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../code schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
-                    {{/with}}
-                {{/with}}
-            {{/each}}
-        {{/if}}
-    {{/each}}
-{{/if}}
+{{> response_doc response=this }}
+{{/unless}}
 {{/each}}
 
 ### Authorization
@@ -231,6 +186,5 @@ No authorization required
 {{#each authMethods}}[{{{name}}}](../../../../README.md#{{{name}}}){{#unless @last}}, {{/unless}}{{/each}}
 {{/unless}}
 
-[[Back to top]](#top) [[Back to API]](../{{tag.className}}.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../{{tag.className}}.md) {{> footer_links readmePath="../../../../" endpointsLink=true}}
 {{/each}}

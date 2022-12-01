@@ -7,4 +7,4 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**post_operators**](default_api/post_operators.md) | **post** /operators | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

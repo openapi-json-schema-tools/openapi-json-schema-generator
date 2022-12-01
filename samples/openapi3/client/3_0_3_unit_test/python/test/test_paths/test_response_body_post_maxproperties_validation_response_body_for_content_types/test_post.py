@@ -227,8 +227,5 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
             )
             assert api_response.body == deserialized_response_body
 
-
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -115,30 +115,14 @@
 {{/eq}}
 {{#eq skipDeserialization "False"}}
 ) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}typing.Union[
-    {{#each responses}}
-        {{#if isDefault}}
-    response_for_default.ApiResponse,
-        {{else}}
-            {{#if is2xx}}
-    response_for_{{code}}.ApiResponse,
-            {{/if}}
-        {{/if}}
-    {{/each}}
+    {{> endpoint_response_type_hint }}
 ]: ...
     {{/if}}
 {{/eq}}
 {{#eq skipDeserialization "null"}}
 {{#if isOverload}}
 ) -> typing.Union[
-    {{#each responses}}
-        {{#if isDefault}}
-    response_for_default.ApiResponse,
-        {{else}}
-            {{#if is2xx}}
-    response_for_{{code}}.ApiResponse,
-            {{/if}}
-        {{/if}}
-    {{/each}}
+    {{> endpoint_response_type_hint }}
     api_client.ApiResponseWithoutDeserialization,
 ]: ...
 {{else}}

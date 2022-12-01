@@ -23,18 +23,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class CodegenOperation {
-    public final List<CodegenProperty> responseHeaders = new ArrayList<CodegenProperty>();
     public boolean hasAuthMethods, hasConsumes, hasProduces, hasParams, hasOptionalParams, hasRequiredParams,
-            returnTypeIsPrimitive, returnSimpleType, subresourceOperation, isMap,
-            isArray, isMultipart,
-            isResponseBinary = false, isResponseFile = false, hasReference = false, defaultReturnType = false,
+            subresourceOperation, isMultipart,
             isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
             isRestful, isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
-    public CodegenProperty returnProperty;
-    public String path, operationId, returnType, returnFormat, httpMethod, returnBaseType,
-            returnContainer, summary, unescapedNotes, notes, baseName;
-    public CodegenDiscriminator discriminator;
+    public String path, operationId, httpMethod,
+            summary, unescapedNotes, notes, baseName;
     public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
     public CodegenParameter bodyParam;
@@ -50,7 +45,11 @@ public class CodegenOperation {
     public List<CodegenParameter> optionalParams = new ArrayList<CodegenParameter>();
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
-    public List<CodegenResponse> responses = new ArrayList<CodegenResponse>();
+    public TreeMap<String, CodegenResponse> responses = null;
+    public TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
+    public TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
+
+    public TreeMap<String, CodegenResponse> nonDefaultResponses = null;
     public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();
     public Set<String> imports = new HashSet<String>();
@@ -168,15 +167,6 @@ public class CodegenOperation {
     }
 
     /**
-     * Check if there's at least one response header
-     *
-     * @return true if header response exists, false otherwise
-     */
-    public boolean getHasResponseHeaders() {
-        return nonEmpty(responseHeaders);
-    }
-
-    /**
      * Check if there's at least one example parameter
      *
      * @return true if examples parameter exists, false otherwise
@@ -185,21 +175,22 @@ public class CodegenOperation {
         return nonEmpty(examples);
     }
 
-    /**
-     * Check if there's a default response
-     *
-     * @return true if responses contain a default response, false otherwise
-     */
-    public boolean getHasDefaultResponse() {
-        return responses.stream().anyMatch(response -> response.isDefault);
-    }
-
     public boolean getAllResponsesAreErrors() {
-        return responses.stream().allMatch(response -> response.is4xx || response.is5xx);
-    }
-
-    public List<CodegenResponse> getNonDefaultResponses() {
-        return responses.stream().filter(response -> !response.isDefault).collect(Collectors.toList());
+        if (responses.size() == 1 && defaultResponse != null) {
+            return false;
+        }
+        for (String code: nonDefaultResponses.keySet()) {
+            String firstNumber = code.substring(0, 1);
+            switch (firstNumber) {
+                case "1": case "2": case "3":
+                    return false;
+            }
+        }
+        if (defaultResponse != null) {
+            // 404 + default, unable to tell if default is a success or an error status code
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -314,25 +305,15 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append("responseHeaders=").append(responseHeaders);
         sb.append(", hasAuthMethods=").append(hasAuthMethods);
         sb.append(", hasConsumes=").append(hasConsumes);
         sb.append(", hasProduces=").append(hasProduces);
         sb.append(", hasParams=").append(hasParams);
         sb.append(", hasOptionalParams=").append(hasOptionalParams);
         sb.append(", hasRequiredParams=").append(hasRequiredParams);
-        sb.append(", returnTypeIsPrimitive=").append(returnTypeIsPrimitive);
-        sb.append(", returnSimpleType=").append(returnSimpleType);
         sb.append(", subresourceOperation=").append(subresourceOperation);
-        sb.append(", isMap=").append(isMap);
-        sb.append(", returnProperty=").append(returnProperty);
-        sb.append(", isArray=").append(isArray);
         sb.append(", isMultipart=").append(isMultipart);
-        sb.append(", isResponseBinary=").append(isResponseBinary);
-        sb.append(", isResponseFile=").append(isResponseFile);
-        sb.append(", hasReference=").append(hasReference);
         sb.append(", hasDefaultResponse=").append(hasDefaultResponse);
-        sb.append(", hasErrorResponseObject=").append(hasErrorResponseObject);
         sb.append(", isRestfulIndex=").append(isRestfulIndex);
         sb.append(", isRestfulShow=").append(isRestfulShow);
         sb.append(", isRestfulCreate=").append(isRestfulCreate);
@@ -344,16 +325,12 @@ public class CodegenOperation {
         sb.append(", uniqueItems='").append(uniqueItems);
         sb.append(", path='").append(path).append('\'');
         sb.append(", operationId='").append(operationId).append('\'');
-        sb.append(", returnType='").append(returnType).append('\'');
         sb.append(", httpMethod='").append(httpMethod).append('\'');
-        sb.append(", returnBaseType='").append(returnBaseType).append('\'');
-        sb.append(", returnContainer='").append(returnContainer).append('\'');
         sb.append(", summary='").append(summary).append('\'');
         sb.append(", unescapedNotes='").append(unescapedNotes).append('\'');
         sb.append(", notes='").append(notes).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
-        sb.append(", discriminator=").append(discriminator);
         sb.append(", consumes=").append(consumes);
         sb.append(", produces=").append(produces);
         sb.append(", prioritizedContentTypes=").append(prioritizedContentTypes);
@@ -371,6 +348,9 @@ public class CodegenOperation {
         sb.append(", authMethods=").append(authMethods);
         sb.append(", tags=").append(tags);
         sb.append(", responses=").append(responses);
+        sb.append(", statusCodeResponses=").append(statusCodeResponses);
+        sb.append(", wildcardCodeResponses=").append(wildcardCodeResponses);
+        sb.append(", nonDefaultResponses=").append(nonDefaultResponses);
         sb.append(", callbacks=").append(callbacks);
         sb.append(", imports=").append(imports);
         sb.append(", examples=").append(examples);
@@ -397,17 +377,9 @@ public class CodegenOperation {
                 hasParams == that.hasParams &&
                 hasOptionalParams == that.hasOptionalParams &&
                 hasRequiredParams == that.hasRequiredParams &&
-                returnTypeIsPrimitive == that.returnTypeIsPrimitive &&
-                returnSimpleType == that.returnSimpleType &&
                 subresourceOperation == that.subresourceOperation &&
-                isMap == that.isMap &&
-                isArray == that.isArray &&
                 isMultipart == that.isMultipart &&
-                isResponseBinary == that.isResponseBinary &&
-                isResponseFile == that.isResponseFile &&
-                hasReference == that.hasReference &&
                 hasDefaultResponse == that.hasDefaultResponse &&
-                hasErrorResponseObject == that.hasErrorResponseObject &&
                 isRestfulIndex == that.isRestfulIndex &&
                 isRestfulShow == that.isRestfulShow &&
                 isRestfulCreate == that.isRestfulCreate &&
@@ -417,20 +389,14 @@ public class CodegenOperation {
                 isDeprecated == that.isDeprecated &&
                 isCallbackRequest == that.isCallbackRequest &&
                 uniqueItems == that.uniqueItems &&
-                Objects.equals(returnProperty, that.returnProperty) &&
-                Objects.equals(responseHeaders, that.responseHeaders) &&
                 Objects.equals(path, that.path) &&
                 Objects.equals(operationId, that.operationId) &&
-                Objects.equals(returnType, that.returnType) &&
                 Objects.equals(httpMethod, that.httpMethod) &&
-                Objects.equals(returnBaseType, that.returnBaseType) &&
-                Objects.equals(returnContainer, that.returnContainer) &&
                 Objects.equals(summary, that.summary) &&
                 Objects.equals(unescapedNotes, that.unescapedNotes) &&
                 Objects.equals(notes, that.notes) &&
                 Objects.equals(baseName, that.baseName) &&
                 Objects.equals(defaultResponse, that.defaultResponse) &&
-                Objects.equals(discriminator, that.discriminator) &&
                 Objects.equals(consumes, that.consumes) &&
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(prioritizedContentTypes, that.prioritizedContentTypes) &&
@@ -448,6 +414,9 @@ public class CodegenOperation {
                 Objects.equals(authMethods, that.authMethods) &&
                 Objects.equals(tags, that.tags) &&
                 Objects.equals(responses, that.responses) &&
+                Objects.equals(statusCodeResponses, that.statusCodeResponses) &&
+                Objects.equals(wildcardCodeResponses, that.wildcardCodeResponses) &&
+                Objects.equals(nonDefaultResponses, that.nonDefaultResponses) &&
                 Objects.equals(callbacks, that.callbacks) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(examples, that.examples) &&
@@ -464,16 +433,17 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(responseHeaders, hasAuthMethods, hasConsumes, hasProduces, hasParams, hasOptionalParams,
-                hasRequiredParams, returnTypeIsPrimitive, returnSimpleType, subresourceOperation, isMap,
-                isArray, isMultipart, isResponseBinary, isResponseFile, hasReference,
+        return Objects.hash(hasAuthMethods, hasConsumes, hasProduces, hasParams, hasOptionalParams,
+                hasRequiredParams, subresourceOperation,
+                isMultipart,
                 hasDefaultResponse, isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
-                isRestful, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, returnType, httpMethod,
-                returnBaseType, returnContainer, summary, unescapedNotes, notes, baseName, defaultResponse,
-                discriminator, consumes, produces, prioritizedContentTypes, servers, bodyParam, allParams, bodyParams,
-                pathParams, queryParams, headerParams, formParams, cookieParams, requiredParams, returnProperty, optionalParams,
+                isRestful, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
+                summary, unescapedNotes, notes, baseName, defaultResponse,
+                consumes, produces, prioritizedContentTypes, servers, bodyParam, allParams, bodyParams,
+                pathParams, queryParams, headerParams, formParams, cookieParams, requiredParams, optionalParams,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
                 vendorExtensions, nickname, operationIdOriginal, operationIdLowerCase, operationIdCamelCase,
-                operationIdSnakeCase, hasErrorResponseObject);
+                operationIdSnakeCase, statusCodeResponses, wildcardCodeResponses,
+                nonDefaultResponses);
     }
 }

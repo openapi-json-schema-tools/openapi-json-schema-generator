@@ -47,6 +47,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
             header_params=header_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 
@@ -67,6 +68,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             query_params=query_params,
             header_params=header_params,
         )
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```
@@ -146,18 +148,10 @@ str,  | str,  |  | must be one of ["true", "false", ]
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | succeeded
-
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+200 | [success_description_only_response.ApiResponse](../../../components/responses/success_description_only_response.md) | Success
 
 ### Authorization
 
 [bearer_test](../../../../README.md#bearer_test)
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

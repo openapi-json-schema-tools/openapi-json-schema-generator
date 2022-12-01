@@ -34,6 +34,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
         api_response = api_instance.post_nested_items_request_body(
             body=body,
         )
+        pprint(api_response)
     except unit_test_api.ApiException as e:
         print("Exception when calling ItemsApi->post_nested_items_request_body: %s\n" % e)
 ```
@@ -51,7 +52,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedItems**](../../components/schema/nested_items.NestedItems.md) |  | 
+[**NestedItems**](../../../components/schema/nested_items.NestedItems.md) |  | 
 
 
 ### Return Types, Responses
@@ -72,5 +73,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../ItemsApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../ItemsApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

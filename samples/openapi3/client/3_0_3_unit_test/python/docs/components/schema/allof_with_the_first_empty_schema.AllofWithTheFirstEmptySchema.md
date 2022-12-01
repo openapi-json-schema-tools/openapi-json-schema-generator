@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="AllofWithTheFirstEmptySchema"></a>
 # unit_test_api.components.schema.allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema
 
@@ -27,5 +28,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

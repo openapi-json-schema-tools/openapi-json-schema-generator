@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="AdditionalpropertiesAllowsASchemaWhichShouldValidate"></a>
 # unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
 
@@ -13,5 +14,4 @@ Key | Input Type | Accessed Type | Description | Notes
 **bar** | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | [optional] 
 **any_string_name** | bool,  | BoolClass,  | any string name can be used but the value must be the correct type | [optional] 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

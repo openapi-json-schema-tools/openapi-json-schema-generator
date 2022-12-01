@@ -569,7 +569,10 @@ public class CodegenConfigurator {
         // TODO: Support custom spec loader implementations (https://github.com/OpenAPITools/openapi-generator/issues/844)
         final List<AuthorizationValue> authorizationValues = AuthParser.parse(this.auth);
         ParseOptions options = new ParseOptions();
-        options.setResolve(true);
+        // if setResolve is True then responses will not keep their refs
+        // https://github.com/swagger-api/swagger-parser/issues/1860
+        // TODO parse with setResolve false and true, then fix the true results to keep response refs
+        options.setResolve(false);
         SwaggerParseResult result = new OpenAPIParser().readLocation(inputSpec, authorizationValues, options);
 
         // TODO: Move custom validations to a separate type as part of a "Workflow"

@@ -25,6 +25,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     try:
         # receives a response without schema
         api_response = api_instance.response_without_schema()
+        pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->response_without_schema: %s\n" % e)
 ```
@@ -49,5 +50,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

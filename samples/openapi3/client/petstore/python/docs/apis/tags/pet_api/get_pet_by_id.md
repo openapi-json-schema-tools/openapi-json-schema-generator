@@ -117,5 +117,4 @@ headers | Unset | headers were not defined |
 
 [api_key](../../../../README.md#api_key)
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to API list]](../../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../../README.md#documentation-for-models) [[Back to README]](../../../../README.md)
-
+[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

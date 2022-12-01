@@ -14,4 +14,4 @@ Method | HTTP request | Description
 [**post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body**](multiple_of_api/post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body.md) | **post** /requestBody/postInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfRequestBody | 
 [**post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types**](multiple_of_api/post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types.md) | **post** /responseBody/postInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfResponseBodyForContentTypes | 
 
-[[Back to top]](#top) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

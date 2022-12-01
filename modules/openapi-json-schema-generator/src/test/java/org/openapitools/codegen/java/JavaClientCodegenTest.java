@@ -488,11 +488,11 @@ public class JavaClientCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         ApiResponse ok_200 = openAPI.getComponents().getResponses().get("OK_200");
-        CodegenResponse response = codegen.fromResponse("200", ok_200, "");
+        CodegenResponse response = codegen.fromResponse(ok_200, "");
 
-        Assert.assertEquals(response.headers.size(), 1);
-        CodegenProperty header = response.headers.get(0);
-        Assert.assertEquals(header.dataType, "UUID");
+        Assert.assertEquals(response.getResponseHeaders().size(), 1);
+        CodegenParameter header = response.getResponseHeaders().get(0);
+        Assert.assertEquals(header.getSchema().getFormat(), "uuid");
         Assert.assertEquals(header.baseName, "Request");
     }
 

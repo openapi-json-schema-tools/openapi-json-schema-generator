@@ -41,7 +41,7 @@ paths:
       operationId: addPet
       responses:
         '200':
-          description: Ok
+          $ref: '#/components/responses/SuccessDescriptionOnly'
         '405':
           description: Invalid input
       security:
@@ -264,11 +264,7 @@ paths:
             format: int64
       responses:
         '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiResponse'
+          $ref: '#/components/responses/SuccessWithJsonApiResponse'
       security:
         - petstore_auth:
             - 'write:pets'
@@ -295,14 +291,7 @@ paths:
       operationId: getInventory
       responses:
         '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: integer
-                  format: int32
+          $ref: '#/components/responses/SuccessInlineContentAndHeader'
       security:
         - api_key: []
   /store/order:
@@ -480,7 +469,7 @@ paths:
       operationId: logoutUser
       responses:
         default:
-          description: successful operation
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   '/user/{username}':
     get:
       tags:
@@ -549,7 +538,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
         '404':
           description: User not found
   /fake_classname_test:
@@ -655,7 +644,7 @@ paths:
               - -1.2
       responses:
         '200':
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
         '404':
           description: Not found
           content:
@@ -701,7 +690,7 @@ paths:
       operationId: EndpointParameters
       responses:
         '200':
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
         '404':
           description: User not found
       security:
@@ -836,7 +825,7 @@ paths:
             format: int64
       responses:
         '200':
-          description: succeeded
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   /fake/refs/number:
     post:
       tags:
@@ -1051,7 +1040,7 @@ paths:
       operationId: JsonFormData
       responses:
         '200':
-          description: successful operation
+          $ref: '#/components/responses/SuccessDescriptionOnly'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -1076,7 +1065,7 @@ paths:
       operationId: InlineAdditionalProperties
       responses:
         '200':
-          description: successful operation
+          $ref: '#/components/responses/SuccessDescriptionOnly'
       requestBody:
         content:
           application/json:
@@ -1099,7 +1088,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
       requestBody:
         content:
           application/json:
@@ -1132,7 +1121,7 @@ paths:
       operationId: BodyWithFileSchema
       responses:
         '200':
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
       requestBody:
         content:
           application/json:
@@ -1163,7 +1152,7 @@ paths:
             type: string
       responses:
         "200":
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   /fake/test-query-paramters:
     put:
       tags:
@@ -1219,7 +1208,7 @@ paths:
             $ref: '#/components/schemas/StringWithValidation'
       responses:
         "200":
-          description: Success
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   '/fake/{petId}/uploadImageWithRequiredFile':
     post:
       tags:
@@ -1524,7 +1513,7 @@ paths:
                 type: string
       responses:
         '200':
-          description: ok
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   '/fake/refObjInQuery':
     get:
       tags:
@@ -1542,7 +1531,7 @@ paths:
             $ref: '#/components/schemas/Foo'
       responses:
         '200':
-          description: ok
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   '/fake/jsonWithCharset':
     post:
       tags:
@@ -1585,7 +1574,7 @@ paths:
               $ref: '#/components/schemas/JSONPatchRequest'
       responses:
         '200':
-          description: OK
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   /fake/deleteCoffee/{id}:
     delete:
       operationId: deleteCoffee
@@ -1602,7 +1591,7 @@ paths:
             type: string
       responses:
         '200':
-          description: OK
+          $ref: '#/components/responses/SuccessDescriptionOnly'
         default:
           description: Unexpected error
   /fake/queryParamWithJsonContentType:
@@ -1649,6 +1638,28 @@ servers:
           - 'v2'
         default: 'v2'
 components:
+  responses:
+    SuccessDescriptionOnly:
+      description: Success
+    SuccessWithJsonApiResponse:
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiResponse'
+    SuccessInlineContentAndHeader:
+      description: successful operation
+      headers:
+        someHeader:
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: integer
+              format: int32
   requestBodies:
     UserArray:
       content:

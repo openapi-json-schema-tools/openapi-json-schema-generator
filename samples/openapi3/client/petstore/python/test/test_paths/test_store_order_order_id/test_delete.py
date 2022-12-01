@@ -35,6 +35,5 @@ class TestStoreOrderOrderId(ApiTestMixin, unittest.TestCase):
     response_status = 400
     response_body = ''
 
-
 if __name__ == '__main__':
     unittest.main()

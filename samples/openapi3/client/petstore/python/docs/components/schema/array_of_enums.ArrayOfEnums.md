@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="ArrayOfEnums"></a>
 # petstore_api.components.schema.array_of_enums.ArrayOfEnums
 
@@ -11,5 +12,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) |  | 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

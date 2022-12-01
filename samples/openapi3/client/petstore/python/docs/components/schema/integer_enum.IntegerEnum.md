@@ -1,3 +1,4 @@
+<a name="top"></a>
 <a id="IntegerEnum"></a>
 # petstore_api.components.schema.integer_enum.IntegerEnum
 
@@ -6,5 +7,4 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [0, 1, 2, ] 
 
-[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
-
+[[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
