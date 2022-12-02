@@ -2376,9 +2376,8 @@ class BinarySchema(
         types = {FileIO, bytes}
         format = 'binary'
 
-        @staticmethod
-        def one_of():
-            return [
+        class one_of:
+            classes = [
                 BytesSchema,
                 FileSchema,
             ]
