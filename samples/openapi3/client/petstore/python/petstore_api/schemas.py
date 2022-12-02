@@ -1066,11 +1066,25 @@ class Schema:
             # needed to not have a mro error in get_new_class
             schema_classes.remove(x_schema)
 
+    @staticmethod
+    def __bases_by_type():
+        return {
+            str: (UnsetAnyTypeSchema, str),
+            decimal.Decimal: (UnsetAnyTypeSchema, decimal.Decimal),
+            BoolClass: (UnsetAnyTypeSchema, Singleton, BoolClass),
+            NoneClass: (UnsetAnyTypeSchema, Singleton, NoneClass),
+            tuple: (UnsetAnyTypeSchema, tuple),
+            frozendict.frozendict: (UnsetAnyTypeSchema, frozendict.frozendict),
+            bytes: (UnsetAnyTypeSchema, bytes),
+            FileIO: (UnsetAnyTypeSchema, FileIO),
+        }
+
     @classmethod
     def __get_new_cls(
         cls,
         arg,
-        validation_metadata: ValidationMetadata
+        validation_metadata: ValidationMetadata,
+        path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
     ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]:
         """
         Make a new dynamic class and return an instance of that class
@@ -1121,6 +1135,18 @@ class Schema:
             used_classes = tuple(sorted(chosen_schema_classes, key=lambda a_cls: a_cls.__name__)) + suffix
             mfg_cls = get_new_class(class_name='DynamicSchema', bases=used_classes)
             path_to_schemas[path] = mfg_cls
+
+        """
+        For locations that validation did not check
+        the code still needs to mfg a class to hold those values
+        All of these classes will be based on UnsetAnyTypeSchema
+        """
+        missing_paths = path_to_type.keys() - path_to_schemas.keys()
+        for missing_path in missing_paths:
+            value_type = path_to_type[missing_path]
+            bases = cls.__bases_by_type()[value_type]
+            mfg_cls = get_new_class(class_name='DynamicSchema', bases=bases)
+            path_to_schemas[missing_path] = mfg_cls
 
         return path_to_schemas
 
@@ -1178,7 +1204,7 @@ class Schema:
         arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
         validation_metadata = ValidationMetadata(
             configuration=_configuration, validated_path_to_schemas=validated_path_to_schemas)
-        path_to_schemas = cls.__get_new_cls(arg, validation_metadata)
+        path_to_schemas = cls.__get_new_cls(arg, validation_metadata, path_to_type)
         new_cls = path_to_schemas[validation_metadata.path_to_item]
         new_inst = new_cls._get_new_instance_without_conversion_oapg(
             arg,
@@ -1229,7 +1255,7 @@ class Schema:
             __arg, __from_server, __validated_path_to_schemas, ('args[0]',), __path_to_type)
         __validation_metadata = ValidationMetadata(
             configuration=_configuration, validated_path_to_schemas=__validated_path_to_schemas)
-        __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata)
+        __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata, __path_to_type)
         __new_cls = __path_to_schemas[__validation_metadata.path_to_item]
         return __new_cls._get_new_instance_without_conversion_oapg(
             __arg,
