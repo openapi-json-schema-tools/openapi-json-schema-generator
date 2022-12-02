@@ -16,6 +16,7 @@ from decimal import Decimal
 import frozendict
 
 import petstore_api
+from petstore_api import schemas
 from petstore_api.schemas import (
     AnyTypeSchema,
     DictSchema,
@@ -38,12 +39,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDictSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         DictSchema,
                     ]
@@ -57,12 +57,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testListSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         ListSchema,
                     ]
@@ -76,12 +75,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testStrSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         StrSchema,
                     ]
@@ -95,12 +93,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNumberSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         NumberSchema,
                     ]
@@ -121,12 +118,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testIntSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         IntSchema,
                     ]
@@ -144,12 +140,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testBoolSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         BoolSchema,
                     ]
@@ -170,12 +165,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNoneSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         NoneSchema,
                     ]
@@ -189,12 +183,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         DateSchema,
                     ]
@@ -208,12 +201,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateTimeSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         DateTimeSchema,
                     ]
@@ -227,12 +219,11 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDecimalSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
 
-                @staticmethod
-                def all_of():
-                    return [
+                class all_of:
+                    classes = [
                         AnyTypeSchema,
                         DecimalSchema,
                     ]
