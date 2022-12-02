@@ -861,6 +861,47 @@ def validate_additional_properties(
     return path_to_schemas
 
 
+def validate_one_of(
+    arg: typing.Any,
+    one_of_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+):
+    oneof_classes = []
+    path_to_schemas = defaultdict(set)
+    for oneof_cls in one_of_cls.classes:
+        schema = _get_class_oapg(oneof_cls)
+        if schema in path_to_schemas[validation_metadata.path_to_item]:
+            oneof_classes.append(schema)
+            continue
+        if validation_metadata.validation_ran_earlier(schema):
+            oneof_classes.append(schema)
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+        try:
+            path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+        except (ApiValueError, ApiTypeError) as ex:
+            """
+            TODO get this working, get discriminated_cls in here
+            if discriminated_cls is not None and oneof_cls is discriminated_cls:
+                raise ex
+            """
+            continue
+        oneof_classes.append(schema)
+    if not oneof_classes:
+        raise ApiValueError(
+            "Invalid inputs given to generate an instance of {}. None "
+            "of the oneOf schemas matched the input data.".format(cls)
+        )
+    elif len(oneof_classes) > 1:
+        raise ApiValueError(
+            "Invalid inputs given to generate an instance of {}. Multiple "
+            "oneOf schemas {} matched the inputs, but a max of one is allowed.".format(cls, oneof_classes)
+        )
+    # exactly one class matches
+    return path_to_schemas
+
+
 json_schema_keyword_to_validator = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
@@ -882,6 +923,7 @@ json_schema_keyword_to_validator = {
     'items': validate_items,
     'properties': validate_properties,
     'additional_properties': validate_additional_properties,
+    'one_of': validate_one_of,
 }
 
 
@@ -895,7 +937,6 @@ class JsonSchemaValidator:
         'validate',
         'discriminator',
         'all_of',
-        'one_of',
         'any_of',
         'not_schema'
     }
