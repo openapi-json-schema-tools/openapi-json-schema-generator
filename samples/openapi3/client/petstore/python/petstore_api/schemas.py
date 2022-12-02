@@ -1071,8 +1071,8 @@ class Schema:
         return {
             str: (UnsetAnyTypeSchema, str),
             decimal.Decimal: (UnsetAnyTypeSchema, decimal.Decimal),
-            BoolClass: (UnsetAnyTypeSchema, Singleton, BoolClass),
-            NoneClass: (UnsetAnyTypeSchema, Singleton, NoneClass),
+            BoolClass: (UnsetAnyTypeSchema, BoolClass),
+            NoneClass: (UnsetAnyTypeSchema, NoneClass),
             tuple: (UnsetAnyTypeSchema, tuple),
             frozendict.frozendict: (UnsetAnyTypeSchema, frozendict.frozendict),
             bytes: (UnsetAnyTypeSchema, bytes),
