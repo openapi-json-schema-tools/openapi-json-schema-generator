@@ -740,6 +740,29 @@ def validate_format(
     return None
 
 
+def validate_required(
+    arg: typing.Any,
+    required: typing.Set[str],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    missing_required_arguments = required - arg.keys()
+    if missing_required_keys:
+        missing_required_arguments = list(missing_required_arguments)
+        missing_required_arguments.sort()
+        raise ApiTypeError(
+            "{} is missing {} required argument{}: {}".format(
+                cls.__name__,
+                len(missing_required_arguments),
+                "s" if len(missing_required_arguments) > 1 else "",
+                missing_required_arguments
+            )
+        )
+    return None
+
+
 json_schema_keyword_to_validator = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
@@ -757,6 +780,7 @@ json_schema_keyword_to_validator = {
     'multiple_of': validate_multiple_of,
     'regex': validate_regex,
     'format': validate_format,
+    'required': 'validate_required',
 }
 
 
