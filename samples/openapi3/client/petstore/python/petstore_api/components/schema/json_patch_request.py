@@ -43,7 +43,7 @@ class JSONPatchRequest(
         
         
             class MetaOapg:
-                types = None
+                # any type
                 
                 class one_of:
                 

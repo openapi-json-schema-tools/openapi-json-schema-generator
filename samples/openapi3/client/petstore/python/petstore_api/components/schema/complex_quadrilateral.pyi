@@ -34,7 +34,7 @@ class ComplexQuadrilateral(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         class all_of:
         

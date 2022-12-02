@@ -304,11 +304,11 @@ def __get_type_error(var_value, path_to_item, valid_classes, key_type=False):
 
 def validate_types(
     arg: typing.Any,
-    allowed_types: typing.Optional[typing.Set[typing.Type]],
+    allowed_types: typing.Set[typing.Type],
     cls: typing.Type,
     validation_metadata: ValidationMetadata
 ) -> None:
-    if allowed_types is not None and type(arg) not in allowed_types:
+    if type(arg) not in allowed_types:
         raise __get_type_error(
             arg,
             validation_metadata.path_to_item,
@@ -2173,7 +2173,7 @@ class ComposedSchema(
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
     class MetaOapg:
-        types = None
+        pass
 
     @classmethod
     def from_openapi_data_oapg(cls, *args: typing.Any, _configuration: typing.Optional[Configuration] = None, **kwargs):
@@ -2476,7 +2476,7 @@ class AnyTypeSchema(
 ):
     # Python representation of a schema defined as true or {}
     class MetaOapg:
-        types = None
+        pass
 
 
 class UnsetAnyTypeSchema(AnyTypeSchema):
@@ -2494,7 +2494,6 @@ class NotAnyTypeSchema(
     """
 
     class MetaOapg:
-        types = None
         not_schema = AnyTypeSchema
 
     def __new__(

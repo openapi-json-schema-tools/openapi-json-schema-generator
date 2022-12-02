@@ -34,7 +34,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         class any_of:
             any_of_0 = schemas.DictSchema

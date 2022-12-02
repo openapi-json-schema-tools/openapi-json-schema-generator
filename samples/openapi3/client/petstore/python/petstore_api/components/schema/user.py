@@ -84,7 +84,7 @@ class User(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     not_schema = schemas.NoneSchema
             
             

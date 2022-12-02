@@ -34,7 +34,7 @@ class Triangle(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         @staticmethod
         def discriminator():

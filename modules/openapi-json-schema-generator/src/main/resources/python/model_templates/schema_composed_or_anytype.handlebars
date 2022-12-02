@@ -34,6 +34,9 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 
 
     class MetaOapg:
+{{#if isAnyType}}
+        # any type
+{{/if}}
         {{> model_templates/types }}
 {{#if getFormat}}
         format = '{{getFormat}}'

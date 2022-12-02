@@ -44,7 +44,7 @@ class schema(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     
                     class all_of:
                         

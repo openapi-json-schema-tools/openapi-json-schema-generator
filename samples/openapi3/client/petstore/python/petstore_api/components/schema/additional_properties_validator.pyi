@@ -85,7 +85,7 @@ class AdditionalPropertiesValidator(
                     
                     
                         class MetaOapg:
-                            types = None
+                            # any type
                     
                     
                         def __new__(
@@ -136,7 +136,7 @@ class AdditionalPropertiesValidator(
                     
                     
                         class MetaOapg:
-                            types = None
+                            # any type
                     
                     
                         def __new__(

@@ -87,7 +87,7 @@ class AdditionalPropertiesValidator(
                     
                     
                         class MetaOapg:
-                            types = None
+                            # any type
                             min_length = 3
                     
                     
@@ -140,7 +140,7 @@ class AdditionalPropertiesValidator(
                     
                     
                         class MetaOapg:
-                            types = None
+                            # any type
                             max_length = 5
                     
                     

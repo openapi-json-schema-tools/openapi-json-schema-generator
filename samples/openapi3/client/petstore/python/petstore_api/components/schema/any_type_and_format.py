@@ -46,7 +46,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'uuid'
             
             
@@ -71,7 +71,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'date'
             
             
@@ -96,7 +96,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'date-time'
             
             
@@ -121,7 +121,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'number'
             
             
@@ -146,7 +146,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'binary'
             
             
@@ -171,7 +171,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'int32'
             
             
@@ -196,7 +196,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'int64'
             
             
@@ -221,7 +221,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'double'
             
             
@@ -246,7 +246,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'float'
             
             
