@@ -918,6 +918,55 @@ def validate_one_of(
     return path_to_schemas
 
 
+def validate_any_of(
+    arg: typing.Any,
+    any_of_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+):
+    anyof_classes = []
+    path_to_schemas = defaultdict(set)
+    discriminated_cls = None
+    # TODO add discriminated_cls calculation
+    for anyof_cls in any_of_cls.classes:
+        schema = _get_class_oapg(anyof_cls)
+        if validation_metadata.validation_ran_earlier(schema):
+            anyof_classes.append(schema)
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+
+        try:
+            other_path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+        except (ApiValueError, ApiTypeError) as ex:
+            if discriminated_cls is not None and anyof_cls is discriminated_cls:
+            {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+                """
+                suppress exception because code was generated with
+                nonCompliantUseDiscriminatorIfCompositionFails=true
+                """
+                pass
+            {{else}}
+                raise ex
+            {{/if}}
+            continue
+        anyof_classes.append(schema)
+        update(path_to_schemas, other_path_to_schemas)
+    if not anyof_classes:
+        {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+        if discriminated_cls:
+            """
+            return without exception because code was generated with
+            nonCompliantUseDiscriminatorIfCompositionFails=true
+            """
+            return {}
+        {{/if}}
+        raise ApiValueError(
+            "Invalid inputs given to generate an instance of {}. None "
+            "of the anyOf schemas matched the input data.".format(cls)
+        )
+    return path_to_schemas
+
+
 json_schema_keyword_to_validator = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
@@ -940,6 +989,7 @@ json_schema_keyword_to_validator = {
     'properties': validate_properties,
     'additional_properties': validate_additional_properties,
     'one_of': validate_one_of,
+    'any_of': validate_any_of,
 }
 
 
@@ -953,7 +1003,6 @@ class JsonSchemaValidator:
         'validate',
         'discriminator',
         'all_of',
-        'any_of',
         'not_schema'
     }
 

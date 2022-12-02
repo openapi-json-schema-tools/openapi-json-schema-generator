@@ -869,6 +869,8 @@ def validate_one_of(
 ):
     oneof_classes = []
     path_to_schemas = defaultdict(set)
+    discriminated_cls = None
+    # TODO add discriminated_cls calculation
     for oneof_cls in one_of_cls.classes:
         schema = _get_class_oapg(oneof_cls)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
@@ -881,11 +883,8 @@ def validate_one_of(
         try:
             path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
-            """
-            TODO get this working, get discriminated_cls in here
             if discriminated_cls is not None and oneof_cls is discriminated_cls:
                 raise ex
-            """
             continue
         oneof_classes.append(schema)
     if not oneof_classes:
@@ -899,6 +898,39 @@ def validate_one_of(
             "oneOf schemas {} matched the inputs, but a max of one is allowed.".format(cls, oneof_classes)
         )
     # exactly one class matches
+    return path_to_schemas
+
+
+def validate_any_of(
+    arg: typing.Any,
+    any_of_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+):
+    anyof_classes = []
+    path_to_schemas = defaultdict(set)
+    discriminated_cls = None
+    # TODO add discriminated_cls calculation
+    for anyof_cls in any_of_cls.classes:
+        schema = _get_class_oapg(anyof_cls)
+        if validation_metadata.validation_ran_earlier(schema):
+            anyof_classes.append(schema)
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+
+        try:
+            other_path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+        except (ApiValueError, ApiTypeError) as ex:
+            if discriminated_cls is not None and anyof_cls is discriminated_cls:
+                raise ex
+            continue
+        anyof_classes.append(schema)
+        update(path_to_schemas, other_path_to_schemas)
+    if not anyof_classes:
+        raise ApiValueError(
+            "Invalid inputs given to generate an instance of {}. None "
+            "of the anyOf schemas matched the input data.".format(cls)
+        )
     return path_to_schemas
 
 
@@ -924,6 +956,7 @@ json_schema_keyword_to_validator = {
     'properties': validate_properties,
     'additional_properties': validate_additional_properties,
     'one_of': validate_one_of,
+    'any_of': validate_any_of,
 }
 
 
@@ -937,7 +970,6 @@ class JsonSchemaValidator:
         'validate',
         'discriminator',
         'all_of',
-        'any_of',
         'not_schema'
     }
 
