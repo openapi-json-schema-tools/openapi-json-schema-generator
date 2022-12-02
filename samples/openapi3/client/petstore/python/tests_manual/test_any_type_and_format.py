@@ -114,11 +114,8 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             'a',
             {},
             1,
-            3.14,
             min_bound,
             max_bound,
-            under_min_number,
-            over_max_number,
             True,
             None,
             [],
@@ -131,7 +128,10 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         # invalid values do not work
         invalid_values = (
             min_bound - 1,
-            max_bound + 1
+            max_bound + 1,
+            3.14,
+            under_min_number,
+            over_max_number,
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
@@ -146,11 +146,8 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             'a',
             {},
             1,
-            3.14,
             min_bound,
             max_bound,
-            under_min_number,
-            over_max_number,
             True,
             None,
             [],
@@ -163,7 +160,10 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         # invalid values do not work
         invalid_values = (
             min_bound - 1,
-            max_bound + 1
+            max_bound + 1,
+            under_min_number,
+            over_max_number,
+            3.14,
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
