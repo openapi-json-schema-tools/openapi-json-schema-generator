@@ -27,7 +27,7 @@ class ConfigurationTests(unittest.TestCase):
         config.host = 'https://localhost/'
 
         config.disabled_json_schema_keywords = set(("multipleOf,maximum,exclusiveMaximum,minimum,exclusiveMinimum,"
-            "maxLength,minLength,pattern,maxItems,minItems").split())
+            "maxLength,minLength,pattern,maxItems,minItems").split(','))
         with self.assertRaisesRegex(ValueError, "Invalid keyword: 'foo'"):
             config.disabled_json_schema_keywords = {'foo'}
         config.disabled_json_schema_keywords = set()
