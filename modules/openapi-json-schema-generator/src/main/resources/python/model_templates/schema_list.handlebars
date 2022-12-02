@@ -17,7 +17,7 @@ class {{> model_templates/classname }}(
 {{#or getItems hasValidation}}
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {tuple}
 {{#if hasValidation}}
         {{> model_templates/validations }}

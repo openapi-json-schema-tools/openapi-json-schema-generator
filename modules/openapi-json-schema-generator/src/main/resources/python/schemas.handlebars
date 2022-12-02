@@ -878,7 +878,7 @@ json_schema_keyword_to_validator = {
 }
 
 
-class JsonSchemaValidatorBase:
+class JsonSchemaValidator:
     _excluded_properties = {
         '_excluded_properties',
         '__module__',
@@ -2112,7 +2112,7 @@ class ComposedSchema(
     Schema,
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = None
 
     @classmethod
@@ -2129,7 +2129,7 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {tuple}
 
     @classmethod
@@ -2145,7 +2145,7 @@ class NoneSchema(
     Schema,
     NoneMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {NoneClass}
 
     @classmethod
@@ -2165,7 +2165,7 @@ class NumberSchema(
     This is used for type: number with no format
     Both integers AND floats are accepted
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
 
     @classmethod
@@ -2203,7 +2203,7 @@ class Int32Schema(
     Int32Base,
     IntSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'int32'
 
@@ -2215,7 +2215,7 @@ class Int64Schema(
     Int64Base,
     IntSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'int64'
 
@@ -2227,7 +2227,7 @@ class Float32Schema(
     Float32Base,
     NumberSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'float'
 
@@ -2244,7 +2244,7 @@ class Float64Schema(
     Float64Base,
     NumberSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'double'
 
@@ -2264,7 +2264,7 @@ class StrSchema(
     - type: string (format unset)
     - type: string, format: date
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
 
     @classmethod
@@ -2276,7 +2276,7 @@ class StrSchema(
 
 
 class UUIDSchema(UUIDBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'uuid'
 
@@ -2285,7 +2285,7 @@ class UUIDSchema(UUIDBase, StrSchema):
 
 
 class DateSchema(DateBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'date'
 
@@ -2294,7 +2294,7 @@ class DateSchema(DateBase, StrSchema):
 
 
 class DateTimeSchema(DateTimeBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'date-time'
 
@@ -2303,7 +2303,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
 
 
 class DecimalSchema(DecimalBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'number'
 
@@ -2326,7 +2326,7 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {bytes}
 
     def __new__(cls, _arg: bytes, **kwargs: Configuration):
@@ -2353,7 +2353,7 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {FileIO}
 
     def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: Configuration):
@@ -2370,7 +2370,7 @@ class BinarySchema(
     Schema,
     BinaryMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {FileIO, bytes}
         format = 'binary'
 
@@ -2390,7 +2390,7 @@ class BoolSchema(
     Schema,
     BoolMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {BoolClass}
 
     @classmethod
@@ -2412,7 +2412,7 @@ class AnyTypeSchema(
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):
     # Python representation of a schema defined as true or {}
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = None
 
 
@@ -2430,7 +2430,7 @@ class NotAnyTypeSchema(
     Note: validations on this class are never run because the code knows that no inputs will ever validate
     """
 
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = None
         not_schema = AnyTypeSchema
 
@@ -2451,7 +2451,7 @@ class DictSchema(
     Schema,
     FrozenDictMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {frozendict.frozendict}
 
     @classmethod
