@@ -844,7 +844,8 @@ def validate_additional_properties(
         return None
     schema = _get_class_oapg(additional_properties_schema)
     path_to_schemas = {}
-    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties.__annotations__}
+    properties_annotations = cls.MetaOapg.properties.__annotations__ if hasattr(cls.MetaOapg, 'properties') else {}
+    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
     for property_name, value in present_additional_properties:
         path_to_item = validation_metadata.path_to_item + (property_name,)
         arg_validation_metadata = ValidationMetadata(
