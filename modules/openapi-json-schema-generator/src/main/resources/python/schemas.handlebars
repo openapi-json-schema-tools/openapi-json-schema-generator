@@ -804,7 +804,7 @@ def validate_properties(
     properties: typing.Type,
     cls: typing.Type,
     validation_metadata: ValidationMetadata
-):
+) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
     path_to_schemas = {}
@@ -832,7 +832,7 @@ def validate_additional_properties(
     additional_properties_schema: typing.Type,
     cls: typing.Type,
     validation_metadata: ValidationMetadata
-):
+) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
     schema = _get_class_oapg(additional_properties_schema)
@@ -859,7 +859,7 @@ def validate_one_of(
     one_of_cls: typing.Type,
     cls: typing.Type,
     validation_metadata: ValidationMetadata
-):
+) -> PathToSchemasType:
     oneof_classes = []
     path_to_schemas = defaultdict(set)
     discriminated_cls = None
@@ -923,7 +923,7 @@ def validate_any_of(
     any_of_cls: typing.Type,
     cls: typing.Type,
     validation_metadata: ValidationMetadata
-):
+) -> PathToSchemasType:
     anyof_classes = []
     path_to_schemas = defaultdict(set)
     discriminated_cls = None
@@ -967,6 +967,23 @@ def validate_any_of(
     return path_to_schemas
 
 
+def validate_all_of(
+    arg: typing.Any,
+    all_of_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> PathToSchemasType:
+    path_to_schemas = defaultdict(set)
+    for allof_cls in all_of_cls.classes:
+        schema = _get_class_oapg(allof_cls)
+        if validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
 json_schema_keyword_to_validator = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
@@ -990,6 +1007,7 @@ json_schema_keyword_to_validator = {
     'additional_properties': validate_additional_properties,
     'one_of': validate_one_of,
     'any_of': validate_any_of,
+    'all_of': validate_all_of,
 }
 
 
@@ -1002,7 +1020,6 @@ class JsonSchemaValidator:
         '__doc__',
         'validate',
         'discriminator',
-        'all_of',
         'not_schema'
     }
 
