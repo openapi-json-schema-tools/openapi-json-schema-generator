@@ -972,6 +972,33 @@ def validate_all_of(
     return path_to_schemas
 
 
+def validate_not(
+    arg: typing.Any,
+    not_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    not_schema = _get_class_oapg(not_cls)
+    other_path_to_schemas = None
+    not_exception = ApiValueError(
+        "Invalid value '{}' was passed in to {}. Value is invalid because it is disallowed by {}".format(
+            arg,
+            cls.__name__,
+            not_schema.__name__,
+        )
+    )
+    if validation_metadata.validation_ran_earlier(not_schema):
+        raise not_exception
+
+    try:
+        other_path_to_schemas = not_schema.MetaOapg.validate(not_schema, arg, validation_metadata=validation_metadata)
+    except (ApiValueError, ApiTypeError):
+        pass
+    if other_path_to_schemas:
+        raise not_exception
+    return None
+
+
 json_schema_keyword_to_validator = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
@@ -996,6 +1023,7 @@ json_schema_keyword_to_validator = {
     'one_of': validate_one_of,
     'any_of': validate_any_of,
     'all_of': validate_all_of,
+    'not_schema': validate_not,
 }
 
 
@@ -1008,7 +1036,6 @@ class JsonSchemaValidator:
         '__doc__',
         'validate',
         'discriminator',
-        'not_schema'
     }
 
     @classmethod
