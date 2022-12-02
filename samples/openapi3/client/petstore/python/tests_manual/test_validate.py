@@ -212,11 +212,11 @@ class TestValidateCalls(unittest.TestCase):
             calls = [
                 call(
                     (Decimal("7"),),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), from_server=True)
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",))
                 ),
                 call(
                     Decimal("7"),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0), from_server=True)
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0))
                 )
             ]
             mock_validate.assert_has_calls(
@@ -270,11 +270,11 @@ class TestValidateCalls(unittest.TestCase):
             calls = [
                 call(
                     frozendict.frozendict({"bar": "a"}),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), from_server=True),
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",)),
                 ),
                 call(
                     "a",
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", "bar"), from_server=True),
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", "bar")),
                 ),
             ]
             mock_validate.assert_has_calls(

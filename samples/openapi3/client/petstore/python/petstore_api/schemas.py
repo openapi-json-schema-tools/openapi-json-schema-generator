@@ -85,7 +85,6 @@ class ValidationMetadata(frozendict.frozendict):
     def __new__(
         cls,
         path_to_item: typing.Tuple[typing.Union[str, int], ...] = tuple(['args[0]']),
-        from_server: bool = False,
         configuration: typing.Optional[Configuration] = None,
         seen_classes: typing.FrozenSet[typing.Type] = frozenset(),
         validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
@@ -95,10 +94,6 @@ class ValidationMetadata(frozendict.frozendict):
             path_to_item: the path to the current data being instantiated.
                 For {'a': [1]} if the code is handling, 1, then the path is ('args[0]', 'a', 0)
                 This changes from location to location
-            from_server: whether or not this data came form the server
-                True when receiving server data
-                False when instantiating model with client side data not form the server
-                This does not change from location to location
             configuration: the Configuration instance to use
                 This is needed because in Configuration:
                 - one can disable validation checking
@@ -112,7 +107,6 @@ class ValidationMetadata(frozendict.frozendict):
         return super().__new__(
             cls,
             path_to_item=path_to_item,
-            from_server=from_server,
             configuration=configuration,
             seen_classes=seen_classes,
             validated_path_to_schemas=validated_path_to_schemas
@@ -130,10 +124,6 @@ class ValidationMetadata(frozendict.frozendict):
     @property
     def path_to_item(self) -> typing.Tuple[typing.Union[str, int], ...]:
         return self['path_to_item']
-
-    @property
-    def from_server(self) -> bool:
-        return self['from_server']
 
     @property
     def configuration(self) -> typing.Optional[Configuration]:
@@ -792,7 +782,6 @@ def validate_items(
     path_to_schemas = {}
     for i, value in enumerate(arg):
         item_validation_metadata = ValidationMetadata(
-            from_server=validation_metadata.from_server,
             configuration=validation_metadata.configuration,
             path_to_item=validation_metadata.path_to_item+(i,),
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
@@ -821,7 +810,6 @@ def validate_properties(
         schema = properties.__annotations__[property_name]
         schema = _get_class_oapg(schema)
         arg_validation_metadata = ValidationMetadata(
-            from_server=validation_metadata.from_server,
             configuration=validation_metadata.configuration,
             path_to_item=path_to_item,
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
@@ -849,7 +837,6 @@ def validate_additional_properties(
     for property_name, value in present_additional_properties:
         path_to_item = validation_metadata.path_to_item + (property_name,)
         arg_validation_metadata = ValidationMetadata(
-            from_server=validation_metadata.from_server,
             configuration=validation_metadata.configuration,
             path_to_item=path_to_item,
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
@@ -1187,7 +1174,7 @@ class Schema:
         validated_path_to_schemas = {}
         arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas)
         validation_metadata = ValidationMetadata(
-            from_server=from_server, configuration=_configuration, validated_path_to_schemas=validated_path_to_schemas)
+            configuration=_configuration, validated_path_to_schemas=validated_path_to_schemas)
         path_to_schemas = cls.__get_new_cls(arg, validation_metadata)
         new_cls = path_to_schemas[validation_metadata.path_to_item]
         new_inst = new_cls._get_new_instance_without_conversion_oapg(
@@ -1237,7 +1224,7 @@ class Schema:
         __arg = cast_to_allowed_types(
             __arg, __from_server, __validated_path_to_schemas)
         __validation_metadata = ValidationMetadata(
-            configuration=_configuration, from_server=__from_server, validated_path_to_schemas=__validated_path_to_schemas)
+            configuration=_configuration, validated_path_to_schemas=__validated_path_to_schemas)
         __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata)
         __new_cls = __path_to_schemas[__validation_metadata.path_to_item]
         return __new_cls._get_new_instance_without_conversion_oapg(
@@ -1850,7 +1837,6 @@ class DictBase(Discriminable, ValidatorBase):
             )
         updated_vm = ValidationMetadata(
             configuration=validation_metadata.configuration,
-            from_server=validation_metadata.from_server,
             path_to_item=validation_metadata.path_to_item,
             seen_classes=validation_metadata.seen_classes | frozenset({cls}),
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
@@ -2034,7 +2020,6 @@ class ComposedBase(Discriminable):
 
         updated_vm = ValidationMetadata(
             configuration=validation_metadata.configuration,
-            from_server=validation_metadata.from_server,
             path_to_item=validation_metadata.path_to_item,
             seen_classes=validation_metadata.seen_classes | frozenset({cls}),
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
