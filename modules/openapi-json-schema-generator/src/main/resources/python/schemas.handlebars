@@ -387,7 +387,7 @@ def validate_max_items(
 ) -> None:
     if not isinstance(arg, tuple):
         return None
-    if len(arg) < max_items:
+    if len(arg) > max_items:
         _raise_validation_error_message_oapg(
             value=arg,
             constraint_msg="number of items must be less than or equal to",
@@ -463,7 +463,7 @@ def validate_max_length(
         _raise_validation_error_message_oapg(
             value=arg,
             constraint_msg="length must be less than or equal to",
-            constraint_value=cls.MetaOapg.max_length,
+            constraint_value=max_length,
             path_to_item=validation_metadata.path_to_item
         )
     return None
@@ -499,7 +499,7 @@ def validate_exclusive_minimum(
         _raise_validation_error_message_oapg(
             value=arg,
             constraint_msg="must be a value greater than",
-            constraint_value=exclusive_maximum,
+            constraint_value=exclusive_minimum,
             path_to_item=validation_metadata.path_to_item
         )
     return None
