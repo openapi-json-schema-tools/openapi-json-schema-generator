@@ -33,7 +33,7 @@ class Capitalization(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             smallCamel = schemas.StrSchema

@@ -33,7 +33,7 @@ class EnumArrays(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             
@@ -57,7 +57,7 @@ class EnumArrays(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     

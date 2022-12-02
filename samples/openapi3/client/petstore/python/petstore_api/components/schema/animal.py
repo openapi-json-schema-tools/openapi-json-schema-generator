@@ -33,7 +33,7 @@ class Animal(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "className",

@@ -33,7 +33,7 @@ class StringBooleanMap(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         additional_properties = schemas.BoolSchema
     
     def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:

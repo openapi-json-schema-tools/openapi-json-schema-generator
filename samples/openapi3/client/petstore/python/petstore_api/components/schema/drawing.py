@@ -33,7 +33,7 @@ class Drawing(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:
@@ -56,7 +56,7 @@ class Drawing(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     @staticmethod

@@ -33,7 +33,7 @@ class Whale(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "className",
         }

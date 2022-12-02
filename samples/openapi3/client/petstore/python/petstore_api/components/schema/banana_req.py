@@ -33,7 +33,7 @@ class BananaReq(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "lengthCm",

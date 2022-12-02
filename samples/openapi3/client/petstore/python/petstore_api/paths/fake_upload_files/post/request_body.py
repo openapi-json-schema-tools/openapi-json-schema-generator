@@ -32,7 +32,7 @@ class multipart_form_data(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:
@@ -43,7 +43,7 @@ class multipart_form_data(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     items = schemas.BinarySchema
             

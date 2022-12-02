@@ -35,7 +35,7 @@ class ComposedOneOfDifferentTypes(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         one_of_2 = schemas.NoneSchema
         one_of_3 = schemas.DateSchema
@@ -46,7 +46,7 @@ class ComposedOneOfDifferentTypes(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {frozendict.frozendict}
                 max_properties = 4
                 min_properties = 4
@@ -70,7 +70,7 @@ class ComposedOneOfDifferentTypes(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {tuple}
                 max_items = 4
                 min_items = 4
@@ -96,14 +96,14 @@ class ComposedOneOfDifferentTypes(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {
                     str,
                 }
                 format = 'date-time'
-                regex=[{
+                regex={
                     'pattern': r'^2020.*',  # noqa: E501
-                }]
+                }
         
         @classmethod
         @functools.lru_cache()

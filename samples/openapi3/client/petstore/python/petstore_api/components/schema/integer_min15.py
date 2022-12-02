@@ -33,7 +33,7 @@ class IntegerMin15(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             decimal.Decimal,
         }

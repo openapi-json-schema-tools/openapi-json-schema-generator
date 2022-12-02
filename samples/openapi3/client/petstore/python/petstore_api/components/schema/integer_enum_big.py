@@ -34,7 +34,7 @@ class IntegerEnumBig(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             decimal.Decimal,
         }

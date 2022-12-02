@@ -33,7 +33,7 @@ class ObjectWithInlineCompositionProperty(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             
@@ -43,7 +43,7 @@ class ObjectWithInlineCompositionProperty(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = None
                     
                     

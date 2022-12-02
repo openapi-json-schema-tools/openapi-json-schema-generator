@@ -33,7 +33,7 @@ class FromSchema(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             data = schemas.StrSchema

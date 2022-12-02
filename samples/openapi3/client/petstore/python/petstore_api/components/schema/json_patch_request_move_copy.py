@@ -33,7 +33,7 @@ class JSONPatchRequestMoveCopy(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "op",
@@ -52,7 +52,7 @@ class JSONPatchRequestMoveCopy(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {
                         str,
                     }

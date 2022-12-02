@@ -23,7 +23,7 @@ class application_json(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         
@@ -32,7 +32,7 @@ class application_json(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {
                     str,
                 }
@@ -72,7 +72,7 @@ class multipart_form_data(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:
@@ -83,7 +83,7 @@ class multipart_form_data(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = None
                     
                     
@@ -92,7 +92,7 @@ class multipart_form_data(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             types = {
                                 str,
                             }

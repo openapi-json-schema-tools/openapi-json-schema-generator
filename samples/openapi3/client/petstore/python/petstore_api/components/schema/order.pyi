@@ -33,7 +33,7 @@ class Order(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             id = schemas.Int64Schema

@@ -33,7 +33,7 @@ class DanishPig(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "className",
@@ -48,7 +48,7 @@ class DanishPig(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {
                         str,
                     }

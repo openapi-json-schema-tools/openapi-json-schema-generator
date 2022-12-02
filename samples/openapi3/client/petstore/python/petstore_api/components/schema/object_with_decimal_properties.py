@@ -33,7 +33,7 @@ class ObjectWithDecimalProperties(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:

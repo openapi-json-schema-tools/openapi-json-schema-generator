@@ -33,7 +33,7 @@ class EnumTest(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "enum_string_required",
         }

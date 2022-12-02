@@ -34,7 +34,7 @@ class ComposedBool(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             schemas.BoolClass,
         }

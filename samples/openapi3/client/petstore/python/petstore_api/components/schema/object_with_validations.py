@@ -33,7 +33,7 @@ class ObjectWithValidations(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         min_properties = 2
 

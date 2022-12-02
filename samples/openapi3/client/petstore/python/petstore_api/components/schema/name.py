@@ -35,7 +35,7 @@ class Name(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         required = {
             "name",

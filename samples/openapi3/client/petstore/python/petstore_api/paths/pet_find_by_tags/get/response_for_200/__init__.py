@@ -25,7 +25,7 @@ class application_xml(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {tuple}
         
         @staticmethod
@@ -52,7 +52,7 @@ class application_json(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {tuple}
         
         @staticmethod

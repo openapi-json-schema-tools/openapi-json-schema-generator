@@ -32,7 +32,7 @@ class application_x_www_form_urlencoded(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:
@@ -43,7 +43,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     
@@ -53,7 +53,7 @@ class application_x_www_form_urlencoded(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             types = {
                                 str,
                             }
@@ -91,7 +91,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {
                         str,
                     }

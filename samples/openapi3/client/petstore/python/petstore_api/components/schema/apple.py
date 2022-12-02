@@ -36,7 +36,7 @@ class Apple(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             schemas.NoneClass,
             frozendict.frozendict,
@@ -53,13 +53,13 @@ class Apple(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^[a-zA-Z\s]*$',  # noqa: E501
-                    }]
+                    }
             
             
             class origin(
@@ -67,16 +67,16 @@ class Apple(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^[A-Z\s]*$',  # noqa: E501
                         'flags': (
                             re.IGNORECASE
                         )
-                    }]
+                    }
             __annotations__ = {
                 "cultivar": cultivar,
                 "origin": origin,

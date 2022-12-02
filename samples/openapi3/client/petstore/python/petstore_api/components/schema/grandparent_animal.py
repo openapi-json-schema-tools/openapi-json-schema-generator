@@ -33,7 +33,7 @@ class GrandparentAnimal(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "pet_type",

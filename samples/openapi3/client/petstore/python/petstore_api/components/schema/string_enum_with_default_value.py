@@ -34,7 +34,7 @@ class StringEnumWithDefaultValue(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             str,
         }

@@ -33,7 +33,7 @@ class Cat(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         
@@ -42,7 +42,7 @@ class Cat(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {frozendict.frozendict}
                 
                 class properties:

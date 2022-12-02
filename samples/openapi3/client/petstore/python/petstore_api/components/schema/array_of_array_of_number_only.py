@@ -33,7 +33,7 @@ class ArrayOfArrayOfNumberOnly(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:
@@ -44,7 +44,7 @@ class ArrayOfArrayOfNumberOnly(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     
@@ -53,7 +53,7 @@ class ArrayOfArrayOfNumberOnly(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             types = {tuple}
                             items = schemas.NumberSchema
                     

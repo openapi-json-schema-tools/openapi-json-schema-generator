@@ -33,7 +33,7 @@ class ObjectModelWithArgAndArgsProperties(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "args",
             "arg",

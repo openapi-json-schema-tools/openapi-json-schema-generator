@@ -34,7 +34,7 @@ class AdditionalPropertiesValidator(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             frozendict.frozendict,
         }
@@ -45,7 +45,7 @@ class AdditionalPropertiesValidator(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {frozendict.frozendict}
                 additional_properties = schemas.AnyTypeSchema
             
@@ -75,7 +75,7 @@ class AdditionalPropertiesValidator(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {frozendict.frozendict}
                 
                 
@@ -84,7 +84,7 @@ class AdditionalPropertiesValidator(
                 ):
                 
                 
-                    class MetaOapg:
+                    class MetaOapg(schemas.JsonSchemaValidator):
                         types = None
                         min_length = 3
                 
@@ -128,7 +128,7 @@ class AdditionalPropertiesValidator(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {frozendict.frozendict}
                 
                 
@@ -137,7 +137,7 @@ class AdditionalPropertiesValidator(
                 ):
                 
                 
-                    class MetaOapg:
+                    class MetaOapg(schemas.JsonSchemaValidator):
                         types = None
                         max_length = 5
                 

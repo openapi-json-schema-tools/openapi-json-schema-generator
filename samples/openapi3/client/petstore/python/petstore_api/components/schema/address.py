@@ -33,7 +33,7 @@ class Address(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         additional_properties = schemas.IntSchema
     

@@ -33,7 +33,7 @@ class AdditionalPropertiesClass(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         class properties:
@@ -44,7 +44,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {frozendict.frozendict}
                     additional_properties = schemas.StrSchema
                 
@@ -74,7 +74,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {frozendict.frozendict}
                     
                     
@@ -83,7 +83,7 @@ class AdditionalPropertiesClass(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             types = {frozendict.frozendict}
                             additional_properties = schemas.StrSchema
                         
@@ -136,7 +136,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {frozendict.frozendict}
                     additional_properties = schemas.AnyTypeSchema
                 
@@ -166,7 +166,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {frozendict.frozendict}
                     additional_properties = schemas.NotAnyTypeSchema
             
@@ -187,7 +187,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {frozendict.frozendict}
                     additional_properties = schemas.StrSchema
                 

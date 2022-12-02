@@ -35,7 +35,7 @@ class Pet(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "photoUrls",
             "name",
@@ -50,7 +50,7 @@ class Pet(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     items = schemas.StrSchema
             
@@ -79,7 +79,7 @@ class Pet(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     @staticmethod

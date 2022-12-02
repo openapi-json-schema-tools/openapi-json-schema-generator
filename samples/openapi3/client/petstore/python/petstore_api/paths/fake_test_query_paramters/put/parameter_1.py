@@ -32,7 +32,7 @@ class schema(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {tuple}
         items = schemas.StrSchema
 

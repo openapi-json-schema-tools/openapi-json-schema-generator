@@ -35,7 +35,7 @@ class ModelReturn(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         class properties:

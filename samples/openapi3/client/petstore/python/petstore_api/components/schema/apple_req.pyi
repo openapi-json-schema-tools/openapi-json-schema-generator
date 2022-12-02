@@ -33,7 +33,7 @@ class AppleReq(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "cultivar",
         }

@@ -32,7 +32,7 @@ class application_x_www_form_urlencoded(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "param",

@@ -33,7 +33,7 @@ class Pig(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         @staticmethod

@@ -33,7 +33,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         
@@ -42,7 +42,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 required = {
                     "test",
                 }

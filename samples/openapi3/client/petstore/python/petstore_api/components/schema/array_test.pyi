@@ -33,7 +33,7 @@ class ArrayTest(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             
@@ -43,7 +43,7 @@ class ArrayTest(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     items = schemas.StrSchema
             
@@ -67,7 +67,7 @@ class ArrayTest(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     
@@ -76,7 +76,7 @@ class ArrayTest(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             types = {tuple}
                             items = schemas.Int64Schema
                     
@@ -114,7 +114,7 @@ class ArrayTest(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     
                     
@@ -123,7 +123,7 @@ class ArrayTest(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             types = {tuple}
                             
                             @staticmethod

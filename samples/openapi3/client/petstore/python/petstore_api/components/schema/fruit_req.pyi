@@ -33,7 +33,7 @@ class FruitReq(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         one_of_0 = schemas.NoneSchema
         

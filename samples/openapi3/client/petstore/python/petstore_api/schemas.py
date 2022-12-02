@@ -258,6 +258,680 @@ class MetaOapgTyped:
     min_length: int
     items: typing.Type['Schema']
 
+PathToSchemasType = typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]
+
+
+def __get_valid_classes_phrase(input_classes):
+    """Returns a string phrase describing what types are allowed"""
+    all_classes = list(input_classes)
+    all_classes = sorted(all_classes, key=lambda cls: cls.__name__)
+    all_class_names = [cls.__name__ for cls in all_classes]
+    if len(all_class_names) == 1:
+        return "is {0}".format(all_class_names[0])
+    return "is one of [{0}]".format(", ".join(all_class_names))
+
+
+def __type_error_message(
+    var_value=None, var_name=None, valid_classes=None, key_type=None
+):
+    """
+    Keyword Args:
+        var_value (any): the variable which has the type_error
+        var_name (str): the name of the variable which has the typ error
+        valid_classes (tuple): the accepted classes for current_item's
+                                  value
+        key_type (bool): False if our value is a value in a dict
+                         True if it is a key in a dict
+                         False if our item is an item in a tuple
+    """
+    key_or_value = "value"
+    if key_type:
+        key_or_value = "key"
+    valid_classes_phrase = __get_valid_classes_phrase(valid_classes)
+    msg = "Invalid type. Required {1} type {2} and " "passed type was {3}".format(
+        var_name,
+        key_or_value,
+        valid_classes_phrase,
+        type(var_value).__name__,
+    )
+    return msg
+
+
+def __get_type_error(var_value, path_to_item, valid_classes, key_type=False):
+    error_msg = __type_error_message(
+        var_name=path_to_item[-1],
+        var_value=var_value,
+        valid_classes=valid_classes,
+        key_type=key_type,
+    )
+    return ApiTypeError(
+        error_msg,
+        path_to_item=path_to_item,
+        valid_classes=valid_classes,
+        key_type=key_type,
+    )
+
+
+def validate_types(
+    arg: typing.Any,
+    allowed_types: typing.Optional[typing.Set[typing.Type]],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if allowed_types is not None and type(arg) not in allowed_types:
+        raise __get_type_error(
+            arg,
+            validation_metadata.path_to_item,
+            allowed_types,
+            key_type=False,
+        )
+    return None
+
+def validate_enum(
+    arg: typing.Any,
+    enum_value_to_name: typing.Dict[typing.Any, str],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if arg not in enum_value_to_name:
+        raise ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, enum_value_to_name.keys()))
+    return None
+
+
+def _raise_validation_error_message_oapg(value, constraint_msg, constraint_value, path_to_item, additional_txt=""):
+    raise ApiValueError(
+        "Invalid value `{value}`, {constraint_msg} `{constraint_value}`{additional_txt} at {path_to_item}".format(
+            value=value,
+            constraint_msg=constraint_msg,
+            constraint_value=constraint_value,
+            additional_txt=additional_txt,
+            path_to_item=path_to_item,
+        )
+    )
+
+
+def validate_unique_items(
+    arg: typing.Any,
+    unique_items_value: bool,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not unique_items_value or not isinstance(arg, tuple):
+        return None
+    if len(arg) > len(set(arg)):
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="duplicate items were found, and the tuple must not contain duplicates because",
+            constraint_value='unique_items==True',
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_min_items(
+    arg: typing.Any,
+    min_items: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, tuple):
+        return None
+    if len(arg) < min_items:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="number of items must be greater than or equal to",
+            constraint_value=min_items,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_max_items(
+    arg: typing.Any,
+    max_items: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, tuple):
+        return None
+    if len(arg) > max_items:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="number of items must be less than or equal to",
+            constraint_value=max_items,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_min_properties(
+    arg: typing.Any,
+    min_properties: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    if len(arg) < min_properties:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="number of properties must be greater than or equal to",
+            constraint_value=min_properties,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_max_properties(
+    arg: typing.Any,
+    max_properties: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    if len(arg) > max_properties:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="number of properties must be less than or equal to",
+            constraint_value=max_properties,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_min_length(
+    arg: typing.Any,
+    min_length: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, str):
+        return None
+    if len(arg) < min_length:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="length must be greater than or equal to",
+            constraint_value=min_length,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_max_length(
+    arg: typing.Any,
+    max_length: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, str):
+        return None
+    if len(arg) > max_length:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="length must be less than or equal to",
+            constraint_value=max_length,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_inclusive_minimum(
+    arg: typing.Any,
+    inclusive_minimum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg < inclusive_minimum:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="must be a value greater than or equal to",
+            constraint_value=inclusive_minimum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_exclusive_minimum(
+    arg: typing.Any,
+    exclusive_minimum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg <= exclusive_minimum:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="must be a value greater than",
+            constraint_value=exclusive_minimum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_inclusive_maximum(
+    arg: typing.Any,
+    inclusive_maximum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg > inclusive_maximum:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="must be a value less than or equal to",
+            constraint_value=inclusive_maximum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_exclusive_maximum(
+    arg: typing.Any,
+    exclusive_maximum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg >= exclusive_minimum:
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="must be a value less than",
+            constraint_value=exclusive_maximum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+def validate_multiple_of(
+    arg: typing.Any,
+    multiple_of: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if (not (float(arg) / multiple_of).is_integer()):
+        # Note 'multipleOf' will be as good as the floating point arithmetic.
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="value must be a multiple of",
+            constraint_value=multiple_of,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_regex(
+    arg: typing.Any,
+    regex_dict: typing.Dict,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, str):
+        return None
+    flags = regex_dict.get('flags', 0)
+    if not re.search(regex_dict['pattern'], arg, flags=flags):
+        if flags != 0:
+            # Don't print the regex flags if the flags are not
+            # specified in the OAS document.
+            _raise_validation_error_message_oapg(
+                value=arg,
+                constraint_msg="must match regular expression",
+                constraint_value=regex_dict['pattern'],
+                path_to_item=validation_metadata.path_to_item,
+                additional_txt=" with flags=`{}`".format(flags)
+            )
+        _raise_validation_error_message_oapg(
+            value=arg,
+            constraint_msg="must match regular expression",
+            constraint_value=regex_dict['pattern'],
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+__int32_inclusive_minimum = decimal.Decimal(-2147483648)
+__int32_inclusive_maximum = decimal.Decimal(2147483647)
+__int64_inclusive_minimum = decimal.Decimal(-9223372036854775808)
+__int64_inclusive_maximum = decimal.Decimal(9223372036854775807)
+__float_inclusive_minimum = decimal.Decimal(-3.4028234663852886e+38)
+__float_inclusive_maximum = decimal.Decimal(3.4028234663852886e+38)
+__double_inclusive_minimum = decimal.Decimal(-1.7976931348623157E+308)
+__double_inclusive_maximum = decimal.Decimal(1.7976931348623157E+308)
+
+def __validate_numeric_format(
+    arg: decimal.Decimal,
+    format: str,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if format[:3] == 'int':
+        if arg.as_tuple().exponent != 0:
+            raise ApiValueError(
+                "Invalid non-integer value '{}' for type {} at {}".format(
+                    arg, format, validation_metadata.path_to_item
+                )
+            )
+        if format == 'int32':
+            if not __int32_inclusive_minimum <= arg <= __int32_inclusive_maximum:
+                raise ApiValueError(
+                    "Invalid value '{}' for type int32 at {}".format(arg, validation_metadata.path_to_item)
+                )
+            return None
+        elif format == 'int64':
+            if not __int64_inclusive_minimum <= arg <= __int64_inclusive_maximum:
+                raise ApiValueError(
+                    "Invalid value '{}' for type int64 at {}".format(arg, validation_metadata.path_to_item)
+                )
+            return None
+        return None
+    elif format in {'float', 'double'}:
+        if format == 'float':
+            if not __float_inclusive_minimum <= arg <= __float_inclusive_maximum:
+                raise ApiValueError(
+                    "Invalid value '{}' for type float at {}".format(arg, validation_metadata.path_to_item)
+                )
+            return None
+        # double
+        if not __double_inclusive_minimum <= arg <= __double_inclusive_maximum:
+            raise ApiValueError(
+                "Invalid value '{}' for type double at {}".format(arg, validation_metadata.path_to_item)
+            )
+        return None
+    return None
+
+
+class CustomIsoparser(isoparser):
+
+    @_takes_ascii
+    def parse_isodatetime(self, dt_str):
+        components, pos = self._parse_isodate(dt_str)
+        if len(dt_str) > pos:
+            if self._sep is None or dt_str[pos:pos + 1] == self._sep:
+                components += self._parse_isotime(dt_str[pos + 1:])
+            else:
+                raise ValueError('String contains unknown ISO components')
+
+        if len(components) > 3 and components[3] == 24:
+            components[3] = 0
+            return datetime(*components) + timedelta(days=1)
+
+        if len(components) <= 3:
+            raise ValueError('Value is not a datetime')
+
+        return datetime(*components)
+
+    @_takes_ascii
+    def parse_isodate(self, datestr):
+        components, pos = self._parse_isodate(datestr)
+
+        if len(datestr) > pos:
+            raise ValueError('String contains invalid time components')
+
+        if len(components) > 3:
+            raise ValueError('String contains invalid time components')
+
+        return date(*components)
+
+
+DEFAULT_ISOPARSER = CustomIsoparser()
+
+
+def __validate_string_format(
+    arg: str,
+    format: str,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if format == 'uuid':
+        try:
+            uuid.UUID(arg)
+            return None
+        except ValueError:
+            raise ApiValueError(
+                "Invalid value '{}' for type UUID at {}".format(arg, validation_metadata.path_to_item)
+            )
+    elif format == 'number':
+        try:
+            decimal.Decimal(arg)
+            return None
+        except decimal.InvalidOperation:
+            raise ApiValueError(
+                "Value cannot be converted to a decimal. "
+                "Invalid value '{}' for type decimal at {}".format(arg, validation_metadata.path_to_item)
+            )
+    elif format == 'date':
+        try:
+            DEFAULT_ISOPARSER.parse_isodate(arg)
+            return None
+        except ValueError:
+            raise ApiValueError(
+                "Value does not conform to the required ISO-8601 date format. "
+                "Invalid value '{}' for type date at {}".format(arg, validation_metadata.path_to_item)
+            )
+    elif format == 'date-time':
+        try:
+            DEFAULT_ISOPARSER.parse_isodatetime(arg)
+            return None
+        except ValueError:
+            raise ApiValueError(
+                "Value does not conform to the required ISO-8601 datetime format. "
+                "Invalid value '{}' for type datetime at {}".format(arg, validation_metadata.path_to_item)
+            )
+    return None
+
+
+def validate_format(
+    arg: typing.Any,
+    format: str,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    # formats work for strings + numbers
+    arg_type = type(arg)
+    if isinstance(arg, decimal.Decimal):
+        return __validate_numeric_format(
+            arg,
+            format,
+            validation_metadata
+        )
+    elif isinstance(arg, str):
+        return __validate_string_format(
+            arg,
+            format,
+            validation_metadata
+        )
+    return None
+
+
+def validate_required(
+    arg: typing.Any,
+    required: typing.Set[str],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    missing_required_arguments = required - arg.keys()
+    if missing_required_arguments:
+        missing_required_arguments = list(missing_required_arguments)
+        missing_required_arguments.sort()
+        raise ApiTypeError(
+            "{} is missing {} required argument{}: {}".format(
+                cls.__name__,
+                len(missing_required_arguments),
+                "s" if len(missing_required_arguments) > 1 else "",
+                missing_required_arguments
+            )
+        )
+    return None
+
+
+def _get_class_oapg(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
+    if isinstance(item_cls, types.FunctionType):
+        # referenced schema
+        return item_cls()
+    elif isinstance(item_cls, staticmethod):
+        # referenced schema
+        return item_cls.__func__()
+    return item_cls
+
+
+def validate_items(
+    arg: typing.Any,
+    item_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> PathToSchemasType:
+    if not isinstance(arg, tuple):
+        return None
+    item_cls = _get_class_oapg(item_cls)
+    path_to_schemas = {}
+    for i, value in enumerate(arg):
+        item_validation_metadata = ValidationMetadata(
+            from_server=validation_metadata.from_server,
+            configuration=validation_metadata.configuration,
+            path_to_item=validation_metadata.path_to_item+(i,),
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if item_validation_metadata.validation_ran_earlier(item_cls):
+            add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = item_cls.MetaOapg.validate(
+            item_cls, value, validation_metadata=item_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_properties(
+    arg: typing.Any,
+    properties: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+):
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    path_to_schemas = {}
+    present_properties = {k: v for k, v, in arg.items() if k in properties.__annotations__}
+    for property_name, value in present_properties.items():
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        schema = properties.__annotations__[property_name]
+        schema = _get_class_oapg(schema)
+        arg_validation_metadata = ValidationMetadata(
+            from_server=validation_metadata.from_server,
+            configuration=validation_metadata.configuration,
+            path_to_item=path_to_item,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if arg_validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema.MetaOapg.validate(schema, value, validation_metadata=arg_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_additional_properties(
+    arg: typing.Any,
+    additional_properties_schema: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+):
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    schema = _get_class_oapg(additional_properties_schema)
+    path_to_schemas = {}
+    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties.__annotations__}
+    for property_name, value in present_additional_properties:
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        arg_validation_metadata = ValidationMetadata(
+            from_server=validation_metadata.from_server,
+            configuration=validation_metadata.configuration,
+            path_to_item=path_to_item,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if arg_validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema.MetaOapg.validate(schema, value, validation_metadata=arg_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+json_schema_keyword_to_validator = {
+    'types': validate_types,
+    'enum_value_to_name': validate_enum,
+    'unique_items': validate_unique_items,
+    'min_items': validate_min_items,
+    'max_items': validate_max_items,
+    'min_properties': validate_min_properties,
+    'max_properties': validate_max_properties,
+    'min_length': validate_min_length,
+    'max_length': validate_max_length,
+    'inclusive_minimum': validate_inclusive_minimum,
+    'exclusive_minimum': validate_exclusive_minimum,
+    'inclusive_maximum': validate_inclusive_maximum,
+    'exclusive_maximum': validate_exclusive_maximum,
+    'multiple_of': validate_multiple_of,
+    'regex': validate_regex,
+    'format': validate_format,
+    'required': validate_required,
+    'items': validate_items,
+    'properties': validate_properties,
+    'additional_properties': validate_additional_properties,
+}
+
+
+class JsonSchemaValidator:
+    _excluded_properties = {
+        '_excluded_properties',
+        '__module__',
+        '__dict__',
+        '__weakref__',
+        '__doc__',
+        'validate',
+        'discriminator',
+        'all_of',
+        'one_of',
+        'any_of',
+        'not_schema'
+    }
+
+    @classmethod
+    def validate(
+        cls,
+        python_cls,
+        arg,
+        validation_metadata: ValidationMetadata,
+    ) -> PathToSchemasType:
+        """
+        JsonSchemaValidatorBase validate
+        All keyword validation except for type checking was done in calling stack frames
+        If those validations passed, the validated classes are collected in path_to_schemas
+        """
+        json_schema_data = {k: v for k, v in vars(cls).items() if k not in cls._excluded_properties}
+        path_to_schemas = {}
+        for keyword, val in json_schema_data.items():
+            validator =  json_schema_keyword_to_validator[keyword]
+            other_path_to_schemas = validator(
+                arg,
+                val,
+                python_cls,
+                validation_metadata
+            )
+            if other_path_to_schemas:
+                update(path_to_schemas, other_path_to_schemas)
+
+        base_class = type(arg)
+        if validation_metadata.path_to_item not in path_to_schemas:
+            path_to_schemas[validation_metadata.path_to_item] = set()
+        path_to_schemas[validation_metadata.path_to_item].add(python_cls)
+        path_to_schemas[validation_metadata.path_to_item].add(base_class)
+
+        return path_to_schemas
 
 class Schema:
     """
@@ -265,99 +939,6 @@ class Schema:
     """
     __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
     MetaOapg: MetaOapgTyped
-
-    @staticmethod
-    def __get_valid_classes_phrase(input_classes):
-        """Returns a string phrase describing what types are allowed"""
-        all_classes = list(input_classes)
-        all_classes = sorted(all_classes, key=lambda cls: cls.__name__)
-        all_class_names = [cls.__name__ for cls in all_classes]
-        if len(all_class_names) == 1:
-            return "is {0}".format(all_class_names[0])
-        return "is one of [{0}]".format(", ".join(all_class_names))
-
-    @staticmethod
-    def _get_class_oapg(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
-        if isinstance(item_cls, types.FunctionType):
-            # referenced schema
-            return item_cls()
-        elif isinstance(item_cls, staticmethod):
-            # referenced schema
-            return item_cls.__func__()
-        return item_cls
-
-    @classmethod
-    def __type_error_message(
-        cls, var_value=None, var_name=None, valid_classes=None, key_type=None
-    ):
-        """
-        Keyword Args:
-            var_value (any): the variable which has the type_error
-            var_name (str): the name of the variable which has the typ error
-            valid_classes (tuple): the accepted classes for current_item's
-                                      value
-            key_type (bool): False if our value is a value in a dict
-                             True if it is a key in a dict
-                             False if our item is an item in a tuple
-        """
-        key_or_value = "value"
-        if key_type:
-            key_or_value = "key"
-        valid_classes_phrase = cls.__get_valid_classes_phrase(valid_classes)
-        msg = "Invalid type. Required {1} type {2} and " "passed type was {3}".format(
-            var_name,
-            key_or_value,
-            valid_classes_phrase,
-            type(var_value).__name__,
-        )
-        return msg
-
-    @classmethod
-    def __get_type_error(cls, var_value, path_to_item, valid_classes, key_type=False):
-        error_msg = cls.__type_error_message(
-            var_name=path_to_item[-1],
-            var_value=var_value,
-            valid_classes=valid_classes,
-            key_type=key_type,
-        )
-        return ApiTypeError(
-            error_msg,
-            path_to_item=path_to_item,
-            valid_classes=valid_classes,
-            key_type=key_type,
-        )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]:
-        """
-        Schema _validate_oapg
-        All keyword validation except for type checking was done in calling stack frames
-        If those validations passed, the validated classes are collected in path_to_schemas
-
-        Returns:
-            path_to_schemas: a map of path to schemas
-
-        Raises:
-            ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
-            ApiTypeError: when the input type is not in the list of allowed spec types
-        """
-        base_class = type(arg)
-        if cls.MetaOapg.types is not None and base_class not in cls.MetaOapg.types:
-            raise cls.__get_type_error(
-                arg,
-                validation_metadata.path_to_item,
-                cls.MetaOapg.types,
-                key_type=False,
-            )
-
-        path_to_schemas = {validation_metadata.path_to_item: set()}
-        path_to_schemas[validation_metadata.path_to_item].add(cls)
-        path_to_schemas[validation_metadata.path_to_item].add(base_class)
-        return path_to_schemas
 
     @staticmethod
     def _process_schema_classes_oapg(
@@ -408,7 +989,7 @@ class Schema:
         if validation_metadata.validation_ran_earlier(cls):
             add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
         else:
-            other_path_to_schemas = cls._validate_oapg(arg, validation_metadata=validation_metadata)
+            other_path_to_schemas = cls.MetaOapg.validate(cls, arg, validation_metadata=validation_metadata)
             update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
@@ -894,21 +1475,7 @@ class ValidatorBase:
 
 
 class EnumBase:
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]:
-        """
-        EnumBase _validate_oapg
-        Validates that arg is in the enum's allowed values
-        """
-        try:
-            cls.MetaOapg.enum_value_to_name[arg]
-        except KeyError:
-            raise ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, cls.MetaOapg.enum_value_to_name.keys()))
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
+    pass
 
 
 class BoolBase:
@@ -965,133 +1532,12 @@ class StrBase(ValidatorBase):
     def as_uuid_oapg(self) -> uuid.UUID:
         raise Exception('not implemented')
 
-    @classmethod
-    def __check_str_validations(
-        cls,
-        arg: str,
-        validation_metadata: ValidationMetadata
-    ):
-        if (cls._is_json_validation_enabled_oapg('maxLength', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'max_length') and
-                len(arg) > cls.MetaOapg.max_length):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="length must be less than or equal to",
-                constraint_value=cls.MetaOapg.max_length,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('minLength', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'min_length') and
-                len(arg) < cls.MetaOapg.min_length):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="length must be greater than or equal to",
-                constraint_value=cls.MetaOapg.min_length,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('pattern', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'regex')):
-            for regex_dict in cls.MetaOapg.regex:
-                flags = regex_dict.get('flags', 0)
-                if not re.search(regex_dict['pattern'], arg, flags=flags):
-                    if flags != 0:
-                        # Don't print the regex flags if the flags are not
-                        # specified in the OAS document.
-                        cls._raise_validation_error_message_oapg(
-                            value=arg,
-                            constraint_msg="must match regular expression",
-                            constraint_value=regex_dict['pattern'],
-                            path_to_item=validation_metadata.path_to_item,
-                            additional_txt=" with flags=`{}`".format(flags)
-                        )
-                    cls._raise_validation_error_message_oapg(
-                        value=arg,
-                        constraint_msg="must match regular expression",
-                        constraint_value=regex_dict['pattern'],
-                        path_to_item=validation_metadata.path_to_item
-                    )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]:
-        """
-        StrBase _validate_oapg
-        Validates that validations pass
-        """
-        if isinstance(arg, str):
-            cls.__check_str_validations(arg, validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
-
 
 class UUIDBase:
     @property
     @functools.lru_cache()
     def as_uuid_oapg(self) -> uuid.UUID:
         return uuid.UUID(self)
-
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[str], validation_metadata: ValidationMetadata):
-        if isinstance(arg, str):
-            try:
-                uuid.UUID(arg)
-                return True
-            except ValueError:
-                raise ApiValueError(
-                    "Invalid value '{}' for type UUID at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: typing.Optional[ValidationMetadata] = None,
-    ):
-        """
-        UUIDBase _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
-
-
-class CustomIsoparser(isoparser):
-
-    @_takes_ascii
-    def parse_isodatetime(self, dt_str):
-        components, pos = self._parse_isodate(dt_str)
-        if len(dt_str) > pos:
-            if self._sep is None or dt_str[pos:pos + 1] == self._sep:
-                components += self._parse_isotime(dt_str[pos + 1:])
-            else:
-                raise ValueError('String contains unknown ISO components')
-
-        if len(components) > 3 and components[3] == 24:
-            components[3] = 0
-            return datetime(*components) + timedelta(days=1)
-
-        if len(components) <= 3:
-            raise ValueError('Value is not a datetime')
-
-        return datetime(*components)
-
-    @_takes_ascii
-    def parse_isodate(self, datestr):
-        components, pos = self._parse_isodate(datestr)
-
-        if len(datestr) > pos:
-            raise ValueError('String contains invalid time components')
-
-        if len(components) > 3:
-            raise ValueError('String contains invalid time components')
-
-        return date(*components)
-
-
-DEFAULT_ISOPARSER = CustomIsoparser()
 
 
 class DateBase:
@@ -1100,60 +1546,12 @@ class DateBase:
     def as_date_oapg(self) -> date:
         return DEFAULT_ISOPARSER.parse_isodate(self)
 
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[str], validation_metadata: ValidationMetadata):
-        if isinstance(arg, str):
-            try:
-                DEFAULT_ISOPARSER.parse_isodate(arg)
-                return True
-            except ValueError:
-                raise ApiValueError(
-                    "Value does not conform to the required ISO-8601 date format. "
-                    "Invalid value '{}' for type date at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: typing.Optional[ValidationMetadata] = None,
-    ):
-        """
-        DateBase _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
-
 
 class DateTimeBase:
     @property
     @functools.lru_cache()
     def as_datetime_oapg(self) -> datetime:
         return DEFAULT_ISOPARSER.parse_isodatetime(self)
-
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[str], validation_metadata: ValidationMetadata):
-        if isinstance(arg, str):
-            try:
-                DEFAULT_ISOPARSER.parse_isodatetime(arg)
-                return True
-            except ValueError:
-                raise ApiValueError(
-                    "Value does not conform to the required ISO-8601 datetime format. "
-                    "Invalid value '{}' for type datetime at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        DateTimeBase _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
 
 
 class DecimalBase:
@@ -1167,30 +1565,6 @@ class DecimalBase:
     @functools.lru_cache()
     def as_decimal_oapg(self) -> decimal.Decimal:
         return decimal.Decimal(self)
-
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[str], validation_metadata: ValidationMetadata):
-        if isinstance(arg, str):
-            try:
-                decimal.Decimal(arg)
-                return True
-            except decimal.InvalidOperation:
-                raise ApiValueError(
-                    "Value cannot be converted to a decimal. "
-                    "Invalid value '{}' for type decimal at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        DecimalBase _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
 
 
 class NumberBase(ValidatorBase):
@@ -1226,199 +1600,9 @@ class NumberBase(ValidatorBase):
             self._as_float = float(self)
             return self._as_float
 
-    @classmethod
-    def __check_numeric_validations(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata
-    ):
-        if cls._is_json_validation_enabled_oapg('multipleOf',
-                                      validation_metadata.configuration) and hasattr(cls.MetaOapg, 'multiple_of'):
-            multiple_of_value = cls.MetaOapg.multiple_of
-            if (not (float(arg) / multiple_of_value).is_integer()):
-                # Note 'multipleOf' will be as good as the floating point arithmetic.
-                cls._raise_validation_error_message_oapg(
-                    value=arg,
-                    constraint_msg="value must be a multiple of",
-                    constraint_value=multiple_of_value,
-                    path_to_item=validation_metadata.path_to_item
-                )
-
-        checking_max_or_min_values = any(
-            hasattr(cls.MetaOapg, validation_key) for validation_key in {
-                'exclusive_maximum',
-                'inclusive_maximum',
-                'exclusive_minimum',
-                'inclusive_minimum',
-            }
-        )
-        if not checking_max_or_min_values:
-            return
-
-        if (cls._is_json_validation_enabled_oapg('exclusiveMaximum', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'exclusive_maximum') and
-                arg >= cls.MetaOapg.exclusive_maximum):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="must be a value less than",
-                constraint_value=cls.MetaOapg.exclusive_maximum,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('maximum', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'inclusive_maximum') and
-                arg > cls.MetaOapg.inclusive_maximum):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="must be a value less than or equal to",
-                constraint_value=cls.MetaOapg.inclusive_maximum,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('exclusiveMinimum', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'exclusive_minimum') and
-                arg <= cls.MetaOapg.exclusive_minimum):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="must be a value greater than",
-                constraint_value=cls.MetaOapg.exclusive_maximum,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('minimum', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'inclusive_minimum') and
-                arg < cls.MetaOapg.inclusive_minimum):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="must be a value greater than or equal to",
-                constraint_value=cls.MetaOapg.inclusive_minimum,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]:
-        """
-        NumberBase _validate_oapg
-        Validates that validations pass
-        """
-        if isinstance(arg, decimal.Decimal):
-            cls.__check_numeric_validations(arg, validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
-
 
 class ListBase(ValidatorBase):
     MetaOapg: MetaOapgTyped
-
-    @classmethod
-    def __validate_items(cls, list_items, validation_metadata: ValidationMetadata):
-        """
-        Ensures that:
-        - values passed in for items are valid
-        Exceptions will be raised if:
-        - invalid arguments were passed in
-
-        Args:
-            list_items: the input list of items
-
-        Raises:
-            ApiTypeError - for missing required arguments, or for invalid properties
-        """
-
-        # if we have definitions for an items schema, use it
-        # otherwise accept anything
-        item_cls = getattr(cls.MetaOapg, 'items', UnsetAnyTypeSchema)
-        item_cls = cls._get_class_oapg(item_cls)
-        path_to_schemas = {}
-        for i, value in enumerate(list_items):
-            item_validation_metadata = ValidationMetadata(
-                from_server=validation_metadata.from_server,
-                configuration=validation_metadata.configuration,
-                path_to_item=validation_metadata.path_to_item+(i,),
-                validated_path_to_schemas=validation_metadata.validated_path_to_schemas
-            )
-            if item_validation_metadata.validation_ran_earlier(item_cls):
-                add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
-                continue
-            other_path_to_schemas = item_cls._validate_oapg(
-                value, validation_metadata=item_validation_metadata)
-            update(path_to_schemas, other_path_to_schemas)
-        return path_to_schemas
-
-    @classmethod
-    def __check_tuple_validations(
-            cls, arg,
-            validation_metadata: ValidationMetadata):
-        if (cls._is_json_validation_enabled_oapg('maxItems', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'max_items') and
-                len(arg) > cls.MetaOapg.max_items):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="number of items must be less than or equal to",
-                constraint_value=cls.MetaOapg.max_items,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('minItems', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'min_items') and
-                len(arg) < cls.MetaOapg.min_items):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="number of items must be greater than or equal to",
-                constraint_value=cls.MetaOapg.min_items,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('uniqueItems', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'unique_items') and cls.MetaOapg.unique_items and arg):
-            unique_items = set(arg)
-            if len(arg) > len(unique_items):
-                cls._raise_validation_error_message_oapg(
-                    value=arg,
-                    constraint_msg="duplicate items were found, and the tuple must not contain duplicates because",
-                    constraint_value='unique_items==True',
-                    path_to_item=validation_metadata.path_to_item
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        ListBase _validate_oapg
-        We return dynamic classes of different bases depending upon the inputs
-        This makes it so:
-        - the returned instance is always a subclass of our defining schema
-            - this allows us to check type based on whether an instance is a subclass of a schema
-        - the returned instance is a serializable type (except for None, True, and False) which are enums
-
-        Returns:
-            new_cls (type): the new class
-
-        Raises:
-            ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
-            ApiTypeError: when the input type is not in the list of allowed spec types
-        """
-        if isinstance(arg, tuple):
-            cls.__check_tuple_validations(arg, validation_metadata)
-        _path_to_schemas = super()._validate_oapg(arg, validation_metadata=validation_metadata)
-        if not isinstance(arg, tuple):
-            return _path_to_schemas
-        updated_vm = ValidationMetadata(
-            configuration=validation_metadata.configuration,
-            from_server=validation_metadata.from_server,
-            path_to_item=validation_metadata.path_to_item,
-            seen_classes=validation_metadata.seen_classes | frozenset({cls}),
-            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
-        )
-        other_path_to_schemas = cls.__validate_items(arg, validation_metadata=updated_vm)
-        update(_path_to_schemas, other_path_to_schemas)
-        return _path_to_schemas
 
     @classmethod
     def _get_items_oapg(
@@ -1499,147 +1683,14 @@ class Discriminable:
 
 
 class DictBase(Discriminable, ValidatorBase):
-
-    @classmethod
-    def __validate_arg_presence(cls, arg):
-        """
-        Ensures that:
-        - all required arguments are passed in
-        - the input variable names are valid
-            - present in properties or
-            - accepted because additionalProperties exists
-        Exceptions will be raised if:
-        - invalid arguments were passed in
-            - a var_name is invalid if additional_properties == NotAnyTypeSchema
-            and var_name not in properties.__annotations__
-        - required properties were not passed in
-
-        Args:
-            arg: the input dict
-
-        Raises:
-            ApiTypeError - for missing required arguments, or for invalid properties
-        """
-        seen_required_properties = set()
-        invalid_arguments = []
-        required_property_names = getattr(cls.MetaOapg, 'required', set())
-        additional_properties = getattr(cls.MetaOapg, 'additional_properties', UnsetAnyTypeSchema)
-        properties = getattr(cls.MetaOapg, 'properties', {})
-        property_annotations = getattr(properties, '__annotations__', {})
-        for property_name in arg:
-            if property_name in required_property_names:
-                seen_required_properties.add(property_name)
-            elif property_name in property_annotations:
-                continue
-            elif additional_properties is not NotAnyTypeSchema:
-                continue
-            else:
-                invalid_arguments.append(property_name)
-        missing_required_arguments = list(required_property_names - seen_required_properties)
-        if missing_required_arguments:
-            missing_required_arguments.sort()
-            raise ApiTypeError(
-                "{} is missing {} required argument{}: {}".format(
-                    cls.__name__,
-                    len(missing_required_arguments),
-                    "s" if len(missing_required_arguments) > 1 else "",
-                    missing_required_arguments
-                )
-            )
-        if invalid_arguments:
-            invalid_arguments.sort()
-            raise ApiTypeError(
-                "{} was passed {} invalid argument{}: {}".format(
-                    cls.__name__,
-                    len(invalid_arguments),
-                    "s" if len(invalid_arguments) > 1 else "",
-                    invalid_arguments
-                )
-            )
-
-    @classmethod
-    def __validate_args(cls, arg, validation_metadata: ValidationMetadata):
-        """
-        Ensures that:
-        - values passed in for properties are valid
-        Exceptions will be raised if:
-        - invalid arguments were passed in
-
-        Args:
-            arg: the input dict
-
-        Raises:
-            ApiTypeError - for missing required arguments, or for invalid properties
-        """
-        path_to_schemas = {}
-        additional_properties = getattr(cls.MetaOapg, 'additional_properties', UnsetAnyTypeSchema)
-        properties = getattr(cls.MetaOapg, 'properties', {})
-        property_annotations = getattr(properties, '__annotations__', {})
-        for property_name, value in arg.items():
-            path_to_item = validation_metadata.path_to_item+(property_name,)
-            if property_name in property_annotations:
-                schema = property_annotations[property_name]
-            elif additional_properties is not NotAnyTypeSchema:
-                if additional_properties is UnsetAnyTypeSchema:
-                    """
-                    If additionalProperties is unset and this path_to_item does not yet have
-                    any validations on it, validate it.
-                    If it already has validations on it, skip this validation.
-                    """
-                    if path_to_item in path_to_schemas:
-                        continue
-                schema = additional_properties
-            else:
-                raise ApiTypeError('Unable to find schema for value={} in class={} at path_to_item={}'.format(
-                    value, cls, validation_metadata.path_to_item+(property_name,)
-                ))
-            schema = cls._get_class_oapg(schema)
-            arg_validation_metadata = ValidationMetadata(
-                from_server=validation_metadata.from_server,
-                configuration=validation_metadata.configuration,
-                path_to_item=path_to_item,
-                validated_path_to_schemas=validation_metadata.validated_path_to_schemas
-            )
-            if arg_validation_metadata.validation_ran_earlier(schema):
-                add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
-                continue
-            other_path_to_schemas = schema._validate_oapg(value, validation_metadata=arg_validation_metadata)
-            update(path_to_schemas, other_path_to_schemas)
-        return path_to_schemas
-
-    @classmethod
-    def __check_dict_validations(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata
-    ):
-        if (cls._is_json_validation_enabled_oapg('maxProperties', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'max_properties') and
-                len(arg) > cls.MetaOapg.max_properties):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="number of properties must be less than or equal to",
-                constraint_value=cls.MetaOapg.max_properties,
-                path_to_item=validation_metadata.path_to_item
-            )
-
-        if (cls._is_json_validation_enabled_oapg('minProperties', validation_metadata.configuration) and
-                hasattr(cls.MetaOapg, 'min_properties') and
-                len(arg) < cls.MetaOapg.min_properties):
-            cls._raise_validation_error_message_oapg(
-                value=arg,
-                constraint_msg="number of properties must be greater than or equal to",
-                constraint_value=cls.MetaOapg.min_properties,
-                path_to_item=validation_metadata.path_to_item
-            )
-
+    """
     @classmethod
     def _validate_oapg(
         cls,
         arg,
         validation_metadata: ValidationMetadata,
     ):
-        """
+        '''
         DictBase _validate_oapg
         We return dynamic classes of different bases depending upon the inputs
         This makes it so:
@@ -1653,7 +1704,7 @@ class DictBase(Discriminable, ValidatorBase):
         Raises:
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
-        """
+        '''
         if isinstance(arg, frozendict.frozendict):
             cls.__check_dict_validations(arg, validation_metadata)
         _path_to_schemas = super()._validate_oapg(arg, validation_metadata=validation_metadata)
@@ -1693,6 +1744,7 @@ class DictBase(Discriminable, ValidatorBase):
         other_path_to_schemas = discriminated_cls._validate_oapg(arg, validation_metadata=updated_vm)
         update(_path_to_schemas, other_path_to_schemas)
         return _path_to_schemas
+    """
 
     @classmethod
     def _get_properties_oapg(
@@ -1917,13 +1969,14 @@ class ComposedBase(Discriminable):
             )
         return path_to_schemas
 
+    """
     @classmethod
     def _validate_oapg(
         cls,
         arg,
         validation_metadata: ValidationMetadata,
     ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]:
-        """
+        '''
         ComposedBase _validate_oapg
         We return dynamic classes of different bases depending upon the inputs
         This makes it so:
@@ -1937,7 +1990,7 @@ class ComposedBase(Discriminable):
         Raises:
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
-        """
+        '''
         # validation checking on types, validations, and enums
         path_to_schemas = super()._validate_oapg(arg, validation_metadata=validation_metadata)
 
@@ -2016,6 +2069,7 @@ class ComposedBase(Discriminable):
             add_deeper_validated_schemas(updated_vm, path_to_schemas)
             assert discriminated_cls in path_to_schemas[updated_vm.path_to_item]
         return path_to_schemas
+    """
 
 
 # DictBase, ListBase, NumberBase, StrBase, BoolBase, NoneBase
@@ -2030,7 +2084,7 @@ class ComposedSchema(
     Schema,
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = None
 
     @classmethod
@@ -2047,7 +2101,7 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {tuple}
 
     @classmethod
@@ -2063,7 +2117,7 @@ class NoneSchema(
     Schema,
     NoneMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {NoneClass}
 
     @classmethod
@@ -2083,7 +2137,7 @@ class NumberSchema(
     This is used for type: number with no format
     Both integers AND floats are accepted
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
 
     @classmethod
@@ -2103,29 +2157,6 @@ class IntBase:
             self._as_int = int(self)
             return self._as_int
 
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[decimal.Decimal], validation_metadata: ValidationMetadata):
-        if isinstance(arg, decimal.Decimal):
-
-            denominator = arg.as_integer_ratio()[-1]
-            if denominator != 1:
-                raise ApiValueError(
-                    "Invalid value '{}' for type integer at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        IntBase _validate_oapg
-        TODO what about types = (int, number) -> IntBase, NumberBase? We could drop int and keep number only
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
-
 
 class IntSchema(IntBase, NumberSchema):
     @classmethod
@@ -2137,101 +2168,38 @@ class IntSchema(IntBase, NumberSchema):
 
 
 class Int32Base:
-    __inclusive_minimum = decimal.Decimal(-2147483648)
-    __inclusive_maximum = decimal.Decimal(2147483647)
-
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[decimal.Decimal], validation_metadata: ValidationMetadata):
-        if isinstance(arg, decimal.Decimal) and arg.as_tuple().exponent == 0:
-            if not cls.__inclusive_minimum <= arg <= cls.__inclusive_maximum:
-                raise ApiValueError(
-                    "Invalid value '{}' for type int32 at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        Int32Base _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
+    pass
 
 
 class Int32Schema(
     Int32Base,
     IntSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'int32'
 
 class Int64Base:
-    __inclusive_minimum = decimal.Decimal(-9223372036854775808)
-    __inclusive_maximum = decimal.Decimal(9223372036854775807)
-
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[decimal.Decimal], validation_metadata: ValidationMetadata):
-        if isinstance(arg, decimal.Decimal) and arg.as_tuple().exponent == 0:
-            if not cls.__inclusive_minimum <= arg <= cls.__inclusive_maximum:
-                raise ApiValueError(
-                    "Invalid value '{}' for type int64 at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        Int64Base _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
+    pass
 
 
 class Int64Schema(
     Int64Base,
     IntSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'int64'
 
 class Float32Base:
-    __inclusive_minimum = decimal.Decimal(-3.4028234663852886e+38)
-    __inclusive_maximum = decimal.Decimal(3.4028234663852886e+38)
-
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[decimal.Decimal], validation_metadata: ValidationMetadata):
-        if isinstance(arg, decimal.Decimal):
-            if not cls.__inclusive_minimum <= arg <= cls.__inclusive_maximum:
-                raise ApiValueError(
-                    "Invalid value '{}' for type float at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        Float32Base _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
+    pass
 
 
 class Float32Schema(
     Float32Base,
     NumberSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'float'
 
@@ -2241,40 +2209,19 @@ class Float32Schema(
 
 
 class Float64Base:
-    __inclusive_minimum = decimal.Decimal(-1.7976931348623157E+308)
-    __inclusive_maximum = decimal.Decimal(1.7976931348623157E+308)
+    pass
 
-    @classmethod
-    def __validate_format(cls, arg: typing.Optional[decimal.Decimal], validation_metadata: ValidationMetadata):
-        if isinstance(arg, decimal.Decimal):
-            if not cls.__inclusive_minimum <= arg <= cls.__inclusive_maximum:
-                raise ApiValueError(
-                    "Invalid value '{}' for type double at {}".format(arg, validation_metadata.path_to_item)
-                )
-
-    @classmethod
-    def _validate_oapg(
-        cls,
-        arg,
-        validation_metadata: ValidationMetadata,
-    ):
-        """
-        Float64Base _validate_oapg
-        """
-        cls.__validate_format(arg, validation_metadata=validation_metadata)
-        return super()._validate_oapg(arg, validation_metadata=validation_metadata)
 
 class Float64Schema(
     Float64Base,
     NumberSchema
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {decimal.Decimal}
         format = 'double'
 
     @classmethod
     def from_openapi_data_oapg(cls, arg: float, _configuration: typing.Optional[Configuration] = None):
-        # todo check format
         return super().from_openapi_data_oapg(arg, _configuration=_configuration)
 
 
@@ -2289,7 +2236,7 @@ class StrSchema(
     - type: string (format unset)
     - type: string, format: date
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
 
     @classmethod
@@ -2301,7 +2248,7 @@ class StrSchema(
 
 
 class UUIDSchema(UUIDBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'uuid'
 
@@ -2310,7 +2257,7 @@ class UUIDSchema(UUIDBase, StrSchema):
 
 
 class DateSchema(DateBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'date'
 
@@ -2319,7 +2266,7 @@ class DateSchema(DateBase, StrSchema):
 
 
 class DateTimeSchema(DateTimeBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'date-time'
 
@@ -2328,7 +2275,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
 
 
 class DecimalSchema(DecimalBase, StrSchema):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {str}
         format = 'number'
 
@@ -2351,7 +2298,7 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {bytes}
 
     def __new__(cls, _arg: bytes, **kwargs: Configuration):
@@ -2378,7 +2325,7 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {FileIO}
 
     def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: Configuration):
@@ -2395,7 +2342,7 @@ class BinarySchema(
     Schema,
     BinaryMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {FileIO, bytes}
         format = 'binary'
 
@@ -2415,7 +2362,7 @@ class BoolSchema(
     Schema,
     BoolMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {BoolClass}
 
     @classmethod
@@ -2437,7 +2384,7 @@ class AnyTypeSchema(
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):
     # Python representation of a schema defined as true or {}
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = None
 
 
@@ -2455,7 +2402,7 @@ class NotAnyTypeSchema(
     Note: validations on this class are never run because the code knows that no inputs will ever validate
     """
 
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = None
         not_schema = AnyTypeSchema
 
@@ -2476,7 +2423,7 @@ class DictSchema(
     Schema,
     FrozenDictMixin
 ):
-    class MetaOapg:
+    class MetaOapg(JsonSchemaValidator):
         types = {frozendict.frozendict}
 
     @classmethod

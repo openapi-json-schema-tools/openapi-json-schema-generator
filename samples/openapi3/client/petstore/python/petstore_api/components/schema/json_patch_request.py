@@ -33,7 +33,7 @@ class JSONPatchRequest(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {tuple}
         
         
@@ -42,7 +42,7 @@ class JSONPatchRequest(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = None
                 
                 @classmethod

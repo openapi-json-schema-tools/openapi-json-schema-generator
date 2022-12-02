@@ -35,7 +35,7 @@ class SpecialModelName(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             a = schemas.StrSchema

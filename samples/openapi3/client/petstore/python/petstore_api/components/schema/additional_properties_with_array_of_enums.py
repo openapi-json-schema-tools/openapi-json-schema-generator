@@ -33,7 +33,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         
         
@@ -42,7 +42,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {tuple}
                 
                 @staticmethod

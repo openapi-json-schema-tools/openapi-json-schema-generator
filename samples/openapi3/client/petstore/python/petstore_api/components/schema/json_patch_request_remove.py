@@ -33,7 +33,7 @@ class JSONPatchRequestRemove(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "op",
@@ -50,7 +50,7 @@ class JSONPatchRequestRemove(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {
                         str,
                     }

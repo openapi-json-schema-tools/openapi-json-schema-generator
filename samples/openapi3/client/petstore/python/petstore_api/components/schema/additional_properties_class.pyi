@@ -33,7 +33,7 @@ class AdditionalPropertiesClass(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             
@@ -43,7 +43,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     additional_properties = schemas.StrSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -72,7 +72,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     
                     
                     class additional_properties(
@@ -80,7 +80,7 @@ class AdditionalPropertiesClass(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             additional_properties = schemas.StrSchema
                         
                         def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -132,7 +132,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     additional_properties = schemas.AnyTypeSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -161,7 +161,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     additional_properties = schemas.NotAnyTypeSchema
             
                 def __new__(
@@ -181,7 +181,7 @@ class AdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     additional_properties = schemas.StrSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:

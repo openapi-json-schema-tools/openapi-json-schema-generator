@@ -36,7 +36,7 @@ class NullableString(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             schemas.NoneClass,
             str,

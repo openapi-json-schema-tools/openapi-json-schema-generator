@@ -34,7 +34,7 @@ class EnumClass(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             str,
         }

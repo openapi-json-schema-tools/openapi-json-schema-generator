@@ -33,7 +33,7 @@ class Quadrilateral(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         @staticmethod

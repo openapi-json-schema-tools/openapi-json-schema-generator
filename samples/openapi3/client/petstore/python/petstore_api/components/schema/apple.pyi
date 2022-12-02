@@ -36,7 +36,7 @@ class Apple(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             schemas.NoneClass,
             frozendict.frozendict,

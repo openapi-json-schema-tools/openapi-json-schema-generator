@@ -33,11 +33,11 @@ class DateTimeWithValidations(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             str,
         }
         format = 'date-time'
-        regex=[{
+        regex={
             'pattern': r'^2020.*',  # noqa: E501
-        }]
+        }

@@ -47,7 +47,7 @@ class application_json(
 ):
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         additional_properties = schemas.Int32Schema
     

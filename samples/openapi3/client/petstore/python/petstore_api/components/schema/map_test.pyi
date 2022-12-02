@@ -33,7 +33,7 @@ class MapTest(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             
@@ -43,7 +43,7 @@ class MapTest(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     
                     
                     class additional_properties(
@@ -51,7 +51,7 @@ class MapTest(
                     ):
                     
                     
-                        class MetaOapg:
+                        class MetaOapg(schemas.JsonSchemaValidator):
                             additional_properties = schemas.StrSchema
                         
                         def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
@@ -100,7 +100,7 @@ class MapTest(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     
                     
                     class additional_properties(
@@ -142,7 +142,7 @@ class MapTest(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     additional_properties = schemas.BoolSchema
                 
                 def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:

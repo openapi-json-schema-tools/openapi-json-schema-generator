@@ -35,7 +35,7 @@ class ObjectWithDifficultlyNamedProps(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "123-list",
         }

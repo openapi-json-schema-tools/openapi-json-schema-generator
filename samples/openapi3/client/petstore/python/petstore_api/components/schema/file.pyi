@@ -35,7 +35,7 @@ class File(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             sourceURI = schemas.StrSchema

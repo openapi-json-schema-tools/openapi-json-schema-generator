@@ -33,7 +33,7 @@ class ArrayOfNumberOnly(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             
@@ -43,7 +43,7 @@ class ArrayOfNumberOnly(
             ):
             
             
-                class MetaOapg:
+                class MetaOapg(schemas.JsonSchemaValidator):
                     types = {tuple}
                     items = schemas.NumberSchema
             

@@ -35,7 +35,7 @@ class ObjectWithDifficultlyNamedProps(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {frozendict.frozendict}
         required = {
             "123-list",

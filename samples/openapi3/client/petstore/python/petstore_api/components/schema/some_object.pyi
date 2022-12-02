@@ -33,7 +33,7 @@ class SomeObject(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         
         @classmethod

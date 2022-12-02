@@ -33,7 +33,7 @@ class ArrayWithValidationsInItems(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {tuple}
         max_items = 2
         

@@ -33,7 +33,7 @@ class NumberOnly(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         
         class properties:
             JustNumber = schemas.NumberSchema

@@ -33,7 +33,7 @@ class ObjectWithInvalidNamedRefedProperties(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "!reference",
             "from",

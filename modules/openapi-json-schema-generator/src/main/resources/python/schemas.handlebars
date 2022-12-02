@@ -602,7 +602,7 @@ def __validate_numeric_format(
     format: str,
     validation_metadata: ValidationMetadata
 ) -> None:
-    if format[:3] == 'int'
+    if format[:3] == 'int':
         if arg.as_tuple().exponent != 0:
             raise ApiValueError(
                 "Invalid non-integer value '{}' for type {} at {}".format(
@@ -749,7 +749,7 @@ def validate_required(
     if not isinstance(arg, frozendict.frozendict):
         return None
     missing_required_arguments = required - arg.keys()
-    if missing_required_keys:
+    if missing_required_arguments:
         missing_required_arguments = list(missing_required_arguments)
         missing_required_arguments.sort()
         raise ApiTypeError(
@@ -809,7 +809,7 @@ def validate_properties(
         return None
     path_to_schemas = {}
     present_properties = {k: v for k, v, in arg.items() if k in properties.__annotations__}
-    for property_name, value in present_properties:
+    for property_name, value in present_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
         schema = properties.__annotations__[property_name]
         schema = _get_class_oapg(schema)
@@ -837,7 +837,7 @@ def validate_additional_properties(
         return None
     schema = _get_class_oapg(additional_properties_schema)
     path_to_schemas = {}
-    present_additional_properties = {k: v for k, v, in arg.items() if k not in in properties.__annotations__}
+    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties.__annotations__}
     for property_name, value in present_additional_properties:
         path_to_item = validation_metadata.path_to_item + (property_name,)
         arg_validation_metadata = ValidationMetadata(
@@ -871,7 +871,7 @@ json_schema_keyword_to_validator = {
     'multiple_of': validate_multiple_of,
     'regex': validate_regex,
     'format': validate_format,
-    'required': 'validate_required',
+    'required': validate_required,
     'items': validate_items,
     'properties': validate_properties,
     'additional_properties': validate_additional_properties,
@@ -885,13 +885,18 @@ class JsonSchemaValidator:
         '__dict__',
         '__weakref__',
         '__doc__',
-        'validate'
+        'validate',
+        'discriminator',
+        'all_of',
+        'one_of',
+        'any_of',
+        'not_schema'
     }
 
     @classmethod
     def validate(
         cls,
-        python_cls
+        python_cls,
         arg,
         validation_metadata: ValidationMetadata,
     ) -> PathToSchemasType:
@@ -900,9 +905,9 @@ class JsonSchemaValidator:
         All keyword validation except for type checking was done in calling stack frames
         If those validations passed, the validated classes are collected in path_to_schemas
         """
-        json_schema_keywords = vars(cls) - cls._excluded_properties
+        json_schema_data = {k: v for k, v in vars(cls).items() if k not in cls._excluded_properties}
         path_to_schemas = {}
-        for keyword, val in json_schema_keywords:
+        for keyword, val in json_schema_data.items():
             validator =  json_schema_keyword_to_validator[keyword]
             other_path_to_schemas = validator(
                 arg,
@@ -977,7 +982,7 @@ class Schema:
         if validation_metadata.validation_ran_earlier(cls):
             add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
         else:
-            other_path_to_schemas = cls.MetaOapg.validate_oapg(cls, arg, validation_metadata=validation_metadata)
+            other_path_to_schemas = cls.MetaOapg.validate(cls, arg, validation_metadata=validation_metadata)
             update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
@@ -1678,7 +1683,7 @@ class DictBase(Discriminable, ValidatorBase):
         arg,
         validation_metadata: ValidationMetadata,
     ):
-        """
+        '''
         DictBase _validate_oapg
         We return dynamic classes of different bases depending upon the inputs
         This makes it so:
@@ -1692,7 +1697,7 @@ class DictBase(Discriminable, ValidatorBase):
         Raises:
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
-        """
+        '''
         if isinstance(arg, frozendict.frozendict):
             cls.__check_dict_validations(arg, validation_metadata)
         _path_to_schemas = super()._validate_oapg(arg, validation_metadata=validation_metadata)
@@ -2004,7 +2009,7 @@ class ComposedBase(Discriminable):
         arg,
         validation_metadata: ValidationMetadata,
     ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]:
-        """
+        '''
         ComposedBase _validate_oapg
         We return dynamic classes of different bases depending upon the inputs
         This makes it so:
@@ -2018,7 +2023,7 @@ class ComposedBase(Discriminable):
         Raises:
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
-        """
+        '''
         # validation checking on types, validations, and enums
         path_to_schemas = super()._validate_oapg(arg, validation_metadata=validation_metadata)
 

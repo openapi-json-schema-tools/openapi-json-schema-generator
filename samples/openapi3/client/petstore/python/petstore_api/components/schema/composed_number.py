@@ -34,7 +34,7 @@ class ComposedNumber(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = {
             decimal.Decimal,
         }

@@ -33,7 +33,7 @@ class Banana(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "lengthCm",
         }

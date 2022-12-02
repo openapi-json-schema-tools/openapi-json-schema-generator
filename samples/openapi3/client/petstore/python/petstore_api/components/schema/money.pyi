@@ -33,7 +33,7 @@ class Money(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         required = {
             "amount",
             "currency",

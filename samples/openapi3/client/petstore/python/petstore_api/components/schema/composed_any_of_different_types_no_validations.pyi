@@ -33,7 +33,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         any_of_0 = schemas.DictSchema
         any_of_1 = schemas.DateSchema
@@ -51,7 +51,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
         ):
         
         
-            class MetaOapg:
+            class MetaOapg(schemas.JsonSchemaValidator):
                 types = {tuple}
                 items = schemas.AnyTypeSchema
         

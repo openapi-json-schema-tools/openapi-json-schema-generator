@@ -33,7 +33,7 @@ class TriangleInterface(
     """
 
 
-    class MetaOapg:
+    class MetaOapg(schemas.JsonSchemaValidator):
         types = None
         required = {
             "shapeType",
