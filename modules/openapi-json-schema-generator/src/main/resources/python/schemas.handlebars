@@ -779,6 +779,8 @@ def validate_items(
     cls: typing.Type,
     validation_metadata: ValidationMetadata
 ) -> PathToSchemasType:
+    if not isinstance(arg, tuple):
+        return None
     item_cls = _get_class_oapg(item_cls)
     path_to_schemas = {}
     for i, value in enumerate(arg):
@@ -791,8 +793,36 @@ def validate_items(
         if item_validation_metadata.validation_ran_earlier(item_cls):
             add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = item_cls._validate_oapg(
-            value, validation_metadata=item_validation_metadata)
+        other_path_to_schemas = item_cls.MetaOapg.validate(
+            item_cls, value, validation_metadata=item_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_properties(
+    arg: typing.Any,
+    properties: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+):
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    path_to_schemas = {}
+    present_properties = {k: v for k, v, in arg.items() if k in properties.__annotations__}
+    for property_name, value in present_properties:
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        schema = properties.__annotations__[property_name]
+        schema = cls._get_class_oapg(schema)
+        arg_validation_metadata = ValidationMetadata(
+            from_server=validation_metadata.from_server,
+            configuration=validation_metadata.configuration,
+            path_to_item=path_to_item,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if arg_validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema.MetaOapg.validate(schema, value, validation_metadata=arg_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -816,11 +846,19 @@ json_schema_keyword_to_validator = {
     'format': validate_format,
     'required': 'validate_required',
     'items': validate_items,
+    'properties': validate_properties,
 }
 
 
 class JsonSchemaValidatorBase:
-    _excluded_properties = {'_excluded_properties', '__module__', '__dict__', '__weakref__', '__doc__', 'validate'}
+    _excluded_properties = {
+        '_excluded_properties',
+        '__module__',
+        '__dict__',
+        '__weakref__',
+        '__doc__',
+        'validate'
+    }
 
     @classmethod
     def validate(
