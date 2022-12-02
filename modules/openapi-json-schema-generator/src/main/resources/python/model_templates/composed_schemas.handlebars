@@ -1,26 +1,12 @@
 {{#with composedSchemas}}
-{{#each allOf}}
-{{#unless refClass}}
-{{> model_templates/schema }}
-{{/unless}}
-{{/each}}
-{{#each oneOf}}
-{{#unless refClass}}
-{{> model_templates/schema }}
-{{/unless}}
-{{/each}}
-{{#each anyOf}}
-{{#unless refClass}}
-{{> model_templates/schema }}
-{{/unless}}
-{{/each}}
-{{/with}}
-{{#with composedSchemas}}
 {{#if allOf}}
 
-@classmethod
-@functools.lru_cache()
-def all_of(cls):
+class all_of:
+{{#each allOf}}
+{{#unless refClass}}
+    {{> model_templates/schema }}
+{{/unless}}
+{{/each}}
     # we need this here to make our import statements work
     # we must store _composed_schemas in here so the code is only run
     # when we invoke this method. If we kept this at the class
@@ -28,15 +14,15 @@ def all_of(cls):
     # code would be run when this module is imported, and these composed
     # classes don't exist yet because their module has not finished
     # loading
-    return [
+    classes = [
 {{#each allOf}}
 {{#if refClass}}
         {{refClass}},
 {{else}}
     {{#if nameInSnakeCase}}
-        cls.{{name}},
+        {{name}},
     {{else}}
-        cls.{{baseName}},
+        {{baseName}},
     {{/if}}
 {{/if}}
 {{/each}}
@@ -44,9 +30,12 @@ def all_of(cls):
 {{/if}}
 {{#if oneOf}}
 
-@classmethod
-@functools.lru_cache()
-def one_of(cls):
+class one_of:
+{{#each oneOf}}
+{{#unless refClass}}
+    {{> model_templates/schema }}
+{{/unless}}
+{{/each}}
     # we need this here to make our import statements work
     # we must store _composed_schemas in here so the code is only run
     # when we invoke this method. If we kept this at the class
@@ -54,15 +43,15 @@ def one_of(cls):
     # code would be run when this module is imported, and these composed
     # classes don't exist yet because their module has not finished
     # loading
-    return [
+    classes = [
 {{#each oneOf}}
 {{#if refClass}}
         {{refClass}},
 {{else}}
     {{#if nameInSnakeCase}}
-        cls.{{name}},
+        {{name}},
     {{else}}
-        cls.{{baseName}},
+        {{baseName}},
     {{/if}}
 {{/if}}
 {{/each}}
@@ -70,9 +59,12 @@ def one_of(cls):
 {{/if}}
 {{#if anyOf}}
 
-@classmethod
-@functools.lru_cache()
-def any_of(cls):
+class any_of:
+{{#each anyOf}}
+{{#unless refClass}}
+    {{> model_templates/schema }}
+{{/unless}}
+{{/each}}
     # we need this here to make our import statements work
     # we must store _composed_schemas in here so the code is only run
     # when we invoke this method. If we kept this at the class
@@ -80,7 +72,7 @@ def any_of(cls):
     # code would be run when this module is imported, and these composed
     # classes don't exist yet because their module has not finished
     # loading
-    return [
+    classes = [
 {{#each anyOf}}
 {{#if refClass}}
         {{refClass}},
