@@ -37,22 +37,21 @@ class NullableShape(
 
     class MetaOapg(schemas.JsonSchemaValidator):
         types = None
-        one_of_2 = schemas.NoneSchema
         
-        @classmethod
-        @functools.lru_cache()
-        def one_of(cls):
-            # we need this here to make our import statements work
-            # we must store _composed_schemas in here so the code is only run
-            # when we invoke this method. If we kept this at the class
-            # level we would get an error because the class level
-            # code would be run when this module is imported, and these composed
-            # classes don't exist yet because their module has not finished
-            # loading
-            return [
-                triangle.Triangle,
-                quadrilateral.Quadrilateral,
-                cls.one_of_2,
+        class one_of:
+        
+            @staticmethod
+            def one_of_0() -> typing.Type['triangle.Triangle']:
+                return triangle.Triangle
+        
+            @staticmethod
+            def one_of_1() -> typing.Type['quadrilateral.Quadrilateral']:
+                return quadrilateral.Quadrilateral
+            one_of_2 = schemas.NoneSchema
+            classes = [
+                one_of_0,
+                one_of_1,
+                one_of_2,
             ]
 
 

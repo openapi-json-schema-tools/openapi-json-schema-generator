@@ -5,26 +5,20 @@ class all_of:
 {{#each allOf}}
 {{#unless refClass}}
     {{> model_templates/schema }}
+{{else}}
+
+    @staticmethod
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
 {{/unless}}
 {{/each}}
-    # we need this here to make our import statements work
-    # we must store _composed_schemas in here so the code is only run
-    # when we invoke this method. If we kept this at the class
-    # level we would get an error because the class level
-    # code would be run when this module is imported, and these composed
-    # classes don't exist yet because their module has not finished
-    # loading
     classes = [
 {{#each allOf}}
-{{#if refClass}}
-        {{refClass}},
-{{else}}
     {{#if nameInSnakeCase}}
         {{name}},
     {{else}}
         {{baseName}},
     {{/if}}
-{{/if}}
 {{/each}}
     ]
 {{/if}}
@@ -34,26 +28,20 @@ class one_of:
 {{#each oneOf}}
 {{#unless refClass}}
     {{> model_templates/schema }}
+{{else}}
+
+    @staticmethod
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
 {{/unless}}
 {{/each}}
-    # we need this here to make our import statements work
-    # we must store _composed_schemas in here so the code is only run
-    # when we invoke this method. If we kept this at the class
-    # level we would get an error because the class level
-    # code would be run when this module is imported, and these composed
-    # classes don't exist yet because their module has not finished
-    # loading
     classes = [
 {{#each oneOf}}
-{{#if refClass}}
-        {{refClass}},
-{{else}}
     {{#if nameInSnakeCase}}
         {{name}},
     {{else}}
         {{baseName}},
     {{/if}}
-{{/if}}
 {{/each}}
     ]
 {{/if}}
@@ -63,26 +51,20 @@ class any_of:
 {{#each anyOf}}
 {{#unless refClass}}
     {{> model_templates/schema }}
+{{else}}
+
+    @staticmethod
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
 {{/unless}}
 {{/each}}
-    # we need this here to make our import statements work
-    # we must store _composed_schemas in here so the code is only run
-    # when we invoke this method. If we kept this at the class
-    # level we would get an error because the class level
-    # code would be run when this module is imported, and these composed
-    # classes don't exist yet because their module has not finished
-    # loading
     classes = [
 {{#each anyOf}}
-{{#if refClass}}
-        {{refClass}},
-{{else}}
     {{#if nameInSnakeCase}}
-        cls.{{name}},
+        {{name}},
     {{else}}
-        cls.{{baseName}},
+        {{baseName}},
     {{/if}}
-{{/if}}
 {{/each}}
     ]
 {{/if}}
