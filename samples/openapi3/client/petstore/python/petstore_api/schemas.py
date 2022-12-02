@@ -1174,7 +1174,8 @@ class Schema:
         """
         from_server = True
         validated_path_to_schemas = {}
-        arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas)
+        path_to_type = {}
+        arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
         validation_metadata = ValidationMetadata(
             configuration=_configuration, validated_path_to_schemas=validated_path_to_schemas)
         path_to_schemas = cls.__get_new_cls(arg, validation_metadata)
@@ -1223,8 +1224,9 @@ class Schema:
             __arg = cls.__get_input_dict(*_args, **__kwargs)
         __from_server = False
         __validated_path_to_schemas = {}
+        __path_to_type = {}
         __arg = cast_to_allowed_types(
-            __arg, __from_server, __validated_path_to_schemas)
+            __arg, __from_server, __validated_path_to_schemas, ('args[0]',), __path_to_type)
         __validation_metadata = ValidationMetadata(
             configuration=_configuration, validated_path_to_schemas=__validated_path_to_schemas)
         __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata)
@@ -1919,7 +1921,8 @@ def cast_to_allowed_types(
     arg: typing.Union[str, date, datetime, uuid.UUID, decimal.Decimal, int, float, None, dict, frozendict.frozendict, list, tuple, bytes, Schema, io.FileIO, io.BufferedReader],
     from_server: bool,
     validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]],
-    path_to_item: typing.Tuple[typing.Union[str, int], ...] = tuple(['args[0]']),
+    path_to_item: typing.Tuple[typing.Union[str, int], ...],
+    path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
 ) -> typing.Union[frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO]:
     """
     Casts the input payload arg into the allowed types
@@ -1953,10 +1956,24 @@ def cast_to_allowed_types(
 
     type_error = ApiTypeError(f"Invalid type. Required value type is str and passed type was {type(arg)} at {path_to_item}")
     if isinstance(arg, str):
+        path_to_type[path_to_item] = str
         return str(arg)
     elif isinstance(arg, (dict, frozendict.frozendict)):
-        return frozendict.frozendict({key: cast_to_allowed_types(val, from_server, validated_path_to_schemas, path_to_item + (key,)) for key, val in arg.items()})
+        path_to_type[path_to_item] = frozendict.frozendict
+        return frozendict.frozendict(
+            {
+                key: cast_to_allowed_types(
+                    val,
+                    from_server,
+                    validated_path_to_schemas,
+                    path_to_item + (key,),
+                    path_to_type,
+                )
+                for key, val in arg.items()
+            }
+        )
     elif isinstance(arg, (bool, BoolClass)):
+        path_to_type[path_to_item] = BoolClass
         """
         this check must come before isinstance(arg, (int, float))
         because isinstance(True, int) is True
@@ -1965,8 +1982,10 @@ def cast_to_allowed_types(
             return BoolClass.TRUE
         return BoolClass.FALSE
     elif isinstance(arg, int):
+        path_to_type[path_to_item] = decimal.Decimal
         return decimal.Decimal(arg)
     elif isinstance(arg, float):
+        path_to_type[path_to_item] = decimal.Decimal
         decimal_from_float = decimal.Decimal(arg)
         if decimal_from_float.as_integer_ratio()[1] == 1:
             # 9.0 -> Decimal('9.0')
@@ -1974,22 +1993,40 @@ def cast_to_allowed_types(
             return decimal.Decimal(str(decimal_from_float)+'.0')
         return decimal_from_float
     elif isinstance(arg, (tuple, list)):
-        return tuple([cast_to_allowed_types(item, from_server, validated_path_to_schemas, path_to_item + (i,)) for i, item in enumerate(arg)])
+        path_to_type[path_to_item] = tuple
+        return tuple(
+            [
+                cast_to_allowed_types(
+                    item,
+                    from_server,
+                    validated_path_to_schemas,
+                    path_to_item + (i,),
+                    path_to_type,
+                )
+                for i, item in enumerate(arg)
+            ]
+        )
     elif isinstance(arg, (none_type, NoneClass)):
+        path_to_type[path_to_item] = NoneClass
         return NoneClass.NONE
     elif isinstance(arg, (date, datetime)):
+        path_to_type[path_to_item] = str
         if not from_server:
             return arg.isoformat()
         raise type_error
     elif isinstance(arg, uuid.UUID):
+        path_to_type[path_to_item] = str
         if not from_server:
             return str(arg)
         raise type_error
     elif isinstance(arg, decimal.Decimal):
+        path_to_type[path_to_item] = decimal.Decimal
         return decimal.Decimal(arg)
     elif isinstance(arg, bytes):
+        path_to_type[path_to_item] = bytes
         return bytes(arg)
     elif isinstance(arg, (io.FileIO, io.BufferedReader)):
+        path_to_type[path_to_item] = FileIO
         return FileIO(arg)
     raise ValueError('Invalid type passed in got input={} type={}'.format(arg, type(arg)))
 
