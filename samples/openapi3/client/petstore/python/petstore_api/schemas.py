@@ -129,23 +129,23 @@ class ValidationMetadata(frozendict.frozendict):
 
     @property
     def path_to_item(self) -> typing.Tuple[typing.Union[str, int], ...]:
-        return self.get('path_to_item')
+        return self['path_to_item']
 
     @property
     def from_server(self) -> bool:
-        return self.get('from_server')
+        return self['from_server']
 
     @property
     def configuration(self) -> typing.Optional[Configuration]:
-        return self.get('configuration')
+        return self['configuration']
 
     @property
     def seen_classes(self) -> typing.FrozenSet[typing.Type]:
-        return self.get('seen_classes')
+        return self['seen_classes']
 
     @property
     def validated_path_to_schemas(self) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]]:
-        return self.get('validated_path_to_schemas')
+        return self['validated_path_to_schemas']
 
 
 def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_to_schemas: dict):
@@ -978,6 +978,32 @@ json_schema_keyword_to_validator = {
     'all_of': validate_all_of,
 }
 
+json_schema_keyword_to_python_keyword = {
+    'types': 'types',
+    'type': 'types',
+    'enum': 'enum_value_to_name',
+    'uniqueItems': 'unique_items',
+    'minItems': 'min_items',
+    'maxItems': 'max_items',
+    'minProperties': 'min_properties',
+    'maxProperties': 'max_properties',
+    'minLength': 'min_length',
+    'maxLength': 'max_length',
+    'minimum': 'inclusive_minimum',
+    'exclusiveMinimum': 'exclusive_minimum',
+    'maximum': 'inclusive_maximum',
+    'exclusiveMaximum': 'exclusive_maximum',
+    'multipleOf': 'multiple_of',
+    'pattern': 'regex',
+    'format': 'format',
+    'required': 'required',
+    'items': 'items',
+    'properties': 'properties',
+    'additionalProperties': 'additional_properties',
+    'oneOf': 'one_of',
+    'anyOf': 'any_of',
+    'allOf': 'all_of',
+}
 
 class JsonSchemaValidator:
     _excluded_properties = {
@@ -1981,85 +2007,6 @@ def cast_to_allowed_types(
 
 
 class ComposedBase(Discriminable):
-
-    @classmethod
-    def __get_allof_classes(cls, arg, validation_metadata: ValidationMetadata):
-        path_to_schemas = defaultdict(set)
-        for allof_cls in cls.MetaOapg.all_of():
-            if validation_metadata.validation_ran_earlier(allof_cls):
-                add_deeper_validated_schemas(validation_metadata, path_to_schemas)
-                continue
-            other_path_to_schemas = allof_cls._validate_oapg(arg, validation_metadata=validation_metadata)
-            update(path_to_schemas, other_path_to_schemas)
-        return path_to_schemas
-
-    @classmethod
-    def __get_oneof_class(
-        cls,
-        arg,
-        discriminated_cls,
-        validation_metadata: ValidationMetadata,
-    ):
-        oneof_classes = []
-        path_to_schemas = defaultdict(set)
-        for oneof_cls in cls.MetaOapg.one_of():
-            if oneof_cls in path_to_schemas[validation_metadata.path_to_item]:
-                oneof_classes.append(oneof_cls)
-                continue
-            if validation_metadata.validation_ran_earlier(oneof_cls):
-                oneof_classes.append(oneof_cls)
-                add_deeper_validated_schemas(validation_metadata, path_to_schemas)
-                continue
-            try:
-                path_to_schemas = oneof_cls._validate_oapg(arg, validation_metadata=validation_metadata)
-            except (ApiValueError, ApiTypeError) as ex:
-                if discriminated_cls is not None and oneof_cls is discriminated_cls:
-                    raise ex
-                continue
-            oneof_classes.append(oneof_cls)
-        if not oneof_classes:
-            raise ApiValueError(
-                "Invalid inputs given to generate an instance of {}. None "
-                "of the oneOf schemas matched the input data.".format(cls)
-            )
-        elif len(oneof_classes) > 1:
-            raise ApiValueError(
-                "Invalid inputs given to generate an instance of {}. Multiple "
-                "oneOf schemas {} matched the inputs, but a max of one is allowed.".format(cls, oneof_classes)
-            )
-        # exactly one class matches
-        return path_to_schemas
-
-    @classmethod
-    def __get_anyof_classes(
-        cls,
-        arg,
-        discriminated_cls,
-        validation_metadata: ValidationMetadata
-    ):
-        anyof_classes = []
-        path_to_schemas = defaultdict(set)
-        for anyof_cls in cls.MetaOapg.any_of():
-            if validation_metadata.validation_ran_earlier(anyof_cls):
-                anyof_classes.append(anyof_cls)
-                add_deeper_validated_schemas(validation_metadata, path_to_schemas)
-                continue
-
-            try:
-                other_path_to_schemas = anyof_cls._validate_oapg(arg, validation_metadata=validation_metadata)
-            except (ApiValueError, ApiTypeError) as ex:
-                if discriminated_cls is not None and anyof_cls is discriminated_cls:
-                    raise ex
-                continue
-            anyof_classes.append(anyof_cls)
-            update(path_to_schemas, other_path_to_schemas)
-        if not anyof_classes:
-            raise ApiValueError(
-                "Invalid inputs given to generate an instance of {}. None "
-                "of the anyOf schemas matched the input data.".format(cls)
-            )
-        return path_to_schemas
-
     """
     @classmethod
     def _validate_oapg(
