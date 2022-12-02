@@ -834,7 +834,7 @@ def validate_additional_properties(
     path_to_schemas = {}
     properties_annotations = cls.MetaOapg.properties.__annotations__ if hasattr(cls.MetaOapg, 'properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
-    for property_name, value in present_additional_properties:
+    for property_name, value in present_additional_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
         arg_validation_metadata = ValidationMetadata(
             configuration=validation_metadata.configuration,
@@ -965,32 +965,6 @@ json_schema_keyword_to_validator = {
     'all_of': validate_all_of,
 }
 
-json_schema_keyword_to_python_keyword = {
-    'types': 'types',
-    'type': 'types',
-    'enum': 'enum_value_to_name',
-    'uniqueItems': 'unique_items',
-    'minItems': 'min_items',
-    'maxItems': 'max_items',
-    'minProperties': 'min_properties',
-    'maxProperties': 'max_properties',
-    'minLength': 'min_length',
-    'maxLength': 'max_length',
-    'minimum': 'inclusive_minimum',
-    'exclusiveMinimum': 'exclusive_minimum',
-    'maximum': 'inclusive_maximum',
-    'exclusiveMaximum': 'exclusive_maximum',
-    'multipleOf': 'multiple_of',
-    'pattern': 'regex',
-    'format': 'format',
-    'required': 'required',
-    'items': 'items',
-    'properties': 'properties',
-    'additionalProperties': 'additional_properties',
-    'oneOf': 'one_of',
-    'anyOf': 'any_of',
-    'allOf': 'all_of',
-}
 
 class JsonSchemaValidator:
     _excluded_properties = {
@@ -1016,7 +990,13 @@ class JsonSchemaValidator:
         All keyword validation except for type checking was done in calling stack frames
         If those validations passed, the validated classes are collected in path_to_schemas
         """
-        json_schema_data = {k: v for k, v in vars(cls).items() if k not in cls._excluded_properties}
+        json_schema_data = {
+            k: v
+            for k, v in vars(cls).items()
+            if k not in cls._excluded_properties
+            and k
+            not in validation_metadata.configuration.disabled_json_schema_python_keywords
+        }
         path_to_schemas = {}
         for keyword, val in json_schema_data.items():
             validator =  json_schema_keyword_to_validator[keyword]

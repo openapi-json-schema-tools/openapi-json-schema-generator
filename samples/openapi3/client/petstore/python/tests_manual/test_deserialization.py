@@ -483,7 +483,7 @@ class DeserializationTests(unittest.TestCase):
 
         # Disable JSON schema validation. No error should be raised during deserialization.
         configuration = petstore_api.Configuration()
-        configuration.disabled_client_side_validations = "multipleOf"
+        configuration.disabled_json_schema_keywords = {"multipleOf"}
 
         data = {
             'byte': '3',
@@ -500,7 +500,7 @@ class DeserializationTests(unittest.TestCase):
         # Disable JSON schema validation but for a different keyword.
         # An error should be raised during deserialization.
         configuration = petstore_api.Configuration()
-        configuration.disabled_client_side_validations = "maxItems"
+        configuration.disabled_json_schema_keywords = {"maxItems"}
 
         with self.assertRaisesRegex(
             petstore_api.exceptions.ApiValueError,
