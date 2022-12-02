@@ -107,7 +107,7 @@ class ValidationMetadata(frozendict.frozendict):
         return super().__new__(
             cls,
             path_to_item=path_to_item,
-            configuration=configuration,
+            configuration=configuration or Configuration(),
             seen_classes=seen_classes,
             validated_path_to_schemas=validated_path_to_schemas
         )
