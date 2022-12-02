@@ -90,7 +90,6 @@ class TestValidateResults(unittest.TestCase):
         assert path_to_schemas == {
             ("args[0]",): {Foo, frozendict.frozendict},
             ("args[0]", "bar"): {StrSchema, str},
-            ("args[0]", "additional"): {schemas.UnsetAnyTypeSchema, decimal.Decimal},
         }
 
     def test_discriminated_dict_validate(self):
