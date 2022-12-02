@@ -32,7 +32,7 @@ class application_x_www_form_urlencoded(
 ):
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         required = {
             "number",
@@ -49,7 +49,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -62,7 +62,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -77,7 +77,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -90,7 +90,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -103,7 +103,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -117,7 +117,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -134,7 +134,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -152,7 +152,7 @@ class application_x_www_form_urlencoded(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }

@@ -33,7 +33,7 @@ class Foo(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         
         class properties:

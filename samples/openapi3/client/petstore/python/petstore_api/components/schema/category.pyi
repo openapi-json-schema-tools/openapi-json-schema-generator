@@ -33,7 +33,7 @@ class Category(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         required = {
             "name",
         }

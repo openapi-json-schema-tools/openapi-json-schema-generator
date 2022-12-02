@@ -33,7 +33,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         
         class additional_properties(
@@ -41,7 +41,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         ):
         
         
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = {tuple}
                 
                 @staticmethod

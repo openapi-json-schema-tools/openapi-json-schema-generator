@@ -33,7 +33,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             uuid = schemas.UUIDSchema
@@ -45,7 +45,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     
                     @staticmethod
                     def additional_properties() -> typing.Type['animal.Animal']:

@@ -33,7 +33,7 @@ class ReadOnlyFirst(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             bar = schemas.StrSchema

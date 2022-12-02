@@ -37,7 +37,7 @@ class StringEnum(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             schemas.NoneClass,
             str,

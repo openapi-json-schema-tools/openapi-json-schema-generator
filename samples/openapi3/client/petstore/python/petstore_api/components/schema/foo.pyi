@@ -33,7 +33,7 @@ class Foo(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
         

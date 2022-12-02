@@ -33,7 +33,7 @@ class SimpleQuadrilateral(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         class all_of:
@@ -48,7 +48,7 @@ class SimpleQuadrilateral(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {frozendict.frozendict}
                     
                     class properties:
@@ -60,7 +60,7 @@ class SimpleQuadrilateral(
                         ):
                         
                         
-                            class MetaOapg(schemas.JsonSchemaValidator):
+                            class MetaOapg:
                                 types = {
                                     str,
                                 }

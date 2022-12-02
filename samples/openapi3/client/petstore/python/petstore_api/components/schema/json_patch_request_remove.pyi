@@ -33,7 +33,7 @@ class JSONPatchRequestRemove(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         required = {
             "op",
             "path",

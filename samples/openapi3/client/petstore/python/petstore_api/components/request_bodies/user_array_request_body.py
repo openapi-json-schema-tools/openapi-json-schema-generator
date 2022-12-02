@@ -34,7 +34,7 @@ class application_json(
 ):
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {tuple}
         
         @staticmethod

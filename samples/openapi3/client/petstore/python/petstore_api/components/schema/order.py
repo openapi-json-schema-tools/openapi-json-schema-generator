@@ -33,7 +33,7 @@ class Order(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         
         class properties:
@@ -49,7 +49,7 @@ class Order(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }

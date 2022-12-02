@@ -33,7 +33,7 @@ class Address(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         additional_properties = schemas.IntSchema
     
     def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:

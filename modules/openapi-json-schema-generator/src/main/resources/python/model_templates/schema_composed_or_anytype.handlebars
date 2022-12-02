@@ -33,7 +33,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 {{/if}}
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         {{> model_templates/types }}
 {{#if getFormat}}
         format = '{{getFormat}}'

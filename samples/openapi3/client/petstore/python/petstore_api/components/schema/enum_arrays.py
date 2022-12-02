@@ -33,7 +33,7 @@ class EnumArrays(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         
         class properties:
@@ -45,7 +45,7 @@ class EnumArrays(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -68,7 +68,7 @@ class EnumArrays(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     
                     
@@ -78,7 +78,7 @@ class EnumArrays(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {
                                 str,
                             }

@@ -33,7 +33,7 @@ class FileSchemaTestClass(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
         
@@ -47,7 +47,7 @@ class FileSchemaTestClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     
                     @staticmethod

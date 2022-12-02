@@ -33,7 +33,7 @@ class UUIDString(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             str,
         }

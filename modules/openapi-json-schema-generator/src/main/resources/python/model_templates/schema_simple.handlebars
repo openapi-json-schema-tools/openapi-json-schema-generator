@@ -21,7 +21,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 {{#or hasValidation isEnum getFormat}}
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         {{> model_templates/types }}
 {{#if getFormat}}
         format = '{{getFormat}}'

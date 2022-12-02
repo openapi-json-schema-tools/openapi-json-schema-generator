@@ -33,7 +33,7 @@ class StringWithValidation(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             str,
         }

@@ -35,7 +35,7 @@ class HealthCheckResult(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             
@@ -48,7 +48,7 @@ class HealthCheckResult(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         str,

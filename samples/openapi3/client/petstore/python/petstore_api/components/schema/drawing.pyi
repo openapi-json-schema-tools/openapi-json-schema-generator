@@ -33,7 +33,7 @@ class Drawing(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
         
@@ -55,7 +55,7 @@ class Drawing(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     
                     @staticmethod

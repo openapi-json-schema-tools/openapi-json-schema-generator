@@ -33,7 +33,7 @@ class ObjectWithOptionalTestProp(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             test = schemas.StrSchema

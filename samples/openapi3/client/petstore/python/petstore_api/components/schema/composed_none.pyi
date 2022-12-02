@@ -34,7 +34,7 @@ class ComposedNone(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             schemas.NoneClass,
         }

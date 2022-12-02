@@ -34,7 +34,7 @@ class BooleanEnum(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             schemas.BoolClass,
         }

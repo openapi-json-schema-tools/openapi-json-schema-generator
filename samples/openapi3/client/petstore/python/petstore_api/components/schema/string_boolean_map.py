@@ -33,7 +33,7 @@ class StringBooleanMap(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         additional_properties = schemas.BoolSchema
     

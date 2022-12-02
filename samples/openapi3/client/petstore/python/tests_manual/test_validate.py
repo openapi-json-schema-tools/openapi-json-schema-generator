@@ -38,37 +38,37 @@ from petstore_api.schemas import (
 class TestValidateResults(unittest.TestCase):
     def test_str_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = StringWithValidation.MetaOapg.validate(
-            StringWithValidation, "abcdefg", validation_metadata=vm
+        path_to_schemas = StringWithValidation._validate_oapg(
+            "abcdefg", validation_metadata=vm
         )
         assert path_to_schemas == {("args[0]",): {StringWithValidation, str}}
 
     def test_number_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = NumberWithValidations.MetaOapg.validate(
-            NumberWithValidations, Decimal(11), validation_metadata=vm
+        path_to_schemas = NumberWithValidations._validate_oapg(
+            Decimal(11), validation_metadata=vm
         )
         assert path_to_schemas == {("args[0]",): {NumberWithValidations, Decimal}}
 
     def test_str_enum_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = StringEnum.MetaOapg.validate(StringEnum, "placed", validation_metadata=vm)
+        path_to_schemas = StringEnum._validate_oapg("placed", validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {str, StringEnum}}
 
     def test_nullable_enum_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = StringEnum.MetaOapg.validate(StringEnum, NoneClass.NONE, validation_metadata=vm)
+        path_to_schemas = StringEnum._validate_oapg(NoneClass.NONE, validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {NoneClass, StringEnum}}
 
     def test_empty_list_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = ArrayHoldingAnyType.MetaOapg.validate(ArrayHoldingAnyType, (), validation_metadata=vm)
+        path_to_schemas = ArrayHoldingAnyType._validate_oapg((), validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {ArrayHoldingAnyType, tuple}}
 
     def test_list_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = ArrayHoldingAnyType.MetaOapg.validate(
-            ArrayHoldingAnyType, (Decimal(1), "a"), validation_metadata=vm
+        path_to_schemas = ArrayHoldingAnyType._validate_oapg(
+            (Decimal(1), "a"), validation_metadata=vm
         )
         assert path_to_schemas == {
             ("args[0]",): {ArrayHoldingAnyType, tuple},
@@ -78,13 +78,13 @@ class TestValidateResults(unittest.TestCase):
 
     def test_empty_dict_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = Foo.MetaOapg.validate(Foo, frozendict.frozendict({}), validation_metadata=vm)
+        path_to_schemas = Foo._validate_oapg(frozendict.frozendict({}), validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {Foo, frozendict.frozendict}}
 
     def test_dict_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = Foo.MetaOapg.validate(
-            Foo, frozendict.frozendict({"bar": "a", "additional": Decimal(0)}),
+        path_to_schemas = Foo._validate_oapg(
+            frozendict.frozendict({"bar": "a", "additional": Decimal(0)}),
             validation_metadata=vm,
         )
         assert path_to_schemas == {
@@ -95,8 +95,8 @@ class TestValidateResults(unittest.TestCase):
 
     def test_discriminated_dict_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = Animal.MetaOapg.validate(
-            Animal, frozendict.frozendict(className="Dog", color="black"), validation_metadata=vm
+        path_to_schemas = Animal._validate_oapg(
+            frozendict.frozendict(className="Dog", color="black"), validation_metadata=vm
         )
         for path, schema_classes in path_to_schemas.items():
             Animal._process_schema_classes_oapg(schema_classes)
@@ -108,13 +108,13 @@ class TestValidateResults(unittest.TestCase):
 
     def test_bool_enum_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = BooleanEnum.MetaOapg.validate(BooleanEnum, BoolClass.TRUE, validation_metadata=vm)
+        path_to_schemas = BooleanEnum._validate_oapg(BoolClass.TRUE, validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {BoolClass, BooleanEnum}}
 
     def test_oneof_composition_pig_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = Pig.MetaOapg.validate(
-            Pig, frozendict.frozendict(className="DanishPig"), validation_metadata=vm
+        path_to_schemas = Pig._validate_oapg(
+            frozendict.frozendict(className="DanishPig"), validation_metadata=vm
         )
         for path, schema_classes in path_to_schemas.items():
             Pig._process_schema_classes_oapg(schema_classes)
@@ -125,8 +125,8 @@ class TestValidateResults(unittest.TestCase):
 
     def test_anyof_composition_gm_fruit_validate(self):
         vm = ValidationMetadata()
-        path_to_schemas = GmFruit.MetaOapg.validate(
-            GmFruit, frozendict.frozendict(cultivar="GoldenDelicious", lengthCm=Decimal(10)),
+        path_to_schemas = GmFruit._validate_oapg(
+            frozendict.frozendict(cultivar="GoldenDelicious", lengthCm=Decimal(10)),
             validation_metadata=vm,
         )
         for path, schema_classes in path_to_schemas.items():

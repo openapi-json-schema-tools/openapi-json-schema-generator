@@ -35,7 +35,7 @@ class ObjectModelWithRefProps(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
         

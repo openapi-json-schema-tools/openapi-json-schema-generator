@@ -33,7 +33,7 @@ class ApiResponse(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             code = schemas.Int32Schema

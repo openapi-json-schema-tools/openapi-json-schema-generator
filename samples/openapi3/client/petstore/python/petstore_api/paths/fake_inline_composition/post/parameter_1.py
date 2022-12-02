@@ -32,7 +32,7 @@ class schema(
 ):
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         
         class properties:
@@ -43,7 +43,7 @@ class schema(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = None
                     
                     class all_of:
@@ -54,7 +54,7 @@ class schema(
                         ):
                         
                         
-                            class MetaOapg(schemas.JsonSchemaValidator):
+                            class MetaOapg:
                                 types = {
                                     str,
                                 }

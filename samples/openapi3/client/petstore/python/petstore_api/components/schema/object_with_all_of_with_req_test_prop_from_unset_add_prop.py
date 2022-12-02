@@ -33,7 +33,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         class all_of:
@@ -48,7 +48,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {frozendict.frozendict}
                     required = {
                         "test",

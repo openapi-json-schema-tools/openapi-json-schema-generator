@@ -33,7 +33,7 @@ class EnumTest(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         required = {
             "enum_string_required",
@@ -48,7 +48,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -77,7 +77,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -106,7 +106,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -131,7 +131,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }

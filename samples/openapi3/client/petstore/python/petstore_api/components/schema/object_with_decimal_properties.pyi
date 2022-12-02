@@ -33,7 +33,7 @@ class ObjectWithDecimalProperties(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
         

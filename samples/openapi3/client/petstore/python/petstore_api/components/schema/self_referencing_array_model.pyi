@@ -33,7 +33,7 @@ class SelfReferencingArrayModel(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {tuple}
         
         @staticmethod

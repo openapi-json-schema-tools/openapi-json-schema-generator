@@ -33,7 +33,7 @@ class ArrayHoldingAnyType(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {tuple}
         items = schemas.AnyTypeSchema
 

@@ -34,7 +34,7 @@ class ComposedString(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             str,
         }

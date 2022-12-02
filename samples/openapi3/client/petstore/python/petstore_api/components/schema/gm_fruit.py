@@ -33,7 +33,7 @@ class GmFruit(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         class properties:

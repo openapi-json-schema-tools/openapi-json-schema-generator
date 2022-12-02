@@ -33,7 +33,7 @@ class Mammal(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         @staticmethod

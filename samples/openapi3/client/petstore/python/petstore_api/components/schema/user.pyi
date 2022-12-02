@@ -33,7 +33,7 @@ class User(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             id = schemas.Int64Schema
@@ -55,7 +55,7 @@ class User(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         frozendict.frozendict,
@@ -82,7 +82,7 @@ class User(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = None
                     not_schema = schemas.NoneSchema
             

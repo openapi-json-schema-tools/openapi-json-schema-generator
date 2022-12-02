@@ -35,7 +35,7 @@ class ShapeOrNull(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         @staticmethod

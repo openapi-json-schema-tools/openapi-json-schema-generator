@@ -33,7 +33,7 @@ class MapTest(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         
         class properties:
@@ -44,7 +44,7 @@ class MapTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {frozendict.frozendict}
                     
                     
@@ -53,7 +53,7 @@ class MapTest(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {frozendict.frozendict}
                             additional_properties = schemas.StrSchema
                         
@@ -103,7 +103,7 @@ class MapTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {frozendict.frozendict}
                     
                     
@@ -113,7 +113,7 @@ class MapTest(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {
                                 str,
                             }
@@ -156,7 +156,7 @@ class MapTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {frozendict.frozendict}
                     additional_properties = schemas.BoolSchema
                 

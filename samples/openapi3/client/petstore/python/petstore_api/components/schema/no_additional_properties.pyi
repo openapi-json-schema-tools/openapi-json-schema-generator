@@ -33,7 +33,7 @@ class NoAdditionalProperties(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         required = {
             "id",
         }

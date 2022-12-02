@@ -33,7 +33,7 @@ class FormatTest(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         required = {
             "date",
             "number",
@@ -91,7 +91,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     unique_items = True
                     items = schemas.NumberSchema

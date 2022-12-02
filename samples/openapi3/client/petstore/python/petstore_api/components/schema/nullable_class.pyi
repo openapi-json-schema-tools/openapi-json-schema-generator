@@ -33,7 +33,7 @@ class NullableClass(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             
@@ -46,7 +46,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         decimal.Decimal,
@@ -73,7 +73,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         decimal.Decimal,
@@ -100,7 +100,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         schemas.BoolClass,
@@ -127,7 +127,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -155,7 +155,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -184,7 +184,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -212,7 +212,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         tuple,
@@ -240,7 +240,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         tuple,
@@ -255,7 +255,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -293,7 +293,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     
                     
@@ -305,7 +305,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -348,7 +348,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         frozendict.frozendict,
@@ -385,7 +385,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         schemas.NoneClass,
                         frozendict.frozendict,
@@ -400,7 +400,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -447,7 +447,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     
                     
                     class additional_properties(
@@ -458,7 +458,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg(schemas.JsonSchemaValidator):
+                        class MetaOapg:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -521,7 +521,7 @@ class NullableClass(
         ):
         
         
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = {
                     schemas.NoneClass,
                     frozendict.frozendict,

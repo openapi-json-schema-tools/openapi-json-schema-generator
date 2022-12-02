@@ -33,7 +33,7 @@ class FormatTest(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         required = {
             "date",
@@ -50,7 +50,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -66,7 +66,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -80,7 +80,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -95,7 +95,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -110,7 +110,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -125,7 +125,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         decimal.Decimal,
                     }
@@ -140,7 +140,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     unique_items = True
                     items = schemas.NumberSchema
@@ -165,7 +165,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -186,7 +186,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }
@@ -200,7 +200,7 @@ class FormatTest(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {
                         str,
                     }

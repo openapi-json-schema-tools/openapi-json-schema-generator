@@ -33,7 +33,7 @@ class Client(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             client = schemas.StrSchema

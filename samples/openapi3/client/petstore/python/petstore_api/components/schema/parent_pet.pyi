@@ -34,7 +34,7 @@ class ParentPet(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             frozendict.frozendict,
         }

@@ -33,7 +33,7 @@ class AnyTypeNotString(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         not_schema = schemas.StrSchema
 

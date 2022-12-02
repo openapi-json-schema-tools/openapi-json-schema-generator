@@ -35,7 +35,7 @@ class Model200Response(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         class properties:

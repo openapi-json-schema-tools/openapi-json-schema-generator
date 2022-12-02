@@ -33,7 +33,7 @@ class Tag(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             id = schemas.Int64Schema

@@ -34,7 +34,7 @@ class ComposedObject(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {
             frozendict.frozendict,
         }

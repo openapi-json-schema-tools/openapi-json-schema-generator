@@ -33,7 +33,7 @@ class Dog(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         class all_of:
@@ -48,7 +48,7 @@ class Dog(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     
                     class properties:
                         breed = schemas.StrSchema

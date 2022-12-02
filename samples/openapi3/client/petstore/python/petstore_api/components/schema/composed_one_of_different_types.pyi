@@ -35,7 +35,7 @@ class ComposedOneOfDifferentTypes(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = None
         
         class one_of:
@@ -74,7 +74,7 @@ class ComposedOneOfDifferentTypes(
             ):
             
             
-                class MetaOapg(schemas.JsonSchemaValidator):
+                class MetaOapg:
                     types = {tuple}
                     max_items = 4
                     min_items = 4

@@ -33,7 +33,7 @@ class DanishPig(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         required = {
             "className",
         }

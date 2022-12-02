@@ -18,14 +18,14 @@ class {{> model_templates/classname }}(
 {{#or additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars}}
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         {{> model_templates/dict_partial }}
 {{/or}}
 {{else}}
 {{#or additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars hasValidation}}
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         {{> model_templates/dict_partial }}
         {{> model_templates/validations }}

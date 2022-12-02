@@ -16,7 +16,6 @@ from decimal import Decimal
 import frozendict
 
 import petstore_api
-from petstore_api import schemas
 from petstore_api.schemas import (
     AnyTypeSchema,
     DictSchema,
@@ -39,7 +38,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDictSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -57,7 +56,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testListSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -75,7 +74,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testStrSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -93,7 +92,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNumberSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -118,7 +117,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testIntSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -140,7 +139,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testBoolSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -165,7 +164,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNoneSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -183,7 +182,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -201,7 +200,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateTimeSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:
@@ -219,7 +218,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDecimalSchema(self):
         class Model(ComposedSchema):
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = None
 
                 class all_of:

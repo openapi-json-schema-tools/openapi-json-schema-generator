@@ -789,8 +789,8 @@ def validate_items(
         if item_validation_metadata.validation_ran_earlier(item_cls):
             add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = item_cls.MetaOapg.validate(
-            item_cls, value, validation_metadata=item_validation_metadata)
+        other_path_to_schemas = item_cls._validate_oapg(
+            value, validation_metadata=item_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -817,7 +817,7 @@ def validate_properties(
         if arg_validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema.MetaOapg.validate(schema, value, validation_metadata=arg_validation_metadata)
+        other_path_to_schemas = schema._validate_oapg(value, validation_metadata=arg_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -844,7 +844,7 @@ def validate_additional_properties(
         if arg_validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema.MetaOapg.validate(schema, value, validation_metadata=arg_validation_metadata)
+        other_path_to_schemas = schema._validate_oapg(value, validation_metadata=arg_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -869,7 +869,7 @@ def validate_one_of(
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
             continue
         try:
-            path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+            path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
             if discriminated_cls is not None and oneof_cls is discriminated_cls:
                 raise ex
@@ -907,7 +907,7 @@ def validate_any_of(
             continue
 
         try:
-            other_path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+            other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
             if discriminated_cls is not None and anyof_cls is discriminated_cls:
                 raise ex
@@ -934,7 +934,7 @@ def validate_all_of(
         if validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema.MetaOapg.validate(schema, arg, validation_metadata=validation_metadata)
+        other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -958,7 +958,7 @@ def validate_not(
         raise not_exception
 
     try:
-        other_path_to_schemas = not_schema.MetaOapg.validate(not_schema, arg, validation_metadata=validation_metadata)
+        other_path_to_schemas = not_schema._validate_oapg(arg, validation_metadata=validation_metadata)
     except (ApiValueError, ApiTypeError):
         pass
     if other_path_to_schemas:
@@ -994,33 +994,36 @@ json_schema_keyword_to_validator = {
 }
 
 
-class JsonSchemaValidator:
-    _excluded_properties = {
+class Schema:
+    """
+    the base class of all swagger/openapi schemas/models
+    """
+    __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
+    MetaOapg: MetaOapgTyped
+    __excluded_cls_properties = {
         '_excluded_properties',
         '__module__',
         '__dict__',
         '__weakref__',
         '__doc__',
-        'validate',
         'discriminator',
     }
 
     @classmethod
-    def validate(
+    def _validate_oapg(
         cls,
-        python_cls,
         arg,
         validation_metadata: ValidationMetadata,
     ) -> PathToSchemasType:
         """
-        JsonSchemaValidatorBase validate
+        Schema validate
         All keyword validation except for type checking was done in calling stack frames
         If those validations passed, the validated classes are collected in path_to_schemas
         """
         json_schema_data = {
             k: v
-            for k, v in vars(cls).items()
-            if k not in cls._excluded_properties
+            for k, v in vars(cls.MetaOapg).items()
+            if k not in cls.__excluded_cls_properties
             and k
             not in validation_metadata.configuration.disabled_json_schema_python_keywords
         }
@@ -1030,7 +1033,7 @@ class JsonSchemaValidator:
             other_path_to_schemas = validator(
                 arg,
                 val,
-                python_cls,
+                cls,
                 validation_metadata
             )
             if other_path_to_schemas:
@@ -1039,17 +1042,9 @@ class JsonSchemaValidator:
         base_class = type(arg)
         if validation_metadata.path_to_item not in path_to_schemas:
             path_to_schemas[validation_metadata.path_to_item] = set()
-        path_to_schemas[validation_metadata.path_to_item].add(python_cls)
+        path_to_schemas[validation_metadata.path_to_item].add(cls)
         path_to_schemas[validation_metadata.path_to_item].add(base_class)
-
         return path_to_schemas
-
-class Schema:
-    """
-    the base class of all swagger/openapi schemas/models
-    """
-    __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
-    MetaOapg: MetaOapgTyped
 
     @staticmethod
     def _process_schema_classes_oapg(
@@ -1100,7 +1095,7 @@ class Schema:
         if validation_metadata.validation_ran_earlier(cls):
             add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
         else:
-            other_path_to_schemas = cls.MetaOapg.validate(cls, arg, validation_metadata=validation_metadata)
+            other_path_to_schemas = cls._validate_oapg(arg, validation_metadata=validation_metadata)
             update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
@@ -2114,7 +2109,7 @@ class ComposedSchema(
     Schema,
     NoneFrozenDictTupleStrDecimalBoolMixin
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = None
 
     @classmethod
@@ -2131,7 +2126,7 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {tuple}
 
     @classmethod
@@ -2147,7 +2142,7 @@ class NoneSchema(
     Schema,
     NoneMixin
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {NoneClass}
 
     @classmethod
@@ -2167,7 +2162,7 @@ class NumberSchema(
     This is used for type: number with no format
     Both integers AND floats are accepted
     """
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {decimal.Decimal}
 
     @classmethod
@@ -2189,6 +2184,10 @@ class IntBase:
 
 
 class IntSchema(IntBase, NumberSchema):
+    class MetaOapg:
+        types = {decimal.Decimal}
+        format = 'int'
+
     @classmethod
     def from_openapi_data_oapg(cls, arg: int, _configuration: typing.Optional[Configuration] = None):
         return super().from_openapi_data_oapg(arg, _configuration=_configuration)
@@ -2205,7 +2204,7 @@ class Int32Schema(
     Int32Base,
     IntSchema
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {decimal.Decimal}
         format = 'int32'
 
@@ -2217,7 +2216,7 @@ class Int64Schema(
     Int64Base,
     IntSchema
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {decimal.Decimal}
         format = 'int64'
 
@@ -2229,7 +2228,7 @@ class Float32Schema(
     Float32Base,
     NumberSchema
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {decimal.Decimal}
         format = 'float'
 
@@ -2246,7 +2245,7 @@ class Float64Schema(
     Float64Base,
     NumberSchema
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {decimal.Decimal}
         format = 'double'
 
@@ -2266,7 +2265,7 @@ class StrSchema(
     - type: string (format unset)
     - type: string, format: date
     """
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {str}
 
     @classmethod
@@ -2278,7 +2277,7 @@ class StrSchema(
 
 
 class UUIDSchema(UUIDBase, StrSchema):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {str}
         format = 'uuid'
 
@@ -2287,7 +2286,7 @@ class UUIDSchema(UUIDBase, StrSchema):
 
 
 class DateSchema(DateBase, StrSchema):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {str}
         format = 'date'
 
@@ -2296,7 +2295,7 @@ class DateSchema(DateBase, StrSchema):
 
 
 class DateTimeSchema(DateTimeBase, StrSchema):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {str}
         format = 'date-time'
 
@@ -2305,7 +2304,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
 
 
 class DecimalSchema(DecimalBase, StrSchema):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {str}
         format = 'number'
 
@@ -2328,7 +2327,7 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {bytes}
 
     def __new__(cls, _arg: bytes, **kwargs: Configuration):
@@ -2355,7 +2354,7 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {FileIO}
 
     def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: Configuration):
@@ -2372,7 +2371,7 @@ class BinarySchema(
     Schema,
     BinaryMixin
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {FileIO, bytes}
         format = 'binary'
 
@@ -2391,7 +2390,7 @@ class BoolSchema(
     Schema,
     BoolMixin
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {BoolClass}
 
     @classmethod
@@ -2413,7 +2412,7 @@ class AnyTypeSchema(
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):
     # Python representation of a schema defined as true or {}
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = None
 
 
@@ -2431,7 +2430,7 @@ class NotAnyTypeSchema(
     Note: validations on this class are never run because the code knows that no inputs will ever validate
     """
 
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = None
         not_schema = AnyTypeSchema
 
@@ -2452,7 +2451,7 @@ class DictSchema(
     Schema,
     FrozenDictMixin
 ):
-    class MetaOapg(JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
 
     @classmethod

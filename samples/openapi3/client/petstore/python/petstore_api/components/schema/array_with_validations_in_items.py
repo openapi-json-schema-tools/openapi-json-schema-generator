@@ -33,7 +33,7 @@ class ArrayWithValidationsInItems(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {tuple}
         max_items = 2
         
@@ -43,7 +43,7 @@ class ArrayWithValidationsInItems(
         ):
         
         
-            class MetaOapg(schemas.JsonSchemaValidator):
+            class MetaOapg:
                 types = {
                     decimal.Decimal,
                 }

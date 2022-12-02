@@ -32,7 +32,7 @@ class application_x_www_form_urlencoded(
 ):
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         types = {frozendict.frozendict}
         
         class properties:

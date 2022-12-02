@@ -35,7 +35,7 @@ class Player(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         
         class properties:
             name = schemas.StrSchema

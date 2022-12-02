@@ -33,7 +33,7 @@ class BasquePig(
     """
 
 
-    class MetaOapg(schemas.JsonSchemaValidator):
+    class MetaOapg:
         required = {
             "className",
         }
