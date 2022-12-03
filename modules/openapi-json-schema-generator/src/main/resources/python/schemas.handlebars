@@ -2098,8 +2098,11 @@ def cast_to_allowed_types(
         from_server: whether this payload came from the server or not
         validated_path_to_schemas: a dict that stores the validated classes at any path location in the payload
     """
-    if isinstance(arg, Schema):
-        # store the already run validations
+    if isinstance(arg, Schema) and not isinstance(arg, UnsetAnyTypeSchema):
+        """
+        store the already run validations
+        but omit UnsetAnyTypeSchema instances because they were not validated
+        """
         schema_classes = set()
         for cls in arg.__class__.__bases__:
             if cls is Singleton:
