@@ -918,7 +918,7 @@ def validate_any_of(
         try:
             other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
-            # silence exceptions because the code needs to accumulate oneof_classes
+            # silence exceptions because the code needs to accumulate anyof_classes
             continue
         anyof_classes.append(schema)
         update(path_to_schemas, other_path_to_schemas)

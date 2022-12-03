@@ -306,7 +306,7 @@ def validate_types(
     arg: typing.Any,
     allowed_types: typing.Set[typing.Type],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if type(arg) not in allowed_types:
         raise __get_type_error(
@@ -321,7 +321,7 @@ def validate_enum(
     arg: typing.Any,
     enum_value_to_name: typing.Dict[typing.Any, str],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if arg not in enum_value_to_name:
         raise ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, enum_value_to_name.keys()))
@@ -344,7 +344,7 @@ def validate_unique_items(
     arg: typing.Any,
     unique_items_value: bool,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not unique_items_value or not isinstance(arg, tuple):
         return None
@@ -362,7 +362,7 @@ def validate_min_items(
     arg: typing.Any,
     min_items: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, tuple):
         return None
@@ -380,7 +380,7 @@ def validate_max_items(
     arg: typing.Any,
     max_items: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, tuple):
         return None
@@ -398,7 +398,7 @@ def validate_min_properties(
     arg: typing.Any,
     min_properties: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -416,7 +416,7 @@ def validate_max_properties(
     arg: typing.Any,
     max_properties: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -434,7 +434,7 @@ def validate_min_length(
     arg: typing.Any,
     min_length: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, str):
         return None
@@ -452,7 +452,7 @@ def validate_max_length(
     arg: typing.Any,
     max_length: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, str):
         return None
@@ -470,7 +470,7 @@ def validate_inclusive_minimum(
     arg: typing.Any,
     inclusive_minimum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -488,7 +488,7 @@ def validate_exclusive_minimum(
     arg: typing.Any,
     exclusive_minimum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -506,7 +506,7 @@ def validate_inclusive_maximum(
     arg: typing.Any,
     inclusive_maximum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -524,7 +524,7 @@ def validate_exclusive_maximum(
     arg: typing.Any,
     exclusive_maximum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -541,7 +541,7 @@ def validate_multiple_of(
     arg: typing.Any,
     multiple_of: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -560,7 +560,7 @@ def validate_regex(
     arg: typing.Any,
     regex_dict: typing.Dict,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, str):
         return None
@@ -719,7 +719,7 @@ def validate_format(
     arg: typing.Any,
     format: str,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     # formats work for strings + numbers
     if isinstance(arg, decimal.Decimal):
@@ -741,7 +741,7 @@ def validate_required(
     arg: typing.Any,
     required: typing.Set[str],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -774,7 +774,7 @@ def validate_items(
     arg: typing.Any,
     item_cls: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     if not isinstance(arg, tuple):
         return None
@@ -799,7 +799,7 @@ def validate_properties(
     arg: typing.Any,
     properties: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -826,7 +826,7 @@ def validate_additional_properties(
     arg: typing.Any,
     additional_properties_schema: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -851,16 +851,14 @@ def validate_additional_properties(
 
 def validate_one_of(
     arg: typing.Any,
-    one_of_cls: typing.Type,
-    cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    one_of_container_cls: typing.Type,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     oneof_classes = []
     path_to_schemas = defaultdict(set)
-    discriminated_cls = None
-    # TODO add discriminated_cls calculation
-    for oneof_cls in one_of_cls.classes:
-        schema = _get_class_oapg(oneof_cls)
+    for one_of_cls in one_of_container_cls.classes:
+        schema = _get_class_oapg(one_of_cls)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
             oneof_classes.append(schema)
             continue
@@ -878,8 +876,7 @@ def validate_one_of(
         try:
             path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
-            if discriminated_cls is not None and oneof_cls is discriminated_cls:
-                raise ex
+            # silence exceptions because the code needs to accumulate oneof_classes
             continue
         oneof_classes.append(schema)
     if not oneof_classes:
@@ -898,16 +895,14 @@ def validate_one_of(
 
 def validate_any_of(
     arg: typing.Any,
-    any_of_cls: typing.Type,
-    cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    any_of_container_cls: typing.Type,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     anyof_classes = []
     path_to_schemas = defaultdict(set)
-    discriminated_cls = None
-    # TODO add discriminated_cls calculation
-    for anyof_cls in any_of_cls.classes:
-        schema = _get_class_oapg(anyof_cls)
+    for any_of_cls in any_of_container_cls.classes:
+        schema = _get_class_oapg(any_of_cls)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -923,8 +918,7 @@ def validate_any_of(
         try:
             other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
-            if discriminated_cls is not None and anyof_cls is discriminated_cls:
-                raise ex
+            # silence exceptions because the code needs to accumulate anyof_classes
             continue
         anyof_classes.append(schema)
         update(path_to_schemas, other_path_to_schemas)
@@ -940,7 +934,7 @@ def validate_all_of(
     arg: typing.Any,
     all_of_cls: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     path_to_schemas = defaultdict(set)
     for allof_cls in all_of_cls.classes:
@@ -963,7 +957,7 @@ def validate_not(
     arg: typing.Any,
     not_cls: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     not_schema = _get_class_oapg(not_cls)
     other_path_to_schemas = None
@@ -986,19 +980,76 @@ def validate_not(
     return None
 
 
+def __ensure_discriminator_value_present(
+    disc_property_name: str,
+    validation_metadata: ValidationMetadata,
+    arg
+):
+    if disc_property_name not in arg:
+        # The input data does not contain the discriminator property
+        raise ApiValueError(
+            "Cannot deserialize input data due to missing discriminator. "
+            "The discriminator property '{}' is missing at path: {}".format(disc_property_name, validation_metadata.path_to_item)
+        )
+
+
+def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: str):
+    """
+    Used in schemas with discriminators
+    """
+    if not hasattr(cls.MetaOapg, 'discriminator'):
+        return None
+    disc = cls.MetaOapg.discriminator()
+    if disc_property_name not in disc:
+        return None
+    discriminated_cls = disc[disc_property_name].get(disc_payload_value)
+    if discriminated_cls is not None:
+        return discriminated_cls
+    if not (
+        hasattr(cls.MetaOapg, 'all_of') or
+        hasattr(cls.MetaOapg, 'one_of') or
+        hasattr(cls.MetaOapg, 'any_of')
+    ):
+        return None
+    # TODO stop traveling if a cycle is hit
+    if hasattr(cls.MetaOapg, 'all_of'):
+        for allof_cls in cls.MetaOapg.all_of.classes:
+            allof_cls = _get_class_oapg(allof_cls)
+            discriminated_cls = __get_discriminated_class(
+                allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    if hasattr(cls.MetaOapg, 'one_of'):
+        for oneof_cls in cls.MetaOapg.one_of.classes:
+            oneof_cls = _get_class_oapg(oneof_cls)
+            discriminated_cls = __get_discriminated_class(
+                oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    if hasattr(cls.MetaOapg, 'any_of'):
+        for anyof_cls in cls.MetaOapg.any_of.classes:
+            anyof_cls = _get_class_oapg(anyof_cls)
+            discriminated_cls = __get_discriminated_class(
+                anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    return None
+
+
 def validate_discriminator(
     arg: typing.Any,
     discriminator_fn: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
     discriminator = discriminator_fn.__func__()
     disc_prop_name = list(discriminator.keys())[0]
-    cls._ensure_discriminator_value_present_oapg(disc_prop_name, validation_metadata, arg)
-    discriminated_cls = cls.get_discriminated_class_oapg(
-        disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
+    __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
+    discriminated_cls = __get_discriminated_class(
+        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name]
+    )
     if discriminated_cls is None:
         raise ApiValueError(
             "Invalid discriminator value was passed in to {}.{} Only the values {} are allowed at {}".format(
@@ -1009,6 +1060,10 @@ def validate_discriminator(
             )
         )
     if discriminated_cls is cls:
+        """
+        Optimistically assume that cls will pass validation
+        If the code invoked _validate_oapg on cls it would infinitely recurse
+        """
         return None
     if validation_metadata.validation_ran_earlier(discriminated_cls):
         path_to_schemas = {}
@@ -1086,11 +1141,12 @@ class Schema:
         path_to_schemas = {}
         for keyword, val in json_schema_data.items():
             validator =  json_schema_keyword_to_validator[keyword]
+
             other_path_to_schemas = validator(
                 arg,
                 val,
                 cls,
-                validation_metadata
+                validation_metadata,
             )
             if other_path_to_schemas:
                 update(path_to_schemas, other_path_to_schemas)
@@ -1117,7 +1173,8 @@ class Schema:
         x_schema = schema_type_classes & schema_classes
         if not x_schema:
             return
-        x_schema = x_schema.pop()
+        # the only way len == 2 is to have one be AnyTypeSchema
+        x_schema = x_schema.pop() if len(x_schema) == 1 else AnyTypeSchema
         if any(c is not x_schema and issubclass(c, x_schema) for c in schema_classes):
             # needed to not have a mro error in get_new_class
             schema_classes.remove(x_schema)
@@ -1181,7 +1238,9 @@ class Schema:
             """
             cls._process_schema_classes_oapg(schema_classes)
             enum_schema = any(
-                issubclass(this_cls, EnumBase) for this_cls in schema_classes)
+                issubclass(this_cls, Schema) and hasattr(this_cls.MetaOapg, "enum_value_to_name")
+                for this_cls in schema_classes
+            )
             inheritable_primitive_type = schema_classes.intersection(cls.__inheritable_primitive_types_set)
             chosen_schema_classes = schema_classes - inheritable_primitive_type
             suffix = tuple(inheritable_primitive_type)
@@ -1233,23 +1292,17 @@ class Schema:
         cls,
         arg: typing.Union[
             str,
-            date,
-            datetime,
             int,
             float,
-            decimal.Decimal,
             bool,
             None,
-            'Schema',
             dict,
-            frozendict.frozendict,
-            tuple,
             list,
             io.FileIO,
             io.BufferedReader,
             bytes
         ],
-        _configuration: typing.Optional[Configuration]
+        _configuration: typing.Optional[Configuration] = None
     ):
         """
         Schema from_openapi_data_oapg
@@ -1285,7 +1338,41 @@ class Schema:
     def __remove_unsets(kwargs):
         return {key: val for key, val in kwargs.items() if val is not unset}
 
-    def __new__(cls, *_args: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, date, datetime, bool, None, 'Schema'], _configuration: typing.Optional[Configuration] = None, **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, date, datetime, bool, None, 'Schema', Unset]):
+    def __new__(
+        cls,
+        *_args: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            date,
+            datetime,
+            bool,
+            None,
+            'Schema'
+        ],
+        _configuration: typing.Optional[Configuration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            date,
+            datetime,
+            bool,
+            None,
+            'Schema',
+            Unset
+        ]
+    ):
         """
         Schema __new__
 
@@ -1639,10 +1726,6 @@ else:
         pass
 
 
-class EnumBase:
-    pass
-
-
 class BoolBase:
     def is_true_oapg(self) -> bool:
         """
@@ -1794,63 +1877,7 @@ class ListBase:
         return cast_items
 
 
-class Discriminable:
-    MetaOapg: MetaOapgTyped
-
-    @classmethod
-    def _ensure_discriminator_value_present_oapg(cls, disc_property_name: str, validation_metadata: ValidationMetadata, *args):
-        if not args or args and disc_property_name not in args[0]:
-            # The input data does not contain the discriminator property
-            raise ApiValueError(
-                "Cannot deserialize input data due to missing discriminator. "
-                "The discriminator property '{}' is missing at path: {}".format(disc_property_name, validation_metadata.path_to_item)
-            )
-
-    @classmethod
-    def get_discriminated_class_oapg(cls, disc_property_name: str, disc_payload_value: str):
-        """
-        Used in schemas with discriminators
-        """
-        if not hasattr(cls.MetaOapg, 'discriminator'):
-            return None
-        disc = cls.MetaOapg.discriminator()
-        if disc_property_name not in disc:
-            return None
-        discriminated_cls = disc[disc_property_name].get(disc_payload_value)
-        if discriminated_cls is not None:
-            return discriminated_cls
-        if not (
-            hasattr(cls.MetaOapg, 'all_of') or
-            hasattr(cls.MetaOapg, 'one_of') or
-            hasattr(cls.MetaOapg, 'any_of')
-        ):
-            return None
-        # TODO stop traveling if a cycle is hit
-        if hasattr(cls.MetaOapg, 'all_of'):
-            for allof_cls in cls.MetaOapg.all_of.classes:
-                allof_cls = _get_class_oapg(allof_cls)
-                discriminated_cls = allof_cls.get_discriminated_class_oapg(
-                    disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
-                if discriminated_cls is not None:
-                    return discriminated_cls
-        if hasattr(cls.MetaOapg, 'one_of'):
-            for oneof_cls in cls.MetaOapg.one_of.classes:
-                oneof_cls = _get_class_oapg(oneof_cls)
-                discriminated_cls = oneof_cls.get_discriminated_class_oapg(
-                    disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
-                if discriminated_cls is not None:
-                    return discriminated_cls
-        if hasattr(cls.MetaOapg, 'any_of'):
-            for anyof_cls in cls.MetaOapg.any_of.classes:
-                anyof_cls = _get_class_oapg(anyof_cls)
-                discriminated_cls = anyof_cls.get_discriminated_class_oapg(
-                    disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
-                if discriminated_cls is not None:
-                    return discriminated_cls
-        return None
-
-
-class DictBase(Discriminable):
+class DictBase:
     @classmethod
     def _get_properties_oapg(
         cls,
@@ -2020,34 +2047,6 @@ def cast_to_allowed_types(
     raise ValueError('Invalid type passed in got input={} type={}'.format(arg, type(arg)))
 
 
-class ComposedBase(Discriminable):
-    pass
-
-
-# DictBase, ListBase, NumberBase, StrBase, BoolBase, NoneBase
-class ComposedSchema(
-    ComposedBase,
-    DictBase,
-    ListBase,
-    NumberBase,
-    StrBase,
-    BoolBase,
-    NoneBase,
-    Schema,
-    NoneFrozenDictTupleStrDecimalBoolMixin
-):
-    class MetaOapg:
-        pass
-
-    @classmethod
-    def from_openapi_data_oapg(cls, *args: typing.Any, _configuration: typing.Optional[Configuration] = None, **kwargs):
-        if not args:
-            if not kwargs:
-                raise ApiTypeError('{} is missing required input data in args or kwargs'.format(cls.__name__))
-            args = (kwargs, )
-        return super().from_openapi_data_oapg(args[0], _configuration=_configuration)
-
-
 class ListSchema(
     ListBase,
     Schema,
@@ -2123,36 +2122,23 @@ class IntSchema(IntBase, NumberSchema):
         return super().__new__(cls, _arg, **kwargs)
 
 
-class Int32Base:
-    pass
-
-
 class Int32Schema(
-    Int32Base,
     IntSchema
 ):
     class MetaOapg:
         types = {decimal.Decimal}
         format = 'int32'
 
-class Int64Base:
-    pass
-
 
 class Int64Schema(
-    Int64Base,
     IntSchema
 ):
     class MetaOapg:
         types = {decimal.Decimal}
         format = 'int64'
 
-class Float32Base:
-    pass
-
 
 class Float32Schema(
-    Float32Base,
     NumberSchema
 ):
     class MetaOapg:
@@ -2164,12 +2150,7 @@ class Float32Schema(
         return super().from_openapi_data_oapg(arg, _configuration=_configuration)
 
 
-class Float64Base:
-    pass
-
-
 class Float64Schema(
-    Float64Base,
     NumberSchema
 ):
     class MetaOapg:
@@ -2288,13 +2269,7 @@ class FileSchema(
         return super(Schema, cls).__new__(cls, _arg)
 
 
-class BinaryBase:
-    pass
-
-
 class BinarySchema(
-    ComposedBase,
-    BinaryBase,
     Schema,
     BinaryMixin
 ):
@@ -2348,9 +2323,7 @@ class UnsetAnyTypeSchema(AnyTypeSchema):
     pass
 
 
-class NotAnyTypeSchema(
-    ComposedSchema,
-):
+class NotAnyTypeSchema(AnyTypeSchema):
     """
     Python representation of a schema defined as false or {'not': {}}
     Does not allow inputs in of AnyType
