@@ -600,7 +600,8 @@ def __validate_numeric_format(
     validation_metadata: ValidationMetadata
 ) -> None:
     if format[:3] == 'int':
-        if arg.as_tuple().exponent != 0:
+        # there is a json schema test where 1.0 validates as an integer
+        if arg != int(arg):
             raise ApiValueError(
                 "Invalid non-integer value '{}' for type {} at {}".format(
                     arg, format, validation_metadata.path_to_item
@@ -721,7 +722,6 @@ def validate_format(
     validation_metadata: ValidationMetadata
 ) -> None:
     # formats work for strings + numbers
-    arg_type = type(arg)
     if isinstance(arg, decimal.Decimal):
         return __validate_numeric_format(
             arg,
