@@ -37,7 +37,6 @@ class schema(
         
         
         class items(
-            schemas.EnumBase,
             schemas.StrSchema
         ):
         

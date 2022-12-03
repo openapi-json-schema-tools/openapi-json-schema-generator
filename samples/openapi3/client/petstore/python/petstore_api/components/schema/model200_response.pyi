@@ -36,7 +36,7 @@ class Model200Response(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         class properties:
             name = schemas.Int32Schema

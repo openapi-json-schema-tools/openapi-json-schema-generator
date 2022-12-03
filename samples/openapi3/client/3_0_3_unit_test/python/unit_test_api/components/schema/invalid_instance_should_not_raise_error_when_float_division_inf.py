@@ -37,4 +37,5 @@ class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(
         types = {
             decimal.Decimal,
         }
+        format = 'int'
         multiple_of = 0.123456789

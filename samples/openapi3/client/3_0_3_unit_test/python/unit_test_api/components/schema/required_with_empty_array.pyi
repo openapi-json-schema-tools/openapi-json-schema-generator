@@ -34,7 +34,7 @@ class RequiredWithEmptyArray(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         class properties:
             foo = schemas.AnyTypeSchema

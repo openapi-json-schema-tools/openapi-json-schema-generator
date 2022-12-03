@@ -34,7 +34,7 @@ class MaxpropertiesValidation(
 
 
     class MetaOapg:
-        types = None
+        # any type
         max_properties = 2
 
 

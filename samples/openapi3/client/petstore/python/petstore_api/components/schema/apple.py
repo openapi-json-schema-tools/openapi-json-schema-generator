@@ -57,9 +57,9 @@ class Apple(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^[a-zA-Z\s]*$',  # noqa: E501
-                    }]
+                    }
             
             
             class origin(
@@ -71,12 +71,12 @@ class Apple(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^[A-Z\s]*$',  # noqa: E501
                         'flags': (
                             re.IGNORECASE
                         )
-                    }]
+                    }
             __annotations__ = {
                 "cultivar": cultivar,
                 "origin": origin,

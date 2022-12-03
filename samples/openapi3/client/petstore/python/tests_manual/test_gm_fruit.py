@@ -68,15 +68,6 @@ class TestGmFruit(unittest.TestCase):
         # with getattr
         self.assertTrue(getattr(fruit, 'origin', 'some value'), 'some value')
 
-        # make sure that the ModelComposed class properties are correct
-        self.assertEqual(
-            GmFruit.MetaOapg.any_of(),
-            [
-                apple.Apple,
-                banana.Banana,
-            ],
-        )
-
         # including extra parameters works
         GmFruit(
             color=color,

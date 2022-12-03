@@ -1,9 +1,6 @@
 
 
 class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/if}}(
-{{#if isEnum}}
-    schemas.EnumBase,
-{{/if}}
     {{> model_templates/xbase_schema }}
 ):
 {{#if this.classname}}
@@ -22,6 +19,9 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 
 
     class MetaOapg:
+{{#if isAnyType}}
+        # any type
+{{/if}}
         {{> model_templates/types }}
 {{#if getFormat}}
         format = '{{getFormat}}'

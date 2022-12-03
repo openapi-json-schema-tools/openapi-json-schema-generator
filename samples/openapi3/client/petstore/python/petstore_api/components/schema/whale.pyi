@@ -42,7 +42,6 @@ class Whale(
             
             
             class className(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

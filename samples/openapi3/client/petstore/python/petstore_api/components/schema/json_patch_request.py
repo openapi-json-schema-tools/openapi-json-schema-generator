@@ -38,27 +38,30 @@ class JSONPatchRequest(
         
         
         class items(
-            schemas.ComposedSchema,
+            schemas.AnyTypeSchema,
         ):
         
         
             class MetaOapg:
-                types = None
+                # any type
                 
-                @classmethod
-                @functools.lru_cache()
-                def one_of(cls):
-                    # we need this here to make our import statements work
-                    # we must store _composed_schemas in here so the code is only run
-                    # when we invoke this method. If we kept this at the class
-                    # level we would get an error because the class level
-                    # code would be run when this module is imported, and these composed
-                    # classes don't exist yet because their module has not finished
-                    # loading
-                    return [
-                        json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest,
-                        json_patch_request_remove.JSONPatchRequestRemove,
-                        json_patch_request_move_copy.JSONPatchRequestMoveCopy,
+                class one_of:
+                
+                    @staticmethod
+                    def one_of_0() -> typing.Type['json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest']:
+                        return json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest
+                
+                    @staticmethod
+                    def one_of_1() -> typing.Type['json_patch_request_remove.JSONPatchRequestRemove']:
+                        return json_patch_request_remove.JSONPatchRequestRemove
+                
+                    @staticmethod
+                    def one_of_2() -> typing.Type['json_patch_request_move_copy.JSONPatchRequestMoveCopy']:
+                        return json_patch_request_move_copy.JSONPatchRequestMoveCopy
+                    classes = [
+                        one_of_0,
+                        one_of_1,
+                        one_of_2,
                     ]
         
         

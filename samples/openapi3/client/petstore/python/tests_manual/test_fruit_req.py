@@ -68,16 +68,6 @@ class TestFruitReq(unittest.TestCase):
         with self.assertRaises(AttributeError):
             getattr(fruit, 'cultivar')
 
-        # make sure that the ModelComposed class properties are correct
-        self.assertEqual(
-            FruitReq.MetaOapg.one_of(),
-            [
-                schemas.NoneSchema,
-                apple_req.AppleReq,
-                banana_req.BananaReq,
-            ],
-        )
-
         # including extra parameters raises an exception
         with self.assertRaises(petstore_api.ApiValueError):
             FruitReq(

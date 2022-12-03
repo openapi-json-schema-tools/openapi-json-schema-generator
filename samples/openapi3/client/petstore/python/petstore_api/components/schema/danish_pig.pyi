@@ -42,7 +42,6 @@ class DanishPig(
             
             
             class className(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

@@ -1,96 +1,70 @@
 {{#with composedSchemas}}
-{{#each allOf}}
-{{#unless refClass}}
-{{> model_templates/schema }}
-{{/unless}}
-{{/each}}
-{{#each oneOf}}
-{{#unless refClass}}
-{{> model_templates/schema }}
-{{/unless}}
-{{/each}}
-{{#each anyOf}}
-{{#unless refClass}}
-{{> model_templates/schema }}
-{{/unless}}
-{{/each}}
-{{/with}}
-{{#with composedSchemas}}
 {{#if allOf}}
 
-@classmethod
-@functools.lru_cache()
-def all_of(cls):
-    # we need this here to make our import statements work
-    # we must store _composed_schemas in here so the code is only run
-    # when we invoke this method. If we kept this at the class
-    # level we would get an error because the class level
-    # code would be run when this module is imported, and these composed
-    # classes don't exist yet because their module has not finished
-    # loading
-    return [
+class all_of:
 {{#each allOf}}
-{{#if refClass}}
-        {{refClass}},
+{{#unless refClass}}
+    {{> model_templates/schema }}
 {{else}}
+
+    @staticmethod
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
+{{/unless}}
+{{/each}}
+    classes = [
+{{#each allOf}}
     {{#if nameInSnakeCase}}
-        cls.{{name}},
+        {{name}},
     {{else}}
-        cls.{{baseName}},
+        {{baseName}},
     {{/if}}
-{{/if}}
 {{/each}}
     ]
 {{/if}}
 {{#if oneOf}}
 
-@classmethod
-@functools.lru_cache()
-def one_of(cls):
-    # we need this here to make our import statements work
-    # we must store _composed_schemas in here so the code is only run
-    # when we invoke this method. If we kept this at the class
-    # level we would get an error because the class level
-    # code would be run when this module is imported, and these composed
-    # classes don't exist yet because their module has not finished
-    # loading
-    return [
+class one_of:
 {{#each oneOf}}
-{{#if refClass}}
-        {{refClass}},
+{{#unless refClass}}
+    {{> model_templates/schema }}
 {{else}}
+
+    @staticmethod
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
+{{/unless}}
+{{/each}}
+    classes = [
+{{#each oneOf}}
     {{#if nameInSnakeCase}}
-        cls.{{name}},
+        {{name}},
     {{else}}
-        cls.{{baseName}},
+        {{baseName}},
     {{/if}}
-{{/if}}
 {{/each}}
     ]
 {{/if}}
 {{#if anyOf}}
 
-@classmethod
-@functools.lru_cache()
-def any_of(cls):
-    # we need this here to make our import statements work
-    # we must store _composed_schemas in here so the code is only run
-    # when we invoke this method. If we kept this at the class
-    # level we would get an error because the class level
-    # code would be run when this module is imported, and these composed
-    # classes don't exist yet because their module has not finished
-    # loading
-    return [
+class any_of:
 {{#each anyOf}}
-{{#if refClass}}
-        {{refClass}},
+{{#unless refClass}}
+    {{> model_templates/schema }}
 {{else}}
+
+    @staticmethod
+    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+        return {{refClass}}
+{{/unless}}
+{{/each}}
+    classes = [
+{{#each anyOf}}
     {{#if nameInSnakeCase}}
-        cls.{{name}},
+        {{name}},
     {{else}}
-        cls.{{baseName}},
+        {{baseName}},
     {{/if}}
-{{/if}}
 {{/each}}
     ]
 {{/if}}

@@ -108,7 +108,6 @@ class MapTest(
                     
                     
                     class additional_properties(
-                        schemas.EnumBase,
                         schemas.StrSchema
                     ):
                     

@@ -53,15 +53,6 @@ class TestFruit(unittest.TestCase):
             assert fruit['cultivar']
         assert fruit.get_item_oapg('cultivar') is schemas.unset
 
-        # make sure that the ModelComposed class properties are correct
-        self.assertEqual(
-            Fruit.MetaOapg.one_of(),
-            [
-                apple.Apple,
-                banana.Banana,
-            ],
-        )
-
         """
         including extra parameters does not raise an exception
         because objects support additional properties by default
@@ -73,7 +64,7 @@ class TestFruit(unittest.TestCase):
             additional_date='2021-01-02',
         )
 
-        fruit = Fruit.from_openapi_data_oapg(**kwargs)
+        fruit = Fruit.from_openapi_data_oapg(kwargs)
         self.assertEqual(
             fruit,
             kwargs

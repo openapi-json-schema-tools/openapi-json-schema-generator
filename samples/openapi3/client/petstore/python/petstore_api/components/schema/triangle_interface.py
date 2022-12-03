@@ -34,7 +34,7 @@ class TriangleInterface(
 
 
     class MetaOapg:
-        types = None
+        # any type
         required = {
             "shapeType",
             "triangleType",
@@ -44,7 +44,6 @@ class TriangleInterface(
             
             
             class shapeType(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
             
