@@ -10,20 +10,44 @@
 """
 
 import copy
+from http import client as http_client
 import logging
 import multiprocessing
 import sys
+import typing
+
 import urllib3
 
-from http import client as http_client
 from this_package.exceptions import ApiValueError
 
 
-JSON_SCHEMA_VALIDATION_KEYWORDS = {
-    'multipleOf', 'maximum', 'exclusiveMaximum',
-    'minimum', 'exclusiveMinimum', 'maxLength',
-    'minLength', 'pattern', 'maxItems', 'minItems',
-    'uniqueItems', 'maxProperties', 'minProperties',
+JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD = {
+    'types': 'types',
+    'type': 'types',
+    'enum': 'enum_value_to_name',
+    'uniqueItems': 'unique_items',
+    'minItems': 'min_items',
+    'maxItems': 'max_items',
+    'minProperties': 'min_properties',
+    'maxProperties': 'max_properties',
+    'minLength': 'min_length',
+    'maxLength': 'max_length',
+    'minimum': 'inclusive_minimum',
+    'exclusiveMinimum': 'exclusive_minimum',
+    'maximum': 'inclusive_maximum',
+    'exclusiveMaximum': 'exclusive_maximum',
+    'multipleOf': 'multiple_of',
+    'pattern': 'regex',
+    'format': 'format',
+    'required': 'required',
+    'items': 'items',
+    'properties': 'properties',
+    'additionalProperties': 'additional_properties',
+    'oneOf': 'one_of',
+    'anyOf': 'any_of',
+    'allOf': 'all_of',
+    'not': 'not_schema',
+    'discriminator': 'discriminator'
 }
 
 class Configuration(object):
@@ -42,7 +66,7 @@ class Configuration(object):
       The dict value is an API key prefix when generating the auth data.
     :param username: Username for HTTP basic authentication
     :param password: Password for HTTP basic authentication
-    :param disabled_client_side_validations (string): Comma-separated list of
+    :param disabled_json_schema_keywords (set): Set of
       JSON schema validation keywords to disable JSON schema structural validation
       rules. The following keywords may be specified: multipleOf, maximum,
       exclusiveMaximum, minimum, exclusiveMinimum, maxLength, minLength, pattern,
@@ -51,7 +75,7 @@ class Configuration(object):
       and data received from the server, independent of any validation performed by
       the server side. If the input data does not satisfy the JSON schema validation
       rules specified in the OpenAPI document, an exception is raised.
-      If disabled_client_side_validations is set, structural validation is
+      If disabled_json_schema_keywords is set, structural validation is
       disabled. This can be useful to troubleshoot data validation problem, such as
       when the OpenAPI document validation rules do not match the actual API data
       received by the server.
@@ -72,7 +96,7 @@ class Configuration(object):
     def __init__(
         self,
         host=None,
-        disabled_client_side_validations="",
+        disabled_json_schema_keywords=frozenset(),
         server_index=None,
         server_variables=None,
         server_operation_index=None,
@@ -95,7 +119,7 @@ class Configuration(object):
         """Temp file folder for downloading files
         """
         # Authentication Settings
-        self.disabled_client_side_validations = disabled_client_side_validations
+        self.disabled_json_schema_keywords = disabled_json_schema_keywords
         self.logger = {}
         """Logging Settings
         """
@@ -175,15 +199,26 @@ class Configuration(object):
         result.debug = self.debug
         return result
 
-    def __setattr__(self, name, value):
-        object.__setattr__(self, name, value)
-        if name == 'disabled_client_side_validations':
-            s = set(filter(None, value.split(',')))
-            for v in s:
-                if v not in JSON_SCHEMA_VALIDATION_KEYWORDS:
-                    raise ApiValueError(
-                        "Invalid keyword: '{0}''".format(v))
-            self._disabled_client_side_validations = s
+    @property
+    def disabled_json_schema_keywords(self) -> typing.Set[str]:
+        return self.__disabled_json_schema_keywords
+
+    @property
+    def disabled_json_schema_python_keywords(self) -> typing.Set[str]:
+        return self.__disabled_json_schema_python_keywords
+
+    @disabled_json_schema_keywords.setter
+    def disabled_json_schema_keywords(self, json_keywords: typing.Set[str]):
+        disabled_json_schema_keywords = set()
+        disabled_json_schema_python_keywords = set()
+        for k in json_keywords:
+            if k not in JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD:
+                raise ApiValueError(
+                    "Invalid keyword: '{0}''".format(k))
+            disabled_json_schema_keywords.add(k)
+            disabled_json_schema_python_keywords.add(JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD[k])
+        self.__disabled_json_schema_keywords = disabled_json_schema_keywords
+        self.__disabled_json_schema_python_keywords = disabled_json_schema_python_keywords
 
     @classmethod
     def set_default(cls, default):

@@ -24,7 +24,6 @@ from petstore_api import schemas  # noqa: F401
 
 
 class StringEnum(
-    schemas.EnumBase,
     schemas.StrBase,
     schemas.NoneBase,
     schemas.Schema,

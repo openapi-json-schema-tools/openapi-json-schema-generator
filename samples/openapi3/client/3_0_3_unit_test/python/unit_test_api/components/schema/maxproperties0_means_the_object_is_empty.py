@@ -34,7 +34,7 @@ class Maxproperties0MeansTheObjectIsEmpty(
 
 
     class MetaOapg:
-        types = None
+        # any type
         max_properties = 0
 
 

@@ -34,10 +34,10 @@ class PatternIsNotAnchored(
 
 
     class MetaOapg:
-        types = None
-        regex=[{
+        # any type
+        regex={
             'pattern': r'a+',  # noqa: E501
-        }]
+        }
 
 
     def __new__(

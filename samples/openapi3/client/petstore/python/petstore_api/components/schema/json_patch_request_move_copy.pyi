@@ -46,7 +46,6 @@ class JSONPatchRequestMoveCopy(
             
             
             class op(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

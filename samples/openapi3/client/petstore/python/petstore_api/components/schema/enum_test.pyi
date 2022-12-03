@@ -42,7 +42,6 @@ class EnumTest(
             
             
             class enum_string_required(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 
@@ -60,7 +59,6 @@ class EnumTest(
             
             
             class enum_string(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 
@@ -78,7 +76,6 @@ class EnumTest(
             
             
             class enum_integer(
-                schemas.EnumBase,
                 schemas.Int32Schema
             ):
                 
@@ -92,7 +89,6 @@ class EnumTest(
             
             
             class enum_number(
-                schemas.EnumBase,
                 schemas.Float64Schema
             ):
                 

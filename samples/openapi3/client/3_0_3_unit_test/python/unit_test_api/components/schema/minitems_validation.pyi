@@ -34,7 +34,7 @@ class MinitemsValidation(
 
 
     class MetaOapg:
-        types = None
+        # any type
 
 
     def __new__(

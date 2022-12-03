@@ -35,7 +35,7 @@ class DateTimeFormat(
 
 
     class MetaOapg:
-        types = None
+        # any type
         format = 'date-time'
 
 

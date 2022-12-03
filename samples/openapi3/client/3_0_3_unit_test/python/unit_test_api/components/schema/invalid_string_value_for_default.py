@@ -34,7 +34,7 @@ class InvalidStringValueForDefault(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         class properties:
             

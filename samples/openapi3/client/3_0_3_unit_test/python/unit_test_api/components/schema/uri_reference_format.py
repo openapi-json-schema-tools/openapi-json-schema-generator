@@ -34,7 +34,7 @@ class UriReferenceFormat(
 
 
     class MetaOapg:
-        types = None
+        # any type
         format = 'uri-reference'
 
 

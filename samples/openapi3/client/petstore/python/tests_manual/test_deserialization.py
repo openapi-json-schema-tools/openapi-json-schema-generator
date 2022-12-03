@@ -355,9 +355,8 @@ class DeserializationTests(unittest.TestCase):
                 self.json_content_type: api_client.MediaType(schema=banana_req.BananaReq),
             },
         )
-        with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiTypeError,
-            r"BananaReq was passed 1 invalid argument: \['unknown-group'\]"
+        with self.assertRaises(
+            petstore_api.exceptions.ApiValueError
         ):
             data = {
                 'lengthCm': 21.2,
@@ -483,7 +482,7 @@ class DeserializationTests(unittest.TestCase):
 
         # Disable JSON schema validation. No error should be raised during deserialization.
         configuration = petstore_api.Configuration()
-        configuration.disabled_client_side_validations = "multipleOf"
+        configuration.disabled_json_schema_keywords = {"multipleOf"}
 
         data = {
             'byte': '3',
@@ -500,7 +499,7 @@ class DeserializationTests(unittest.TestCase):
         # Disable JSON schema validation but for a different keyword.
         # An error should be raised during deserialization.
         configuration = petstore_api.Configuration()
-        configuration.disabled_client_side_validations = "maxItems"
+        configuration.disabled_json_schema_keywords = {"maxItems"}
 
         with self.assertRaisesRegex(
             petstore_api.exceptions.ApiValueError,

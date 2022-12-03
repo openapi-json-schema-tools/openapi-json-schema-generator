@@ -36,7 +36,7 @@ class ModelReturn(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         class properties:
             _return = schemas.Int32Schema

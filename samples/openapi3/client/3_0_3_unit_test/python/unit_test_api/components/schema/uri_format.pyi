@@ -34,7 +34,7 @@ class UriFormat(
 
 
     class MetaOapg:
-        types = None
+        # any type
         format = 'uri'
 
 

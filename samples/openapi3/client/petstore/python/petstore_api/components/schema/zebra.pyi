@@ -42,7 +42,6 @@ class Zebra(
             
             
             class className(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 
@@ -52,7 +51,6 @@ class Zebra(
             
             
             class type(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

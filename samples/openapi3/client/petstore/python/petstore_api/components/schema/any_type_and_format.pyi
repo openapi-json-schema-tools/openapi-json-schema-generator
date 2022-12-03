@@ -45,7 +45,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'uuid'
             
             
@@ -70,7 +70,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'date'
             
             
@@ -95,7 +95,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'date-time'
             
             
@@ -120,7 +120,7 @@ class AnyTypeAndFormat(
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'number'
             
             
@@ -139,13 +139,12 @@ class AnyTypeAndFormat(
             
             
             class binary(
-                schemas.BinaryBase,
                 schemas.AnyTypeSchema,
             ):
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'binary'
             
             
@@ -164,13 +163,12 @@ class AnyTypeAndFormat(
             
             
             class int32(
-                schemas.Int32Base,
                 schemas.AnyTypeSchema,
             ):
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'int32'
             
             
@@ -189,13 +187,12 @@ class AnyTypeAndFormat(
             
             
             class int64(
-                schemas.Int64Base,
                 schemas.AnyTypeSchema,
             ):
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'int64'
             
             
@@ -214,13 +211,12 @@ class AnyTypeAndFormat(
             
             
             class double(
-                schemas.Float64Base,
                 schemas.AnyTypeSchema,
             ):
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'double'
             
             
@@ -239,13 +235,12 @@ class AnyTypeAndFormat(
             
             
             class _float(
-                schemas.Float32Base,
                 schemas.AnyTypeSchema,
             ):
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     format = 'float'
             
             
