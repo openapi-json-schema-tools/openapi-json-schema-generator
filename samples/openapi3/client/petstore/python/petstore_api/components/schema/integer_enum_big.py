@@ -38,6 +38,7 @@ class IntegerEnumBig(
         types = {
             decimal.Decimal,
         }
+        format = 'int'
         enum_value_to_name = {
             10: "POSITIVE_10",
             11: "POSITIVE_11",

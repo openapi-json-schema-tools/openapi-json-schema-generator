@@ -84,6 +84,7 @@ class FormatTest(
                     types = {
                         decimal.Decimal,
                     }
+                    format = 'int'
                     inclusive_maximum = 100
                     inclusive_minimum = 10
                     multiple_of = 2
