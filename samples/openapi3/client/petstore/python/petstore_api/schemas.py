@@ -306,7 +306,7 @@ def validate_types(
     arg: typing.Any,
     allowed_types: typing.Set[typing.Type],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if type(arg) not in allowed_types:
         raise __get_type_error(
@@ -321,7 +321,7 @@ def validate_enum(
     arg: typing.Any,
     enum_value_to_name: typing.Dict[typing.Any, str],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if arg not in enum_value_to_name:
         raise ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, enum_value_to_name.keys()))
@@ -344,7 +344,7 @@ def validate_unique_items(
     arg: typing.Any,
     unique_items_value: bool,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not unique_items_value or not isinstance(arg, tuple):
         return None
@@ -362,7 +362,7 @@ def validate_min_items(
     arg: typing.Any,
     min_items: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, tuple):
         return None
@@ -380,7 +380,7 @@ def validate_max_items(
     arg: typing.Any,
     max_items: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, tuple):
         return None
@@ -398,7 +398,7 @@ def validate_min_properties(
     arg: typing.Any,
     min_properties: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -416,7 +416,7 @@ def validate_max_properties(
     arg: typing.Any,
     max_properties: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -434,7 +434,7 @@ def validate_min_length(
     arg: typing.Any,
     min_length: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, str):
         return None
@@ -452,7 +452,7 @@ def validate_max_length(
     arg: typing.Any,
     max_length: int,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, str):
         return None
@@ -470,7 +470,7 @@ def validate_inclusive_minimum(
     arg: typing.Any,
     inclusive_minimum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -488,7 +488,7 @@ def validate_exclusive_minimum(
     arg: typing.Any,
     exclusive_minimum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -506,7 +506,7 @@ def validate_inclusive_maximum(
     arg: typing.Any,
     inclusive_maximum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -524,7 +524,7 @@ def validate_exclusive_maximum(
     arg: typing.Any,
     exclusive_maximum: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -541,7 +541,7 @@ def validate_multiple_of(
     arg: typing.Any,
     multiple_of: typing.Union[int, float],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
@@ -560,7 +560,7 @@ def validate_regex(
     arg: typing.Any,
     regex_dict: typing.Dict,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, str):
         return None
@@ -719,7 +719,7 @@ def validate_format(
     arg: typing.Any,
     format: str,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     # formats work for strings + numbers
     if isinstance(arg, decimal.Decimal):
@@ -741,7 +741,7 @@ def validate_required(
     arg: typing.Any,
     required: typing.Set[str],
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -774,7 +774,7 @@ def validate_items(
     arg: typing.Any,
     item_cls: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     if not isinstance(arg, tuple):
         return None
@@ -799,7 +799,7 @@ def validate_properties(
     arg: typing.Any,
     properties: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -826,7 +826,7 @@ def validate_additional_properties(
     arg: typing.Any,
     additional_properties_schema: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -851,16 +851,14 @@ def validate_additional_properties(
 
 def validate_one_of(
     arg: typing.Any,
-    one_of_cls: typing.Type,
-    cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    one_of_container_cls: typing.Type,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     oneof_classes = []
     path_to_schemas = defaultdict(set)
-    discriminated_cls = None
-    # TODO add discriminated_cls calculation
-    for oneof_cls in one_of_cls.classes:
-        schema = _get_class_oapg(oneof_cls)
+    for one_of_cls in one_of_container_cls.classes:
+        schema = _get_class_oapg(one_of_cls)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
             oneof_classes.append(schema)
             continue
@@ -878,8 +876,7 @@ def validate_one_of(
         try:
             path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
-            if discriminated_cls is not None and oneof_cls is discriminated_cls:
-                raise ex
+            # silence exceptions because the code needs to accumulate oneof_classes
             continue
         oneof_classes.append(schema)
     if not oneof_classes:
@@ -898,16 +895,14 @@ def validate_one_of(
 
 def validate_any_of(
     arg: typing.Any,
-    any_of_cls: typing.Type,
-    cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    any_of_container_cls: typing.Type,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     anyof_classes = []
     path_to_schemas = defaultdict(set)
-    discriminated_cls = None
-    # TODO add discriminated_cls calculation
-    for anyof_cls in any_of_cls.classes:
-        schema = _get_class_oapg(anyof_cls)
+    for any_of_cls in any_of_container_cls.classes:
+        schema = _get_class_oapg(any_of_cls)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -923,8 +918,7 @@ def validate_any_of(
         try:
             other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
         except (ApiValueError, ApiTypeError) as ex:
-            if discriminated_cls is not None and anyof_cls is discriminated_cls:
-                raise ex
+            # silence exceptions because the code needs to accumulate oneof_classes
             continue
         anyof_classes.append(schema)
         update(path_to_schemas, other_path_to_schemas)
@@ -940,7 +934,7 @@ def validate_all_of(
     arg: typing.Any,
     all_of_cls: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     path_to_schemas = defaultdict(set)
     for allof_cls in all_of_cls.classes:
@@ -963,7 +957,7 @@ def validate_not(
     arg: typing.Any,
     not_cls: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> None:
     not_schema = _get_class_oapg(not_cls)
     other_path_to_schemas = None
@@ -1046,7 +1040,7 @@ def validate_discriminator(
     arg: typing.Any,
     discriminator_fn: typing.Type,
     cls: typing.Type,
-    validation_metadata: ValidationMetadata
+    validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
@@ -1054,7 +1048,8 @@ def validate_discriminator(
     disc_prop_name = list(discriminator.keys())[0]
     __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
     discriminated_cls = __get_discriminated_class(
-        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
+        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name]
+    )
     if discriminated_cls is None:
         raise ApiValueError(
             "Invalid discriminator value was passed in to {}.{} Only the values {} are allowed at {}".format(
@@ -1146,11 +1141,12 @@ class Schema:
         path_to_schemas = {}
         for keyword, val in json_schema_data.items():
             validator =  json_schema_keyword_to_validator[keyword]
+
             other_path_to_schemas = validator(
                 arg,
                 val,
                 cls,
-                validation_metadata
+                validation_metadata,
             )
             if other_path_to_schemas:
                 update(path_to_schemas, other_path_to_schemas)

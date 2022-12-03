@@ -1142,7 +1142,7 @@ def __get_discriminated_class_and_exception(
         return None, ex
     return (
         __get_discriminated_class(
-            cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
+            cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name]
         ),
         None
     )
@@ -1169,7 +1169,7 @@ def validate_discriminator(
 {{else}}
     __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
     discriminated_cls = __get_discriminated_class(
-        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
+        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name]
     )
 {{/if}}
     if discriminated_cls is None:
