@@ -1177,7 +1177,8 @@ class Schema:
         x_schema = schema_type_classes & schema_classes
         if not x_schema:
             return
-        x_schema = x_schema.pop()
+        # the only way len == 2 is to have one be AnyTypeSchema
+        x_schema = x_schema.pop() if len(x_schema) == 1 else AnyTypeSchema
         if any(c is not x_schema and issubclass(c, x_schema) for c in schema_classes):
             # needed to not have a mro error in get_new_class
             schema_classes.remove(x_schema)
