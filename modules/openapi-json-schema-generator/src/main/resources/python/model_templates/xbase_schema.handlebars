@@ -50,12 +50,6 @@ schemas.StrSchema
 {{/if}}
 {{#if isNumber}}
 {{#if getHasMultipleTypes}}
-{{#eq format "float"}}
-schemas.Float32Base,
-{{/eq}}
-{{#eq format "double"}}
-schemas.Float64Base,
-{{/eq}}
 schemas.NumberBase,
 {{else}}
 {{#eq format "float"}}
@@ -73,12 +67,6 @@ schemas.NumberSchema
 {{/if}}
 {{#if isInteger}}
 {{#if getHasMultipleTypes}}
-{{#eq format "int32"}}
-schemas.Int32Base,
-{{/eq}}
-{{#eq format "int64"}}
-schemas.Int64Base,
-{{/eq}}
 schemas.IntBase,
 {{else}}
 {{#eq format "int32"}}

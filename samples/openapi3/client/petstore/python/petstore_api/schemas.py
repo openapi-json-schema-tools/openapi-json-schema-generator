@@ -2122,36 +2122,23 @@ class IntSchema(IntBase, NumberSchema):
         return super().__new__(cls, _arg, **kwargs)
 
 
-class Int32Base:
-    pass
-
-
 class Int32Schema(
-    Int32Base,
     IntSchema
 ):
     class MetaOapg:
         types = {decimal.Decimal}
         format = 'int32'
 
-class Int64Base:
-    pass
-
 
 class Int64Schema(
-    Int64Base,
     IntSchema
 ):
     class MetaOapg:
         types = {decimal.Decimal}
         format = 'int64'
 
-class Float32Base:
-    pass
-
 
 class Float32Schema(
-    Float32Base,
     NumberSchema
 ):
     class MetaOapg:
@@ -2163,12 +2150,7 @@ class Float32Schema(
         return super().from_openapi_data_oapg(arg, _configuration=_configuration)
 
 
-class Float64Base:
-    pass
-
-
 class Float64Schema(
-    Float64Base,
     NumberSchema
 ):
     class MetaOapg:
