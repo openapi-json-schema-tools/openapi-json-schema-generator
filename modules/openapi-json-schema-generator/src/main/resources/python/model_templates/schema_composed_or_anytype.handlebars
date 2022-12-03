@@ -11,9 +11,6 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
     schemas.AnyTypeSchema,
     {{/if}}
 {{else}}
-    {{#if composedSchemas}}
-    schemas.ComposedBase,
-    {{/if}}
     {{#if isEnum}}
     schemas.EnumBase,
     {{/if}}

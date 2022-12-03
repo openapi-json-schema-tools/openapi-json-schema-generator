@@ -2024,13 +2024,8 @@ def cast_to_allowed_types(
     raise ValueError('Invalid type passed in got input={} type={}'.format(arg, type(arg)))
 
 
-class ComposedBase:
-    pass
-
-
 # DictBase, ListBase, NumberBase, StrBase, BoolBase, NoneBase
 class ComposedSchema(
-    ComposedBase,
     DictBase,
     ListBase,
     NumberBase,
@@ -2292,13 +2287,7 @@ class FileSchema(
         return super(Schema, cls).__new__(cls, _arg)
 
 
-class BinaryBase:
-    pass
-
-
 class BinarySchema(
-    ComposedBase,
-    BinaryBase,
     Schema,
     BinaryMixin
 ):

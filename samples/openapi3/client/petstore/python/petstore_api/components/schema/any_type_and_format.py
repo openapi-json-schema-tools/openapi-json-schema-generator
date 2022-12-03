@@ -140,7 +140,6 @@ class AnyTypeAndFormat(
             
             
             class binary(
-                schemas.BinaryBase,
                 schemas.AnyTypeSchema,
             ):
             
