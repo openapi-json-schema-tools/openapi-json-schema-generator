@@ -39,7 +39,7 @@ class ObjectWithInlineCompositionProperty(
             
             
             class someProp(
-                schemas.ComposedSchema,
+                schemas.AnyTypeSchema,
             ):
             
             

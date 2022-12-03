@@ -28,7 +28,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 class schema(
-    schemas.ComposedSchema,
+    schemas.AnyTypeSchema,
 ):
 
 

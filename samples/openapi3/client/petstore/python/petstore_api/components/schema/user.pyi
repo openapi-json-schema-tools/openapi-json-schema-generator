@@ -78,7 +78,7 @@ class User(
             
             
             class anyTypeExceptNullProp(
-                schemas.ComposedSchema,
+                schemas.AnyTypeSchema,
             ):
             
             

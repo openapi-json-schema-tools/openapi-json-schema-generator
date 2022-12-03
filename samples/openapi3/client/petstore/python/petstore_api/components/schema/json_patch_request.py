@@ -38,7 +38,7 @@ class JSONPatchRequest(
         
         
         class items(
-            schemas.ComposedSchema,
+            schemas.AnyTypeSchema,
         ):
         
         

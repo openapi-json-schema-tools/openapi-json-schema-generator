@@ -19,7 +19,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 class application_json(
-    schemas.ComposedSchema,
+    schemas.AnyTypeSchema,
 ):
 
 
@@ -70,7 +70,7 @@ class multipart_form_data(
             
             
             class someProp(
-                schemas.ComposedSchema,
+                schemas.AnyTypeSchema,
             ):
             
             

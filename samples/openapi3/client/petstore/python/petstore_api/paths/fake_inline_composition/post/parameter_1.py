@@ -39,7 +39,7 @@ class schema(
             
             
             class someProp(
-                schemas.ComposedSchema,
+                schemas.AnyTypeSchema,
             ):
             
             

@@ -1328,23 +1328,17 @@ class Schema:
         cls,
         arg: typing.Union[
             str,
-            date,
-            datetime,
             int,
             float,
-            decimal.Decimal,
             bool,
             None,
-            'Schema',
             dict,
-            frozendict.frozendict,
-            tuple,
             list,
             io.FileIO,
             io.BufferedReader,
             bytes
         ],
-        _configuration: typing.Optional[Configuration]
+        _configuration: typing.Optional[Configuration] = None
     ):
         """
         Schema from_openapi_data_oapg
@@ -1380,7 +1374,41 @@ class Schema:
     def __remove_unsets(kwargs):
         return {key: val for key, val in kwargs.items() if val is not unset}
 
-    def __new__(cls, *_args: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, date, datetime, bool, None, 'Schema'], _configuration: typing.Optional[Configuration] = None, **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, date, datetime, bool, None, 'Schema', Unset]):
+    def __new__(
+        cls,
+        *_args: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            date,
+            datetime,
+            bool,
+            None,
+            'Schema'
+        ],
+        _configuration: typing.Optional[Configuration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            date,
+            datetime,
+            bool,
+            None,
+            'Schema',
+            Unset
+        ]
+    ):
         """
         Schema __new__
 
@@ -2055,29 +2083,6 @@ def cast_to_allowed_types(
     raise ValueError('Invalid type passed in got input={} type={}'.format(arg, type(arg)))
 
 
-# DictBase, ListBase, NumberBase, StrBase, BoolBase, NoneBase
-class ComposedSchema(
-    DictBase,
-    ListBase,
-    NumberBase,
-    StrBase,
-    BoolBase,
-    NoneBase,
-    Schema,
-    NoneFrozenDictTupleStrDecimalBoolMixin
-):
-    class MetaOapg:
-        pass
-
-    @classmethod
-    def from_openapi_data_oapg(cls, *args: typing.Any, _configuration: typing.Optional[Configuration] = None, **kwargs):
-        if not args:
-            if not kwargs:
-                raise ApiTypeError('{} is missing required input data in args or kwargs'.format(cls.__name__))
-            args = (kwargs, )
-        return super().from_openapi_data_oapg(args[0], _configuration=_configuration)
-
-
 class ListSchema(
     ListBase,
     Schema,
@@ -2354,9 +2359,7 @@ class UnsetAnyTypeSchema(AnyTypeSchema):
     pass
 
 
-class NotAnyTypeSchema(
-    ComposedSchema,
-):
+class NotAnyTypeSchema(AnyTypeSchema):
     """
     Python representation of a schema defined as false or {'not': {}}
     Does not allow inputs in of AnyType

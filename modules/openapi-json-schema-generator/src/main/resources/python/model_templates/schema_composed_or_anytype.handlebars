@@ -5,11 +5,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
     {{#if getFormat}}
     {{> model_templates/format_base }}
     {{/if}}
-    {{#if composedSchemas}}
-    schemas.ComposedSchema,
-    {{else}}
     schemas.AnyTypeSchema,
-    {{/if}}
 {{else}}
     {{> model_templates/xbase_schema }}
 {{/if}}

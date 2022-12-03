@@ -28,7 +28,6 @@ from petstore_api.schemas import (
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
-    ComposedSchema,
     NoneClass,
     BoolClass
 )
@@ -37,7 +36,7 @@ from petstore_api.schemas import (
 class TestAnyTypeSchema(unittest.TestCase):
 
     def testDictSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -54,7 +53,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert m == frozendict.frozendict(a=Decimal(1), b='hi')
 
     def testListSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -71,7 +70,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert m == tuple([Decimal(1), 'hi'])
 
     def testStrSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -88,7 +87,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert m == 'hi'
 
     def testNumberSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -112,7 +111,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert m == Decimal(3.14)
 
     def testIntSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -133,7 +132,7 @@ class TestAnyTypeSchema(unittest.TestCase):
             Model(3.14)
 
     def testBoolSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -157,7 +156,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         self.assertFalse(m)
 
     def testNoneSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -174,7 +173,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert isinstance(m, NoneClass)
 
     def testDateSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -191,7 +190,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert m == '1970-01-01'
 
     def testDateTimeSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
@@ -208,7 +207,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert m == '2020-01-01T00:00:00'
 
     def testDecimalSchema(self):
-        class Model(ComposedSchema):
+        class Model(AnyTypeSchema):
             class MetaOapg:
 
                 class all_of:
