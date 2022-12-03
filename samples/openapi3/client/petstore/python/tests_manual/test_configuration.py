@@ -26,11 +26,11 @@ class ConfigurationTests(unittest.TestCase):
         config = petstore_api.Configuration()
         config.host = 'https://localhost/'
 
-        config.disabled_client_side_validations = ("multipleOf,maximum,exclusiveMaximum,minimum,exclusiveMinimum,"
-            "maxLength,minLength,pattern,maxItems,minItems")
+        config.disabled_json_schema_keywords = set(("multipleOf,maximum,exclusiveMaximum,minimum,exclusiveMinimum,"
+            "maxLength,minLength,pattern,maxItems,minItems").split(','))
         with self.assertRaisesRegex(ValueError, "Invalid keyword: 'foo'"):
-            config.disabled_client_side_validations = 'foo'
-        config.disabled_client_side_validations = ""
+            config.disabled_json_schema_keywords = {'foo'}
+        config.disabled_json_schema_keywords = set()
 
     def test_servers(self):
         config = petstore_api.Configuration(server_index=1, server_variables={'version': 'v1'})

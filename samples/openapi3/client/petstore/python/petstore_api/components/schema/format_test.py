@@ -84,6 +84,7 @@ class FormatTest(
                     types = {
                         decimal.Decimal,
                     }
+                    format = 'int'
                     inclusive_maximum = 100
                     inclusive_minimum = 10
                     multiple_of = 2
@@ -169,12 +170,12 @@ class FormatTest(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'[a-z]',  # noqa: E501
                         'flags': (
                             re.IGNORECASE
                         )
-                    }]
+                    }
             binary = schemas.BinarySchema
             dateTime = schemas.DateTimeSchema
             uuid = schemas.UUIDSchema
@@ -190,9 +191,9 @@ class FormatTest(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^\d{10}$',  # noqa: E501
-                    }]
+                    }
             
             
             class pattern_with_digits_and_delimiter(
@@ -204,12 +205,12 @@ class FormatTest(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^image_\d{1,3}$',  # noqa: E501
                         'flags': (
                             re.IGNORECASE
                         )
-                    }]
+                    }
             noneProp = schemas.NoneSchema
             __annotations__ = {
                 "number": number,

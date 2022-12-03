@@ -53,6 +53,7 @@ class application_x_www_form_urlencoded(
                     types = {
                         decimal.Decimal,
                     }
+                    format = 'int'
                     inclusive_maximum = 100
                     inclusive_minimum = 10
             
@@ -121,12 +122,12 @@ class application_x_www_form_urlencoded(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'[a-z]',  # noqa: E501
                         'flags': (
                             re.IGNORECASE
                         )
-                    }]
+                    }
             
             
             class pattern_without_delimiter(
@@ -138,9 +139,9 @@ class application_x_www_form_urlencoded(
                     types = {
                         str,
                     }
-                    regex=[{
+                    regex={
                         'pattern': r'^[A-Z].*',  # noqa: E501
-                    }]
+                    }
             byte = schemas.StrSchema
             binary = schemas.BinarySchema
             date = schemas.DateSchema

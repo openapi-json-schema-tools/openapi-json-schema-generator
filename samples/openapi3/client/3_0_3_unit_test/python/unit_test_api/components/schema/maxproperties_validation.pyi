@@ -34,7 +34,7 @@ class MaxpropertiesValidation(
 
 
     class MetaOapg:
-        types = None
+        # any type
 
 
     def __new__(

@@ -52,6 +52,7 @@ class NullableClass(
                         schemas.NoneClass,
                         decimal.Decimal,
                     }
+                    format = 'int'
             
             
                 def __new__(

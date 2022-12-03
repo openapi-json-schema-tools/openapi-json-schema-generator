@@ -42,7 +42,6 @@ class EnumsInProperties(
             
             
             class bar(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 
@@ -52,7 +51,6 @@ class EnumsInProperties(
             
             
             class foo(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

@@ -48,7 +48,6 @@ class application_x_www_form_urlencoded(
                     
                     
                     class items(
-                        schemas.EnumBase,
                         schemas.StrSchema
                     ):
                     
@@ -86,7 +85,6 @@ class application_x_www_form_urlencoded(
             
             
             class enum_form_string(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
             

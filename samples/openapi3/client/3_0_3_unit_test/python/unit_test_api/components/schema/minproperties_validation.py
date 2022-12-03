@@ -34,7 +34,7 @@ class MinpropertiesValidation(
 
 
     class MetaOapg:
-        types = None
+        # any type
         min_properties = 1
 
 

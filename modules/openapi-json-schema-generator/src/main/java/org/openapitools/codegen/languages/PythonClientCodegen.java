@@ -840,7 +840,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // fix needed for values with /n /t etc in them
         String fixedName = handleSpecialCharacters(name);
         CodegenProperty cp = super.fromProperty(fixedName, p, required, schemaIsFromAdditionalProperties, sourceJsonPath);
-
+        if (cp.isInteger && cp.getFormat() == null) {
+            // this generator treats integers as type number
+            // this is done so type int + float has the same base class (decimal.Decimal)
+            // so integer validation info must be set using formatting
+            cp.setFormat("int");
+        }
         if (cp.isAnyType && cp.isNullable) {
             cp.isNullable = false;
         }
@@ -1274,6 +1279,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             postProcessPattern(sc.getPattern(), cm.vendorExtensions);
             String pattern = (String) cm.vendorExtensions.get("x-regex");
             cm.setPattern(pattern);
+        }
+        if (cm.isInteger && cm.getFormat() == null) {
+            // this generator treats integers as type number
+            // this is done so type int + float has the same base class (decimal.Decimal)
+            // so integer validation info must be set using formatting
+            cm.setFormat("int");
         }
         if (cm.isNullable) {
             cm.setIsNull(true);

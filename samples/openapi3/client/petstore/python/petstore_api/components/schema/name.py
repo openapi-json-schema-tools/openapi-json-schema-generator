@@ -36,7 +36,7 @@ class Name(
 
 
     class MetaOapg:
-        types = None
+        # any type
         required = {
             "name",
         }

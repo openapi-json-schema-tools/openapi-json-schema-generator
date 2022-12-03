@@ -43,7 +43,6 @@ class Order(
             
             
             class status(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

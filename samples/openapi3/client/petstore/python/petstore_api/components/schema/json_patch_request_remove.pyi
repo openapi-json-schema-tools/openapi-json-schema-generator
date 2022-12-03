@@ -44,7 +44,6 @@ class JSONPatchRequestRemove(
             
             
             class op(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

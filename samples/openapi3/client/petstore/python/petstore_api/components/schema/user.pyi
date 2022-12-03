@@ -78,12 +78,12 @@ class User(
             
             
             class anyTypeExceptNullProp(
-                schemas.ComposedSchema,
+                schemas.AnyTypeSchema,
             ):
             
             
                 class MetaOapg:
-                    types = None
+                    # any type
                     not_schema = schemas.NoneSchema
             
             
