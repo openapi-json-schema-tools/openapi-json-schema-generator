@@ -1019,6 +1019,62 @@ def validate_not(
     return None
 
 
+def __ensure_discriminator_value_present(
+    disc_property_name: str,
+    validation_metadata: ValidationMetadata,
+    arg
+):
+    if disc_property_name not in arg:
+        # The input data does not contain the discriminator property
+        raise ApiValueError(
+            "Cannot deserialize input data due to missing discriminator. "
+            "The discriminator property '{}' is missing at path: {}".format(disc_property_name, validation_metadata.path_to_item)
+        )
+
+
+def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: str):
+    """
+    Used in schemas with discriminators
+    """
+    if not hasattr(cls.MetaOapg, 'discriminator'):
+        return None
+    disc = cls.MetaOapg.discriminator()
+    if disc_property_name not in disc:
+        return None
+    discriminated_cls = disc[disc_property_name].get(disc_payload_value)
+    if discriminated_cls is not None:
+        return discriminated_cls
+    if not (
+        hasattr(cls.MetaOapg, 'all_of') or
+        hasattr(cls.MetaOapg, 'one_of') or
+        hasattr(cls.MetaOapg, 'any_of')
+    ):
+        return None
+    # TODO stop traveling if a cycle is hit
+    if hasattr(cls.MetaOapg, 'all_of'):
+        for allof_cls in cls.MetaOapg.all_of.classes:
+            allof_cls = _get_class_oapg(allof_cls)
+            discriminated_cls = __get_discriminated_class(
+                allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    if hasattr(cls.MetaOapg, 'one_of'):
+        for oneof_cls in cls.MetaOapg.one_of.classes:
+            oneof_cls = _get_class_oapg(oneof_cls)
+            discriminated_cls = __get_discriminated_class(
+                oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    if hasattr(cls.MetaOapg, 'any_of'):
+        for anyof_cls in cls.MetaOapg.any_of.classes:
+            anyof_cls = _get_class_oapg(anyof_cls)
+            discriminated_cls = __get_discriminated_class(
+                anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    return None
+
+
 def validate_discriminator(
     arg: typing.Any,
     discriminator_fn: typing.Type,
@@ -1029,9 +1085,9 @@ def validate_discriminator(
         return None
     discriminator = discriminator_fn.__func__()
     disc_prop_name = list(discriminator.keys())[0]
-    cls._ensure_discriminator_value_present_oapg(disc_prop_name, validation_metadata, arg)
-    discriminated_cls = cls.get_discriminated_class_oapg(
-        disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
+    __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
+    discriminated_cls = __get_discriminated_class(
+        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
     if discriminated_cls is None:
         raise ApiValueError(
             "Invalid discriminator value was passed in to {}.{} Only the values {} are allowed at {}".format(
@@ -1042,6 +1098,10 @@ def validate_discriminator(
             )
         )
     if discriminated_cls is cls:
+        """
+        Optimistically assume that cls will pass validation
+        If the code invoked _validate_oapg on cls it would infinitely recurse
+        """
         return None
     if validation_metadata.validation_ran_earlier(discriminated_cls):
         path_to_schemas = {}
@@ -1827,63 +1887,7 @@ class ListBase:
         return cast_items
 
 
-class Discriminable:
-    MetaOapg: MetaOapgTyped
-
-    @classmethod
-    def _ensure_discriminator_value_present_oapg(cls, disc_property_name: str, validation_metadata: ValidationMetadata, *args):
-        if not args or args and disc_property_name not in args[0]:
-            # The input data does not contain the discriminator property
-            raise ApiValueError(
-                "Cannot deserialize input data due to missing discriminator. "
-                "The discriminator property '{}' is missing at path: {}".format(disc_property_name, validation_metadata.path_to_item)
-            )
-
-    @classmethod
-    def get_discriminated_class_oapg(cls, disc_property_name: str, disc_payload_value: str):
-        """
-        Used in schemas with discriminators
-        """
-        if not hasattr(cls.MetaOapg, 'discriminator'):
-            return None
-        disc = cls.MetaOapg.discriminator()
-        if disc_property_name not in disc:
-            return None
-        discriminated_cls = disc[disc_property_name].get(disc_payload_value)
-        if discriminated_cls is not None:
-            return discriminated_cls
-        if not (
-            hasattr(cls.MetaOapg, 'all_of') or
-            hasattr(cls.MetaOapg, 'one_of') or
-            hasattr(cls.MetaOapg, 'any_of')
-        ):
-            return None
-        # TODO stop traveling if a cycle is hit
-        if hasattr(cls.MetaOapg, 'all_of'):
-            for allof_cls in cls.MetaOapg.all_of.classes:
-                allof_cls = _get_class_oapg(allof_cls)
-                discriminated_cls = allof_cls.get_discriminated_class_oapg(
-                    disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
-                if discriminated_cls is not None:
-                    return discriminated_cls
-        if hasattr(cls.MetaOapg, 'one_of'):
-            for oneof_cls in cls.MetaOapg.one_of.classes:
-                oneof_cls = _get_class_oapg(oneof_cls)
-                discriminated_cls = oneof_cls.get_discriminated_class_oapg(
-                    disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
-                if discriminated_cls is not None:
-                    return discriminated_cls
-        if hasattr(cls.MetaOapg, 'any_of'):
-            for anyof_cls in cls.MetaOapg.any_of.classes:
-                anyof_cls = _get_class_oapg(anyof_cls)
-                discriminated_cls = anyof_cls.get_discriminated_class_oapg(
-                    disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
-                if discriminated_cls is not None:
-                    return discriminated_cls
-        return None
-
-
-class DictBase(Discriminable):
+class DictBase:
     @classmethod
     def _get_properties_oapg(
         cls,
@@ -2053,7 +2057,7 @@ def cast_to_allowed_types(
     raise ValueError('Invalid type passed in got input={} type={}'.format(arg, type(arg)))
 
 
-class ComposedBase(Discriminable):
+class ComposedBase:
     pass
 
 
