@@ -966,6 +966,41 @@ def validate_not(
     return None
 
 
+def validate_discriminator(
+    arg: typing.Any,
+    discriminator_fn: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    discriminator = discriminator_fn.__func__()
+    disc_prop_name = list(discriminator.keys())[0]
+    cls._ensure_discriminator_value_present_oapg(disc_prop_name, validation_metadata, arg)
+    discriminated_cls = cls.get_discriminated_class_oapg(
+        disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
+    if discriminated_cls is None:
+        raise ApiValueError(
+            "Invalid discriminator value was passed in to {}.{} Only the values {} are allowed at {}".format(
+                cls.__name__,
+                disc_prop_name,
+                list(discriminator[disc_prop_name].keys()),
+                validation_metadata.path_to_item + (disc_prop_name,)
+            )
+        )
+    updated_vm = ValidationMetadata(
+        configuration=validation_metadata.configuration,
+        path_to_item=validation_metadata.path_to_item,
+        seen_classes=validation_metadata.seen_classes | frozenset({cls}),
+        validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+    )
+    if updated_vm.validation_ran_earlier(discriminated_cls):
+        path_to_schemas = {}
+        add_deeper_validated_schemas(updated_vm, path_to_schemas)
+        return path_to_schemas
+    return discriminated_cls._validate_oapg(arg, validation_metadata=updated_vm)
+
+
 json_schema_keyword_to_validator = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
@@ -991,6 +1026,7 @@ json_schema_keyword_to_validator = {
     'any_of': validate_any_of,
     'all_of': validate_all_of,
     'not_schema': validate_not,
+    'discriminator': validate_discriminator
 }
 
 
@@ -1001,12 +1037,10 @@ class Schema:
     __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
     MetaOapg: MetaOapgTyped
     __excluded_cls_properties = {
-        '_excluded_properties',
         '__module__',
         '__dict__',
         '__weakref__',
         '__doc__',
-        'discriminator',
     }
 
     @classmethod
@@ -1796,19 +1830,22 @@ class Discriminable:
             return None
         # TODO stop traveling if a cycle is hit
         if hasattr(cls.MetaOapg, 'all_of'):
-            for allof_cls in cls.MetaOapg.all_of():
+            for allof_cls in cls.MetaOapg.all_of.classes:
+                allof_cls = _get_class_oapg(allof_cls)
                 discriminated_cls = allof_cls.get_discriminated_class_oapg(
                     disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
                 if discriminated_cls is not None:
                     return discriminated_cls
         if hasattr(cls.MetaOapg, 'one_of'):
-            for oneof_cls in cls.MetaOapg.one_of():
+            for oneof_cls in cls.MetaOapg.one_of.classes:
+                oneof_cls = _get_class_oapg(oneof_cls)
                 discriminated_cls = oneof_cls.get_discriminated_class_oapg(
                     disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
                 if discriminated_cls is not None:
                     return discriminated_cls
         if hasattr(cls.MetaOapg, 'any_of'):
-            for anyof_cls in cls.MetaOapg.any_of():
+            for anyof_cls in cls.MetaOapg.any_of.classes:
+                anyof_cls = _get_class_oapg(anyof_cls)
                 discriminated_cls = anyof_cls.get_discriminated_class_oapg(
                     disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
                 if discriminated_cls is not None:
