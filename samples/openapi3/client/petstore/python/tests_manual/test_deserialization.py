@@ -355,9 +355,8 @@ class DeserializationTests(unittest.TestCase):
                 self.json_content_type: api_client.MediaType(schema=banana_req.BananaReq),
             },
         )
-        with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiTypeError,
-            r"BananaReq was passed 1 invalid argument: \['unknown-group'\]"
+        with self.assertRaises(
+            petstore_api.exceptions.ApiValueError
         ):
             data = {
                 'lengthCm': 21.2,

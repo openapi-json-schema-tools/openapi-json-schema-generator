@@ -46,6 +46,8 @@ JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD = {
     'oneOf': 'one_of',
     'anyOf': 'any_of',
     'allOf': 'all_of',
+    'not': 'not_schema',
+    'discriminator': 'discriminator'
 }
 
 class Configuration(object):

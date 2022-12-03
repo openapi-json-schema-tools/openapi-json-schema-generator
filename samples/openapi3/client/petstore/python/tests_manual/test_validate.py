@@ -14,6 +14,7 @@ from petstore_api.components.schema.array_with_validations_in_items import (
     ArrayWithValidationsInItems,
 )
 from petstore_api.components.schema.foo import Foo
+from petstore_api.components.schema.bar import Bar
 from petstore_api.components.schema.animal import Animal
 from petstore_api.components.schema.dog import Dog
 from petstore_api.components.schema.boolean_enum import BooleanEnum
@@ -237,62 +238,73 @@ class TestValidateCalls(unittest.TestCase):
                 )
 
     def test_dict_validate_direct_instantiation(self):
-        call_results = [
-            {("args[0]",): {Foo, frozendict.frozendict}},
-            {("args[0]", "bar"): {StrSchema, str}}
-        ]
-        with patch.object(Schema, "_validate_oapg", side_effect=call_results) as mock_validate:
-            Foo(bar="a")
-            calls = [
-                call(
+        with patch.object(Foo, "_validate_oapg", side_effect=Foo._validate_oapg) as mock_outer_validate:
+            with patch.object(
+                Bar,
+                "_validate_oapg",
+                side_effect=Bar._validate_oapg,
+            ) as mock_inner_validate:
+                configuration = Configuration()
+                Foo(bar="a", _configuration=configuration)
+                mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",)),
-                ),
-                call(
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=("args[0]",),
+                        configuration=configuration
+                    )
+                )
+                mock_inner_validate.assert_called_once_with(
                     "a",
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", "bar")),
-                ),
-            ]
-            mock_validate.assert_has_calls(
-                calls
-            )
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=("args[0]", "bar"),
+                        configuration=configuration
+                    ),
+                )
 
     def test_dict_validate_direct_instantiation_cast_item(self):
         bar = StrSchema("a")
-        return_value = {
-            ("args[0]",): {Foo, frozendict.frozendict}
-        }
         # only the Foo dict is validated because the bar property value was already validated
-        with patch.object(Schema, "_validate_oapg", return_value=return_value) as mock_validate:
-            Foo(bar=bar)
-            mock_validate.assert_called_once_with(
-                frozendict.frozendict(dict(bar='a')),
-                validation_metadata=ValidationMetadata(
-                    validated_path_to_schemas={('args[0]', 'bar'): {str, StrSchema}}
+        with patch.object(Foo, "_validate_oapg", side_effect=Foo._validate_oapg) as mock_outer_validate:
+            with patch.object(
+                Bar,
+                "_validate_oapg",
+                side_effect=Bar._validate_oapg,
+            ) as mock_inner_validate:
+                configuration = Configuration()
+                Foo(bar=bar, _configuration=configuration)
+                mock_outer_validate.assert_called_once_with(
+                    frozendict.frozendict(dict(bar='a')),
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=('args[0]',),
+                        configuration=configuration,
+                        validated_path_to_schemas={('args[0]', 'bar'): {str, StrSchema}}
+                    )
                 )
-            )
+                mock_inner_validate.assert_not_called()
 
     def test_dict_validate_from_openapi_data_instantiation(self):
-
-        return_values = [
-            {("args[0]",): {Foo, frozendict.frozendict}},
-            {("args[0]", 'bar'): {StrSchema, str}}
-        ]
-        with patch.object(Schema, "_validate_oapg", side_effect=return_values) as mock_validate:
-            Foo.from_openapi_data_oapg({"bar": "a"})
-            calls = [
-                call(
+        with patch.object(Foo, "_validate_oapg", side_effect=Foo._validate_oapg) as mock_outer_validate:
+            with patch.object(
+                Bar,
+                "_validate_oapg",
+                side_effect=Bar._validate_oapg,
+            ) as mock_inner_validate:
+                configuration = Configuration()
+                Foo.from_openapi_data_oapg({"bar": "a"}, _configuration=configuration)
+                mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",)),
-                ),
-                call(
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=("args[0]",),
+                        configuration=configuration
+                    )
+                )
+                mock_inner_validate.assert_called_once_with(
                     "a",
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", "bar")),
-                ),
-            ]
-            mock_validate.assert_has_calls(
-                calls
-            )
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=("args[0]", "bar"),
+                        configuration=configuration
+                    ),
+                )
 
 
 if __name__ == "__main__":

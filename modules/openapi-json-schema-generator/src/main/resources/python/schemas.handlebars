@@ -857,6 +857,13 @@ def validate_one_of(
         if schema in path_to_schemas[validation_metadata.path_to_item]:
             oneof_classes.append(schema)
             continue
+        if schema is cls:
+            """
+            optimistically assume that cls schema will pass validation
+            do not invoke _validate_oapg on it because that is recursive
+            """
+            oneof_classes.append(schema)
+            continue
         if validation_metadata.validation_ran_earlier(schema):
             oneof_classes.append(schema)
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
@@ -918,6 +925,13 @@ def validate_any_of(
     # TODO add discriminated_cls calculation
     for anyof_cls in any_of_cls.classes:
         schema = _get_class_oapg(anyof_cls)
+        if schema is cls:
+            """
+            optimistically assume that cls schema will pass validation
+            do not invoke _validate_oapg on it because that is recursive
+            """
+            anyof_classes.append(schema)
+            continue
         if validation_metadata.validation_ran_earlier(schema):
             anyof_classes.append(schema)
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
@@ -964,6 +978,12 @@ def validate_all_of(
     path_to_schemas = defaultdict(set)
     for allof_cls in all_of_cls.classes:
         schema = _get_class_oapg(allof_cls)
+        if schema is cls:
+            """
+            optimistically assume that cls schema will pass validation
+            do not invoke _validate_oapg on it because that is recursive
+            """
+            continue
         if validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
             continue
@@ -1021,16 +1041,18 @@ def validate_discriminator(
                 validation_metadata.path_to_item + (disc_prop_name,)
             )
         )
+    if discriminated_cls is cls:
+        return None
+    if validation_metadata.validation_ran_earlier(discriminated_cls):
+        path_to_schemas = {}
+        add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+        return path_to_schemas
     updated_vm = ValidationMetadata(
         path_to_item=validation_metadata.path_to_item,
         configuration=validation_metadata.configuration,
         seen_classes=validation_metadata.seen_classes | frozenset({cls}),
         validated_path_to_schemas=validation_metadata.validated_path_to_schemas
     )
-    if updated_vm.validation_ran_earlier(discriminated_cls):
-        path_to_schemas = {}
-        add_deeper_validated_schemas(updated_vm, path_to_schemas)
-        return path_to_schemas
     return discriminated_cls._validate_oapg(arg, validation_metadata=updated_vm)
 
 
@@ -1650,37 +1672,6 @@ else:
         pass
 
 
-class ValidatorBase:
-    @staticmethod
-    def _is_json_validation_enabled_oapg(schema_keyword, configuration=None):
-        """Returns true if JSON schema validation is enabled for the specified
-        validation keyword. This can be used to skip JSON schema structural validation
-        as requested in the configuration.
-        Note: the suffix _oapg stands for openapi python (experimental) generator and
-        it has been added to prevent collisions with other methods and properties
-
-        Args:
-            schema_keyword (string): the name of a JSON schema validation keyword.
-            configuration (Configuration): the configuration class.
-        """
-
-        return (configuration is None or
-            not hasattr(configuration, '_disabled_client_side_validations') or
-            schema_keyword not in configuration._disabled_client_side_validations)
-
-    @staticmethod
-    def _raise_validation_error_message_oapg(value, constraint_msg, constraint_value, path_to_item, additional_txt=""):
-        raise ApiValueError(
-            "Invalid value `{value}`, {constraint_msg} `{constraint_value}`{additional_txt} at {path_to_item}".format(
-                value=value,
-                constraint_msg=constraint_msg,
-                constraint_value=constraint_value,
-                additional_txt=additional_txt,
-                path_to_item=path_to_item,
-            )
-        )
-
-
 class EnumBase:
     pass
 
@@ -1716,7 +1707,7 @@ class NoneBase:
         return False
 
 
-class StrBase(ValidatorBase):
+class StrBase:
     MetaOapg: MetaOapgTyped
 
     @property
@@ -1774,7 +1765,7 @@ class DecimalBase:
         return decimal.Decimal(self)
 
 
-class NumberBase(ValidatorBase):
+class NumberBase:
     MetaOapg: MetaOapgTyped
 
     @property
@@ -1808,7 +1799,7 @@ class NumberBase(ValidatorBase):
             return self._as_float
 
 
-class ListBase(ValidatorBase):
+class ListBase:
     MetaOapg: MetaOapgTyped
 
     @classmethod
@@ -1892,7 +1883,7 @@ class Discriminable:
         return None
 
 
-class DictBase(Discriminable, ValidatorBase):
+class DictBase(Discriminable):
     @classmethod
     def _get_properties_oapg(
         cls,
