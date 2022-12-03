@@ -55,7 +55,6 @@ class ComplexQuadrilateral(
                         
                         
                         class quadrilateralType(
-                            schemas.EnumBase,
                             schemas.StrSchema
                         ):
                         

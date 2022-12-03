@@ -55,7 +55,6 @@ class EquilateralTriangle(
                         
                         
                         class triangleType(
-                            schemas.EnumBase,
                             schemas.StrSchema
                         ):
                         

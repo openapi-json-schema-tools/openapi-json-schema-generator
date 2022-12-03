@@ -46,7 +46,6 @@ class JSONPatchRequestAddReplaceTest(
             
             
             class op(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

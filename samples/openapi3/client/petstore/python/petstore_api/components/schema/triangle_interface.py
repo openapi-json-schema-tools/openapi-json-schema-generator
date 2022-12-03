@@ -44,7 +44,6 @@ class TriangleInterface(
             
             
             class shapeType(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
             

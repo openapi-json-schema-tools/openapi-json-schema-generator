@@ -54,7 +54,6 @@ class IsoscelesTriangle(
                         
                         
                         class triangleType(
-                            schemas.EnumBase,
                             schemas.StrSchema
                         ):
                             

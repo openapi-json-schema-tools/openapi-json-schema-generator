@@ -55,7 +55,6 @@ class ScaleneTriangle(
                         
                         
                         class triangleType(
-                            schemas.EnumBase,
                             schemas.StrSchema
                         ):
                         

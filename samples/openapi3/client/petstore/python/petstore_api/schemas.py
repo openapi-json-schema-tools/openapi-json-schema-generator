@@ -1241,7 +1241,9 @@ class Schema:
             """
             cls._process_schema_classes_oapg(schema_classes)
             enum_schema = any(
-                issubclass(this_cls, EnumBase) for this_cls in schema_classes)
+                issubclass(this_cls, Schema) and hasattr(this_cls.MetaOapg, "enum_value_to_name")
+                for this_cls in schema_classes
+            )
             inheritable_primitive_type = schema_classes.intersection(cls.__inheritable_primitive_types_set)
             chosen_schema_classes = schema_classes - inheritable_primitive_type
             suffix = tuple(inheritable_primitive_type)
@@ -1697,10 +1699,6 @@ else:
     # qty 8
     class NoneFrozenDictTupleStrDecimalBoolFileBytesMixin:
         pass
-
-
-class EnumBase:
-    pass
 
 
 class BoolBase:

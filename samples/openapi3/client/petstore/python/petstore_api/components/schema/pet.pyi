@@ -102,7 +102,6 @@ class Pet(
             
             
             class status(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 

@@ -43,7 +43,6 @@ class BasquePig(
             
             
             class className(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
             

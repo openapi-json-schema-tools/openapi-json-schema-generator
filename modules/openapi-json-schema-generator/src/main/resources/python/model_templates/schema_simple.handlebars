@@ -1,9 +1,6 @@
 
 
 class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/if}}(
-{{#if isEnum}}
-    schemas.EnumBase,
-{{/if}}
     {{> model_templates/xbase_schema }}
 ):
 {{#if this.classname}}

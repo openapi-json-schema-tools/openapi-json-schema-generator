@@ -39,7 +39,6 @@ class EnumArrays(
             
             
             class just_symbol(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
                 
@@ -62,7 +61,6 @@ class EnumArrays(
                     
                     
                     class items(
-                        schemas.EnumBase,
                         schemas.StrSchema
                     ):
                         

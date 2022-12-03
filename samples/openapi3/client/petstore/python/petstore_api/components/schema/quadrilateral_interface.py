@@ -44,7 +44,6 @@ class QuadrilateralInterface(
             
             
             class shapeType(
-                schemas.EnumBase,
                 schemas.StrSchema
             ):
             
