@@ -34,7 +34,7 @@ class AllofWithBaseSchema(
 
 
     class MetaOapg:
-        types = None
+        # any type
         required = {
             "bar",
         }
@@ -45,133 +45,124 @@ class AllofWithBaseSchema(
                 "bar": bar,
             }
         
-        
-        class all_of_0(
-            schemas.AnyTypeSchema,
-        ):
-        
-        
-            class MetaOapg:
-                types = None
-                required = {
-                    "foo",
-                }
-                
-                class properties:
-                    foo = schemas.StrSchema
-                    __annotations__ = {
-                        "foo": foo,
+        class all_of:
+            
+            
+            class all_of_0(
+                schemas.AnyTypeSchema,
+            ):
+            
+            
+                class MetaOapg:
+                    # any type
+                    required = {
+                        "foo",
                     }
-        
+                    
+                    class properties:
+                        foo = schemas.StrSchema
+                        __annotations__ = {
+                            "foo": foo,
+                        }
             
-            foo: MetaOapg.properties.foo
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                foo: typing.Union[MetaOapg.properties.foo, str, ],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'all_of_0':
-                return super().__new__(
-                    cls,
-                    *_args,
-                    foo=foo,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-        
-        
-        class all_of_1(
-            schemas.AnyTypeSchema,
-        ):
-        
-        
-            class MetaOapg:
-                types = None
-                required = {
-                    "baz",
-                }
                 
-                class properties:
-                    baz = schemas.NoneSchema
-                    __annotations__ = {
-                        "baz": baz,
-                    }
-        
+                foo: MetaOapg.properties.foo
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
+                    return super().get_item_oapg(name)
+                
             
-            baz: MetaOapg.properties.baz
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-            
-            def __getitem__(self, name: typing.Union[typing_extensions.Literal["baz", ], str]):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-            
-            
-            @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
-            
-            @typing.overload
-            def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-            
-            def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["baz", ], str]):
-                return super().get_item_oapg(name)
-            
-        
-            def __new__(
-                cls,
-                *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                baz: typing.Union[MetaOapg.properties.baz, None, ],
-                _configuration: typing.Optional[schemas.Configuration] = None,
-                **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'all_of_1':
-                return super().__new__(
+                def __new__(
                     cls,
-                    *_args,
-                    baz=baz,
-                    _configuration=_configuration,
-                    **kwargs,
-                )
-        
-        @classmethod
-        @functools.lru_cache()
-        def all_of(cls):
-            # we need this here to make our import statements work
-            # we must store _composed_schemas in here so the code is only run
-            # when we invoke this method. If we kept this at the class
-            # level we would get an error because the class level
-            # code would be run when this module is imported, and these composed
-            # classes don't exist yet because their module has not finished
-            # loading
-            return [
-                cls.all_of_0,
-                cls.all_of_1,
+                    *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    foo: typing.Union[MetaOapg.properties.foo, str, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                ) -> 'all_of_0':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        foo=foo,
+                        _configuration=_configuration,
+                        **kwargs,
+                    )
+            
+            
+            class all_of_1(
+                schemas.AnyTypeSchema,
+            ):
+            
+            
+                class MetaOapg:
+                    # any type
+                    required = {
+                        "baz",
+                    }
+                    
+                    class properties:
+                        baz = schemas.NoneSchema
+                        __annotations__ = {
+                            "baz": baz,
+                        }
+            
+                
+                baz: MetaOapg.properties.baz
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["baz", ], str]):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["baz", ], str]):
+                    return super().get_item_oapg(name)
+                
+            
+                def __new__(
+                    cls,
+                    *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    baz: typing.Union[MetaOapg.properties.baz, None, ],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
+                ) -> 'all_of_1':
+                    return super().__new__(
+                        cls,
+                        *_args,
+                        baz=baz,
+                        _configuration=_configuration,
+                        **kwargs,
+                    )
+            classes = [
+                all_of_0,
+                all_of_1,
             ]
 
     

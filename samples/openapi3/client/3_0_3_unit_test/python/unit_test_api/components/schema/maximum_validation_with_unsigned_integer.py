@@ -34,7 +34,7 @@ class MaximumValidationWithUnsignedInteger(
 
 
     class MetaOapg:
-        types = None
+        # any type
         inclusive_maximum = 300
 
 

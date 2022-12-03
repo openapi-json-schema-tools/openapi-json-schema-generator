@@ -34,7 +34,7 @@ class ByNumber(
 
 
     class MetaOapg:
-        types = None
+        # any type
         multiple_of = 1.5
 
 

@@ -34,7 +34,7 @@ class Operator(
 
 
     class MetaOapg:
-        types = None
+        # any type
         
         @staticmethod
         def discriminator():
@@ -47,19 +47,18 @@ class Operator(
                 }
             }
         
-        @classmethod
-        @functools.lru_cache()
-        def one_of(cls):
-            # we need this here to make our import statements work
-            # we must store _composed_schemas in here so the code is only run
-            # when we invoke this method. If we kept this at the class
-            # level we would get an error because the class level
-            # code would be run when this module is imported, and these composed
-            # classes don't exist yet because their module has not finished
-            # loading
-            return [
-                addition_operator.AdditionOperator,
-                subtraction_operator.SubtractionOperator,
+        class one_of:
+        
+            @staticmethod
+            def one_of_0() -> typing.Type['addition_operator.AdditionOperator']:
+                return addition_operator.AdditionOperator
+        
+            @staticmethod
+            def one_of_1() -> typing.Type['subtraction_operator.SubtractionOperator']:
+                return subtraction_operator.SubtractionOperator
+            classes = [
+                one_of_0,
+                one_of_1,
             ]
 
 

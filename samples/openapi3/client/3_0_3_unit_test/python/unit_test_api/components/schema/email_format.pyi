@@ -34,7 +34,7 @@ class EmailFormat(
 
 
     class MetaOapg:
-        types = None
+        # any type
         format = 'email'
 
 
