@@ -4548,6 +4548,9 @@ public class DefaultCodegen implements CodegenConfig {
     public CodegenHeader fromHeader(Header header, String componentName, String sourceJsonPath) {
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(header, codegenHeader, sourceJsonPath, "Header");
+        if (header.getStyle() != null) {
+            codegenHeader.style = header.getStyle().toString();
+        }
         return codegenHeader;
     }
 
@@ -4584,10 +4587,6 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (header.getContent() != null) {
             Content content = header.getContent();
             codegenHeader.setContent(getContent(content, codegenHeader.imports, "schema", sourceJsonPath + "/content"));
-        }
-
-        if (header.getStyle() != null) {
-            codegenHeader.style = header.getStyle().toString();
         }
 
         // the default value is false
@@ -4630,10 +4629,11 @@ public class DefaultCodegen implements CodegenConfig {
         prameterHeader.setExplode(parameter.getExplode());
         prameterHeader.setExtensions(parameter.getExtensions());
         prameterHeader.setRequired(parameter.getRequired());
-        String enumName = parameter.getStyle().name();
-        prameterHeader.setStyle(Header.StyleEnum.valueOf(enumName));
         setHeaderInfo(prameterHeader, codegenParameter, sourceJsonPath, "Parameter");
 
+        if (parameter.getStyle() != null) {
+            codegenParameter.style = parameter.getStyle().toString();
+        }
         codegenParameter.baseName = parameter.getName();
 
         if (GlobalSettings.getProperty("debugParser") != null) {

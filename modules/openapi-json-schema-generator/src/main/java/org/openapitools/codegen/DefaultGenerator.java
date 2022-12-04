@@ -725,7 +725,7 @@ public class DefaultGenerator implements Generator {
                     for (CodegenParameter header: response.getResponseHeaders()) {
                         for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
                             Map<String, Object> headerMap = new HashMap<>();
-                            headerMap.put("parameter", header);
+                            headerMap.put("header", header);
                             headerMap.put("imports", header.imports);
                             headerMap.put("packageName", config.packageName());
                             String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(header.baseName) + ".py";
