@@ -20,7 +20,9 @@ package org.openapitools.codegen;
 import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.SecurityScheme;
@@ -388,4 +390,6 @@ public interface CodegenConfig {
     String getBodyParameterName(CodegenOperation co);
 
     CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
+
+    CodegenHeader fromHeader(Header parameter, String componentName, String sourceJsonPath);
 }

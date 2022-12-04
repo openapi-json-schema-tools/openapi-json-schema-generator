@@ -17,30 +17,47 @@
 
 package org.openapitools.codegen;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Describes a single operation parameter in the OAS specification.
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenParameter extends CodegenHeader {
-    public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
-            isCookieParam, isBodyParam;
-    public String baseName;
+public class CodegenHeader {
+    public boolean isDeepObject, isAllowEmptyValue, isExplode;
+    public String paramName,
+            description, unescapedDescription, style;
 
-    public CodegenParameter copy() {
-        CodegenParameter output = new CodegenParameter();
-        output.baseName = this.baseName;
+    public String nameInLowerCase; // property name in lower case
+    public String example; // example value (x-example)
+    public String jsonSchema;
+    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
+    public boolean isDeprecated;
+    protected CodegenProperty schema;
+    /**
+     * Determines whether this parameter is mandatory. If the parameter is in "path",
+     * this property is required and its value MUST be true. Otherwise, the property
+     * MAY be included and its default value is false.
+     */
+    public boolean required;
+    protected boolean hasMultipleTypes = false;
+    protected LinkedHashMap<String, CodegenMediaType> content;
+    protected String ref;
+    protected String refModule;
+
+    public Set<String> imports = new HashSet<String>();
+
+    public CodegenHeader copy() {
+        CodegenHeader output = new CodegenHeader();
         output.paramName = this.paramName;
         output.description = this.description;
         output.unescapedDescription = this.unescapedDescription;
-        output.isFormParam = this.isFormParam;
-        output.isQueryParam = this.isQueryParam;
-        output.isPathParam = this.isPathParam;
-        output.isHeaderParam = this.isHeaderParam;
-        output.isCookieParam = this.isCookieParam;
-        output.isBodyParam = this.isBodyParam;
         output.required = this.required;
         output.jsonSchema = this.jsonSchema;
         output.example = this.example;
@@ -74,21 +91,15 @@ public class CodegenParameter extends CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
+        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CodegenParameter)) return false;
-        CodegenParameter that = (CodegenParameter) o;
-        return isFormParam == that.isFormParam &&
-                isQueryParam == that.isQueryParam &&
-                isPathParam == that.isPathParam &&
-                isHeaderParam == that.isHeaderParam &&
-                isCookieParam == that.isCookieParam &&
-                isBodyParam == that.isBodyParam &&
-                isExplode == that.isExplode &&
+        if (!(o instanceof CodegenHeader)) return false;
+        CodegenHeader that = (CodegenHeader) o;
+        return isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
                 Objects.equals(ref, that.getRef()) &&
@@ -96,7 +107,6 @@ public class CodegenParameter extends CodegenHeader {
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(content, that.getContent()) &&
                 Objects.equals(schema, that.getSchema()) &&
-                Objects.equals(baseName, that.baseName) &&
                 Objects.equals(paramName, that.paramName) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
@@ -111,14 +121,7 @@ public class CodegenParameter extends CodegenHeader {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenParameter{");
-        sb.append("isFormParam=").append(isFormParam);
-        sb.append(", isQueryParam=").append(isQueryParam);
-        sb.append(", isPathParam=").append(isPathParam);
-        sb.append(", isHeaderParam=").append(isHeaderParam);
-        sb.append(", isCookieParam=").append(isCookieParam);
-        sb.append(", isBodyParam=").append(isBodyParam);
         sb.append(", isExplode=").append(isExplode);
-        sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", paramName='").append(paramName).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');

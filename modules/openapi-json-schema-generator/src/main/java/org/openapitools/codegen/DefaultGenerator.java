@@ -22,6 +22,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
@@ -839,6 +840,24 @@ public class DefaultGenerator implements Generator {
         }
         requestBodies = new TreeMap<>(requestBodies);
         return requestBodies;
+    }
+
+    private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
+        final Map<String, Header> specHeaders = this.openAPI.getComponents().getHeaders();
+        if (specHeaders == null) {
+            LOGGER.warn("Skipping generation of specHeaders because specification document has no specHeaders.");
+            return null;
+        }
+        TreeMap<String, CodegenHeader> headers = new TreeMap<>();
+        for (Map.Entry<String, Header> entry: specHeaders.entrySet()) {
+            String componentName = entry.getKey();
+            Header specHeader = entry.getValue();
+            String sourceJsonPath = "#/components/headers/" + componentName;
+            // String bodyParameterName = config.getBodyParameterName(null);
+            // CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
+            // use refRequestBody so the refModule info will be contained inside the parameter
+        }
+        return headers;
     }
 
     void generateModels(List<File> files, List<ModelMap> allModels, List<String> unusedModels) {
