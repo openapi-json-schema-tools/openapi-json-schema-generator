@@ -63,6 +63,9 @@ public class CodegenParameter extends CodegenHeader {
         if (this.imports != null) {
             output.imports = imports;
         }
+        if (this.modulePath != null) {
+            output.modulePath = modulePath;
+        }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
@@ -74,7 +77,7 @@ public class CodegenParameter extends CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
+        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, modulePath);
     }
 
     @Override
@@ -91,6 +94,7 @@ public class CodegenParameter extends CodegenHeader {
                 isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
+                Objects.equals(modulePath, that.modulePath) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(refModule, that.getRefModule()) &&
@@ -136,6 +140,7 @@ public class CodegenParameter extends CodegenHeader {
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
+        sb.append(", modulePath=").append(modulePath);
         sb.append('}');
         return sb.toString();
     }

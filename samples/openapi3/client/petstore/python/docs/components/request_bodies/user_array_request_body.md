@@ -1,4 +1,5 @@
-# <a id="petstore_api.components.request_bodies.user_array_request_body.application_json" >petstore_api.components.request_bodies.user_array_request_body.application_json</a>
+# petstore_api.components.request_bodies.user_array_request_body
+# application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -6463,12 +6463,20 @@ public class DefaultCodegen implements CodegenConfig {
             usedBody = ModelUtils.getReferencedRequestBody(this.openAPI, body);
             usedSourceJsonPath = bodyRef;
         }
-
         if (usedBody == null) {
             LOGGER.error("body in fromRequestBody cannot be null!");
             throw new RuntimeException("body in fromRequestBody cannot be null!");
         }
         CodegenParameter codegenParameter = CodegenModelFactory.newInstance(CodegenModelType.PARAMETER);
+        if (sourceJsonPath != null) {
+            String[] refPieces = sourceJsonPath.split("/");
+            if (sourceJsonPath.startsWith("#/components/requestBodies/") && refPieces.length == 4) {
+                String componentName = refPieces[3];
+                codegenParameter.setModulePath(toModulePath(componentName, "requestBodies"));
+                String refModule = toRefModule(sourceJsonPath, "requestBodies");
+                codegenParameter.setRefModule(refModule);
+            }
+        }
         codegenParameter.baseName = "UNKNOWN_BASE_NAME";
         codegenParameter.paramName = "UNKNOWN_PARAM_NAME";
         codegenParameter.description = escapeText(usedBody.getDescription());

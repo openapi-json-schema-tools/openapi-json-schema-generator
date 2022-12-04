@@ -29,7 +29,7 @@ import java.util.Set;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenHeader {
+public class CodegenHeader implements OpenapiComponent {
     public boolean isExplode;
     public String paramName,
             description, unescapedDescription, style;
@@ -52,6 +52,8 @@ public class CodegenHeader {
     protected String refModule;
 
     public Set<String> imports = new HashSet<String>();
+
+    protected String modulePath;
 
     public CodegenHeader copy() {
         CodegenHeader output = new CodegenHeader();
@@ -80,6 +82,9 @@ public class CodegenHeader {
         if (this.imports != null) {
             output.imports = imports;
         }
+        if (this.modulePath != null) {
+            output.modulePath = modulePath;
+        }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
@@ -87,9 +92,17 @@ public class CodegenHeader {
         return output;
     }
 
+    public String getModulePath() {
+        return modulePath;
+    }
+
+    public void setModulePath(String modulePath) {
+        this.modulePath = modulePath;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
+        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, modulePath);
     }
 
     @Override
@@ -100,6 +113,7 @@ public class CodegenHeader {
         return isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
+                Objects.equals(modulePath, that.modulePath) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(refModule, that.getRefModule()) &&
@@ -133,6 +147,7 @@ public class CodegenHeader {
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
+        sb.append(", modulePath=").append(modulePath);
         sb.append('}');
         return sb.toString();
     }

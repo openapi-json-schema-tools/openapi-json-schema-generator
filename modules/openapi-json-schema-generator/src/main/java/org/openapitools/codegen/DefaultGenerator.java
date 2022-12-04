@@ -784,11 +784,7 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/requestBodies/" + componentName;
             String bodyParameterName = config.getBodyParameterName(null);
             CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
-            // use refRequestBody so the refModule info will be contained inside the parameter
-            RequestBody specRefRequestBody = new RequestBody();
-            specRefRequestBody.set$ref(sourceJsonPath);
-            CodegenParameter refRequestBody = config.fromRequestBody(specRefRequestBody, bodyParameterName, null);
-            requestBodies.put(componentName, refRequestBody);
+            requestBodies.put(componentName, requestBody);
             Boolean generateRequestBodies = Boolean.TRUE;
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
@@ -823,8 +819,7 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("anchorPrefix", "");
-                templateData.put("schemaNamePrefix1", config.packageName() + ".components.request_bodies." + docFilename);
-                templateData.put("bodyParam", refRequestBody);
+                templateData.put("bodyParam", requestBody);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {
