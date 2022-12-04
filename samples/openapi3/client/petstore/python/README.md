@@ -368,6 +368,11 @@ HTTP request | Method | Description
 - [success_inline_content_and_header_response](docs/components/responses/success_inline_content_and_header_response.md)
 - [success_with_json_api_response_response](docs/components/responses/success_with_json_api_response_response.md)
 
+## Component Headers
+
+- [](docs/components/headers/.md)
+- [](docs/components/headers/.md)
+
 ## Documentation For Authorization
 
 

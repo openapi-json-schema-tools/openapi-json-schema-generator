@@ -396,5 +396,5 @@ public interface CodegenConfig {
 
     CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
 
-    CodegenHeader fromHeader(Header parameter, String componentName, String sourceJsonPath);
+    CodegenHeader fromHeader(Header parameter, String sourceJsonPath);
 }

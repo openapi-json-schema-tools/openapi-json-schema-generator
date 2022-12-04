@@ -1643,6 +1643,11 @@ components:
       description: Success
     SuccessWithJsonApiResponse:
       description: successful operation
+      headers:
+        stringHeader:
+          $ref: '#/components/headers/StringHeader'
+        numberHeader:
+          $ref: '#/components/headers/NumberHeader'
       content:
         application/json:
           schema:
@@ -1687,6 +1692,18 @@ components:
             $ref: '#/components/schemas/Pet'
       description: Pet object that needs to be added to the store
       required: true
+  headers:
+    StringHeader:
+      description: string header description
+      required: true
+      schema:
+        type: string
+    NumberHeader:
+      description: number header description
+      required: true
+      schema:
+        type: string
+        format: number
   securitySchemes:
     petstore_auth:
       type: oauth2

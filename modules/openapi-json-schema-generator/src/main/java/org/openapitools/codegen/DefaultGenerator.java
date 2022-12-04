@@ -557,13 +557,15 @@ public class DefaultGenerator implements Generator {
                             String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
                             String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
                             pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
-                            for (CodegenParameter header: response.getResponseHeaders()) {
+                            for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
+                                String headerName = headerInfo.getKey();
+                                CodegenHeader header = headerInfo.getValue();
                                 for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
                                     Map<String, Object> headerMap = new HashMap<>();
                                     headerMap.put("header", header);
                                     headerMap.put("imports", header.imports);
                                     headerMap.put("packageName", packageName);
-                                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
+                                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(headerName) + ".py"));
                                     pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
                                 }
                             }
@@ -718,13 +720,15 @@ public class DefaultGenerator implements Generator {
                     throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
                 }
                 if (response.getResponseHeaders() != null) {
-                    for (CodegenParameter header: response.getResponseHeaders()) {
+                    for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
+                        String headerName = headerInfo.getKey();
+                        CodegenHeader header = headerInfo.getValue();
                         for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
                             Map<String, Object> headerMap = new HashMap<>();
                             headerMap.put("header", header);
                             headerMap.put("imports", header.imports);
                             headerMap.put("packageName", config.packageName());
-                            String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(header.baseName) + ".py";
+                            String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(headerName) + ".py";
                             try {
                                 File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
                                 if (written != null) {
@@ -829,6 +833,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        // sort them
         requestBodies = new TreeMap<>(requestBodies);
         return requestBodies;
     }
@@ -844,12 +849,8 @@ public class DefaultGenerator implements Generator {
             String componentName = entry.getKey();
             Header specHeader = entry.getValue();
             String sourceJsonPath = "#/components/headers/" + componentName;
-            CodegenHeader header = config.fromHeader(specHeader, componentName, sourceJsonPath);
-            // use refHeader so the refModule info will be contained inside the parameter
-            Header specRefHeader = new Header();
-            specRefHeader.set$ref(sourceJsonPath);
-            CodegenHeader refHeader = config.fromHeader(specRefHeader, null, null);
-            headers.put(componentName, refHeader);
+            CodegenHeader header = config.fromHeader(specHeader, sourceJsonPath);
+            headers.put(componentName, header);
             Boolean generateHeaders = Boolean.TRUE;
             for (String templateName : config.headerTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
@@ -874,6 +875,8 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        // sort them
+        headers = new TreeMap<>(headers);
         return headers;
     }
 
@@ -1244,7 +1247,7 @@ public class DefaultGenerator implements Generator {
         generateVersionMetadata(files);
     }
 
-    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies, TreeMap<String, CodegenResponse> responses) {
+    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies, TreeMap<String, CodegenResponse> responses, TreeMap<String, CodegenHeader> headers) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1279,6 +1282,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
         bundle.put("requestBodies", requestBodies);
         bundle.put("responses", responses);
+        bundle.put("headers", headers);
         bundle.put("models", allModels);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
@@ -1405,9 +1409,11 @@ public class DefaultGenerator implements Generator {
         generatePaths(files, paths);
         // components.responses
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
+        // components.headers
+        TreeMap<String, CodegenHeader> headers = generateHeaders(files);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies, responses);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies, responses, headers);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {

@@ -261,6 +261,8 @@ petstore_api/apis/tags/pet_api.py
 petstore_api/apis/tags/store_api.py
 petstore_api/apis/tags/user_api.py
 petstore_api/components/__init__.py
+petstore_api/components/headers/number_header_header.py
+petstore_api/components/headers/string_header_header.py
 petstore_api/components/request_bodies/__init__.py
 petstore_api/components/request_bodies/client_request_body.py
 petstore_api/components/request_bodies/pet_request_body.py
@@ -270,6 +272,8 @@ petstore_api/components/responses/success_description_only_response/__init__.py
 petstore_api/components/responses/success_inline_content_and_header_response/__init__.py
 petstore_api/components/responses/success_inline_content_and_header_response/parameter_some_header.py
 petstore_api/components/responses/success_with_json_api_response_response/__init__.py
+petstore_api/components/responses/success_with_json_api_response_response/parameter_number_header.py
+petstore_api/components/responses/success_with_json_api_response_response/parameter_string_header.py
 petstore_api/components/schema/__init__.py
 petstore_api/components/schema/abstract_step_message.py
 petstore_api/components/schema/abstract_step_message.pyi

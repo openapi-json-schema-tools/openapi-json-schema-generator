@@ -16,7 +16,34 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from petstore_api.components.schema import api_response
+from . import parameter_string_header
+from . import parameter_number_header
 
+
+class Header:
+    RequiredParams = typing_extensions.TypedDict(
+        'RequiredParams',
+        {
+            'stringHeader': typing.Union[parameter_string_header.schema, str, ],
+            'numberHeader': typing.Union[parameter_number_header.schema, str, ],
+        }
+    )
+    OptionalParams = typing_extensions.TypedDict(
+        'OptionalParams',
+        {
+        },
+        total=False
+    )
+
+
+    class Params(RequiredParams, OptionalParams):
+        pass
+
+
+    parameters = [
+        parameter_string_header.parameter_oapg,
+        parameter_number_header.parameter_oapg,
+    ]
 # body schemas
 application_json = api_response.ApiResponse
 
@@ -27,7 +54,7 @@ class ApiResponse(api_client.ApiResponse):
     body: typing.Union[
         application_json,
     ]
-    headers: schemas.Unset = schemas.unset
+    headers: Header.Params
 
 
 response = api_client.OpenApiResponse(
@@ -37,4 +64,5 @@ response = api_client.OpenApiResponse(
             schema=application_json,
         ),
     },
+    headers=Header.parameters
 )

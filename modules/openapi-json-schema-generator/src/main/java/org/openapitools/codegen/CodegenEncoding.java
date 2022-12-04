@@ -1,16 +1,17 @@
 package org.openapitools.codegen;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class CodegenEncoding {
     private String contentType;
-    private List<CodegenParameter> headers;
+    private Map<String, CodegenHeader> headers;
     private String style;
     private boolean explode;
     private boolean allowReserved;
 
-    public CodegenEncoding(String contentType, List<CodegenParameter> headers, String style, boolean explode, boolean allowReserved) {
+    public CodegenEncoding(String contentType, Map<String, CodegenHeader> headers, String style, boolean explode, boolean allowReserved) {
         this.contentType = contentType;
         this.headers = headers;
         this.style = style;
@@ -22,7 +23,7 @@ public class CodegenEncoding {
         return contentType;
     }
 
-    public List<CodegenParameter> getHeaders() {
+    public Map<String, CodegenHeader> getHeaders() {
         return headers;
     }
 

@@ -20,7 +20,7 @@ package org.openapitools.codegen;
 import java.util.*;
 
 public class CodegenResponse implements OpenapiComponent {
-    private List<CodegenParameter> responseHeaders = new ArrayList<CodegenParameter>();
+    private Map<String, CodegenHeader> responseHeaders = new HashMap<>();
     public String message;
     public List<Map<String, Object>> examples;
     public boolean hasHeaders;
@@ -74,11 +74,11 @@ public class CodegenResponse implements OpenapiComponent {
         this.content = content;
     }
 
-    public List<CodegenParameter> getResponseHeaders() {
+    public Map<String, CodegenHeader> getResponseHeaders() {
         return responseHeaders;
     }
 
-    public void setResponseHeaders(List<CodegenParameter> responseHeaders) {
+    public void setResponseHeaders(Map<String, CodegenHeader> responseHeaders) {
         this.responseHeaders = responseHeaders;
     }
 

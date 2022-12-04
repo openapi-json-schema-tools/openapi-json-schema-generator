@@ -4481,12 +4481,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (!usedResponse.getHeaders().isEmpty()) {
                 r.hasHeaders = true;
             }
-            List<CodegenParameter> responseHeaders = new ArrayList<>();
+            Map<String, CodegenHeader> responseHeaders = new HashMap<>();
             for (Entry<String, Header> entry : headers.entrySet()) {
                 String headerName = entry.getKey();
-                Header header = ModelUtils.getReferencedHeader(this.openAPI, entry.getValue());
-                CodegenParameter responseHeader = headerToCodegenParameter(header, headerName, r.imports, "", usedSourceJsonPath + "/headers/" + headerName);
-                responseHeaders.add(responseHeader);
+                Header header = entry.getValue();
+                String headerSourceJsonPath = usedSourceJsonPath + "/headers/" + headerName;
+                CodegenHeader responseHeader = fromHeader(header, headerSourceJsonPath);
+                responseHeaders.put(headerName, responseHeader);
             }
             r.setResponseHeaders(responseHeaders);
         }
@@ -4559,7 +4560,7 @@ public class DefaultCodegen implements CodegenConfig {
         return c;
     }
 
-    public CodegenHeader fromHeader(Header header, String componentName, String sourceJsonPath) {
+    public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(header, codegenHeader, sourceJsonPath, "Header");
         if (header.getStyle() != null) {
@@ -6339,30 +6340,6 @@ public class DefaultCodegen implements CodegenConfig {
         updateRequestBodyForPrimitiveType(codegenParameter, schema, bodyParameterName, imports, sourceJsonPath);
     }
 
-    private CodegenParameter headerToCodegenParameter(Header header, String headerName, Set<String> imports, String mediaTypeSchemaSuffix, String sourceJsonPath) {
-        if (header == null) {
-            return null;
-        }
-        Parameter headerParam = new Parameter();
-        headerParam.setName(headerName);
-        headerParam.setIn("header");
-        headerParam.setDescription(header.getDescription());
-        headerParam.setRequired(header.getRequired());
-        headerParam.setDeprecated(header.getDeprecated());
-        Header.StyleEnum style = header.getStyle();
-        if (style != null) {
-            headerParam.setStyle(Parameter.StyleEnum.valueOf(style.name()));
-        }
-        headerParam.setExplode(header.getExplode());
-        headerParam.setSchema(header.getSchema());
-        headerParam.setExamples(header.getExamples());
-        headerParam.setExample(header.getExample());
-        headerParam.setContent(header.getContent());
-        headerParam.setExtensions(header.getExtensions());
-        CodegenParameter param = fromParameter(headerParam, sourceJsonPath);
-        return param;
-    }
-
     protected LinkedHashMap<String, CodegenMediaType> getContent(Content content, Set<String> imports, String schemaName, String sourceJsonPath) {
         if (content == null) {
             return null;
@@ -6378,15 +6355,15 @@ public class DefaultCodegen implements CodegenConfig {
                 for (Entry<String, Encoding> encodingEntry : encMap.entrySet()) {
                     String encodingPropertyName = encodingEntry.getKey();
                     Encoding enc = encodingEntry.getValue();
-                    List<CodegenParameter> headers = new ArrayList<>();
+                    Map<String, CodegenHeader> headers = new HashMap<>();
                     if (enc.getHeaders() != null) {
                         Map<String, Header> encHeaders = enc.getHeaders();
                         for (Entry<String, Header> headerEntry : encHeaders.entrySet()) {
                             String headerName = headerEntry.getKey();
-                            Header header = ModelUtils.getReferencedHeader(this.openAPI, headerEntry.getValue());
+                            Header header = headerEntry.getValue();
                             String usedSourceJsonPath = sourceJsonPath + "/" + ModelUtils.encodeSlashes(contentType) + "/encoding/" + encodingPropertyName + "/headers/" + headerName;
-                            CodegenParameter param = headerToCodegenParameter(header, headerName, imports, schemaName, usedSourceJsonPath);
-                            headers.add(param);
+                            CodegenHeader codegenHeader = fromHeader(header, usedSourceJsonPath);
+                            headers.put(headerName, codegenHeader);
                         }
                     }
                     CodegenEncoding ce = new CodegenEncoding(
