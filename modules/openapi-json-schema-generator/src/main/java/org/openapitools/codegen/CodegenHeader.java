@@ -30,7 +30,7 @@ import java.util.Set;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenHeader {
-    public boolean isDeepObject, isAllowEmptyValue, isExplode;
+    public boolean isExplode;
     public String paramName,
             description, unescapedDescription, style;
 
@@ -83,15 +83,13 @@ public class CodegenHeader {
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
-        output.isDeepObject = this.isDeepObject;
-        output.isAllowEmptyValue = this.isAllowEmptyValue;
 
         return output;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
+        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
     }
 
     @Override
@@ -111,8 +109,6 @@ public class CodegenHeader {
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(style, that.style) &&
-                Objects.equals(isDeepObject, that.isDeepObject) &&
-                Objects.equals(isAllowEmptyValue, that.isAllowEmptyValue) &&
                 Objects.equals(example, that.example) &&
                 Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions);
@@ -126,8 +122,6 @@ public class CodegenHeader {
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", style='").append(style).append('\'');
-        sb.append(", deepObject='").append(isDeepObject).append('\'');
-        sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
         sb.append(", example='").append(example).append('\'');
         sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);

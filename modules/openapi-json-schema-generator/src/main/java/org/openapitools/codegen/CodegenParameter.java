@@ -26,7 +26,7 @@ import java.util.*;
  */
 public class CodegenParameter extends CodegenHeader {
     public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
-            isCookieParam, isBodyParam;
+            isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
     public String baseName;
 
     public CodegenParameter copy() {
