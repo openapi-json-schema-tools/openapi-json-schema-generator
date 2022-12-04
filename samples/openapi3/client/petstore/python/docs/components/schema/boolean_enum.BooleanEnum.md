@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="BooleanEnum"></a>
-# petstore_api.components.schema.boolean_enum.BooleanEnum
+## petstore_api.components.schema.boolean_enum
+# BooleanEnum
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

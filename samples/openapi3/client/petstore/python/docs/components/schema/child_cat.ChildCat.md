@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ChildCat"></a>
-# petstore_api.components.schema.child_cat.ChildCat
+## petstore_api.components.schema.child_cat
+# ChildCat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

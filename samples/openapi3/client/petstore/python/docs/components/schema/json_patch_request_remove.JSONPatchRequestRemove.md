@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="JSONPatchRequestRemove"></a>
-# petstore_api.components.schema.json_patch_request_remove.JSONPatchRequestRemove
+## petstore_api.components.schema.json_patch_request_remove
+# JSONPatchRequestRemove
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Boolean"></a>
-# petstore_api.components.schema.boolean.Boolean
+## petstore_api.components.schema.boolean
+# Boolean
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

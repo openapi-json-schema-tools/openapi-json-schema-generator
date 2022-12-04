@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Triangle"></a>
-# petstore_api.components.schema.triangle.Triangle
+## petstore_api.components.schema.triangle
+# Triangle
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

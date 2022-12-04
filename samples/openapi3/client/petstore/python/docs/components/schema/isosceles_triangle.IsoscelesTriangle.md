@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="IsoscelesTriangle"></a>
-# petstore_api.components.schema.isosceles_triangle.IsoscelesTriangle
+## petstore_api.components.schema.isosceles_triangle
+# IsoscelesTriangle
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

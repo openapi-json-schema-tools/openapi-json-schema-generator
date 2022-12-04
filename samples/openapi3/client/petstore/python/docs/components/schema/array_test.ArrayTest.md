@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ArrayTest"></a>
-# petstore_api.components.schema.array_test.ArrayTest
+## petstore_api.components.schema.array_test
+# ArrayTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

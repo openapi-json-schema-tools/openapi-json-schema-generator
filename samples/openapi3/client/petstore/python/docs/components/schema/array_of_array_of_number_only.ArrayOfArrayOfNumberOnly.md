@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ArrayOfArrayOfNumberOnly"></a>
-# petstore_api.components.schema.array_of_array_of_number_only.ArrayOfArrayOfNumberOnly
+## petstore_api.components.schema.array_of_array_of_number_only
+# ArrayOfArrayOfNumberOnly
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

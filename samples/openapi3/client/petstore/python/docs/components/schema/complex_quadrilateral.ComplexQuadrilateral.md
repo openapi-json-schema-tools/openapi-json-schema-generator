@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ComplexQuadrilateral"></a>
-# petstore_api.components.schema.complex_quadrilateral.ComplexQuadrilateral
+## petstore_api.components.schema.complex_quadrilateral
+# ComplexQuadrilateral
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

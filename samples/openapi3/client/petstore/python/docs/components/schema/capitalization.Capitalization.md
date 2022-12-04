@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Capitalization"></a>
-# petstore_api.components.schema.capitalization.Capitalization
+## petstore_api.components.schema.capitalization
+# Capitalization
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

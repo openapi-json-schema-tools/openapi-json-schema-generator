@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Tag"></a>
-# petstore_api.components.schema.tag.Tag
+## petstore_api.components.schema.tag
+# Tag
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="FormatTest"></a>
-# petstore_api.components.schema.format_test.FormatTest
+## petstore_api.components.schema.format_test
+# FormatTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

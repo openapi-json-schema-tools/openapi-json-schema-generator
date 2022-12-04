@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="IntegerMin15"></a>
-# petstore_api.components.schema.integer_min15.IntegerMin15
+## petstore_api.components.schema.integer_min15
+# IntegerMin15
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
