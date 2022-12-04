@@ -184,6 +184,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> modelTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
+    protected Map<String, String> headerTemplateFiles = new HashMap<>();
     protected Map<String, String> responseTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
@@ -1217,6 +1218,9 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
 
     @Override
+    public Map<String, String> headerTemplateFiles() { return headerTemplateFiles; }
+
+    @Override
     public Map<String, String> responseTemplateFiles() { return responseTemplateFiles; }
 
     @Override
@@ -1248,6 +1252,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public String toResponseModuleName(String componentName) { return toModuleFilename(componentName); }
+
+    public String toHeaderFilename(String componentName) { return toModuleFilename(componentName); }
 
     public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
 
@@ -1288,6 +1294,9 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String responseDocFileFolder() { return outputFolder; }
+
+    @Override
+    public String headerFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {
@@ -4538,11 +4547,11 @@ public class DefaultCodegen implements CodegenConfig {
 
     public CodegenHeader fromHeader(Header header, String componentName, String sourceJsonPath) {
         CodegenHeader codegenHeader = new CodegenHeader();
-        setHeaderInfo(header, codegenHeader, sourceJsonPath);
+        setHeaderInfo(header, codegenHeader, sourceJsonPath, "Header");
         return codegenHeader;
     }
 
-    private void setHeaderInfo(Header header, CodegenHeader codegenHeader, String sourceJsonPath) {
+    private void setHeaderInfo(Header header, CodegenHeader codegenHeader, String sourceJsonPath, String type) {
         codegenHeader.description = escapeText(header.getDescription());
         codegenHeader.unescapedDescription = header.getDescription();
         if (header.getRequired() != null) {
@@ -4595,8 +4604,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         // default to UNKNOWN_PARAMETER_NAME if paramName is null
         if (codegenHeader.paramName == null) {
-            LOGGER.warn("Parameter name not defined properly. Default to UNKNOWN_PARAMETER_NAME");
-            codegenHeader.paramName = "UNKNOWN_PARAMETER_NAME";
+            codegenHeader.paramName = "UNKNOWN_" + type.toUpperCase(Locale.ROOT) + "_NAME";
+            LOGGER.warn(type + " name not defined properly. Default to " + codegenHeader.paramName);
         }
     }
 
@@ -4623,7 +4632,7 @@ public class DefaultCodegen implements CodegenConfig {
         prameterHeader.setRequired(parameter.getRequired());
         String enumName = parameter.getStyle().name();
         prameterHeader.setStyle(Header.StyleEnum.valueOf(enumName));
-        setHeaderInfo(prameterHeader, codegenParameter, sourceJsonPath);
+        setHeaderInfo(prameterHeader, codegenParameter, sourceJsonPath, "Parameter");
 
         codegenParameter.baseName = parameter.getName();
 

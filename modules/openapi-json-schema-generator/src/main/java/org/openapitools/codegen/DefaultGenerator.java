@@ -560,7 +560,7 @@ public class DefaultGenerator implements Generator {
                             for (CodegenParameter header: response.getResponseHeaders()) {
                                 for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
                                     Map<String, Object> headerMap = new HashMap<>();
-                                    headerMap.put("parameter", header);
+                                    headerMap.put("header", header);
                                     headerMap.put("imports", header.imports);
                                     headerMap.put("packageName", packageName);
                                     String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(header.baseName) + ".py"));
@@ -853,9 +853,35 @@ public class DefaultGenerator implements Generator {
             String componentName = entry.getKey();
             Header specHeader = entry.getValue();
             String sourceJsonPath = "#/components/headers/" + componentName;
-            // String bodyParameterName = config.getBodyParameterName(null);
-            // CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
-            // use refRequestBody so the refModule info will be contained inside the parameter
+            CodegenHeader header = config.fromHeader(specHeader, componentName, sourceJsonPath);
+            // use refHeader so the refModule info will be contained inside the parameter
+            Header specRefHeader = new Header();
+            specRefHeader.set$ref(sourceJsonPath);
+            CodegenHeader refHeader = config.fromHeader(specRefHeader, null, null);
+            headers.put(componentName, refHeader);
+            Boolean generateHeaders = Boolean.TRUE;
+            for (String templateName : config.headerTemplateFiles().keySet()) {
+                String docExtension = config.getDocExtension();
+                String suffix = docExtension != null ? docExtension : config.headerTemplateFiles().get(templateName);
+                String fileFolder = config.headerFileFolder();
+                String filename = fileFolder + File.separatorChar + config.toHeaderFilename(componentName) + suffix;
+
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("header", header);
+                templateData.put("imports", header.imports);
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS, fileFolder);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "header");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
         }
         return headers;
     }

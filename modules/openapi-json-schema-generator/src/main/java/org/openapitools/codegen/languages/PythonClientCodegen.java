@@ -329,6 +329,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
         responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
+        headerTemplateFiles.put("header.handlebars", ".py");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -503,6 +504,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String requestBodyFileFolder() {
         return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+    }
+
+    @Override
+    public String headerFileFolder() {
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers";
     }
 
     protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
@@ -2398,6 +2404,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String requestBodyDocFileFolder() {
         return outputFolder + File.separator + requestBodyDocPath;
     }
+
+    public String toHeaderFilename(String componentName) { return toModuleFilename(componentName) + "_header"; }
 
     @Override
     public String addRegularExpressionDelimiter(String pattern) {
