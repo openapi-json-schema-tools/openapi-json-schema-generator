@@ -20,7 +20,7 @@ package org.openapitools.codegen;
 import java.util.*;
 
 public class CodegenResponse implements OpenapiComponent {
-    private Map<String, CodegenHeader> responseHeaders = new HashMap<>();
+    private Map<String, CodegenHeader> responseHeaders;
     public String message;
     public List<Map<String, Object>> examples;
     public boolean hasHeaders;

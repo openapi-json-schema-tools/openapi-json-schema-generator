@@ -9,7 +9,7 @@ from {{packageName}} import api_client
 from . import {{paramName}}
 {{/each}}
 {{#if responseHeaders}}
-{{> endpoint_parameter_schema_and_def xParams=responseHeaders xParamsName="Header" }}
+{{> response_header_schema_and_def xParams=responseHeaders xParamsName="Header" }}
 {{/if}}
 {{#if getContent}}
 

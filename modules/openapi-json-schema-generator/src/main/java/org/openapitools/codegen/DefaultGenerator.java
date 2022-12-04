@@ -557,16 +557,18 @@ public class DefaultGenerator implements Generator {
                             String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
                             String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
                             pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
-                            for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
-                                String headerName = headerInfo.getKey();
-                                CodegenHeader header = headerInfo.getValue();
-                                for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
-                                    Map<String, Object> headerMap = new HashMap<>();
-                                    headerMap.put("header", header);
-                                    headerMap.put("imports", header.imports);
-                                    headerMap.put("packageName", packageName);
-                                    String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(headerName) + ".py"));
-                                    pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                            if (response.getResponseHeaders() != null) {
+                                for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
+                                    String headerName = headerInfo.getKey();
+                                    CodegenHeader header = headerInfo.getValue();
+                                    for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                        Map<String, Object> headerMap = new HashMap<>();
+                                        headerMap.put("header", header);
+                                        headerMap.put("imports", header.imports);
+                                        headerMap.put("packageName", packageName);
+                                        String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(headerName) + ".py"));
+                                        pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                                    }
                                 }
                             }
                         }
@@ -875,6 +877,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        // TODO generate doc files
         // sort them
         headers = new TreeMap<>(headers);
         return headers;

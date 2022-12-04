@@ -370,8 +370,8 @@ HTTP request | Method | Description
 
 ## Component Headers
 
-- [](docs/components/headers/.md)
-- [](docs/components/headers/.md)
+- [number_header_header](docs/components/headers/number_header_header.md)
+- [string_header_header](docs/components/headers/string_header_header.md)
 
 ## Documentation For Authorization
 

@@ -4477,7 +4477,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         Map<String, Header> headers = usedResponse.getHeaders();
-        if (headers != null) {
+        if (headers != null && !headers.isEmpty()) {
             if (!usedResponse.getHeaders().isEmpty()) {
                 r.hasHeaders = true;
             }
@@ -4561,10 +4561,27 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
+        String headerRef = header.get$ref();
+        Header usedHeader = header;
+        String usedSourceJsonPath = sourceJsonPath;
+        if (headerRef != null) {
+            usedHeader = ModelUtils.getReferencedHeader(this.openAPI, header);
+            usedSourceJsonPath = headerRef;
+        }
+
         CodegenHeader codegenHeader = new CodegenHeader();
-        setHeaderInfo(header, codegenHeader, sourceJsonPath, "Header");
-        if (header.getStyle() != null) {
-            codegenHeader.style = header.getStyle().toString();
+        setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath, "Header");
+        if (usedHeader.getStyle() != null) {
+            codegenHeader.style = usedHeader.getStyle().toString();
+        }
+        if (sourceJsonPath != null) {
+            String[] refPieces = sourceJsonPath.split("/");
+            if (sourceJsonPath.startsWith("#/components/headers/") && refPieces.length == 4) {
+                String componentName = refPieces[3];
+                codegenHeader.setModulePath(toModulePath(componentName, "headers"));
+                String refModule = toRefModule(sourceJsonPath, "headers");
+                codegenHeader.setRefModule(refModule);
+            }
         }
         return codegenHeader;
     }
@@ -6436,6 +6453,8 @@ public class DefaultCodegen implements CodegenConfig {
                 return toRequestBodyFileName(refPieces[3]);
             case "responses":
                 return toResponseModuleName(refPieces[3]);
+            case "headers":
+                return toHeaderFilename(refPieces[3]);
         }
         return null;
     }

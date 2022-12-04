@@ -29,7 +29,7 @@ schema = schemas.StrSchema
 
 
 parameter_oapg = api_client.HeaderParameterWithoutName(
-    style=api_client.ParameterStyle.SIMPLE,
+    style=api_client.ParameterStyle.simple,
     schema=schema,
     required=True,
 )
