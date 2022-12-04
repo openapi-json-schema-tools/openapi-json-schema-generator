@@ -694,11 +694,7 @@ public class DefaultGenerator implements Generator {
             ApiResponse apiResponse = responseEntry.getValue();
             String sourceJsonPath = "#/components/responses/" + componentName;
             CodegenResponse response = config.fromResponse(apiResponse, sourceJsonPath);
-            // use refRequestBody so the refModule info will be contained inside the parameter
-            ApiResponse specRefApiResponse = new ApiResponse();
-            specRefApiResponse.set$ref(sourceJsonPath);
-            CodegenResponse refResponse = config.fromResponse(specRefApiResponse, null);
-            responses.put(componentName, refResponse);
+            responses.put(componentName, response);
             Boolean generateResponses = Boolean.TRUE;
             for (Map.Entry<String, String> entry : config.responseTemplateFiles().entrySet()) {
                 String templateName = entry.getKey();
@@ -754,7 +750,7 @@ public class DefaultGenerator implements Generator {
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
-                templateData.put("response", refResponse);
+                templateData.put("response", response);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {

@@ -4458,6 +4458,15 @@ public class DefaultCodegen implements CodegenConfig {
             r.setRef(responseRef);
             r.setRefModule(toRefModule(responseRef, "responses"));
         }
+        if (sourceJsonPath != null) {
+            String[] refPieces = sourceJsonPath.split("/");
+            if (sourceJsonPath.startsWith("#/components/responses/") && refPieces.length == 4) {
+                String componentName = refPieces[3];
+                r.setModulePath(toModulePath(componentName, "responses"));
+                String refModule = toRefModule(sourceJsonPath, "responses");
+                r.setRefModule(refModule);
+            }
+        }
         r.message = escapeText(usedResponse.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment

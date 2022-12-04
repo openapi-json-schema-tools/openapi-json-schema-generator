@@ -19,7 +19,7 @@ package org.openapitools.codegen;
 
 import java.util.*;
 
-public class CodegenResponse {
+public class CodegenResponse implements OpenapiComponent {
     private List<CodegenParameter> responseHeaders = new ArrayList<CodegenParameter>();
     public String message;
     public List<Map<String, Object>> examples;
@@ -30,13 +30,14 @@ public class CodegenResponse {
     private String ref;
     public Set<String> imports = new TreeSet<>();
     private String refModule;
+    private String modulePath;
 
     @Override
     public int hashCode() {
         return Objects.hash(message, examples, hasHeaders,
                 jsonSchema, vendorExtensions,
                 responseHeaders, content,
-                ref, imports, refModule);
+                ref, imports, refModule, modulePath);
     }
 
     @Override
@@ -53,7 +54,16 @@ public class CodegenResponse {
                 Objects.equals(examples, that.examples) &&
                 Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                Objects.equals(refModule, that.getRefModule());
+                Objects.equals(refModule, that.getRefModule()) &&
+                Objects.equals(modulePath, that.modulePath);
+    }
+
+    public String getModulePath() {
+        return modulePath;
+    }
+
+    public void setModulePath(String modulePath) {
+        this.modulePath = modulePath;
     }
 
     public LinkedHashMap<String, CodegenMediaType> getContent() {
@@ -85,6 +95,7 @@ public class CodegenResponse {
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
+        sb.append(", modulePath=").append(modulePath);
         sb.append('}');
         return sb.toString();
     }
