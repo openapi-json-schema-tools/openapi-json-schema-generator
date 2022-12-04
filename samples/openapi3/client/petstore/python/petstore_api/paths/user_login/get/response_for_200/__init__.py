@@ -22,7 +22,7 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.application_json, decimal.Decimal, int, ],
+            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
