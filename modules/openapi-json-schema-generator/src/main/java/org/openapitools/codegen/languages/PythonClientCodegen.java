@@ -2636,6 +2636,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toParameterFileName(basename);
     }
 
+    protected String toModulePath(String componentName, String priorJsonPathSegment) {
+        String prefix = packageName + ".components.";
+        switch (priorJsonPathSegment) {
+            case "schemas":
+                return prefix + "schema." + toModelFilename(componentName);
+            case "requestBodies":
+                return prefix + "request_bodies." + toRequestBodyFilename(componentName);
+            case "responses":
+                return prefix + "responses." + toResponseModuleName(componentName);
+            case "headers":
+                return prefix + "headers." + toHeaderFilename(componentName);
+        }
+        return null;
+    }
+
     public String toRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {

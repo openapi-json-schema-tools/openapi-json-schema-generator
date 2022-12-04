@@ -28,7 +28,7 @@ import org.apache.commons.lang3.StringUtils;
  * CodegenModel represents a schema object in a OpenAPI document.
  */
 @JsonIgnoreProperties({"parentModel", "interfaceModels"})
-public class CodegenModel implements JsonSchema {
+public class CodegenModel implements JsonSchema, OpenapiComponent {
     // The parent model name from the schemas. The parent is determined by inspecting the allOf, anyOf and
     // oneOf attributes in the OAS. First codegen inspects 'allOf', then 'anyOf', then 'oneOf'.
     // If there are multiple object references in the attribute ('allOf', 'anyOf', 'oneOf'), and one of the
@@ -117,6 +117,7 @@ public class CodegenModel implements JsonSchema {
     private String format;
     private LinkedHashMap<String, List<String>> dependentRequired;
     private CodegenProperty contains;
+    private String modulePath;
 
     /**
      * The type of the value for the additionalProperties keyword in the OAS document.
@@ -174,6 +175,14 @@ public class CodegenModel implements JsonSchema {
     private Map<String, CodegenProperty> requiredVarsMap;
     private String ref;
     private String refModule;
+
+    public String getModulePath() {
+        return modulePath;
+    }
+
+    public void setModulePath(String modulePath) {
+        this.modulePath = modulePath;
+    }
 
     public String getAdditionalPropertiesType() {
         return additionalPropertiesType;
@@ -1023,6 +1032,7 @@ public class CodegenModel implements JsonSchema {
                 getUniqueItems() == that.getUniqueItems() &&
                 getExclusiveMinimum() == that.getExclusiveMinimum() &&
                 getExclusiveMaximum() == that.getExclusiveMaximum() &&
+                Objects.equals(modulePath, that.modulePath) &&
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
@@ -1104,7 +1114,7 @@ public class CodegenModel implements JsonSchema {
                 getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, getComposedSchemas(), hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
                 uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule);
+                format, dependentRequired, contains, refModule, modulePath);
     }
 
     @Override
@@ -1211,6 +1221,7 @@ public class CodegenModel implements JsonSchema {
         sb.append(", format=").append(format);
         sb.append(", dependentRequired=").append(dependentRequired);
         sb.append(", contains=").append(contains);
+        sb.append(", modulePath").append(modulePath);
         sb.append('}');
         return sb.toString();
     }

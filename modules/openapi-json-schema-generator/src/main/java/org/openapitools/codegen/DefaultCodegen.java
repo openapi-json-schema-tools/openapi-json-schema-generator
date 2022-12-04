@@ -2904,6 +2904,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
+    protected String toModulePath(String componentName, String priorJsonPathSegment) {
+        return packageName + "." + priorJsonPathSegment + "." + componentName;
+    }
+
     /**
      * Convert OAS Model object to Codegen Model object.
      *
@@ -2938,6 +2942,7 @@ public class DefaultCodegen implements CodegenConfig {
             m.testCases = schemaTestCases;
         }
 
+        m.setModulePath(toModulePath(name, "schemas"));
         if (reservedWords.contains(name)) {
             m.name = escapeReservedWord(name);
         } else {
