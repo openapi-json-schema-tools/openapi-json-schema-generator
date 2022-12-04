@@ -4315,7 +4315,6 @@ public class DefaultCodegen implements CodegenConfig {
 
                 String usedSourceJsonPath = sourceJsonPath + "/parameters/" + i.toString();
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
-                p.setContent(getContent(param.getContent(), imports, "schema", usedSourceJsonPath));
                 allParams.add(p);
                 i++;
 
@@ -4552,6 +4551,10 @@ public class DefaultCodegen implements CodegenConfig {
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
     }
 
+    public CodegenHeader fromHeader(Header header, String componentName, String sourceJsonPath) {
+        return null;
+    }
+
     /**
      * Convert OAS Parameter object to Codegen Parameter object
      *
@@ -4613,13 +4616,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         } else if (parameter.getContent() != null) {
             Content content = parameter.getContent();
-            if (content.size() > 1) {
-                once(LOGGER).warn("Multiple schemas found in content, returning only the first one");
-            }
-            Map.Entry<String, MediaType> entry = content.entrySet().iterator().next();
-            parameterSchema = entry.getValue().getSchema();
-        } else {
-            parameterSchema = null;
+            codegenParameter.setContent(getContent(content, codegenParameter.imports, "schema", sourceJsonPath + "/content"));
         }
 
         if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(parameter.getIn())) {
@@ -4636,24 +4633,6 @@ public class DefaultCodegen implements CodegenConfig {
             LOGGER.warn("Unknown parameter type: {}", parameter.getName());
         }
 
-        if (parameterSchema == null) {
-            LOGGER.error("Not handling {} as Body Parameter at the moment", parameter);
-            finishUpdatingParameter(codegenParameter, parameter);
-            return codegenParameter;
-        }
-
-        // TODO need to review replacing empty map with schemaMapping instead
-        parameterSchema = unaliasSchema(parameterSchema);
-        if (parameterSchema == null) {
-            LOGGER.warn("warning!  Schema not found for parameter \" {} \"", parameter.getName());
-            finishUpdatingParameter(codegenParameter, parameter);
-            return codegenParameter;
-        }
-
-        if (getUseInlineModelResolver()) {
-            parameterSchema = getReferencedSchemaWhenNotEnum(parameterSchema);
-        }
-
         if (parameter.getStyle() != null) {
             codegenParameter.style = parameter.getStyle().toString();
             codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == parameter.getStyle();
@@ -4663,23 +4642,6 @@ public class DefaultCodegen implements CodegenConfig {
         // https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#user-content-parameterexplode
         codegenParameter.isExplode = parameter.getExplode() == null ? false : parameter.getExplode();
 
-        // TODO revise collectionFormat, default collection format in OAS 3 appears to multi at least for query parameters
-        // https://swagger.io/docs/specification/serialization/
-        String collectionFormat = null;
-
-        CodegenProperty codegenProperty = fromProperty(
-                parameter.getName(),
-                parameterSchema,
-                false,
-                false,
-                sourceJsonPath
-        );
-
-        if (!addSchemaImportsFromV3SpecLocations) {
-            if (ModelUtils.isSet(parameterSchema)) {
-                codegenParameter.imports.add(codegenProperty.baseType);
-            }
-        }
         if (parameter.getRequired() != null) {
             codegenParameter.required = parameter.getRequired().booleanValue();
         }
@@ -4687,12 +4649,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         String priorJsonPathFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
         codegenParameter.paramName = toParamName(priorJsonPathFragment);
-        if (!addSchemaImportsFromV3SpecLocations) {
-            // import
-            if (codegenProperty.refClass != null) {
-                codegenParameter.imports.add(codegenProperty.refClass);
-            }
-        }
 
         finishUpdatingParameter(codegenParameter, parameter);
         return codegenParameter;
@@ -6385,8 +6341,6 @@ public class DefaultCodegen implements CodegenConfig {
         headerParam.setContent(header.getContent());
         headerParam.setExtensions(header.getExtensions());
         CodegenParameter param = fromParameter(headerParam, sourceJsonPath);
-        String usedSourceJsonPath = sourceJsonPath + "/content";
-        param.setContent(getContent(headerParam.getContent(), imports, mediaTypeSchemaSuffix, usedSourceJsonPath));
         return param;
     }
 
