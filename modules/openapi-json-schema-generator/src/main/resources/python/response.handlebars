@@ -6,7 +6,11 @@ from {{packageName}} import api_client
 {{#with response}}
 {{> model_templates/imports_schemas }}
 {{#each responseHeaders}}
+{{#if refModule}}
+from {{packageName}}.components.headers import {{refModule}} as {{paramName}}
+{{else}}
 from . import {{paramName}}
+{{/if}}
 {{/each}}
 {{#if responseHeaders}}
 {{> response_header_schema_and_def xParams=responseHeaders xParamsName="Header" }}

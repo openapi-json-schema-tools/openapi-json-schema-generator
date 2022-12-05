@@ -16,8 +16,8 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from petstore_api.components.schema import api_response
-from . import parameter_string_header
-from . import parameter_number_header
+from petstore_api.components.headers import string_header_header as parameter_string_header
+from petstore_api.components.headers import number_header_header as parameter_number_header
 
 
 class Header:

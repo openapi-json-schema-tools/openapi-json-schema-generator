@@ -16,8 +16,8 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 from . import parameter_x_rate_limit
 from . import parameter_x_expires_after
-from . import parameter_string_header
-from . import parameter_number_header
+from petstore_api.components.headers import string_header_header as parameter_string_header
+from petstore_api.components.headers import number_header_header as parameter_number_header
 
 
 class Header:
