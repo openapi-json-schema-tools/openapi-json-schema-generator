@@ -561,13 +561,15 @@ public class DefaultGenerator implements Generator {
                                 for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
                                     String headerName = headerInfo.getKey();
                                     CodegenHeader header = headerInfo.getValue();
-                                    for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
-                                        Map<String, Object> headerMap = new HashMap<>();
-                                        headerMap.put("header", header);
-                                        headerMap.put("imports", header.imports);
-                                        headerMap.put("packageName", packageName);
-                                        String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(headerName) + ".py"));
-                                        pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                                    if (header.refModule == null) {
+                                        for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                            Map<String, Object> headerMap = new HashMap<>();
+                                            headerMap.put("header", header);
+                                            headerMap.put("imports", header.imports);
+                                            headerMap.put("packageName", packageName);
+                                            String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(headerName) + ".py"));
+                                            pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
+                                        }
                                     }
                                 }
                             }
@@ -725,22 +727,24 @@ public class DefaultGenerator implements Generator {
                     for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
                         String headerName = headerInfo.getKey();
                         CodegenHeader header = headerInfo.getValue();
-                        for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
-                            Map<String, Object> headerMap = new HashMap<>();
-                            headerMap.put("header", header);
-                            headerMap.put("imports", header.imports);
-                            headerMap.put("packageName", config.packageName());
-                            String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(headerName) + ".py";
-                            try {
-                                File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
-                                if (written != null) {
-                                    files.add(written);
-                                    if (config.isEnablePostProcessFile() && !dryRun) {
-                                        config.postProcessFile(written, "response-header");
+                        if (header.refModule == null) {
+                            for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                Map<String, Object> headerMap = new HashMap<>();
+                                headerMap.put("header", header);
+                                headerMap.put("imports", header.imports);
+                                headerMap.put("packageName", config.packageName());
+                                String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(headerName) + ".py";
+                                try {
+                                    File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
+                                    if (written != null) {
+                                        files.add(written);
+                                        if (config.isEnablePostProcessFile() && !dryRun) {
+                                            config.postProcessFile(written, "response-header");
+                                        }
                                     }
+                                } catch (Exception e) {
+                                    throw new RuntimeException("Could not generate file '" + headerFilename + "'", e);
                                 }
-                            } catch (Exception e) {
-                                throw new RuntimeException("Could not generate file '" + headerFilename + "'", e);
                             }
                         }
                     }
