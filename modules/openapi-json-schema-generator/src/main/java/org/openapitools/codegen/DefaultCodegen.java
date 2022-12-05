@@ -4571,6 +4571,10 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath, "Header");
+        if (headerRef != null) {
+            String refModule = toRefModule(headerRef, "headers");
+            codegenHeader.setRefModule(refModule);
+        }
         if (usedHeader.getStyle() != null) {
             codegenHeader.style = usedHeader.getStyle().toString();
         }

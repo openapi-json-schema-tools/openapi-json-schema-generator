@@ -451,6 +451,10 @@ paths:
               schema:
                 type: string
                 format: date-time
+            stringHeader:
+              $ref: '#/components/headers/StringHeader'
+            numberHeader:
+              $ref: '#/components/headers/NumberHeader'
           content:
             application/xml:
               schema:

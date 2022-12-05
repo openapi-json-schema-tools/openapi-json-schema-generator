@@ -16,6 +16,8 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 from . import parameter_x_rate_limit
 from . import parameter_x_expires_after
+from . import parameter_string_header
+from . import parameter_number_header
 
 
 class Header:
@@ -23,6 +25,8 @@ class Header:
         'RequiredParams',
         {
             'X-Rate-Limit': typing.Union[parameter_x_rate_limit.schema, decimal.Decimal, int, ],
+            'stringHeader': typing.Union[parameter_string_header.schema, str, ],
+            'numberHeader': typing.Union[parameter_number_header.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -41,6 +45,8 @@ class Header:
     parameters = [
         parameter_x_rate_limit.parameter_oapg,
         parameter_x_expires_after.parameter_oapg,
+        parameter_string_header.parameter_oapg,
+        parameter_number_header.parameter_oapg,
     ]
 # body schemas
 application_xml = schemas.StrSchema
