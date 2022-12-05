@@ -112,62 +112,25 @@ public class CodegenParameter extends CodegenHeader {
                 Objects.equals(vendorExtensions, that.vendorExtensions);
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("CodegenParameter{");
-        sb.append("isFormParam=").append(isFormParam);
+    protected void addInstanceInfo(StringBuilder sb) {
+        super.addInstanceInfo(sb);
+        sb.append(", isFormParam=").append(isFormParam);
         sb.append(", isQueryParam=").append(isQueryParam);
         sb.append(", isPathParam=").append(isPathParam);
         sb.append(", isHeaderParam=").append(isHeaderParam);
         sb.append(", isCookieParam=").append(isCookieParam);
         sb.append(", isBodyParam=").append(isBodyParam);
-        sb.append(", isExplode=").append(isExplode);
-        sb.append(", baseName='").append(baseName).append('\'');
-        sb.append(", paramName='").append(paramName).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
-        sb.append(", style='").append(style).append('\'');
         sb.append(", deepObject='").append(isDeepObject).append('\'');
         sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
-        sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
-        sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", isDeprecated=").append(isDeprecated);
-        sb.append(", required=").append(required);
-        sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
-        sb.append(", schema=").append(schema);
-        sb.append(", content=").append(content);
-        sb.append(", ref=").append(ref);
-        sb.append(", refModule=").append(refModule);
-        sb.append(", imports=").append(imports);
-        sb.append(", modulePath=").append(modulePath);
+        sb.append(", baseName='").append(baseName).append('\'');
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenParameter{");
+        addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
     }
-
-    public CodegenProperty getSchema() {
-        return schema;
-    }
-
-    public void setSchema(CodegenProperty schema) {
-        this.schema = schema;
-    }
-
-    public LinkedHashMap<String, CodegenMediaType> getContent() {
-        return content;
-    }
-
-    public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
-        this.content = content;
-    }
-
-
-    public String getRef() { return ref; }
-
-    public void setRef(String ref) { this.ref=ref; }
-
-    public String getRefModule() { return refModule; }
-
-    public void setRefModule(String refModule) { this.refModule=refModule; }
 }
 

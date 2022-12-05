@@ -25,6 +25,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
@@ -788,34 +789,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
+    public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
+        CodegenHeader codegenHeader = super.fromHeader(header, sourceJsonPath);
+        fixSchemaImports(codegenHeader.imports);
+        return codegenHeader;
+    }
+
+
     public CodegenParameter fromParameter(Parameter parameter, String priorJsonPathFragment) {
         CodegenParameter cp = super.fromParameter(parameter, priorJsonPathFragment);
         fixSchemaImports(cp.imports);
-        if (parameter.getStyle() != null) {
-            switch(parameter.getStyle()) {
-                case MATRIX:
-                    cp.style = "MATRIX";
-                    break;
-                case LABEL:
-                    cp.style = "LABEL";
-                    break;
-                case FORM:
-                    cp.style = "FORM";
-                    break;
-                case SIMPLE:
-                    cp.style = "SIMPLE";
-                    break;
-                case SPACEDELIMITED:
-                    cp.style = "SPACE_DELIMITED";
-                    break;
-                case PIPEDELIMITED:
-                    cp.style = "PIPE_DELIMITED";
-                    break;
-                case DEEPOBJECT:
-                    cp.style = "DEEP_OBJECT";
-                    break;
-            }
-        }
         return cp;
     }
 

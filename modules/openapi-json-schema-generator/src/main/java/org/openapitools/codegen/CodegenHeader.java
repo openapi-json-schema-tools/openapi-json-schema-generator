@@ -128,9 +128,7 @@ public class CodegenHeader implements OpenapiComponent {
                 Objects.equals(vendorExtensions, that.vendorExtensions);
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("CodegenParameter{");
+    protected void addInstanceInfo(StringBuilder sb) {
         sb.append(", isExplode=").append(isExplode);
         sb.append(", paramName='").append(paramName).append('\'');
         sb.append(", description='").append(description).append('\'');
@@ -148,6 +146,12 @@ public class CodegenHeader implements OpenapiComponent {
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
         sb.append(", modulePath=").append(modulePath);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenHeader{");
+        addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
     }

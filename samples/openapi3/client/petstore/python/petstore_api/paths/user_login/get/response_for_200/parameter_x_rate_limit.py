@@ -29,7 +29,7 @@ schema = schemas.Int32Schema
 
 
 parameter_oapg = api_client.HeaderParameterWithoutName(
-    style=api_client.ParameterStyle.simple,
+    style=api_client.ParameterStyle.SIMPLE,
     content={
         "application/json": schema,
     },
