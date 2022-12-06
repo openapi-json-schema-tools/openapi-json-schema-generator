@@ -66,6 +66,7 @@ docs/apis/tags/user_api/get_user_by_name.md
 docs/apis/tags/user_api/login_user.md
 docs/apis/tags/user_api/logout_user.md
 docs/apis/tags/user_api/update_user.md
+docs/components/headers/int32_json_content_type_header_header.md
 docs/components/headers/number_header_header.md
 docs/components/headers/string_header_header.md
 docs/components/request_bodies/client_request_body.md
@@ -263,6 +264,7 @@ petstore_api/apis/tags/pet_api.py
 petstore_api/apis/tags/store_api.py
 petstore_api/apis/tags/user_api.py
 petstore_api/components/__init__.py
+petstore_api/components/headers/int32_json_content_type_header_header.py
 petstore_api/components/headers/number_header_header.py
 petstore_api/components/headers/string_header_header.py
 petstore_api/components/request_bodies/__init__.py

@@ -455,6 +455,8 @@ paths:
               $ref: '#/components/headers/StringHeader'
             numberHeader:
               $ref: '#/components/headers/NumberHeader'
+            int32:
+              $ref: '#/components/headers/Int32JsonContentTypeHeader'
           content:
             application/xml:
               schema:
@@ -1652,6 +1654,8 @@ components:
           $ref: '#/components/headers/StringHeader'
         numberHeader:
           $ref: '#/components/headers/NumberHeader'
+        int32:
+          $ref: '#/components/headers/Int32JsonContentTypeHeader'
       content:
         application/json:
           schema:

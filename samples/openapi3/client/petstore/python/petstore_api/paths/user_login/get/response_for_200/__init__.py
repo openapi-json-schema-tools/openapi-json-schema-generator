@@ -15,6 +15,7 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 from . import parameter_x_rate_limit
+from petstore_api.components.headers import int32_json_content_type_header_header as parameter_int32_json_content_type_header
 from . import parameter_x_expires_after
 from petstore_api.components.headers import string_header_header as parameter_string_header
 from petstore_api.components.headers import number_header_header as parameter_number_header
@@ -25,6 +26,7 @@ class Header:
         'RequiredParams',
         {
             'X-Rate-Limit': typing.Union[parameter_x_rate_limit.schema, decimal.Decimal, int, ],
+            'int32': typing.Union[parameter_int32_json_content_type_header.schema, decimal.Decimal, int, ],
             'stringHeader': typing.Union[parameter_string_header.schema, str, ],
             'numberHeader': typing.Union[parameter_number_header.schema, str, ],
         }
@@ -44,6 +46,7 @@ class Header:
 
     parameters = [
         parameter_x_rate_limit.parameter_oapg,
+        parameter_int32_json_content_type_header.parameter_oapg,
         parameter_x_expires_after.parameter_oapg,
         parameter_string_header.parameter_oapg,
         parameter_number_header.parameter_oapg,

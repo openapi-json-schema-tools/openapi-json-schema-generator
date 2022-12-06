@@ -16,6 +16,7 @@ Type | Description  | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+int32 | [int32_json_content_type_header_header.schema](../../components/headers/int32_json_content_type_header_header.md#schema) | | optional
 stringHeader | [string_header_header.schema](../../components/headers/string_header_header.md#schema) | | optional
 numberHeader | [number_header_header.schema](../../components/headers/number_header_header.md#schema) | | optional
 

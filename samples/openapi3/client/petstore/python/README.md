@@ -370,6 +370,7 @@ HTTP request | Method | Description
 
 ## Component Headers
 
+- [int32_json_content_type_header_header](docs/components/headers/int32_json_content_type_header_header.md)
 - [number_header_header](docs/components/headers/number_header_header.md)
 - [string_header_header](docs/components/headers/string_header_header.md)
 

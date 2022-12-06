@@ -16,6 +16,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from petstore_api.components.schema import api_response
+from petstore_api.components.headers import int32_json_content_type_header_header as parameter_int32_json_content_type_header
 from petstore_api.components.headers import string_header_header as parameter_string_header
 from petstore_api.components.headers import number_header_header as parameter_number_header
 
@@ -24,6 +25,7 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
+            'int32': typing.Union[parameter_int32_json_content_type_header.schema, decimal.Decimal, int, ],
             'stringHeader': typing.Union[parameter_string_header.schema, str, ],
             'numberHeader': typing.Union[parameter_number_header.schema, str, ],
         }
@@ -41,6 +43,7 @@ class Header:
 
 
     parameters = [
+        parameter_int32_json_content_type_header.parameter_oapg,
         parameter_string_header.parameter_oapg,
         parameter_number_header.parameter_oapg,
     ]
