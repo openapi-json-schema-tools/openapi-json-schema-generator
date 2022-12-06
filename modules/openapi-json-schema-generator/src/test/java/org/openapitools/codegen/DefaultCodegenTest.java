@@ -256,7 +256,11 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "visitDate", null);
 
-        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRef(), "#/components/schemas/updatePetWithForm_request");
+
+        Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
+        CodegenModel model = codegen.fromModel("updatePetWithForm_request", specModel);
+        Assert.assertEquals(model.getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test
@@ -2429,7 +2433,8 @@ public class DefaultCodegenTest {
                 "post",
                 path.getPost(),
                 path.getServers());
-        assertEquals(operation.allParams.size(), 1);
+        assertEquals(operation.allParams.size(), 0);
+        assertNotNull(operation.requestBody);
     }
 
     @Test
@@ -4151,7 +4156,7 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "visitDate", null);
 
-        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRef(), "#/components/schemas/updatePetWithForm_request");
     }
 
     @Test
