@@ -4341,20 +4341,18 @@ public class DefaultCodegen implements CodegenConfig {
         if (parameters != null) {
             Integer i = 0;
             for (Parameter param : parameters) {
-                param = ModelUtils.getReferencedParameter(this.openAPI, param);
-
                 String usedSourceJsonPath = sourceJsonPath + "/parameters/" + i.toString();
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
                 allParams.add(p);
                 i++;
 
-                if (param instanceof QueryParameter || "query".equalsIgnoreCase(param.getIn())) {
+                if (p.isQueryParam) {
                     queryParams.add(p.copy());
-                } else if (param instanceof PathParameter || "path".equalsIgnoreCase(param.getIn())) {
+                } else if (p.isPathParam) {
                     pathParams.add(p.copy());
-                } else if (param instanceof HeaderParameter || "header".equalsIgnoreCase(param.getIn())) {
+                } else if (p.isHeaderParam) {
                     headerParams.add(p.copy());
-                } else if (param instanceof CookieParameter || "cookie".equalsIgnoreCase(param.getIn())) {
+                } else if (p.isCookieParam) {
                     cookieParams.add(p.copy());
                 } else {
                     LOGGER.warn("Unknown parameter type for {}", p.baseName);
@@ -4715,26 +4713,26 @@ public class DefaultCodegen implements CodegenConfig {
             LOGGER.info("JSON schema: {}", codegenParameter.jsonSchema);
         }
 
-        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(parameter.getIn())) {
+        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.isQueryParam = true;
-            codegenParameter.isAllowEmptyValue = parameter.getAllowEmptyValue() != null && parameter.getAllowEmptyValue();
-        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(parameter.getIn())) {
+            codegenParameter.isAllowEmptyValue = parameter.getAllowEmptyValue() != null && usedParameter.getAllowEmptyValue();
+        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.required = true;
             codegenParameter.isPathParam = true;
-        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(parameter.getIn())) {
+        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.isHeaderParam = true;
-        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(parameter.getIn())) {
+        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.isCookieParam = true;
         } else {
-            LOGGER.warn("Unknown parameter type: {}", parameter.getName());
+            LOGGER.warn("Unknown parameter type: {}", usedParameter.getName());
         }
         if (parameter.getStyle() != null) {
-            codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == parameter.getStyle();
+            codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == usedParameter.getStyle();
         }
 
         // set the parameter example value
         // should be overridden by lang codegen
-        setParameterExampleValue(codegenParameter, parameter);
+        setParameterExampleValue(codegenParameter, usedParameter);
 
         postProcessParameter(codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);

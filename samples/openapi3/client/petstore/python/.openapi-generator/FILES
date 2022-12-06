@@ -831,17 +831,14 @@ petstore_api/paths/user_logout/get/__init__.pyi
 petstore_api/paths/user_username/__init__.py
 petstore_api/paths/user_username/delete/__init__.py
 petstore_api/paths/user_username/delete/__init__.pyi
-petstore_api/paths/user_username/delete/parameter_0.py
 petstore_api/paths/user_username/delete/response_for_404/__init__.py
 petstore_api/paths/user_username/get/__init__.py
 petstore_api/paths/user_username/get/__init__.pyi
-petstore_api/paths/user_username/get/parameter_0.py
 petstore_api/paths/user_username/get/response_for_200/__init__.py
 petstore_api/paths/user_username/get/response_for_400/__init__.py
 petstore_api/paths/user_username/get/response_for_404/__init__.py
 petstore_api/paths/user_username/put/__init__.py
 petstore_api/paths/user_username/put/__init__.pyi
-petstore_api/paths/user_username/put/parameter_0.py
 petstore_api/paths/user_username/put/request_body.py
 petstore_api/paths/user_username/put/response_for_400/__init__.py
 petstore_api/paths/user_username/put/response_for_404/__init__.py

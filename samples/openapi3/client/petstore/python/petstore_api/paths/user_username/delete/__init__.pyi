@@ -26,7 +26,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.responses import success_description_only_response as response_for_200
 
 from . import response_for_404
-from . import parameter_0
+from . import parameter_path_user_name
 
 
 
@@ -34,7 +34,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_0.schema, str, ],
+            'username': typing.Union[parameter_path_user_name.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -50,7 +50,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_path_user_name.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

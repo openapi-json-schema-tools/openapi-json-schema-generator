@@ -75,9 +75,9 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_0.schema](#parameter_0.schema) | | 
+username | [parameter_path_user_name.schema](#parameter_path_user_name.schema) | | 
 
-# parameter_0.schema
+# parameter_path_user_name.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
