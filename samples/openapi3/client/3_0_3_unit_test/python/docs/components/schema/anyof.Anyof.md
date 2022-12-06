@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Anyof"></a>
-# unit_test_api.components.schema.anyof.Anyof
+## unit_test_api.components.schema.anyof
+# Anyof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

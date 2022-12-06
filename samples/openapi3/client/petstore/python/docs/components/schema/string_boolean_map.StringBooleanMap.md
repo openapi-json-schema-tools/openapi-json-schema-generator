@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="StringBooleanMap"></a>
-# petstore_api.components.schema.string_boolean_map.StringBooleanMap
+## petstore_api.components.schema.string_boolean_map
+# StringBooleanMap
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,17 +1,17 @@
 {{#with response}}
-{{#if refModule}}
+{{#if modulePath}}
 <a name="top"></a>
-# {{packageName}}.components.responses.{{refModule}}
-## ApiResponse
+## {{modulePath}}
+# ApiResponse
 {{else}}
 #### <a id="response_for_{{@key}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-{{#if refModule}}
+{{#if modulePath}}
 body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless responseHeaders}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
 
@@ -20,7 +20,7 @@ headers | {{#unless responseHeaders}}Unset{{else}}[Headers](#Headers){{/unless}}
 {{/each}}
 {{else}}
 body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{../@key}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#response_for_{{../@key}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{@key}}.Headers](#response_for_{{@key}}.Headers){{/unless}} | {{#unless responseHeaders}}headers were not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#response_for_{{@key}}.Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
 
@@ -28,8 +28,8 @@ headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{@key}}.Headers
     {{/with}}
 {{/each}}
 {{/if}}
-{{#if responseHeaders}}
-{{#if refModule}}
+{{#if headers}}
+{{#if modulePath}}
 ## Headers
 {{else}}
 #### <a id="response_for_{{@key}}.Headers" >response_for_{{@key}}.Headers</a>
@@ -37,75 +37,63 @@ headers | {{#unless responseHeaders}}Unset{{else}}[response_for_{{@key}}.Headers
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-{{#if refModule}}
-    {{#each responseHeaders}}
-        {{#if schema}}
-            {{#with schema}}
-{{../baseName}} | [{{../paramName}}.schema](#{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-{{../baseName}} | [{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                    {{/with}}
+{{#if modulePath}}
+    {{#each headers}}
+        {{#with this}}
+            {{#if schema}}
+                {{#with schema}}
+                {{#if ../refModule}}
+{{../@key}} | [{{../refModule}}.schema](../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+                {{else}}
+{{../@key}} | [{{../paramName}}.schema](#{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+                {{/if}}
                 {{/with}}
-            {{/each}}
-        {{/if}}
-    {{/each}}
-    {{#each responseHeaders}}
-        {{#if schema}}
-            {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../paramName schemaNamePrefix2="." complexTypePrefix="../../components/schema/" }}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../paramName schemaNamePrefix2="." complexTypePrefix="../../../components/schema/" }}
+            {{else}}
+                {{#each getContent}}
+                    {{#with this}}
+                        {{#with schema}}
+                        {{#if ../refModule}}
+{{../../@key}} | [{{../refModule}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../components/headers/{{../refModule}}.md#{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                        {{else}}
+{{../../@key}} | [{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                        {{/if}}
+                        {{/with}}
                     {{/with}}
-                {{/with}}
-            {{/each}}
-        {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/with}}
     {{/each}}
+{{> header_doc }}
 {{else}}
-    {{#each responseHeaders}}
-        {{#if schema}}
-            {{#with schema}}
-{{../baseName}} | [response_for_{{../../@key}}.{{../paramName}}.schema](#response_for_{{../../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-{{../baseName}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                    {{/with}}
+    {{#each headers}}
+        {{#with this}}
+            {{#if schema}}
+                {{#with schema}}
+                {{#if ../refModule}}
+{{../@key}} | [{{../refModule}}.schema](../../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+                {{else}}
+{{../@key}} | [response_for_{{../../@key}}.{{../paramName}}.schema](#response_for_{{../../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+                {{/if}}
                 {{/with}}
-            {{/each}}
-        {{/if}}
-    {{/each}}
-    {{#each responseHeaders}}
-        {{#if schema}}
-            {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
+            {{else}}
+                {{#each getContent}}
+                    {{#with this}}
+                        {{#with schema}}
+                        {{#if ../refModule}}
+{{../../@key}} | [{{../refModule}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../../components/headers/{{../refModule}}.md#{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                        {{else}}
+{{../../@key}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                        {{/if}}
+                        {{/with}}
                     {{/with}}
-                {{/with}}
-            {{/each}}
-        {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/with}}
     {{/each}}
+{{> header_doc }}
 {{/if}}
 {{/if}}
-{{#if refModule}}
+{{#if modulePath}}
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" responsesLink=true}}
 {{/if}}

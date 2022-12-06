@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AnyTypeNotString"></a>
-# petstore_api.components.schema.any_type_not_string.AnyTypeNotString
+## petstore_api.components.schema.any_type_not_string
+# AnyTypeNotString
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

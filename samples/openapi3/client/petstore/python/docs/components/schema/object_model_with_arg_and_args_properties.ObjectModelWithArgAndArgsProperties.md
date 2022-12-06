@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ObjectModelWithArgAndArgsProperties"></a>
-# petstore_api.components.schema.object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties
+## petstore_api.components.schema.object_model_with_arg_and_args_properties
+# ObjectModelWithArgAndArgsProperties
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

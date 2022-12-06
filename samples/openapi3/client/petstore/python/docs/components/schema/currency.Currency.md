@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Currency"></a>
-# petstore_api.components.schema.currency.Currency
+## petstore_api.components.schema.currency
+# Currency
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="StringEnum"></a>
-# petstore_api.components.schema.string_enum.StringEnum
+## petstore_api.components.schema.string_enum
+# StringEnum
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

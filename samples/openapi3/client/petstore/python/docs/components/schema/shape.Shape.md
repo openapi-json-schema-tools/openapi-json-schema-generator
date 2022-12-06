@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Shape"></a>
-# petstore_api.components.schema.shape.Shape
+## petstore_api.components.schema.shape
+# Shape
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

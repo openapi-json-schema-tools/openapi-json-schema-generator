@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ArrayWithValidationsInItems"></a>
-# petstore_api.components.schema.array_with_validations_in_items.ArrayWithValidationsInItems
+## petstore_api.components.schema.array_with_validations_in_items
+# ArrayWithValidationsInItems
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

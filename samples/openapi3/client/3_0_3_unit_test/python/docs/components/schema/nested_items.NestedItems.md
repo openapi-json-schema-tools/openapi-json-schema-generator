@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NestedItems"></a>
-# unit_test_api.components.schema.nested_items.NestedItems
+## unit_test_api.components.schema.nested_items
+# NestedItems
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

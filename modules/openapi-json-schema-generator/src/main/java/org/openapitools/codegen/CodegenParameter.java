@@ -24,31 +24,10 @@ import java.util.*;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenParameter {
+public class CodegenParameter extends CodegenHeader {
     public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
-            isCookieParam, isBodyParam,
-            isExplode, isDeepObject, isAllowEmptyValue;
-    public String baseName, paramName,
-            description, unescapedDescription, style;
-
-    public String nameInLowerCase; // property name in lower case
-    public String example; // example value (x-example)
-    public String jsonSchema;
-    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
-    public boolean isDeprecated;
-    private CodegenProperty schema;
-    /**
-     * Determines whether this parameter is mandatory. If the parameter is in "path",
-     * this property is required and its value MUST be true. Otherwise, the property
-     * MAY be included and its default value is false.
-     */
-    public boolean required;
-    private boolean hasMultipleTypes = false;
-    private LinkedHashMap<String, CodegenMediaType> content;
-    private String ref;
-    private String refModule;
-
-    public Set<String> imports = new HashSet<String>();
+            isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
+    public String baseName;
 
     public CodegenParameter copy() {
         CodegenParameter output = new CodegenParameter();
@@ -84,6 +63,9 @@ public class CodegenParameter {
         if (this.imports != null) {
             output.imports = imports;
         }
+        if (this.modulePath != null) {
+            output.modulePath = modulePath;
+        }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
@@ -95,7 +77,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports);
+        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, modulePath);
     }
 
     @Override
@@ -112,6 +94,7 @@ public class CodegenParameter {
                 isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
+                Objects.equals(modulePath, that.modulePath) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(refModule, that.getRefModule()) &&
@@ -129,61 +112,25 @@ public class CodegenParameter {
                 Objects.equals(vendorExtensions, that.vendorExtensions);
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("CodegenParameter{");
-        sb.append("isFormParam=").append(isFormParam);
+    protected void addInstanceInfo(StringBuilder sb) {
+        super.addInstanceInfo(sb);
+        sb.append(", isFormParam=").append(isFormParam);
         sb.append(", isQueryParam=").append(isQueryParam);
         sb.append(", isPathParam=").append(isPathParam);
         sb.append(", isHeaderParam=").append(isHeaderParam);
         sb.append(", isCookieParam=").append(isCookieParam);
         sb.append(", isBodyParam=").append(isBodyParam);
-        sb.append(", isExplode=").append(isExplode);
-        sb.append(", baseName='").append(baseName).append('\'');
-        sb.append(", paramName='").append(paramName).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
-        sb.append(", style='").append(style).append('\'');
         sb.append(", deepObject='").append(isDeepObject).append('\'');
         sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
-        sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
-        sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", isDeprecated=").append(isDeprecated);
-        sb.append(", required=").append(required);
-        sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
-        sb.append(", schema=").append(schema);
-        sb.append(", content=").append(content);
-        sb.append(", ref=").append(ref);
-        sb.append(", refModule=").append(refModule);
-        sb.append(", imports=").append(imports);
+        sb.append(", baseName='").append(baseName).append('\'');
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenParameter{");
+        addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
     }
-
-    public CodegenProperty getSchema() {
-        return schema;
-    }
-
-    public void setSchema(CodegenProperty schema) {
-        this.schema = schema;
-    }
-
-    public LinkedHashMap<String, CodegenMediaType> getContent() {
-        return content;
-    }
-
-    public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
-        this.content = content;
-    }
-
-
-    public String getRef() { return ref; }
-
-    public void setRef(String ref) { this.ref=ref; }
-
-    public String getRefModule() { return refModule; }
-
-    public void setRefModule(String refModule) { this.refModule=refModule; }
 }
 

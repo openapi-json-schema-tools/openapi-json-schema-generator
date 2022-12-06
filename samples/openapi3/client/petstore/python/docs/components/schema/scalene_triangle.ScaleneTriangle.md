@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ScaleneTriangle"></a>
-# petstore_api.components.schema.scalene_triangle.ScaleneTriangle
+## petstore_api.components.schema.scalene_triangle
+# ScaleneTriangle
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

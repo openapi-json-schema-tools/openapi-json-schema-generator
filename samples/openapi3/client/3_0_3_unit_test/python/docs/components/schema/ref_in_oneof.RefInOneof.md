@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="RefInOneof"></a>
-# unit_test_api.components.schema.ref_in_oneof.RefInOneof
+## unit_test_api.components.schema.ref_in_oneof
+# RefInOneof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

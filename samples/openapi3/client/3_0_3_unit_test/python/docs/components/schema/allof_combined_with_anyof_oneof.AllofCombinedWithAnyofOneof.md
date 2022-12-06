@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AllofCombinedWithAnyofOneof"></a>
-# unit_test_api.components.schema.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof
+## unit_test_api.components.schema.allof_combined_with_anyof_oneof
+# AllofCombinedWithAnyofOneof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

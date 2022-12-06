@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Category"></a>
-# petstore_api.components.schema.category.Category
+## petstore_api.components.schema.category
+# Category
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

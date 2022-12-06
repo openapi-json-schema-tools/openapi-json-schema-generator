@@ -1,5 +1,5 @@
-{{#if bodyParam}}
-{{#with bodyParam}}
+{{#if requestBody}}
+{{#with requestBody}}
 body=body,
 {{/with}}
 {{/if}}
@@ -15,7 +15,7 @@ path_params=path_params,
 {{#if cookieParams}}
 cookie_params=cookie_params,
 {{/if}}
-{{#with bodyParam}}
+{{#with requestBody}}
 {{#each content}}
 {{#if @first}}
 content_type=content_type,

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Client"></a>
-# petstore_api.components.schema.client.Client
+## petstore_api.components.schema.client
+# Client
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

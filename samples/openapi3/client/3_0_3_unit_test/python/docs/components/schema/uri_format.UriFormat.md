@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="UriFormat"></a>
-# unit_test_api.components.schema.uri_format.UriFormat
+## unit_test_api.components.schema.uri_format
+# UriFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

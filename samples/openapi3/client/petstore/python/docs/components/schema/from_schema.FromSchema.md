@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="FromSchema"></a>
-# petstore_api.components.schema.from_schema.FromSchema
+## petstore_api.components.schema.from_schema
+# FromSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

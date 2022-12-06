@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AnimalFarm"></a>
-# petstore_api.components.schema.animal_farm.AnimalFarm
+## petstore_api.components.schema.animal_farm
+# AnimalFarm
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

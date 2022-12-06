@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="SubtractionOperator"></a>
-# this_package.components.schema.subtraction_operator.SubtractionOperator
+## this_package.components.schema.subtraction_operator
+# SubtractionOperator
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EnumsInProperties"></a>
-# unit_test_api.components.schema.enums_in_properties.EnumsInProperties
+## unit_test_api.components.schema.enums_in_properties
+# EnumsInProperties
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

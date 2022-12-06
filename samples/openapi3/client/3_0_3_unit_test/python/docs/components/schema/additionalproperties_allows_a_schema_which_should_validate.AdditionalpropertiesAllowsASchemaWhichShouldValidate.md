@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AdditionalpropertiesAllowsASchemaWhichShouldValidate"></a>
-# unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
+## unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate
+# AdditionalpropertiesAllowsASchemaWhichShouldValidate
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

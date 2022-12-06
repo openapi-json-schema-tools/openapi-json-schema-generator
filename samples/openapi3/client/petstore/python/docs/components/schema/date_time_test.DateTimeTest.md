@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="DateTimeTest"></a>
-# petstore_api.components.schema.date_time_test.DateTimeTest
+## petstore_api.components.schema.date_time_test
+# DateTimeTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

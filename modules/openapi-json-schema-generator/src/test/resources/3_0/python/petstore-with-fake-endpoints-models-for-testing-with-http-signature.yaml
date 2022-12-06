@@ -451,6 +451,12 @@ paths:
               schema:
                 type: string
                 format: date-time
+            stringHeader:
+              $ref: '#/components/headers/StringHeader'
+            numberHeader:
+              $ref: '#/components/headers/NumberHeader'
+            int32:
+              $ref: '#/components/headers/Int32JsonContentTypeHeader'
           content:
             application/xml:
               schema:
@@ -1643,6 +1649,13 @@ components:
       description: Success
     SuccessWithJsonApiResponse:
       description: successful operation
+      headers:
+        stringHeader:
+          $ref: '#/components/headers/StringHeader'
+        numberHeader:
+          $ref: '#/components/headers/NumberHeader'
+        int32:
+          $ref: '#/components/headers/Int32JsonContentTypeHeader'
       content:
         application/json:
           schema:
@@ -1687,6 +1700,26 @@ components:
             $ref: '#/components/schemas/Pet'
       description: Pet object that needs to be added to the store
       required: true
+  headers:
+    StringHeader:
+      description: string header description
+      required: true
+      schema:
+        type: string
+    NumberHeader:
+      description: number header description
+      required: true
+      schema:
+        type: string
+        format: number
+    Int32JsonContentTypeHeader:
+      description: int32 JSON content-type header
+      required: true
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int32
   securitySchemes:
     petstore_auth:
       type: oauth2

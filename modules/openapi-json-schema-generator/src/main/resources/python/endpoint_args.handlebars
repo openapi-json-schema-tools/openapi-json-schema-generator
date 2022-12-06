@@ -1,7 +1,7 @@
     self,
-{{#if bodyParam}}
-    {{#if bodyParam.required}}
-        {{#with bodyParam}}
+{{#if requestBody}}
+    {{#if requestBody.required}}
+        {{#with requestBody}}
         {{#eq ../contentType "null"}}
     body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
@@ -13,7 +13,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with bodyParam}}
+                {{#with requestBody}}
                     {{#each content}}
                         {{#eq @key ../../contentType}}
                             {{#if @first}}
@@ -28,7 +28,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with bodyParam}}
+            {{#with requestBody}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key}}}',
@@ -42,7 +42,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with bodyParam}}
+                {{#with requestBody}}
                     {{#each getContent}}
                         {{#eq @key ../../contentType}}
                             {{#if @first}}
@@ -57,7 +57,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with bodyParam}}
+            {{#with requestBody}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key}}}',
@@ -65,7 +65,7 @@
                 {{/each}}
             {{/with}}
         {{/if}}
-        {{#with bodyParam}}
+        {{#with requestBody}}
         {{#eq ../contentType "null"}}
     body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}

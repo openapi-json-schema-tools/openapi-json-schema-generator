@@ -89,8 +89,8 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     {{/if}}
     {{/if}}
 {{/each}}
-{{#if bodyParam}}
-{{#with bodyParam}}
+{{#if requestBody}}
+{{#with requestBody}}
 {{#if required}}
 {{#each content}}
 {{#if this.testCases}}

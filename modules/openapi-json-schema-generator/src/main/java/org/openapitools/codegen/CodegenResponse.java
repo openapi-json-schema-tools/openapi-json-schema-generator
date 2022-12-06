@@ -19,8 +19,8 @@ package org.openapitools.codegen;
 
 import java.util.*;
 
-public class CodegenResponse {
-    private List<CodegenParameter> responseHeaders = new ArrayList<CodegenParameter>();
+public class CodegenResponse implements OpenapiComponent {
+    private Map<String, CodegenHeader> headers;
     public String message;
     public List<Map<String, Object>> examples;
     public boolean hasHeaders;
@@ -30,13 +30,14 @@ public class CodegenResponse {
     private String ref;
     public Set<String> imports = new TreeSet<>();
     private String refModule;
+    private String modulePath;
 
     @Override
     public int hashCode() {
         return Objects.hash(message, examples, hasHeaders,
                 jsonSchema, vendorExtensions,
-                responseHeaders, content,
-                ref, imports, refModule);
+                headers, content,
+                ref, imports, refModule, modulePath);
     }
 
     @Override
@@ -48,12 +49,21 @@ public class CodegenResponse {
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(content, that.getContent()) &&
-                Objects.equals(responseHeaders, that.getResponseHeaders()) &&
+                Objects.equals(headers, that.getHeaders()) &&
                 Objects.equals(message, that.message) &&
                 Objects.equals(examples, that.examples) &&
                 Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                Objects.equals(refModule, that.getRefModule());
+                Objects.equals(refModule, that.getRefModule()) &&
+                Objects.equals(modulePath, that.modulePath);
+    }
+
+    public String getModulePath() {
+        return modulePath;
+    }
+
+    public void setModulePath(String modulePath) {
+        this.modulePath = modulePath;
     }
 
     public LinkedHashMap<String, CodegenMediaType> getContent() {
@@ -64,12 +74,12 @@ public class CodegenResponse {
         this.content = content;
     }
 
-    public List<CodegenParameter> getResponseHeaders() {
-        return responseHeaders;
+    public Map<String, CodegenHeader> getHeaders() {
+        return headers;
     }
 
-    public void setResponseHeaders(List<CodegenParameter> responseHeaders) {
-        this.responseHeaders = responseHeaders;
+    public void setHeaders(Map<String, CodegenHeader> headers) {
+        this.headers = headers;
     }
 
     @Override
@@ -80,11 +90,12 @@ public class CodegenResponse {
         sb.append(", hasHeaders=").append(hasHeaders);
         sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", responseHeaders=").append(responseHeaders);
+        sb.append(", headers=").append(headers);
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
+        sb.append(", modulePath=").append(modulePath);
         sb.append('}');
         return sb.toString();
     }

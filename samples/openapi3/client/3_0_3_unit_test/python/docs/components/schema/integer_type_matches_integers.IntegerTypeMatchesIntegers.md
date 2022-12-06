@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="IntegerTypeMatchesIntegers"></a>
-# unit_test_api.components.schema.integer_type_matches_integers.IntegerTypeMatchesIntegers
+## unit_test_api.components.schema.integer_type_matches_integers
+# IntegerTypeMatchesIntegers
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

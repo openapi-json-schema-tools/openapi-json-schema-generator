@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="DateWithValidations"></a>
-# petstore_api.components.schema.date_with_validations.DateWithValidations
+## petstore_api.components.schema.date_with_validations
+# DateWithValidations
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

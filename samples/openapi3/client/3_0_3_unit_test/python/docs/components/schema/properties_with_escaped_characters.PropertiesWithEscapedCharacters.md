@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="PropertiesWithEscapedCharacters"></a>
-# unit_test_api.components.schema.properties_with_escaped_characters.PropertiesWithEscapedCharacters
+## unit_test_api.components.schema.properties_with_escaped_characters
+# PropertiesWithEscapedCharacters
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

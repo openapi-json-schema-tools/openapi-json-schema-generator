@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AllofWithTheLastEmptySchema"></a>
-# unit_test_api.components.schema.allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema
+## unit_test_api.components.schema.allof_with_the_last_empty_schema
+# AllofWithTheLastEmptySchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

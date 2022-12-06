@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="MaxitemsValidation"></a>
-# unit_test_api.components.schema.maxitems_validation.MaxitemsValidation
+## unit_test_api.components.schema.maxitems_validation
+# MaxitemsValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

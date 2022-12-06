@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="RefInAdditionalproperties"></a>
-# unit_test_api.components.schema.ref_in_additionalproperties.RefInAdditionalproperties
+## unit_test_api.components.schema.ref_in_additionalproperties
+# RefInAdditionalproperties
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

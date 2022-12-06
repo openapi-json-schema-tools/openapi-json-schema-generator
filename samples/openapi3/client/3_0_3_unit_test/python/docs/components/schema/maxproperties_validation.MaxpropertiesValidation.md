@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="MaxpropertiesValidation"></a>
-# unit_test_api.components.schema.maxproperties_validation.MaxpropertiesValidation
+## unit_test_api.components.schema.maxproperties_validation
+# MaxpropertiesValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

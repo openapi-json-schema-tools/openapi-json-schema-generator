@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AppleReq"></a>
-# petstore_api.components.schema.apple_req.AppleReq
+## petstore_api.components.schema.apple_req
+# AppleReq
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ComposedString"></a>
-# petstore_api.components.schema.composed_string.ComposedString
+## petstore_api.components.schema.composed_string
+# ComposedString
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

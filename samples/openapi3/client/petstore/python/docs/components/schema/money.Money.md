@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Money"></a>
-# petstore_api.components.schema.money.Money
+## petstore_api.components.schema.money
+# Money
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

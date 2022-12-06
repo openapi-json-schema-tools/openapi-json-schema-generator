@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="UniqueitemsValidation"></a>
-# unit_test_api.components.schema.uniqueitems_validation.UniqueitemsValidation
+## unit_test_api.components.schema.uniqueitems_validation
+# UniqueitemsValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

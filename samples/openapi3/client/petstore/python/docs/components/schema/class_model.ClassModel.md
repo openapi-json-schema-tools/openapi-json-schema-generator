@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ClassModel"></a>
-# petstore_api.components.schema.class_model.ClassModel
+## petstore_api.components.schema.class_model
+# ClassModel
 
 Model for testing model with \"_class\" property
 

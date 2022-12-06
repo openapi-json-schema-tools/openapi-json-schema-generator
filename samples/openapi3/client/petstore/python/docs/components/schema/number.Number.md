@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Number"></a>
-# petstore_api.components.schema.number.Number
+## petstore_api.components.schema.number
+# Number
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

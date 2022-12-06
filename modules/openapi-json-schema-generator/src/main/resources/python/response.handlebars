@@ -5,11 +5,15 @@ from {{packageName}} import api_client
 {{> model_templates/imports_schema_types }}
 {{#with response}}
 {{> model_templates/imports_schemas }}
-{{#each responseHeaders}}
+{{#each headers}}
+{{#if refModule}}
+from {{packageName}}.components.headers import {{refModule}} as {{paramName}}
+{{else}}
 from . import {{paramName}}
+{{/if}}
 {{/each}}
-{{#if responseHeaders}}
-{{> endpoint_parameter_schema_and_def xParams=responseHeaders xParamsName="Header" }}
+{{#if headers}}
+{{> response_header_schema_and_def xParams=headers xParamsName="Header" }}
 {{/if}}
 {{#if getContent}}
 
@@ -25,7 +29,7 @@ from . import {{paramName}}
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-{{#and responseHeaders content}}
+{{#and headers content}}
     body: typing.Union[
 {{#each content}}
 {{#if this.schema}}
@@ -39,8 +43,8 @@ class ApiResponse(api_client.ApiResponse):
     ]
     headers: Header.Params
 {{else}}
-{{#or responseHeaders content}}
-{{#if responseHeaders}}
+{{#or headers content}}
+{{#if headers}}
     headers: Header.Params
     body: schemas.Unset = schemas.unset
 {{else}}
@@ -59,7 +63,7 @@ class ApiResponse(api_client.ApiResponse):
 {{/if}}
 {{/or}}
 {{/and}}
-{{#unless responseHeaders}}
+{{#unless headers}}
 {{#unless content}}
     body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
@@ -84,7 +88,7 @@ response = api_client.OpenApiResponse(
     },
 {{/if}}
 {{/each}}
-{{#if responseHeaders}}
+{{#if headers}}
     headers=Header.parameters
 {{/if}}
 )

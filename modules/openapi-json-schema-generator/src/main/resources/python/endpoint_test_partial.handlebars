@@ -1,5 +1,5 @@
 api_response = self.api.{{httpMethod}}(
-{{#if bodyParam}}
+{{#if requestBody}}
     body=body,
     content_type=content_type
 {{/if}}
@@ -11,7 +11,7 @@ self.assert_pool_manager_request_called_with(
     mock_request,
     self._configuration.host + '{{{path}}}',
     method='{{httpMethod}}'.upper(),
-{{#if bodyParam}}
+{{#if requestBody}}
     body=self.json_bytes(payload),
     content_type=content_type,
 {{/if}}
