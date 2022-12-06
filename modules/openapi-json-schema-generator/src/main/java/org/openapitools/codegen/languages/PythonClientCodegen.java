@@ -2644,6 +2644,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return prefix + "responses." + toResponseModuleName(componentName);
             case "headers":
                 return prefix + "headers." + toHeaderFilename(componentName);
+            case "parameters":
+                return prefix + "headers." + toParameterFilename(componentName);
         }
         return null;
     }

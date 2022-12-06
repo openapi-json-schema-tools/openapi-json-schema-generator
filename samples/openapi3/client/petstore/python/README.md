@@ -376,7 +376,7 @@ HTTP request | Method | Description
 
 ## Component Parameters
 
-- [](docs/components/parameters/.md)
+- [parameter_path_user_name](docs/components/parameters/parameter_path_user_name.md)
 
 ## Documentation For Authorization
 

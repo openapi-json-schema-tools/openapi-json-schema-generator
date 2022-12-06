@@ -4587,12 +4587,12 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath, "Header");
+        if (usedHeader.getStyle() != null) {
+            codegenHeader.style = usedHeader.getStyle().toString();
+        }
         if (headerRef != null) {
             String refModule = toRefModule(headerRef, "headers");
             codegenHeader.setRefModule(refModule);
-        }
-        if (usedHeader.getStyle() != null) {
-            codegenHeader.style = usedHeader.getStyle().toString();
         }
         if (sourceJsonPath != null) {
             String[] refPieces = sourceJsonPath.split("/");
@@ -4668,25 +4668,47 @@ public class DefaultCodegen implements CodegenConfig {
      * @return Codegen Parameter object
      */
     public CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath) {
+        String parameterRef = parameter.get$ref();
+        Parameter usedParameter = parameter;
+        String usedSourceJsonPath = sourceJsonPath;
+        if (parameterRef != null) {
+            usedParameter = ModelUtils.getReferencedParameter(this.openAPI, parameter);
+            usedSourceJsonPath = parameterRef;
+        }
+
         CodegenParameter codegenParameter = CodegenModelFactory.newInstance(CodegenModelType.PARAMETER);
 
         Header prameterHeader = new Header();
-        prameterHeader.setContent(parameter.getContent());
-        prameterHeader.setDescription(parameter.getDescription());
-        prameterHeader.setDeprecated(parameter.getDeprecated());
-        prameterHeader.setSchema(parameter.getSchema());
-        prameterHeader.set$ref(parameter.get$ref());
-        prameterHeader.setExamples(parameter.getExamples());
-        prameterHeader.setExample(parameter.getExample());
-        prameterHeader.setExplode(parameter.getExplode());
-        prameterHeader.setExtensions(parameter.getExtensions());
-        prameterHeader.setRequired(parameter.getRequired());
-        setHeaderInfo(prameterHeader, codegenParameter, sourceJsonPath, "Parameter");
+        prameterHeader.setContent(usedParameter.getContent());
+        prameterHeader.setDescription(usedParameter.getDescription());
+        prameterHeader.setDeprecated(usedParameter.getDeprecated());
+        prameterHeader.setSchema(usedParameter.getSchema());
+        prameterHeader.set$ref(usedParameter.get$ref());
+        prameterHeader.setExamples(usedParameter.getExamples());
+        prameterHeader.setExample(usedParameter.getExample());
+        prameterHeader.setExplode(usedParameter.getExplode());
+        prameterHeader.setExtensions(usedParameter.getExtensions());
+        prameterHeader.setRequired(usedParameter.getRequired());
+        setHeaderInfo(prameterHeader, codegenParameter, usedSourceJsonPath, "Parameter");
 
-        if (parameter.getStyle() != null) {
-            codegenParameter.style = parameter.getStyle().toString();
+        if (usedParameter.getStyle() != null) {
+            codegenParameter.style = usedParameter.getStyle().toString();
         }
-        codegenParameter.baseName = parameter.getName();
+        codegenParameter.baseName = usedParameter.getName();
+
+        if (parameterRef != null) {
+            String refModule = toRefModule(parameterRef, "parameters");
+            codegenParameter.setRefModule(refModule);
+        }
+        if (sourceJsonPath != null) {
+            String[] refPieces = sourceJsonPath.split("/");
+            if (sourceJsonPath.startsWith("#/components/parameters/") && refPieces.length == 4) {
+                String componentName = refPieces[3];
+                codegenParameter.setModulePath(toModulePath(componentName, "parameters"));
+                String refModule = toRefModule(sourceJsonPath, "parameters");
+                codegenParameter.setRefModule(refModule);
+            }
+        }
 
         if (GlobalSettings.getProperty("debugParser") != null) {
             LOGGER.info("working on Parameter {}", parameter.getName());
@@ -6475,6 +6497,8 @@ public class DefaultCodegen implements CodegenConfig {
                 return toResponseModuleName(refPieces[3]);
             case "headers":
                 return toHeaderFilename(refPieces[3]);
+            case "parameters":
+                return toParameterFilename(refPieces[3]);
         }
         return null;
     }
