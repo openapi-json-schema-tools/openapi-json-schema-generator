@@ -4381,7 +4381,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        op.bodyParam = bodyParam;
+        op.requestBody = bodyParam;
         op.httpMethod = httpMethod.toUpperCase(Locale.ROOT);
 
         // move "required" parameters in front of "optional" parameters
@@ -4498,7 +4498,7 @@ public class DefaultCodegen implements CodegenConfig {
                 CodegenHeader responseHeader = fromHeader(header, headerSourceJsonPath);
                 responseHeaders.put(headerName, responseHeader);
             }
-            r.setResponseHeaders(responseHeaders);
+            r.setHeaders(responseHeaders);
         }
         r.setContent(getContent(usedResponse.getContent(), r.imports, "", usedSourceJsonPath + "/content"));
 

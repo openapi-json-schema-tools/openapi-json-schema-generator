@@ -517,10 +517,10 @@ public class DefaultGenerator implements Generator {
                 for (Map.Entry<String, String> entry: config.pathEndpointRequestBodyTemplateFiles().entrySet()) {
                     String templateFile = entry.getKey();
                     String renderedOutputFilename = entry.getValue();
-                    if (co.bodyParam != null && co.bodyParam.getRefModule() == null) {
+                    if (co.requestBody != null && co.requestBody.getRefModule() == null) {
                         Map<String, Object> paramMap = new HashMap<>();
-                        paramMap.put("requestBody", co.bodyParam);
-                        paramMap.put("imports", co.bodyParam.imports);
+                        paramMap.put("requestBody", co.requestBody);
+                        paramMap.put("imports", co.requestBody.imports);
                         paramMap.put("packageName", packageName);
                         outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
                         pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
