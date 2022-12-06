@@ -2009,30 +2009,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /**
-     * Create a CodegenParameter for a Form Property
-     * We have a custom version of this method so we can invoke
-     * setParameterExampleValue(codegenParameter, parameter)
-     * rather than setParameterExampleValue(codegenParameter)
-     * This ensures that all of our samples are generated in
-     * toExampleValueRecursive
-     *
-     * @param name           the property name
-     * @param body the RequestBody definition
-     * @return the resultant CodegenParameter
-     */
-    @Override
-    public CodegenParameter fromFormProperty(String name, RequestBody body, String sourceJsonPath) {
-        CodegenParameter cp = super.fromFormProperty(name, body, sourceJsonPath);
-        Parameter p = new Parameter();
-        Schema schema = ModelUtils.getSchemaFromRequestBody(body);
-        Schema propertySchema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-        p.setSchema(propertySchema);
-        p.setName(cp.paramName);
-        setParameterExampleValue(cp, p);
-        return cp;
-    }
-
-    /**
      * Return a map from model name to Schema for efficient lookup.
      *
      * @return map from model name to Schema.
@@ -2474,23 +2450,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String packageName() {
         return packageName;
-    }
-
-    /**
-     * A custom version of this method is needed to ensure that the form object parameter is kept as-is
-     * as an object and is not exploded into separate parameters
-     * @param body the body that is being handled
-     * @return the list of length one containing a single type object CodegenParameter
-     */
-    @Override
-    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, String sourceJsonPath) {
-        List<CodegenParameter> parameters = new ArrayList<>();
-        LOGGER.debug("debugging fromRequestBodyToFormParameters= {}", body);
-        CodegenParameter cp = fromFormProperty("body", body, sourceJsonPath);
-        cp.isFormParam = false;
-        cp.isBodyParam = true;
-        parameters.add(cp);
-        return parameters;
     }
 
     protected boolean needToImport(String refClass) {
