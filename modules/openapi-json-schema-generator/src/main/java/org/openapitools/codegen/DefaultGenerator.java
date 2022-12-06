@@ -853,16 +853,17 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/headers/" + componentName;
             CodegenHeader header = config.fromHeader(specHeader, sourceJsonPath);
             headers.put(componentName, header);
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", config.packageName());
-            templateData.put("header", header);
-            templateData.put("imports", header.imports);
             Boolean generateHeaders = Boolean.TRUE;
-            String docExtension = config.getDocExtension();
-            for (String templateName : config.headerTemplateFiles().keySet()) {
-                String suffix = docExtension != null ? docExtension : config.headerTemplateFiles().get(templateName);
+            for (Map.Entry<String, String> headerInfo : config.headerTemplateFiles().entrySet()) {
+                String templateName = headerInfo.getKey();
+                String suffix = headerInfo.getValue();
                 String fileFolder = config.headerFileFolder();
                 String filename = fileFolder + File.separatorChar + config.toHeaderFilename(componentName) + suffix;
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("header", header);
+                templateData.put("imports", header.imports);
+
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS, fileFolder);
                     if (written != null) {
@@ -877,10 +878,14 @@ public class DefaultGenerator implements Generator {
             }
             Boolean generateHeaderDocs = Boolean.TRUE;
             for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
-                String templateName = entry.getKey();
-                String suffix = config.headerDocTemplateFiles().get(templateName);
+                String templateName = headerDocInfo.getKey();
+                String suffix = headerDocInfo.getValue();
                 String fileFolder = config.headerDocFileFolder();
                 String filename = fileFolder + File.separatorChar + config.toHeaderDocFilename(componentName) + suffix;
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("headers", Collections.singletonMap("unsetHeaderName", header));
+                templateData.put("imports", header.imports);
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);

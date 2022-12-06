@@ -66,6 +66,8 @@ docs/apis/tags/user_api/get_user_by_name.md
 docs/apis/tags/user_api/login_user.md
 docs/apis/tags/user_api/logout_user.md
 docs/apis/tags/user_api/update_user.md
+docs/components/headers/number_header_header.md
+docs/components/headers/string_header_header.md
 docs/components/request_bodies/client_request_body.md
 docs/components/request_bodies/pet_request_body.md
 docs/components/request_bodies/user_array_request_body.md

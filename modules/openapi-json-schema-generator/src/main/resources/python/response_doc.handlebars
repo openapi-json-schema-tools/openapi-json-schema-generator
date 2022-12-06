@@ -55,25 +55,7 @@ Key | Accessed Type | Description  | Notes
             {{/if}}
         {{/with}}
     {{/each}}
-    {{#each headers}}
-        {{#with this}}
-            {{#if schema}}
-                {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../paramName schemaNamePrefix2="." complexTypePrefix="../../components/schema/" }}
-                {{/with}}
-            {{else}}
-                {{#each getContent}}
-                    {{#with this}}
-                        {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../paramName schemaNamePrefix2="." complexTypePrefix="../../../components/schema/" }}
-                        {{/with}}
-                    {{/with}}
-                {{/each}}
-            {{/if}}
-        {{/with}}
-    {{/each}}
+{{> header_doc }}
 {{else}}
     {{#each headers}}
         {{#with this}}
@@ -92,25 +74,7 @@ Key | Accessed Type | Description  | Notes
             {{/if}}
         {{/with}}
     {{/each}}
-    {{#each headers}}
-        {{#with this}}
-            {{#if schema}}
-                {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
-                {{/with}}
-            {{else}}
-                {{#each getContent}}
-                    {{#with this}}
-                        {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." complexTypePrefix="../../../components/schema/" }}
-                        {{/with}}
-                    {{/with}}
-                {{/each}}
-            {{/if}}
-        {{/with}}
-    {{/each}}
+{{> header_doc }}
 {{/if}}
 {{/if}}
 {{#if modulePath}}
