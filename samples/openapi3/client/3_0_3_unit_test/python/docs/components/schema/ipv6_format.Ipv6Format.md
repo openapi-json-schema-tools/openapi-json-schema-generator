@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Ipv6Format"></a>
-# unit_test_api.components.schema.ipv6_format.Ipv6Format
+## unit_test_api.components.schema.ipv6_format
+# Ipv6Format
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

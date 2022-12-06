@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="DanishPig"></a>
-# petstore_api.components.schema.danish_pig.DanishPig
+## petstore_api.components.schema.danish_pig
+# DanishPig
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

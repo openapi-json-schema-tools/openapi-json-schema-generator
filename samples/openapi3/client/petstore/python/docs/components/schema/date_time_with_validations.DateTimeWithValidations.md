@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="DateTimeWithValidations"></a>
-# petstore_api.components.schema.date_time_with_validations.DateTimeWithValidations
+## petstore_api.components.schema.date_time_with_validations
+# DateTimeWithValidations
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

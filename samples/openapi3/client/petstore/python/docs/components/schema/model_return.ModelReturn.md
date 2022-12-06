@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ModelReturn"></a>
-# petstore_api.components.schema.model_return.ModelReturn
+## petstore_api.components.schema.model_return
+# ModelReturn
 
 Model for testing reserved words
 

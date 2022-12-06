@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="MapTest"></a>
-# petstore_api.components.schema.map_test.MapTest
+## petstore_api.components.schema.map_test
+# MapTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

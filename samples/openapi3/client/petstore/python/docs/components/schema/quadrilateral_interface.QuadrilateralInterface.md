@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="QuadrilateralInterface"></a>
-# petstore_api.components.schema.quadrilateral_interface.QuadrilateralInterface
+## petstore_api.components.schema.quadrilateral_interface
+# QuadrilateralInterface
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

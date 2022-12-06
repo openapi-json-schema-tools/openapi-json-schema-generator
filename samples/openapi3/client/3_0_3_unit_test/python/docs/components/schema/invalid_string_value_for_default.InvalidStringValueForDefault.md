@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="InvalidStringValueForDefault"></a>
-# unit_test_api.components.schema.invalid_string_value_for_default.InvalidStringValueForDefault
+## unit_test_api.components.schema.invalid_string_value_for_default
+# InvalidStringValueForDefault
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

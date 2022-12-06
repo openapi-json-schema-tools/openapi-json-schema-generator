@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="GrandparentAnimal"></a>
-# petstore_api.components.schema.grandparent_animal.GrandparentAnimal
+## petstore_api.components.schema.grandparent_animal
+# GrandparentAnimal
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

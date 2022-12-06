@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="IntegerMax10"></a>
-# petstore_api.components.schema.integer_max10.IntegerMax10
+## petstore_api.components.schema.integer_max10
+# IntegerMax10
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

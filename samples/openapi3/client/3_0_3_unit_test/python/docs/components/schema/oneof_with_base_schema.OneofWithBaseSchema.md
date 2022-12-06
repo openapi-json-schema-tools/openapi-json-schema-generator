@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="OneofWithBaseSchema"></a>
-# unit_test_api.components.schema.oneof_with_base_schema.OneofWithBaseSchema
+## unit_test_api.components.schema.oneof_with_base_schema
+# OneofWithBaseSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

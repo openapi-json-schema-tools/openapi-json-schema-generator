@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="UUIDString"></a>
-# petstore_api.components.schema.uuid_string.UUIDString
+## petstore_api.components.schema.uuid_string
+# UUIDString
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

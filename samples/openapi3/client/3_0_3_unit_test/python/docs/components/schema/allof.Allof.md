@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Allof"></a>
-# unit_test_api.components.schema.allof.Allof
+## unit_test_api.components.schema.allof
+# Allof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

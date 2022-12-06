@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ApiResponse"></a>
-# petstore_api.components.schema.api_response.ApiResponse
+## petstore_api.components.schema.api_response
+# ApiResponse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EmailFormat"></a>
-# unit_test_api.components.schema.email_format.EmailFormat
+## unit_test_api.components.schema.email_format
+# EmailFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

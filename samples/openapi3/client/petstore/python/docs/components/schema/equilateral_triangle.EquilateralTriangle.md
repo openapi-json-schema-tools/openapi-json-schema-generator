@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EquilateralTriangle"></a>
-# petstore_api.components.schema.equilateral_triangle.EquilateralTriangle
+## petstore_api.components.schema.equilateral_triangle
+# EquilateralTriangle
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

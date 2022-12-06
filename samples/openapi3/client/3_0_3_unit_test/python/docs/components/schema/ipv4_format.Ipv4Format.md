@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Ipv4Format"></a>
-# unit_test_api.components.schema.ipv4_format.Ipv4Format
+## unit_test_api.components.schema.ipv4_format
+# Ipv4Format
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AllofWithOneEmptySchema"></a>
-# unit_test_api.components.schema.allof_with_one_empty_schema.AllofWithOneEmptySchema
+## unit_test_api.components.schema.allof_with_one_empty_schema
+# AllofWithOneEmptySchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

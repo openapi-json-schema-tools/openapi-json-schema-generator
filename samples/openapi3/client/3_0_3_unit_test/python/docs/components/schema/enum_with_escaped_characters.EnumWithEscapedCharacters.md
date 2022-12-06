@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EnumWithEscapedCharacters"></a>
-# unit_test_api.components.schema.enum_with_escaped_characters.EnumWithEscapedCharacters
+## unit_test_api.components.schema.enum_with_escaped_characters
+# EnumWithEscapedCharacters
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

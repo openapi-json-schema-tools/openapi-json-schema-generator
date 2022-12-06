@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NumberOnly"></a>
-# petstore_api.components.schema.number_only.NumberOnly
+## petstore_api.components.schema.number_only
+# NumberOnly
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

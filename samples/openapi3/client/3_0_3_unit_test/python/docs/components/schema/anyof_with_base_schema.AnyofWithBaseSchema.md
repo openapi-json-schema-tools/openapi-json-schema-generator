@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AnyofWithBaseSchema"></a>
-# unit_test_api.components.schema.anyof_with_base_schema.AnyofWithBaseSchema
+## unit_test_api.components.schema.anyof_with_base_schema
+# AnyofWithBaseSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

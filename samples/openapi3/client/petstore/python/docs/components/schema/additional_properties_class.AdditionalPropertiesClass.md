@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AdditionalPropertiesClass"></a>
-# petstore_api.components.schema.additional_properties_class.AdditionalPropertiesClass
+## petstore_api.components.schema.additional_properties_class
+# AdditionalPropertiesClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

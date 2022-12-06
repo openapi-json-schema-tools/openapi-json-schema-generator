@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="OneofWithRequired"></a>
-# unit_test_api.components.schema.oneof_with_required.OneofWithRequired
+## unit_test_api.components.schema.oneof_with_required
+# OneofWithRequired
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

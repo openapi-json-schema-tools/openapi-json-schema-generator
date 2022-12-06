@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NotMoreComplexSchema"></a>
-# unit_test_api.components.schema.not_more_complex_schema.NotMoreComplexSchema
+## unit_test_api.components.schema.not_more_complex_schema
+# NotMoreComplexSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

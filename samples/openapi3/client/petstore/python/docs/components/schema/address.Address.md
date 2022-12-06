@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Address"></a>
-# petstore_api.components.schema.address.Address
+## petstore_api.components.schema.address
+# Address
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

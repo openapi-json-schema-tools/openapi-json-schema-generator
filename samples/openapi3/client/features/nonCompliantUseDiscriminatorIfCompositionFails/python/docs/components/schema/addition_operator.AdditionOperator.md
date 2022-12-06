@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AdditionOperator"></a>
-# this_package.components.schema.addition_operator.AdditionOperator
+## this_package.components.schema.addition_operator
+# AdditionOperator
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

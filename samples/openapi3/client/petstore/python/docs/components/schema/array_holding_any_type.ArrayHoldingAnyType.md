@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ArrayHoldingAnyType"></a>
-# petstore_api.components.schema.array_holding_any_type.ArrayHoldingAnyType
+## petstore_api.components.schema.array_holding_any_type
+# ArrayHoldingAnyType
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

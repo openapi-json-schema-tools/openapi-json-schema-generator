@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ObjectWithAllOfWithReqTestPropFromUnsetAddProp"></a>
-# petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop.ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+## petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
+# ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

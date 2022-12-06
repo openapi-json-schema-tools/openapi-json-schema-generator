@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="DecimalPayload"></a>
-# petstore_api.components.schema.decimal_payload.DecimalPayload
+## petstore_api.components.schema.decimal_payload
+# DecimalPayload
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AdditionalpropertiesAreAllowedByDefault"></a>
-# unit_test_api.components.schema.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault
+## unit_test_api.components.schema.additionalproperties_are_allowed_by_default
+# AdditionalpropertiesAreAllowedByDefault
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

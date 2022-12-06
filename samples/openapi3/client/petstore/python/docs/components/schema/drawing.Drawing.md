@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Drawing"></a>
-# petstore_api.components.schema.drawing.Drawing
+## petstore_api.components.schema.drawing
+# Drawing
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

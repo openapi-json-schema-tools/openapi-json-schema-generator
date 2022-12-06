@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="DateTimeFormat"></a>
-# unit_test_api.components.schema.date_time_format.DateTimeFormat
+## unit_test_api.components.schema.date_time_format
+# DateTimeFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ObjectWithInlineCompositionProperty"></a>
-# petstore_api.components.schema.object_with_inline_composition_property.ObjectWithInlineCompositionProperty
+## petstore_api.components.schema.object_with_inline_composition_property
+# ObjectWithInlineCompositionProperty
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

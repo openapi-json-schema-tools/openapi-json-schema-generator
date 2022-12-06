@@ -6,7 +6,7 @@ from dataclasses import dataclass
 import typing_extensions
 import urllib3
 {{#with operation}}
-{{#or headerParams bodyParam produces}}
+{{#or headerParams requestBody produces}}
 from urllib3._collections import HTTPHeaderDict
 {{/or}}
 {{/with}}
@@ -15,7 +15,7 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schema_types }}
 {{> model_templates/imports_schemas }}
 {{#with operation}}
-{{#with bodyParam}}
+{{#with requestBody}}
 {{#if refModule}}
 from {{packageName}}.components.request_bodies import {{refModule}} as request_body
 {{/if}}
@@ -36,7 +36,7 @@ from .. import path
 from . import response_for_{{@key}}
 {{/unless}}
 {{/each}}
-{{#with bodyParam}}
+{{#with requestBody}}
 {{#unless refModule}}
 from . import request_body
 {{/unless}}
@@ -139,7 +139,7 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-{{#if bodyParam}}
+{{#if requestBody}}
     {{#each getContentTypeToOperation}}
     {{> endpoint_args_baseapi_wrapper contentType=@key this=this}}
 
@@ -209,7 +209,7 @@ class BaseApi(api_client.Api):
             for serialized_value in serialized_data.values():
                 used_path += serialized_value
     {{/if}}
-    {{#or headerParams bodyParam produces}}
+    {{#or headerParams requestBody produces}}
 
         _headers = HTTPHeaderDict()
     {{else}}
@@ -228,7 +228,7 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
     {{/if}}
-    {{#with bodyParam}}
+    {{#with requestBody}}
 
     {{#if required}}
         if body is schemas.unset:
@@ -252,10 +252,10 @@ class BaseApi(api_client.Api):
         response = self.api_client.call_api(
             resource_path=used_path,
             method='{{httpMethod}}'.upper(),
-    {{#or headerParams bodyParam produces}}
+    {{#or headerParams requestBody produces}}
             headers=_headers,
     {{/or}}
-    {{#if bodyParam}}
+    {{#if requestBody}}
             fields=_fields,
             body=_body,
     {{/if}}
@@ -308,7 +308,7 @@ class BaseApi(api_client.Api):
 class {{operationIdCamelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
-{{#if bodyParam}}
+{{#if requestBody}}
     {{#each getContentTypeToOperation}}
     {{> endpoint_args_operationid_wrapper contentType=@key this=this}}
 
@@ -339,7 +339,7 @@ class {{operationIdCamelCase}}(BaseApi):
 class ApiFor{{httpMethod}}(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
-{{#if bodyParam}}
+{{#if requestBody}}
     {{#each getContentTypeToOperation}}
     {{> endpoint_args_httpmethod_wrapper contentType=@key this=this}}
 

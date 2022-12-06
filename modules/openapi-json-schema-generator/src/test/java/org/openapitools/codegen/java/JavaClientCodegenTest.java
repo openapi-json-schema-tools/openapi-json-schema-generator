@@ -45,6 +45,7 @@ import java.util.stream.Collectors;
 
 import org.openapitools.codegen.ClientOptInput;
 import org.openapitools.codegen.CodegenConstants;
+import org.openapitools.codegen.CodegenHeader;
 import org.openapitools.codegen.CodegenModel;
 import org.openapitools.codegen.CodegenOperation;
 import org.openapitools.codegen.CodegenParameter;
@@ -490,10 +491,9 @@ public class JavaClientCodegenTest {
         ApiResponse ok_200 = openAPI.getComponents().getResponses().get("OK_200");
         CodegenResponse response = codegen.fromResponse(ok_200, "");
 
-        Assert.assertEquals(response.getResponseHeaders().size(), 1);
-        CodegenParameter header = response.getResponseHeaders().get(0);
+        Assert.assertEquals(response.getHeaders().size(), 1);
+        CodegenHeader header = response.getHeaders().get("Request");
         Assert.assertEquals(header.getSchema().getFormat(), "uuid");
-        Assert.assertEquals(header.baseName, "Request");
     }
 
     @Test

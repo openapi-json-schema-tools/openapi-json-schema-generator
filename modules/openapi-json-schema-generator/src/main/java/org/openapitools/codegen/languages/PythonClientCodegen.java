@@ -25,6 +25,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
@@ -88,6 +89,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String modelDocPath = "docs/components/schema/";
     protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected String responseDocPath = "docs/components/responses/";
+    protected String headerDocPath = "docs/components/headers/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -329,6 +331,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
         responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
+        headerTemplateFiles.put("header.handlebars", ".py");
+        headerDocTemplateFiles.put("header_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -503,6 +507,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String requestBodyFileFolder() {
         return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+    }
+
+    @Override
+    public String headerFileFolder() {
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers";
+    }
+
+    public String headerDocFileFolder() {
+        return outputFolder + File.separator + headerDocPath;
     }
 
     protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
@@ -782,34 +795,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
+    public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
+        CodegenHeader codegenHeader = super.fromHeader(header, sourceJsonPath);
+        fixSchemaImports(codegenHeader.imports);
+        return codegenHeader;
+    }
+
+
     public CodegenParameter fromParameter(Parameter parameter, String priorJsonPathFragment) {
         CodegenParameter cp = super.fromParameter(parameter, priorJsonPathFragment);
         fixSchemaImports(cp.imports);
-        if (parameter.getStyle() != null) {
-            switch(parameter.getStyle()) {
-                case MATRIX:
-                    cp.style = "MATRIX";
-                    break;
-                case LABEL:
-                    cp.style = "LABEL";
-                    break;
-                case FORM:
-                    cp.style = "FORM";
-                    break;
-                case SIMPLE:
-                    cp.style = "SIMPLE";
-                    break;
-                case SPACEDELIMITED:
-                    cp.style = "SPACE_DELIMITED";
-                    break;
-                case PIPEDELIMITED:
-                    cp.style = "PIPE_DELIMITED";
-                    break;
-                case DEEPOBJECT:
-                    cp.style = "DEEP_OBJECT";
-                    break;
-            }
-        }
         return cp;
     }
 
@@ -2399,6 +2394,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return outputFolder + File.separator + requestBodyDocPath;
     }
 
+    public String toHeaderFilename(String componentName) { return toModuleFilename(componentName) + "_header"; }
+
+    public String toHeaderDocFilename(String componentName) { return toHeaderFilename(componentName); }
+
     @Override
     public String addRegularExpressionDelimiter(String pattern) {
         if (StringUtils.isEmpty(pattern)) {
@@ -2518,10 +2517,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // smuggle path Api class name ins operationIdSnakeCase
         co.operationIdSnakeCase = toModelName(path);
 
-        if (co.bodyParam == null) {
+        if (co.requestBody == null) {
             for (CodegenParameter cp: co.allParams) {
                 if (cp.isBodyParam) {
-                    co.bodyParam = cp;
+                    co.requestBody = cp;
                     co.bodyParams.add(cp);
                 }
             }
@@ -2626,6 +2625,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String toParamName(String basename) {
         return toParameterFileName(basename);
+    }
+
+    protected String toModulePath(String componentName, String priorJsonPathSegment) {
+        String prefix = packageName + ".components.";
+        switch (priorJsonPathSegment) {
+            case "schemas":
+                return prefix + "schema." + toModelFilename(componentName);
+            case "requestBodies":
+                return prefix + "request_bodies." + toRequestBodyFilename(componentName);
+            case "responses":
+                return prefix + "responses." + toResponseModuleName(componentName);
+            case "headers":
+                return prefix + "headers." + toHeaderFilename(componentName);
+        }
+        return null;
     }
 
     public String toRefClass(String ref, String sourceJsonPath) {

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Order"></a>
-# petstore_api.components.schema.order.Order
+## petstore_api.components.schema.order
+# Order
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
