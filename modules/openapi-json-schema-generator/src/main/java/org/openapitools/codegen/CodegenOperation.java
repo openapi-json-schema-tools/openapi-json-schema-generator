@@ -32,7 +32,7 @@ public class CodegenOperation {
             summary, unescapedNotes, notes, baseName;
     public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
-    public CodegenParameter bodyParam;
+    public CodegenParameter requestBody;
     public List<CodegenParameter> allParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> bodyParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> pathParams = new ArrayList<CodegenParameter>();
@@ -200,10 +200,10 @@ public class CodegenOperation {
      */
     public Map<String, CodegenOperation> getContentTypeToOperation() {
         LinkedHashMap<String, CodegenOperation> contentTypeToOperation = new LinkedHashMap<>();
-        if (bodyParam == null) {
+        if (requestBody == null) {
             return null;
         }
-        LinkedHashMap<String, CodegenMediaType> content = bodyParam.getContent();
+        LinkedHashMap<String, CodegenMediaType> content = requestBody.getContent();
         for (String contentType: content.keySet()) {
             contentTypeToOperation.put(contentType, this);
         }
@@ -335,7 +335,7 @@ public class CodegenOperation {
         sb.append(", produces=").append(produces);
         sb.append(", prioritizedContentTypes=").append(prioritizedContentTypes);
         sb.append(", servers=").append(servers);
-        sb.append(", bodyParam=").append(bodyParam);
+        sb.append(", requestBody=").append(requestBody);
         sb.append(", allParams=").append(allParams);
         sb.append(", bodyParams=").append(bodyParams);
         sb.append(", pathParams=").append(pathParams);
@@ -401,7 +401,7 @@ public class CodegenOperation {
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(prioritizedContentTypes, that.prioritizedContentTypes) &&
                 Objects.equals(servers, that.servers) &&
-                Objects.equals(bodyParam, that.bodyParam) &&
+                Objects.equals(requestBody, that.requestBody) &&
                 Objects.equals(allParams, that.allParams) &&
                 Objects.equals(bodyParams, that.bodyParams) &&
                 Objects.equals(pathParams, that.pathParams) &&
@@ -439,7 +439,7 @@ public class CodegenOperation {
                 hasDefaultResponse, isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
                 isRestful, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
-                consumes, produces, prioritizedContentTypes, servers, bodyParam, allParams, bodyParams,
+                consumes, produces, prioritizedContentTypes, servers, requestBody, allParams, bodyParams,
                 pathParams, queryParams, headerParams, formParams, cookieParams, requiredParams, optionalParams,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
                 vendorExtensions, nickname, operationIdOriginal, operationIdLowerCase, operationIdCamelCase,

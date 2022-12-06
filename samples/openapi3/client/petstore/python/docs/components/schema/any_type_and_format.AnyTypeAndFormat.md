@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AnyTypeAndFormat"></a>
-# petstore_api.components.schema.any_type_and_format.AnyTypeAndFormat
+## petstore_api.components.schema.any_type_and_format
+# AnyTypeAndFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

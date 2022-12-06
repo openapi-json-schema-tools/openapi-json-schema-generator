@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="IntegerEnumOneValue"></a>
-# petstore_api.components.schema.integer_enum_one_value.IntegerEnumOneValue
+## petstore_api.components.schema.integer_enum_one_value
+# IntegerEnumOneValue
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NumberWithValidations"></a>
-# petstore_api.components.schema.number_with_validations.NumberWithValidations
+## petstore_api.components.schema.number_with_validations
+# NumberWithValidations
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

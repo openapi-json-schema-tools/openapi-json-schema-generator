@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="BananaReq"></a>
-# petstore_api.components.schema.banana_req.BananaReq
+## petstore_api.components.schema.banana_req
+# BananaReq
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

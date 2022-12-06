@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="SelfReferencingObjectModel"></a>
-# petstore_api.components.schema.self_referencing_object_model.SelfReferencingObjectModel
+## petstore_api.components.schema.self_referencing_object_model
+# SelfReferencingObjectModel
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

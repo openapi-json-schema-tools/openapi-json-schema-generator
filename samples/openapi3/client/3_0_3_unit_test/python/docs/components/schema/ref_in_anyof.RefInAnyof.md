@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="RefInAnyof"></a>
-# unit_test_api.components.schema.ref_in_anyof.RefInAnyof
+## unit_test_api.components.schema.ref_in_anyof
+# RefInAnyof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ComposedBool"></a>
-# petstore_api.components.schema.composed_bool.ComposedBool
+## petstore_api.components.schema.composed_bool
+# ComposedBool
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

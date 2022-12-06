@@ -1225,7 +1225,7 @@ public class JavaModelTest {
         final CodegenOperation co = codegen.fromOperation("testSchema", "GET", operation, null);
 
         Assert.assertEquals(co.bodyParams.size(), 1);
-        CodegenParameter cp1 = co.bodyParam;
+        CodegenParameter cp1 = co.requestBody;
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().dataType, "List<Pet>");
         Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isContainer);
@@ -1305,7 +1305,7 @@ public class JavaModelTest {
         final CodegenOperation co = codegen.fromOperation("testSchema", "GET", operation, null);
 
         Assert.assertEquals(co.bodyParams.size(), 1);
-        CodegenParameter cp1 = co.bodyParam;
+        CodegenParameter cp1 = co.requestBody;
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
         Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isContainer);

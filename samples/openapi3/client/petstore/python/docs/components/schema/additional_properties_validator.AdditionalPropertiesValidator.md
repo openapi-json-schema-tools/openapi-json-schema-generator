@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AdditionalPropertiesValidator"></a>
-# petstore_api.components.schema.additional_properties_validator.AdditionalPropertiesValidator
+## petstore_api.components.schema.additional_properties_validator
+# AdditionalPropertiesValidator
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

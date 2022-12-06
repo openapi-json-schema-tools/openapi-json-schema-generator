@@ -33,11 +33,11 @@
 {{/if}}
 {{> endpoint_doc_example }}
 ### Parameters
-{{#or bodyParam queryParams headerParams pathParams cookieParams}}
+{{#or requestBody queryParams headerParams pathParams cookieParams}}
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-    {{#with bodyParam}}
+    {{#with requestBody}}
     {{#if refModule}}
 [**{{baseName}}**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
     {{#if cookieParams}}
 [cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParameters.Params) | |
     {{/if}}
-    {{#with bodyParam}}
+    {{#with requestBody}}
         {{#each content}}
         {{#if @first}}
 content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
@@ -72,11 +72,11 @@ host_index | typing.Optional[int] | default is None | Allows one to select a dif
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-    {{#if bodyParam}}
-    {{#unless bodyParam.refModule}}
+    {{#if requestBody}}
+    {{#unless requestBody.refModule}}
 
 ### <a id="request_body" >body</a>
-{{> request_body_doc bodyParam=bodyParam schemaNamePrefix1="request_body" }}
+{{> request_body_doc requestBody=requestBody schemaNamePrefix1="request_body" }}
     {{/unless}}
     {{/if}}
     {{#if queryParams}}

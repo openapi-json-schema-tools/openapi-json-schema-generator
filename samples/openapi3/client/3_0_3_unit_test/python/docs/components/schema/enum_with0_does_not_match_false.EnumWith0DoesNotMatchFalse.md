@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EnumWith0DoesNotMatchFalse"></a>
-# unit_test_api.components.schema.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse
+## unit_test_api.components.schema.enum_with0_does_not_match_false
+# EnumWith0DoesNotMatchFalse
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

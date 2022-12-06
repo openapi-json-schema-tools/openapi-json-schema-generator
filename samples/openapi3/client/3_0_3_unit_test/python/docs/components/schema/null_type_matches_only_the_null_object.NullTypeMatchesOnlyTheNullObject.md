@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NullTypeMatchesOnlyTheNullObject"></a>
-# unit_test_api.components.schema.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject
+## unit_test_api.components.schema.null_type_matches_only_the_null_object
+# NullTypeMatchesOnlyTheNullObject
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

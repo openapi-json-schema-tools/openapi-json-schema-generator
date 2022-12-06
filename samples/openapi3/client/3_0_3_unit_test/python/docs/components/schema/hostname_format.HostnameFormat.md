@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="HostnameFormat"></a>
-# unit_test_api.components.schema.hostname_format.HostnameFormat
+## unit_test_api.components.schema.hostname_format
+# HostnameFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

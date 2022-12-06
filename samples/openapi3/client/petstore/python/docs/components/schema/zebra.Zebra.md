@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Zebra"></a>
-# petstore_api.components.schema.zebra.Zebra
+## petstore_api.components.schema.zebra
+# Zebra
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

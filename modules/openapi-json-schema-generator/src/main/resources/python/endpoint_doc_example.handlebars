@@ -65,7 +65,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{/each}}
     }
 {{/if}}
-{{#with bodyParam}}
+{{#with requestBody}}
     {{#if required}}
     body = {{{example}}}
     {{/if}}
@@ -87,7 +87,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             {{#if cookieParams}}
             cookie_params=cookie_params,
             {{/if}}
-            {{#with bodyParam}}
+            {{#with requestBody}}
             {{#if required}}
             body=body,
             {{/if}}
@@ -136,7 +136,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{/each}}
     }
 {{/if}}
-{{#with bodyParam}}
+{{#with requestBody}}
     body = {{{example}}}
 {{/with}}
     try:
@@ -156,7 +156,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             {{#if cookieParams}}
             cookie_params=cookie_params,
             {{/if}}
-            {{#if bodyParam}}
+            {{#if requestBody}}
             body=body,
             {{/if}}
         )

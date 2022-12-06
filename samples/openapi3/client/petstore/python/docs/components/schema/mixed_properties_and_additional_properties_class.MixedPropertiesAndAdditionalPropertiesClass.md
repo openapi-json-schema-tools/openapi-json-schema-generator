@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="MixedPropertiesAndAdditionalPropertiesClass"></a>
-# petstore_api.components.schema.mixed_properties_and_additional_properties_class.MixedPropertiesAndAdditionalPropertiesClass
+## petstore_api.components.schema.mixed_properties_and_additional_properties_class
+# MixedPropertiesAndAdditionalPropertiesClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

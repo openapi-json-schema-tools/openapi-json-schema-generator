@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="MinpropertiesValidation"></a>
-# unit_test_api.components.schema.minproperties_validation.MinpropertiesValidation
+## unit_test_api.components.schema.minproperties_validation
+# MinpropertiesValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

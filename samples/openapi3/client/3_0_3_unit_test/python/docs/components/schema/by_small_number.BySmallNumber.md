@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="BySmallNumber"></a>
-# unit_test_api.components.schema.by_small_number.BySmallNumber
+## unit_test_api.components.schema.by_small_number
+# BySmallNumber
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

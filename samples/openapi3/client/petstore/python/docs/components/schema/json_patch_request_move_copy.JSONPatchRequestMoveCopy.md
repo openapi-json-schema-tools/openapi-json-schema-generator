@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="JSONPatchRequestMoveCopy"></a>
-# petstore_api.components.schema.json_patch_request_move_copy.JSONPatchRequestMoveCopy
+## petstore_api.components.schema.json_patch_request_move_copy
+# JSONPatchRequestMoveCopy
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

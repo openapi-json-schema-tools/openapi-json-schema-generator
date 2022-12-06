@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NullableClass"></a>
-# petstore_api.components.schema.nullable_class.NullableClass
+## petstore_api.components.schema.nullable_class
+# NullableClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

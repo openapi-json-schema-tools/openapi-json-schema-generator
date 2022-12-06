@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ArrayTypeMatchesArrays"></a>
-# unit_test_api.components.schema.array_type_matches_arrays.ArrayTypeMatchesArrays
+## unit_test_api.components.schema.array_type_matches_arrays
+# ArrayTypeMatchesArrays
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

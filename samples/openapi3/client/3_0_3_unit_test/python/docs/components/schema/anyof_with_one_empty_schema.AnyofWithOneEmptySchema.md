@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AnyofWithOneEmptySchema"></a>
-# unit_test_api.components.schema.anyof_with_one_empty_schema.AnyofWithOneEmptySchema
+## unit_test_api.components.schema.anyof_with_one_empty_schema
+# AnyofWithOneEmptySchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

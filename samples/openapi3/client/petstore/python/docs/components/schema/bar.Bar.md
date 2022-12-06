@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Bar"></a>
-# petstore_api.components.schema.bar.Bar
+## petstore_api.components.schema.bar
+# Bar
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

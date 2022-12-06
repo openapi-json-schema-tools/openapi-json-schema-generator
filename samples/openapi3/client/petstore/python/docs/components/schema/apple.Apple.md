@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Apple"></a>
-# petstore_api.components.schema.apple.Apple
+## petstore_api.components.schema.apple
+# Apple
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

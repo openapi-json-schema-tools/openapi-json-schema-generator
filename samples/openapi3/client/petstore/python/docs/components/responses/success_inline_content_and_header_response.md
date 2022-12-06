@@ -1,6 +1,6 @@
 <a name="top"></a>
-# petstore_api.components.responses.success_inline_content_and_header_response
-## ApiResponse
+## petstore_api.components.responses.success_inline_content_and_header_response
+# ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

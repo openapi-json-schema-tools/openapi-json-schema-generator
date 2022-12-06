@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NoAdditionalProperties"></a>
-# petstore_api.components.schema.no_additional_properties.NoAdditionalProperties
+## petstore_api.components.schema.no_additional_properties
+# NoAdditionalProperties
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

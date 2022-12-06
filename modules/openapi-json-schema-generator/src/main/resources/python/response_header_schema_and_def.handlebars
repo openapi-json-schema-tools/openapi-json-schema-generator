@@ -1,0 +1,43 @@
+
+
+class {{xParamsName}}:
+    RequiredParams = typing_extensions.TypedDict(
+        'RequiredParams',
+        {
+{{#each xParams}}
+{{#if required}}
+{{#if schema}}
+            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{else}}
+            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+{{/if}}
+{{/if}}
+{{/each}}
+        }
+    )
+    OptionalParams = typing_extensions.TypedDict(
+        'OptionalParams',
+        {
+{{#each xParams}}
+{{#unless required}}
+{{#if schema}}
+            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{else}}
+            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+{{/if}}
+{{/unless}}
+{{/each}}
+        },
+        total=False
+    )
+
+
+    class Params(RequiredParams, OptionalParams):
+        pass
+
+
+    parameters = [
+    {{#each xParams}}
+        {{paramName}}.parameter_oapg,
+    {{/each}}
+    ]

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EnumWithTrueDoesNotMatch1"></a>
-# unit_test_api.components.schema.enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1
+## unit_test_api.components.schema.enum_with_true_does_not_match1
+# EnumWithTrueDoesNotMatch1
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

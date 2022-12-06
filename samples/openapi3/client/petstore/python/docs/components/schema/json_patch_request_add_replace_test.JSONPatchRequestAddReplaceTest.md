@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="JSONPatchRequestAddReplaceTest"></a>
-# petstore_api.components.schema.json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest
+## petstore_api.components.schema.json_patch_request_add_replace_test
+# JSONPatchRequestAddReplaceTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

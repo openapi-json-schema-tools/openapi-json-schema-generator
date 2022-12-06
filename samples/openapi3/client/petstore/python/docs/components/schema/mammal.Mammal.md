@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Mammal"></a>
-# petstore_api.components.schema.mammal.Mammal
+## petstore_api.components.schema.mammal
+# Mammal
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

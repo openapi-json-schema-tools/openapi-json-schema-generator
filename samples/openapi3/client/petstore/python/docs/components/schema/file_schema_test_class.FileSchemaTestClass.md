@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="FileSchemaTestClass"></a>
-# petstore_api.components.schema.file_schema_test_class.FileSchemaTestClass
+## petstore_api.components.schema.file_schema_test_class
+# FileSchemaTestClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="EnumClass"></a>
-# petstore_api.components.schema.enum_class.EnumClass
+## petstore_api.components.schema.enum_class
+# EnumClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

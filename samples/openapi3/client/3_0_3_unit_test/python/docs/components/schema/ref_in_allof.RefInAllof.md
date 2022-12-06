@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="RefInAllof"></a>
-# unit_test_api.components.schema.ref_in_allof.RefInAllof
+## unit_test_api.components.schema.ref_in_allof
+# RefInAllof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

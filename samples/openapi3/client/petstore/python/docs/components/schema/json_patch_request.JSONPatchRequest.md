@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="JSONPatchRequest"></a>
-# petstore_api.components.schema.json_patch_request.JSONPatchRequest
+## petstore_api.components.schema.json_patch_request
+# JSONPatchRequest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

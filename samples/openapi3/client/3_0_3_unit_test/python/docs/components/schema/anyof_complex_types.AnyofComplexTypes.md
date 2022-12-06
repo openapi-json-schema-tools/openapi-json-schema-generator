@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AnyofComplexTypes"></a>
-# unit_test_api.components.schema.anyof_complex_types.AnyofComplexTypes
+## unit_test_api.components.schema.anyof_complex_types
+# AnyofComplexTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

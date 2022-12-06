@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ForbiddenProperty"></a>
-# unit_test_api.components.schema.forbidden_property.ForbiddenProperty
+## unit_test_api.components.schema.forbidden_property
+# ForbiddenProperty
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

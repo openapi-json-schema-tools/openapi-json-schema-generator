@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ComposedNone"></a>
-# petstore_api.components.schema.composed_none.ComposedNone
+## petstore_api.components.schema.composed_none
+# ComposedNone
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

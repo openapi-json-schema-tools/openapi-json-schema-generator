@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="MinitemsValidation"></a>
-# unit_test_api.components.schema.minitems_validation.MinitemsValidation
+## unit_test_api.components.schema.minitems_validation
+# MinitemsValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

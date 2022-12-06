@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ObjectPropertiesValidation"></a>
-# unit_test_api.components.schema.object_properties_validation.ObjectPropertiesValidation
+## unit_test_api.components.schema.object_properties_validation
+# ObjectPropertiesValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

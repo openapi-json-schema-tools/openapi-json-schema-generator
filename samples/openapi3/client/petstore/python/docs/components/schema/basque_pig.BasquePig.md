@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="BasquePig"></a>
-# petstore_api.components.schema.basque_pig.BasquePig
+## petstore_api.components.schema.basque_pig
+# BasquePig
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

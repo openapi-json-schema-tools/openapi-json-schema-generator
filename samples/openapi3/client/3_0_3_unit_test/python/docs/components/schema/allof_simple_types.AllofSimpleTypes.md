@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AllofSimpleTypes"></a>
-# unit_test_api.components.schema.allof_simple_types.AllofSimpleTypes
+## unit_test_api.components.schema.allof_simple_types
+# AllofSimpleTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

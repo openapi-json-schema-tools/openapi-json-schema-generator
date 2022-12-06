@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ComposedArray"></a>
-# petstore_api.components.schema.composed_array.ComposedArray
+## petstore_api.components.schema.composed_array
+# ComposedArray
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
