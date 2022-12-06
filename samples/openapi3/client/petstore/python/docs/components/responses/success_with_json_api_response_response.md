@@ -19,18 +19,4 @@ Key | Accessed Type | Description  | Notes
 stringHeader | [parameter_string_header.schema](#parameter_string_header.schema) | | optional
 numberHeader | [parameter_number_header.schema](#parameter_number_header.schema) | | optional
 
-# <a id="parameter_string_header.schema" >parameter_string_header.schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="parameter_number_header.schema" >parameter_number_header.schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | value must be numeric and storable in decimal.Decimal
-
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

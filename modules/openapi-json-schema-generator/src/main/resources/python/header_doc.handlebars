@@ -1,6 +1,7 @@
 {{#if modulePath}}
     {{#each headers}}
         {{#with this}}
+            {{#unless refModule}}
             {{#if schema}}
                 {{#with schema}}
 
@@ -16,6 +17,7 @@
                     {{/with}}
                 {{/each}}
             {{/if}}
+            {{/unless}}
         {{/with}}
     {{/each}}
 {{else}}
@@ -40,6 +42,7 @@
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" headersLink=true }}
             {{else}}
+                {{#unless refModule}}
                 {{#if schema}}
                     {{#with schema}}
 
@@ -55,6 +58,7 @@
                         {{/with}}
                     {{/each}}
                 {{/if}}
+                {{/unless}}
             {{/if}}
         {{/with}}
     {{/each}}

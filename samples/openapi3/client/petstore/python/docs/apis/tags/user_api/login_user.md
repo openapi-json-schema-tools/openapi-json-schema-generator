@@ -119,20 +119,6 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# <a id="response_for_200.parameter_string_header.schema" >response_for_200.parameter_string_header.schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
-
-# <a id="response_for_200.parameter_number_header.schema" >response_for_200.parameter_number_header.schema</a>
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | value must be numeric and storable in decimal.Decimal
-
 #### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
