@@ -79,7 +79,11 @@ Key | Accessed Type | Description  | Notes
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
+                        {{#if ../refModule}}
+{{../../@key}} | [{{../refModule}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../../components/headers/{{../refModule}}.md#{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                        {{else}}
 {{../../@key}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                        {{/if}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
