@@ -531,6 +531,10 @@ public class DefaultGenerator implements Generator {
                 for (String templateFile: config.pathEndpointParameterTemplateFiles()) {
                     Integer i = 0;
                     for (CodegenParameter cp: co.allParams) {
+                        if (cp.refModule != null) {
+                            // skip generation of parameter if it refs another location
+                            continue;
+                        }
                         Map<String, Object> paramMap = new HashMap<>();
                         paramMap.put("parameter", cp);
                         paramMap.put("imports", cp.imports);
