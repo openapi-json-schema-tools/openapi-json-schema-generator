@@ -267,6 +267,7 @@ petstore_api/components/__init__.py
 petstore_api/components/headers/int32_json_content_type_header_header.py
 petstore_api/components/headers/number_header_header.py
 petstore_api/components/headers/string_header_header.py
+petstore_api/components/parameters/parameter_path_user_name.py
 petstore_api/components/request_bodies/__init__.py
 petstore_api/components/request_bodies/client_request_body.py
 petstore_api/components/request_bodies/pet_request_body.py

@@ -1312,7 +1312,13 @@ public class DefaultGenerator implements Generator {
         generateVersionMetadata(files);
     }
 
-    Map<String, Object> buildSupportFileBundle(List<OperationsMap> allOperations, List<ModelMap> allModels, TreeMap<String, CodegenParameter> requestBodies, TreeMap<String, CodegenResponse> responses, TreeMap<String, CodegenHeader> headers) {
+    Map<String, Object> buildSupportFileBundle(
+            List<OperationsMap> allOperations,
+            List<ModelMap> allModels,
+            TreeMap<String, CodegenParameter> requestBodies,
+            TreeMap<String, CodegenResponse> responses,
+            TreeMap<String, CodegenHeader> headers,
+            TreeMap<String, CodegenParameter> parameters) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1348,6 +1354,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("requestBodies", requestBodies);
         bundle.put("responses", responses);
         bundle.put("headers", headers);
+        bundle.put("parameters", parameters);
         bundle.put("models", allModels);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
@@ -1476,9 +1483,11 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
         // components.headers
         TreeMap<String, CodegenHeader> headers = generateHeaders(files);
+        // components.parameters
+        TreeMap<String, CodegenParameter> parameters = generateParameters(files);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies, responses, headers);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, allModels, requestBodies, responses, headers, parameters);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {

@@ -484,12 +484,7 @@ paths:
       description: ''
       operationId: getUserByName
       parameters:
-        - name: username
-          in: path
-          description: The name that needs to be fetched. Use user1 for testing.
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/PathUserName'
       responses:
         '200':
           description: successful operation
@@ -511,12 +506,7 @@ paths:
       description: This can only be done by the logged in user.
       operationId: updateUser
       parameters:
-        - name: username
-          in: path
-          description: name that need to be deleted
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/PathUserName'
       responses:
         '400':
           description: Invalid user supplied
@@ -536,12 +526,7 @@ paths:
       description: This can only be done by the logged in user.
       operationId: deleteUser
       parameters:
-        - name: username
-          in: path
-          description: The name that needs to be deleted
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/PathUserName'
       responses:
         '200':
           $ref: '#/components/responses/SuccessDescriptionOnly'
@@ -1644,6 +1629,14 @@ servers:
           - 'v2'
         default: 'v2'
 components:
+  parameters:
+    PathUserName:
+      name: username
+      in: path
+      description: the use name to use
+      required: true
+      schema:
+        type: string
   responses:
     SuccessDescriptionOnly:
       description: Success
