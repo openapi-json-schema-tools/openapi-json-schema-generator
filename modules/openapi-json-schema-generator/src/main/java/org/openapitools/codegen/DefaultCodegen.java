@@ -185,6 +185,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
     protected Map<String, String> headerTemplateFiles = new HashMap<>();
+    protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
     protected Map<String, String> responseTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
@@ -1221,6 +1222,9 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> headerTemplateFiles() { return headerTemplateFiles; }
 
     @Override
+    public Map<String, String> headerDocTemplateFiles() { return headerDocTemplateFiles; }
+
+    @Override
     public Map<String, String> responseTemplateFiles() { return responseTemplateFiles; }
 
     @Override
@@ -1258,6 +1262,8 @@ public class DefaultCodegen implements CodegenConfig {
     public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     public String toResponseDocFilename(String componentName) { return toModuleFilename(componentName); }
+
+    public String toHeaderDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     @Override
     public String apiFileFolder() {
@@ -1297,6 +1303,9 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String headerFileFolder() { return outputFolder; }
+
+    @Override
+    public String headerDocFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {

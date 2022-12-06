@@ -32,6 +32,7 @@ public class CodegenConstants {
     public static final String RESPONSES = "responses";
 
     public static final String HEADERS = "headers";
+    public static final String HEADER_DOCS = "headerDocs";
     public static final String SUPPORTING_FILES = "supportingFiles";
     public static final String MODEL_TESTS = "modelTests";
     public static final String MODEL_DOCS = "modelDocs";

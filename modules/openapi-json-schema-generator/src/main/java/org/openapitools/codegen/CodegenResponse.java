@@ -20,7 +20,7 @@ package org.openapitools.codegen;
 import java.util.*;
 
 public class CodegenResponse implements OpenapiComponent {
-    private Map<String, CodegenHeader> responseHeaders;
+    private Map<String, CodegenHeader> headers;
     public String message;
     public List<Map<String, Object>> examples;
     public boolean hasHeaders;
@@ -36,7 +36,7 @@ public class CodegenResponse implements OpenapiComponent {
     public int hashCode() {
         return Objects.hash(message, examples, hasHeaders,
                 jsonSchema, vendorExtensions,
-                responseHeaders, content,
+                headers, content,
                 ref, imports, refModule, modulePath);
     }
 
@@ -49,7 +49,7 @@ public class CodegenResponse implements OpenapiComponent {
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(content, that.getContent()) &&
-                Objects.equals(responseHeaders, that.getResponseHeaders()) &&
+                Objects.equals(headers, that.getHeaders()) &&
                 Objects.equals(message, that.message) &&
                 Objects.equals(examples, that.examples) &&
                 Objects.equals(jsonSchema, that.jsonSchema) &&
@@ -74,12 +74,12 @@ public class CodegenResponse implements OpenapiComponent {
         this.content = content;
     }
 
-    public Map<String, CodegenHeader> getResponseHeaders() {
-        return responseHeaders;
+    public Map<String, CodegenHeader> getHeaders() {
+        return headers;
     }
 
-    public void setResponseHeaders(Map<String, CodegenHeader> responseHeaders) {
-        this.responseHeaders = responseHeaders;
+    public void setHeaders(Map<String, CodegenHeader> headers) {
+        this.headers = headers;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class CodegenResponse implements OpenapiComponent {
         sb.append(", hasHeaders=").append(hasHeaders);
         sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", responseHeaders=").append(responseHeaders);
+        sb.append(", headers=").append(headers);
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);

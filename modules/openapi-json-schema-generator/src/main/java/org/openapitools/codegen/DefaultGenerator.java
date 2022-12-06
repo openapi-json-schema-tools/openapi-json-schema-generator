@@ -557,8 +557,8 @@ public class DefaultGenerator implements Generator {
                             String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
                             String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
                             pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
-                            if (response.getResponseHeaders() != null) {
-                                for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
+                            if (response.getHeaders() != null) {
+                                for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
                                     String headerName = headerInfo.getKey();
                                     CodegenHeader header = headerInfo.getValue();
                                     if (header.refModule == null) {
@@ -723,8 +723,8 @@ public class DefaultGenerator implements Generator {
                 } catch (Exception e) {
                     throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
                 }
-                if (response.getResponseHeaders() != null) {
-                    for (Map.Entry<String, CodegenHeader> headerInfo: response.getResponseHeaders().entrySet()) {
+                if (response.getHeaders() != null) {
+                    for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
                         String headerName = headerInfo.getKey();
                         CodegenHeader header = headerInfo.getValue();
                         if (header.refModule == null) {
@@ -791,6 +791,10 @@ public class DefaultGenerator implements Generator {
             String bodyParameterName = config.getBodyParameterName(null);
             CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
             requestBodies.put(componentName, requestBody);
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("requestBody", requestBody);
+            templateData.put("imports", requestBody.imports);
             Boolean generateRequestBodies = Boolean.TRUE;
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
@@ -798,10 +802,6 @@ public class DefaultGenerator implements Generator {
                 String fileFolder = config.requestBodyFileFolder();
                 String filename = fileFolder + File.separatorChar + config.toRequestBodyFilename(componentName) + suffix;
 
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("requestBody", requestBody);
-                templateData.put("imports", requestBody.imports);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES, fileFolder);
                     if (written != null) {
@@ -822,10 +822,6 @@ public class DefaultGenerator implements Generator {
                 String docFilename = config.toRequestBodyDocFilename(componentName);
                 String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
 
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("anchorPrefix", "");
-                templateData.put("bodyParam", requestBody);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                     if (written != null) {
@@ -846,7 +842,7 @@ public class DefaultGenerator implements Generator {
 
     private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
         final Map<String, Header> specHeaders = this.openAPI.getComponents().getHeaders();
-        if (specHeaders == null) {
+        if (specHeaders == null || specHeaders.isEmpty()) {
             LOGGER.warn("Skipping generation of specHeaders because specification document has no specHeaders.");
             return null;
         }
@@ -857,17 +853,16 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/headers/" + componentName;
             CodegenHeader header = config.fromHeader(specHeader, sourceJsonPath);
             headers.put(componentName, header);
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("header", header);
+            templateData.put("imports", header.imports);
             Boolean generateHeaders = Boolean.TRUE;
+            String docExtension = config.getDocExtension();
             for (String templateName : config.headerTemplateFiles().keySet()) {
-                String docExtension = config.getDocExtension();
                 String suffix = docExtension != null ? docExtension : config.headerTemplateFiles().get(templateName);
                 String fileFolder = config.headerFileFolder();
                 String filename = fileFolder + File.separatorChar + config.toHeaderFilename(componentName) + suffix;
-
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("header", header);
-                templateData.put("imports", header.imports);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS, fileFolder);
                     if (written != null) {
@@ -880,8 +875,26 @@ public class DefaultGenerator implements Generator {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
             }
+            Boolean generateHeaderDocs = Boolean.TRUE;
+            for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
+                String templateName = entry.getKey();
+                String suffix = config.headerDocTemplateFiles().get(templateName);
+                String fileFolder = config.headerDocFileFolder();
+                String filename = fileFolder + File.separatorChar + config.toHeaderDocFilename(componentName) + suffix;
+
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "header-doc");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
         }
-        // TODO generate doc files
         // sort them
         headers = new TreeMap<>(headers);
         return headers;

@@ -86,6 +86,8 @@ public interface CodegenConfig {
 
     String headerFileFolder();
 
+    String headerDocFileFolder();
+
     String modelPackage();
 
     String packageName();
@@ -176,6 +178,8 @@ public interface CodegenConfig {
 
     Map<String, String> headerTemplateFiles();
 
+    Map<String, String> headerDocTemplateFiles();
+
     Map<String, String> pathEndpointTemplateFiles();
 
     Set<String> pathEndpointTestTemplateFiles();
@@ -235,6 +239,8 @@ public interface CodegenConfig {
     String toRequestBodyDocFilename(String componentName);
 
     String toResponseDocFilename(String componentName);
+
+    String toHeaderDocFilename(String componentName);
 
     String toHeaderFilename(String componentName);
 
