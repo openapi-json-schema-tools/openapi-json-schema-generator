@@ -333,6 +333,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
         headerTemplateFiles.put("header.handlebars", ".py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
+        parameterTemplateFiles.put("parameter.handlebars", ".py");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -512,6 +513,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String headerFileFolder() {
         return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers";
+    }
+
+    @Override
+    public String parameterFileFolder() {
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters";
     }
 
     public String headerDocFileFolder() {
@@ -984,7 +990,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
-            codegenParameter.paramName = toParameterFileName(codegenParameter.baseName);
+            codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
             CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
@@ -1008,7 +1014,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     codegenParameter.baseName = bodyParameterName;
                 }
 
-                codegenParameter.paramName = toParameterFileName(codegenParameter.baseName);
+                codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
                 codegenParameter.description = codegenModelDescription;
             }
         }
@@ -2513,7 +2519,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         CodegenOperation co = super.fromOperation(path, httpMethod, operation, servers);
         co.httpMethod = httpMethod.toLowerCase(Locale.ROOT);
         // smuggle pathModuleName in nickname
-        co.nickname = toPathFileName(path);
+        co.nickname = toPathFilename(path);
         // smuggle path Api class name ins operationIdSnakeCase
         co.operationIdSnakeCase = toModelName(path);
 
@@ -2611,7 +2617,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String toParameterFileName(String name) {
+    public String toParameterFilename(String name) {
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint
@@ -2624,7 +2630,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toParamName(String basename) {
-        return toParameterFileName(basename);
+        return toParameterFilename(basename);
     }
 
     protected String toModulePath(String componentName, String priorJsonPathSegment) {

@@ -199,6 +199,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
     protected Map<String, String> modelDocTemplateFiles = new HashMap<>();
+    protected Map<String, String> parameterTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -1231,6 +1232,9 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
 
     @Override
+    public Map<String, String> parameterTemplateFiles() { return parameterTemplateFiles; }
+
+    @Override
     public Map<String, String> pathEndpointTemplateFiles() { return pathEndpointTemplateFiles; }
 
     @Override
@@ -1306,6 +1310,9 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String headerDocFileFolder() { return outputFolder; }
+
+    @Override
+    public String parameterFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {
@@ -1547,12 +1554,12 @@ public class DefaultCodegen implements CodegenConfig {
         return camelize(name);
     }
 
-    public String toPathFileName(String name) {
+    public String toPathFilename(String name) {
         return toModuleFilename(name);
     }
 
     @Override
-    public String toParameterFileName(String basename) {
+    public String toParameterFilename(String basename) {
         return toModuleFilename(basename);
     }
 

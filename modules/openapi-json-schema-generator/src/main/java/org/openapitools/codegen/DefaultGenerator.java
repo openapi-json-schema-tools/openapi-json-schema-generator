@@ -449,8 +449,8 @@ public class DefaultGenerator implements Generator {
 
     void generatePaths(List<File> files, Map<String, List<CodegenOperation>> operationsMap) {
         Paths paths = this.openAPI.getPaths();
-        if (paths == null) {
-            LOGGER.warn("Skipping generation of paths because specification document has no paths.");
+        if (paths == null || paths.isEmpty()) {
+            LOGGER.warn("Skipping generation of paths because the specification document lacks them.");
             return;
         }
         List<List<Object>> pathsFiles = new ArrayList<>();
@@ -535,7 +535,7 @@ public class DefaultGenerator implements Generator {
                         paramMap.put("parameter", cp);
                         paramMap.put("imports", cp.imports);
                         paramMap.put("packageName", packageName);
-                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFileName(i.toString()) + ".py"));
+                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFilename(i.toString()) + ".py"));
                         pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
                         i++;
                     }
@@ -567,7 +567,7 @@ public class DefaultGenerator implements Generator {
                                             headerMap.put("header", header);
                                             headerMap.put("imports", header.imports);
                                             headerMap.put("packageName", packageName);
-                                            String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFileName(headerName) + ".py"));
+                                            String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFilename(headerName) + ".py"));
                                             pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
                                         }
                                     }
@@ -608,7 +608,7 @@ public class DefaultGenerator implements Generator {
             String path = pathsEntry.getKey();
             String apiClassName = config.toModelName(path);
             pathToApiClassname.put(path, apiClassName);
-            pathModuleToApiClassname.put(config.toPathFileName(path), apiClassName);
+            pathModuleToApiClassname.put(config.toPathFilename(path), apiClassName);
         }
         if (!config.pathEndpointTemplateFiles().isEmpty()) {
             // paths.__init__.py
@@ -691,7 +691,7 @@ public class DefaultGenerator implements Generator {
     private TreeMap<String, CodegenResponse> generateResponses(List<File> files) {
         final Map<String, ApiResponse> specResponses = this.openAPI.getComponents().getResponses();
         if (specResponses == null) {
-            LOGGER.warn("Skipping generation of responses because specification document has no responses.");
+            LOGGER.warn("Skipping generation of component responses because the specification document lacks them.");
             return null;
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
@@ -733,7 +733,7 @@ public class DefaultGenerator implements Generator {
                                 headerMap.put("header", header);
                                 headerMap.put("imports", header.imports);
                                 headerMap.put("packageName", config.packageName());
-                                String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFileName(headerName) + ".py";
+                                String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFilename(headerName) + ".py";
                                 try {
                                     File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
                                     if (written != null) {
@@ -780,7 +780,7 @@ public class DefaultGenerator implements Generator {
     private TreeMap<String, CodegenParameter> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (specRequestBodies == null) {
-            LOGGER.warn("Skipping generation of requestBodies because specification document has no requestBodies.");
+            LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
             return null;
         }
         TreeMap<String, CodegenParameter> requestBodies = new TreeMap<>();
@@ -840,10 +840,50 @@ public class DefaultGenerator implements Generator {
         return requestBodies;
     }
 
+    private TreeMap<String, CodegenParameter> generateParameters(List<File> files) {
+        final Map<String, Parameter> specParameters = this.openAPI.getComponents().getParameters();
+        if (specParameters == null || specParameters.isEmpty()) {
+            LOGGER.warn("Skipping generation of component parameters because the specification document lacks them.");
+            return null;
+        }
+        TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
+        for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
+            String componentName = entry.getKey();
+            Parameter specParameter = entry.getValue();
+            String sourceJsonPath = "#/components/parameters/" + componentName;
+            CodegenParameter parameter = config.fromParameter(specParameter, sourceJsonPath);
+            parameters.put(componentName, parameter);
+            Boolean generateParameters = Boolean.TRUE;
+            for (Map.Entry<String, String> entryInfo : config.parameterTemplateFiles().entrySet()) {
+                String templateName = entryInfo.getKey();
+                String suffix = entryInfo.getValue();
+                String fileFolder = config.parameterFileFolder();
+                String filename = fileFolder + File.separatorChar + config.toParameterFilename(componentName) + suffix;
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("parameter", parameter);
+                templateData.put("imports", parameter.imports);
+
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateParameters, CodegenConstants.PARAMETERS, fileFolder);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "parameter");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
+        }
+        return parameters;
+    }
+
     private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
         final Map<String, Header> specHeaders = this.openAPI.getComponents().getHeaders();
         if (specHeaders == null || specHeaders.isEmpty()) {
-            LOGGER.warn("Skipping generation of specHeaders because specification document has no specHeaders.");
+            LOGGER.warn("Skipping generation of component headers because the specification document lacks them.");
             return null;
         }
         TreeMap<String, CodegenHeader> headers = new TreeMap<>();
@@ -913,8 +953,8 @@ public class DefaultGenerator implements Generator {
         }
 
         final Map<String, Schema> schemas = ModelUtils.getSchemas(this.openAPI);
-        if (schemas == null) {
-            LOGGER.warn("Skipping generation of models because specification document has no schemas.");
+        if (schemas == null || schemas.isEmpty()) {
+            LOGGER.warn("Skipping generation of component schemas because the specification document lacks them.");
             return;
         }
 
