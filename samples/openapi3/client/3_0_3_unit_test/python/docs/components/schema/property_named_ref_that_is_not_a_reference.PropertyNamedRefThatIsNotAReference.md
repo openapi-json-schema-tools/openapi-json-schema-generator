@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="PropertyNamedRefThatIsNotAReference"></a>
-# unit_test_api.components.schema.property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
+## unit_test_api.components.schema.property_named_ref_that_is_not_a_reference
+# PropertyNamedRefThatIsNotAReference
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

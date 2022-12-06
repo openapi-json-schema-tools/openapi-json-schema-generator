@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="SimpleEnumValidation"></a>
-# unit_test_api.components.schema.simple_enum_validation.SimpleEnumValidation
+## unit_test_api.components.schema.simple_enum_validation
+# SimpleEnumValidation
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="UriReferenceFormat"></a>
-# unit_test_api.components.schema.uri_reference_format.UriReferenceFormat
+## unit_test_api.components.schema.uri_reference_format
+# UriReferenceFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

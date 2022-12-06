@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf"></a>
-# unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+## unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf
+# InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

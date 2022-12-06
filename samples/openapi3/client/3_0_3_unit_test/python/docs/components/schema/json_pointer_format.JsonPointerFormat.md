@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="JsonPointerFormat"></a>
-# unit_test_api.components.schema.json_pointer_format.JsonPointerFormat
+## unit_test_api.components.schema.json_pointer_format
+# JsonPointerFormat
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

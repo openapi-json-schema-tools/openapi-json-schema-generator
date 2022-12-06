@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Oneof"></a>
-# unit_test_api.components.schema.oneof.Oneof
+## unit_test_api.components.schema.oneof
+# Oneof
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

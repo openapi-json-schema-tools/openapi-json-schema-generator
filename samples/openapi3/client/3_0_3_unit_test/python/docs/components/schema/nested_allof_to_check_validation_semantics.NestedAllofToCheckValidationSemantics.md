@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="NestedAllofToCheckValidationSemantics"></a>
-# unit_test_api.components.schema.nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics
+## unit_test_api.components.schema.nested_allof_to_check_validation_semantics
+# NestedAllofToCheckValidationSemantics
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

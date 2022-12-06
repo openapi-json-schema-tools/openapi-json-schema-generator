@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="ByInt"></a>
-# unit_test_api.components.schema.by_int.ByInt
+## unit_test_api.components.schema.by_int
+# ByInt
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

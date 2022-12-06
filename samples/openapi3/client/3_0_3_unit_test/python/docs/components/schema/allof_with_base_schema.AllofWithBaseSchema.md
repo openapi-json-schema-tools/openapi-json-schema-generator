@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="AllofWithBaseSchema"></a>
-# unit_test_api.components.schema.allof_with_base_schema.AllofWithBaseSchema
+## unit_test_api.components.schema.allof_with_base_schema
+# AllofWithBaseSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

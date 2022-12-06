@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="Operator"></a>
-# this_package.components.schema.operator.Operator
+## this_package.components.schema.operator
+# Operator
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

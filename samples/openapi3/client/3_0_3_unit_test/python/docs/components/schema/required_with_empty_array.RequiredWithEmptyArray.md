@@ -1,6 +1,6 @@
 <a name="top"></a>
-<a id="RequiredWithEmptyArray"></a>
-# unit_test_api.components.schema.required_with_empty_array.RequiredWithEmptyArray
+## unit_test_api.components.schema.required_with_empty_array
+# RequiredWithEmptyArray
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
