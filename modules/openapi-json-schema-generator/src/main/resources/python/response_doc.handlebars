@@ -42,7 +42,11 @@ Key | Accessed Type | Description  | Notes
         {{#with this}}
             {{#if schema}}
                 {{#with schema}}
+                {{#if ../refModule}}
+{{../@key}} | [{{../refModule}}.schema](../../../components/request_bodies/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+                {{else}}
 {{../@key}} | [{{../paramName}}.schema](#{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+                {{/if}}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
@@ -61,7 +65,11 @@ Key | Accessed Type | Description  | Notes
         {{#with this}}
             {{#if schema}}
                 {{#with schema}}
+                {{#if ../refModule}}
+{{../@key}} | [{{../refModule}}.schema](../../../components/request_bodies/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+                {{else}}
 {{../@key}} | [response_for_{{../../@key}}.{{../paramName}}.schema](#response_for_{{../../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+                {{/if}}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
