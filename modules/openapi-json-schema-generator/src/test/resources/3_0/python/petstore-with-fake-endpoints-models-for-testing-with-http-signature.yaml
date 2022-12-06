@@ -1708,6 +1708,14 @@ components:
       schema:
         type: string
         format: number
+    Int32JsonContentTypeHeader:
+      description: int32 JSON content-type header
+      required: true
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int32
   securitySchemes:
     petstore_auth:
       type: oauth2
