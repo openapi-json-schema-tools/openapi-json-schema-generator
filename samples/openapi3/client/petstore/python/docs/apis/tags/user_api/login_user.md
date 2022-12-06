@@ -102,8 +102,8 @@ Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 X-Rate-Limit | [response_for_200.parameter_x_rate_limit.schema](#response_for_200.parameter_x_rate_limit.schema) | | optional
 X-Expires-After | [response_for_200.parameter_x_expires_after.schema](#response_for_200.parameter_x_expires_after.schema) | | optional
-stringHeader | [string_header_header.schema](../../../components/request_bodies/string_header_header.md#schema) | | optional
-numberHeader | [number_header_header.schema](../../../components/request_bodies/number_header_header.md#schema) | | optional
+stringHeader | [string_header_header.schema](../../../components/headers/string_header_header.md#schema) | | optional
+numberHeader | [number_header_header.schema](../../../components/headers/number_header_header.md#schema) | | optional
 
 # <a id="response_for_200.parameter_x_rate_limit.schema" >response_for_200.parameter_x_rate_limit.schema</a>
 

@@ -16,7 +16,7 @@ Type | Description  | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-stringHeader | [string_header_header.schema](../../../components/request_bodies/string_header_header.md#schema) | | optional
-numberHeader | [number_header_header.schema](../../../components/request_bodies/number_header_header.md#schema) | | optional
+stringHeader | [string_header_header.schema](../../../components/headers/string_header_header.md#schema) | | optional
+numberHeader | [number_header_header.schema](../../../components/headers/number_header_header.md#schema) | | optional
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)
