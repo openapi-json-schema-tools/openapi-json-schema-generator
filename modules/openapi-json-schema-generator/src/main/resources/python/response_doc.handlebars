@@ -43,7 +43,7 @@ Key | Accessed Type | Description  | Notes
             {{#if schema}}
                 {{#with schema}}
                 {{#if ../refModule}}
-{{../@key}} | [{{../refModule}}.schema](../../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../refModule}}.schema](../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
                 {{else}}
 {{../@key}} | [{{../paramName}}.schema](#{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
                 {{/if}}
