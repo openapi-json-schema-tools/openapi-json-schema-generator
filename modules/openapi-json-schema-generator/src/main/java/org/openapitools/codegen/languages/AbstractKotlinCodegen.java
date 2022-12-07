@@ -1091,17 +1091,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
             // passing null to allProperties and allRequired as there's no parent
             addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
         }
-        if (ModelUtils.isMapSchema(schema)) {
-            // an object or anyType composed schema that has additionalProperties set
-            addAdditionPropertiesToCodeGenModel(m, schema);
-        } else {
-            m.setIsMap(false);
-            if (ModelUtils.isFreeFormObject(openAPI, schema)) {
-                // non-composed object type with no properties + additionalProperties
-                // additionalProperties must be null, ObjectSchema, or empty Schema
-                addAdditionPropertiesToCodeGenModel(m, schema);
-            }
-        }
+        addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
     }

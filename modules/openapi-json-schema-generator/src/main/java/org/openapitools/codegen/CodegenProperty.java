@@ -112,12 +112,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean isEmail;
     public boolean isNull;
     /**
-     * The type is a free-form object, i.e. it is a map of string to values with no declared properties.
-     * A OAS free-form schema may include the 'additionalProperties' attribute, which puts a constraint
-     * on the type of the undeclared properties.
-     */
-    public boolean isFreeFormObject;
-    /**
      * The 'type' in the OAS schema is unspecified (i.e. not set). The value can be number, integer, string, object or array.
      * If the nullable attribute is set to true, the 'null' value is valid.
      */
@@ -930,7 +924,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", isUuid=").append(isUuid);
         sb.append(", isUri=").append(isUri);
         sb.append(", isEmail=").append(isEmail);
-        sb.append(", isFreeFormObject=").append(isFreeFormObject);
         sb.append(", isArray=").append(isArray);
         sb.append(", isMap=").append(isMap);
         sb.append(", isEnum=").append(isEnum);
@@ -1019,7 +1012,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isUuid == that.isUuid &&
                 isUri == that.isUri &&
                 isEmail == that.isEmail &&
-                isFreeFormObject == that.isFreeFormObject &&
                 isArray == that.isArray &&
                 isMap == that.isMap &&
                 isEnum == that.isEnum &&
@@ -1100,7 +1092,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
                 isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
-                isBoolean, isDate, isDateTime, isUuid, isUri, isEmail, isFreeFormObject,
+                isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
                 isArray, isMap, isEnum, isInnerEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
                 allowableValues, items, mostInnerItems, additionalProperties, vars, requiredVars,
