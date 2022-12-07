@@ -119,7 +119,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean isArray;
     public boolean isMap;
     public boolean isEnum;
-    public boolean isInnerEnum; // Enums declared inline will be located inside the generic model, changing how the enum is referenced in some cases.
     public boolean isReadOnly;
     public boolean isWriteOnly;
     public boolean isNullable;
@@ -927,7 +926,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", isArray=").append(isArray);
         sb.append(", isMap=").append(isMap);
         sb.append(", isEnum=").append(isEnum);
-        sb.append(", isInnerEnum=").append(isInnerEnum);
         sb.append(", isAnyType=").append(isAnyType);
         sb.append(", isReadOnly=").append(isReadOnly);
         sb.append(", isWriteOnly=").append(isWriteOnly);
@@ -1015,7 +1013,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isArray == that.isArray &&
                 isMap == that.isMap &&
                 isEnum == that.isEnum &&
-                isInnerEnum == that.isInnerEnum &&
                 isAnyType == that.isAnyType &&
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
@@ -1093,7 +1090,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
-                isArray, isMap, isEnum, isInnerEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
+                isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
                 allowableValues, items, mostInnerItems, additionalProperties, vars, requiredVars,
                 vendorExtensions, hasValidation, isInherited, discriminatorValue, nameInCamelCase,

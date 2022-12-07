@@ -3588,7 +3588,6 @@ public class DefaultCodegen implements CodegenConfig {
                 property._enum.add(String.valueOf(i));
             }
             property.isEnum = true;
-            property.isInnerEnum = true;
 
             Map<String, Object> allowableValues = new HashMap<>();
             allowableValues.put("values", _enum);
@@ -3722,7 +3721,6 @@ public class DefaultCodegen implements CodegenConfig {
             // isEnum is set to true when the type is an enum
             // or the inner type of an array/map is an enum
             property.isEnum = true;
-            property.isInnerEnum = true;
             // update datatypeWithEnum and default value for array
             // e.g. List<string> => List<StatusEnum>
             updateDataTypeWithEnumForArray(property);
@@ -3753,7 +3751,6 @@ public class DefaultCodegen implements CodegenConfig {
             // isEnum is set to true when the type is an enum
             // or the inner type of an array/map is an enum
             property.isEnum = true;
-            property.isInnerEnum = true;
             // update datatypeWithEnum and default value for map
             // e.g. Dictionary<string, string> => Dictionary<string, StatusEnum>
             updateDataTypeWithEnumForMap(property);
