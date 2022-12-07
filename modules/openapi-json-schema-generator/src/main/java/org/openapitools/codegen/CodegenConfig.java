@@ -91,6 +91,8 @@ public interface CodegenConfig {
 
     String parameterFileFolder();
 
+    String parameterDocFileFolder();
+
     String modelPackage();
 
     String packageName();
@@ -185,6 +187,8 @@ public interface CodegenConfig {
 
     Map<String, String> parameterTemplateFiles();
 
+    Map<String, String> parameterDocTemplateFiles();
+
     Map<String, String> pathEndpointTemplateFiles();
 
     Set<String> pathEndpointTestTemplateFiles();
@@ -252,6 +256,8 @@ public interface CodegenConfig {
     String toPathFilename(String path);
 
     String toParameterFilename(String baseName);
+
+    String toParameterDocFilename(String componentName);
 
     String toModelImport(String refClass);
 

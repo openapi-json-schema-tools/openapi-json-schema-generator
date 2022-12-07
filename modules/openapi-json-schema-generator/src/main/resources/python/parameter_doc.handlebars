@@ -1,0 +1,11 @@
+{{#if parameter.modulePath}}
+<a name="top"></a>
+## {{parameter.modulePath}}
+{{/if}}
+{{#with parameter.schema}}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
+{{/with}}
+{{#if parameter.modulePath}}
+
+[[Back to top]](#top) {{> footer_links readmePath="../../../" parametersLink=true}}
+{{/if}}

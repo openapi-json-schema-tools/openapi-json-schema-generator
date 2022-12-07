@@ -87,14 +87,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
+        {{#if refModule}}
+{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+        {{else}}
 {{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+        {{/if}}
         {{/each}}
 
-        {{#each queryParams}}
-        {{#with schema}}
+        {{#each queryParams as | parameter |}}
+        {{#unless parameter.refModule}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
-        {{/with}}
+{{> parameter_doc }}
+        {{/unless}}
         {{/each}}
     {{/if}}
     {{#if headerParams}}
@@ -105,13 +109,17 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
+        {{#if refModule}}
+{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+        {{else}}
 {{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+        {{/if}}
         {{/each}}
-        {{#each headerParams}}
-        {{#with schema}}
+        {{#each headerParams as | parameter |}}
+        {{#unless parameter.refModule}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
-        {{/with}}
+{{> parameter_doc }}
+        {{/unless}}
         {{/each}}
     {{/if}}
     {{#if pathParams}}
@@ -122,13 +130,17 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
+        {{#if refModule}}
+{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+        {{else}}
 {{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+        {{/if}}
         {{/each}}
-        {{#each pathParams}}
-        {{#with schema}}
+        {{#each pathParams as | parameter |}}
+        {{#unless parameter.refModule}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
-        {{/with}}
+{{> parameter_doc }}
+        {{/unless}}
         {{/each}}
     {{/if}}
     {{#if cookieParams}}
@@ -139,13 +151,17 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
+        {{#if refModule}}
+{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+        {{else}}
 {{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+        {{/if}}
         {{/each}}
-        {{#each cookieParams}}
-        {{#with schema}}
+        {{#each cookieParams as | parameter |}}
+        {{#unless parameter.refModule}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
-        {{/with}}
+{{> parameter_doc }}
+        {{/unless}}
         {{/each}}
     {{/if}}
 {{else}}

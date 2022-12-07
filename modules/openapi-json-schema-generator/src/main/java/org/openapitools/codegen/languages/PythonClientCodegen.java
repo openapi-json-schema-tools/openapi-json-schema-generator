@@ -90,6 +90,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected String responseDocPath = "docs/components/responses/";
     protected String headerDocPath = "docs/components/headers/";
+    protected String parameterDocPath = "docs/components/parameters/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -334,6 +335,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         headerTemplateFiles.put("header.handlebars", ".py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
         parameterTemplateFiles.put("parameter.handlebars", ".py");
+        parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -523,6 +525,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String headerDocFileFolder() {
         return outputFolder + File.separator + headerDocPath;
     }
+
+    public String parameterDocFileFolder() { return outputFolder + File.separator + parameterDocPath; }
 
     protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
         String adjustedOutputFilename = outputFilename.replaceAll("//", "/").replace('/', File.separatorChar);
@@ -2586,6 +2590,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return "parameter_" + toModuleFilename(name);
         }
     }
+
+    @Override
+    public String toParameterDocFilename(String componentName) { return toParameterFilename(componentName); }
 
     @Override
     public String toParamName(String basename) {

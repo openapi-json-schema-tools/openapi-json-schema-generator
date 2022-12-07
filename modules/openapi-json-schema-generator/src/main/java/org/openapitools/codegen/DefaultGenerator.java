@@ -880,6 +880,29 @@ public class DefaultGenerator implements Generator {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
             }
+            Boolean generateParameterDocs = Boolean.TRUE;
+            for (Map.Entry<String, String> entryInfo : config.parameterDocTemplateFiles().entrySet()) {
+                String templateName = entryInfo.getKey();
+                String suffix = entryInfo.getValue();
+                String fileFolder = config.parameterDocFileFolder();
+                String filename = fileFolder + File.separatorChar + config.toParameterDocFilename(componentName) + suffix;
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("parameter", parameter);
+                templateData.put("imports", parameter.imports);
+
+                try {
+                    File written = processTemplateToFile(templateData, templateName, filename, generateParameterDocs, CodegenConstants.PARAMETER_DOCS, fileFolder);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "parameter-doc");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
         }
         return parameters;
     }
