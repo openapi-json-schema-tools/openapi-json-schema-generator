@@ -19,7 +19,6 @@ public class CodegenDiscriminator {
     // This is the propertyName as specified in the OpenAPI discriminator object.
     private String propertyName;
     private String propertyBaseName;
-    private String propertyGetter;
     private String propertyType;
     private Map<String, String> mapping;
     private boolean isEnum;
@@ -47,14 +46,6 @@ public class CodegenDiscriminator {
 
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
-    }
-
-    public String getPropertyGetter() {
-        return propertyGetter;
-    }
-
-    public void setPropertyGetter(String propertyGetter) {
-        this.propertyGetter = propertyGetter;
     }
 
     public String getPropertyBaseName() {

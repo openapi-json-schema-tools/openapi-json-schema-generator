@@ -3387,7 +3387,6 @@ public class DefaultCodegen implements CodegenConfig {
         String discPropName = sourceDiscriminator.getPropertyName();
         discriminator.setPropertyName(toVarName(discPropName));
         discriminator.setPropertyBaseName(sourceDiscriminator.getPropertyName());
-        discriminator.setPropertyGetter(toGetter(discriminator.getPropertyName()));
 
         // FIXME: for now, we assume that the discriminator property is String
         discriminator.setPropertyType(typeMapping.get("string"));
