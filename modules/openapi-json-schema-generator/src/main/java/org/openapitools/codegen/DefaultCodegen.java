@@ -495,40 +495,6 @@ public class DefaultCodegen implements CodegenConfig {
                 objsValue.putAll(additionalProperties);
                 objs.put(cm.name, objsValue);
             }
-
-            // Gather data from all the models that contain oneOf into OneOfImplementorAdditionalData classes
-            // (see docstring of that class to find out what information is gathered and why)
-            Map<String, OneOfImplementorAdditionalData> additionalDataMap = new HashMap<>();
-            for (ModelsMap modelsAttrs : objs.values()) {
-                List<Map<String, String>> modelsImports = modelsAttrs.getImportsOrEmpty();
-                for (ModelMap mo : modelsAttrs.getModels()) {
-                    CodegenModel cm = mo.getModel();
-                    if (cm.oneOf.size() > 0) {
-                        cm.vendorExtensions.put("x-is-one-of-interface", true);
-                        for (String one : cm.oneOf) {
-                            if (!additionalDataMap.containsKey(one)) {
-                                additionalDataMap.put(one, new OneOfImplementorAdditionalData(one));
-                            }
-                            additionalDataMap.get(one).addFromInterfaceModel(cm, modelsImports);
-                        }
-                        // if this is oneOf interface, make sure we include the necessary imports for it
-                        addImportsToOneOfInterface(modelsImports);
-                    }
-                }
-            }
-
-            // Add all the data from OneOfImplementorAdditionalData classes to the implementing models
-            for (Map.Entry<String, ModelsMap> modelsEntry : objs.entrySet()) {
-                ModelsMap modelsAttrs = modelsEntry.getValue();
-                List<Map<String, String>> imports = modelsAttrs.getImports();
-                for (ModelMap implmo : modelsAttrs.getModels()) {
-                    CodegenModel implcm = implmo.getModel();
-                    String modelName = toModelName(implcm.name);
-                    if (additionalDataMap.containsKey(modelName)) {
-                        additionalDataMap.get(modelName).addToImplementor(this, implcm, imports, addOneOfInterfaceImports);
-                    }
-                }
-            }
         }
 
         return objs;
@@ -969,7 +935,6 @@ public class DefaultCodegen implements CodegenConfig {
                     if (e.getKey().contains("/")) {
                         // if this is property schema, we also need to generate the oneOf interface model
                         addOneOfNameExtension((ComposedSchema) s, nOneOf);
-                        addOneOfInterfaceModel((ComposedSchema) s, nOneOf, openAPI, sourceJsonPath);
                     } else {
                         // else this is a component schema, so we will just use that as the oneOf interface model
                         addOneOfNameExtension((ComposedSchema) s, n);
@@ -978,13 +943,11 @@ public class DefaultCodegen implements CodegenConfig {
                     Schema items = ((ArraySchema) s).getItems();
                     if (ModelUtils.isComposedSchema(items)) {
                         addOneOfNameExtension((ComposedSchema) items, nOneOf);
-                        addOneOfInterfaceModel((ComposedSchema) items, nOneOf, openAPI, sourceJsonPath);
                     }
                 } else if (ModelUtils.isMapSchema(s)) {
                     Schema addProps = getAdditionalProperties(s);
                     if (addProps != null && ModelUtils.isComposedSchema(addProps)) {
                         addOneOfNameExtension((ComposedSchema) addProps, nOneOf);
-                        addOneOfInterfaceModel((ComposedSchema) addProps, nOneOf, openAPI, sourceJsonPath);
                     }
                 }
             }
@@ -2678,25 +2641,6 @@ public class DefaultCodegen implements CodegenConfig {
                             interfaceProperty = interfaceProperty.items;
                         }
                     }
-
-                    if (composed.getAnyOf() != null) {
-                        if (m.anyOf.contains(languageType)) {
-                            LOGGER.warn("{} (anyOf schema) already has `{}` defined and therefore it's skipped.", m.name, languageType);
-                        } else {
-                            m.anyOf.add(languageType);
-
-                        }
-                    } else if (composed.getOneOf() != null) {
-                        if (m.oneOf.contains(languageType)) {
-                            LOGGER.warn("{} (oneOf schema) already has `{}` defined and therefore it's skipped.", m.name, languageType);
-                        } else {
-                            m.oneOf.add(languageType);
-                        }
-                    } else if (composed.getAllOf() != null) {
-                        // no need to add primitive type to allOf, which should comprise of schemas (models) only
-                    } else {
-                        LOGGER.error("Composed schema has incorrect anyOf, allOf, oneOf defined: {}", composed);
-                    }
                     continue;
                 }
 
@@ -2723,16 +2667,6 @@ public class DefaultCodegen implements CodegenConfig {
                         addProperties(properties, required, refSchema, new HashSet<>());
                         addProperties(allProperties, allRequired, refSchema, new HashSet<>());
                     }
-                }
-
-                if (composed.getAnyOf() != null) {
-                    m.anyOf.add(modelName);
-                } else if (composed.getOneOf() != null) {
-                    m.oneOf.add(modelName);
-                } else if (composed.getAllOf() != null) {
-                    m.allOf.add(modelName);
-                } else {
-                    LOGGER.error("Composed schema has incorrect anyOf, allOf, oneOf defined: {}", composed);
                 }
             }
         }
@@ -3018,6 +2952,27 @@ public class DefaultCodegen implements CodegenConfig {
 
         m.setTypeProperties(schema);
         m.setFormat(schema.getFormat());
+
+        Schema notSchema = schema.getNot();
+        if (notSchema != null) {
+            CodegenProperty notProperty = fromProperty("not_schema", notSchema, false, false, sourceJsonPath);
+            m.setNot(notProperty);
+        }
+        List<Schema> allOfs = schema.getAllOf();
+        if (allOfs != null && !allOfs.isEmpty()) {
+             List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "all_of", sourceJsonPath);
+             m.setAllOf(allOfProps);
+        }
+        List<Schema> anyOfs = schema.getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "any_of", sourceJsonPath);
+            m.setAnyOf(anyOfProps);
+        }
+        List<Schema> oneOfs = schema.getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "any_of", sourceJsonPath);
+            m.setOneOf(oneOfProps);
+        }
         m.setComposedSchemas(getComposedSchemas(schema, sourceJsonPath));
         if (ModelUtils.isArraySchema(schema)) {
             CodegenProperty arrayProperty = fromProperty("items", schema, false, false, sourceJsonPath);
@@ -3888,6 +3843,26 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         property.setTypeProperties(p);
+        Schema notSchema = p.getNot();
+        if (notSchema != null) {
+            CodegenProperty notProperty = fromProperty("not_schema", notSchema, false, false, sourceJsonPath);
+            property.setNot(notProperty);
+        }
+        List<Schema> allOfs = p.getAllOf();
+        if (allOfs != null && !allOfs.isEmpty()) {
+            List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "all_of", sourceJsonPath);
+            property.setAllOf(allOfProps);
+        }
+        List<Schema> anyOfs = p.getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "any_of", sourceJsonPath);
+            property.setAnyOf(anyOfProps);
+        }
+        List<Schema> oneOfs = p.getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "any_of", sourceJsonPath);
+            property.setOneOf(oneOfProps);
+        }
         property.setComposedSchemas(getComposedSchemas(p, sourceJsonPath));
         if (ModelUtils.isIntegerSchema(p)) { // integer type
             updatePropertyForInteger(property, p);
@@ -6837,45 +6812,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (s.getOneOf() != null && s.getOneOf().size() > 0) {
             s.addExtension("x-one-of-name", name);
         }
-    }
-
-    /**
-     * Add a given ComposedSchema as an interface model to be generated, assuming it has `oneOf` defined
-     *
-     * @param cs      ComposedSchema object to create as interface model
-     * @param type    name to use for the generated interface model
-     * @param openAPI OpenAPI spec that we are using
-     */
-    public void addOneOfInterfaceModel(ComposedSchema cs, String type, OpenAPI openAPI, String sourceJsonPath) {
-        if (cs.getOneOf() == null) {
-            return;
-        }
-
-        CodegenModel cm = new CodegenModel();
-
-        cm.setDiscriminator(createDiscriminator("", cs, openAPI, sourceJsonPath));
-        if (!this.getLegacyDiscriminatorBehavior()) {
-            cm.addDiscriminatorMappedModelsImports();
-        }
-        for (Schema o : Optional.ofNullable(cs.getOneOf()).orElse(Collections.emptyList())) {
-            if (o.get$ref() == null) {
-                if (cm.discriminator != null && o.get$ref() == null) {
-                    // OpenAPI spec states that inline objects should not be considered when discriminator is used
-                    // https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#discriminatorObject
-                    LOGGER.warn("Ignoring inline object in oneOf definition of {}, since discriminator is used", type);
-                } else {
-                    LOGGER.warn("Inline models are not supported in oneOf definition right now");
-                }
-                continue;
-            }
-            cm.oneOf.add(toModelName(ModelUtils.getSimpleRef(o.get$ref())));
-        }
-        cm.name = type;
-        cm.classname = type;
-        cm.vendorExtensions.put("x-is-one-of-interface", true);
-        cm.interfaceModels = new ArrayList<>();
-
-        addOneOfInterfaces.add(cm);
     }
 
     public void addImportsToOneOfInterface(List<Map<String, String>> imports) {

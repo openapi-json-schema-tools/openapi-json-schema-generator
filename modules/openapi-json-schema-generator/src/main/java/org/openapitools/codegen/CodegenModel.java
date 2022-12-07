@@ -46,11 +46,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public List<CodegenModel> interfaceModels;
     public List<CodegenModel> children;
 
-    // anyOf, oneOf, allOf
-    public Set<String> anyOf = new TreeSet<>();
-    public Set<String> oneOf = new TreeSet<>();
-    public Set<String> allOf = new TreeSet<>();
-
     // The schema name as written in the OpenAPI document.
     public String name;
     // The language-specific name of the class that implements this schema.
@@ -109,6 +104,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
 
     public Map<String, Object> vendorExtensions = new HashMap<>();
     private CodegenComposedSchemas composedSchemas;
+    private List<CodegenProperty> allOf = null;
+    private List<CodegenProperty> anyOf = null;
+    private List<CodegenProperty> oneOf = null;
+    private CodegenProperty not = null;
     private boolean hasMultipleTypes = false;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     private boolean schemaIsFromAdditionalProperties;
@@ -978,6 +977,46 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
+    public void setAllOf(List<CodegenProperty> allOf) {
+        this.allOf = allOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getAllOf() {
+        return allOf;
+    }
+
+    @Override
+    public void setAnyOf(List<CodegenProperty> anyOf) {
+        this.anyOf = anyOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getAnyOf() {
+        return anyOf;
+    }
+
+    @Override
+    public void setOneOf(List<CodegenProperty> oneOf) {
+        this.oneOf = oneOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getOneOf() {
+        return oneOf;
+    }
+
+    @Override
+    public void setNot(CodegenProperty not) {
+        this.not = not;
+    }
+
+    @Override
+    public CodegenProperty getNot() {
+        return not;
+    }
+
+    @Override
     public boolean getHasMultipleTypes() {
         return hasMultipleTypes;
     }
@@ -1048,9 +1087,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(parentModel, that.parentModel) &&
                 Objects.equals(interfaceModels, that.interfaceModels) &&
                 Objects.equals(children, that.children) &&
+                Objects.equals(allOf, that.allOf) &&
                 Objects.equals(anyOf, that.anyOf) &&
                 Objects.equals(oneOf, that.oneOf) &&
-                Objects.equals(allOf, that.allOf) &&
+                Objects.equals(not, that.not) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(classname, that.classname) &&
                 Objects.equals(title, that.title) &&
@@ -1114,7 +1154,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, getComposedSchemas(), hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
                 uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule, modulePath);
+                format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not);
     }
 
     @Override
@@ -1128,9 +1168,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", allParents=").append(allParents);
         sb.append(", parentModel=").append(parentModel);
         sb.append(", children=").append(children != null ? children.size() : "[]");
+        sb.append(", allOf=").append(allOf);
         sb.append(", anyOf=").append(anyOf);
         sb.append(", oneOf=").append(oneOf);
-        sb.append(", allOf=").append(allOf);
+        sb.append(", not=").append(not);
         sb.append(", classname='").append(classname).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", description='").append(description).append('\'');

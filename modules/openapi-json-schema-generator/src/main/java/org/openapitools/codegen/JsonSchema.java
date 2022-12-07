@@ -191,6 +191,22 @@ public interface JsonSchema {
 
     CodegenComposedSchemas getComposedSchemas();
 
+    List<CodegenProperty> getAllOf();
+
+    void setAllOf(List<CodegenProperty> allOf);
+
+    List<CodegenProperty> getAnyOf();
+
+    void setAnyOf(List<CodegenProperty> anyOf);
+
+    List<CodegenProperty> getOneOf();
+
+    void setOneOf(List<CodegenProperty> oneOf);
+
+    CodegenProperty getNot();
+
+    void setNot(CodegenProperty not);
+
     void setComposedSchemas(CodegenComposedSchemas composedSchemas);
 
     boolean getHasMultipleTypes();

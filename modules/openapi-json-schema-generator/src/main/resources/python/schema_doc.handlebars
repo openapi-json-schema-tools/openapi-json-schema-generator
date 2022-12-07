@@ -70,8 +70,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 {{/unless}}
 {{/with}}
 {{/if}}
-{{#if composedSchemas}}
-{{#with composedSchemas}}
+{{#or allOf anyOf oneOf not}}
 
 ### Composed Schemas (allOf/anyOf/oneOf/not)
 {{#if allOf}}
@@ -132,5 +131,4 @@ Class Name | Input Type | Accessed Type | Description | Notes
 {{/unless}}
 {{/with}}
 {{/if}}
-{{/with}}
-{{/if}}
+{{/or}}

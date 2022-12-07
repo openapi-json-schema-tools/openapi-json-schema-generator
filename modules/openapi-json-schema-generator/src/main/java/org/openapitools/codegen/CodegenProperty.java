@@ -194,6 +194,10 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     private boolean hasRequired;
     private boolean hasDiscriminatorWithNonEmptyMapping;
     private CodegenComposedSchemas composedSchemas = null;
+    private List<CodegenProperty> allOf = null;
+    private List<CodegenProperty> anyOf = null;
+    private List<CodegenProperty> oneOf = null;
+    private CodegenProperty not = null;
     private boolean hasMultipleTypes = false;
     private Map<String, CodegenProperty> requiredVarsMap;
     private String ref;
@@ -726,6 +730,46 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
+    public void setAllOf(List<CodegenProperty> allOf) {
+        this.allOf = allOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getAllOf() {
+        return allOf;
+    }
+
+    @Override
+    public void setAnyOf(List<CodegenProperty> anyOf) {
+        this.anyOf = anyOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getAnyOf() {
+        return anyOf;
+    }
+
+    @Override
+    public void setOneOf(List<CodegenProperty> oneOf) {
+        this.oneOf = oneOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getOneOf() {
+        return oneOf;
+    }
+
+    @Override
+    public void setNot(CodegenProperty not) {
+        this.not = not;
+    }
+
+    @Override
+    public CodegenProperty getNot() {
+        return not;
+    }
+
+    @Override
     public void setRef(String ref) {
         this.ref = ref;
     }
@@ -783,6 +827,18 @@ public class CodegenProperty implements Cloneable, JsonSchema {
             }
             if (this.getRefModule() != null) {
                 cp.setRefClass(this.refModule);
+            }
+            if (this.getAllOf() != null) {
+                cp.setAllOf(this.getAllOf());
+            }
+            if (this.getAnyOf() != null) {
+                cp.setAnyOf(this.getAnyOf());
+            }
+            if (this.getOneOf() != null) {
+                cp.setOneOf(this.getOneOf());
+            }
+            if (this.getNot() != null) {
+                cp.setNot(this.getNot());
             }
 
             return cp;
@@ -1090,6 +1146,10 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", format=").append(format);
         sb.append(", dependentRequired=").append(dependentRequired);
         sb.append(", contains=").append(contains);
+        sb.append(", allOf=").append(allOf);
+        sb.append(", anyOf=").append(anyOf);
+        sb.append(", oneOf=").append(oneOf);
+        sb.append(", not=").append(not);
         sb.append('}');
         return sb.toString();
     }
@@ -1151,6 +1211,10 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 getAdditionalPropertiesIsAnyType() == that.getAdditionalPropertiesIsAnyType() &&
                 getHasVars() == that.getHasVars() &&
                 getHasRequired() == that.getHasRequired() &&
+                Objects.equals(allOf, that.getAllOf()) &&
+                Objects.equals(anyOf, that.getAnyOf()) &&
+                Objects.equals(oneOf, that.getOneOf()) &&
+                Objects.equals(not, that.getNot()) &&
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
@@ -1223,6 +1287,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 xmlNamespace, isXmlWrapped, isNull, additionalPropertiesIsAnyType, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, composedSchemas, hasMultipleTypes, requiredVarsMap,
                 ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule);
+                format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not);
     }
 }

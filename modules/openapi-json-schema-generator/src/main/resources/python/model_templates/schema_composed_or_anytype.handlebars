@@ -51,9 +51,9 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
         {{> model_templates/validations }}
 {{/if}}
 {{/unless}}
-{{#if composedSchemas}}
+{{#or allOf anyOf oneOf not}}
         {{> model_templates/composed_schemas }}
-{{/if}}
+{{/or}}
 {{#if isEnum}}
     {{> model_templates/enums }}
 {{/if}}
