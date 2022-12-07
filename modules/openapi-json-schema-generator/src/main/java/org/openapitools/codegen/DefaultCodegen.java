@@ -2076,19 +2076,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Return the property initialized from a data object
-     * Useful for initialization with a plain object in Javascript
-     *
-     * @param name   Name of the property object
-     * @param schema Property schema
-     * @return string presentation of the default value of the property
-     */
-    @SuppressWarnings("static-method")
-    public String toDefaultValueWithParam(String name, Schema schema) {
-        return " = data." + name + ";";
-    }
-
-    /**
      * returns the OpenAPI type for the property. Use getAlias to handle $ref of primitive type
      *
      * @param schema property schema
@@ -3618,7 +3605,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.example = "ERROR_TO_EXAMPLE_VALUE";
         }
         property.defaultValue = toDefaultValue(p);
-        property.defaultValueWithParam = toDefaultValueWithParam(name, p);
         property.jsonSchema = Json.pretty(p);
 
         if (p.getDeprecated() != null) {

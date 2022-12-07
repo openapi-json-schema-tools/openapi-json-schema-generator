@@ -38,7 +38,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String min; // TODO: is this really used?
     public String max; // TODO: is this really used?
     public String defaultValue;
-    public String defaultValueWithParam;
     public String baseType;
     public String containerType;
     /**
@@ -297,14 +296,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setDefaultValue(String defaultValue) {
         this.defaultValue = defaultValue;
-    }
-
-    public String getDefaultValueWithParam() {
-        return defaultValueWithParam;
-    }
-
-    public void setDefaultValueWithParam(String defaultValueWithParam) {
-        this.defaultValueWithParam = defaultValueWithParam;
     }
 
     public String getBaseType() {
@@ -953,7 +944,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", min='").append(min).append('\'');
         sb.append(", max='").append(max).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
-        sb.append(", defaultValueWithParam='").append(defaultValueWithParam).append('\'');
         sb.append(", baseType='").append(baseType).append('\'');
         sb.append(", containerType='").append(containerType).append('\'');
         sb.append(", title='").append(title).append('\'');
@@ -1125,7 +1115,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(min, that.min) &&
                 Objects.equals(max, that.max) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
-                Objects.equals(defaultValueWithParam, that.defaultValueWithParam) &&
                 Objects.equals(baseType, that.baseType) &&
                 Objects.equals(containerType, that.containerType) &&
                 Objects.equals(title, that.title) &&
@@ -1162,7 +1151,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
         return Objects.hash(openApiType, baseName, refClass, description,
                 name, min, max, defaultValue,
-                defaultValueWithParam, baseType, containerType, title, unescapedDescription,
+                baseType, containerType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
                 hasMoreNonReadOnly, isContainer, isString, isNumeric,
