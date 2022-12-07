@@ -460,7 +460,7 @@ paths:
             ref-schema-header:
               $ref: '#/components/headers/RefSchemaHeader'
             ref-content-schema-header:
-              $ref: '#/components/headers/RefSchemaHeader'
+              $ref: '#/components/headers/RefContentSchemaHeader'
           content:
             application/xml:
               schema:
@@ -1672,7 +1672,7 @@ components:
         ref-schema-header:
           $ref: '#/components/headers/RefSchemaHeader'
         ref-content-schema-header:
-          $ref: '#/components/headers/RefSchemaHeader'
+          $ref: '#/components/headers/RefContentSchemaHeader'
       content:
         application/json:
           schema:
