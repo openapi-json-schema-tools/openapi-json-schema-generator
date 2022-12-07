@@ -91,7 +91,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean exclusiveMaximum;
     public boolean required;
     public boolean deprecated;
-    public boolean hasMoreNonReadOnly; // for model constructor, true if next property is not readonly
     /**
      * True if this property is an array of items or a map container.
      * See:
@@ -919,7 +918,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
         sb.append(", required=").append(required);
         sb.append(", deprecated=").append(deprecated);
-        sb.append(", hasMoreNonReadOnly=").append(hasMoreNonReadOnly);
         sb.append(", isContainer=").append(isContainer);
         sb.append(", isString=").append(isString);
         sb.append(", isNumeric=").append(isNumeric);
@@ -1010,7 +1008,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 exclusiveMaximum == that.exclusiveMaximum &&
                 required == that.required &&
                 deprecated == that.deprecated &&
-                hasMoreNonReadOnly == that.hasMoreNonReadOnly &&
                 isContainer == that.isContainer &&
                 isString == that.isString &&
                 isNumeric == that.isNumeric &&
@@ -1110,7 +1107,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 baseType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
-                hasMoreNonReadOnly, isContainer, isString, isNumeric,
+                isContainer, isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail, isFreeFormObject,
                 isArray, isMap, isEnum, isInnerEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
