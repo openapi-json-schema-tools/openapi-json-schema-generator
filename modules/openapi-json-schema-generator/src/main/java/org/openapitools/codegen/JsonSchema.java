@@ -116,10 +116,6 @@ public interface JsonSchema {
 
     void setIsUnboundedInteger(boolean isUnboundedInteger);
 
-    boolean getIsPrimitiveType();
-
-    void setIsPrimitiveType(boolean isPrimitiveType);
-
     CodegenProperty getAdditionalProperties();
 
     void setAdditionalProperties(CodegenProperty additionalProperties);

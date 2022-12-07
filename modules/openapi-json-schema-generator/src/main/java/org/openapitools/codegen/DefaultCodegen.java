@@ -3946,9 +3946,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected void setNonArrayMapProperty(CodegenProperty property, String type) {
         property.isContainer = false;
-        if (languageSpecificPrimitives().contains(type)) {
-            property.isPrimitiveType = true;
-        }
     }
 
     public String getBodyParameterName(CodegenOperation co) {

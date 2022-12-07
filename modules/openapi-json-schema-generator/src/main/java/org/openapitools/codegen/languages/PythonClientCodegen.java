@@ -2075,9 +2075,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             return;
         }
-        if (languageSpecificPrimitives.contains(innerProperty.baseType)) {
-            property.isPrimitiveType = true;
-        }
         property.items = innerProperty;
         property.mostInnerItems = getMostInnerItems(innerProperty);
         // inner item is Enum

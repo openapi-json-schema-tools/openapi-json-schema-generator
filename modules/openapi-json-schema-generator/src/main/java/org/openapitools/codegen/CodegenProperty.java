@@ -97,7 +97,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean required;
     public boolean deprecated;
     public boolean hasMoreNonReadOnly; // for model constructor, true if next property is not readonly
-    public boolean isPrimitiveType;
     /**
      * True if this property is an array of items or a map container.
      * See:
@@ -558,16 +557,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.isUnboundedInteger = isUnboundedInteger;
     }
 
-    @Override
-    public boolean getIsPrimitiveType() {
-        return isPrimitiveType;
-    }
-
-    @Override
-    public void setIsPrimitiveType(boolean isPrimitiveType) {
-        this.isPrimitiveType = isPrimitiveType;
-    }
-
     public Map<String, Object> getVendorExtensions() {
         return vendorExtensions;
     }
@@ -981,7 +970,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", required=").append(required);
         sb.append(", deprecated=").append(deprecated);
         sb.append(", hasMoreNonReadOnly=").append(hasMoreNonReadOnly);
-        sb.append(", isPrimitiveType=").append(isPrimitiveType);
         sb.append(", isContainer=").append(isContainer);
         sb.append(", isString=").append(isString);
         sb.append(", isNumeric=").append(isNumeric);
@@ -1073,7 +1061,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 required == that.required &&
                 deprecated == that.deprecated &&
                 hasMoreNonReadOnly == that.hasMoreNonReadOnly &&
-                isPrimitiveType == that.isPrimitiveType &&
                 isContainer == that.isContainer &&
                 isString == that.isString &&
                 isNumeric == that.isNumeric &&
@@ -1178,7 +1165,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 defaultValueWithParam, baseType, containerType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
-                hasMoreNonReadOnly, isPrimitiveType, isContainer, isString, isNumeric,
+                hasMoreNonReadOnly, isContainer, isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail, isFreeFormObject,
                 isArray, isMap, isEnum, isInnerEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
