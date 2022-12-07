@@ -1960,43 +1960,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Sets the content type, style, and explode of the parameter based on the encoding specified
-     * in the request body.
-     *
-     * @param codegenParameter Codegen parameter
-     * @param mediaType        MediaType from the request body
-     */
-    public void setParameterEncodingValues(CodegenParameter codegenParameter, MediaType mediaType) {
-        if (mediaType != null && mediaType.getEncoding() != null) {
-            Encoding encoding = mediaType.getEncoding().get(codegenParameter.baseName);
-            if (encoding != null) {
-                Encoding.StyleEnum style = encoding.getStyle();
-                if(style == null || style == Encoding.StyleEnum.FORM) {
-                    // (Unfortunately, swagger-parser-v3 will always provide 'form'
-                    // when style is not specified, so we can't detect that)
-                    style = Encoding.StyleEnum.FORM;
-                }
-                Boolean explode = encoding.getExplode();
-                if (explode == null) {
-                    explode = style == Encoding.StyleEnum.FORM; // Default to True when form, False otherwise
-                }
-
-                codegenParameter.style = style.toString();
-                codegenParameter.isDeepObject = Encoding.StyleEnum.DEEP_OBJECT == style;
-
-                if(getParameterSchema(codegenParameter).isContainer) {
-                    codegenParameter.isExplode = explode;
-                } else {
-                    codegenParameter.isExplode = false;
-                }
-
-            } else {
-                LOGGER.debug("encoding not specified for {}", codegenParameter.baseName);
-            }
-        }
-    }
-
-    /**
      * Return the example value of the property
      *
      * @param schema Property schema
@@ -3433,7 +3396,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void updatePropertyForMap(CodegenProperty property, Schema p, String sourceJsonPath) {
-        property.isContainer = true;
         // TODO remove this hack in the future, code should use minProperties and maxProperties for object schemas
         property.minItems = p.getMinProperties();
         property.maxItems = p.getMaxProperties();
@@ -3718,7 +3680,6 @@ public class DefaultCodegen implements CodegenConfig {
             updatePropertyForNumber(property, p);
         } else if (ModelUtils.isArraySchema(p)) {
             // default to string if inner item is undefined
-            property.isContainer = true;
             property.baseType = getSchemaType(p);
             if (p.getXml() != null) {
                 property.isXmlWrapped = p.getXml().getWrapped() == null ? false : p.getXml().getWrapped();
@@ -3755,14 +3716,6 @@ public class DefaultCodegen implements CodegenConfig {
                 (p.getProperties() == null || p.getProperties().isEmpty()) &&
                 !ModelUtils.isComposedSchema(p) &&
                 p.getAdditionalProperties() == null && p.getNot() == null && p.getEnum() == null);
-
-        if (!ModelUtils.isArraySchema(p) && !ModelUtils.isMapSchema(p) && !isFreeFormObject(p) && !isAnyTypeWithNothingElseSet) {
-            /* schemas that are not Array, not ModelUtils.isMapSchema, not isFreeFormObject, not AnyType with nothing else set
-             *  so primitive schemas int, str, number, referenced schemas, AnyType schemas with properties, enums, or composition
-             */
-            String type = getSchemaType(p);
-            setNonArrayMapProperty(property, type);
-        }
 
         LOGGER.debug("debugging from property return: {}", property);
         schemaCodegenPropertyCache.put(ns, property);
@@ -3912,10 +3865,6 @@ public class DefaultCodegen implements CodegenConfig {
 
             updateCodegenPropertyEnum(property);
         }
-    }
-
-    protected void setNonArrayMapProperty(CodegenProperty property, String type) {
-        property.isContainer = false;
     }
 
     public String getBodyParameterName(CodegenOperation co) {

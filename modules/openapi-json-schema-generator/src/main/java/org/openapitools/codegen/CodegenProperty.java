@@ -91,13 +91,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean exclusiveMaximum;
     public boolean required;
     public boolean deprecated;
-    /**
-     * True if this property is an array of items or a map container.
-     * See:
-     * - ModelUtils.isArraySchema()
-     * - ModelUtils.isMapSchema()
-     */
-    public boolean isContainer;
     public boolean isString;
     public boolean isNumeric;
     public boolean isInteger;
@@ -918,7 +911,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
         sb.append(", required=").append(required);
         sb.append(", deprecated=").append(deprecated);
-        sb.append(", isContainer=").append(isContainer);
         sb.append(", isString=").append(isString);
         sb.append(", isNumeric=").append(isNumeric);
         sb.append(", isInteger=").append(isInteger);
@@ -1008,7 +1000,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 exclusiveMaximum == that.exclusiveMaximum &&
                 required == that.required &&
                 deprecated == that.deprecated &&
-                isContainer == that.isContainer &&
                 isString == that.isString &&
                 isNumeric == that.isNumeric &&
                 isInteger == that.isInteger &&
@@ -1107,7 +1098,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 baseType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
-                isContainer, isString, isNumeric,
+                isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail, isFreeFormObject,
                 isArray, isMap, isEnum, isInnerEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
