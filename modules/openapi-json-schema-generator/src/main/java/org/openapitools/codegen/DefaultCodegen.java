@@ -3811,9 +3811,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
             return;
         }
-        if (languageSpecificPrimitives.contains(innerProperty.baseType)) {
-            property.isPrimitiveType = true;
-        }
         property.items = innerProperty;
         property.mostInnerItems = getMostInnerItems(innerProperty);
         // inner item is Enum
@@ -3843,9 +3840,6 @@ public class DefaultCodegen implements CodegenConfig {
                 LOGGER.warn("skipping invalid map property {}", Json.pretty(property));
             }
             return;
-        }
-        if (languageSpecificPrimitives.contains(innerProperty.baseType)) {
-            property.isPrimitiveType = true;
         }
         // TODO fix this, map should not be assigning properties to items
         property.items = innerProperty;

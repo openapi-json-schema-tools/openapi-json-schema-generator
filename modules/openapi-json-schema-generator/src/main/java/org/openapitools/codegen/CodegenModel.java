@@ -758,16 +758,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public boolean getIsPrimitiveType() {
-        return isPrimitiveType;
-    }
-
-    @Override
-    public void setIsPrimitiveType(boolean isPrimitiveType) {
-        this.isPrimitiveType = isPrimitiveType;
-    }
-
-    @Override
     public CodegenProperty getAdditionalProperties() {
         return additionalProperties;
     }
