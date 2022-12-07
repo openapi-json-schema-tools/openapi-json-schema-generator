@@ -862,13 +862,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
                 .collect(Collectors.toMap(CodegenProperty::getBaseName, Function.identity()));
         allVarsMap.keySet()
                 .removeAll(m.vars.stream().map(CodegenProperty::getBaseName).collect(Collectors.toSet()));
-        // Update the allVars
-        allVarsMap.values().forEach(p -> p.isInherited = true);
-        // Update any other vars (requiredVars, optionalVars)
-        Stream.of(m.requiredVars, m.optionalVars)
-                .flatMap(List::stream)
-                .filter(p -> allVarsMap.containsKey(p.baseName))
-                .forEach(p -> p.isInherited = true);
         return m;
     }
 

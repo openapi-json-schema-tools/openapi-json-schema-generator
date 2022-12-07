@@ -136,7 +136,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public List<CodegenProperty> requiredVars = new ArrayList<>();
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
-    public boolean isInherited;
     public String discriminatorValue;
     public String nameInLowerCase; // property name in lower case
     public String nameInCamelCase; // property name in camel case
@@ -937,7 +936,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", requiredVars=").append(requiredVars);
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", hasValidation=").append(hasValidation);
-        sb.append(", isInherited=").append(isInherited);
         sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
         sb.append(", nameInCamelCase='").append(nameInCamelCase).append('\'');
         sb.append(", nameInSnakeCase='").append(nameInSnakeCase).append('\'');
@@ -1016,7 +1014,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isCircularReference == that.isCircularReference &&
                 isDiscriminator == that.isDiscriminator &&
                 hasValidation == that.hasValidation &&
-                isInherited == that.isInherited &&
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
@@ -1087,7 +1084,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
                 allowableValues, items, additionalProperties, vars, requiredVars,
-                vendorExtensions, hasValidation, isInherited, discriminatorValue, nameInCamelCase,
+                vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
                 nameInSnakeCase, enumName, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull, additionalPropertiesIsAnyType, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredVarsMap,
