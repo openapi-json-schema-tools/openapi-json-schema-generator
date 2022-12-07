@@ -1085,11 +1085,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        boolean isModel = false;
         CodegenProperty cp = codegenParameter.getSchema();
-        if (cp != null && (cp.isModel || (cp.isContainer && cp.getItems().isModel))) {
-            isModel = true;
-        }
 
         Content content = requestBody.getContent();
 
@@ -1100,23 +1096,15 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         MediaType mediaType = content.values().iterator().next();
         if (mediaType.getExample() != null) {
-            if (isModel) {
-                LOGGER.warn("Ignoring complex example on request body");
-            } else {
-                codegenParameter.example = mediaType.getExample().toString();
-                return;
-            }
+            codegenParameter.example = mediaType.getExample().toString();
+            return;
         }
 
         if (mediaType.getExamples() != null && !mediaType.getExamples().isEmpty()) {
             Example example = mediaType.getExamples().values().iterator().next();
             if (example.getValue() != null) {
-                if (isModel) {
-                    LOGGER.warn("Ignoring complex example on request body");
-                } else {
-                    codegenParameter.example = example.getValue().toString();
-                    return;
-                }
+                codegenParameter.example = example.getValue().toString();
+                return;
             }
         }
 

@@ -3786,7 +3786,6 @@ public class DefaultCodegen implements CodegenConfig {
              */
             String type = getSchemaType(p);
             setNonArrayMapProperty(property, type);
-            property.isModel = (ModelUtils.isComposedSchema(referencedSchema) || ModelUtils.isObjectSchema(referencedSchema)) && ModelUtils.isModel(referencedSchema);
         }
 
         LOGGER.debug("debugging from property return: {}", property);
@@ -3949,8 +3948,6 @@ public class DefaultCodegen implements CodegenConfig {
         property.isContainer = false;
         if (languageSpecificPrimitives().contains(type)) {
             property.isPrimitiveType = true;
-        } else {
-            property.isModel = true;
         }
     }
 

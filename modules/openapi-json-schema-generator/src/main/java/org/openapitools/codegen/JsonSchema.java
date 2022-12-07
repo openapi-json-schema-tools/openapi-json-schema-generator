@@ -87,10 +87,6 @@ public interface JsonSchema {
 
     void setItems(CodegenProperty items);
 
-    boolean getIsModel();
-
-    void setIsModel(boolean isModel);
-
     boolean getIsDate();
 
     void setIsDate(boolean isDate);
@@ -236,9 +232,6 @@ public interface JsonSchema {
     default void setTypeProperties(Schema p) {
         if (ModelUtils.isTypeObjectSchema(p)) {
             setIsMap(true);
-            if (ModelUtils.isModelWithPropertiesOnly(p)) {
-                setIsModel(true);
-            }
         } else if (ModelUtils.isArraySchema(p)) {
             setIsArray(true);
         } else if (ModelUtils.isFileSchema(p) && !ModelUtils.isStringSchema(p)) {
@@ -288,9 +281,6 @@ public interface JsonSchema {
             setIsNull(true);
         } else if (ModelUtils.isAnyType(p)) {
             setIsAnyType(true);
-            if (ModelUtils.isModelWithPropertiesOnly(p)) {
-                setIsModel(true);
-            }
         }
     }
 
