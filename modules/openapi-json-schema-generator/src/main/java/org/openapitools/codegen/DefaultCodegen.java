@@ -3601,7 +3601,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.example = "ERROR_TO_EXAMPLE_VALUE";
         }
         property.defaultValue = toDefaultValue(p);
-        property.jsonSchema = Json.pretty(p);
 
         if (p.getDeprecated() != null) {
             property.deprecated = p.getDeprecated();

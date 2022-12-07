@@ -297,7 +297,6 @@ public interface JsonSchema {
     /**
      * Recursively collect all necessary imports to include so that the type may be resolved.
      *
-     * @param importContainerType whether or not to include the container types in the returned imports.
      * @param importBaseType whether or not to include the base types in the returned imports.
      * @param featureSet the generator feature set, used to determine if composed schemas should be added
      * @return all of the imports

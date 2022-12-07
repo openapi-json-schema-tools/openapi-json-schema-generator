@@ -66,7 +66,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      */
     public String example;
 
-    public String jsonSchema;
     /**
      * The value of the 'minimum' attribute in the OpenAPI schema.
      * The value of "minimum" MUST be a number, representing an inclusive lower limit for a numeric instance.
@@ -367,14 +366,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setExample(String example) {
         this.example = example;
-    }
-
-    public String getJsonSchema() {
-        return jsonSchema;
-    }
-
-    public void setJsonSchema(String jsonSchema) {
-        this.jsonSchema = jsonSchema;
     }
 
     @Override
@@ -942,7 +933,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", minLength=").append(minLength);
         sb.append(", pattern='").append(pattern).append('\'');
         sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", minimum='").append(minimum).append('\'');
         sb.append(", maximum='").append(maximum).append('\'');
         sb.append(", exclusiveMinimum=").append(exclusiveMinimum);
@@ -1112,7 +1102,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(minLength, that.minLength) &&
                 Objects.equals(pattern, that.pattern) &&
                 Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
                 Objects.equals(_enum, that._enum) &&
@@ -1141,7 +1130,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         return Objects.hash(openApiType, baseName, refClass, description,
                 name, min, max, defaultValue,
                 baseType, title, unescapedDescription,
-                maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
+                maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
                 hasMoreNonReadOnly, isContainer, isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
