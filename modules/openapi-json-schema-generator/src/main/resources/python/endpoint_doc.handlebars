@@ -97,7 +97,7 @@ Key | Input Type | Description  | Notes
         {{#each queryParams as | parameter |}}
         {{#unless parameter.refModule}}
 
-{{> parameter_doc }}
+{{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -118,7 +118,7 @@ Key | Input Type | Description  | Notes
         {{#each headerParams as | parameter |}}
         {{#unless parameter.refModule}}
 
-{{> parameter_doc }}
+{{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -139,7 +139,7 @@ Key | Input Type | Description  | Notes
         {{#each pathParams as | parameter |}}
         {{#unless parameter.refModule}}
 
-{{> parameter_doc }}
+{{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -160,7 +160,7 @@ Key | Input Type | Description  | Notes
         {{#each cookieParams as | parameter |}}
         {{#unless parameter.refModule}}
 
-{{> parameter_doc }}
+{{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -190,7 +190,7 @@ default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) 
 {{#each responses}}
 {{#unless refModule}}
 
-{{> response_doc response=this }}
+{{> response_doc response=this complexTypePrefix="../../../components/schema/" }}
 {{/unless}}
 {{/each}}
 

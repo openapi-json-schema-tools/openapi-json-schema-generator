@@ -378,7 +378,9 @@ HTTP request | Method | Description
 
 ## Component Parameters
 
+- [parameter_component_ref_schema_string_with_validation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
 - [parameter_path_user_name](docs/components/parameters/parameter_path_user_name.md)
+- [parameter_ref_schema_string_with_validation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
 
 ## Documentation For Authorization
 

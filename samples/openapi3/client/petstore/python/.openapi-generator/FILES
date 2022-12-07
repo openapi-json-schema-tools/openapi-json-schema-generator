@@ -71,7 +71,9 @@ docs/components/headers/number_header_header.md
 docs/components/headers/ref_content_schema_header_header.md
 docs/components/headers/ref_schema_header_header.md
 docs/components/headers/string_header_header.md
+docs/components/parameters/parameter_component_ref_schema_string_with_validation.md
 docs/components/parameters/parameter_path_user_name.md
+docs/components/parameters/parameter_ref_schema_string_with_validation.md
 docs/components/request_bodies/client_request_body.md
 docs/components/request_bodies/pet_request_body.md
 docs/components/request_bodies/user_array_request_body.md
@@ -272,7 +274,9 @@ petstore_api/components/headers/number_header_header.py
 petstore_api/components/headers/ref_content_schema_header_header.py
 petstore_api/components/headers/ref_schema_header_header.py
 petstore_api/components/headers/string_header_header.py
+petstore_api/components/parameters/parameter_component_ref_schema_string_with_validation.py
 petstore_api/components/parameters/parameter_path_user_name.py
+petstore_api/components/parameters/parameter_ref_schema_string_with_validation.py
 petstore_api/components/request_bodies/__init__.py
 petstore_api/components/request_bodies/client_request_body.py
 petstore_api/components/request_bodies/pet_request_body.py

@@ -4,13 +4,13 @@
 {{/if}}
 {{#if parameter.schema}}
     {{#with parameter.schema}}
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName }}
     {{/with}}
 {{else}}
     {{#each parameter.getContent}}
         {{#with this}}
             {{#with schema}}
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName }}
             {{/with}}
         {{/with}}
     {{/each}}

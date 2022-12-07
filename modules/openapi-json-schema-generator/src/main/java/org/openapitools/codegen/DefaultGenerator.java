@@ -764,6 +764,7 @@ public class DefaultGenerator implements Generator {
 
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
+                templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("response", response);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
@@ -889,6 +890,7 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
+                templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("imports", parameter.imports);
 
                 try {
@@ -952,6 +954,7 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("headers", Collections.singletonMap("unsetHeaderName", header));
+                templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("imports", header.imports);
 
                 try {

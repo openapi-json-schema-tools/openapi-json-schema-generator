@@ -1641,6 +1641,22 @@ components:
       required: true
       schema:
         type: string
+    RefSchemaStringWithValidation:
+      name: RSstringWithValidation
+      in: path
+      description: a path string with validation
+      required: true
+      schema:
+        $ref: '#/components/schemas/StringWithValidation'
+    ComponentRefSchemaStringWithValidation:
+      name: CRSstringWithValidation
+      in: path
+      description: a path string with validation
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StringWithValidation'
   responses:
     SuccessDescriptionOnly:
       description: Success
