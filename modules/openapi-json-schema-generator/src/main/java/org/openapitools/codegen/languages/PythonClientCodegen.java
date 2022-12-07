@@ -2240,31 +2240,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
             }
         }
-
-        CodegenComposedSchemas cs = m.getComposedSchemas();
-        if (cs != null) {
-            if (cs.getAllOf() != null && !cs.getAllOf().isEmpty()) {
-                for (CodegenProperty cp: cs.getAllOf()) {
-                    if (cp.refClass != null) {
-                        addImport(m, cp.refClass);
-                    }
-                }
-            }
-            if (cs.getOneOf() != null && !cs.getOneOf().isEmpty()) {
-                for (CodegenProperty cp: cs.getOneOf()) {
-                    if (cp.refClass != null) {
-                        addImport(m, cp.refClass);
-                    }
-                }
-            }
-            if (cs.getAnyOf() != null && !cs.getAnyOf().isEmpty()) {
-                for (CodegenProperty cp: cs.getAnyOf()) {
-                    if (cp.refClass != null) {
-                        addImport(m, cp.refClass);
-                    }
-                }
-            }
-        }
     }
 
     @Override
