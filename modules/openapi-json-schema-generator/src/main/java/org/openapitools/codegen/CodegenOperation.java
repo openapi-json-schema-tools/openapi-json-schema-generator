@@ -39,7 +39,6 @@ public class CodegenOperation {
     public List<CodegenParameter> queryParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> formParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> requiredParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> optionalParams = new ArrayList<CodegenParameter>();
@@ -122,21 +121,12 @@ public class CodegenOperation {
     }
 
     /**
-     * Check if there's at least one form parameter
-     *
-     * @return true if any form parameter exists, false otherwise
-     */
-    public boolean getHasFormParams() {
-        return nonEmpty(formParams);
-    }
-
-    /**
      * Check if there's at least one body parameter or at least one form parameter
      *
      * @return true if body or form parameter exists, false otherwise
      */
     public boolean getHasBodyOrFormParams() {
-        return getHasBodyParam() || getHasFormParams();
+        return getHasBodyParam();
     }
 
     /**
@@ -341,7 +331,6 @@ public class CodegenOperation {
         sb.append(", pathParams=").append(pathParams);
         sb.append(", queryParams=").append(queryParams);
         sb.append(", headerParams=").append(headerParams);
-        sb.append(", formParams=").append(formParams);
         sb.append(", cookieParams=").append(cookieParams);
         sb.append(", requiredParams=").append(requiredParams);
         sb.append(", optionalParams=").append(optionalParams);
@@ -407,7 +396,6 @@ public class CodegenOperation {
                 Objects.equals(pathParams, that.pathParams) &&
                 Objects.equals(queryParams, that.queryParams) &&
                 Objects.equals(headerParams, that.headerParams) &&
-                Objects.equals(formParams, that.formParams) &&
                 Objects.equals(cookieParams, that.cookieParams) &&
                 Objects.equals(requiredParams, that.requiredParams) &&
                 Objects.equals(optionalParams, that.optionalParams) &&
@@ -440,7 +428,7 @@ public class CodegenOperation {
                 isRestful, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, prioritizedContentTypes, servers, requestBody, allParams, bodyParams,
-                pathParams, queryParams, headerParams, formParams, cookieParams, requiredParams, optionalParams,
+                pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
                 vendorExtensions, nickname, operationIdOriginal, operationIdLowerCase, operationIdCamelCase,
                 operationIdSnakeCase, statusCodeResponses, wildcardCodeResponses,

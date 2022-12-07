@@ -1,6 +1,6 @@
 generatorName: python
 outputDir: samples/openapi3/client/petstore/python
-inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/python/petstore-with-fake-endpoints-models-for-testing-with-http-signature.yaml
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/python/petstore_customized.yaml
 templateDir: modules/openapi-json-schema-generator/src/main/resources/python
 additionalProperties:
   packageName: petstore_api

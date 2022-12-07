@@ -14,9 +14,11 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+from petstore_api.components.headers import ref_schema_header_header as parameter_ref_schema_header
 from . import parameter_x_rate_limit
 from petstore_api.components.headers import int32_json_content_type_header_header as parameter_int32_json_content_type_header
 from . import parameter_x_expires_after
+from petstore_api.components.headers import ref_content_schema_header_header as parameter_ref_content_schema_header
 from petstore_api.components.headers import string_header_header as parameter_string_header
 from petstore_api.components.headers import number_header_header as parameter_number_header
 
@@ -25,8 +27,10 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
+            'ref-schema-header': typing.Union[parameter_ref_schema_header.schema, ],
             'X-Rate-Limit': typing.Union[parameter_x_rate_limit.schema, decimal.Decimal, int, ],
             'int32': typing.Union[parameter_int32_json_content_type_header.schema, decimal.Decimal, int, ],
+            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.schema, ],
             'stringHeader': typing.Union[parameter_string_header.schema, str, ],
             'numberHeader': typing.Union[parameter_number_header.schema, str, ],
         }
@@ -45,9 +49,11 @@ class Header:
 
 
     parameters = [
+        parameter_ref_schema_header.parameter_oapg,
         parameter_x_rate_limit.parameter_oapg,
         parameter_int32_json_content_type_header.parameter_oapg,
         parameter_x_expires_after.parameter_oapg,
+        parameter_ref_content_schema_header.parameter_oapg,
         parameter_string_header.parameter_oapg,
         parameter_number_header.parameter_oapg,
     ]

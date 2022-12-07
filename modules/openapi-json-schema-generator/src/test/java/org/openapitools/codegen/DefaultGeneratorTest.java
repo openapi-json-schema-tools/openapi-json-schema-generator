@@ -657,7 +657,8 @@ public class DefaultGeneratorTest {
         Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
         generator.generateApis(files, allOperations, allModels, paths);
 
-        Map<String, Object> bundle = generator.buildSupportFileBundle(allOperations, allModels, null, null, null);
+        Map<String, Object> bundle = generator.buildSupportFileBundle(
+                allOperations, allModels, null, null, null, null);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(servers.get(0).url, "");
         Assert.assertEquals(servers.get(1).url, "http://trailingshlash.io:80/v1");
@@ -684,7 +685,8 @@ public class DefaultGeneratorTest {
         Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
         generator.generateApis(files, allOperations, allModels, paths);
 
-        Map<String, Object> bundle = generator.buildSupportFileBundle(allOperations, allModels, null, null, null);
+        Map<String, Object> bundle = generator.buildSupportFileBundle(
+                allOperations, allModels, null, null, null, null);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(servers.get(0).url, "/relative/url");
     }
