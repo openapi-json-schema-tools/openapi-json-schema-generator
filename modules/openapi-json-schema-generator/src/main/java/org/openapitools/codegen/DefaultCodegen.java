@@ -2968,9 +2968,9 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "any_of", sourceJsonPath);
             m.setAnyOf(anyOfProps);
         }
-        List<Schema> oneOfs = schema.getAnyOf();
-        if (anyOfs != null && !anyOfs.isEmpty()) {
-            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "any_of", sourceJsonPath);
+        List<Schema> oneOfs = schema.getOneOf();
+        if (oneOfs != null && !oneOfs.isEmpty()) {
+            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "one_of", sourceJsonPath);
             m.setOneOf(oneOfProps);
         }
         m.setComposedSchemas(getComposedSchemas(schema, sourceJsonPath));
@@ -3858,9 +3858,9 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "any_of", sourceJsonPath);
             property.setAnyOf(anyOfProps);
         }
-        List<Schema> oneOfs = p.getAnyOf();
-        if (anyOfs != null && !anyOfs.isEmpty()) {
-            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "any_of", sourceJsonPath);
+        List<Schema> oneOfs = p.getOneOf();
+        if (oneOfs != null && !oneOfs.isEmpty()) {
+            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "one_of", sourceJsonPath);
             property.setOneOf(oneOfProps);
         }
         property.setComposedSchemas(getComposedSchemas(p, sourceJsonPath));
