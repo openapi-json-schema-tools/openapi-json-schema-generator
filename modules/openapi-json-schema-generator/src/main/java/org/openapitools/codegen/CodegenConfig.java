@@ -348,12 +348,6 @@ public interface CodegenConfig {
 
     String getIgnoreFilePathOverride();
 
-    String toBooleanGetter(String name);
-
-    String toSetter(String name);
-
-    String toGetter(String name);
-
     String sanitizeName(String name);
 
     void postProcessFile(File file, String fileType);

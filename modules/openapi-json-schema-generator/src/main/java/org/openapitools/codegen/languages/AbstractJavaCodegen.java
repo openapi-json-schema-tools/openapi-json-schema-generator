@@ -1946,17 +1946,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         return escapeText(pattern);
     }
 
-    /**
-     * Output the Getter name for boolean property, e.g. isActive
-     *
-     * @param name the name of the property
-     * @return getter name based on naming convention
-     */
-    @Override
-    public String toBooleanGetter(String name) {
-        return booleanGetterPrefix + getterAndSetterCapitalize(name);
-    }
-
     @Override
     public String sanitizeTag(String tag) {
         tag = camelize(underscore(sanitizeName(tag)));

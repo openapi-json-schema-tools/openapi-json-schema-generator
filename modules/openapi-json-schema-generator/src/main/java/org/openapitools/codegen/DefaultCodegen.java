@@ -69,7 +69,6 @@ import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.*;
 import io.swagger.v3.oas.models.responses.ApiResponse;
-import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.OAuthFlows;
 import io.swagger.v3.oas.models.security.SecurityScheme;
@@ -2464,39 +2463,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Output the Getter name for boolean property, e.g. getActive
-     *
-     * @param name the name of the property
-     * @return getter name based on naming convention
-     */
-    @Override
-    public String toBooleanGetter(String name) {
-        return "get" + getterAndSetterCapitalize(name);
-    }
-
-    /**
-     * Output the Getter name, e.g. getSize
-     *
-     * @param name the name of the property
-     * @return getter name based on naming convention
-     */
-    @Override
-    public String toGetter(String name) {
-        return "get" + getterAndSetterCapitalize(name);
-    }
-
-    /**
-     * Output the Setter name, e.g. setSize
-     *
-     * @param name the name of the property
-     * @return setter name based on naming convention
-     */
-    @Override
-    public String toSetter(String name) {
-        return "set" + getterAndSetterCapitalize(name);
-    }
-
-    /**
      * Output the API (class) name (capitalized) ending with the specified or default suffix
      * Return DefaultApi if name is empty
      *
@@ -3738,8 +3704,6 @@ public class DefaultCodegen implements CodegenConfig {
         property.description = escapeText(p.getDescription());
         property.unescapedDescription = p.getDescription();
         property.title = p.getTitle();
-        property.getter = toGetter(name);
-        property.setter = toSetter(name);
         // put toExampleValue in a try-catch block to log the error as example values are not critical
         try {
             property.example = toExampleValue(p);
@@ -3863,7 +3827,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (ModelUtils.isIntegerSchema(p)) { // integer type
             updatePropertyForInteger(property, p);
         } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
-            property.getter = toBooleanGetter(name);
+            // no action
         } else if (ModelUtils.isFileSchema(p) && !ModelUtils.isStringSchema(p)) {
             // swagger v2 only, type file
             property.isFile = true;
