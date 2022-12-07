@@ -27,6 +27,11 @@ from {{packageName}}.components.responses import {{refModule}} as response_for_{
 {{/if}}
 {{/with}}
 {{/each}}
+{{#each allParams}}
+{{#if refModule}}
+from {{packageName}}.components.parameters import {{refModule}}
+{{/if}}
+{{/each}}
 
 {{#unless isStub}}
 from .. import path
@@ -42,7 +47,9 @@ from . import request_body
 {{/unless}}
 {{/with}}
 {{#each allParams}}
+{{#unless refModule}}
 from . import {{paramName}}
+{{/unless}}
 {{/each}}
 
 {{#or queryParams headerParams pathParams cookieParams}}

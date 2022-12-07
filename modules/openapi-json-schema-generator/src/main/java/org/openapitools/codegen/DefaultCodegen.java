@@ -199,6 +199,8 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
     protected Map<String, String> modelDocTemplateFiles = new HashMap<>();
+    protected Map<String, String> parameterTemplateFiles = new HashMap<>();
+    protected Map<String, String> parameterDocTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -1231,6 +1233,12 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
 
     @Override
+    public Map<String, String> parameterTemplateFiles() { return parameterTemplateFiles; }
+
+    @Override
+    public Map<String, String> parameterDocTemplateFiles() { return parameterDocTemplateFiles; }
+
+    @Override
     public Map<String, String> pathEndpointTemplateFiles() { return pathEndpointTemplateFiles; }
 
     @Override
@@ -1306,6 +1314,12 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String headerDocFileFolder() { return outputFolder; }
+
+    @Override
+    public String parameterFileFolder() { return outputFolder; }
+
+    @Override
+    public String parameterDocFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {
@@ -1547,14 +1561,17 @@ public class DefaultCodegen implements CodegenConfig {
         return camelize(name);
     }
 
-    public String toPathFileName(String name) {
+    public String toPathFilename(String name) {
         return toModuleFilename(name);
     }
 
     @Override
-    public String toParameterFileName(String basename) {
+    public String toParameterFilename(String basename) {
         return toModuleFilename(basename);
     }
+
+    @Override
+    public String toParameterDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     /**
      * Return the capitalized file name of the model test
@@ -4295,59 +4312,40 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenParameter> requiredParams = new ArrayList<>();
         List<CodegenParameter> optionalParams = new ArrayList<>();
 
-        CodegenParameter bodyParam = null;
-        RequestBody requestBody = operation.getRequestBody();
-        if (requestBody != null) {
-            String contentType = getContentType(requestBody);
-            if (contentType != null) {
-                contentType = contentType.toLowerCase(Locale.ROOT);
-            }
-            if (contentType != null &&
-                    (contentType.startsWith("application/x-www-form-urlencoded") ||
-                            contentType.startsWith("multipart"))) {
-                // process form parameters
-                formParams = fromRequestBodyToFormParameters(requestBody, sourceJsonPath + "/requestBody");
-                op.isMultipart = contentType.startsWith("multipart");
-                for (CodegenParameter cp : formParams) {
-                    setParameterEncodingValues(cp, requestBody.getContent().get(contentType));
-                    postProcessParameter(cp);
-                }
-                if (formParams.size() == 1) {
-                    bodyParam = formParams.get(0);
-                }
-            } else {
-                String bodyParameterName = getBodyParameterName(op);
-                bodyParam = fromRequestBody(requestBody, bodyParameterName, sourceJsonPath + "/requestBody");
-                bodyParam.description = escapeText(requestBody.getDescription());
-                postProcessParameter(bodyParam);
+        CodegenParameter requestBody = null;
+        RequestBody opRequestBody = operation.getRequestBody();
+        if (opRequestBody != null) {
 
-                bodyParams.add(bodyParam);
+            String bodyParameterName = getBodyParameterName(op);
+            requestBody = fromRequestBody(opRequestBody, bodyParameterName, sourceJsonPath + "/requestBody");
+            requestBody.description = escapeText(opRequestBody.getDescription());
+            postProcessParameter(requestBody);
 
-                // add example
-                if (schemas != null && !isSkipOperationExample() && requestBody.getContent() != null) {
-                    String firstContentType = (String) requestBody.getContent().keySet().toArray()[0];
-                    op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), requestBody.getContent().get(firstContentType).getSchema());
-                }
+            bodyParams.add(requestBody);
+
+            // add example
+            if (schemas != null && !isSkipOperationExample() && opRequestBody.getContent() != null) {
+                String firstContentType = (String) opRequestBody.getContent().keySet().toArray()[0];
+                op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(
+                    null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), opRequestBody.getContent().get(firstContentType).getSchema());
             }
         }
 
         if (parameters != null) {
             Integer i = 0;
             for (Parameter param : parameters) {
-                param = ModelUtils.getReferencedParameter(this.openAPI, param);
-
                 String usedSourceJsonPath = sourceJsonPath + "/parameters/" + i.toString();
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
                 allParams.add(p);
                 i++;
 
-                if (param instanceof QueryParameter || "query".equalsIgnoreCase(param.getIn())) {
+                if (p.isQueryParam) {
                     queryParams.add(p.copy());
-                } else if (param instanceof PathParameter || "path".equalsIgnoreCase(param.getIn())) {
+                } else if (p.isPathParam) {
                     pathParams.add(p.copy());
-                } else if (param instanceof HeaderParameter || "header".equalsIgnoreCase(param.getIn())) {
+                } else if (p.isHeaderParam) {
                     headerParams.add(p.copy());
-                } else if (param instanceof CookieParameter || "cookie".equalsIgnoreCase(param.getIn())) {
+                } else if (p.isCookieParam) {
                     cookieParams.add(p.copy());
                 } else {
                     LOGGER.warn("Unknown parameter type for {}", p.baseName);
@@ -4365,11 +4363,11 @@ public class DefaultCodegen implements CodegenConfig {
                 op.hasOptionalParams = true;
             }
         }
-        if (bodyParam != null) {
-            if (bodyParam.required) {
-                requiredParams.add(bodyParam.copy());
+        if (requestBody != null) {
+            if (requestBody.required) {
+                requiredParams.add(requestBody.copy());
             } else {
-                optionalParams.add(bodyParam.copy());
+                optionalParams.add(requestBody.copy());
                 op.hasOptionalParams = true;
             }
         }
@@ -4381,7 +4379,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        op.requestBody = bodyParam;
+        op.requestBody = requestBody;
         op.httpMethod = httpMethod.toUpperCase(Locale.ROOT);
 
         // move "required" parameters in front of "optional" parameters
@@ -4405,7 +4403,6 @@ public class DefaultCodegen implements CodegenConfig {
         op.queryParams = queryParams;
         op.headerParams = headerParams;
         op.cookieParams = cookieParams;
-        op.formParams = formParams;
         op.requiredParams = requiredParams;
         op.optionalParams = optionalParams;
         op.externalDocs = operation.getExternalDocs();
@@ -4580,12 +4577,12 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath, "Header");
+        if (usedHeader.getStyle() != null) {
+            codegenHeader.style = usedHeader.getStyle().toString();
+        }
         if (headerRef != null) {
             String refModule = toRefModule(headerRef, "headers");
             codegenHeader.setRefModule(refModule);
-        }
-        if (usedHeader.getStyle() != null) {
-            codegenHeader.style = usedHeader.getStyle().toString();
         }
         if (sourceJsonPath != null) {
             String[] refPieces = sourceJsonPath.split("/");
@@ -4661,51 +4658,73 @@ public class DefaultCodegen implements CodegenConfig {
      * @return Codegen Parameter object
      */
     public CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath) {
+        String parameterRef = parameter.get$ref();
+        Parameter usedParameter = parameter;
+        String usedSourceJsonPath = sourceJsonPath;
+        if (parameterRef != null) {
+            usedParameter = ModelUtils.getReferencedParameter(this.openAPI, parameter);
+            usedSourceJsonPath = parameterRef;
+        }
+
         CodegenParameter codegenParameter = CodegenModelFactory.newInstance(CodegenModelType.PARAMETER);
 
         Header prameterHeader = new Header();
-        prameterHeader.setContent(parameter.getContent());
-        prameterHeader.setDescription(parameter.getDescription());
-        prameterHeader.setDeprecated(parameter.getDeprecated());
-        prameterHeader.setSchema(parameter.getSchema());
-        prameterHeader.set$ref(parameter.get$ref());
-        prameterHeader.setExamples(parameter.getExamples());
-        prameterHeader.setExample(parameter.getExample());
-        prameterHeader.setExplode(parameter.getExplode());
-        prameterHeader.setExtensions(parameter.getExtensions());
-        prameterHeader.setRequired(parameter.getRequired());
-        setHeaderInfo(prameterHeader, codegenParameter, sourceJsonPath, "Parameter");
+        prameterHeader.setContent(usedParameter.getContent());
+        prameterHeader.setDescription(usedParameter.getDescription());
+        prameterHeader.setDeprecated(usedParameter.getDeprecated());
+        prameterHeader.setSchema(usedParameter.getSchema());
+        prameterHeader.set$ref(usedParameter.get$ref());
+        prameterHeader.setExamples(usedParameter.getExamples());
+        prameterHeader.setExample(usedParameter.getExample());
+        prameterHeader.setExplode(usedParameter.getExplode());
+        prameterHeader.setExtensions(usedParameter.getExtensions());
+        prameterHeader.setRequired(usedParameter.getRequired());
+        setHeaderInfo(prameterHeader, codegenParameter, usedSourceJsonPath, "Parameter");
 
-        if (parameter.getStyle() != null) {
-            codegenParameter.style = parameter.getStyle().toString();
+        if (usedParameter.getStyle() != null) {
+            codegenParameter.style = usedParameter.getStyle().toString();
         }
-        codegenParameter.baseName = parameter.getName();
+        codegenParameter.baseName = usedParameter.getName();
+
+        if (parameterRef != null) {
+            String refModule = toRefModule(parameterRef, "parameters");
+            codegenParameter.setRefModule(refModule);
+        }
+        if (sourceJsonPath != null) {
+            String[] refPieces = sourceJsonPath.split("/");
+            if (sourceJsonPath.startsWith("#/components/parameters/") && refPieces.length == 4) {
+                String componentName = refPieces[3];
+                codegenParameter.setModulePath(toModulePath(componentName, "parameters"));
+                String refModule = toRefModule(sourceJsonPath, "parameters");
+                codegenParameter.setRefModule(refModule);
+            }
+        }
 
         if (GlobalSettings.getProperty("debugParser") != null) {
             LOGGER.info("working on Parameter {}", parameter.getName());
             LOGGER.info("JSON schema: {}", codegenParameter.jsonSchema);
         }
 
-        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(parameter.getIn())) {
+        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.isQueryParam = true;
-            codegenParameter.isAllowEmptyValue = parameter.getAllowEmptyValue() != null && parameter.getAllowEmptyValue();
-        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(parameter.getIn())) {
+            codegenParameter.isAllowEmptyValue = parameter.getAllowEmptyValue() != null && usedParameter.getAllowEmptyValue();
+        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.required = true;
             codegenParameter.isPathParam = true;
-        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(parameter.getIn())) {
+        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.isHeaderParam = true;
-        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(parameter.getIn())) {
+        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(usedParameter.getIn())) {
             codegenParameter.isCookieParam = true;
         } else {
-            LOGGER.warn("Unknown parameter type: {}", parameter.getName());
+            LOGGER.warn("Unknown parameter type: {}", usedParameter.getName());
         }
         if (parameter.getStyle() != null) {
-            codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == parameter.getStyle();
+            codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == usedParameter.getStyle();
         }
 
         // set the parameter example value
         // should be overridden by lang codegen
-        setParameterExampleValue(codegenParameter, parameter);
+        setParameterExampleValue(codegenParameter, usedParameter);
 
         postProcessParameter(codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
@@ -5942,14 +5961,6 @@ public class DefaultCodegen implements CodegenConfig {
         additionalProperties.put(propertyKey, value);
     }
 
-    protected String getContentType(RequestBody requestBody) {
-        if (requestBody == null || requestBody.getContent() == null || requestBody.getContent().isEmpty()) {
-            LOGGER.debug("Cannot determine the content type. Returning null.");
-            return null;
-        }
-        return new ArrayList<>(requestBody.getContent().keySet()).get(0);
-    }
-
     private void setOauth2Info(CodegenSecurity codegenSecurity, OAuthFlow flow) {
         codegenSecurity.authorizationUrl = flow.getAuthorizationUrl();
         codegenSecurity.tokenUrl = flow.getTokenUrl();
@@ -6114,56 +6125,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String getHelp() {
         return null;
-    }
-
-    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, String sourceJsonPath) {
-        List<CodegenParameter> parameters = new ArrayList<>();
-        LOGGER.debug("debugging fromRequestBodyToFormParameters= {}", body);
-        String propertyName = getBodyParameterName(null);
-        CodegenParameter codegenParameter = fromFormProperty(propertyName, body, sourceJsonPath);
-        parameters.add(codegenParameter);
-        return parameters;
-    }
-
-    public CodegenParameter fromFormProperty(String name, RequestBody body, String sourceJsonPath) {
-        Schema schema = ModelUtils.getSchemaFromRequestBody(body);
-        Schema propertySchema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-
-        CodegenParameter codegenParameter = CodegenModelFactory.newInstance(CodegenModelType.PARAMETER);
-
-        LOGGER.debug("Debugging fromFormProperty {}: {}", name, propertySchema);
-        CodegenProperty codegenProperty = fromProperty(name, propertySchema, false, false, sourceJsonPath);
-
-        codegenParameter.setSchema(codegenProperty);
-        codegenParameter.setContent(getContent(body.getContent(), codegenParameter.imports, "", sourceJsonPath));
-
-        codegenParameter.baseName = codegenProperty.baseName;
-        codegenParameter.paramName = toParamName(codegenParameter.baseName);
-        // non-array/map
-        updateCodegenPropertyEnum(codegenProperty);
-
-
-        codegenParameter.isFormParam = Boolean.TRUE;
-        codegenParameter.description = escapeText(codegenProperty.description);
-        codegenParameter.unescapedDescription = codegenProperty.getDescription();
-        codegenParameter.jsonSchema = Json.pretty(propertySchema);
-
-        if (codegenProperty.getVendorExtensions() != null && !codegenProperty.getVendorExtensions().isEmpty()) {
-            codegenParameter.vendorExtensions = codegenProperty.getVendorExtensions();
-        }
-        if (propertySchema.getRequired() != null && !propertySchema.getRequired().isEmpty() && propertySchema.getRequired().contains(codegenProperty.baseName)) {
-            codegenParameter.required = Boolean.TRUE;
-        }
-
-        if (!addSchemaImportsFromV3SpecLocations) {
-            // import
-            if (codegenProperty.refClass != null) {
-                codegenParameter.imports.add(codegenProperty.refClass);
-            }
-        }
-        setParameterExampleValue(codegenParameter);
-
-        return codegenParameter;
     }
 
     protected void addBodyModelSchema(CodegenParameter codegenParameter, String name, Schema schema, Set<String> imports, String bodyParameterName, boolean forceSimpleRef, String sourceJsonPath) {
@@ -6468,6 +6429,8 @@ public class DefaultCodegen implements CodegenConfig {
                 return toResponseModuleName(refPieces[3]);
             case "headers":
                 return toHeaderFilename(refPieces[3]);
+            case "parameters":
+                return toParameterFilename(refPieces[3]);
         }
         return null;
     }
