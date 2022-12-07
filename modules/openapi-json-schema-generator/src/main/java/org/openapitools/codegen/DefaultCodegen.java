@@ -3715,7 +3715,6 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
         property.items = innerProperty;
-        property.mostInnerItems = getMostInnerItems(innerProperty);
         // inner item is Enum
         if (isPropertyInnerMostEnum(property)) {
             // isEnum is set to true when the type is an enum
@@ -3745,7 +3744,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         // TODO fix this, map should not be assigning properties to items
         property.items = innerProperty;
-        property.mostInnerItems = getMostInnerItems(innerProperty);
         // inner item is Enum
         if (isPropertyInnerMostEnum(property)) {
             // isEnum is set to true when the type is an enum
@@ -5473,11 +5471,6 @@ public class DefaultCodegen implements CodegenConfig {
     public void updateCodegenPropertyEnum(CodegenProperty var) {
         Map<String, Object> allowableValues = var.allowableValues;
 
-        // handle array
-        if (var.mostInnerItems != null) {
-            allowableValues = var.mostInnerItems.allowableValues;
-        }
-
         if (allowableValues == null) {
             return;
         }
@@ -5504,12 +5497,6 @@ public class DefaultCodegen implements CodegenConfig {
         String dataType = (referencedSchema.isPresent()) ? getTypeDeclaration(referencedSchema.get()) : varDataType;
         List<Map<String, Object>> enumVars = buildEnumVars(values, dataType);
 
-        // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-        Map<String, Object> extensions = var.mostInnerItems != null ? var.mostInnerItems.getVendorExtensions() : var.getVendorExtensions();
-        if (referencedSchema.isPresent()) {
-            extensions = referencedSchema.get().getExtensions();
-        }
-        updateEnumVarsWithExtensions(enumVars, extensions, dataType);
         allowableValues.put("enumVars", enumVars);
 
         // handle default value for enum, e.g. available => StatusEnum.AVAILABLE

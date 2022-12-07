@@ -903,11 +903,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // we have a custom version of this method to omit overwriting the defaultValue
         Map<String, Object> allowableValues = var.allowableValues;
 
-        // handle array
-        if (var.mostInnerItems != null) {
-            allowableValues = var.mostInnerItems.allowableValues;
-        }
-
         if (allowableValues == null) {
             return;
         }
@@ -933,12 +928,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // put "enumVars" map into `allowableValues", including `name` and `value`
         List<Map<String, Object>> enumVars = buildEnumVars(values, dataType);
 
-        // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-        Map<String, Object> extensions = var.mostInnerItems != null ? var.mostInnerItems.getVendorExtensions() : var.getVendorExtensions();
-        if (referencedSchema != null) {
-            extensions = referencedSchema.getExtensions();
-        }
-        updateEnumVarsWithExtensions(enumVars, extensions, dataType);
         allowableValues.put("enumVars", enumVars);
         // overwriting defaultValue omitted from here
     }
@@ -2076,7 +2065,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return;
         }
         property.items = innerProperty;
-        property.mostInnerItems = getMostInnerItems(innerProperty);
         // inner item is Enum
         if (isPropertyInnerMostEnum(property)) {
             // isEnum is set to true when the type is an enum

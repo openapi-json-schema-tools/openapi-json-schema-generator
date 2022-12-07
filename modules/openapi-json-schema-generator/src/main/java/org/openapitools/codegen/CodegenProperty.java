@@ -134,7 +134,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public CodegenProperty additionalProperties;
     public List<CodegenProperty> vars = new ArrayList<CodegenProperty>(); // all properties (without parent's properties)
     public List<CodegenProperty> requiredVars = new ArrayList<>();
-    public CodegenProperty mostInnerItems;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
     public boolean isInherited;
@@ -649,9 +648,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
             if (this.requiredVars != null) {
                 cp.requiredVars = this.requiredVars;
             }
-            if (this.mostInnerItems != null) {
-                cp.mostInnerItems = this.mostInnerItems;
-            }
             if (this.vendorExtensions != null) {
                 cp.vendorExtensions = new HashMap<String, Object>(this.vendorExtensions);
             }
@@ -939,7 +935,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vars=").append(vars);
         sb.append(", requiredVars=").append(requiredVars);
-        sb.append(", mostInnerItems=").append(mostInnerItems);
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", hasValidation=").append(hasValidation);
         sb.append(", isInherited=").append(isInherited);
@@ -1065,7 +1060,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(additionalProperties, that.additionalProperties) &&
                 Objects.equals(vars, that.vars) &&
                 Objects.equals(requiredVars, that.requiredVars) &&
-                Objects.equals(mostInnerItems, that.mostInnerItems) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(discriminatorValue, that.discriminatorValue) &&
                 Objects.equals(nameInCamelCase, that.nameInCamelCase) &&
@@ -1092,7 +1086,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
                 isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
-                allowableValues, items, mostInnerItems, additionalProperties, vars, requiredVars,
+                allowableValues, items, additionalProperties, vars, requiredVars,
                 vendorExtensions, hasValidation, isInherited, discriminatorValue, nameInCamelCase,
                 nameInSnakeCase, enumName, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull, additionalPropertiesIsAnyType, hasVars, hasRequired,
