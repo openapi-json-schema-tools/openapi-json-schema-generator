@@ -1141,7 +1141,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         String type = p.baseType;
         if (type == null) {
-            type = p.dataType;
+            Schema varSchema = new Schema();
+            if (p.baseType != null)
+                varSchema.setType(p.baseType);
+            if (p.getFormat() != null) {
+                varSchema.setFormat(p.getFormat());
+            }
+            if (p.getRef() != null) {
+                varSchema.set$ref(p.getRef());
+            }
+            type = getTypeDeclaration(varSchema);
         }
 
         if ("String".equals(type)) {
@@ -1216,8 +1225,23 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else if (Boolean.TRUE.equals(p.isArray)) {
 
             if (p.items.defaultValue != null) {
+
+                String itemsType = p.items.baseType;
+                if (type == null) {
+                    Schema varSchema = new Schema();
+                    if (p.items.baseType != null)
+                        varSchema.setType(p.items.baseType);
+                    if (p.items.getFormat() != null) {
+                        varSchema.setFormat(p.items.getFormat());
+                    }
+                    if (p.items.getRef() != null) {
+                        varSchema.set$ref(p.items.getRef());
+                    }
+                    itemsType = getTypeDeclaration(varSchema);
+                }
+
                 String innerExample;
-                if ("String".equals(p.items.dataType)) {
+                if ("String".equals(itemsType)) {
                     innerExample = "\"" + p.items.defaultValue + "\"";
                 } else {
                     innerExample = p.items.defaultValue;
@@ -1353,11 +1377,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         if (property.isReadOnly) {
             model.getVendorExtensions().put("x-has-readonly-properties", true);
         }
-
-        // if data type happens to be the same as the property name and both are upper case
-        if (property.dataType != null && property.dataType.equals(property.name) && property.dataType.toUpperCase(Locale.ROOT).equals(property.name)) {
-            property.name = property.name.toLowerCase(Locale.ROOT);
-        }
     }
 
     @Override
@@ -1410,9 +1429,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             Collection<String> operationImports = new ConcurrentSkipListSet<>();
             for (CodegenParameter p : op.allParams) {
                 CodegenProperty cp = getParameterSchema(p);
-                if (importMapping.containsKey(cp.dataType)) {
-                    operationImports.add(importMapping.get(cp.dataType));
-                }
             }
             op.vendorExtensions.put("x-java-import", operationImports);
 

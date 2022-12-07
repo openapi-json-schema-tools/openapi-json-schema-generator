@@ -125,8 +125,6 @@ public interface CodegenConfig {
 
     String getTypeDeclaration(Schema schema);
 
-    String getTypeDeclaration(String name);
-
     void processOpts();
 
     List<CliOption> cliOptions();

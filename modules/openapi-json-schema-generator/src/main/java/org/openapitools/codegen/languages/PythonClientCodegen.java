@@ -917,7 +917,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return;
         }
 
-        String varDataType = var.mostInnerItems != null ? var.mostInnerItems.dataType : var.dataType;
+        Schema varSchema = new Schema();
+        if (var.baseType != null)
+            varSchema.setType(var.baseType);
+        if (var.getFormat() != null) {
+            varSchema.setFormat(var.getFormat());
+        }
+        if (var.getRef() != null) {
+            varSchema.set$ref(var.getRef());
+        }
+        String varDataType = getTypeDeclaration(varSchema);
         Schema referencedSchema = getModelNameToSchemaCache().get(varDataType);
         String dataType = (referencedSchema != null) ? getTypeDeclaration(referencedSchema) : varDataType;
 

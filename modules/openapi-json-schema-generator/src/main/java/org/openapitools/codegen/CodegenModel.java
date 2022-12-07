@@ -1333,8 +1333,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 // TODO cp shouldn't be null. Show a warning message instead
             } else {
                 // detect self import
-                if (this.classname.equalsIgnoreCase(cp.dataType) ||
-                        (cp.isContainer && cp.items != null && this.classname.equalsIgnoreCase(cp.items.dataType))) {
+                if (this.classname.equalsIgnoreCase(cp.refClass) ||
+                        (cp.isContainer && cp.items != null && this.classname.equalsIgnoreCase(cp.items.refClass))) {
                     this.imports.remove(this.classname); // remove self import
                     cp.isSelfReference = true;
                 }

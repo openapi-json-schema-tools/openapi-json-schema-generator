@@ -591,83 +591,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        // loop through properties of each model to detect self-reference
-        for (ModelsMap entry : objs.values()) {
-            for (ModelMap mo : entry.getModels()) {
-                CodegenModel cm = mo.getModel();
-                removeSelfReferenceImports(cm);
-            }
-        }
-        setCircularReferences(allModels);
-
         return objs;
-    }
-
-    /**
-     * Removes imports from the model that points to itself
-     * Marks a self referencing property, if detected
-     *
-     * @param model Self imports will be removed from this model.imports collection
-     */
-    protected void removeSelfReferenceImports(CodegenModel model) {
-        for (CodegenProperty cp : model.allVars) {
-            // detect self import
-            if (cp.dataType.equalsIgnoreCase(model.classname) ||
-                    (cp.isContainer && cp.items != null && cp.items.dataType.equalsIgnoreCase(model.classname))) {
-                model.imports.remove(model.classname); // remove self import
-                cp.isSelfReference = true;
-            }
-        }
-    }
-
-    public void setCircularReferences(Map<String, CodegenModel> models) {
-        final Map<String, List<CodegenProperty>> dependencyMap = models.entrySet().stream()
-                .collect(Collectors.toMap(Entry::getKey, entry -> getModelDependencies(entry.getValue())));
-
-        models.keySet().forEach(name -> setCircularReferencesOnProperties(name, dependencyMap));
-    }
-
-    private List<CodegenProperty> getModelDependencies(CodegenModel model) {
-        return model.getAllVars().stream()
-                .map(prop -> {
-                    if (prop.isContainer) {
-                        return prop.items.dataType == null ? null : prop;
-                    }
-                    return prop.dataType == null ? null : prop;
-                })
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-    }
-
-    private void setCircularReferencesOnProperties(final String root,
-                                                   final Map<String, List<CodegenProperty>> dependencyMap) {
-        dependencyMap.getOrDefault(root, new ArrayList<>())
-                .forEach(prop -> {
-                    final List<String> unvisited =
-                            Collections.singletonList(prop.isContainer ? prop.items.dataType : prop.dataType);
-                    prop.isCircularReference = isCircularReference(root,
-                            new HashSet<>(),
-                            new ArrayList<>(unvisited),
-                            dependencyMap);
-                });
-    }
-
-    private boolean isCircularReference(final String root,
-                                        final Set<String> visited,
-                                        final List<String> unvisited,
-                                        final Map<String, List<CodegenProperty>> dependencyMap) {
-        for (int i = 0; i < unvisited.size(); i++) {
-            final String next = unvisited.get(i);
-            if (!visited.contains(next)) {
-                if (next.equals(root)) {
-                    return true;
-                }
-                dependencyMap.getOrDefault(next, new ArrayList<>())
-                        .forEach(prop -> unvisited.add(prop.isContainer ? prop.items.dataType : prop.dataType));
-                visited.add(next);
-            }
-        }
-        return false;
     }
 
     // override with any special post-processing
@@ -2414,18 +2338,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Output the language-specific type declaration of a given OAS name.
-     *
-     * @param name name
-     * @return a string presentation of the type
-     */
-    @Override
-    @SuppressWarnings("static-method")
-    public String getTypeDeclaration(String name) {
-        return name;
-    }
-
-    /**
      * Output the language-specific type declaration of the property.
      *
      * @param schema property schema
@@ -3111,7 +3023,7 @@ public class DefaultCodegen implements CodegenConfig {
                                 "'{}' defines discriminator '{}', but the referenced OneOf schema '{}' is missing {}",
                                 composedSchemaName, discPropName, modelName, discPropName);
                     }
-                    if (cp != null && cp.dataType == null) {
+                    if (cp != null && cp.refClass == null) {
                         cp = thisCp;
                         continue;
                     }
@@ -3134,7 +3046,7 @@ public class DefaultCodegen implements CodegenConfig {
                                 "'{}' defines discriminator '{}', but the referenced AnyOf schema '{}' is missing {}",
                                 composedSchemaName, discPropName, modelName, discPropName);
                     }
-                    if (cp != null && cp.dataType == null) {
+                    if (cp != null && cp.refClass == null) {
                         cp = thisCp;
                         continue;
                     }
@@ -3560,9 +3472,6 @@ public class DefaultCodegen implements CodegenConfig {
             // non-composed object type with no properties + additionalProperties
             // additionalProperties must be null, ObjectSchema, or empty Schema
             property.isFreeFormObject = true;
-            if (languageSpecificPrimitives.contains(property.dataType)) {
-                property.isPrimitiveType = true;
-            }
             if (ModelUtils.isMapSchema(p)) {
                 // an object or anyType composed schema that has additionalProperties set
                 updatePropertyForMap(property, p, sourceJsonPath);
@@ -3587,9 +3496,6 @@ public class DefaultCodegen implements CodegenConfig {
             ? (ComposedSchema) p
             : null;
         property.isNullable = property.isNullable || composedSchema == null || composedSchema.getAllOf() == null || composedSchema.getAllOf().size() == 0;
-        if (languageSpecificPrimitives.contains(property.dataType)) {
-            property.isPrimitiveType = true;
-        }
         if (ModelUtils.isMapSchema(p)) {
             // an object or anyType composed schema that has additionalProperties set
             // some of our code assumes that any type schema with properties defined will be a map
@@ -3790,7 +3696,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.isNullable = referencedSchema.getNullable();
         }
 
-        property.dataType = getTypeDeclaration(p);
         property.baseType = getSchemaType(p);
 
         // this can cause issues for clients which don't support enums
@@ -5697,7 +5602,16 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
 
-        String varDataType = var.mostInnerItems != null ? var.mostInnerItems.dataType : var.dataType;
+        Schema varSchema = new Schema();
+        if (var.baseType != null)
+            varSchema.setType(var.baseType);
+        if (var.getFormat() != null) {
+            varSchema.setFormat(var.getFormat());
+        }
+        if (var.getRef() != null) {
+            varSchema.set$ref(var.getRef());
+        }
+        String varDataType = getTypeDeclaration(varSchema);
         Optional<Schema> referencedSchema = ModelUtils.getSchemas(openAPI).entrySet().stream()
                 .filter(entry -> Objects.equals(varDataType, toModelName(entry.getKey())))
                 .map(Map.Entry::getValue)
@@ -5725,7 +5639,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
             if (enumName != null) {
-                var.defaultValue = toEnumDefaultValue(enumName, var.dataType);
+                var.defaultValue = toEnumDefaultValue(enumName, varDataType);
             }
         }
     }
