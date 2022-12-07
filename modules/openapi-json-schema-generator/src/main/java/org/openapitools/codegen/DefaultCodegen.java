@@ -3615,11 +3615,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         property.baseType = getSchemaType(p);
 
-        // this can cause issues for clients which don't support enums
-        if (property.isEnum) {
-            property.enumName = toEnumName(property);
-        }
-
         property.setTypeProperties(p);
         Schema notSchema = p.getNot();
         if (notSchema != null) {
@@ -3799,7 +3794,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (baseItem != null) {
             // naming the enum with respect to the language enum naming convention
             // e.g. remove [], {} from array/map of enum
-            property.enumName = toEnumName(property);
 
             // set default value for variable with inner enum
             if (property.defaultValue != null) {
@@ -3826,7 +3820,6 @@ public class DefaultCodegen implements CodegenConfig {
 
             // naming the enum with respect to the language enum naming convention
             // e.g. remove [], {} from array/map of enum
-            property.enumName = toEnumName(property);
 
             // set default value for variable with inner enum
             if (property.defaultValue != null) {

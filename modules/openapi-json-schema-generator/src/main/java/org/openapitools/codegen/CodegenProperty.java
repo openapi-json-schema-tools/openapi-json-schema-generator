@@ -140,8 +140,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String nameInLowerCase; // property name in lower case
     public String nameInCamelCase; // property name in camel case
     public String nameInSnakeCase; // property name in upper snake case
-    // enum name based on the property name, usually use as a prefix (e.g. VAR_NAME) for enum name (e.g. VAR_NAME_VALUE1)
-    public String enumName;
     public Integer maxItems;
     public Integer minItems;
 
@@ -521,14 +519,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public String getNameInSnakeCase() {
         return nameInSnakeCase;
-    }
-
-    public String getEnumName() {
-        return enumName;
-    }
-
-    public void setEnumName(String enumName) {
-        this.enumName = enumName;
     }
 
     @Override
@@ -939,7 +929,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
         sb.append(", nameInCamelCase='").append(nameInCamelCase).append('\'');
         sb.append(", nameInSnakeCase='").append(nameInSnakeCase).append('\'');
-        sb.append(", enumName='").append(enumName).append('\'');
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxProperties=").append(maxProperties);
@@ -1061,7 +1050,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(discriminatorValue, that.discriminatorValue) &&
                 Objects.equals(nameInCamelCase, that.nameInCamelCase) &&
                 Objects.equals(nameInSnakeCase, that.nameInSnakeCase) &&
-                Objects.equals(enumName, that.enumName) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
                 Objects.equals(xmlPrefix, that.xmlPrefix) &&
@@ -1085,7 +1073,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
                 allowableValues, items, additionalProperties, vars, requiredVars,
                 vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
-                nameInSnakeCase, enumName, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
+                nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull, additionalPropertiesIsAnyType, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredVarsMap,
                 ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
