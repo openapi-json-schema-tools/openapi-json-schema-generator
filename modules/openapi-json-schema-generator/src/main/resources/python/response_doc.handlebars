@@ -15,7 +15,7 @@ headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#un
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint }}
     {{/with}}
 {{/each}}
 {{else}}
@@ -24,7 +24,7 @@ headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#respo
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." }}
     {{/with}}
 {{/each}}
 {{/if}}

@@ -90,6 +90,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected String responseDocPath = "docs/components/responses/";
     protected String headerDocPath = "docs/components/headers/";
+    protected String parameterDocPath = "docs/components/parameters/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -333,6 +334,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
         headerTemplateFiles.put("header.handlebars", ".py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
+        parameterTemplateFiles.put("parameter.handlebars", ".py");
+        parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -514,9 +517,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers";
     }
 
+    @Override
+    public String parameterFileFolder() {
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters";
+    }
+
     public String headerDocFileFolder() {
         return outputFolder + File.separator + headerDocPath;
     }
+
+    public String parameterDocFileFolder() { return outputFolder + File.separator + parameterDocPath; }
 
     protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
         String adjustedOutputFilename = outputFilename.replaceAll("//", "/").replace('/', File.separatorChar);
@@ -984,7 +994,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
-            codegenParameter.paramName = toParameterFileName(codegenParameter.baseName);
+            codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
             CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
@@ -1008,7 +1018,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     codegenParameter.baseName = bodyParameterName;
                 }
 
-                codegenParameter.paramName = toParameterFileName(codegenParameter.baseName);
+                codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
                 codegenParameter.description = codegenModelDescription;
             }
         }
@@ -2003,30 +2013,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /**
-     * Create a CodegenParameter for a Form Property
-     * We have a custom version of this method so we can invoke
-     * setParameterExampleValue(codegenParameter, parameter)
-     * rather than setParameterExampleValue(codegenParameter)
-     * This ensures that all of our samples are generated in
-     * toExampleValueRecursive
-     *
-     * @param name           the property name
-     * @param body the RequestBody definition
-     * @return the resultant CodegenParameter
-     */
-    @Override
-    public CodegenParameter fromFormProperty(String name, RequestBody body, String sourceJsonPath) {
-        CodegenParameter cp = super.fromFormProperty(name, body, sourceJsonPath);
-        Parameter p = new Parameter();
-        Schema schema = ModelUtils.getSchemaFromRequestBody(body);
-        Schema propertySchema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-        p.setSchema(propertySchema);
-        p.setName(cp.paramName);
-        setParameterExampleValue(cp, p);
-        return cp;
-    }
-
-    /**
      * Return a map from model name to Schema for efficient lookup.
      *
      * @return map from model name to Schema.
@@ -2470,23 +2456,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return packageName;
     }
 
-    /**
-     * A custom version of this method is needed to ensure that the form object parameter is kept as-is
-     * as an object and is not exploded into separate parameters
-     * @param body the body that is being handled
-     * @return the list of length one containing a single type object CodegenParameter
-     */
-    @Override
-    public List<CodegenParameter> fromRequestBodyToFormParameters(RequestBody body, String sourceJsonPath) {
-        List<CodegenParameter> parameters = new ArrayList<>();
-        LOGGER.debug("debugging fromRequestBodyToFormParameters= {}", body);
-        CodegenParameter cp = fromFormProperty("body", body, sourceJsonPath);
-        cp.isFormParam = false;
-        cp.isBodyParam = true;
-        parameters.add(cp);
-        return parameters;
-    }
-
     protected boolean needToImport(String refClass) {
         boolean containsPeriod = refClass.contains(".");
         if (containsPeriod) {
@@ -2513,7 +2482,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         CodegenOperation co = super.fromOperation(path, httpMethod, operation, servers);
         co.httpMethod = httpMethod.toLowerCase(Locale.ROOT);
         // smuggle pathModuleName in nickname
-        co.nickname = toPathFileName(path);
+        co.nickname = toPathFilename(path);
         // smuggle path Api class name ins operationIdSnakeCase
         co.operationIdSnakeCase = toModelName(path);
 
@@ -2611,7 +2580,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String toParameterFileName(String name) {
+    public String toParameterFilename(String name) {
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint
@@ -2623,8 +2592,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
+    public String toParameterDocFilename(String componentName) { return toParameterFilename(componentName); }
+
+    @Override
     public String toParamName(String basename) {
-        return toParameterFileName(basename);
+        return toParameterFilename(basename);
     }
 
     protected String toModulePath(String componentName, String priorJsonPathSegment) {
@@ -2638,6 +2610,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return prefix + "responses." + toResponseModuleName(componentName);
             case "headers":
                 return prefix + "headers." + toHeaderFilename(componentName);
+            case "parameters":
+                return prefix + "headers." + toParameterFilename(componentName);
         }
         return null;
     }

@@ -24,11 +24,11 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+from petstore_api.components.parameters import parameter_path_user_name
 
 from . import response_for_400
 from . import response_for_404
 from . import request_body
-from . import parameter_0
 
 
 
@@ -36,7 +36,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_0.schema, str, ],
+            'username': typing.Union[parameter_path_user_name.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -52,7 +52,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_path_user_name.parameter_oapg,
     ]
 
 class BaseApi(api_client.Api):

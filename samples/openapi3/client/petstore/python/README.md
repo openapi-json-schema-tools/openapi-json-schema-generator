@@ -372,7 +372,15 @@ HTTP request | Method | Description
 
 - [int32_json_content_type_header_header](docs/components/headers/int32_json_content_type_header_header.md)
 - [number_header_header](docs/components/headers/number_header_header.md)
+- [ref_content_schema_header_header](docs/components/headers/ref_content_schema_header_header.md)
+- [ref_schema_header_header](docs/components/headers/ref_schema_header_header.md)
 - [string_header_header](docs/components/headers/string_header_header.md)
+
+## Component Parameters
+
+- [parameter_component_ref_schema_string_with_validation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
+- [parameter_path_user_name](docs/components/parameters/parameter_path_user_name.md)
+- [parameter_ref_schema_string_with_validation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
 
 ## Documentation For Authorization
 

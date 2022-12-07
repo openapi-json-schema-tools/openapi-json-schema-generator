@@ -55,6 +55,14 @@ HTTP request | Method | Description
 - {{#with this}}[{{refModule}}](docs/components/headers/{{refModule}}.md){{/with}}
 {{/each}}
 {{/if}}
+{{#if parameters}}
+
+## Component Parameters
+
+{{#each parameters}}
+- {{#with this}}[{{refModule}}](docs/components/parameters/{{refModule}}.md){{/with}}
+{{/each}}
+{{/if}}
 
 ## Documentation For Authorization
 

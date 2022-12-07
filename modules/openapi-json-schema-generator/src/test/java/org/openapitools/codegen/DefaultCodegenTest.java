@@ -242,9 +242,9 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         RequestBody reqBody = openAPI.getPaths().get("/fake").getGet().getRequestBody();
-        CodegenParameter codegenParameter = codegen.fromFormProperty("enum_form_string", reqBody, null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "enum_form_string", null);
 
-        Assert.assertEquals(codegenParameter.getSchema().getVars().get(1).defaultValue, "-efg");
+        Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getVars().size(), 0, "no vars because the schem is refed");
     }
 
     @Test
@@ -254,9 +254,13 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
-        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "visitDate", null);
 
-        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRef(), "#/components/schemas/updatePetWithForm_request");
+
+        Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
+        CodegenModel model = codegen.fromModel("updatePetWithForm_request", specModel);
+        Assert.assertEquals(model.getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test
@@ -268,7 +272,7 @@ public class DefaultCodegenTest {
         Assert.assertEquals(version, new SemVer("2.0.0"));
 
         // Test with OAS 3.0 document.
-        location = "src/test/resources/3_0/python/petstore-with-fake-endpoints-models-for-testing-with-http-signature.yaml";
+        location = "src/test/resources/3_0/python/petstore_customized.yaml";
         openAPI = TestUtils.parseFlattenSpec(location);
         version = ModelUtils.getOpenApiVersion(openAPI, location, null);
         Assert.assertEquals(version, new SemVer("3.0.0"));
@@ -444,7 +448,7 @@ public class DefaultCodegenTest {
 
     @Test
     public void testAdditionalPropertiesV3SpecDisallowAdditionalPropertiesIfNotPresentFalse() {
-        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/python/petstore-with-fake-endpoints-models-for-testing-with-http-signature.yaml");
+        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/python/petstore_customized.yaml");
         DefaultCodegen codegen = new DefaultCodegen();
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
         codegen.supportsAdditionalPropertiesWithComposedSchema = true;
@@ -2429,8 +2433,8 @@ public class DefaultCodegenTest {
                 "post",
                 path.getPost(),
                 path.getServers());
-        assertEquals(operation.formParams.size(), 1,
-                "The list of parameters only includes the ref type");
+        assertEquals(operation.allParams.size(), 0);
+        assertNotNull(operation.requestBody);
     }
 
     @Test
@@ -4059,26 +4063,15 @@ public class DefaultCodegenTest {
 
         path = "/requestBodyWithEncodingTypes";
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
-        List<CodegenParameter> formParams = co.formParams;
+        CodegenProperty formSchema = co.requestBody.getContent().get("application/x-www-form-urlencoded").getSchema();
+        List<CodegenProperty> formParams = formSchema.getVars();
+        LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.getContent().get("application/x-www-form-urlencoded").getEncoding();
 
-        assertEquals(formParams.get(0).getSchema().getVars().get(0).baseName, "int-param");
-        assertFalse(formParams.get(0).getSchema().getVars().get(0).isContainer);
+        assertEquals(formSchema.getRef(), "#/components/schemas/_requestBodyWithEncodingTypes_post_request");
+        assertEquals(formParams.size(), 0, "no form params because the schema is referenced");
 
-        assertEquals(formParams.get(0).getSchema().getVars().get(1).baseName, "explode-true");
-        assertTrue(formParams.get(0).getSchema().getVars().get(1).isContainer);
-
-        assertEquals(formParams.get(0).getSchema().getVars().get(2).baseName, "explode-false");
-        assertTrue(formParams.get(0).getSchema().getVars().get(2).isContainer);
-
-        assertEquals(formParams.get(0).getSchema().getVars().get(3).baseName, "no-style-no-explode");
-        assertTrue(formParams.get(0).getSchema().getVars().get(3).isContainer);
-
-        assertEquals(formParams.get(0).getSchema().getVars().get(4).baseName, "style-specified");
-        assertTrue(formParams.get(0).getSchema().getVars().get(4).isContainer);
-
-        assertEquals(formParams.get(0).getSchema().getVars().get(5).baseName, "style-specified-no-explode");
-        assertTrue(formParams.get(0).getSchema().getVars().get(5).isContainer);
-
+        assertEquals(encoding.get("int-param").getExplode(), true);
+        assertEquals(encoding.get("explode-false").getExplode(), false);
     }
 
     @Test
@@ -4161,9 +4154,9 @@ public class DefaultCodegenTest {
         Assert.assertEquals(requestBodySchema2.get$ref(), "#/components/schemas/updatePetWithForm_request");
 
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
-        CodegenParameter codegenParameter = codegen.fromFormProperty("visitDate", reqBody, null);
+        CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "visitDate", null);
 
-        Assert.assertEquals(codegenParameter.getSchema().getVars().get(0).defaultValue, "1971-12-19T03:39:57-08:00");
+        Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRef(), "#/components/schemas/updatePetWithForm_request");
     }
 
     @Test
