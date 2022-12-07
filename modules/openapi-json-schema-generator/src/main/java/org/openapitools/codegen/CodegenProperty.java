@@ -35,8 +35,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      * The name of this property in the OpenAPI schema.
      */
     public String name;
-    public String min; // TODO: is this really used?
-    public String max; // TODO: is this really used?
     public String defaultValue;
     public String baseType;
     /**
@@ -270,22 +268,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getMin() {
-        return min;
-    }
-
-    public void setMin(String min) {
-        this.min = min;
-    }
-
-    public String getMax() {
-        return max;
-    }
-
-    public void setMax(String max) {
-        this.max = max;
     }
 
     public String getDefaultValue() {
@@ -923,8 +905,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", name='").append(name).append('\'');
-        sb.append(", min='").append(min).append('\'');
-        sb.append(", max='").append(max).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", baseType='").append(baseType).append('\'');
         sb.append(", title='").append(title).append('\'');
@@ -1092,8 +1072,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(refClass, that.refClass) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(min, that.min) &&
-                Objects.equals(max, that.max) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(baseType, that.baseType) &&
                 Objects.equals(title, that.title) &&
@@ -1128,7 +1106,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public int hashCode() {
 
         return Objects.hash(openApiType, baseName, refClass, description,
-                name, min, max, defaultValue,
+                name, defaultValue,
                 baseType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
