@@ -3672,11 +3672,6 @@ public class DefaultCodegen implements CodegenConfig {
             ));
         }
 
-        boolean isAnyTypeWithNothingElseSet = (ModelUtils.isAnyType(p) &&
-                (p.getProperties() == null || p.getProperties().isEmpty()) &&
-                !ModelUtils.isComposedSchema(p) &&
-                p.getAdditionalProperties() == null && p.getNot() == null && p.getEnum() == null);
-
         LOGGER.debug("debugging from property return: {}", property);
         schemaCodegenPropertyCache.put(ns, property);
         return property;

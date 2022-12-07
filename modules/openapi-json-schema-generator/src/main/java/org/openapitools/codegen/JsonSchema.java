@@ -15,12 +15,16 @@ import org.openapitools.codegen.meta.features.SchemaSupportFeature;
 import org.openapitools.codegen.utils.ModelUtils;
 
 public interface JsonSchema {
+    // 3.1.0
     CodegenProperty getContains();
 
+    // 3.1.0
     void setContains(CodegenProperty contains);
 
+    // 3.1.0
     LinkedHashMap<String, List<String>> getDependentRequired();
 
+    // 3.1.0
     void setDependentRequired(LinkedHashMap<String, List<String>> dependentRequired);
 
     String getPattern();
