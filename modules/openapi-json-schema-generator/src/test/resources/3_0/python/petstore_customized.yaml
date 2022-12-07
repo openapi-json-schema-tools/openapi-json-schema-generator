@@ -457,6 +457,10 @@ paths:
               $ref: '#/components/headers/NumberHeader'
             int32:
               $ref: '#/components/headers/Int32JsonContentTypeHeader'
+            ref-schema-header:
+              $ref: '#/components/headers/RefSchemaHeader'
+            ref-content-schema-header:
+              $ref: '#/components/headers/RefSchemaHeader'
           content:
             application/xml:
               schema:
@@ -1649,6 +1653,10 @@ components:
           $ref: '#/components/headers/NumberHeader'
         int32:
           $ref: '#/components/headers/Int32JsonContentTypeHeader'
+        ref-schema-header:
+          $ref: '#/components/headers/RefSchemaHeader'
+        ref-content-schema-header:
+          $ref: '#/components/headers/RefSchemaHeader'
       content:
         application/json:
           schema:
@@ -1713,6 +1721,18 @@ components:
           schema:
             type: integer
             format: int32
+    RefSchemaHeader:
+      description: header that has a ref in the schema
+      required: true
+      schema:
+        $ref: '#/components/schemas/StringWithValidation'
+    RefContentSchemaHeader:
+      description: int32 JSON content-type header
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StringWithValidation'
   securitySchemes:
     petstore_auth:
       type: oauth2
