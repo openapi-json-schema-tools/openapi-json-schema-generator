@@ -877,16 +877,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         return 0;
                     });
                 }
-
-                // modify the data type of binary form parameters to a more friendly type for ktor builds
-                if ((JVM_KTOR.equals(getLibrary()) || MULTIPLATFORM.equals(getLibrary())) && operation.allParams != null) {
-                    for (CodegenParameter param : operation.allParams) {
-                        CodegenProperty cp = param.getSchema();
-                        if (cp != null && cp.dataFormat != null && cp.dataFormat.equals("binary")) {
-                            cp.baseType = cp.dataType = "io.ktor.client.request.forms.InputProvider";
-                        }
-                    }
-                }
             }
         }
         return objs;

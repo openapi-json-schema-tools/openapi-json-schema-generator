@@ -36,8 +36,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      * may be represented as 'int', 'int32', 'Integer', etc, depending on the programming language.
      */
     public String dataType;
-    public String datatypeWithEnum;
-    public String dataFormat;
     /**
      * The name of this property in the OpenAPI schema.
      */
@@ -292,22 +290,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setDatatype(String datatype) {
         this.dataType = datatype;
-    }
-
-    public String getDatatypeWithEnum() {
-        return datatypeWithEnum;
-    }
-
-    public void setDatatypeWithEnum(String datatypeWithEnum) {
-        this.datatypeWithEnum = datatypeWithEnum;
-    }
-
-    public String getDataFormat() {
-        return dataFormat;
-    }
-
-    public void setDataFormat(String dataFormat) {
-        this.dataFormat = dataFormat;
     }
 
     public String getName() {
@@ -1013,8 +995,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", dataType='").append(dataType).append('\'');
-        sb.append(", datatypeWithEnum='").append(datatypeWithEnum).append('\'');
-        sb.append(", dataFormat='").append(dataFormat).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", min='").append(min).append('\'');
         sb.append(", max='").append(max).append('\'');
@@ -1192,8 +1172,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(refClass, that.refClass) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(dataType, that.dataType) &&
-                Objects.equals(datatypeWithEnum, that.datatypeWithEnum) &&
-                Objects.equals(dataFormat, that.dataFormat) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(min, that.min) &&
                 Objects.equals(max, that.max) &&
@@ -1234,7 +1212,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public int hashCode() {
 
         return Objects.hash(openApiType, baseName, refClass, description,
-                dataType, datatypeWithEnum, dataFormat, name, min, max, defaultValue,
+                dataType, name, min, max, defaultValue,
                 defaultValueWithParam, baseType, containerType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,

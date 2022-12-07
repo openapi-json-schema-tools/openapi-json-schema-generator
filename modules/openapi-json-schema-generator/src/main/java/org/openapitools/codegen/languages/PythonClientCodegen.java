@@ -2066,7 +2066,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             return;
         }
-        property.dataFormat = innerProperty.dataFormat;
         if (languageSpecificPrimitives.contains(innerProperty.baseType)) {
             property.isPrimitiveType = true;
         }

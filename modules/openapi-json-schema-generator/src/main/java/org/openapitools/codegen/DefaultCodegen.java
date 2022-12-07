@@ -3791,15 +3791,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         property.dataType = getTypeDeclaration(p);
-        property.dataFormat = p.getFormat();
         property.baseType = getSchemaType(p);
 
         // this can cause issues for clients which don't support enums
         if (property.isEnum) {
-            property.datatypeWithEnum = toEnumName(property);
             property.enumName = toEnumName(property);
-        } else {
-            property.datatypeWithEnum = property.dataType;
         }
 
         property.setTypeProperties(p);
@@ -3911,7 +3907,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
             return;
         }
-        property.dataFormat = innerProperty.dataFormat;
         if (languageSpecificPrimitives.contains(innerProperty.baseType)) {
             property.isPrimitiveType = true;
         }
@@ -3951,7 +3946,6 @@ public class DefaultCodegen implements CodegenConfig {
         // TODO fix this, map should not be assigning properties to items
         property.items = innerProperty;
         property.mostInnerItems = getMostInnerItems(innerProperty);
-        property.dataFormat = innerProperty.dataFormat;
         // inner item is Enum
         if (isPropertyInnerMostEnum(property)) {
             // isEnum is set to true when the type is an enum
@@ -4006,9 +4000,6 @@ public class DefaultCodegen implements CodegenConfig {
             baseItem = baseItem.items;
         }
         if (baseItem != null) {
-            // set both datatype and datetypeWithEnum as only the inner type is enum
-            property.datatypeWithEnum = property.datatypeWithEnum.replace(baseItem.baseType, toEnumName(baseItem));
-
             // naming the enum with respect to the language enum naming convention
             // e.g. remove [], {} from array/map of enum
             property.enumName = toEnumName(property);
@@ -4035,8 +4026,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (baseItem != null) {
-            // set both datatype and datetypeWithEnum as only the inner type is enum
-            property.datatypeWithEnum = property.datatypeWithEnum.replace(", " + baseItem.baseType, ", " + toEnumName(baseItem));
 
             // naming the enum with respect to the language enum naming convention
             // e.g. remove [], {} from array/map of enum
@@ -5736,7 +5725,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
             if (enumName != null) {
-                var.defaultValue = toEnumDefaultValue(enumName, var.datatypeWithEnum);
+                var.defaultValue = toEnumDefaultValue(enumName, var.dataType);
             }
         }
     }
