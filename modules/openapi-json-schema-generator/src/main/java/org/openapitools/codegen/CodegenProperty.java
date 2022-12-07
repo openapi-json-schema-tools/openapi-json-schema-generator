@@ -39,7 +39,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String max; // TODO: is this really used?
     public String defaultValue;
     public String baseType;
-    public String containerType;
     /**
      * The value of the 'title' attribute in the OpenAPI schema.
      */
@@ -304,14 +303,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setBaseType(String baseType) {
         this.baseType = baseType;
-    }
-
-    public String getContainerType() {
-        return containerType;
-    }
-
-    public void setContainerType(String containerType) {
-        this.containerType = containerType;
     }
 
     public String getTitle() {
@@ -945,7 +936,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", max='").append(max).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", baseType='").append(baseType).append('\'');
-        sb.append(", containerType='").append(containerType).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", maxLength=").append(maxLength);
@@ -1116,7 +1106,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(max, that.max) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(baseType, that.baseType) &&
-                Objects.equals(containerType, that.containerType) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(maxLength, that.maxLength) &&
@@ -1151,7 +1140,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
         return Objects.hash(openApiType, baseName, refClass, description,
                 name, min, max, defaultValue,
-                baseType, containerType, title, unescapedDescription,
+                baseType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, required, deprecated,
                 hasMoreNonReadOnly, isContainer, isString, isNumeric,

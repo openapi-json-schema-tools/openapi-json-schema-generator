@@ -304,9 +304,6 @@ public class DefaultCodegen implements CodegenConfig {
     // if true then baseTypes will be imported
     protected boolean importBaseType = true;
 
-    // if true then container types will be imported
-    protected boolean importContainerType = true;
-
     // if True codegenParameter and codegenResponse imports will come
     // from deeper schema defined locations
     protected boolean addSchemaImportsFromV3SpecLocations = false;
@@ -2916,7 +2913,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (addSchemaImportsFromV3SpecLocations) {
-            addImports(m.imports, m.getImports(importContainerType, importBaseType, generatorMetadata.getFeatureSet()));
+            addImports(m.imports, m.getImports(importBaseType, generatorMetadata.getFeatureSet()));
         }
         return m;
     }
@@ -3437,7 +3434,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected void updatePropertyForMap(CodegenProperty property, Schema p, String sourceJsonPath) {
         property.isContainer = true;
-        property.containerType = "map";
         // TODO remove this hack in the future, code should use minProperties and maxProperties for object schemas
         property.minItems = p.getMinProperties();
         property.maxItems = p.getMaxProperties();
@@ -3724,11 +3720,6 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (ModelUtils.isArraySchema(p)) {
             // default to string if inner item is undefined
             property.isContainer = true;
-            if (ModelUtils.isSet(p)) {
-                property.containerType = "set";
-            } else {
-                property.containerType = "array";
-            }
             property.baseType = getSchemaType(p);
             if (p.getXml() != null) {
                 property.isXmlWrapped = p.getXml().getWrapped() == null ? false : p.getXml().getWrapped();
@@ -4426,7 +4417,7 @@ public class DefaultCodegen implements CodegenConfig {
             );
             codegenHeader.setSchema(prop);
             if (addSchemaImportsFromV3SpecLocations) {
-                addImports(codegenHeader.imports, prop.getImports(importContainerType, importBaseType, generatorMetadata.getFeatureSet()));
+                addImports(codegenHeader.imports, prop.getImports(importBaseType, generatorMetadata.getFeatureSet()));
             }
         } else if (header.getContent() != null) {
             Content content = header.getContent();
@@ -4825,7 +4816,7 @@ public class DefaultCodegen implements CodegenConfig {
         addImport(model, property.refClass);
         model.parent = toInstantiationType(schema);
         if (!addSchemaImportsFromV3SpecLocations) {
-            final String containerType = property.containerType;
+            final String containerType = property.baseType;
             final String instantiationType = instantiationTypes.get(containerType);
             if (instantiationType != null) {
                 addImport(model, instantiationType);
@@ -4865,7 +4856,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, JsonSchema type) {
-        addImports(importsToBeAddedTo, type.getImports(importContainerType, importBaseType, generatorMetadata.getFeatureSet()));
+        addImports(importsToBeAddedTo, type.getImports(importBaseType, generatorMetadata.getFeatureSet()));
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {
@@ -6204,9 +6195,7 @@ public class DefaultCodegen implements CodegenConfig {
             cmtContent.put(contentType, codegenMt);
             if (schemaProp != null) {
                 if (addSchemaImportsFromV3SpecLocations) {
-                    addImports(imports, schemaProp.getImports(importContainerType, importBaseType, generatorMetadata.getFeatureSet()));
-                } else {
-                    addImports(imports, schemaProp.getImports(false, importBaseType, generatorMetadata.getFeatureSet()));
+                    addImports(imports, schemaProp.getImports(importBaseType, generatorMetadata.getFeatureSet()));
                 }
             }
         }
