@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[object_nullable_prop](#object_nullable_prop)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  | [optional] 
 **[object_and_items_nullable_prop](#object_and_items_nullable_prop)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  | [optional] 
 **[object_items_nullable](#object_items_nullable)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
-**[any_string_name](#any_string_name)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional] 
+**any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional] 
 
 # array_nullable_prop
 
@@ -91,7 +91,7 @@ dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[any_string_name](#any_string_name)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional] 
+**any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional] 
 
 # any_string_name
 
@@ -110,7 +110,7 @@ dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[any_string_name](#any_string_name)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional] 
+**any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional] 
 
 # any_string_name
 
@@ -129,7 +129,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[any_string_name](#any_string_name)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional] 
+**any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional] 
 
 # any_string_name
 

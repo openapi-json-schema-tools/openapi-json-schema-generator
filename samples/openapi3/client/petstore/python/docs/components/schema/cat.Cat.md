@@ -11,7 +11,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  | 
+[**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  | 
 [all_of_1](#all_of_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 # all_of_1

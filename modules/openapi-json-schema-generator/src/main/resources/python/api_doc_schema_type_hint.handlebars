@@ -2,7 +2,7 @@
 {{#if refClass}}
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**{{dataType}}**]({{complexTypePrefix}}{{refClass}}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
+[**{{refClass}}**]({{complexTypePrefix}}{{refClass}}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
 
 {{else}}
 {{> schema_doc }}

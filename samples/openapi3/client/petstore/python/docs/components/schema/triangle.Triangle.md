@@ -11,8 +11,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) |  | 
-[**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) |  | 
-[**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) |  | 
+[**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) |  | 
+[**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) |  | 
+[**scalene_triangle.ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**scalene_triangle.ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**scalene_triangle.ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) |  | 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -11,7 +11,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  | 
+[**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) |  | 
 [all_of_1](#all_of_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 # all_of_1

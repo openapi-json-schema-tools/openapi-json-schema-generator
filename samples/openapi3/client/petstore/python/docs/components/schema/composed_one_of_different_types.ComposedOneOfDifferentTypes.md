@@ -13,8 +13,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  | 
-[**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  | 
+[**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  | 
+[**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  | 
 [one_of_2](#one_of_2) | None,  | NoneClass,  |  | 
 [one_of_3](#one_of_3) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [one_of_4](#one_of_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
