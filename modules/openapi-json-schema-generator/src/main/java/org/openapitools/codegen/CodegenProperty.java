@@ -154,7 +154,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String xmlName;
     public String xmlNamespace;
     public boolean isXmlWrapped = false;
-    private boolean additionalPropertiesIsAnyType;
     private boolean hasVars;
     private boolean hasRequired;
     private boolean hasDiscriminatorWithNonEmptyMapping;
@@ -768,16 +767,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public boolean getAdditionalPropertiesIsAnyType() {
-        return additionalPropertiesIsAnyType;
-    }
-
-    @Override
-    public void setAdditionalPropertiesIsAnyType(boolean additionalPropertiesIsAnyType) {
-        this.additionalPropertiesIsAnyType = additionalPropertiesIsAnyType;
-    }
-
-    @Override
     public boolean getHasVars() {
         return this.hasVars;
     }
@@ -942,7 +931,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", xmlNamespace='").append(xmlNamespace).append('\'');
         sb.append(", isXmlWrapped=").append(isXmlWrapped);
         sb.append(", isNull=").append(isNull);
-        sb.append(", getAdditionalPropertiesIsAnyType=").append(getAdditionalPropertiesIsAnyType());
         sb.append(", getHasVars=").append(getHasVars());
         sb.append(", getHasRequired=").append(getHasRequired());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
@@ -1011,7 +999,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
-                getAdditionalPropertiesIsAnyType() == that.getAdditionalPropertiesIsAnyType() &&
                 getHasVars() == that.getHasVars() &&
                 getHasRequired() == that.getHasRequired() &&
                 Objects.equals(allOf, that.getAllOf()) &&
@@ -1074,7 +1061,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 allowableValues, items, additionalProperties, vars, requiredVars,
                 vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
                 nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
-                xmlNamespace, isXmlWrapped, isNull, additionalPropertiesIsAnyType, hasVars, hasRequired,
+                xmlNamespace, isXmlWrapped, isNull, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredVarsMap,
                 ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not);

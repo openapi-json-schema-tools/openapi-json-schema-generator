@@ -62,7 +62,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public String arrayModelType;
     public boolean isAlias; // Is this effectively an alias of another simple type
     public boolean isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble, isDate, isDateTime, isDecimal, isShort, isUnboundedInteger, isPrimitiveType, isBoolean;
-    private boolean additionalPropertiesIsAnyType;
     public List<CodegenProperty> vars = new ArrayList<>(); // all properties (without parent's properties)
     public List<CodegenProperty> allVars = new ArrayList<>(); // all properties (with parent's properties)
     public List<CodegenProperty> requiredVars = new ArrayList<>(); // a list of required properties
@@ -870,17 +869,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public void setIsNull(boolean isNull) {
         this.isNull = isNull;
     }
-
-    @Override
-    public boolean getAdditionalPropertiesIsAnyType() {
-        return additionalPropertiesIsAnyType;
-    }
-
-    @Override
-    public void setAdditionalPropertiesIsAnyType(boolean additionalPropertiesIsAnyType) {
-        this.additionalPropertiesIsAnyType = additionalPropertiesIsAnyType;
-    }
-
     @Override
     public boolean getHasVars() {
         return this.hasVars;
@@ -1036,7 +1024,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
                 getIsAnyType() == that.getIsAnyType() &&
-                getAdditionalPropertiesIsAnyType() == that.getAdditionalPropertiesIsAnyType() &&
                 getUniqueItems() == that.getUniqueItems() &&
                 getExclusiveMinimum() == that.getExclusiveMinimum() &&
                 getExclusiveMaximum() == that.getExclusiveMaximum() &&
@@ -1118,7 +1105,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getAdditionalPropertiesType(), getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
                 getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(),
-                getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
+                hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
                 uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not);
@@ -1212,7 +1199,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", additionalProperties='").append(additionalProperties).append('\'');
         sb.append(", isNull='").append(isNull);
         sb.append(", hasValidation='").append(hasValidation);
-        sb.append(", getAdditionalPropertiesIsAnyType=").append(getAdditionalPropertiesIsAnyType());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
         sb.append(", getIsAnyType=").append(getIsAnyType());
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);

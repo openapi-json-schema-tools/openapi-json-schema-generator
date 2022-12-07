@@ -2875,7 +2875,6 @@ public class DefaultCodegen implements CodegenConfig {
             // if we are trying to set additionalProperties on an empty schema stop recursing
             return;
         }
-        boolean additionalPropertiesIsAnyType = false;
         CodegenModel m = null;
         if (property instanceof CodegenModel) {
             m = (CodegenModel) property;
@@ -2886,22 +2885,14 @@ public class DefaultCodegen implements CodegenConfig {
             if (!disallowAdditionalPropertiesIfNotPresent) {
                 isAdditionalPropertiesTrue = true;
                 addPropProp = fromProperty(getAdditionalPropertiesName(), new Schema(), false, false, sourceJsonPath);
-                additionalPropertiesIsAnyType = true;
             }
         } else if (schema.getAdditionalProperties() instanceof Boolean) {
             if (Boolean.TRUE.equals(schema.getAdditionalProperties())) {
                 isAdditionalPropertiesTrue = true;
                 addPropProp = fromProperty(getAdditionalPropertiesName(), new Schema(), false, false, sourceJsonPath);
-                additionalPropertiesIsAnyType = true;
             }
         } else {
             addPropProp = fromProperty(getAdditionalPropertiesName(), (Schema) schema.getAdditionalProperties(), false, false, sourceJsonPath);
-            if (ModelUtils.isAnyType((Schema) schema.getAdditionalProperties())) {
-                additionalPropertiesIsAnyType = true;
-            }
-        }
-        if (additionalPropertiesIsAnyType) {
-            property.setAdditionalPropertiesIsAnyType(true);
         }
         if (m != null && isAdditionalPropertiesTrue) {
             m.isAdditionalPropertiesTrue = true;
