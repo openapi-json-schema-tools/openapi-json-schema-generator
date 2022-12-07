@@ -103,7 +103,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public ExternalDocumentation externalDocumentation;
 
     public Map<String, Object> vendorExtensions = new HashMap<>();
-    private CodegenComposedSchemas composedSchemas;
     private List<CodegenProperty> allOf = null;
     private List<CodegenProperty> anyOf = null;
     private List<CodegenProperty> oneOf = null;
@@ -967,16 +966,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public void setIsUuid(boolean isUuid) { this.isUuid = isUuid; }
 
     @Override
-    public void setComposedSchemas(CodegenComposedSchemas composedSchemas) {
-        this.composedSchemas = composedSchemas;
-    }
-
-    @Override
-    public CodegenComposedSchemas getComposedSchemas() {
-        return composedSchemas;
-    }
-
-    @Override
     public void setAllOf(List<CodegenProperty> allOf) {
         this.allOf = allOf;
     }
@@ -1079,7 +1068,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
-                Objects.equals(composedSchemas, that.composedSchemas) &&
                 Objects.equals(parent, that.parent) &&
                 Objects.equals(parentSchema, that.parentSchema) &&
                 Objects.equals(interfaces, that.interfaces) &&
@@ -1152,7 +1140,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
                 getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(), getIsModel(),
                 getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
-                isAnyType, getComposedSchemas(), hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
+                isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
                 uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not);
     }
@@ -1249,7 +1237,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", getAdditionalPropertiesIsAnyType=").append(getAdditionalPropertiesIsAnyType());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
         sb.append(", getIsAnyType=").append(getIsAnyType());
-        sb.append(", composedSchemas=").append(composedSchemas);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", isDecimal=").append(isDecimal);
         sb.append(", isUUID=").append(isUuid);

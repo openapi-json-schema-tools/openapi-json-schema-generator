@@ -26,7 +26,6 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
-import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -46,7 +45,6 @@ import org.openapitools.codegen.serializer.SerializerUtils;
 import org.openapitools.codegen.templating.MustacheEngineAdapter;
 import org.openapitools.codegen.templating.mustache.*;
 import org.openapitools.codegen.utils.ModelUtils;
-import org.openapitools.codegen.utils.OneOfImplementorAdditionalData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -2973,7 +2971,6 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "one_of", sourceJsonPath);
             m.setOneOf(oneOfProps);
         }
-        m.setComposedSchemas(getComposedSchemas(schema, sourceJsonPath));
         if (ModelUtils.isArraySchema(schema)) {
             CodegenProperty arrayProperty = fromProperty("items", schema, false, false, sourceJsonPath);
             m.setItems(arrayProperty.items);
@@ -3863,7 +3860,6 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "one_of", sourceJsonPath);
             property.setOneOf(oneOfProps);
         }
-        property.setComposedSchemas(getComposedSchemas(p, sourceJsonPath));
         if (ModelUtils.isIntegerSchema(p)) { // integer type
             updatePropertyForInteger(property, p);
         } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
@@ -7022,32 +7018,6 @@ public class DefaultCodegen implements CodegenConfig {
             // Doesn't map to any of the collectionFormat strings
             return null;
         }
-    }
-
-    private CodegenComposedSchemas getComposedSchemas(Schema schema, String sourceJsonPath) {
-        if (!(schema instanceof ComposedSchema) && schema.getNot()==null) {
-            return null;
-        }
-        Schema notSchema = schema.getNot();
-        CodegenProperty notProperty = null;
-        if (notSchema != null) {
-            notProperty = fromProperty("not_schema", notSchema, false, false, sourceJsonPath);
-        }
-        List<CodegenProperty> allOf = new ArrayList<>();
-        List<CodegenProperty> oneOf = new ArrayList<>();
-        List<CodegenProperty> anyOf = new ArrayList<>();
-        if (schema instanceof ComposedSchema) {
-            ComposedSchema cs = (ComposedSchema) schema;
-            allOf = getComposedProperties(cs.getAllOf(), "all_of", sourceJsonPath);
-            oneOf = getComposedProperties(cs.getOneOf(), "one_of", sourceJsonPath);
-            anyOf = getComposedProperties(cs.getAnyOf(), "any_of", sourceJsonPath);
-        }
-        return new CodegenComposedSchemas(
-                allOf,
-                oneOf,
-                anyOf,
-                notProperty
-        );
     }
 
     private List<CodegenProperty> getComposedProperties(List<Schema> xOfCollection, String collectionName, String sourceJsonPath) {

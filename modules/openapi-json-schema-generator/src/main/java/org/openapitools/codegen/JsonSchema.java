@@ -189,8 +189,6 @@ public interface JsonSchema {
 
     void setRef(String ref);
 
-    CodegenComposedSchemas getComposedSchemas();
-
     List<CodegenProperty> getAllOf();
 
     void setAllOf(List<CodegenProperty> allOf);
@@ -206,8 +204,6 @@ public interface JsonSchema {
     CodegenProperty getNot();
 
     void setNot(CodegenProperty not);
-
-    void setComposedSchemas(CodegenComposedSchemas composedSchemas);
 
     boolean getHasMultipleTypes();
 
@@ -322,23 +318,22 @@ public interface JsonSchema {
      */
     default Set<String> getImports(boolean importContainerType, boolean importBaseType, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
-        if (this.getComposedSchemas() != null) {
-            CodegenComposedSchemas composed = this.getComposedSchemas();
+        if (getAllOf() != null || getAnyOf() != null || getOneOf() != null || getNot() != null) {
             List<CodegenProperty> allOfs = Collections.emptyList();
             List<CodegenProperty> oneOfs = Collections.emptyList();
             List<CodegenProperty> anyOfs = Collections.emptyList();
             List<CodegenProperty> nots = Collections.emptyList();
-            if (composed.getAllOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
-                allOfs = composed.getAllOf();
+            if (getAllOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
+                allOfs = getAllOf();
             }
-            if (composed.getOneOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.oneOf)) {
-                oneOfs = composed.getOneOf();
+            if (getOneOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.oneOf)) {
+                oneOfs = getOneOf();
             }
-            if (composed.getAnyOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.anyOf)) {
-                anyOfs = composed.getAnyOf();
+            if (getAnyOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.anyOf)) {
+                anyOfs = getAnyOf();
             }
-            if (composed.getNot() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
-                nots = Arrays.asList(composed.getNot());
+            if (getNot() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
+                nots = Arrays.asList(getNot());
             }
             Stream<CodegenProperty> innerTypes = Stream.of(
                             allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
