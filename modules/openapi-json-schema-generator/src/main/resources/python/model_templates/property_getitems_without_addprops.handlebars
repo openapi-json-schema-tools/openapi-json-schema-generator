@@ -1,4 +1,4 @@
-{{#if vars}}
+{{#if properties}}
 {{#each vars}}
 
 @typing.overload
@@ -21,7 +21,7 @@ def __getitem__(self, name: typing.Union[typing_extensions.Literal[{{#each vars}
     return super().__getitem__(name)
 
 {{/if}}
-{{#if vars}}
+{{#if properties}}
 {{#each vars}}
 
 @typing.overload
