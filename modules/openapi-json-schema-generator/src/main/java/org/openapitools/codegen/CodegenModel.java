@@ -150,8 +150,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
 
     private Integer maxProperties;
     private Integer minProperties;
-    private boolean uniqueItems;
-    private Boolean uniqueItemsBoolean;
+    private Boolean uniqueItems;
     private Integer maxItems;
     private Integer minItems;
     private Integer maxLength;
@@ -627,23 +626,13 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public boolean getUniqueItems() {
+    public Boolean getUniqueItems() {
         return uniqueItems;
     }
 
     @Override
-    public void setUniqueItems(boolean uniqueItems) {
+    public void setUniqueItems(Boolean uniqueItems) {
         this.uniqueItems = uniqueItems;
-    }
-
-    @Override
-    public Boolean getUniqueItemsBoolean() {
-        return uniqueItemsBoolean;
-    }
-
-    @Override
-    public void setUniqueItemsBoolean(Boolean uniqueItemsBoolean) {
-        this.uniqueItemsBoolean = uniqueItemsBoolean;
     }
 
     @Override
@@ -1031,7 +1020,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
-                Objects.equals(uniqueItemsBoolean, that.getUniqueItemsBoolean()) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
@@ -1107,7 +1095,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(),
                 hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
-                uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
+                schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not);
     }
 
@@ -1184,7 +1172,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", maxProperties=").append(maxProperties);
         sb.append(", minProperties=").append(minProperties);
         sb.append(", uniqueItems=").append(uniqueItems);
-        sb.append(", uniqueItemsBoolean=").append(uniqueItemsBoolean);
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxLength=").append(maxLength);

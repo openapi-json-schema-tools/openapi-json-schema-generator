@@ -145,8 +145,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     private Integer maxProperties;
     private Integer minProperties;
-    private boolean uniqueItems;
-    private Boolean uniqueItemsBoolean;
+    private Boolean uniqueItems;
 
     // XML
     public boolean isXmlAttribute = false;
@@ -677,23 +676,13 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public boolean getUniqueItems() {
+    public Boolean getUniqueItems() {
         return uniqueItems;
     }
 
     @Override
-    public void setUniqueItems(boolean uniqueItems) {
+    public void setUniqueItems(Boolean uniqueItems) {
         this.uniqueItems = uniqueItems;
-    }
-
-    @Override
-    public Boolean getUniqueItemsBoolean() {
-        return uniqueItemsBoolean;
-    }
-
-    @Override
-    public void setUniqueItemsBoolean(Boolean uniqueItemsBoolean) {
-        this.uniqueItemsBoolean = uniqueItemsBoolean;
     }
 
     @Override
@@ -923,7 +912,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", maxProperties=").append(maxProperties);
         sb.append(", minProperties=").append(minProperties);
         sb.append(", uniqueItems=").append(uniqueItems);
-        sb.append(", uniqueItemsBoolean=").append(uniqueItemsBoolean);
         sb.append(", multipleOf=").append(multipleOf);
         sb.append(", isXmlAttribute=").append(isXmlAttribute);
         sb.append(", xmlPrefix='").append(xmlPrefix).append('\'');
@@ -1008,7 +996,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
-                Objects.equals(uniqueItemsBoolean, that.getUniqueItemsBoolean()) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
@@ -1063,7 +1050,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredVarsMap,
-                ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
+                ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not);
     }
 }

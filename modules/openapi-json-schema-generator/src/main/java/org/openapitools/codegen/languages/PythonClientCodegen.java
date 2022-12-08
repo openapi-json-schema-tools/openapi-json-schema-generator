@@ -2122,7 +2122,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         property.isInteger = true;
         // int32 and int64 differentiation is determined with format info
     }
-    
+
     @Override
     protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
         // custom version of this method so properties are always added with addVars
