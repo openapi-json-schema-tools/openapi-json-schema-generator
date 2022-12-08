@@ -56,13 +56,13 @@ class MapTest(
                         class MetaOapg:
                             types = {frozendict.frozendict}
                             additional_properties = schemas.StrSchema
+                        
                         def __getitem__(self, name: str) -> MetaOapg.additional_properties
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
                         
-                        
-                        def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                            return super().get_item_oapg(name)
+                        def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                            return super().(name)
                     
                         def __new__(
                             cls,
@@ -76,13 +76,13 @@ class MapTest(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -128,13 +128,13 @@ class MapTest(
                         @schemas.classproperty
                         def LOWER(cls):
                             return cls("lower")
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -158,13 +158,13 @@ class MapTest(
                 class MetaOapg:
                     types = {frozendict.frozendict}
                     additional_properties = schemas.BoolSchema
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -204,10 +204,18 @@ class MapTest(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["map_map_of_string"], typing_extensions.Literal["map_of_enum_string"], typing_extensions.Literal["direct_map"], typing_extensions.Literal["indirect_map"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["map_map_of_string"],
+            typing_extensions.Literal["map_of_enum_string"],
+            typing_extensions.Literal["direct_map"],
+            typing_extensions.Literal["indirect_map"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["map_map_of_string"]) -> typing.Union[MetaOapg.properties.map_map_of_string, schemas.Unset]: ...
@@ -224,7 +232,16 @@ class MapTest(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["map_map_of_string"], typing_extensions.Literal["map_of_enum_string"], typing_extensions.Literal["direct_map"], typing_extensions.Literal["indirect_map"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["map_map_of_string"],
+            typing_extensions.Literal["map_of_enum_string"],
+            typing_extensions.Literal["direct_map"],
+            typing_extensions.Literal["indirect_map"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

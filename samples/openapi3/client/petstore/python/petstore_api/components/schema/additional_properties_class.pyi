@@ -45,13 +45,13 @@ class AdditionalPropertiesClass(
             
                 class MetaOapg:
                     additional_properties = schemas.StrSchema
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -82,13 +82,13 @@ class AdditionalPropertiesClass(
                     
                         class MetaOapg:
                             additional_properties = schemas.StrSchema
+                        
                         def __getitem__(self, name: str) -> MetaOapg.additional_properties
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
                         
-                        
-                        def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                            return super().get_item_oapg(name)
+                        def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                            return super().(name)
                     
                         def __new__(
                             cls,
@@ -102,13 +102,13 @@ class AdditionalPropertiesClass(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -134,13 +134,13 @@ class AdditionalPropertiesClass(
             
                 class MetaOapg:
                     additional_properties = schemas.AnyTypeSchema
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -163,7 +163,6 @@ class AdditionalPropertiesClass(
             
                 class MetaOapg:
                     additional_properties = schemas.NotAnyTypeSchema
-                
             
                 def __new__(
                     cls,
@@ -184,13 +183,13 @@ class AdditionalPropertiesClass(
             
                 class MetaOapg:
                     additional_properties = schemas.StrSchema
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -242,10 +241,22 @@ class AdditionalPropertiesClass(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["map_property"], typing_extensions.Literal["map_of_map_property"], typing_extensions.Literal["anytype_1"], typing_extensions.Literal["map_with_undeclared_properties_anytype_1"], typing_extensions.Literal["map_with_undeclared_properties_anytype_2"], typing_extensions.Literal["map_with_undeclared_properties_anytype_3"], typing_extensions.Literal["empty_map"], typing_extensions.Literal["map_with_undeclared_properties_string"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["map_property"],
+            typing_extensions.Literal["map_of_map_property"],
+            typing_extensions.Literal["anytype_1"],
+            typing_extensions.Literal["map_with_undeclared_properties_anytype_1"],
+            typing_extensions.Literal["map_with_undeclared_properties_anytype_2"],
+            typing_extensions.Literal["map_with_undeclared_properties_anytype_3"],
+            typing_extensions.Literal["empty_map"],
+            typing_extensions.Literal["map_with_undeclared_properties_string"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["map_property"]) -> typing.Union[MetaOapg.properties.map_property, schemas.Unset]: ...
@@ -274,7 +285,20 @@ class AdditionalPropertiesClass(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["map_property"], typing_extensions.Literal["map_of_map_property"], typing_extensions.Literal["anytype_1"], typing_extensions.Literal["map_with_undeclared_properties_anytype_1"], typing_extensions.Literal["map_with_undeclared_properties_anytype_2"], typing_extensions.Literal["map_with_undeclared_properties_anytype_3"], typing_extensions.Literal["empty_map"], typing_extensions.Literal["map_with_undeclared_properties_string"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["map_property"],
+            typing_extensions.Literal["map_of_map_property"],
+            typing_extensions.Literal["anytype_1"],
+            typing_extensions.Literal["map_with_undeclared_properties_anytype_1"],
+            typing_extensions.Literal["map_with_undeclared_properties_anytype_2"],
+            typing_extensions.Literal["map_with_undeclared_properties_anytype_3"],
+            typing_extensions.Literal["empty_map"],
+            typing_extensions.Literal["map_with_undeclared_properties_string"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

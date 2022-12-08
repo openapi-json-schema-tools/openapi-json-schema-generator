@@ -228,10 +228,28 @@ class schema(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["byte"], typing_extensions.Literal["double"], typing_extensions.Literal["number"], typing_extensions.Literal["pattern_without_delimiter"], typing_extensions.Literal["integer"], typing_extensions.Literal["int32"], typing_extensions.Literal["int64"], typing_extensions.Literal["float"], typing_extensions.Literal["string"], typing_extensions.Literal["binary"], typing_extensions.Literal["date"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["password"], typing_extensions.Literal["callback"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["byte"],
+            typing_extensions.Literal["double"],
+            typing_extensions.Literal["number"],
+            typing_extensions.Literal["pattern_without_delimiter"],
+            typing_extensions.Literal["integer"],
+            typing_extensions.Literal["int32"],
+            typing_extensions.Literal["int64"],
+            typing_extensions.Literal["float"],
+            typing_extensions.Literal["string"],
+            typing_extensions.Literal["binary"],
+            typing_extensions.Literal["date"],
+            typing_extensions.Literal["dateTime"],
+            typing_extensions.Literal["password"],
+            typing_extensions.Literal["callback"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
@@ -278,7 +296,26 @@ class schema(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["byte"], typing_extensions.Literal["double"], typing_extensions.Literal["number"], typing_extensions.Literal["pattern_without_delimiter"], typing_extensions.Literal["integer"], typing_extensions.Literal["int32"], typing_extensions.Literal["int64"], typing_extensions.Literal["float"], typing_extensions.Literal["string"], typing_extensions.Literal["binary"], typing_extensions.Literal["date"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["password"], typing_extensions.Literal["callback"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["byte"],
+            typing_extensions.Literal["double"],
+            typing_extensions.Literal["number"],
+            typing_extensions.Literal["pattern_without_delimiter"],
+            typing_extensions.Literal["integer"],
+            typing_extensions.Literal["int32"],
+            typing_extensions.Literal["int64"],
+            typing_extensions.Literal["float"],
+            typing_extensions.Literal["string"],
+            typing_extensions.Literal["binary"],
+            typing_extensions.Literal["date"],
+            typing_extensions.Literal["dateTime"],
+            typing_extensions.Literal["password"],
+            typing_extensions.Literal["callback"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

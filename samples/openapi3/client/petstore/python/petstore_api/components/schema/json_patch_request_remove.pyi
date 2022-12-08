@@ -65,10 +65,15 @@ class JSONPatchRequestRemove(
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["op"], typing_extensions.Literal["path"], ]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["op"],
+            typing_extensions.Literal["path"],
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
@@ -76,7 +81,13 @@ class JSONPatchRequestRemove(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["op"], typing_extensions.Literal["path"], ]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["op"],
+            typing_extensions.Literal["path"],
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

@@ -208,10 +208,23 @@ class EnumTest(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["enum_string_required"], typing_extensions.Literal["enum_string"], typing_extensions.Literal["enum_integer"], typing_extensions.Literal["enum_number"], typing_extensions.Literal["stringEnum"], typing_extensions.Literal["IntegerEnum"], typing_extensions.Literal["StringEnumWithDefaultValue"], typing_extensions.Literal["IntegerEnumWithDefaultValue"], typing_extensions.Literal["IntegerEnumOneValue"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["enum_string_required"],
+            typing_extensions.Literal["enum_string"],
+            typing_extensions.Literal["enum_integer"],
+            typing_extensions.Literal["enum_number"],
+            typing_extensions.Literal["stringEnum"],
+            typing_extensions.Literal["IntegerEnum"],
+            typing_extensions.Literal["StringEnumWithDefaultValue"],
+            typing_extensions.Literal["IntegerEnumWithDefaultValue"],
+            typing_extensions.Literal["IntegerEnumOneValue"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["enum_string_required"]) -> MetaOapg.properties.enum_string_required: ...
@@ -243,7 +256,21 @@ class EnumTest(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["enum_string_required"], typing_extensions.Literal["enum_string"], typing_extensions.Literal["enum_integer"], typing_extensions.Literal["enum_number"], typing_extensions.Literal["stringEnum"], typing_extensions.Literal["IntegerEnum"], typing_extensions.Literal["StringEnumWithDefaultValue"], typing_extensions.Literal["IntegerEnumWithDefaultValue"], typing_extensions.Literal["IntegerEnumOneValue"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["enum_string_required"],
+            typing_extensions.Literal["enum_string"],
+            typing_extensions.Literal["enum_integer"],
+            typing_extensions.Literal["enum_number"],
+            typing_extensions.Literal["stringEnum"],
+            typing_extensions.Literal["IntegerEnum"],
+            typing_extensions.Literal["StringEnumWithDefaultValue"],
+            typing_extensions.Literal["IntegerEnumWithDefaultValue"],
+            typing_extensions.Literal["IntegerEnumOneValue"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

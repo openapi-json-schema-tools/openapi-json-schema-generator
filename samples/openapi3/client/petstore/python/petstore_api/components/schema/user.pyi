@@ -61,10 +61,6 @@ class User(
                         frozendict.frozendict,
                     }
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -90,10 +86,6 @@ class User(
                     # any type
                     anyTypeExceptNullProp = schemas.NoneSchema
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -166,10 +158,27 @@ class User(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["username"], typing_extensions.Literal["firstName"], typing_extensions.Literal["lastName"], typing_extensions.Literal["email"], typing_extensions.Literal["password"], typing_extensions.Literal["phone"], typing_extensions.Literal["userStatus"], typing_extensions.Literal["objectWithNoDeclaredProps"], typing_extensions.Literal["objectWithNoDeclaredPropsNullable"], typing_extensions.Literal["anyTypeProp"], typing_extensions.Literal["anyTypeExceptNullProp"], typing_extensions.Literal["anyTypePropNullable"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["id"],
+            typing_extensions.Literal["username"],
+            typing_extensions.Literal["firstName"],
+            typing_extensions.Literal["lastName"],
+            typing_extensions.Literal["email"],
+            typing_extensions.Literal["password"],
+            typing_extensions.Literal["phone"],
+            typing_extensions.Literal["userStatus"],
+            typing_extensions.Literal["objectWithNoDeclaredProps"],
+            typing_extensions.Literal["objectWithNoDeclaredPropsNullable"],
+            typing_extensions.Literal["anyTypeProp"],
+            typing_extensions.Literal["anyTypeExceptNullProp"],
+            typing_extensions.Literal["anyTypePropNullable"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
@@ -213,7 +222,25 @@ class User(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["username"], typing_extensions.Literal["firstName"], typing_extensions.Literal["lastName"], typing_extensions.Literal["email"], typing_extensions.Literal["password"], typing_extensions.Literal["phone"], typing_extensions.Literal["userStatus"], typing_extensions.Literal["objectWithNoDeclaredProps"], typing_extensions.Literal["objectWithNoDeclaredPropsNullable"], typing_extensions.Literal["anyTypeProp"], typing_extensions.Literal["anyTypeExceptNullProp"], typing_extensions.Literal["anyTypePropNullable"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["id"],
+            typing_extensions.Literal["username"],
+            typing_extensions.Literal["firstName"],
+            typing_extensions.Literal["lastName"],
+            typing_extensions.Literal["email"],
+            typing_extensions.Literal["password"],
+            typing_extensions.Literal["phone"],
+            typing_extensions.Literal["userStatus"],
+            typing_extensions.Literal["objectWithNoDeclaredProps"],
+            typing_extensions.Literal["objectWithNoDeclaredPropsNullable"],
+            typing_extensions.Literal["anyTypeProp"],
+            typing_extensions.Literal["anyTypeExceptNullProp"],
+            typing_extensions.Literal["anyTypePropNullable"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

@@ -53,10 +53,16 @@ class ReqPropsFromExplicitAddProps(
     @typing.overload
     def __getitem__(self, name: str) -> MetaOapg.additional_properties: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["invalid-name"], typing_extensions.Literal["validName"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["invalid-name"],
+            typing_extensions.Literal["validName"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.additional_properties: ...
@@ -67,7 +73,14 @@ class ReqPropsFromExplicitAddProps(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.additional_properties, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["invalid-name"], typing_extensions.Literal["validName"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["invalid-name"],
+            typing_extensions.Literal["validName"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

@@ -53,10 +53,16 @@ class ReadOnlyFirst(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["bar"], typing_extensions.Literal["baz"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            typing_extensions.Literal["baz"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.properties.bar, schemas.Unset]: ...
@@ -67,7 +73,14 @@ class ReadOnlyFirst(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["bar"], typing_extensions.Literal["baz"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            typing_extensions.Literal["baz"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

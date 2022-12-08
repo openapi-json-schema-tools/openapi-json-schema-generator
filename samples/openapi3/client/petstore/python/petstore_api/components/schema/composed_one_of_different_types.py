@@ -60,10 +60,6 @@ class ComposedOneOfDifferentTypes(
                     types = {frozendict.frozendict}
                     max_properties = 4
                     min_properties = 4
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -128,10 +124,6 @@ class ComposedOneOfDifferentTypes(
                 ,
             ]
 
-    
-    
-    def get_item_oapg(self, name: typing.Union[str]):
-        return super().get_item_oapg(name)
 
     def __new__(
         cls,

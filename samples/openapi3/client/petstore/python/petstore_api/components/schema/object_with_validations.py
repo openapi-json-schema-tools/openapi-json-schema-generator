@@ -36,10 +36,6 @@ class ObjectWithValidations(
     class MetaOapg:
         types = {frozendict.frozendict}
         min_properties = 2
-    
-    
-    def get_item_oapg(self, name: typing.Union[str]):
-        return super().get_item_oapg(name)
 
     def __new__(
         cls,

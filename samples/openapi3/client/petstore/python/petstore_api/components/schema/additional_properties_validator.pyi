@@ -48,13 +48,13 @@ class AdditionalPropertiesValidator(
             
                 class MetaOapg:
                     additional_properties = schemas.AnyTypeSchema
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -86,10 +86,6 @@ class AdditionalPropertiesValidator(
                         class MetaOapg:
                             # any type
                     
-                        
-                        
-                        def get_item_oapg(self, name: typing.Union[str]):
-                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -103,13 +99,13 @@ class AdditionalPropertiesValidator(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -141,10 +137,6 @@ class AdditionalPropertiesValidator(
                         class MetaOapg:
                             # any type
                     
-                        
-                        
-                        def get_item_oapg(self, name: typing.Union[str]):
-                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -158,13 +150,13 @@ class AdditionalPropertiesValidator(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
+                
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                
-                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
-                    return super().get_item_oapg(name)
+                def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
+                    return super().(name)
             
                 def __new__(
                     cls,
@@ -184,10 +176,6 @@ class AdditionalPropertiesValidator(
                 ,
             ]
 
-    
-    
-    def get_item_oapg(self, name: typing.Union[str]):
-        return super().get_item_oapg(name)
 
     def __new__(
         cls,

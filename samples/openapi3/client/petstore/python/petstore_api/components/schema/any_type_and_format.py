@@ -49,10 +49,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'uuid'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -78,10 +74,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'date'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -107,10 +99,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'date-time'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -136,10 +124,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'number'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -164,10 +148,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'binary'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -192,10 +172,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'int32'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -220,10 +196,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'int64'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -248,10 +220,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'double'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -276,10 +244,6 @@ class AnyTypeAndFormat(
                     # any type
                     format = 'float'
             
-                
-                
-                def get_item_oapg(self, name: typing.Union[str]):
-                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -335,10 +299,23 @@ class AnyTypeAndFormat(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["uuid"], typing_extensions.Literal["date"], typing_extensions.Literal["date-time"], typing_extensions.Literal["number"], typing_extensions.Literal["binary"], typing_extensions.Literal["int32"], typing_extensions.Literal["int64"], typing_extensions.Literal["double"], typing_extensions.Literal["float"], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["uuid"],
+            typing_extensions.Literal["date"],
+            typing_extensions.Literal["date-time"],
+            typing_extensions.Literal["number"],
+            typing_extensions.Literal["binary"],
+            typing_extensions.Literal["int32"],
+            typing_extensions.Literal["int64"],
+            typing_extensions.Literal["double"],
+            typing_extensions.Literal["float"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[MetaOapg.properties.uuid, schemas.Unset]: ...
@@ -370,7 +347,21 @@ class AnyTypeAndFormat(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["uuid"], typing_extensions.Literal["date"], typing_extensions.Literal["date-time"], typing_extensions.Literal["number"], typing_extensions.Literal["binary"], typing_extensions.Literal["int32"], typing_extensions.Literal["int64"], typing_extensions.Literal["double"], typing_extensions.Literal["float"], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["uuid"],
+            typing_extensions.Literal["date"],
+            typing_extensions.Literal["date-time"],
+            typing_extensions.Literal["number"],
+            typing_extensions.Literal["binary"],
+            typing_extensions.Literal["int32"],
+            typing_extensions.Literal["int64"],
+            typing_extensions.Literal["double"],
+            typing_extensions.Literal["float"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

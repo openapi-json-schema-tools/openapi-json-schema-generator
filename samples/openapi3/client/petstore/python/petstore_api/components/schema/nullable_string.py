@@ -42,10 +42,6 @@ class NullableString(
             str,
         }
 
-    
-    
-    def get_item_oapg(self, name: typing.Union[str]):
-        return super().get_item_oapg(name)
 
     def __new__(
         cls,
