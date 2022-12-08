@@ -591,7 +591,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             HashSet<String> requiredVars = new HashSet<>();
             if (schema.getRequired() != null) {
                 requiredVars.addAll(schema.getRequired());
-                property.setHasRequired(true);
             }
             addProperties(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
         }

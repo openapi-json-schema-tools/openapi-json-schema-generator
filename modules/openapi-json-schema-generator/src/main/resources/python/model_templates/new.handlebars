@@ -10,7 +10,7 @@ def __new__(
 {{/if}}
 {{/if}}
 {{#unless isNull}}
-{{#if getHasRequired}}
+{{#if requiredProperties}}
 {{#each getRequiredProperties}}
 {{#with this}}
 {{#unless nameInSnakeCase}}
@@ -70,7 +70,7 @@ def __new__(
 {{/if}}
 {{/if}}
 {{#unless isNull}}
-{{#if getHasRequired}}
+{{#if requiredProperties}}
 {{#each getRequiredProperties}}
 {{#with this}}
 {{#unless nameInSnakeCase}}

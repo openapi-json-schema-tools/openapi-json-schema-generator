@@ -153,7 +153,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String xmlName;
     public String xmlNamespace;
     public boolean isXmlWrapped = false;
-    private boolean hasRequired;
     private boolean hasDiscriminatorWithNonEmptyMapping;
     private List<CodegenProperty> allOf = null;
     private List<CodegenProperty> anyOf = null;
@@ -763,16 +762,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public boolean getHasRequired() {
-        return this.hasRequired;
-    }
-
-    @Override
-    public void setHasRequired(boolean hasRequired) {
-        this.hasRequired = hasRequired;
-    }
-
-    @Override
     public boolean getHasDiscriminatorWithNonEmptyMapping() {
         return hasDiscriminatorWithNonEmptyMapping;
     }
@@ -928,7 +917,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", xmlNamespace='").append(xmlNamespace).append('\'');
         sb.append(", isXmlWrapped=").append(isXmlWrapped);
         sb.append(", isNull=").append(isNull);
-        sb.append(", getHasRequired=").append(getHasRequired());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", requiredProperties=").append(requiredProperties);
@@ -997,7 +985,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
-                getHasRequired() == that.getHasRequired() &&
                 Objects.equals(allOf, that.getAllOf()) &&
                 Objects.equals(anyOf, that.getAnyOf()) &&
                 Objects.equals(oneOf, that.getOneOf()) &&
@@ -1059,7 +1046,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 allowableValues, items, additionalProperties, vars, requiredVars,
                 vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
                 nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
-                xmlNamespace, isXmlWrapped, isNull, hasRequired,
+                xmlNamespace, isXmlWrapped, isNull,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredProperties,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,

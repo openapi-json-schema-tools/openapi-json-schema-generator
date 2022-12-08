@@ -2834,10 +2834,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        if (m.requiredVars != null && m.requiredVars.size() > 0) {
-            m.setHasRequired(true);
-        }
-
         if (sortModelPropertiesByRequiredFlag) {
             Comparator<CodegenProperty> comparator = new Comparator<CodegenProperty>() {
                 @Override
@@ -4701,7 +4697,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected void addVars(CodegenModel m, Map<String, Schema> properties, List<String> required,
                            Map<String, Schema> allProperties, List<String> allRequired, String sourceJsonPath) {
 
-        m.hasRequired = false;
         if (properties != null && !properties.isEmpty()) {
 
             Set<String> mandatory = required == null ? Collections.emptySet()
@@ -4794,10 +4789,7 @@ public class DefaultCodegen implements CodegenConfig {
                 propertiesMap.put(key, cp);
                 if (!mandatory.contains(key)) {
                     optionalProperties.put(key, cp);
-                }
-
-                if (cp.required) {
-                    m.setHasRequired(true);
+                } else {
                     m.getRequiredVars().add(cp);
                 }
 
