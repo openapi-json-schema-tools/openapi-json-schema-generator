@@ -168,7 +168,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     private boolean hasDiscriminatorWithNonEmptyMapping;
     private boolean isAnyType;
     private boolean isUuid;
-    private Map<String, CodegenProperty> requiredVarsMap;
+    private Map<String, CodegenProperty> requiredProperties;
     private String ref;
     private String refModule;
 
@@ -1022,7 +1022,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(format, that.getFormat()) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
-                Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
+                Objects.equals(requiredProperties, that.getRequiredProperties()) &&
                 Objects.equals(parent, that.parent) &&
                 Objects.equals(parentSchema, that.parentSchema) &&
                 Objects.equals(interfaces, that.interfaces) &&
@@ -1094,7 +1094,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
                 getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(),
                 hasDiscriminatorWithNonEmptyMapping,
-                isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
+                isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredProperties, ref,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not);
     }
@@ -1191,7 +1191,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", isDecimal=").append(isDecimal);
         sb.append(", isUUID=").append(isUuid);
-        sb.append(", requiredVarsMap=").append(requiredVarsMap);
+        sb.append(", requiredProperties=").append(requiredProperties);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
@@ -1230,10 +1230,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public Map<String, CodegenProperty> getRequiredVarsMap() { return requiredVarsMap; }
+    public Map<String, CodegenProperty> getRequiredProperties() { return requiredProperties; }
 
     @Override
-    public void setRequiredVarsMap(Map<String, CodegenProperty> requiredVarsMap) { this.requiredVarsMap=requiredVarsMap; }
+    public void setRequiredProperties(Map<String, CodegenProperty> requiredProperties) { this.requiredProperties=requiredProperties; }
 
     /**
      * Remove duplicated properties in all variable list

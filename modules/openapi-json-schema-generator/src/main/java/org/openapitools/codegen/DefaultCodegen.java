@@ -2556,7 +2556,7 @@ public class DefaultCodegen implements CodegenConfig {
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
-        addRequiredVarsMap(schema, m, sourceJsonPath);
+        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     protected void updateModelForAnyType(CodegenModel m, Schema schema, String sourceJsonPath) {
@@ -2577,7 +2577,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
-        addRequiredVarsMap(schema, m, sourceJsonPath);
+        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     protected String toTestCaseName(String specTestCaseName) {
@@ -6088,7 +6088,7 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenParameter;
     }
 
-    protected void addRequiredVarsMap(Schema schema, JsonSchema property, String sourceJsonPath) {
+    protected void addRequiredProperties(Schema schema, JsonSchema property, String sourceJsonPath) {
         /*
         this should be called after vars and additionalProperties are set
         Features added by storing codegenProperty values:
@@ -6097,7 +6097,7 @@ public class DefaultCodegen implements CodegenConfig {
         - nameInSnakeCase can store valid name for a programming language
          */
         Map<String, Schema> properties = schema.getProperties();
-        Map<String, CodegenProperty> requiredVarsMap = new HashMap<>();
+        Map<String, CodegenProperty> requiredProperties = new HashMap<>();
         List<String> requiredPropertyNames = schema.getRequired();
         if (requiredPropertyNames == null) {
             return;
@@ -6111,7 +6111,7 @@ public class DefaultCodegen implements CodegenConfig {
                 for (CodegenProperty cp: property.getVars()) {
                     if (cp.baseName.equals(requiredPropertyName)) {
                         found = true;
-                        requiredVarsMap.put(requiredPropertyName, cp);
+                        requiredProperties.put(requiredPropertyName, cp);
                         break;
                     }
                 }
@@ -6121,7 +6121,7 @@ public class DefaultCodegen implements CodegenConfig {
             } else if (schema.getAdditionalProperties() instanceof Boolean && Boolean.FALSE.equals(schema.getAdditionalProperties())) {
                 // TODO add processing for requiredPropertyName
                 // required property is not defined in properties, and additionalProperties is false, value is null
-                requiredVarsMap.put(usedRequiredPropertyName, null);
+                requiredProperties.put(usedRequiredPropertyName, null);
             } else {
                 // required property is not defined in properties, and additionalProperties is true or unset value is CodegenProperty made from empty schema
                 // required property is not defined in properties, and additionalProperties is schema, value is CodegenProperty made from schema
@@ -6137,12 +6137,12 @@ public class DefaultCodegen implements CodegenConfig {
                         // additionalProperties is schema
                         cp = fromProperty(requiredPropertyName, (Schema) schema.getAdditionalProperties(), true, true, sourceJsonPath);
                     }
-                    requiredVarsMap.put(usedRequiredPropertyName, cp);
+                    requiredProperties.put(usedRequiredPropertyName, cp);
                 }
             }
         }
-        if (!requiredVarsMap.isEmpty()) {
-            property.setRequiredVarsMap(requiredVarsMap);
+        if (!requiredProperties.isEmpty()) {
+            property.setRequiredProperties(requiredProperties);
         }
     }
 
@@ -6151,7 +6151,7 @@ public class DefaultCodegen implements CodegenConfig {
         Set<String> mandatory = schema.getRequired() == null ? Collections.emptySet()
                 : new TreeSet<>(schema.getRequired());
         addVars(property, property.getVars(), schema.getProperties(), mandatory, sourceJsonPath);
-        addRequiredVarsMap(schema, property, sourceJsonPath);
+        addRequiredProperties(schema, property, sourceJsonPath);
     }
 
     private void addJsonSchemaForBodyRequestInCaseItsNotPresent(CodegenParameter codegenParameter, RequestBody body) {

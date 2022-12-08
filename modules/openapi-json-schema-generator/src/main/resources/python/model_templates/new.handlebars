@@ -11,7 +11,7 @@ def __new__(
 {{/if}}
 {{#unless isNull}}
 {{#if getHasRequired}}
-{{#each getRequiredVarsMap}}
+{{#each getRequiredProperties}}
 {{#with this}}
 {{#unless nameInSnakeCase}}
 {{#if refClass}}
@@ -71,7 +71,7 @@ def __new__(
 {{/if}}
 {{#unless isNull}}
 {{#if getHasRequired}}
-{{#each getRequiredVarsMap}}
+{{#each getRequiredProperties}}
 {{#with this}}
 {{#unless nameInSnakeCase}}
         {{baseName}}={{baseName}},

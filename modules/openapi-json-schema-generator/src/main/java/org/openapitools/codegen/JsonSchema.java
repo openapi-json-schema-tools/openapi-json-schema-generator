@@ -124,7 +124,7 @@ public interface JsonSchema {
 
     void setRequiredVars(List<CodegenProperty> requiredVars);
 
-    Map<String, CodegenProperty> getRequiredVarsMap();
+    Map<String, CodegenProperty> getRequiredProperties();
 
     // goes from required propertyName to its CodegenProperty
     // Use Cases:
@@ -132,7 +132,7 @@ public interface JsonSchema {
     // 2. required property is not defined in properties, and additionalProperties is true or unset value is CodegenProperty made from empty schema
     // 3. required property is not defined in properties, and additionalProperties is schema, value is CodegenProperty made from schema
     // 4. required property is not defined in properties, and additionalProperties is false, value is null
-    void setRequiredVarsMap(Map<String, CodegenProperty> requiredVarsMap);
+    void setRequiredProperties(Map<String, CodegenProperty> requiredProperties);
 
 
     boolean getIsNull();

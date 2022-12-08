@@ -585,7 +585,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
                 addVars(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
             }
-            addRequiredVarsMap(schema, property, sourceJsonPath);
+            addRequiredProperties(schema, property, sourceJsonPath);
             return;
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             HashSet<String> requiredVars = new HashSet<>();
@@ -598,7 +598,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 property.setHasVars(true);
             }
         }
-        addRequiredVarsMap(schema, property, sourceJsonPath);
+        addRequiredProperties(schema, property, sourceJsonPath);
         return;
     }
 
@@ -2134,7 +2134,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
-        addRequiredVarsMap(schema, m, sourceJsonPath);
+        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     @Override
@@ -2152,7 +2152,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
-        addRequiredVarsMap(schema, m, sourceJsonPath);
+        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     @Override
