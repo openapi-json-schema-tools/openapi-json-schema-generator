@@ -38,7 +38,7 @@ class schema(
         class all_of:
             
             
-            class all_of_0(
+            class schema(
                 schemas.StrSchema
             ):
             
@@ -49,9 +49,13 @@ class schema(
                     }
                     min_length = 1
             classes = [
-                all_of_0,
+                schema,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

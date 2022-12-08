@@ -37,7 +37,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -50,7 +50,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -64,7 +64,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -75,7 +75,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -88,7 +88,7 @@ class BaseApi(api_client.Api):
 
     def _call_123_test_special_tags_oapg(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -158,7 +158,7 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -171,7 +171,7 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -185,7 +185,7 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -196,7 +196,7 @@ class Call123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test_special_tags(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -209,7 +209,7 @@ class Call123TestSpecialTags(BaseApi):
 
     def call_123_test_special_tags(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -232,7 +232,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -245,7 +245,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -259,7 +259,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -270,7 +270,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -283,7 +283,7 @@ class ApiForpatch(BaseApi):
 
     def patch(
         self,
-        body: typing.Union[request_body.application_json,],
+        body: typing.Union[request_body.schema,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

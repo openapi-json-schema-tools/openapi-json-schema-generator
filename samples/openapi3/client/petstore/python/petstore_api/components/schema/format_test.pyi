@@ -44,20 +44,6 @@ class FormatTest(
         class properties:
             
             
-            class number(
-                schemas.NumberSchema
-            ):
-                pass
-            byte = schemas.StrSchema
-            date = schemas.DateSchema
-            
-            
-            class password(
-                schemas.StrSchema
-            ):
-                pass
-            
-            
             class integer(
                 schemas.IntSchema
             ):
@@ -70,6 +56,12 @@ class FormatTest(
             ):
                 pass
             int64 = schemas.Int64Schema
+            
+            
+            class number(
+                schemas.NumberSchema
+            ):
+                pass
             
             
             class _float(
@@ -115,10 +107,18 @@ class FormatTest(
                 schemas.StrSchema
             ):
                 pass
+            byte = schemas.StrSchema
             binary = schemas.BinarySchema
+            date = schemas.DateSchema
             dateTime = schemas.DateTimeSchema
             uuid = schemas.UUIDSchema
             uuidNoExample = schemas.UUIDSchema
+            
+            
+            class password(
+                schemas.StrSchema
+            ):
+                pass
             
             
             class pattern_with_digits(
@@ -133,24 +133,24 @@ class FormatTest(
                 pass
             noneProp = schemas.NoneSchema
             __annotations__ = {
-                "number": number,
-                "byte": byte,
-                "date": date,
-                "password": password,
                 "integer": integer,
                 "int32": int32,
                 "int32withValidations": int32withValidations,
                 "int64": int64,
+                "number": number,
                 "float": _float,
                 "float32": float32,
                 "double": double,
                 "float64": float64,
                 "arrayWithUniqueItems": arrayWithUniqueItems,
                 "string": string,
+                "byte": byte,
                 "binary": binary,
+                "date": date,
                 "dateTime": dateTime,
                 "uuid": uuid,
                 "uuidNoExample": uuidNoExample,
+                "password": password,
                 "pattern_with_digits": pattern_with_digits,
                 "pattern_with_digits_and_delimiter": pattern_with_digits_and_delimiter,
                 "noneProp": noneProp,
@@ -160,86 +160,64 @@ class FormatTest(
     date: MetaOapg.properties.date
     number: MetaOapg.properties.number
     password: MetaOapg.properties.password
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
-    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["int32withValidations"]) -> MetaOapg.properties.int32withValidations: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["float32"]) -> MetaOapg.properties.float32: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["float64"]) -> MetaOapg.properties.float64: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> MetaOapg.properties.arrayWithUniqueItems: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.properties.string: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.properties.binary: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.properties.dateTime: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.properties.uuid: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["uuidNoExample"]) -> MetaOapg.properties.uuidNoExample: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits"]) -> MetaOapg.properties.pattern_with_digits: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> MetaOapg.properties.pattern_with_digits_and_delimiter: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["noneProp"]) -> MetaOapg.properties.noneProp: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["number", "byte", "date", "password", "integer", "int32", "int32withValidations", "int64", "float", "float32", "double", "float64", "arrayWithUniqueItems", "string", "binary", "dateTime", "uuid", "uuidNoExample", "pattern_with_digits", "pattern_with_digits_and_delimiter", "noneProp", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["byte"], typing_extensions.Literal["date"], typing_extensions.Literal["number"], typing_extensions.Literal["password"], typing_extensions.Literal["integer"], typing_extensions.Literal["int32"], typing_extensions.Literal["int32withValidations"], typing_extensions.Literal["int64"], typing_extensions.Literal["float"], typing_extensions.Literal["float32"], typing_extensions.Literal["double"], typing_extensions.Literal["float64"], typing_extensions.Literal["arrayWithUniqueItems"], typing_extensions.Literal["string"], typing_extensions.Literal["binary"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["uuid"], typing_extensions.Literal["uuidNoExample"], typing_extensions.Literal["pattern_with_digits"], typing_extensions.Literal["pattern_with_digits_and_delimiter"], typing_extensions.Literal["noneProp"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
@@ -295,12 +273,8 @@ class FormatTest(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["noneProp"]) -> typing.Union[MetaOapg.properties.noneProp, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["number", "byte", "date", "password", "integer", "int32", "int32withValidations", "int64", "float", "float32", "double", "float64", "arrayWithUniqueItems", "string", "binary", "dateTime", "uuid", "uuidNoExample", "pattern_with_digits", "pattern_with_digits_and_delimiter", "noneProp", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["byte"], typing_extensions.Literal["date"], typing_extensions.Literal["number"], typing_extensions.Literal["password"], typing_extensions.Literal["integer"], typing_extensions.Literal["int32"], typing_extensions.Literal["int32withValidations"], typing_extensions.Literal["int64"], typing_extensions.Literal["float"], typing_extensions.Literal["float32"], typing_extensions.Literal["double"], typing_extensions.Literal["float64"], typing_extensions.Literal["arrayWithUniqueItems"], typing_extensions.Literal["string"], typing_extensions.Literal["binary"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["uuid"], typing_extensions.Literal["uuidNoExample"], typing_extensions.Literal["pattern_with_digits"], typing_extensions.Literal["pattern_with_digits_and_delimiter"], typing_extensions.Literal["noneProp"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

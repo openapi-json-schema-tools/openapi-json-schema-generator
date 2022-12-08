@@ -41,7 +41,7 @@ class AdditionalPropertiesValidator(
         class all_of:
             
             
-            class all_of_0(
+            class (
                 schemas.DictSchema
             ):
             
@@ -49,10 +49,12 @@ class AdditionalPropertiesValidator(
                 class MetaOapg:
                     types = {frozendict.frozendict}
                     additional_properties = schemas.AnyTypeSchema
-                
-                def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                # no properties or required properties but still have addProps
+                # type hints for addProp __getitem__
+                def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
+                
                 
                 def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
@@ -62,7 +64,7 @@ class AdditionalPropertiesValidator(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additional_properties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'all_of_0':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *_args,
@@ -71,7 +73,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class all_of_1(
+            class (
                 schemas.DictSchema
             ):
             
@@ -89,6 +91,10 @@ class AdditionalPropertiesValidator(
                             # any type
                             min_length = 3
                     
+                        
+                        
+                        def get_item_oapg(self, name: typing.Union[]):
+                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -102,10 +108,12 @@ class AdditionalPropertiesValidator(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
-                
-                def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                # no properties or required properties but still have addProps
+                # type hints for addProp __getitem__
+                def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
+                
                 
                 def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
@@ -115,7 +123,7 @@ class AdditionalPropertiesValidator(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additional_properties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'all_of_1':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *_args,
@@ -124,7 +132,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class all_of_2(
+            class (
                 schemas.DictSchema
             ):
             
@@ -142,6 +150,10 @@ class AdditionalPropertiesValidator(
                             # any type
                             max_length = 5
                     
+                        
+                        
+                        def get_item_oapg(self, name: typing.Union[]):
+                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -155,10 +167,12 @@ class AdditionalPropertiesValidator(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
-                
-                def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                # no properties or required properties but still have addProps
+                # type hints for addProp __getitem__
+                def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
+                
                 
                 def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
@@ -168,7 +182,7 @@ class AdditionalPropertiesValidator(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additional_properties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'all_of_2':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *_args,
@@ -176,11 +190,15 @@ class AdditionalPropertiesValidator(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
-                all_of_2,
+                ,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

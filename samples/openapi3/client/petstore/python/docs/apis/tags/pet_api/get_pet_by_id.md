@@ -84,16 +84,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.schema](#response_for_200.schema), [response_for_200.schema](#response_for_200.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
+# <a id="response_for_200.schema" >response_for_200.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**pet.Pet**](../../../components/schema/pet.Pet.md) |  | 
 
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_for_200.schema" >response_for_200.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**pet.Pet**](../../../components/schema/pet.Pet.md) |  | 

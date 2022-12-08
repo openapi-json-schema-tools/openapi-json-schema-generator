@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class multipart_form_data(
+class schema(
     schemas.DictSchema
 ):
 
@@ -42,17 +42,13 @@ class multipart_form_data(
                 "additionalMetadata": additionalMetadata,
                 "file": file,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.properties.additionalMetadata: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["file"]) -> MetaOapg.properties.file: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["additionalMetadata", "file", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["additionalMetadata"], typing_extensions.Literal["file"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -63,12 +59,8 @@ class multipart_form_data(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union[MetaOapg.properties.file, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["additionalMetadata", "file", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["additionalMetadata"], typing_extensions.Literal["file"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -77,7 +69,7 @@ class multipart_form_data(
         file: typing.Union[MetaOapg.properties.file, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'multipart_form_data':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -90,7 +82,7 @@ class multipart_form_data(
 parameter_oapg = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data
+            schema=schema
         ),
     },
 )

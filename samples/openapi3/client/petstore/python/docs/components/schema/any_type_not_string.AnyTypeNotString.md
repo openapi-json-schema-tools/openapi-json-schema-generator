@@ -11,9 +11,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[not_schema](#not_schema) | str,  | str,  |  | 
+[](#) | str,  | str,  |  | 
 
-# not_schema
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -2,17 +2,17 @@
 {{#with this}}
 {{#unless nameInSnakeCase}}
 {{#if refClass}}
-{{baseName}}: '{{refClass}}'
+{{@key}}: '{{refClass}}'
 {{else}}
-{{#if schemaIsFromAdditionalProperties}}
-{{#if addPropsUnset}}
-{{baseName}}: schemas.AnyTypeSchema
-{{else}}
-{{baseName}}: MetaOapg.additional_properties
-{{/if}}
-{{else}}
-{{baseName}}: MetaOapg.properties.{{baseName}}
-{{/if}}
+    {{#if baseName}}
+        {{#if schemaIsFromAdditionalProperties}}
+{{@key}}: MetaOapg.{{baseName}}
+        {{else}}
+{{@key}}: MetaOapg.properties.{{baseName}}
+        {{/if}}
+    {{else}}
+{{@key}}: schemas.AnyTypeSchema
+    {{/if}}
 {{/if}}
 {{/unless}}
 {{/with}}

@@ -39,11 +39,11 @@ class ChildCat(
         class all_of:
         
             @staticmethod
-            def all_of_0() -> typing.Type['parent_pet.ParentPet']:
+            def () -> typing.Type['parent_pet.ParentPet']:
                 return parent_pet.ParentPet
             
             
-            class all_of_1(
+            class (
                 schemas.DictSchema
             ):
             
@@ -56,14 +56,11 @@ class ChildCat(
                         __annotations__ = {
                             "name": name,
                         }
-                
+                # type hints for optional __getitem__
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
                 
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-                
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", ], str]):
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["name"], ]):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
@@ -71,12 +68,8 @@ class ChildCat(
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
                 
-                @typing.overload
-                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", ], str]):
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name"], ]):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -84,7 +77,7 @@ class ChildCat(
                     name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_1':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *_args,
@@ -93,10 +86,14 @@ class ChildCat(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

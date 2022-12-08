@@ -48,22 +48,26 @@ class JSONPatchRequest(
                 class one_of:
                 
                     @staticmethod
-                    def one_of_0() -> typing.Type['json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest']:
+                    def items() -> typing.Type['json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest']:
                         return json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest
                 
                     @staticmethod
-                    def one_of_1() -> typing.Type['json_patch_request_remove.JSONPatchRequestRemove']:
+                    def items() -> typing.Type['json_patch_request_remove.JSONPatchRequestRemove']:
                         return json_patch_request_remove.JSONPatchRequestRemove
                 
                     @staticmethod
-                    def one_of_2() -> typing.Type['json_patch_request_move_copy.JSONPatchRequestMoveCopy']:
+                    def items() -> typing.Type['json_patch_request_move_copy.JSONPatchRequestMoveCopy']:
                         return json_patch_request_move_copy.JSONPatchRequestMoveCopy
                     classes = [
-                        one_of_0,
-                        one_of_1,
-                        one_of_2,
+                        items,
+                        items,
+                        items,
                     ]
         
+            
+            
+            def get_item_oapg(self, name: typing.Union[]):
+                return super().get_item_oapg(name)
         
             def __new__(
                 cls,

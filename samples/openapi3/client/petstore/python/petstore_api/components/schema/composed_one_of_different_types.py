@@ -41,17 +41,17 @@ class ComposedOneOfDifferentTypes(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def () -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def one_of_1() -> typing.Type['animal.Animal']:
+            def () -> typing.Type['animal.Animal']:
                 return animal.Animal
-            one_of_2 = schemas.NoneSchema
-            one_of_3 = schemas.DateSchema
+             = schemas.NoneSchema
+             = schemas.DateSchema
             
             
-            class one_of_4(
+            class (
                 schemas.DictSchema
             ):
             
@@ -60,13 +60,17 @@ class ComposedOneOfDifferentTypes(
                     types = {frozendict.frozendict}
                     max_properties = 4
                     min_properties = 4
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'one_of_4':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *_args,
@@ -75,7 +79,7 @@ class ComposedOneOfDifferentTypes(
                     )
             
             
-            class one_of_5(
+            class (
                 schemas.ListSchema
             ):
             
@@ -90,7 +94,7 @@ class ComposedOneOfDifferentTypes(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'one_of_5':
+                ) -> '':
                     return super().__new__(
                         cls,
                         _arg,
@@ -101,7 +105,7 @@ class ComposedOneOfDifferentTypes(
                     return super().__getitem__(i)
             
             
-            class one_of_6(
+            class (
                 schemas.DateTimeSchema
             ):
             
@@ -115,15 +119,19 @@ class ComposedOneOfDifferentTypes(
                         'pattern': r'^2020.*',  # noqa: E501
                     }
             classes = [
-                one_of_0,
-                one_of_1,
-                one_of_2,
-                one_of_3,
-                one_of_4,
-                one_of_5,
-                one_of_6,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

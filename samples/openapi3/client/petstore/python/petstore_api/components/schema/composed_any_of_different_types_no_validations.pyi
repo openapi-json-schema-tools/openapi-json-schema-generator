@@ -37,18 +37,18 @@ class ComposedAnyOfDifferentTypesNoValidations(
         # any type
         
         class any_of:
-            any_of_0 = schemas.DictSchema
-            any_of_1 = schemas.DateSchema
-            any_of_2 = schemas.DateTimeSchema
-            any_of_3 = schemas.BinarySchema
-            any_of_4 = schemas.StrSchema
-            any_of_5 = schemas.StrSchema
-            any_of_6 = schemas.DictSchema
-            any_of_7 = schemas.BoolSchema
-            any_of_8 = schemas.NoneSchema
+             = schemas.DictSchema
+             = schemas.DateSchema
+             = schemas.DateTimeSchema
+             = schemas.BinarySchema
+             = schemas.StrSchema
+             = schemas.StrSchema
+             = schemas.DictSchema
+             = schemas.BoolSchema
+             = schemas.NoneSchema
             
             
-            class any_of_9(
+            class (
                 schemas.ListSchema
             ):
             
@@ -61,7 +61,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'any_of_9':
+                ) -> '':
                     return super().__new__(
                         cls,
                         _arg,
@@ -70,31 +70,35 @@ class ComposedAnyOfDifferentTypesNoValidations(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
-            any_of_10 = schemas.NumberSchema
-            any_of_11 = schemas.Float32Schema
-            any_of_12 = schemas.Float64Schema
-            any_of_13 = schemas.IntSchema
-            any_of_14 = schemas.Int32Schema
-            any_of_15 = schemas.Int64Schema
+             = schemas.NumberSchema
+             = schemas.Float32Schema
+             = schemas.Float64Schema
+             = schemas.IntSchema
+             = schemas.Int32Schema
+             = schemas.Int64Schema
             classes = [
-                any_of_0,
-                any_of_1,
-                any_of_2,
-                any_of_3,
-                any_of_4,
-                any_of_5,
-                any_of_6,
-                any_of_7,
-                any_of_8,
-                any_of_9,
-                any_of_10,
-                any_of_11,
-                any_of_12,
-                any_of_13,
-                any_of_14,
-                any_of_15,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

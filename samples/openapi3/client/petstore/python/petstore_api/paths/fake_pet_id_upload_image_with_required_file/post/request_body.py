@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class multipart_form_data(
+class schema(
     schemas.DictSchema
 ):
 
@@ -47,33 +47,26 @@ class multipart_form_data(
             }
     
     requiredFile: MetaOapg.properties.requiredFile
-    
+    # type hints for required __getitem__
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.properties.requiredFile: ...
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.properties.additionalMetadata: ...
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.properties.requiredFile: ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["additionalMetadata", "requiredFile", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["requiredFile"], typing_extensions.Literal["additionalMetadata"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.properties.additionalMetadata, schemas.Unset]: ...
-    
-    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.properties.requiredFile: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.properties.additionalMetadata, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["additionalMetadata", "requiredFile", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["requiredFile"], typing_extensions.Literal["additionalMetadata"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -82,7 +75,7 @@ class multipart_form_data(
         additionalMetadata: typing.Union[MetaOapg.properties.additionalMetadata, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'multipart_form_data':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -95,7 +88,7 @@ class multipart_form_data(
 parameter_oapg = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data
+            schema=schema
         ),
     },
 )

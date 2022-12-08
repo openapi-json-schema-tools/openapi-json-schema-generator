@@ -6,8 +6,4 @@
 {{> model_templates/property_type_hints_required addPropsUnset=true }}
 {{/if}}
 {{/if}}
-{{#if additionalProperties}}
-{{> model_templates/property_getitems_with_addprops }}
-{{else}}
-{{> model_templates/property_getitems_without_addprops }}
-{{/if}}
+{{> model_templates/property_getitems }}

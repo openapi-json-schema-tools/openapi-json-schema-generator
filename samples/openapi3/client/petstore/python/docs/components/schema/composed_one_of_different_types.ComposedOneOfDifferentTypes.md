@@ -15,34 +15,34 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  | 
 [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  | 
-[one_of_2](#one_of_2) | None,  | NoneClass,  |  | 
-[one_of_3](#one_of_3) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[one_of_4](#one_of_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-[one_of_5](#one_of_5) | list, tuple,  | tuple,  |  | 
-[one_of_6](#one_of_6) | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
+[](#) | None,  | NoneClass,  |  | 
+[](#) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[](#) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+[](#) | list, tuple,  | tuple,  |  | 
+[](#) | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# one_of_2
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  | 
 
-# one_of_3
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# one_of_4
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-# one_of_5
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -54,7 +54,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
 
-# one_of_6
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

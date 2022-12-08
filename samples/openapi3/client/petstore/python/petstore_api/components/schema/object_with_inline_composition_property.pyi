@@ -49,14 +49,18 @@ class ObjectWithInlineCompositionProperty(
                     class all_of:
                         
                         
-                        class all_of_0(
+                        class someProp(
                             schemas.StrSchema
                         ):
                             pass
                         classes = [
-                            all_of_0,
+                            someProp,
                         ]
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -73,14 +77,11 @@ class ObjectWithInlineCompositionProperty(
             __annotations__ = {
                 "someProp": someProp,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.properties.someProp: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["someProp"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -88,12 +89,8 @@ class ObjectWithInlineCompositionProperty(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.properties.someProp, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["someProp"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

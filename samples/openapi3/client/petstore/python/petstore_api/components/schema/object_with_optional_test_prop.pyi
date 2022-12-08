@@ -40,14 +40,11 @@ class ObjectWithOptionalTestProp(
             __annotations__ = {
                 "test": test,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["test"]) -> MetaOapg.properties.test: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["test", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["test"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -55,12 +52,8 @@ class ObjectWithOptionalTestProp(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["test"]) -> typing.Union[MetaOapg.properties.test, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["test", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["test"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

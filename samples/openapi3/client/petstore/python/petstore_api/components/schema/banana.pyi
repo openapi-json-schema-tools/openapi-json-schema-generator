@@ -45,14 +45,11 @@ class Banana(
             }
     
     lengthCm: MetaOapg.properties.lengthCm
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.properties.lengthCm: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["lengthCm", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["lengthCm"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -60,12 +57,8 @@ class Banana(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.properties.lengthCm: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["lengthCm", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["lengthCm"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

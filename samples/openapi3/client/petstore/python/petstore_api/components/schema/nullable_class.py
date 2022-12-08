@@ -54,6 +54,10 @@ class NullableClass(
                     }
                     format = 'int'
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -81,6 +85,10 @@ class NullableClass(
                         decimal.Decimal,
                     }
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -108,6 +116,10 @@ class NullableClass(
                         schemas.BoolClass,
                     }
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -135,6 +147,10 @@ class NullableClass(
                         str,
                     }
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -164,6 +180,10 @@ class NullableClass(
                     }
                     format = 'date'
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -193,6 +213,10 @@ class NullableClass(
                     }
                     format = 'date-time'
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -221,6 +245,10 @@ class NullableClass(
                     }
                     items = schemas.DictSchema
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -263,6 +291,10 @@ class NullableClass(
                                 frozendict.frozendict,
                             }
                     
+                        
+                        
+                        def get_item_oapg(self, name: typing.Union[]):
+                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -277,6 +309,10 @@ class NullableClass(
                                 **kwargs,
                             )
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -313,6 +349,10 @@ class NullableClass(
                                 frozendict.frozendict,
                             }
                     
+                        
+                        
+                        def get_item_oapg(self, name: typing.Union[]):
+                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -357,10 +397,12 @@ class NullableClass(
                     }
                     additional_properties = schemas.DictSchema
             
-                
-                def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                # no properties or required properties but still have addProps
+                # type hints for addProp __getitem__
+                def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
+                
                 
                 def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
@@ -408,6 +450,10 @@ class NullableClass(
                                 frozendict.frozendict,
                             }
                     
+                        
+                        
+                        def get_item_oapg(self, name: typing.Union[]):
+                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -422,10 +468,12 @@ class NullableClass(
                                 **kwargs,
                             )
             
-                
-                def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                # no properties or required properties but still have addProps
+                # type hints for addProp __getitem__
+                def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
+                
                 
                 def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
@@ -467,6 +515,10 @@ class NullableClass(
                                 frozendict.frozendict,
                             }
                     
+                        
+                        
+                        def get_item_oapg(self, name: typing.Union[]):
+                            return super().get_item_oapg(name)
                     
                         def __new__(
                             cls,
@@ -480,10 +532,12 @@ class NullableClass(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
-                
-                def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                # no properties or required properties but still have addProps
+                # type hints for addProp __getitem__
+                def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
+                
                 
                 def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
@@ -530,6 +584,10 @@ class NullableClass(
                     frozendict.frozendict,
                 }
         
+            
+            
+            def get_item_oapg(self, name: typing.Union[]):
+                return super().get_item_oapg(name)
         
             def __new__(
                 cls,
@@ -543,49 +601,39 @@ class NullableClass(
                     _configuration=_configuration,
                     **kwargs,
                 )
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> MetaOapg.properties.integer_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> MetaOapg.properties.number_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> MetaOapg.properties.boolean_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> MetaOapg.properties.string_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> MetaOapg.properties.date_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> MetaOapg.properties.datetime_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> MetaOapg.properties.array_nullable_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> MetaOapg.properties.array_and_items_nullable_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> MetaOapg.properties.array_items_nullable: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> MetaOapg.properties.object_nullable_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> MetaOapg.properties.object_and_items_nullable_prop: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> MetaOapg.properties.object_items_nullable: ...
-    
+    # type hints for addProp __getitem__
     @typing.overload
     def __getitem__(self, name: str) -> MetaOapg.additional_properties: ...
     
     def __getitem__(self, name: typing.Union[typing_extensions.Literal["integer_prop"], typing_extensions.Literal["number_prop"], typing_extensions.Literal["boolean_prop"], typing_extensions.Literal["string_prop"], typing_extensions.Literal["date_prop"], typing_extensions.Literal["datetime_prop"], typing_extensions.Literal["array_nullable_prop"], typing_extensions.Literal["array_and_items_nullable_prop"], typing_extensions.Literal["array_items_nullable"], typing_extensions.Literal["object_nullable_prop"], typing_extensions.Literal["object_and_items_nullable_prop"], typing_extensions.Literal["object_items_nullable"], str, ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[MetaOapg.properties.integer_prop, schemas.Unset]: ...

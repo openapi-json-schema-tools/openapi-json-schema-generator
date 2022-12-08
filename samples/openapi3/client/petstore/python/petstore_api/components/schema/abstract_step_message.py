@@ -62,53 +62,56 @@ class AbstractStepMessage(
         class any_of:
         
             @staticmethod
-            def any_of_0() -> typing.Type['AbstractStepMessage']:
+            def () -> typing.Type['AbstractStepMessage']:
                 return AbstractStepMessage
             classes = [
-                any_of_0,
+                ,
             ]
 
     
     description: schemas.AnyTypeSchema
     discriminator: MetaOapg.properties.discriminator
     sequenceNumber: schemas.AnyTypeSchema
-    
+    # type hints for required __getitem__
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.properties.discriminator: ...
-    
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["discriminator", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["description"], typing_extensions.Literal["discriminator"], typing_extensions.Literal["sequenceNumber"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.properties.discriminator: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["discriminator", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["description"], typing_extensions.Literal["discriminator"], typing_extensions.Literal["sequenceNumber"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        description: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        description: typing.Union[MetaOapg.properties., dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         discriminator: typing.Union[MetaOapg.properties.discriminator, str, ],
-        sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        sequenceNumber: typing.Union[MetaOapg.properties., dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'AbstractStepMessage':
         return super().__new__(
             cls,
             *_args,
-            description=description,
+            =,
             discriminator=discriminator,
-            sequenceNumber=sequenceNumber,
+            =,
             _configuration=_configuration,
             **kwargs,
         )

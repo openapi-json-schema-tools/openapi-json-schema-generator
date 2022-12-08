@@ -861,10 +861,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // set cp.nameInSnakeCase to a value so we can tell that we are in this use case
         // we handle this in the schema templates
         // templates use its presence to handle these badly named variables / keys
-        if ((isReservedWord(cp.baseName) || !isValidPythonVarOrClassName(cp.baseName)) && !cp.baseName.equals(cp.name)) {
-            cp.nameInSnakeCase = cp.name;
-        } else {
-            cp.nameInSnakeCase = null;
+        if (cp.baseName != null && cp.name != null) {
+            if ((isReservedWord(cp.baseName) || !isValidPythonVarOrClassName(cp.baseName)) && !cp.baseName.equals(cp.name)) {
+                cp.nameInSnakeCase = cp.name;
+            } else {
+                cp.nameInSnakeCase = null;
+            }
         }
         if (cp.isEnum) {
             updateCodegenPropertyEnum(cp);
@@ -2018,32 +2020,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             modelNameToSchemaCache = Collections.unmodifiableMap(m);
         }
         return modelNameToSchemaCache;
-    }
-
-    /**
-     * Use cases:
-     * additional properties is unset: do nothing
-     * additional properties is true: add definiton to property
-     * additional properties is false: add definiton to property
-     * additional properties is schema: add definiton to property
-     *
-     * @param schema the schema that may contain an additional property schema
-     * @param property the property for the above schema
-     */
-    @Override
-    protected void setAddProps(Schema schema, JsonSchema property, String sourceJsonPath){
-        Schema addPropsSchema = getSchemaFromBooleanOrSchema(schema.getAdditionalProperties());
-        if (addPropsSchema == null) {
-            return;
-        }
-        CodegenProperty addPropProp = fromProperty(
-                getAdditionalPropertiesName(),
-                addPropsSchema,
-                false,
-                false,
-                sourceJsonPath
-        );
-        property.setAdditionalProperties(addPropProp);
     }
 
     /**

@@ -56,20 +56,15 @@ class ObjectModelWithRefProps(
                 "myString": myString,
                 "myBoolean": myBoolean,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'number_with_validations.NumberWithValidations': ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'string.String': ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'boolean.Boolean': ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["myNumber", "myString", "myBoolean", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["myNumber"], typing_extensions.Literal["myString"], typing_extensions.Literal["myBoolean"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -83,12 +78,8 @@ class ObjectModelWithRefProps(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['boolean.Boolean', schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["myNumber", "myString", "myBoolean", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["myNumber"], typing_extensions.Literal["myString"], typing_extensions.Literal["myBoolean"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

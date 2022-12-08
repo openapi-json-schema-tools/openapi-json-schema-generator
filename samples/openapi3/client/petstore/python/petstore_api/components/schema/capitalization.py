@@ -51,29 +51,21 @@ class Capitalization(
                 "SCA_ETH_Flow_Points": SCA_ETH_Flow_Points,
                 "ATT_NAME": ATT_NAME,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> MetaOapg.properties.smallCamel: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["CapitalCamel"]) -> MetaOapg.properties.CapitalCamel: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["small_Snake"]) -> MetaOapg.properties.small_Snake: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["Capital_Snake"]) -> MetaOapg.properties.Capital_Snake: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> MetaOapg.properties.SCA_ETH_Flow_Points: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["ATT_NAME"]) -> MetaOapg.properties.ATT_NAME: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["smallCamel", "CapitalCamel", "small_Snake", "Capital_Snake", "SCA_ETH_Flow_Points", "ATT_NAME", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["smallCamel"], typing_extensions.Literal["CapitalCamel"], typing_extensions.Literal["small_Snake"], typing_extensions.Literal["Capital_Snake"], typing_extensions.Literal["SCA_ETH_Flow_Points"], typing_extensions.Literal["ATT_NAME"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -96,12 +88,8 @@ class Capitalization(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["ATT_NAME"]) -> typing.Union[MetaOapg.properties.ATT_NAME, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["smallCamel", "CapitalCamel", "small_Snake", "Capital_Snake", "SCA_ETH_Flow_Points", "ATT_NAME", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["smallCamel"], typing_extensions.Literal["CapitalCamel"], typing_extensions.Literal["small_Snake"], typing_extensions.Literal["Capital_Snake"], typing_extensions.Literal["SCA_ETH_Flow_Points"], typing_extensions.Literal["ATT_NAME"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

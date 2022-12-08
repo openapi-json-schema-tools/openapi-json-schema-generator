@@ -185,6 +185,9 @@ docs/components/schema/player.Player.md
 docs/components/schema/quadrilateral.Quadrilateral.md
 docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md
 docs/components/schema/read_only_first.ReadOnlyFirst.md
+docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md
+docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md
+docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md
 docs/components/schema/scalene_triangle.ScaleneTriangle.md
 docs/components/schema/self_referencing_array_model.SelfReferencingArrayModel.md
 docs/components/schema/self_referencing_object_model.SelfReferencingObjectModel.md
@@ -497,6 +500,12 @@ petstore_api/components/schema/quadrilateral_interface.py
 petstore_api/components/schema/quadrilateral_interface.pyi
 petstore_api/components/schema/read_only_first.py
 petstore_api/components/schema/read_only_first.pyi
+petstore_api/components/schema/req_props_from_explicit_add_props.py
+petstore_api/components/schema/req_props_from_explicit_add_props.pyi
+petstore_api/components/schema/req_props_from_true_add_props.py
+petstore_api/components/schema/req_props_from_true_add_props.pyi
+petstore_api/components/schema/req_props_from_unset_add_props.py
+petstore_api/components/schema/req_props_from_unset_add_props.pyi
 petstore_api/components/schema/scalene_triangle.py
 petstore_api/components/schema/scalene_triangle.pyi
 petstore_api/components/schema/self_referencing_array_model.py

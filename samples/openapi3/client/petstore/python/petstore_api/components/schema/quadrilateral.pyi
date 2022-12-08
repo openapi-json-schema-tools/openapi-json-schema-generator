@@ -48,17 +48,21 @@ class Quadrilateral(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['simple_quadrilateral.SimpleQuadrilateral']:
+            def () -> typing.Type['simple_quadrilateral.SimpleQuadrilateral']:
                 return simple_quadrilateral.SimpleQuadrilateral
         
             @staticmethod
-            def one_of_1() -> typing.Type['complex_quadrilateral.ComplexQuadrilateral']:
+            def () -> typing.Type['complex_quadrilateral.ComplexQuadrilateral']:
                 return complex_quadrilateral.ComplexQuadrilateral
             classes = [
-                one_of_0,
-                one_of_1,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

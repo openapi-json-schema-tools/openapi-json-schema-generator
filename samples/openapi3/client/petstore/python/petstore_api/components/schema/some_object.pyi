@@ -39,12 +39,16 @@ class SomeObject(
         class all_of:
         
             @staticmethod
-            def all_of_0() -> typing.Type['object_interface.ObjectInterface']:
+            def () -> typing.Type['object_interface.ObjectInterface']:
                 return object_interface.ObjectInterface
             classes = [
-                all_of_0,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

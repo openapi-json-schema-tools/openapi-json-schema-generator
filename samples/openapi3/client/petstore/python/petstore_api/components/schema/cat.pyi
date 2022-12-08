@@ -39,11 +39,11 @@ class Cat(
         class all_of:
         
             @staticmethod
-            def all_of_0() -> typing.Type['animal.Animal']:
+            def () -> typing.Type['animal.Animal']:
                 return animal.Animal
             
             
-            class all_of_1(
+            class (
                 schemas.DictSchema
             ):
             
@@ -55,14 +55,11 @@ class Cat(
                         __annotations__ = {
                             "declawed": declawed,
                         }
-                
+                # type hints for optional __getitem__
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> MetaOapg.properties.declawed: ...
                 
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-                
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["declawed", ], str]):
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["declawed"], ]):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
@@ -70,12 +67,8 @@ class Cat(
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[MetaOapg.properties.declawed, schemas.Unset]: ...
                 
-                @typing.overload
-                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["declawed", ], str]):
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["declawed"], ]):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -83,7 +76,7 @@ class Cat(
                     declawed: typing.Union[MetaOapg.properties.declawed, bool, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_1':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *_args,
@@ -92,10 +85,14 @@ class Cat(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

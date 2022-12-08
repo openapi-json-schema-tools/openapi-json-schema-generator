@@ -12,9 +12,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) |  | 
-[all_of_1](#all_of_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+[](#) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-# all_of_1
+# 
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

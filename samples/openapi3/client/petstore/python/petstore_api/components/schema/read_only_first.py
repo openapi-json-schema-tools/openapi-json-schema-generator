@@ -43,17 +43,13 @@ class ReadOnlyFirst(
                 "bar": bar,
                 "baz": baz,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["bar", "baz", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["bar"], typing_extensions.Literal["baz"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -64,12 +60,8 @@ class ReadOnlyFirst(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> typing.Union[MetaOapg.properties.baz, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["bar", "baz", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["bar"], typing_extensions.Literal["baz"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

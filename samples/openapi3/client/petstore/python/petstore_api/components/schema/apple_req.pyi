@@ -48,16 +48,17 @@ class AppleReq(
         additional_properties = schemas.NotAnyTypeSchema
     
     cultivar: MetaOapg.properties.cultivar
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.properties.cultivar: ...
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> MetaOapg.properties.mealy: ...
     
     def __getitem__(self, name: typing.Union[typing_extensions.Literal["cultivar"], typing_extensions.Literal["mealy"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.properties.cultivar: ...

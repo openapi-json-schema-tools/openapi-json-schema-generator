@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_x_www_form_urlencoded(
+class schema(
     schemas.DictSchema
 ):
 
@@ -182,56 +182,53 @@ class application_x_www_form_urlencoded(
     double: MetaOapg.properties.double
     number: MetaOapg.properties.number
     pattern_without_delimiter: MetaOapg.properties.pattern_without_delimiter
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.properties.string: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
-    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
+    # type hints for optional __getitem__
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.properties.string: ...
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.properties.binary: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.properties.dateTime: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["callback"]) -> MetaOapg.properties.callback: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["integer", "int32", "int64", "number", "float", "double", "string", "pattern_without_delimiter", "byte", "binary", "date", "dateTime", "password", "callback", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["byte"], typing_extensions.Literal["double"], typing_extensions.Literal["number"], typing_extensions.Literal["pattern_without_delimiter"], typing_extensions.Literal["integer"], typing_extensions.Literal["int32"], typing_extensions.Literal["int64"], typing_extensions.Literal["float"], typing_extensions.Literal["string"], typing_extensions.Literal["binary"], typing_extensions.Literal["date"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["password"], typing_extensions.Literal["callback"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.properties.integer, schemas.Unset]: ...
@@ -243,22 +240,10 @@ class application_x_www_form_urlencoded(
     def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.properties.int64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
-    
-    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.properties._float, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
-    
-    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.properties.string, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.properties.binary, schemas.Unset]: ...
@@ -275,12 +260,8 @@ class application_x_www_form_urlencoded(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union[MetaOapg.properties.callback, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["integer", "int32", "int64", "number", "float", "double", "string", "pattern_without_delimiter", "byte", "binary", "date", "dateTime", "password", "callback", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["byte"], typing_extensions.Literal["double"], typing_extensions.Literal["number"], typing_extensions.Literal["pattern_without_delimiter"], typing_extensions.Literal["integer"], typing_extensions.Literal["int32"], typing_extensions.Literal["int64"], typing_extensions.Literal["float"], typing_extensions.Literal["string"], typing_extensions.Literal["binary"], typing_extensions.Literal["date"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["password"], typing_extensions.Literal["callback"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -300,7 +281,7 @@ class application_x_www_form_urlencoded(
         callback: typing.Union[MetaOapg.properties.callback, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_x_www_form_urlencoded':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -324,7 +305,7 @@ class application_x_www_form_urlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=schema
         ),
     },
 )

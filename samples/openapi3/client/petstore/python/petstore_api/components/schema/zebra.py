@@ -42,24 +42,6 @@ class Zebra(
         class properties:
             
             
-            class className(
-                schemas.StrSchema
-            ):
-            
-            
-                class MetaOapg:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "zebra": "ZEBRA",
-                    }
-                
-                @schemas.classproperty
-                def ZEBRA(cls):
-                    return cls("zebra")
-            
-            
             class type(
                 schemas.StrSchema
             ):
@@ -86,26 +68,45 @@ class Zebra(
                 @schemas.classproperty
                 def GREVYS(cls):
                     return cls("grevys")
+            
+            
+            class className(
+                schemas.StrSchema
+            ):
+            
+            
+                class MetaOapg:
+                    types = {
+                        str,
+                    }
+                    enum_value_to_name = {
+                        "zebra": "ZEBRA",
+                    }
+                
+                @schemas.classproperty
+                def ZEBRA(cls):
+                    return cls("zebra")
             __annotations__ = {
-                "className": className,
                 "type": type,
+                "className": className,
             }
         additional_properties = schemas.AnyTypeSchema
     
     className: MetaOapg.properties.className
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
-    
+    # type hints for addProp __getitem__
     @typing.overload
     def __getitem__(self, name: str) -> MetaOapg.additional_properties: ...
     
     def __getitem__(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["type"], str, ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...

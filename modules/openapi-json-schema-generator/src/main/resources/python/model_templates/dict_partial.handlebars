@@ -26,7 +26,7 @@ def discriminator():
 {{#if properties}}
 
 class properties:
-{{#each vars}}
+{{#each properties}}
 {{#if refClass}}
 
     @staticmethod
@@ -37,11 +37,11 @@ class properties:
 {{/if}}
 {{/each}}
     __annotations__ = {
-{{#each vars}}
+{{#each properties}}
 {{#if nameInSnakeCase}}
-        "{{{baseName}}}": {{name}},
+        "{{{@key}}}": {{name}},
 {{else}}
-        "{{{baseName}}}": {{baseName}},
+        "{{{@key}}}": {{baseName}},
 {{/if}}
 {{/each}}
     }

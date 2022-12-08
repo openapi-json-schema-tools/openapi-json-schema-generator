@@ -48,21 +48,25 @@ class ShapeOrNull(
             }
         
         class one_of:
-            one_of_0 = schemas.NoneSchema
+             = schemas.NoneSchema
         
             @staticmethod
-            def one_of_1() -> typing.Type['triangle.Triangle']:
+            def () -> typing.Type['triangle.Triangle']:
                 return triangle.Triangle
         
             @staticmethod
-            def one_of_2() -> typing.Type['quadrilateral.Quadrilateral']:
+            def () -> typing.Type['quadrilateral.Quadrilateral']:
                 return quadrilateral.Quadrilateral
             classes = [
-                one_of_0,
-                one_of_1,
-                one_of_2,
+                ,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

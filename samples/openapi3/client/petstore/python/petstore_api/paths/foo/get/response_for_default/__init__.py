@@ -20,7 +20,7 @@ from petstore_api.components.schema import foo
 # body schemas
 
 
-class application_json(
+class schema(
     schemas.DictSchema
 ):
 
@@ -36,14 +36,11 @@ class application_json(
             __annotations__ = {
                 "string": string,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'foo.Foo': ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["string", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["string"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -51,12 +48,8 @@ class application_json(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union['foo.Foo', schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["string", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["string"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -64,7 +57,7 @@ class application_json(
         string: typing.Union['foo.Foo', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_json':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -78,7 +71,7 @@ class application_json(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json,
+        schema,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -87,7 +80,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=schema,
         ),
     },
 )

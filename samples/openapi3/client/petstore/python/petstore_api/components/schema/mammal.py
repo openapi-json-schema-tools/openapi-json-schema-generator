@@ -49,22 +49,26 @@ class Mammal(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['whale.Whale']:
+            def () -> typing.Type['whale.Whale']:
                 return whale.Whale
         
             @staticmethod
-            def one_of_1() -> typing.Type['zebra.Zebra']:
+            def () -> typing.Type['zebra.Zebra']:
                 return zebra.Zebra
         
             @staticmethod
-            def one_of_2() -> typing.Type['pig.Pig']:
+            def () -> typing.Type['pig.Pig']:
                 return pig.Pig
             classes = [
-                one_of_0,
-                one_of_1,
-                one_of_2,
+                ,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

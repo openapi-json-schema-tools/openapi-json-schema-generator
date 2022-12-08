@@ -49,12 +49,16 @@ class ParentPet(
         class all_of:
         
             @staticmethod
-            def all_of_0() -> typing.Type['grandparent_animal.GrandparentAnimal']:
+            def () -> typing.Type['grandparent_animal.GrandparentAnimal']:
                 return grandparent_animal.GrandparentAnimal
             classes = [
-                all_of_0,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

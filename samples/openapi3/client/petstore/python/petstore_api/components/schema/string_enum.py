@@ -79,6 +79,10 @@ class StringEnum(
     def NONE(cls):
         return cls(None)
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import file_schema_test_class
 
 
-application_json = file_schema_test_class.FileSchemaTestClass
+schema = file_schema_test_class.FileSchemaTestClass
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=schema
         ),
     },
     required=True,

@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_x_www_form_urlencoded(
+class schema(
     schemas.DictSchema
 ):
 
@@ -114,17 +114,13 @@ class application_x_www_form_urlencoded(
                 "enum_form_string_array": enum_form_string_array,
                 "enum_form_string": enum_form_string,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> MetaOapg.properties.enum_form_string_array: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> MetaOapg.properties.enum_form_string: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array", "enum_form_string", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array"], typing_extensions.Literal["enum_form_string"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -135,12 +131,8 @@ class application_x_www_form_urlencoded(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["enum_form_string"]) -> typing.Union[MetaOapg.properties.enum_form_string, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array", "enum_form_string", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array"], typing_extensions.Literal["enum_form_string"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -149,7 +141,7 @@ class application_x_www_form_urlencoded(
         enum_form_string: typing.Union[MetaOapg.properties.enum_form_string, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_x_www_form_urlencoded':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -162,7 +154,7 @@ class application_x_www_form_urlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=schema
         ),
     },
 )

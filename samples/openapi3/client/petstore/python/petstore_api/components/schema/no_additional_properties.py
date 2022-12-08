@@ -49,16 +49,17 @@ class NoAdditionalProperties(
         additional_properties = schemas.NotAnyTypeSchema
     
     id: MetaOapg.properties.id
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.properties.petId: ...
     
     def __getitem__(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["petId"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...

@@ -18,7 +18,7 @@ from petstore_api import schemas  # noqa: F401
 # body schemas
 
 
-class application_json(
+class schema(
     schemas.AnyTypeSchema,
 ):
 
@@ -29,7 +29,7 @@ class application_json(
         class all_of:
             
             
-            class all_of_0(
+            class schema(
                 schemas.StrSchema
             ):
             
@@ -40,16 +40,20 @@ class application_json(
                     }
                     min_length = 1
             classes = [
-                all_of_0,
+                schema,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_json':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -58,7 +62,7 @@ class application_json(
         )
 
 
-class multipart_form_data(
+class schema(
     schemas.DictSchema
 ):
 
@@ -80,7 +84,7 @@ class multipart_form_data(
                     class all_of:
                         
                         
-                        class all_of_0(
+                        class someProp(
                             schemas.StrSchema
                         ):
                         
@@ -91,9 +95,13 @@ class multipart_form_data(
                                 }
                                 min_length = 1
                         classes = [
-                            all_of_0,
+                            someProp,
                         ]
             
+                
+                
+                def get_item_oapg(self, name: typing.Union[]):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
@@ -110,14 +118,11 @@ class multipart_form_data(
             __annotations__ = {
                 "someProp": someProp,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.properties.someProp: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["someProp"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -125,12 +130,8 @@ class multipart_form_data(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.properties.someProp, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["someProp"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -138,7 +139,7 @@ class multipart_form_data(
         someProp: typing.Union[MetaOapg.properties.someProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'multipart_form_data':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -152,8 +153,8 @@ class multipart_form_data(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json,
-        multipart_form_data,
+        schema,
+        schema,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -162,10 +163,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=schema,
         ),
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data,
+            schema=schema,
         ),
     },
 )

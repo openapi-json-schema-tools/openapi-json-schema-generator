@@ -54,33 +54,25 @@ class ObjectWithInvalidNamedRefedProperties(
                 "!reference": reference,
             }
     
-    
+    # type hints for required __getitem__
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["from", "!reference", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["!reference"], typing_extensions.Literal["from"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
-    
-    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["from", "!reference", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["!reference"], typing_extensions.Literal["from"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

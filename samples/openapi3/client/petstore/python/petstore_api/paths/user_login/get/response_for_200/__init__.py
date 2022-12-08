@@ -58,16 +58,16 @@ class Header:
         parameter_number_header.parameter_oapg,
     ]
 # body schemas
-application_xml = schemas.StrSchema
-application_json = schemas.StrSchema
+schema = schemas.StrSchema
+schema = schemas.StrSchema
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml,
-        application_json,
+        schema,
+        schema,
     ]
     headers: Header.Params
 
@@ -76,10 +76,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=application_xml,
+            schema=schema,
         ),
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=schema,
         ),
     },
     headers=Header.parameters

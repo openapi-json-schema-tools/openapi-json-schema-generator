@@ -42,17 +42,13 @@ class FromSchema(
                 "data": data,
                 "id": id,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["data"]) -> MetaOapg.properties.data: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["data", "id", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["data"], typing_extensions.Literal["id"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -63,12 +59,8 @@ class FromSchema(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["data", "id", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["data"], typing_extensions.Literal["id"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

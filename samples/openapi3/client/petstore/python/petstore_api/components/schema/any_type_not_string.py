@@ -35,8 +35,12 @@ class AnyTypeNotString(
 
     class MetaOapg:
         # any type
-        not_schema = schemas.StrSchema
+         = schemas.StrSchema
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

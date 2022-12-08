@@ -41,23 +41,19 @@ class Player(
             name = schemas.StrSchema
         
             @staticmethod
-            def enemyPlayer() -> typing.Type['Player']:
-                return Player
+            def enemyPlayer() -> typing.Type['player.Player']:
+                return player.Player
             __annotations__ = {
                 "name": name,
                 "enemyPlayer": enemyPlayer,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
-    
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enemyPlayer"]) -> 'Player': ...
+    def __getitem__(self, name: typing_extensions.Literal["enemyPlayer"]) -> 'player.Player': ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "enemyPlayer", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["enemyPlayer"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -66,20 +62,16 @@ class Player(
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["enemyPlayer"]) -> typing.Union['Player', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["enemyPlayer"]) -> typing.Union['player.Player', schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "enemyPlayer", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["enemyPlayer"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
-        enemyPlayer: typing.Union['Player', schemas.Unset] = schemas.unset,
+        enemyPlayer: typing.Union['player.Player', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Player':
@@ -91,3 +83,5 @@ class Player(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import player

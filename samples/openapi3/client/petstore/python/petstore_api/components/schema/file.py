@@ -43,14 +43,11 @@ class File(
             __annotations__ = {
                 "sourceURI": sourceURI,
             }
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["sourceURI"]) -> MetaOapg.properties.sourceURI: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["sourceURI", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["sourceURI"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -58,12 +55,8 @@ class File(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["sourceURI"]) -> typing.Union[MetaOapg.properties.sourceURI, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["sourceURI", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["sourceURI"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

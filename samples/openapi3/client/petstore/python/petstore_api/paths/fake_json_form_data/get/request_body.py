@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_x_www_form_urlencoded(
+class schema(
     schemas.DictSchema
 ):
 
@@ -49,17 +49,13 @@ class application_x_www_form_urlencoded(
     
     param: MetaOapg.properties.param
     param2: MetaOapg.properties.param2
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["param"]) -> MetaOapg.properties.param: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.properties.param2: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["param", "param2", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["param"], typing_extensions.Literal["param2"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -70,12 +66,8 @@ class application_x_www_form_urlencoded(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.properties.param2: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["param", "param2", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["param"], typing_extensions.Literal["param2"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
@@ -84,7 +76,7 @@ class application_x_www_form_urlencoded(
         param2: typing.Union[MetaOapg.properties.param2, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_x_www_form_urlencoded':
+    ) -> 'schema':
         return super().__new__(
             cls,
             *_args,
@@ -97,7 +89,7 @@ class application_x_www_form_urlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=schema
         ),
     },
 )

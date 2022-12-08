@@ -48,17 +48,21 @@ class Shape(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['triangle.Triangle']:
+            def () -> typing.Type['triangle.Triangle']:
                 return triangle.Triangle
         
             @staticmethod
-            def one_of_1() -> typing.Type['quadrilateral.Quadrilateral']:
+            def () -> typing.Type['quadrilateral.Quadrilateral']:
                 return quadrilateral.Quadrilateral
             classes = [
-                one_of_0,
-                one_of_1,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

@@ -37,21 +37,25 @@ class FruitReq(
         # any type
         
         class one_of:
-            one_of_0 = schemas.NoneSchema
+             = schemas.NoneSchema
         
             @staticmethod
-            def one_of_1() -> typing.Type['apple_req.AppleReq']:
+            def () -> typing.Type['apple_req.AppleReq']:
                 return apple_req.AppleReq
         
             @staticmethod
-            def one_of_2() -> typing.Type['banana_req.BananaReq']:
+            def () -> typing.Type['banana_req.BananaReq']:
                 return banana_req.BananaReq
             classes = [
-                one_of_0,
-                one_of_1,
-                one_of_2,
+                ,
+                ,
+                ,
             ]
 
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

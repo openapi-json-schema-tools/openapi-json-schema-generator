@@ -25,12 +25,12 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-application_json_charsetutf_8 = schemas.AnyTypeSchema
+schema = schemas.AnyTypeSchema
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json; charset=utf-8': api_client.MediaType(
-            schema=application_json_charsetutf_8
+            schema=schema
         ),
     },
 )

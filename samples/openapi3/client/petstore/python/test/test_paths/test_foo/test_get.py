@@ -32,7 +32,7 @@ class TestFoo(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 0
-    response_body_schema = get.response_for_default.application_json
+    response_body_schema = get.response_for_default.schema
 
 if __name__ == '__main__':
     unittest.main()

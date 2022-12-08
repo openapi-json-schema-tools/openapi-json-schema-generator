@@ -45,25 +45,22 @@ class GmFruit(
         class any_of:
         
             @staticmethod
-            def any_of_0() -> typing.Type['apple.Apple']:
+            def () -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def any_of_1() -> typing.Type['banana.Banana']:
+            def () -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                any_of_0,
-                any_of_1,
+                ,
+                ,
             ]
 
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.properties.color: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["color", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["color"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -71,12 +68,8 @@ class GmFruit(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.properties.color, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["color", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["color"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

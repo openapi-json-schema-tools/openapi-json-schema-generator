@@ -31,6 +31,10 @@ class ObjectWithValidations(
 
     Do not edit the class manually.
     """
+    
+    
+    def get_item_oapg(self, name: typing.Union[]):
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,

@@ -42,29 +42,25 @@ class ObjectWithDifficultlyNamedProps(
         }
         
         class properties:
-            _123_list = schemas.StrSchema
             special_property_name = schemas.Int64Schema
+            _123_list = schemas.StrSchema
             _123_number = schemas.IntSchema
             __annotations__ = {
-                "123-list": _123_list,
                 "$special[property.name]": special_property_name,
+                "123-list": _123_list,
                 "123Number": _123_number,
             }
     
-    
+    # type hints for required __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> MetaOapg.properties._123_list: ...
-    
+    # type hints for optional __getitem__
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> MetaOapg.properties.special_property_name: ...
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> MetaOapg.properties._123_number: ...
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["123-list", "$special[property.name]", "123Number", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["123-list"], typing_extensions.Literal["$special[property.name]"], typing_extensions.Literal["123Number"], ]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -78,12 +74,8 @@ class ObjectWithDifficultlyNamedProps(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["123Number"]) -> typing.Union[MetaOapg.properties._123_number, schemas.Unset]: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["123-list", "$special[property.name]", "123Number", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["123-list"], typing_extensions.Literal["$special[property.name]"], typing_extensions.Literal["123Number"], ]):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
