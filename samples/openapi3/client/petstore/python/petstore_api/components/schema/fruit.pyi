@@ -45,15 +45,15 @@ class Fruit(
         class one_of:
         
             @staticmethod
-            def () -> typing.Type['apple.Apple']:
+            def _0() -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def () -> typing.Type['banana.Banana']:
+            def _1() -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                ,
-                ,
+                _0,
+                _1,
             ]
 
     

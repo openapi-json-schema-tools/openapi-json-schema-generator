@@ -39,9 +39,9 @@ class ComposedObject(
         }
         
         class all_of:
-             = schemas.AnyTypeSchema
+            _0 = schemas.AnyTypeSchema
             classes = [
-                ,
+                _0,
             ]
 
 

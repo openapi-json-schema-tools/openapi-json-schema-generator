@@ -12,9 +12,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  | 
-[](#) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+[_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-# 
+# _1
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

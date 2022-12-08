@@ -39,11 +39,11 @@ class ScaleneTriangle(
         class all_of:
         
             @staticmethod
-            def () -> typing.Type['triangle_interface.TriangleInterface']:
+            def _0() -> typing.Type['triangle_interface.TriangleInterface']:
                 return triangle_interface.TriangleInterface
             
             
-            class (
+            class _1(
                 schemas.DictSchema
             ):
             
@@ -111,7 +111,7 @@ class ScaleneTriangle(
                     triangleType: typing.Union[MetaOapg.properties.triangleType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> '':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -120,8 +120,8 @@ class ScaleneTriangle(
                         **kwargs,
                     )
             classes = [
-                ,
-                ,
+                _0,
+                _1,
             ]
 
 

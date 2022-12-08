@@ -39,10 +39,10 @@ class SomeObject(
         class all_of:
         
             @staticmethod
-            def () -> typing.Type['object_interface.ObjectInterface']:
+            def _0() -> typing.Type['object_interface.ObjectInterface']:
                 return object_interface.ObjectInterface
             classes = [
-                ,
+                _0,
             ]
 
 

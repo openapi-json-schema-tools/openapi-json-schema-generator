@@ -39,11 +39,11 @@ class ComplexQuadrilateral(
         class all_of:
         
             @staticmethod
-            def () -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
+            def _0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
                 return quadrilateral_interface.QuadrilateralInterface
             
             
-            class (
+            class _1(
                 schemas.DictSchema
             ):
             
@@ -111,7 +111,7 @@ class ComplexQuadrilateral(
                     quadrilateralType: typing.Union[MetaOapg.properties.quadrilateralType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> '':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -120,8 +120,8 @@ class ComplexQuadrilateral(
                         **kwargs,
                     )
             classes = [
-                ,
-                ,
+                _0,
+                _1,
             ]
 
 

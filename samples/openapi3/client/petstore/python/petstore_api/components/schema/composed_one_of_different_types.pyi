@@ -41,17 +41,17 @@ class ComposedOneOfDifferentTypes(
         class one_of:
         
             @staticmethod
-            def () -> typing.Type['number_with_validations.NumberWithValidations']:
+            def _0() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def () -> typing.Type['animal.Animal']:
+            def _1() -> typing.Type['animal.Animal']:
                 return animal.Animal
-             = schemas.NoneSchema
-             = schemas.DateSchema
+            _2 = schemas.NoneSchema
+            _3 = schemas.DateSchema
             
             
-            class (
+            class _4(
                 schemas.DictSchema
             ):
             
@@ -60,7 +60,7 @@ class ComposedOneOfDifferentTypes(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> '':
+                ) -> '_4':
                     return super().__new__(
                         cls,
                         *_args,
@@ -69,7 +69,7 @@ class ComposedOneOfDifferentTypes(
                     )
             
             
-            class (
+            class _5(
                 schemas.ListSchema
             ):
             
@@ -84,7 +84,7 @@ class ComposedOneOfDifferentTypes(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> '':
+                ) -> '_5':
                     return super().__new__(
                         cls,
                         _arg,
@@ -95,18 +95,18 @@ class ComposedOneOfDifferentTypes(
                     return super().__getitem__(i)
             
             
-            class (
+            class _6(
                 schemas.DateTimeSchema
             ):
                 pass
             classes = [
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
+                _0,
+                _1,
+                _2,
+                _3,
+                _4,
+                _5,
+                _6,
             ]
 
 

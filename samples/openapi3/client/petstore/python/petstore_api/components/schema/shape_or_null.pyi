@@ -48,19 +48,19 @@ class ShapeOrNull(
             }
         
         class one_of:
-             = schemas.NoneSchema
+            _0 = schemas.NoneSchema
         
             @staticmethod
-            def () -> typing.Type['triangle.Triangle']:
+            def _1() -> typing.Type['triangle.Triangle']:
                 return triangle.Triangle
         
             @staticmethod
-            def () -> typing.Type['quadrilateral.Quadrilateral']:
+            def _2() -> typing.Type['quadrilateral.Quadrilateral']:
                 return quadrilateral.Quadrilateral
             classes = [
-                ,
-                ,
-                ,
+                _0,
+                _1,
+                _2,
             ]
 
 

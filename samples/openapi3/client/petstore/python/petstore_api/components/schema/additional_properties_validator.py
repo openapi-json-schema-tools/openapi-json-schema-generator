@@ -41,7 +41,7 @@ class AdditionalPropertiesValidator(
         class all_of:
             
             
-            class (
+            class _0(
                 schemas.DictSchema
             ):
             
@@ -62,7 +62,7 @@ class AdditionalPropertiesValidator(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additional_properties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> '':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -71,7 +71,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class (
+            class _1(
                 schemas.DictSchema
             ):
             
@@ -115,7 +115,7 @@ class AdditionalPropertiesValidator(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additional_properties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> '':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -124,7 +124,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class (
+            class _2(
                 schemas.DictSchema
             ):
             
@@ -168,7 +168,7 @@ class AdditionalPropertiesValidator(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additional_properties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> '':
+                ) -> '_2':
                     return super().__new__(
                         cls,
                         *_args,
@@ -176,9 +176,9 @@ class AdditionalPropertiesValidator(
                         **kwargs,
                     )
             classes = [
-                ,
-                ,
-                ,
+                _0,
+                _1,
+                _2,
             ]
 
 

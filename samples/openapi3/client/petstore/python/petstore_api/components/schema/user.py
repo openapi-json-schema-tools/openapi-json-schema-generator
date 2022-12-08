@@ -85,7 +85,7 @@ class User(
             
                 class MetaOapg:
                     # any type
-                    anyTypeExceptNullProp = schemas.NoneSchema
+                    _not = schemas.NoneSchema
             
             
                 def __new__(

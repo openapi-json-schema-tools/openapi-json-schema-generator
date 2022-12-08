@@ -50,7 +50,7 @@ class ObjectWithInlineCompositionProperty(
                     class all_of:
                         
                         
-                        class someProp(
+                        class _0(
                             schemas.StrSchema
                         ):
                         
@@ -61,7 +61,7 @@ class ObjectWithInlineCompositionProperty(
                                 }
                                 min_length = 1
                         classes = [
-                            someProp,
+                            _0,
                         ]
             
             

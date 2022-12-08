@@ -49,12 +49,12 @@ class ObjectWithInlineCompositionProperty(
                     class all_of:
                         
                         
-                        class someProp(
+                        class _0(
                             schemas.StrSchema
                         ):
                             pass
                         classes = [
-                            someProp,
+                            _0,
                         ]
             
             

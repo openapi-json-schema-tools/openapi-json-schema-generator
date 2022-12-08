@@ -48,15 +48,15 @@ class Pig(
         class one_of:
         
             @staticmethod
-            def () -> typing.Type['basque_pig.BasquePig']:
+            def _0() -> typing.Type['basque_pig.BasquePig']:
                 return basque_pig.BasquePig
         
             @staticmethod
-            def () -> typing.Type['danish_pig.DanishPig']:
+            def _1() -> typing.Type['danish_pig.DanishPig']:
                 return danish_pig.DanishPig
             classes = [
-                ,
-                ,
+                _0,
+                _1,
             ]
 
 

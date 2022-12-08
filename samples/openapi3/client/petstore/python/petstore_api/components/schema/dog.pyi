@@ -39,11 +39,11 @@ class Dog(
         class all_of:
         
             @staticmethod
-            def () -> typing.Type['animal.Animal']:
+            def _0() -> typing.Type['animal.Animal']:
                 return animal.Animal
             
             
-            class (
+            class _1(
                 schemas.DictSchema
             ):
             
@@ -93,7 +93,7 @@ class Dog(
                     breed: typing.Union[MetaOapg.properties.breed, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> '':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -102,8 +102,8 @@ class Dog(
                         **kwargs,
                     )
             classes = [
-                ,
-                ,
+                _0,
+                _1,
             ]
 
 

@@ -2772,17 +2772,17 @@ public class DefaultCodegen implements CodegenConfig {
         }
         List<Schema> allOfs = schema.getAllOf();
         if (allOfs != null && !allOfs.isEmpty()) {
-             List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "all_of", sourceJsonPath);
+             List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "allOf", sourceJsonPath);
              m.setAllOf(allOfProps);
         }
         List<Schema> anyOfs = schema.getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
-            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "any_of", sourceJsonPath);
+            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "anyOf", sourceJsonPath);
             m.setAnyOf(anyOfProps);
         }
         List<Schema> oneOfs = schema.getOneOf();
         if (oneOfs != null && !oneOfs.isEmpty()) {
-            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "one_of", sourceJsonPath);
+            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "oneOf", sourceJsonPath);
             m.setOneOf(oneOfProps);
         }
         if (ModelUtils.isArraySchema(schema)) {
@@ -3584,7 +3584,7 @@ public class DefaultCodegen implements CodegenConfig {
         property.setTypeProperties(p);
         Schema notSchema = p.getNot();
         if (notSchema != null) {
-            CodegenProperty notProperty = fromProperty("not_schema", notSchema, false, false, sourceJsonPath);
+            CodegenProperty notProperty = fromProperty("not_schema", notSchema, false, false, sourceJsonPath + "/not");
             property.setNot(notProperty);
         }
         List<Schema> allOfs = p.getAllOf();
@@ -6525,7 +6525,7 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenProperty> xOf = new ArrayList<>();
         int i = 0;
         for (Schema xOfSchema : xOfCollection) {
-            CodegenProperty cp = fromProperty(collectionName + "_" + i, xOfSchema, false, false, sourceJsonPath);
+            CodegenProperty cp = fromProperty(collectionName + "_" + i, xOfSchema, false, false, sourceJsonPath + "/" + collectionName + "/" + String.valueOf(i));
             xOf.add(cp);
             i += 1;
         }

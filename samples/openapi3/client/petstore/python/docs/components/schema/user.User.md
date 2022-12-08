@@ -56,9 +56,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[anyTypeExceptNullProp](#anyTypeExceptNullProp) | None,  | NoneClass,  |  | 
+[_not](#_not) | None,  | NoneClass,  |  | 
 
-# anyTypeExceptNullProp
+# _not
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -37,18 +37,18 @@ class ComposedAnyOfDifferentTypesNoValidations(
         # any type
         
         class any_of:
-             = schemas.DictSchema
-             = schemas.DateSchema
-             = schemas.DateTimeSchema
-             = schemas.BinarySchema
-             = schemas.StrSchema
-             = schemas.StrSchema
-             = schemas.DictSchema
-             = schemas.BoolSchema
-             = schemas.NoneSchema
+            _0 = schemas.DictSchema
+            _1 = schemas.DateSchema
+            _2 = schemas.DateTimeSchema
+            _3 = schemas.BinarySchema
+            _4 = schemas.StrSchema
+            _5 = schemas.StrSchema
+            _6 = schemas.DictSchema
+            _7 = schemas.BoolSchema
+            _8 = schemas.NoneSchema
             
             
-            class (
+            class _9(
                 schemas.ListSchema
             ):
             
@@ -61,7 +61,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> '':
+                ) -> '_9':
                     return super().__new__(
                         cls,
                         _arg,
@@ -70,29 +70,29 @@ class ComposedAnyOfDifferentTypesNoValidations(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
-             = schemas.NumberSchema
-             = schemas.Float32Schema
-             = schemas.Float64Schema
-             = schemas.IntSchema
-             = schemas.Int32Schema
-             = schemas.Int64Schema
+            _10 = schemas.NumberSchema
+            _11 = schemas.Float32Schema
+            _12 = schemas.Float64Schema
+            _13 = schemas.IntSchema
+            _14 = schemas.Int32Schema
+            _15 = schemas.Int64Schema
             classes = [
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
+                _0,
+                _1,
+                _2,
+                _3,
+                _4,
+                _5,
+                _6,
+                _7,
+                _8,
+                _9,
+                _10,
+                _11,
+                _12,
+                _13,
+                _14,
+                _15,
             ]
 
 
