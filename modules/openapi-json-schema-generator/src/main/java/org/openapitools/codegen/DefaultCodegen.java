@@ -3375,25 +3375,7 @@ public class DefaultCodegen implements CodegenConfig {
         return camelize(toVarName(name));
     }
 
-    protected void updatePropertyForMap(CodegenProperty property, Schema p, String sourceJsonPath) {
-        // TODO remove this hack in the future, code should use minProperties and maxProperties for object schemas
-        property.minItems = p.getMinProperties();
-        property.maxItems = p.getMaxProperties();
-
-        // handle inner property
-        Schema innerSchema = unaliasSchema(getAdditionalProperties(p));
-        if (innerSchema == null) {
-            LOGGER.error("Undefined map inner type for `{}`. Default to String.", p.getName());
-            innerSchema = new StringSchema().description("//TODO automatically added by openapi-generator due to undefined type");
-            p.setAdditionalProperties(innerSchema);
-        }
-        CodegenProperty cp = fromProperty(
-                "inner", innerSchema, false, false, sourceJsonPath);
-        updatePropertyForMap(property, cp);
-    }
-
     protected void updatePropertyForObject(CodegenProperty property, Schema p, String sourceJsonPath) {
-        updatePropertyForMap(property, p, sourceJsonPath);
         addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
     }
 
@@ -3402,16 +3384,6 @@ public class DefaultCodegen implements CodegenConfig {
         // See https://github.com/OAI/OpenAPI-Specification/issues/1389
         if (Boolean.FALSE.equals(p.getNullable())) {
             LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
-        }
-        ComposedSchema composedSchema = p instanceof ComposedSchema
-            ? (ComposedSchema) p
-            : null;
-        property.isNullable = property.isNullable || composedSchema == null || composedSchema.getAllOf() == null || composedSchema.getAllOf().size() == 0;
-        if (ModelUtils.isMapSchema(p)) {
-            // an object or anyType composed schema that has additionalProperties set
-            // some of our code assumes that any type schema with properties defined will be a map
-            // even though it should allow in any type and have map constraints for properties
-            updatePropertyForMap(property, p, sourceJsonPath);
         }
         addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
     }
@@ -3682,61 +3654,14 @@ public class DefaultCodegen implements CodegenConfig {
         return toModelName(refPieces[refPieces.length-1]);
     }
 
-    /**
-     * Update property for array(list) container
-     *
-     * @param property      Codegen property
-     * @param innerProperty Codegen inner property of map or list
-     */
     protected void updatePropertyForArray(CodegenProperty property, CodegenProperty innerProperty) {
         if (innerProperty == null) {
-            if (LOGGER.isWarnEnabled()) {
+            if(LOGGER.isWarnEnabled()) {
                 LOGGER.warn("skipping invalid array property {}", Json.pretty(property));
             }
             return;
         }
         property.items = innerProperty;
-        // inner item is Enum
-        if (isPropertyInnerMostEnum(property)) {
-            // isEnum is set to true when the type is an enum
-            // or the inner type of an array/map is an enum
-            property.isEnum = true;
-            // update datatypeWithEnum and default value for array
-            // e.g. List<string> => List<StatusEnum>
-            updateDataTypeWithEnumForArray(property);
-            // set allowable values to enum values (including array/map of enum)
-            property.allowableValues = getInnerEnumAllowableValues(property);
-        }
-
-    }
-
-    /**
-     * Update property for map container
-     *
-     * @param property      Codegen property
-     * @param innerProperty Codegen inner property of map or list
-     */
-    protected void updatePropertyForMap(CodegenProperty property, CodegenProperty innerProperty) {
-        if (innerProperty == null) {
-            if (LOGGER.isWarnEnabled()) {
-                LOGGER.warn("skipping invalid map property {}", Json.pretty(property));
-            }
-            return;
-        }
-        // TODO fix this, map should not be assigning properties to items
-        property.items = innerProperty;
-        // inner item is Enum
-        if (isPropertyInnerMostEnum(property)) {
-            // isEnum is set to true when the type is an enum
-            // or the inner type of an array/map is an enum
-            property.isEnum = true;
-            // update datatypeWithEnum and default value for map
-            // e.g. Dictionary<string, string> => Dictionary<string, StatusEnum>
-            updateDataTypeWithEnumForMap(property);
-            // set allowable values to enum values (including array/map of enum)
-            property.allowableValues = getInnerEnumAllowableValues(property);
-        }
-
     }
 
     /**
@@ -3764,30 +3689,6 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenProperty currentProperty = getMostInnerItems(property);
 
         return currentProperty == null ? new HashMap<>() : currentProperty.allowableValues;
-    }
-
-    /**
-     * Update datatypeWithEnum for array container
-     *
-     * @param property Codegen property
-     */
-    protected void updateDataTypeWithEnumForArray(CodegenProperty property) {
-        CodegenProperty baseItem = property.items;
-        while (baseItem != null && (Boolean.TRUE.equals(baseItem.isMap)
-                || Boolean.TRUE.equals(baseItem.isArray))) {
-            baseItem = baseItem.items;
-        }
-        if (baseItem != null) {
-            // naming the enum with respect to the language enum naming convention
-            // e.g. remove [], {} from array/map of enum
-
-            // set default value for variable with inner enum
-            if (property.defaultValue != null) {
-                property.defaultValue = property.defaultValue.replace(baseItem.baseType, toEnumName(baseItem));
-            }
-
-            updateCodegenPropertyEnum(property);
-        }
     }
 
     /**

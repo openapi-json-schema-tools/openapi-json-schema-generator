@@ -2051,35 +2051,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /**
-     * Update property for array(list) container
-     *
-     * @param property      Codegen property
-     * @param innerProperty Codegen inner property of map or list
-     */
-    @Override
-    protected void updatePropertyForArray(CodegenProperty property, CodegenProperty innerProperty) {
-        if (innerProperty == null) {
-            if(LOGGER.isWarnEnabled()) {
-                LOGGER.warn("skipping invalid array property {}", Json.pretty(property));
-            }
-            return;
-        }
-        property.items = innerProperty;
-        // inner item is Enum
-        if (isPropertyInnerMostEnum(property)) {
-            // isEnum is set to true when the type is an enum
-            // or the inner type of an array/map is an enum
-            property.isEnum = true;
-            // update datatypeWithEnum and default value for array
-            // e.g. List<string> => List<StatusEnum>
-            updateDataTypeWithEnumForArray(property);
-            // set allowable values to enum values (including array/map of enum)
-            property.allowableValues = getInnerEnumAllowableValues(property);
-        }
-
-    }
-
-    /**
      * Sets the booleans that define the model's type
      *
      * @param model the model to update
@@ -2151,23 +2122,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         property.isInteger = true;
         // int32 and int64 differentiation is determined with format info
     }
-
-
-    @Override
-    protected void updatePropertyForObject(CodegenProperty property, Schema p, String sourceJsonPath) {
-        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
-    }
-
-    @Override
-    protected void updatePropertyForAnyType(CodegenProperty property, Schema p, String sourceJsonPath) {
-        // The 'null' value is allowed when the OAS schema is 'any type'.
-        // See https://github.com/OAI/OpenAPI-Specification/issues/1389
-        if (Boolean.FALSE.equals(p.getNullable())) {
-            LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
-        }
-        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
-    }
-
+    
     @Override
     protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
         // custom version of this method so properties are always added with addVars
