@@ -20,8 +20,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> Meta
 {{/each}}
 {{/if}}
 {{#if properties}}
-{{#each vars}}
-{{#unless required}}
+{{#each optionalProperties}}
 
 @typing.overload
 {{#if refClass}}
@@ -33,7 +32,6 @@ def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> Meta
 def __getitem__(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> MetaOapg.properties.{{baseName}}: ...
 {{/if}}
 {{/if}}
-{{/unless}}
 {{/each}}
 {{/if}}
 {{#or properties getRequiredProperties}}
@@ -74,8 +72,7 @@ def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> Me
 {{/each}}
 {{/if}}
 {{#if properties}}
-{{#each vars}}
-{{#unless required}}
+{{#each optionalProperties}}
 
 @typing.overload
 {{#if refClass}}
@@ -87,7 +84,6 @@ def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> ty
 def get_item_oapg(self, name: typing_extensions.Literal["{{{baseName}}}"]) -> typing.Union[MetaOapg.properties.{{baseName}}, schemas.Unset]: ...
 {{/if}}
 {{/if}}
-{{/unless}}
 {{/each}}
 {{/if}}
 {{#or properties getRequiredProperties}}

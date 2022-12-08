@@ -43,7 +43,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 {{#if getItems}}
         {{> model_templates/list_partial }}
 {{/if}}
-{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping vars}}
+{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
         {{> model_templates/dict_partial }}
 {{/or}}
 {{#unless isStub}}
