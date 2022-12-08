@@ -168,9 +168,9 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     private boolean hasDiscriminatorWithNonEmptyMapping;
     private boolean isAnyType;
     private boolean isUuid;
-    private Map<String, CodegenProperty> requiredProperties;
-    private Map<String, CodegenProperty> optionalProperties;
-    private Map<String, CodegenProperty> properties;
+    private LinkedHashMap<String, CodegenProperty> requiredProperties;
+    private LinkedHashMap<String, CodegenProperty> optionalProperties;
+    private LinkedHashMap<String, CodegenProperty> properties;
     private String ref;
     private String refModule;
 
@@ -1237,22 +1237,22 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public Map<String, CodegenProperty> getRequiredProperties() { return requiredProperties; }
+    public LinkedHashMap<String, CodegenProperty> getRequiredProperties() { return requiredProperties; }
 
     @Override
-    public void setRequiredProperties(Map<String, CodegenProperty> requiredProperties) { this.requiredProperties=requiredProperties; }
+    public void setRequiredProperties(LinkedHashMap<String, CodegenProperty> requiredProperties) { this.requiredProperties=requiredProperties; }
 
     @Override
-    public Map<String, CodegenProperty> getProperties() { return properties; }
+    public LinkedHashMap<String, CodegenProperty> getProperties() { return properties; }
 
     @Override
-    public void setProperties(Map<String, CodegenProperty> properties) { this.properties = properties; }
+    public void setProperties(LinkedHashMap<String, CodegenProperty> properties) { this.properties = properties; }
 
     @Override
-    public Map<String, CodegenProperty> getOptionalProperties() { return optionalProperties; }
+    public LinkedHashMap<String, CodegenProperty> getOptionalProperties() { return optionalProperties; }
 
     @Override
-    public void setOptionalProperties(Map<String, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
+    public void setOptionalProperties(LinkedHashMap<String, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
 
     /**
      * Remove duplicated properties in all variable list

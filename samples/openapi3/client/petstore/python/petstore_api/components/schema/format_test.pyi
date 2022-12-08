@@ -35,10 +35,10 @@ class FormatTest(
 
     class MetaOapg:
         required = {
+            "byte",
             "date",
             "number",
             "password",
-            "byte",
         }
         
         class properties:
@@ -156,10 +156,10 @@ class FormatTest(
                 "noneProp": noneProp,
             }
     
+    byte: MetaOapg.properties.byte
     date: MetaOapg.properties.date
     number: MetaOapg.properties.number
     password: MetaOapg.properties.password
-    byte: MetaOapg.properties.byte
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
@@ -305,10 +305,10 @@ class FormatTest(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        byte: typing.Union[MetaOapg.properties.byte, str, ],
         date: typing.Union[MetaOapg.properties.date, str, date, ],
         number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
         password: typing.Union[MetaOapg.properties.password, str, ],
-        byte: typing.Union[MetaOapg.properties.byte, str, ],
         integer: typing.Union[MetaOapg.properties.integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int32: typing.Union[MetaOapg.properties.int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int32withValidations: typing.Union[MetaOapg.properties.int32withValidations, decimal.Decimal, int, schemas.Unset] = schemas.unset,
@@ -331,10 +331,10 @@ class FormatTest(
         return super().__new__(
             cls,
             *_args,
+            byte=byte,
             date=date,
             number=number,
             password=password,
-            byte=byte,
             integer=integer,
             int32=int32,
             int32withValidations=int32withValidations,

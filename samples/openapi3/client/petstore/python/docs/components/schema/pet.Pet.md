@@ -12,8 +12,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Pet object that needs 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[photoUrls](#photoUrls)** | list, tuple,  | tuple,  |  | 
 **name** | str,  | str,  |  | 
+**[photoUrls](#photoUrls)** | list, tuple,  | tuple,  |  | 
 **id** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
 **category** | [**category.Category**](category.Category.md) | [**category.Category**](category.Category.md) |  | [optional] 
 **[tags](#tags)** | list, tuple,  | tuple,  |  | [optional] 

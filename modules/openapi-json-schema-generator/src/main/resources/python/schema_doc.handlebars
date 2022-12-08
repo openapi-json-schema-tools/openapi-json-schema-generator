@@ -15,10 +15,8 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#each getRequiredProperties}}
 **{{#with this}}{{#unless refClass}}{{#or isArray isMap allOf anyOf oneOf not}}[{{/or}}{{/unless}}{{/with}}{{{@key}}}{{#with this}}{{#unless refClass}}{{#or isArray isMap allOf anyOf oneOf not}}](#{{baseName}}){{/or}}{{/unless}}{{/with}}** | {{#with this}}{{#unless refClass}}{{> model_templates/schema_python_types }}{{/unless}}{{#if refClass}}{{> refclass_partial }}{{/if}} | {{#unless refClass}}{{> model_templates/schema_accessed_types }}{{/unless}}{{#if refClass}}{{> refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} | {{> model_templates/notes_msg }}{{/with}}
     {{/each}}
-    {{#each vars}}
-    {{#unless required}}
+    {{#each optionalProperties}}
 **{{#unless refClass}}{{#or isArray isMap allOf anyOf oneOf not}}[{{/or}}{{/unless}}{{baseName}}{{#unless refClass}}{{#or isArray isMap allOf anyOf oneOf not}}](#{{baseName}}){{/or}}{{/unless}}** | {{#unless refClass}}{{> model_templates/schema_python_types }}{{/unless}}{{#if refClass}}{{> refclass_partial }}{{/if}} | {{#unless refClass}}{{> model_templates/schema_accessed_types }}{{/unless}}{{#if refClass}}{{> refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional] {{> model_templates/notes_msg }}
-    {{/unless}}
     {{/each}}
     {{#with additionalProperties}}
     {{#unless getIsBooleanSchemaFalse}}

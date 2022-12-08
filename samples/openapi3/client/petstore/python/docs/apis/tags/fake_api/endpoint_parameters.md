@@ -81,10 +81,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**number** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | 
-**pattern_without_delimiter** | str,  | str,  | None | 
 **byte** | str,  | str,  | None | 
 **double** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | value must be a 64 bit float
+**number** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | 
+**pattern_without_delimiter** | str,  | str,  | None | 
 **integer** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] 
 **int32** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 32 bit integer
 **int64** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 64 bit integer

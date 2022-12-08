@@ -4770,8 +4770,8 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        Map<String, CodegenProperty> propertiesMap = new HashMap<>();
-        Map<String, CodegenProperty> optionalProperties = new HashMap<>();
+        LinkedHashMap<String, CodegenProperty> propertiesMap = new LinkedHashMap<>();
+        LinkedHashMap<String, CodegenProperty> optionalProperties = new LinkedHashMap<>();
 
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
             final String key = entry.getKey();
@@ -6109,7 +6109,7 @@ public class DefaultCodegen implements CodegenConfig {
         - nameInSnakeCase can store valid name for a programming language
          */
         Map<String, Schema> properties = schema.getProperties();
-        Map<String, CodegenProperty> requiredProperties = new HashMap<>();
+        LinkedHashMap<String, CodegenProperty> requiredProperties = new LinkedHashMap<>();
         List<String> requiredPropertyNames = schema.getRequired();
         if (requiredPropertyNames == null) {
             return;

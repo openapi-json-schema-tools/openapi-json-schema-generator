@@ -37,8 +37,8 @@ class Pet(
 
     class MetaOapg:
         required = {
-            "photoUrls",
             "name",
+            "photoUrls",
         }
         
         class properties:
@@ -125,8 +125,8 @@ class Pet(
                 "status": status,
             }
     
-    photoUrls: MetaOapg.properties.photoUrls
     name: MetaOapg.properties.name
+    photoUrls: MetaOapg.properties.photoUrls
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -182,8 +182,8 @@ class Pet(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        photoUrls: typing.Union[MetaOapg.properties.photoUrls, list, tuple, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
+        photoUrls: typing.Union[MetaOapg.properties.photoUrls, list, tuple, ],
         id: typing.Union[MetaOapg.properties.id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
         tags: typing.Union[MetaOapg.properties.tags, list, tuple, schemas.Unset] = schemas.unset,
@@ -194,8 +194,8 @@ class Pet(
         return super().__new__(
             cls,
             *_args,
-            photoUrls=photoUrls,
             name=name,
+            photoUrls=photoUrls,
             id=id,
             category=category,
             tags=tags,

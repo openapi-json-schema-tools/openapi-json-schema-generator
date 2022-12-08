@@ -10,10 +10,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
+**byte** | str,  | str,  |  | 
 **date** | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 **number** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | 
 **password** | str,  | str,  |  | 
-**byte** | str,  | str,  |  | 
 **integer** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] 
 **int32** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer
 **int32withValidations** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer

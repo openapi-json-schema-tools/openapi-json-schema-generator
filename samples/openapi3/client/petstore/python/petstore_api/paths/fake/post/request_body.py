@@ -35,10 +35,10 @@ class application_x_www_form_urlencoded(
     class MetaOapg:
         types = {frozendict.frozendict}
         required = {
-            "number",
-            "pattern_without_delimiter",
             "byte",
             "double",
+            "number",
+            "pattern_without_delimiter",
         }
         
         class properties:
@@ -178,10 +178,10 @@ class application_x_www_form_urlencoded(
                 "callback": callback,
             }
     
-    number: MetaOapg.properties.number
-    pattern_without_delimiter: MetaOapg.properties.pattern_without_delimiter
     byte: MetaOapg.properties.byte
     double: MetaOapg.properties.double
+    number: MetaOapg.properties.number
+    pattern_without_delimiter: MetaOapg.properties.pattern_without_delimiter
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
@@ -285,10 +285,10 @@ class application_x_www_form_urlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
-        pattern_without_delimiter: typing.Union[MetaOapg.properties.pattern_without_delimiter, str, ],
         byte: typing.Union[MetaOapg.properties.byte, str, ],
         double: typing.Union[MetaOapg.properties.double, decimal.Decimal, int, float, ],
+        number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
+        pattern_without_delimiter: typing.Union[MetaOapg.properties.pattern_without_delimiter, str, ],
         integer: typing.Union[MetaOapg.properties.integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int32: typing.Union[MetaOapg.properties.int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int64: typing.Union[MetaOapg.properties.int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
@@ -304,10 +304,10 @@ class application_x_www_form_urlencoded(
         return super().__new__(
             cls,
             *_args,
-            number=number,
-            pattern_without_delimiter=pattern_without_delimiter,
             byte=byte,
             double=double,
+            number=number,
+            pattern_without_delimiter=pattern_without_delimiter,
             integer=integer,
             int32=int32,
             int64=int64,

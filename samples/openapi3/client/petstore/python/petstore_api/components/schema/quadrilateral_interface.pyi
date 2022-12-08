@@ -36,8 +36,8 @@ class QuadrilateralInterface(
     class MetaOapg:
         # any type
         required = {
-            "shapeType",
             "quadrilateralType",
+            "shapeType",
         }
         
         class properties:
@@ -57,8 +57,8 @@ class QuadrilateralInterface(
             }
 
     
-    shapeType: MetaOapg.properties.shapeType
     quadrilateralType: MetaOapg.properties.quadrilateralType
+    shapeType: MetaOapg.properties.shapeType
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.properties.shapeType: ...
@@ -90,16 +90,16 @@ class QuadrilateralInterface(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        shapeType: typing.Union[MetaOapg.properties.shapeType, str, ],
         quadrilateralType: typing.Union[MetaOapg.properties.quadrilateralType, str, ],
+        shapeType: typing.Union[MetaOapg.properties.shapeType, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'QuadrilateralInterface':
         return super().__new__(
             cls,
             *_args,
-            shapeType=shapeType,
             quadrilateralType=quadrilateralType,
+            shapeType=shapeType,
             _configuration=_configuration,
             **kwargs,
         )
