@@ -56,14 +56,17 @@ class Animal(
             }
     
     className: MetaOapg.properties.className
-    # type hints for required __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.properties.color: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["color"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["color"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -74,7 +77,10 @@ class Animal(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.properties.color, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["color"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["color"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

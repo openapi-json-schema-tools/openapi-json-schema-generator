@@ -40,11 +40,14 @@ class Client(
             __annotations__ = {
                 "client": client,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["client"]) -> MetaOapg.properties.client: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["client"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["client"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -52,7 +55,10 @@ class Client(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["client"]) -> typing.Union[MetaOapg.properties.client, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["client"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["client"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

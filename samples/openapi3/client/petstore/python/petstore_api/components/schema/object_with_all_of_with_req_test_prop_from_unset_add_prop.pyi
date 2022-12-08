@@ -60,14 +60,17 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                         }
                 
                 test: schemas.AnyTypeSchema
-                # type hints for required __getitem__
+                
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema: ...
-                # type hints for optional __getitem__
+                
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["test"], typing_extensions.Literal["name"], ]):
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["test"], typing_extensions.Literal["name"], str]):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
@@ -78,7 +81,10 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["test"], typing_extensions.Literal["name"], ]):
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["test"], typing_extensions.Literal["name"], str]):
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -104,7 +110,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
     
     
-    def get_item_oapg(self, name: typing.Union[]):
+    def get_item_oapg(self, name: typing.Union[str]):
         return super().get_item_oapg(name)
 
     def __new__(

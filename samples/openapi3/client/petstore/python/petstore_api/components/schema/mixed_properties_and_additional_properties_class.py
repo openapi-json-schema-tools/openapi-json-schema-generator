@@ -52,14 +52,12 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     @staticmethod
                     def additional_properties() -> typing.Type['animal.Animal']:
                         return animal.Animal
-                # no properties or required properties but still have addProps
-                # type hints for addProp __getitem__
                 def __getitem__(self, name: str) -> 'animal.Animal'
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
                 
-                def get_item_oapg(self, name: typing.Union[str, ]) -> 'animal.Animal':
+                def get_item_oapg(self, name: typing.Union[str]) -> 'animal.Animal':
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -79,15 +77,20 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                 "dateTime": dateTime,
                 "map": map,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.properties.uuid: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.properties.dateTime: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map"]) -> MetaOapg.properties.map: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["uuid"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["map"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["uuid"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["map"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -101,7 +104,10 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["map"]) -> typing.Union[MetaOapg.properties.map, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["uuid"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["map"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["uuid"], typing_extensions.Literal["dateTime"], typing_extensions.Literal["map"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

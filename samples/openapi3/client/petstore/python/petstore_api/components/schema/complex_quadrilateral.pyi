@@ -63,11 +63,14 @@ class ComplexQuadrilateral(
                         __annotations__ = {
                             "quadrilateralType": quadrilateralType,
                         }
-                # type hints for optional __getitem__
+                
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.properties.quadrilateralType: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["quadrilateralType"], ]):
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(self, name: typing.Union[typing_extensions.Literal["quadrilateralType"], str]):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
@@ -75,7 +78,10 @@ class ComplexQuadrilateral(
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing.Union[MetaOapg.properties.quadrilateralType, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["quadrilateralType"], ]):
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["quadrilateralType"], str]):
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -99,7 +105,7 @@ class ComplexQuadrilateral(
 
     
     
-    def get_item_oapg(self, name: typing.Union[]):
+    def get_item_oapg(self, name: typing.Union[str]):
         return super().get_item_oapg(name)
 
     def __new__(

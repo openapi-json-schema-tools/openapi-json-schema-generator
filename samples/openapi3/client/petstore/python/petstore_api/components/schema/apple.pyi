@@ -65,14 +65,17 @@ class Apple(
 
     
     cultivar: MetaOapg.properties.cultivar
-    # type hints for required __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.properties.cultivar: ...
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["origin"]) -> MetaOapg.properties.origin: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["cultivar"], typing_extensions.Literal["origin"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["cultivar"], typing_extensions.Literal["origin"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -83,7 +86,10 @@ class Apple(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["origin"]) -> typing.Union[MetaOapg.properties.origin, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["cultivar"], typing_extensions.Literal["origin"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["cultivar"], typing_extensions.Literal["origin"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

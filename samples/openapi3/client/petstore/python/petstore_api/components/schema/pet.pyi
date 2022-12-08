@@ -127,22 +127,29 @@ class Pet(
     
     name: MetaOapg.properties.name
     photoUrls: MetaOapg.properties.photoUrls
-    # type hints for required __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> MetaOapg.properties.photoUrls: ...
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'category.Category': ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["tags"]) -> MetaOapg.properties.tags: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["photoUrls"], typing_extensions.Literal["id"], typing_extensions.Literal["category"], typing_extensions.Literal["tags"], typing_extensions.Literal["status"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["photoUrls"], typing_extensions.Literal["id"], typing_extensions.Literal["category"], typing_extensions.Literal["tags"], typing_extensions.Literal["status"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -165,7 +172,10 @@ class Pet(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["photoUrls"], typing_extensions.Literal["id"], typing_extensions.Literal["category"], typing_extensions.Literal["tags"], typing_extensions.Literal["status"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["photoUrls"], typing_extensions.Literal["id"], typing_extensions.Literal["category"], typing_extensions.Literal["tags"], typing_extensions.Literal["status"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

@@ -44,15 +44,20 @@ class ApiResponse(
                 "type": type,
                 "message": message,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["code"]) -> MetaOapg.properties.code: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["code"], typing_extensions.Literal["type"], typing_extensions.Literal["message"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["code"], typing_extensions.Literal["type"], typing_extensions.Literal["message"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -66,7 +71,10 @@ class ApiResponse(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["code"], typing_extensions.Literal["type"], typing_extensions.Literal["message"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["code"], typing_extensions.Literal["type"], typing_extensions.Literal["message"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

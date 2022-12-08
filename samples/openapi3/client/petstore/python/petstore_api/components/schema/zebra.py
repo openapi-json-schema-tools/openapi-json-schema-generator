@@ -93,17 +93,17 @@ class Zebra(
         additional_properties = schemas.AnyTypeSchema
     
     className: MetaOapg.properties.className
-    # type hints for required __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
-    # type hints for addProp __getitem__
+    
     @typing.overload
     def __getitem__(self, name: str) -> MetaOapg.additional_properties: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["type"], str, ]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["type"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -117,7 +117,7 @@ class Zebra(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.additional_properties, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["type"], str, ]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["className"], typing_extensions.Literal["type"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

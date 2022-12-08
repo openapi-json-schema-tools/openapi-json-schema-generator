@@ -61,14 +61,12 @@ class AdditionalPropertiesWithArrayOfEnums(
         
             def __getitem__(self, i: int) -> 'enum_class.EnumClass':
                 return super().__getitem__(i)
-    # no properties or required properties but still have addProps
-    # type hints for addProp __getitem__
     def __getitem__(self, name: str) -> MetaOapg.additional_properties
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
-    def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+    def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
         return super().get_item_oapg(name)
 
     def __new__(

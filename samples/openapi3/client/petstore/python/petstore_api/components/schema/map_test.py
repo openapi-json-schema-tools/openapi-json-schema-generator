@@ -56,14 +56,12 @@ class MapTest(
                         class MetaOapg:
                             types = {frozendict.frozendict}
                             additional_properties = schemas.StrSchema
-                        # no properties or required properties but still have addProps
-                        # type hints for addProp __getitem__
                         def __getitem__(self, name: str) -> MetaOapg.additional_properties
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
                         
                         
-                        def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                        def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
                             return super().get_item_oapg(name)
                     
                         def __new__(
@@ -78,14 +76,12 @@ class MapTest(
                                 _configuration=_configuration,
                                 **kwargs,
                             )
-                # no properties or required properties but still have addProps
-                # type hints for addProp __getitem__
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
                 
-                def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -132,14 +128,12 @@ class MapTest(
                         @schemas.classproperty
                         def LOWER(cls):
                             return cls("lower")
-                # no properties or required properties but still have addProps
-                # type hints for addProp __getitem__
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
                 
-                def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -164,14 +158,12 @@ class MapTest(
                 class MetaOapg:
                     types = {frozendict.frozendict}
                     additional_properties = schemas.BoolSchema
-                # no properties or required properties but still have addProps
-                # type hints for addProp __getitem__
                 def __getitem__(self, name: str) -> MetaOapg.additional_properties
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
                 
-                def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+                def get_item_oapg(self, name: typing.Union[str]) -> MetaOapg.additional_properties:
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -196,17 +188,23 @@ class MapTest(
                 "direct_map": direct_map,
                 "indirect_map": indirect_map,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> MetaOapg.properties.map_map_of_string: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map_of_enum_string"]) -> MetaOapg.properties.map_of_enum_string: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["direct_map"]) -> MetaOapg.properties.direct_map: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["indirect_map"]) -> 'string_boolean_map.StringBooleanMap': ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["map_map_of_string"], typing_extensions.Literal["map_of_enum_string"], typing_extensions.Literal["direct_map"], typing_extensions.Literal["indirect_map"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["map_map_of_string"], typing_extensions.Literal["map_of_enum_string"], typing_extensions.Literal["direct_map"], typing_extensions.Literal["indirect_map"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -223,7 +221,10 @@ class MapTest(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["indirect_map"]) -> typing.Union['string_boolean_map.StringBooleanMap', schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["map_map_of_string"], typing_extensions.Literal["map_of_enum_string"], typing_extensions.Literal["direct_map"], typing_extensions.Literal["indirect_map"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["map_map_of_string"], typing_extensions.Literal["map_of_enum_string"], typing_extensions.Literal["direct_map"], typing_extensions.Literal["indirect_map"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

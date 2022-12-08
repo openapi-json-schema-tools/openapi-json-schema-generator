@@ -42,16 +42,17 @@ class ReqPropsFromExplicitAddProps(
     
     invalid-name: MetaOapg.additional_properties
     validName: MetaOapg.additional_properties
-    # type hints for required __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.additional_properties: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.additional_properties: ...
-    # type hints for addProp __getitem__
+    
     @typing.overload
     def __getitem__(self, name: str) -> MetaOapg.additional_properties: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["invalid-name"], typing_extensions.Literal["validName"], str, ]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["invalid-name"], typing_extensions.Literal["validName"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -65,7 +66,7 @@ class ReqPropsFromExplicitAddProps(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.additional_properties, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["invalid-name"], typing_extensions.Literal["validName"], str, ]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["invalid-name"], typing_extensions.Literal["validName"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

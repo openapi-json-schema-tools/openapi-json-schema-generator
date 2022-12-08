@@ -163,15 +163,20 @@ class ArrayTest(
                 "array_array_of_integer": array_array_of_integer,
                 "array_array_of_model": array_array_of_model,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> MetaOapg.properties.array_of_string: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_array_of_integer"]) -> MetaOapg.properties.array_array_of_integer: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> MetaOapg.properties.array_array_of_model: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["array_of_string"], typing_extensions.Literal["array_array_of_integer"], typing_extensions.Literal["array_array_of_model"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["array_of_string"], typing_extensions.Literal["array_array_of_integer"], typing_extensions.Literal["array_array_of_model"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -185,7 +190,10 @@ class ArrayTest(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["array_array_of_model"]) -> typing.Union[MetaOapg.properties.array_array_of_model, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["array_of_string"], typing_extensions.Literal["array_array_of_integer"], typing_extensions.Literal["array_array_of_model"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["array_of_string"], typing_extensions.Literal["array_array_of_integer"], typing_extensions.Literal["array_array_of_model"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

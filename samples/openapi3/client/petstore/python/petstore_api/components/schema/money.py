@@ -53,13 +53,17 @@ class Money(
     
     amount: MetaOapg.properties.amount
     currency: 'currency.Currency'
-    # type hints for required __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.properties.amount: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["amount"], typing_extensions.Literal["currency"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["amount"], typing_extensions.Literal["currency"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -70,7 +74,10 @@ class Money(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["amount"], typing_extensions.Literal["currency"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["amount"], typing_extensions.Literal["currency"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

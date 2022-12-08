@@ -47,14 +47,14 @@ class SelfReferencingObjectModel(
         @staticmethod
         def additional_properties() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
             return self_referencing_object_model.SelfReferencingObjectModel
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> 'self_referencing_object_model.SelfReferencingObjectModel': ...
-    # type hints for addProp __getitem__
+    
     @typing.overload
     def __getitem__(self, name: str) -> 'self_referencing_object_model.SelfReferencingObjectModel': ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["selfRef"], str, ]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["selfRef"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -65,7 +65,7 @@ class SelfReferencingObjectModel(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union['self_referencing_object_model.SelfReferencingObjectModel', schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["selfRef"], str, ]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["selfRef"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

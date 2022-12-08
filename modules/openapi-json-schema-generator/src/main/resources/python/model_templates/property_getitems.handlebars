@@ -1,7 +1,7 @@
 {{#if getRequiredProperties}}
-# type hints for required __getitem__
 {{#each getRequiredProperties}}
 {{#with this}}
+
 @typing.overload
 {{#if refClass}}
 def __getitem__(self, name: typing_extensions.Literal["{{{@key}}}"]) -> '{{refClass}}': ...
@@ -24,8 +24,8 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key}}}"]) -> schemas.
 {{/each}}
 {{/if}}
 {{#if optionalProperties}}
-# type hints for optional __getitem__
 {{#each optionalProperties}}
+
 @typing.overload
 {{#if refClass}}
 def __getitem__(self, name: typing_extensions.Literal["{{{@key}}}"]) -> '{{refClass}}': ...
@@ -41,18 +41,20 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key}}}"]) -> MetaOapg
 {{#or properties getRequiredProperties}}
     {{#with additionalProperties}}
         {{#unless getIsBooleanSchemaFalse}}
-# type hints for addProp __getitem__
+
 @typing.overload
 def __getitem__(self, name: str) -> {{#if refClass}}'{{refClass}}'{{else}}MetaOapg.{{baseName}}{{/if}}: ...
         {{/unless}}
+    {{else}}
+
+@typing.overload
+def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     {{/with}}
 
 {{> model_templates/property_getitem methodName="__getitem__" }}
 {{else}}
     {{#with additionalProperties}}
     {{#unless getIsBooleanSchemaFalse}}
-# no properties or required properties but still have addProps
-# type hints for addProp __getitem__
 def __getitem__(self, name: str) -> {{#if refClass}}'{{refClass}}'{{else}}MetaOapg.{{baseName}}{{/if}}
     # dict_instance[name] accessor
     return super().__getitem__(name)
@@ -101,13 +103,17 @@ def get_item_oapg(self, name: typing_extensions.Literal["{{{@key}}}"]) -> typing
 {{/each}}
 {{/if}}
 {{#or properties getRequiredProperties}}
-{{#with additionalProperties}}
-{{#unless getIsBooleanSchemaFalse}}
+    {{#with additionalProperties}}
+        {{#unless getIsBooleanSchemaFalse}}
 
 @typing.overload
 def get_item_oapg(self, name: str) -> typing.Union[{{#if refClass}}'{{refClass}}'{{else}}MetaOapg.{{baseName}}{{/if}}, schemas.Unset]: ...
 {{/unless}}
-{{/with}}
+    {{else}}
+
+@typing.overload
+def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    {{/with}}
 
 {{> model_templates/property_getitem methodName="get_item_oapg" }}
 {{else}}

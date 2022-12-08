@@ -63,7 +63,7 @@ class User(
             
                 
                 
-                def get_item_oapg(self, name: typing.Union[]):
+                def get_item_oapg(self, name: typing.Union[str]):
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -92,7 +92,7 @@ class User(
             
                 
                 
-                def get_item_oapg(self, name: typing.Union[]):
+                def get_item_oapg(self, name: typing.Union[str]):
                     return super().get_item_oapg(name)
             
                 def __new__(
@@ -123,35 +123,50 @@ class User(
                 "anyTypeExceptNullProp": anyTypeExceptNullProp,
                 "anyTypePropNullable": anyTypePropNullable,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["username"]) -> MetaOapg.properties.username: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["firstName"]) -> MetaOapg.properties.firstName: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["lastName"]) -> MetaOapg.properties.lastName: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["email"]) -> MetaOapg.properties.email: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["phone"]) -> MetaOapg.properties.phone: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["userStatus"]) -> MetaOapg.properties.userStatus: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredProps"]) -> MetaOapg.properties.objectWithNoDeclaredProps: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredPropsNullable"]) -> MetaOapg.properties.objectWithNoDeclaredPropsNullable: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["anyTypeProp"]) -> MetaOapg.properties.anyTypeProp: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["anyTypeExceptNullProp"]) -> MetaOapg.properties.anyTypeExceptNullProp: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["anyTypePropNullable"]) -> MetaOapg.properties.anyTypePropNullable: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["username"], typing_extensions.Literal["firstName"], typing_extensions.Literal["lastName"], typing_extensions.Literal["email"], typing_extensions.Literal["password"], typing_extensions.Literal["phone"], typing_extensions.Literal["userStatus"], typing_extensions.Literal["objectWithNoDeclaredProps"], typing_extensions.Literal["objectWithNoDeclaredPropsNullable"], typing_extensions.Literal["anyTypeProp"], typing_extensions.Literal["anyTypeExceptNullProp"], typing_extensions.Literal["anyTypePropNullable"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["username"], typing_extensions.Literal["firstName"], typing_extensions.Literal["lastName"], typing_extensions.Literal["email"], typing_extensions.Literal["password"], typing_extensions.Literal["phone"], typing_extensions.Literal["userStatus"], typing_extensions.Literal["objectWithNoDeclaredProps"], typing_extensions.Literal["objectWithNoDeclaredPropsNullable"], typing_extensions.Literal["anyTypeProp"], typing_extensions.Literal["anyTypeExceptNullProp"], typing_extensions.Literal["anyTypePropNullable"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -195,7 +210,10 @@ class User(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["anyTypePropNullable"]) -> typing.Union[MetaOapg.properties.anyTypePropNullable, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["username"], typing_extensions.Literal["firstName"], typing_extensions.Literal["lastName"], typing_extensions.Literal["email"], typing_extensions.Literal["password"], typing_extensions.Literal["phone"], typing_extensions.Literal["userStatus"], typing_extensions.Literal["objectWithNoDeclaredProps"], typing_extensions.Literal["objectWithNoDeclaredPropsNullable"], typing_extensions.Literal["anyTypeProp"], typing_extensions.Literal["anyTypeExceptNullProp"], typing_extensions.Literal["anyTypePropNullable"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id"], typing_extensions.Literal["username"], typing_extensions.Literal["firstName"], typing_extensions.Literal["lastName"], typing_extensions.Literal["email"], typing_extensions.Literal["password"], typing_extensions.Literal["phone"], typing_extensions.Literal["userStatus"], typing_extensions.Literal["objectWithNoDeclaredProps"], typing_extensions.Literal["objectWithNoDeclaredPropsNullable"], typing_extensions.Literal["anyTypeProp"], typing_extensions.Literal["anyTypeExceptNullProp"], typing_extensions.Literal["anyTypePropNullable"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

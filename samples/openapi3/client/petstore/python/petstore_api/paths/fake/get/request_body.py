@@ -114,13 +114,17 @@ class schema(
                 "enum_form_string_array": enum_form_string_array,
                 "enum_form_string": enum_form_string,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> MetaOapg.properties.enum_form_string_array: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> MetaOapg.properties.enum_form_string: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array"], typing_extensions.Literal["enum_form_string"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array"], typing_extensions.Literal["enum_form_string"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -131,7 +135,10 @@ class schema(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["enum_form_string"]) -> typing.Union[MetaOapg.properties.enum_form_string, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array"], typing_extensions.Literal["enum_form_string"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["enum_form_string_array"], typing_extensions.Literal["enum_form_string"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

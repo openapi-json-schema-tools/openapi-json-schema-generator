@@ -67,7 +67,7 @@ class Mammal(
 
     
     
-    def get_item_oapg(self, name: typing.Union[]):
+    def get_item_oapg(self, name: typing.Union[str]):
         return super().get_item_oapg(name)
 
     def __new__(

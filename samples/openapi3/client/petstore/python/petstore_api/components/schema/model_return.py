@@ -44,11 +44,14 @@ class ModelReturn(
                 "return": _return,
             }
 
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["return"]) -> MetaOapg.properties._return: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["return"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["return"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -56,7 +59,10 @@ class ModelReturn(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["return"]) -> typing.Union[MetaOapg.properties._return, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["return"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["return"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

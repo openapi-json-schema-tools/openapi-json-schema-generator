@@ -51,15 +51,20 @@ class ObjectWithDecimalProperties(
                 "width": width,
                 "cost": cost,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["length"]) -> 'decimal_payload.DecimalPayload': ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["width"]) -> MetaOapg.properties.width: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["cost"]) -> 'money.Money': ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["length"], typing_extensions.Literal["width"], typing_extensions.Literal["cost"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["length"], typing_extensions.Literal["width"], typing_extensions.Literal["cost"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -73,7 +78,10 @@ class ObjectWithDecimalProperties(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["cost"]) -> typing.Union['money.Money', schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["length"], typing_extensions.Literal["width"], typing_extensions.Literal["cost"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["length"], typing_extensions.Literal["width"], typing_extensions.Literal["cost"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

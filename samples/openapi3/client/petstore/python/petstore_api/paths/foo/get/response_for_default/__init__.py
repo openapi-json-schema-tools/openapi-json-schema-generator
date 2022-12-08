@@ -36,11 +36,14 @@ class schema(
             __annotations__ = {
                 "string": string,
             }
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'foo.Foo': ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["string"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["string"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -48,7 +51,10 @@ class schema(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union['foo.Foo', schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["string"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["string"], str]):
         return super().get_item_oapg(name)
 
     def __new__(

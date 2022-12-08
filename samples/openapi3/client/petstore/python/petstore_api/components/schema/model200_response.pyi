@@ -46,13 +46,17 @@ class Model200Response(
                 "class": _class,
             }
 
-    # type hints for optional __getitem__
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["class"]) -> MetaOapg.properties._class: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["class"], ]):
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["class"], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -63,7 +67,10 @@ class Model200Response(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["class"]) -> typing.Union[MetaOapg.properties._class, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["class"], ]):
+    @typing.overload
+    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name"], typing_extensions.Literal["class"], str]):
         return super().get_item_oapg(name)
 
     def __new__(
