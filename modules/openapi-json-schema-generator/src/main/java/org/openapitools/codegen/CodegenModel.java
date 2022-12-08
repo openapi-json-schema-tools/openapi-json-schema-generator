@@ -169,6 +169,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     private boolean isAnyType;
     private boolean isUuid;
     private Map<String, CodegenProperty> requiredProperties;
+    private Map<String, CodegenProperty> optionalProperties;
+    private Map<String, CodegenProperty> properties;
     private String ref;
     private String refModule;
 
@@ -1023,6 +1025,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredProperties, that.getRequiredProperties()) &&
+                Objects.equals(optionalProperties, that.getOptionalProperties()) &&
+                Objects.equals(properties, that.getProperties()) &&
                 Objects.equals(parent, that.parent) &&
                 Objects.equals(parentSchema, that.parentSchema) &&
                 Objects.equals(interfaces, that.interfaces) &&
@@ -1096,7 +1100,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 hasDiscriminatorWithNonEmptyMapping,
                 isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredProperties, ref,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not);
+                format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not,
+                optionalProperties, properties);
     }
 
     @Override
@@ -1192,6 +1197,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", isDecimal=").append(isDecimal);
         sb.append(", isUUID=").append(isUuid);
         sb.append(", requiredProperties=").append(requiredProperties);
+        sb.append(", optionalProperties=").append(optionalProperties);
+        sb.append(", properties=").append(properties);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
@@ -1234,6 +1241,18 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
 
     @Override
     public void setRequiredProperties(Map<String, CodegenProperty> requiredProperties) { this.requiredProperties=requiredProperties; }
+
+    @Override
+    public Map<String, CodegenProperty> getProperties() { return properties; }
+
+    @Override
+    public void setProperties(Map<String, CodegenProperty> properties) { this.properties = properties; }
+
+    @Override
+    public Map<String, CodegenProperty> getOptionalProperties() { return optionalProperties; }
+
+    @Override
+    public void setOptionalProperties(Map<String, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
 
     /**
      * Remove duplicated properties in all variable list

@@ -4710,7 +4710,7 @@ public class DefaultCodegen implements CodegenConfig {
                     : new TreeSet<>(required);
 
             // update "vars" without parent's properties (all, required)
-            addVars(m, m.vars, properties, mandatory, sourceJsonPath);
+            addProperties(m, m.vars, properties, mandatory, sourceJsonPath);
             m.allMandatory = m.mandatory = mandatory;
         } else {
             m.emptyVars = true;
@@ -4722,7 +4722,7 @@ public class DefaultCodegen implements CodegenConfig {
             Set<String> allMandatory = allRequired == null ? Collections.emptySet()
                     : new TreeSet<>(allRequired);
             // update "allVars" with parent's properties (all, required)
-            addVars(m, m.allVars, allProperties, allMandatory, sourceJsonPath);
+            addProperties(m, m.allVars, allProperties, allMandatory, sourceJsonPath);
             m.allMandatory = allMandatory;
         } else { // without parent, allVars and vars are the same
             m.allVars = m.vars;
@@ -4753,7 +4753,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param properties a map of properties (schema)
      * @param mandatory  a set of required properties' name
      */
-    protected void addVars(JsonSchema m, List<CodegenProperty> vars, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath) {
+    protected void addProperties(JsonSchema m, List<CodegenProperty> vars, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath) {
         if (properties == null) {
             return;
         }
@@ -4770,6 +4770,8 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
+        Map<String, CodegenProperty> propertiesMap = new HashMap<>();
+        Map<String, CodegenProperty> optionalProperties = new HashMap<>();
 
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
             final String key = entry.getKey();
@@ -4792,6 +4794,10 @@ public class DefaultCodegen implements CodegenConfig {
                 }
 
                 vars.add(cp);
+                propertiesMap.put(key, cp);
+                if (!mandatory.contains(key)) {
+                    optionalProperties.put(key, cp);
+                }
                 m.setHasVars(true);
 
                 if (cp.required) {
@@ -4834,6 +4840,12 @@ public class DefaultCodegen implements CodegenConfig {
                     cm.nonNullableVars.add(cp);
                 }
             }
+        }
+        if (!propertiesMap.isEmpty()) {
+            m.setProperties(propertiesMap);
+        }
+        if (!optionalProperties.isEmpty()) {
+            m.setOptionalProperties(optionalProperties);
         }
         return;
     }
@@ -6150,7 +6162,7 @@ public class DefaultCodegen implements CodegenConfig {
         setAddProps(schema, property, sourceJsonPath);
         Set<String> mandatory = schema.getRequired() == null ? Collections.emptySet()
                 : new TreeSet<>(schema.getRequired());
-        addVars(property, property.getVars(), schema.getProperties(), mandatory, sourceJsonPath);
+        addProperties(property, property.getVars(), schema.getProperties(), mandatory, sourceJsonPath);
         addRequiredProperties(schema, property, sourceJsonPath);
     }
 

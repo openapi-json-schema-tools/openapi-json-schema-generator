@@ -126,6 +126,15 @@ public interface JsonSchema {
 
     Map<String, CodegenProperty> getRequiredProperties();
 
+    Map<String, CodegenProperty> getProperties();
+
+    void setProperties(Map<String, CodegenProperty> properties);
+
+    Map<String, CodegenProperty> getOptionalProperties();
+
+    void setOptionalProperties(Map<String, CodegenProperty> optionalProperties);
+
+
     // goes from required propertyName to its CodegenProperty
     // Use Cases:
     // 1. required property is defined in properties, value is that CodegenProperty

@@ -162,6 +162,8 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     private CodegenProperty not = null;
     private boolean hasMultipleTypes = false;
     private Map<String, CodegenProperty> requiredProperties;
+    private Map<String, CodegenProperty> properties;
+    private Map<String, CodegenProperty> optionalProperties;
     private String ref;
     private String refModule;
     private boolean schemaIsFromAdditionalProperties;
@@ -641,6 +643,12 @@ public class CodegenProperty implements Cloneable, JsonSchema {
             if (this.requiredProperties != null) {
                 cp.setRequiredProperties(this.requiredProperties);
             }
+            if (this.optionalProperties != null) {
+                cp.setOptionalProperties(this.optionalProperties);
+            }
+            if (this.properties != null) {
+                cp.setProperties(this.properties);
+            }
             if (this.ref != null) {
                 cp.setRef(this.ref);
             }
@@ -839,7 +847,19 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public Map<String, CodegenProperty> getRequiredProperties() { return requiredProperties; }
 
     @Override
-    public void setRequiredProperties(Map<String, CodegenProperty> requiredProperties) { this.requiredProperties=requiredProperties; }
+    public void setRequiredProperties(Map<String, CodegenProperty> requiredProperties) { this.requiredProperties = requiredProperties; }
+
+    @Override
+    public Map<String, CodegenProperty> getProperties() { return properties; }
+
+    @Override
+    public void setProperties(Map<String, CodegenProperty> properties) { this.properties = properties; }
+
+    @Override
+    public Map<String, CodegenProperty> getOptionalProperties() { return optionalProperties; }
+
+    @Override
+    public void setOptionalProperties(Map<String, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
 
     public String getRefModule() { return refModule; }
 
@@ -924,6 +944,8 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", requiredProperties=").append(requiredProperties);
+        sb.append(", optionalProperties=").append(optionalProperties);
+        sb.append(", properties=").append(properties);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
@@ -999,6 +1021,8 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredProperties, that.getRequiredProperties()) &&
+                Objects.equals(optionalProperties, that.getOptionalProperties()) &&
+                Objects.equals(properties, that.getProperties()) &&
                 Objects.equals(openApiType, that.openApiType) &&
                 Objects.equals(baseName, that.baseName) &&
                 Objects.equals(refClass, that.refClass) &&
@@ -1051,6 +1075,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 xmlNamespace, isXmlWrapped, isNull, hasVars, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredProperties,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not);
+                format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
+                optionalProperties, properties);
     }
 }
