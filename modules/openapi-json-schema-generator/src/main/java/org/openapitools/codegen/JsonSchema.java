@@ -151,10 +151,6 @@ public interface JsonSchema {
 
     void setHasValidation(boolean hasValidation);
 
-    boolean getHasVars();
-
-    void setHasVars(boolean hasVars);
-
     boolean getHasRequired();
 
     void setHasRequired(boolean hasRequired);

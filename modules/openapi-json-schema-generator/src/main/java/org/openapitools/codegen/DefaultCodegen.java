@@ -2856,7 +2856,6 @@ public class DefaultCodegen implements CodegenConfig {
             for (CodegenProperty prop : m.vars) {
                 postProcessModelProperty(m, prop);
             }
-            m.hasVars = m.vars.size() > 0;
         }
         if (m.allVars != null) {
             for (CodegenProperty prop : m.allVars) {
@@ -4704,7 +4703,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         m.hasRequired = false;
         if (properties != null && !properties.isEmpty()) {
-            m.hasVars = true;
 
             Set<String> mandatory = required == null ? Collections.emptySet()
                     : new TreeSet<>(required);
@@ -4714,7 +4712,6 @@ public class DefaultCodegen implements CodegenConfig {
             m.allMandatory = m.mandatory = mandatory;
         } else {
             m.emptyVars = true;
-            m.hasVars = false;
             m.hasEnums = false;
         }
 
@@ -4798,7 +4795,6 @@ public class DefaultCodegen implements CodegenConfig {
                 if (!mandatory.contains(key)) {
                     optionalProperties.put(key, cp);
                 }
-                m.setHasVars(true);
 
                 if (cp.required) {
                     m.setHasRequired(true);
@@ -5725,7 +5721,7 @@ public class DefaultCodegen implements CodegenConfig {
             codegenModel = fromModel(name, schema);
         }
 
-        if (codegenModel != null && (codegenModel.hasVars || forceSimpleRef)) {
+        if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
                 codegenParameter.baseName = codegenModel.classname;
             } else {

@@ -153,7 +153,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String xmlName;
     public String xmlNamespace;
     public boolean isXmlWrapped = false;
-    private boolean hasVars;
     private boolean hasRequired;
     private boolean hasDiscriminatorWithNonEmptyMapping;
     private List<CodegenProperty> allOf = null;
@@ -764,16 +763,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public boolean getHasVars() {
-        return this.hasVars;
-    }
-
-    @Override
-    public void setHasVars(boolean hasVars) {
-        this.hasVars = hasVars;
-    }
-
-    @Override
     public boolean getHasRequired() {
         return this.hasRequired;
     }
@@ -939,7 +928,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", xmlNamespace='").append(xmlNamespace).append('\'');
         sb.append(", isXmlWrapped=").append(isXmlWrapped);
         sb.append(", isNull=").append(isNull);
-        sb.append(", getHasVars=").append(getHasVars());
         sb.append(", getHasRequired=").append(getHasRequired());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
@@ -1009,7 +997,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
-                getHasVars() == that.getHasVars() &&
                 getHasRequired() == that.getHasRequired() &&
                 Objects.equals(allOf, that.getAllOf()) &&
                 Objects.equals(anyOf, that.getAnyOf()) &&
@@ -1072,7 +1059,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 allowableValues, items, additionalProperties, vars, requiredVars,
                 vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
                 nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
-                xmlNamespace, isXmlWrapped, isNull, hasVars, hasRequired,
+                xmlNamespace, isXmlWrapped, isNull, hasRequired,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredProperties,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,

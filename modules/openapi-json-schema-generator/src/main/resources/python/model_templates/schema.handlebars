@@ -10,7 +10,7 @@
     {{else}}
         {{#or isMap isArray isAnyType}}
             {{#if isMap}}
-                {{#or hasVars hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping additionalProperties }}
+                {{#or properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping additionalProperties }}
 {{> model_templates/schema_dict }}
                 {{else}}
 {{> model_templates/var_equals_cls }}
@@ -24,7 +24,7 @@
                 {{/or}}
             {{/if}}
             {{#if isAnyType}}
-                {{#or isEnum hasVars hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping items getFormat}}
+                {{#or isEnum properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping items getFormat}}
 {{> model_templates/schema_composed_or_anytype }}
                 {{else}}
 {{> model_templates/var_equals_cls }}

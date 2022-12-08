@@ -77,7 +77,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public Set<String> allMandatory = new TreeSet<>(); // with parent's required properties
 
     public Set<String> imports = new TreeSet<>();
-    public boolean hasVars, emptyVars, hasMoreModels, hasEnums, isEnum, hasValidation;
+    public boolean emptyVars, hasMoreModels, hasEnums, isEnum, hasValidation;
     /**
      * Indicates the OAS schema specifies "nullable: true".
      */
@@ -860,15 +860,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public void setIsNull(boolean isNull) {
         this.isNull = isNull;
     }
-    @Override
-    public boolean getHasVars() {
-        return this.hasVars;
-    }
-
-    @Override
-    public void setHasVars(boolean hasVars) {
-        this.hasVars = hasVars;
-    }
 
     @Override
     public boolean getHasRequired() {
@@ -992,7 +983,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 isDouble == that.isDouble &&
                 isDate == that.isDate &&
                 isDateTime == that.isDateTime &&
-                hasVars == that.hasVars &&
                 emptyVars == that.emptyVars &&
                 hasMoreModels == that.hasMoreModels &&
                 hasEnums == that.hasEnums &&
@@ -1091,7 +1081,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getArrayModelType(), isAlias, isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
                 getVars(), getAllVars(), getNonNullableVars(), getRequiredVars(), getOptionalVars(), getReadOnlyVars(), getReadWriteVars(),
-                getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(), hasVars,
+                getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
                 isEmptyVars(), hasMoreModels, hasEnums, isEnum, isNullable, hasRequired, hasOptional, isArray,
                 hasChildren, isMap, isDeprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
                 getAdditionalPropertiesType(), getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
@@ -1158,7 +1148,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", mandatory=").append(mandatory);
         sb.append(", allMandatory=").append(allMandatory);
         sb.append(", imports=").append(imports);
-        sb.append(", hasVars=").append(hasVars);
         sb.append(", emptyVars=").append(emptyVars);
         sb.append(", hasMoreModels=").append(hasMoreModels);
         sb.append(", hasEnums=").append(hasEnums);

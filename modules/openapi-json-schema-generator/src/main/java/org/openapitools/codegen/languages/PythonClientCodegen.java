@@ -594,9 +594,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 property.setHasRequired(true);
             }
             addProperties(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
-            if (property.getVars() != null && !property.getVars().isEmpty()) {
-                property.setHasVars(true);
-            }
         }
         addRequiredProperties(schema, property, sourceJsonPath);
         return;
@@ -983,7 +980,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenModel = fromModel(name, schema);
         }
 
-        if (codegenModel != null && (codegenModel.hasVars || forceSimpleRef)) {
+        if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
                 codegenParameter.baseName = codegenModel.classname;
             } else {
