@@ -3624,9 +3624,9 @@ public class DefaultCodegen implements CodegenConfig {
             String itemName = getItemsName(p, name);
             ArraySchema arraySchema = (ArraySchema) p;
             Schema innerSchema = unaliasSchema(getSchemaItems(arraySchema));
-            CodegenProperty cp = fromProperty(
+            CodegenProperty innerProperty = fromProperty(
                     itemName, innerSchema, false, false, sourceJsonPath);
-            updatePropertyForArray(property, cp);
+            property.items = innerProperty;
         } else if (ModelUtils.isTypeObjectSchema(p)) {
             updatePropertyForObject(property, p, sourceJsonPath);
         } else if (ModelUtils.isAnyType(p)) {
@@ -3652,16 +3652,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String toRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         return toModelName(refPieces[refPieces.length-1]);
-    }
-
-    protected void updatePropertyForArray(CodegenProperty property, CodegenProperty innerProperty) {
-        if (innerProperty == null) {
-            if(LOGGER.isWarnEnabled()) {
-                LOGGER.warn("skipping invalid array property {}", Json.pretty(property));
-            }
-            return;
-        }
-        property.items = innerProperty;
     }
 
     /**
