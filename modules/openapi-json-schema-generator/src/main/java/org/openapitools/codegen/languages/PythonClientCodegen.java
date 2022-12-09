@@ -827,16 +827,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * Together with unaliasSchema this sets primitive types with validations as models
      * This method is used by fromResponse
      *
-     * @param name name of the property
      * @param p OAS property schema
      * @param required true if the property is required in the next higher object schema, false otherwise
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromProperty(String name, Schema p, boolean required, String sourceJsonPath) {
+    public CodegenProperty fromProperty(Schema p, boolean required, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
-        String fixedName = handleSpecialCharacters(name);
-        CodegenProperty cp = super.fromProperty(fixedName, p, required, sourceJsonPath);
+        CodegenProperty cp = super.fromProperty(p, required, sourceJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -989,7 +987,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromProperty("property", schema, false, sourceJsonPath);
+            CodegenProperty codegenProperty = fromProperty(schema, false, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
