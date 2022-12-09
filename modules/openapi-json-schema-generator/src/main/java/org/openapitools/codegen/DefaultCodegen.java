@@ -3421,6 +3421,18 @@ public class DefaultCodegen implements CodegenConfig {
                 if (lastPathFragment.equals("additionalProperties")) {
                     property.setSchemaIsFromAdditionalProperties(true);
                     usedName = getAdditionalPropertiesName();
+                } else {
+                    try {
+                        Integer.parseInt(usedName);
+                        // for oneOf/anyOf/allOf
+                        String priorFragment = refPieces[refPieces.length-2];
+                        if ("allOf".equals(priorFragment) || "anyOf".equals(priorFragment) || "oneOf".equals(priorFragment)) {
+                            usedName = refPieces[refPieces.length-2] + "_" + usedName;
+                        }
+                    } catch (NumberFormatException nfe) {
+                        // any other case
+                        ;
+                    }
                 }
                 property.name = toVarName(usedName);
                 property.baseName = usedName;

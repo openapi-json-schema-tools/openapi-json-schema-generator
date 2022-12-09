@@ -62,10 +62,10 @@ class AbstractStepMessage(
         class any_of:
         
             @staticmethod
-            def _0() -> typing.Type['abstract_step_message.AbstractStepMessage']:
+            def anyOf_0() -> typing.Type['abstract_step_message.AbstractStepMessage']:
                 return abstract_step_message.AbstractStepMessage
             classes = [
-                _0,
+                anyOf_0,
             ]
 
     
