@@ -16,7 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **{{@key}}** | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_python_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_accessed_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> model_templates/notes_msg }}
     {{/each}}
     {{#each optionalProperties}}
-**{{#unless refClass}}{{#or isArray isMap allOf anyOf oneOf not}}[{{/or}}{{/unless}}{{baseName}}{{#unless refClass}}{{#or isArray isMap allOf anyOf oneOf not}}](#{{baseName}}){{/or}}{{/unless}}** | {{#unless refClass}}{{> model_templates/schema_python_types }}{{/unless}}{{#if refClass}}{{> refclass_partial }}{{/if}} | {{#unless refClass}}{{> model_templates/schema_accessed_types }}{{/unless}}{{#if refClass}}{{> refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> model_templates/notes_msg }}
+**{{@key}}** | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_python_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_accessed_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> model_templates/notes_msg }}
     {{/each}}
     {{#with additionalProperties}}
     {{#unless getIsBooleanSchemaFalse}}

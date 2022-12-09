@@ -94,8 +94,8 @@ class ReqPropsFromTrueAddProps(
         return super().__new__(
             cls,
             *_args,
-            additional_properties=additional_properties,
-            additional_properties=additional_properties,
+            invalid-name=invalid-name,
+            validName=validName,
             _configuration=_configuration,
             **kwargs,
         )

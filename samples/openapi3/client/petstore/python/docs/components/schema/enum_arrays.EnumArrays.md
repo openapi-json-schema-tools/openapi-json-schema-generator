@@ -11,7 +11,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **just_symbol** | str,  | str,  |  | [optional] must be one of [">=", "$", ]
-**[array_enum](#array_enum)** | list, tuple,  | tuple,  |  | [optional]
+**array_enum** | [list, tuple, ](#array_enum) | [tuple, ](#array_enum) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # array_enum

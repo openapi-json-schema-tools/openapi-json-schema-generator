@@ -16,12 +16,12 @@ Key | Input Type | Accessed Type | Description | Notes
 **string_prop** | None, str,  | NoneClass, str,  |  | [optional]
 **date_prop** | None, str, date,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **datetime_prop** | None, str, datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
-**[array_nullable_prop](#array_nullable_prop)** | list, tuple, None,  | tuple, NoneClass,  |  | [optional]
-**[array_and_items_nullable_prop](#array_and_items_nullable_prop)** | list, tuple, None,  | tuple, NoneClass,  |  | [optional]
-**[array_items_nullable](#array_items_nullable)** | list, tuple,  | tuple,  |  | [optional]
-**[object_nullable_prop](#object_nullable_prop)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  | [optional]
-**[object_and_items_nullable_prop](#object_and_items_nullable_prop)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  | [optional]
-**[object_items_nullable](#object_items_nullable)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional]
+**array_nullable_prop** | [list, tuple, None, ](#array_nullable_prop) | [tuple, NoneClass, ](#array_nullable_prop) |  | [optional]
+**array_and_items_nullable_prop** | [list, tuple, None, ](#array_and_items_nullable_prop) | [tuple, NoneClass, ](#array_and_items_nullable_prop) |  | [optional]
+**array_items_nullable** | [list, tuple, ](#array_items_nullable) | [tuple, ](#array_items_nullable) |  | [optional]
+**object_nullable_prop** | [dict, frozendict.frozendict, None, ](#object_nullable_prop) | [frozendict.frozendict, NoneClass, ](#object_nullable_prop) |  | [optional]
+**object_and_items_nullable_prop** | [dict, frozendict.frozendict, None, ](#object_and_items_nullable_prop) | [frozendict.frozendict, NoneClass, ](#object_and_items_nullable_prop) |  | [optional]
+**object_items_nullable** | [dict, frozendict.frozendict, ](#object_items_nullable) | [frozendict.frozendict, ](#object_items_nullable) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional]
 
 # array_nullable_prop

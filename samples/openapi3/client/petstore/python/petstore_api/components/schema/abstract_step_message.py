@@ -123,18 +123,18 @@ class AbstractStepMessage(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        description: typing.Union[MetaOapg.properties., dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        description: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         discriminator: typing.Union[MetaOapg.properties.discriminator, str, ],
-        sequenceNumber: typing.Union[MetaOapg.properties., dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'AbstractStepMessage':
         return super().__new__(
             cls,
             *_args,
-            =,
+            description=description,
             discriminator=discriminator,
-            =,
+            sequenceNumber=sequenceNumber,
             _configuration=_configuration,
             **kwargs,
         )

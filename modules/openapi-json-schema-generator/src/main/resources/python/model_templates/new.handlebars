@@ -17,14 +17,14 @@ def __new__(
 {{#if refClass}}
     {{@key}}: '{{refClass}}',
 {{else}}
-    {{#if getSchemaIsFromAdditionalProperties}}
-        {{#if addPropsUnset}}
-    {{@key}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
-        {{else}}
+    {{#if baseName}}
+        {{#if schemaIsFromAdditionalProperties}}
     {{@key}}: typing.Union[MetaOapg.additional_properties, {{> model_templates/schema_python_types }}],
+        {{else}}
+    {{@key}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}],
         {{/if}}
     {{else}}
-    {{@key}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}],
+    {{@key}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
     {{/if}}
 {{/if}}
 {{/unless}}
@@ -35,9 +35,9 @@ def __new__(
 {{#each optionalProperties}}
 {{#unless nameInSnakeCase}}
 {{#if refClass}}
-    {{baseName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
+    {{@key}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
-    {{baseName}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key}}: typing.Union[MetaOapg.properties.{{@key}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
 {{/unless}}
 {{/each}}
@@ -72,7 +72,7 @@ def __new__(
 {{#each getRequiredProperties}}
 {{#with this}}
 {{#unless nameInSnakeCase}}
-        {{baseName}}={{baseName}},
+        {{@key}}={{@key}},
 {{/unless}}
 {{/with}}
 {{/each}}
@@ -80,7 +80,7 @@ def __new__(
 {{/unless}}
 {{#each optionalProperties}}
 {{#unless nameInSnakeCase}}
-        {{baseName}}={{baseName}},
+        {{@key}}={{@key}},
 {{/unless}}
 {{/each}}
         _configuration=_configuration,
