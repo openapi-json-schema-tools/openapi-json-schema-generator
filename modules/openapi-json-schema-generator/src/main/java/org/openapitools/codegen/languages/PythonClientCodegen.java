@@ -830,14 +830,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @param name name of the property
      * @param p OAS property schema
      * @param required true if the property is required in the next higher object schema, false otherwise
-     * @param schemaIsFromAdditionalProperties true if the property is defined by additional properties schema
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromProperty(String name, Schema p, boolean required, boolean schemaIsFromAdditionalProperties, String sourceJsonPath) {
+    public CodegenProperty fromProperty(String name, Schema p, boolean required, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
         String fixedName = handleSpecialCharacters(name);
-        CodegenProperty cp = super.fromProperty(fixedName, p, required, schemaIsFromAdditionalProperties, sourceJsonPath);
+        CodegenProperty cp = super.fromProperty(fixedName, p, required, sourceJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -990,7 +989,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
+            CodegenProperty codegenProperty = fromProperty("property", schema, false, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
