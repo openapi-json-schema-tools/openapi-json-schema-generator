@@ -121,7 +121,7 @@ def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, s
         {{#unless getIsBooleanSchemaFalse}}
 
 def get_item_oapg(self, name: str) -> {{#if refClass}}'{{refClass}}'{{else}}MetaOapg.{{baseName}}{{/if}}
-    return super().{{methodName}}(name)
+    return super().get_item_oapg(name)
         {{/unless}}
     {{/with}}
 {{/or}}

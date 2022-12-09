@@ -56,7 +56,7 @@ class schema(
         return super().__getitem__(name)
     
     def get_item_oapg(self, name: str) -> MetaOapg.additional_properties
-        return super().(name)
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,
