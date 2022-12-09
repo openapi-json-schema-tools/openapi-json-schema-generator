@@ -64,8 +64,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public boolean isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble, isDate, isDateTime, isDecimal, isShort, isUnboundedInteger, isPrimitiveType, isBoolean;
     public List<CodegenProperty> vars = new ArrayList<>(); // all properties (without parent's properties)
     public List<CodegenProperty> allVars = new ArrayList<>(); // all properties (with parent's properties)
-    public List<CodegenProperty> requiredVars = new ArrayList<>(); // a list of required properties
-    public List<CodegenProperty> optionalVars = new ArrayList<>(); // a list of optional properties
     public List<CodegenProperty> readOnlyVars = new ArrayList<>(); // a list of read-only properties
     public List<CodegenProperty> readWriteVars = new ArrayList<>(); // a list of properties for read, write
     public List<CodegenProperty> parentVars = new ArrayList<>();
@@ -493,14 +491,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         this.name = name;
     }
 
-    public List<CodegenProperty> getOptionalVars() {
-        return optionalVars;
-    }
-
-    public void setOptionalVars(List<CodegenProperty> optionalVars) {
-        this.optionalVars = optionalVars;
-    }
-
     public String getParent() {
         return parent;
     }
@@ -779,16 +769,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         this.readWriteVars = readWriteVars;
     }
 
-    @Override
-    public List<CodegenProperty> getRequiredVars() {
-        return requiredVars;
-    }
-
-    @Override
-    public void setRequiredVars(List<CodegenProperty> requiredVars) {
-        this.requiredVars = requiredVars;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -803,16 +783,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
 
     public void setUnescapedDescription(String unescapedDescription) {
         this.unescapedDescription = unescapedDescription;
-    }
-
-    @Override
-    public List<CodegenProperty> getVars() {
-        return vars;
-    }
-
-    @Override
-    public void setVars(List<CodegenProperty> vars) {
-        this.vars = vars;
     }
 
     public Map<String, Object> getVendorExtensions() {
@@ -1031,8 +1001,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(vars, that.vars) &&
                 Objects.equals(allVars, that.allVars) &&
                 Objects.equals(nonNullableVars, that.nonNullableVars) &&
-                Objects.equals(requiredVars, that.requiredVars) &&
-                Objects.equals(optionalVars, that.optionalVars) &&
                 Objects.equals(readOnlyVars, that.readOnlyVars) &&
                 Objects.equals(readWriteVars, that.readWriteVars) &&
                 Objects.equals(parentVars, that.parentVars) &&
@@ -1065,7 +1033,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 getArrayModelType(), isAlias, isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
-                getVars(), getAllVars(), getNonNullableVars(), getRequiredVars(), getOptionalVars(), getReadOnlyVars(), getReadWriteVars(),
+                getAllVars(), getNonNullableVars(), getReadOnlyVars(), getReadWriteVars(),
                 getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
                 isEmptyVars(), hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
                 hasChildren, isMap, isDeprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
@@ -1124,8 +1092,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", vars=").append(vars);
         sb.append(", allVars=").append(allVars);
         sb.append(", nonNullableVars=").append(nonNullableVars);
-        sb.append(", requiredVars=").append(requiredVars);
-        sb.append(", optionalVars=").append(optionalVars);
         sb.append(", readOnlyVars=").append(readOnlyVars);
         sb.append(", readWriteVars=").append(readWriteVars);
         sb.append(", parentVars=").append(parentVars);
@@ -1233,8 +1199,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public void removeAllDuplicatedProperty() {
         // remove duplicated properties
         vars = removeDuplicatedProperty(vars);
-        optionalVars = removeDuplicatedProperty(optionalVars);
-        requiredVars = removeDuplicatedProperty(requiredVars);
         parentVars = removeDuplicatedProperty(parentVars);
         allVars = removeDuplicatedProperty(allVars);
         nonNullableVars = removeDuplicatedProperty(nonNullableVars);

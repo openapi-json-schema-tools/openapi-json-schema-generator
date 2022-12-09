@@ -116,14 +116,6 @@ public interface JsonSchema {
 
     void setAdditionalProperties(CodegenProperty additionalProperties);
 
-    List<CodegenProperty> getVars();
-
-    void setVars(List<CodegenProperty> vars);
-
-    List<CodegenProperty> getRequiredVars();
-
-    void setRequiredVars(List<CodegenProperty> requiredVars);
-
     LinkedHashMap<String, CodegenProperty> getProperties();
 
     void setProperties(LinkedHashMap<String, CodegenProperty> properties);
@@ -326,8 +318,8 @@ public interface JsonSchema {
             imports.addAll(this.getAdditionalProperties().getImports(importBaseType, featureSet));
         }
         // vars can exist for AnyType and type object
-        if (this.getVars() != null && !this.getVars().isEmpty()) {
-            this.getVars().stream().flatMap(v -> v.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+        if (this.getProperties() != null && !this.getProperties().isEmpty()) {
+            this.getProperties().values().stream().flatMap(v -> v.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
         }
         if (this.getIsArray() || this.getIsMap()) {
             /*

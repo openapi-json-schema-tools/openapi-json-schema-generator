@@ -1019,32 +1019,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         return super.toDefaultValue(schema);
     }
 
-    @Override
-    public String toDefaultParameterValue(final Schema<?> schema) {
-        Object defaultValue = schema.get$ref() != null ? ModelUtils.getReferencedSchema(openAPI, schema).getDefault() : schema.getDefault();
-        if (defaultValue == null) {
-            return null;
-        }
-        if (defaultValue instanceof Date) {
-            Date date = (Date) schema.getDefault();
-            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            return localDate.toString();
-        }
-        if (ModelUtils.isArraySchema(schema)) {
-            if (defaultValue instanceof ArrayNode) {
-                ArrayNode array = (ArrayNode) defaultValue;
-                return StreamSupport.stream(array.spliterator(), false)
-                    .map(JsonNode::toString)
-                    // remove wrapper quotes
-                    .map(item -> StringUtils.removeStart(item, "\""))
-                    .map(item -> StringUtils.removeEnd(item, "\""))
-                    .collect(Collectors.joining(","));
-            }
-        }
-        // escape quotes
-        return defaultValue.toString().replace("\"", "\\\"");
-    }
-
     /**
      * Return the example value of the parameter. Overrides the
      * setParameterExampleValue(CodegenParameter, Parameter) method in
@@ -1356,7 +1330,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (openApiNullable) {
-            if (Boolean.FALSE.equals(property.required) && Boolean.TRUE.equals(property.isNullable)) {
+            if (Boolean.TRUE.equals(property.isNullable)) {
                 model.imports.add("JsonNullable");
                 model.getVendorExtensions().put("x-jackson-optional-nullable-helpers", true);
             }

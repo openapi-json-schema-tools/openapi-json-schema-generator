@@ -131,8 +131,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     // the undeclared properties.
     public CodegenProperty items;
     public CodegenProperty additionalProperties;
-    public List<CodegenProperty> vars = new ArrayList<CodegenProperty>(); // all properties (without parent's properties)
-    public List<CodegenProperty> requiredVars = new ArrayList<>();
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
     public String discriminatorValue;
@@ -616,12 +614,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
             if (this.additionalProperties != null) {
                 cp.additionalProperties = this.additionalProperties;
             }
-            if (this.vars != null) {
-                cp.vars = this.vars;
-            }
-            if (this.requiredVars != null) {
-                cp.requiredVars = this.requiredVars;
-            }
             if (this.vendorExtensions != null) {
                 cp.vendorExtensions = new HashMap<String, Object>(this.vendorExtensions);
             }
@@ -706,26 +698,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public void setMultipleOf(Number multipleOf) {
         this.multipleOf = multipleOf;
-    }
-
-    @Override
-    public List<CodegenProperty> getVars() {
-        return vars;
-    }
-
-    @Override
-    public void setVars(List<CodegenProperty> vars) {
-        this.vars = vars;
-    }
-
-    @Override
-    public List<CodegenProperty> getRequiredVars() {
-        return requiredVars;
-    }
-
-    @Override
-    public void setRequiredVars(List<CodegenProperty> requiredVars) {
-        this.requiredVars = requiredVars;
     }
 
     @Override
@@ -884,8 +856,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", allowableValues=").append(allowableValues);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
-        sb.append(", vars=").append(vars);
-        sb.append(", requiredVars=").append(requiredVars);
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", hasValidation=").append(hasValidation);
         sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
@@ -1001,8 +971,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
-                Objects.equals(vars, that.vars) &&
-                Objects.equals(requiredVars, that.requiredVars) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(discriminatorValue, that.discriminatorValue) &&
                 Objects.equals(nameInCamelCase, that.nameInCamelCase) &&
@@ -1028,7 +996,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
                 isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
-                allowableValues, items, additionalProperties, vars, requiredVars,
+                allowableValues, items, additionalProperties,
                 vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
                 nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,

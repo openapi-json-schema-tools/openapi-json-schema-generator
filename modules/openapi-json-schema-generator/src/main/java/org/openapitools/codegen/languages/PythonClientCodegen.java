@@ -525,27 +525,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     public String parameterDocFileFolder() { return outputFolder + File.separator + parameterDocPath; }
 
-    protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
-        String adjustedOutputFilename = outputFilename.replaceAll("//", "/").replace('/', File.separatorChar);
-        File target = new File(adjustedOutputFilename);
-        if (ignoreProcessor.allowsFile(target)) {
-            if (shouldGenerate) {
-                Path outDir = java.nio.file.Paths.get(this.getOutputDir()).toAbsolutePath();
-                Path absoluteTarget = target.toPath().toAbsolutePath();
-                if (!absoluteTarget.startsWith(outDir)) {
-                    throw new RuntimeException(String.format(Locale.ROOT, "Target files must be generated within the output directory; absoluteTarget=%s outDir=%s", absoluteTarget, outDir));
-                }
-                return this.templateProcessor.write(templateData,templateName, target);
-            } else {
-                this.templateProcessor.skip(target.toPath(), String.format(Locale.ROOT, "Skipped by %s options supplied by user.", skippedByOption));
-                return null;
-            }
-        } else {
-            this.templateProcessor.ignore(target.toPath(), "Ignored by rule in ignore file.");
-            return null;
-        }
-    }
-
     @Override
     public String apiFilename(String templateName, String tag) {
         String suffix = apiTemplateFiles().get(templateName);
@@ -583,7 +562,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (schema.getRequired() != null) {
                     requiredVars.addAll(schema.getRequired());
                 }
-                addProperties(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
+                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
             }
             addRequiredProperties(schema, property, sourceJsonPath);
             return;
@@ -592,7 +571,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             if (schema.getRequired() != null) {
                 requiredVars.addAll(schema.getRequired());
             }
-            addProperties(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
+            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
         }
         addRequiredProperties(schema, property, sourceJsonPath);
         return;
