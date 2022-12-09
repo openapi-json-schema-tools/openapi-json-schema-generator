@@ -1725,7 +1725,6 @@ components:
         type: string
     NumberHeader:
       description: number header description
-      required: true
       schema:
         type: string
         format: number

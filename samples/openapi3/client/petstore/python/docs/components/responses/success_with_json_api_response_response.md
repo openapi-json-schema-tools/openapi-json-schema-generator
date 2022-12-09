@@ -16,10 +16,10 @@ Type | Description  | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [ref_schema_header_header.schema](../../components/headers/ref_schema_header_header.md#schema) | | optional
-int32 | [int32_json_content_type_header_header.schema](../../components/headers/int32_json_content_type_header_header.md#schema) | | optional
-ref-content-schema-header | [ref_content_schema_header_header.schema](../../components/headers/ref_content_schema_header_header.md#schema) | | optional
-stringHeader | [string_header_header.schema](../../components/headers/string_header_header.md#schema) | | optional
+ref-schema-header | [ref_schema_header_header.schema](../../components/headers/ref_schema_header_header.md#schema) | | 
+int32 | [int32_json_content_type_header_header.schema](../../components/headers/int32_json_content_type_header_header.md#schema) | | 
+ref-content-schema-header | [ref_content_schema_header_header.schema](../../components/headers/ref_content_schema_header_header.md#schema) | | 
+stringHeader | [string_header_header.schema](../../components/headers/string_header_header.md#schema) | | 
 numberHeader | [number_header_header.schema](../../components/headers/number_header_header.md#schema) | | optional
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

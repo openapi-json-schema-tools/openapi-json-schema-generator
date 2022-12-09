@@ -100,12 +100,12 @@ str,  | str,  |  |
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [ref_schema_header_header.schema](../../../components/headers/ref_schema_header_header.md#schema) | | optional
-X-Rate-Limit | [response_for_200.parameter_x_rate_limit.schema](#response_for_200.parameter_x_rate_limit.schema) | | optional
-int32 | [int32_json_content_type_header_header.schema](../../../components/headers/int32_json_content_type_header_header.md#schema) | | optional
+ref-schema-header | [ref_schema_header_header.schema](../../../components/headers/ref_schema_header_header.md#schema) | | 
+X-Rate-Limit | [response_for_200.parameter_x_rate_limit.schema](#response_for_200.parameter_x_rate_limit.schema) | | 
+int32 | [int32_json_content_type_header_header.schema](../../../components/headers/int32_json_content_type_header_header.md#schema) | | 
 X-Expires-After | [response_for_200.parameter_x_expires_after.schema](#response_for_200.parameter_x_expires_after.schema) | | optional
-ref-content-schema-header | [ref_content_schema_header_header.schema](../../../components/headers/ref_content_schema_header_header.md#schema) | | optional
-stringHeader | [string_header_header.schema](../../../components/headers/string_header_header.md#schema) | | optional
+ref-content-schema-header | [ref_content_schema_header_header.schema](../../../components/headers/ref_content_schema_header_header.md#schema) | | 
+stringHeader | [string_header_header.schema](../../../components/headers/string_header_header.md#schema) | | 
 numberHeader | [number_header_header.schema](../../../components/headers/number_header_header.md#schema) | | optional
 
 # <a id="response_for_200.parameter_x_rate_limit.schema" >response_for_200.parameter_x_rate_limit.schema</a>

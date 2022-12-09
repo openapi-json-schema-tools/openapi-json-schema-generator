@@ -784,8 +784,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
             List<CodegenProperty> vars = Stream.of(
                             cm.vars,
                             cm.allVars,
-                            cm.optionalVars,
-                            cm.requiredVars,
+                            cm.getOptionalProperties().values().stream().collect(Collectors.toList()),
+                            cm.getRequiredProperties().values().stream().collect(Collectors.toList()),
                             cm.readOnlyVars,
                             cm.readWriteVars,
                             cm.parentVars

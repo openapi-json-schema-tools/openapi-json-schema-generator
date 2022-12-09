@@ -631,12 +631,16 @@ public class DefaultCodegen implements CodegenConfig {
                 updateCodegenPropertyEnum(var);
             }
 
-            for (CodegenProperty var : cm.getRequiredProperties().values()) {
-                updateCodegenPropertyEnum(var);
+            if (cm.getRequiredProperties() != null) {
+                for (CodegenProperty var : cm.getRequiredProperties().values()) {
+                    updateCodegenPropertyEnum(var);
+                }
             }
 
-            for (CodegenProperty var : cm.getOptionalProperties().values()) {
-                updateCodegenPropertyEnum(var);
+            if (cm.getOptionalProperties() != null) {
+                for (CodegenProperty var : cm.getOptionalProperties().values()) {
+                    updateCodegenPropertyEnum(var);
+                }
             }
 
             for (CodegenProperty var : cm.parentVars) {
@@ -2788,7 +2792,9 @@ public class DefaultCodegen implements CodegenConfig {
         if (m.discriminator != null) {
             String discPropName = m.discriminator.getPropertyBaseName();
             List<List<CodegenProperty>> listOLists = new ArrayList<>();
-            listOLists.add(m.getRequiredProperties().values().stream().collect(Collectors.toList()));
+            if (m.getRequiredProperties() != null) {
+                listOLists.add(m.getRequiredProperties().values().stream().collect(Collectors.toList()));
+            }
             listOLists.add(m.vars);
             listOLists.add(m.allVars);
             for (List<CodegenProperty> theseVars : listOLists) {
