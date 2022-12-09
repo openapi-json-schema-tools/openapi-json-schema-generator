@@ -2352,14 +2352,12 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     private static class NamedSchema {
-        private NamedSchema(Schema s, boolean required, String sourceJsonPath) {
+        private NamedSchema(Schema s, String sourceJsonPath) {
             this.schema = s;
-            this.required = required;
             this.sourceJsonPath = sourceJsonPath;
         }
 
         private Schema schema;
-        private boolean required;
         private String sourceJsonPath;
 
         @Override
@@ -2367,14 +2365,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             NamedSchema that = (NamedSchema) o;
-            return Objects.equals(required, that.required)  &&
-                    Objects.equals(schema, that.schema) &&
+            return Objects.equals(schema, that.schema) &&
                     Objects.equals(sourceJsonPath, that.sourceJsonPath);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(schema, required, sourceJsonPath);
+            return Objects.hash(schema, sourceJsonPath);
         }
     }
 
@@ -2447,7 +2444,7 @@ public class DefaultCodegen implements CodegenConfig {
                 if (StringUtils.isBlank(interfaceSchema.get$ref())) {
                     // primitive type
                     String languageType = getTypeDeclaration(interfaceSchema);
-                    CodegenProperty interfaceProperty = fromProperty(interfaceSchema, false, sourceJsonPath);
+                    CodegenProperty interfaceProperty = fromProperty(interfaceSchema, sourceJsonPath);
                     if (ModelUtils.isArraySchema(interfaceSchema) || ModelUtils.isMapSchema(interfaceSchema)) {
                         while (interfaceProperty != null) {
                             addImport(m, interfaceProperty.refClass);
@@ -2464,7 +2461,7 @@ public class DefaultCodegen implements CodegenConfig {
                     refSchema = allDefinitions.get(ref);
                 }
                 final String modelName = toModelName(ref);
-                CodegenProperty interfaceProperty = fromProperty(interfaceSchema, false, sourceJsonPath);
+                CodegenProperty interfaceProperty = fromProperty(interfaceSchema, sourceJsonPath);
                 m.interfaces.add(modelName);
                 addImport(composed, refSchema, m, modelName);
 
@@ -2761,7 +2758,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         Schema notSchema = schema.getNot();
         if (notSchema != null) {
-            CodegenProperty notProperty = fromProperty(notSchema, false, sourceJsonPath + "/not");
+            CodegenProperty notProperty = fromProperty(notSchema, sourceJsonPath + "/not");
             m.setNot(notProperty);
         }
         List<Schema> allOfs = schema.getAllOf();
@@ -2780,7 +2777,7 @@ public class DefaultCodegen implements CodegenConfig {
             m.setOneOf(oneOfProps);
         }
         if (ModelUtils.isArraySchema(schema)) {
-            CodegenProperty arrayProperty = fromProperty(schema, false, sourceJsonPath + "/items");
+            CodegenProperty arrayProperty = fromProperty(schema, sourceJsonPath + "/items");
             m.setItems(arrayProperty.items);
             m.arrayModelType = arrayProperty.refClass;
             addParentContainer(m, name, schema);
@@ -2871,9 +2868,9 @@ public class DefaultCodegen implements CodegenConfig {
             if (Boolean.TRUE.equals(schema.getAdditionalProperties())) {
                 isAdditionalPropertiesTrue = true;
             }
-            addPropProp = fromProperty(usedSchema, false, additonalPropertiesJsonPath);
+            addPropProp = fromProperty(usedSchema, additonalPropertiesJsonPath);
         } else {
-            addPropProp = fromProperty((Schema) schema.getAdditionalProperties(), false, additonalPropertiesJsonPath);
+            addPropProp = fromProperty((Schema) schema.getAdditionalProperties(), additonalPropertiesJsonPath);
         }
         CodegenModel m = null;
         if (property instanceof CodegenModel) {
@@ -3430,22 +3427,18 @@ public class DefaultCodegen implements CodegenConfig {
      * for a given (String name, Schema schema).
      *
      * @param p        OAS property schema
-     * @param required true if the property is required in the next higher object schema, false otherwise
-     * @param schemaIsFromAdditionalProperties true if the property is a required property defined by additional properties schema
-     *                                         If this is the actual additionalProperties schema not defining a required property, then
-     *                                         the value should be false
      * @return Codegen Property object
      */
-    public CodegenProperty fromProperty(Schema p, boolean required, String sourceJsonPath) {
+    public CodegenProperty fromProperty(Schema p, String sourceJsonPath) {
         if (p == null) {
             LOGGER.error("Undefined property/schema at `{}`", sourceJsonPath);
             return null;
         }
         LOGGER.debug("debugging fromProperty for {} : {}", sourceJsonPath, p);
-        NamedSchema ns = new NamedSchema(p, required, sourceJsonPath);
+        NamedSchema ns = new NamedSchema(p, sourceJsonPath);
         CodegenProperty cpc = schemaCodegenPropertyCache.get(ns);
         if (cpc != null) {
-            LOGGER.debug("Cached fromProperty for {} : {} required={}", p, sourceJsonPath, required);
+            LOGGER.debug("Cached fromProperty for {} : {}", p, sourceJsonPath);
             return cpc;
         }
 
@@ -3459,7 +3452,6 @@ public class DefaultCodegen implements CodegenConfig {
         // unalias schema
         p = unaliasSchema(p);
 
-        property.required = required;
         ModelUtils.syncValidationProperties(p, property);
         property.setFormat(p.getFormat());
 
@@ -3578,7 +3570,7 @@ public class DefaultCodegen implements CodegenConfig {
         property.setTypeProperties(p);
         Schema notSchema = p.getNot();
         if (notSchema != null) {
-            CodegenProperty notProperty = fromProperty(notSchema, false, sourceJsonPath + "/not");
+            CodegenProperty notProperty = fromProperty(notSchema, sourceJsonPath + "/not");
             property.setNot(notProperty);
         }
         List<Schema> allOfs = p.getAllOf();
@@ -3621,7 +3613,7 @@ public class DefaultCodegen implements CodegenConfig {
             ArraySchema arraySchema = (ArraySchema) p;
             Schema innerSchema = unaliasSchema(arraySchema.getItems());
             CodegenProperty innerProperty = fromProperty(
-                    innerSchema, false, sourceJsonPath + "/items");
+                    innerSchema, sourceJsonPath + "/items");
             property.setItems(innerProperty);
         } else if (ModelUtils.isTypeObjectSchema(p)) {
             updatePropertyForObject(property, p, sourceJsonPath);
@@ -4194,7 +4186,6 @@ public class DefaultCodegen implements CodegenConfig {
             String usedSourceJsonPath = sourceJsonPath + "/schema";
             CodegenProperty prop = fromProperty(
                     header.getSchema(),
-                    false,
                     usedSourceJsonPath
             );
             codegenHeader.setSchema(prop);
@@ -4594,7 +4585,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param schema the input OAS schema.
      */
     protected void addParentContainer(CodegenModel model, String name, Schema schema) {
-        final CodegenProperty property = fromProperty(schema, false, null);
+        final CodegenProperty property = fromProperty(schema, null);
         addImport(model, property.refClass);
         model.parent = toInstantiationType(schema);
         if (!addSchemaImportsFromV3SpecLocations) {
@@ -4765,7 +4756,7 @@ public class DefaultCodegen implements CodegenConfig {
                 final CodegenProperty cp;
 
                 String propertySourceJsonPath = sourceJsonPath + "/properties/" + key;
-                cp = fromProperty(prop, mandatory.contains(key), propertySourceJsonPath);
+                cp = fromProperty(prop, propertySourceJsonPath);
 
                 vars.add(cp);
                 propertiesMap.put(key, cp);
@@ -5704,7 +5695,7 @@ public class DefaultCodegen implements CodegenConfig {
             codegenParameter.paramName = toParamName(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromProperty(schema, false, sourceJsonPath);
+            CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
 
             if (codegenProperty != null && codegenProperty.getRefClass() != null && codegenProperty.getRefClass().contains(" | ")) {
                 if (!addSchemaImportsFromV3SpecLocations) {
@@ -5765,7 +5756,7 @@ public class DefaultCodegen implements CodegenConfig {
                 inner = new StringSchema().description("//TODO automatically added by openapi-generator");
                 schema.setAdditionalProperties(inner);
             }
-            CodegenProperty codegenProperty = fromProperty(schema, false, sourceJsonPath);
+            CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
 
             if (!addSchemaImportsFromV3SpecLocations) {
                 imports.add(codegenProperty.baseType);
@@ -5788,7 +5779,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void updateRequestBodyForPrimitiveType(CodegenParameter codegenParameter, Schema schema, String bodyParameterName, Set<String> imports, String sourceJsonPath) {
-        CodegenProperty codegenProperty = fromProperty(schema, false, sourceJsonPath);
+        CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
         if (codegenProperty != null) {
             if (StringUtils.isEmpty(bodyParameterName)) {
                 codegenParameter.baseName = "body";  // default to body
@@ -5821,7 +5812,7 @@ public class DefaultCodegen implements CodegenConfig {
             this.addBodyModelSchema(codegenParameter, name, schema, imports, bodyParameterName, true, sourceJsonPath);
         } else {
             final ArraySchema arraySchema = (ArraySchema) schema;
-            CodegenProperty codegenProperty = fromProperty(arraySchema, false, sourceJsonPath);
+            CodegenProperty codegenProperty = fromProperty(arraySchema, sourceJsonPath);
             if (codegenProperty == null) {
                throw new RuntimeException("CodegenProperty cannot be null. arraySchema for debugging: " + arraySchema);
             }
@@ -5914,7 +5905,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
             if (mt.getSchema() != null) {
                 String usedSourceJsonPath = sourceJsonPath + "/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                schemaProp = fromProperty(mt.getSchema(), false, usedSourceJsonPath);
+                schemaProp = fromProperty(mt.getSchema(), usedSourceJsonPath);
             }
             HashMap<String, SchemaTestCase> schemaTestCases = null;
             if (mt.getExtensions() != null && mt.getExtensions().containsKey(xSchemaTestExamplesKey)) {
@@ -6113,13 +6104,13 @@ public class DefaultCodegen implements CodegenConfig {
                     if (schema.getAdditionalProperties() == null) {
                         // additionalProperties is null
                         // there is NO schema definition for this
-                        cp = fromProperty(new Schema(), true, null);
+                        cp = fromProperty(new Schema(), null);
                     } else if (schema.getAdditionalProperties() instanceof Boolean && Boolean.TRUE.equals(schema.getAdditionalProperties())) {
                         // additionalProperties is True
-                        cp = fromProperty(new Schema(), true, addPropsJsonPath);
+                        cp = fromProperty(new Schema(), addPropsJsonPath);
                     } else {
                         // additionalProperties is schema
-                        cp = fromProperty((Schema) schema.getAdditionalProperties(), true, addPropsJsonPath);
+                        cp = fromProperty((Schema) schema.getAdditionalProperties(), addPropsJsonPath);
                     }
                     requiredProperties.put(usedRequiredPropertyName, cp);
                 }
@@ -6516,7 +6507,7 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenProperty> xOf = new ArrayList<>();
         int i = 0;
         for (Schema xOfSchema : xOfCollection) {
-            CodegenProperty cp = fromProperty(xOfSchema, false, sourceJsonPath + "/" + collectionName + "/" + String.valueOf(i));
+            CodegenProperty cp = fromProperty(xOfSchema, sourceJsonPath + "/" + collectionName + "/" + String.valueOf(i));
             xOf.add(cp);
             i += 1;
         }
