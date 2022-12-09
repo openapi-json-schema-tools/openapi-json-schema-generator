@@ -89,7 +89,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      * The value of "exclusiveMaximum" MUST be number, representing an exclusive upper limit for a numeric instance.
      */
     public boolean exclusiveMaximum;
-    public boolean required;
     public boolean deprecated;
     public boolean isString;
     public boolean isNumeric;
@@ -371,18 +370,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public void setExclusiveMaximum(boolean exclusiveMaximum) {
         this.exclusiveMaximum = exclusiveMaximum;
-    }
-
-    public boolean getRequired() {
-        return required;
-    }
-
-    public boolean compulsory(){
-        return getRequired() && !isNullable;
-    }
-
-    public void setRequired(boolean required) {
-        this.required = required;
     }
 
     public List<String> get_enum() {
@@ -863,7 +850,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", maximum='").append(maximum).append('\'');
         sb.append(", exclusiveMinimum=").append(exclusiveMinimum);
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
-        sb.append(", required=").append(required);
         sb.append(", deprecated=").append(deprecated);
         sb.append(", isString=").append(isString);
         sb.append(", isNumeric=").append(isNumeric);
@@ -945,7 +931,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         CodegenProperty that = (CodegenProperty) o;
         return exclusiveMinimum == that.exclusiveMinimum &&
                 exclusiveMaximum == that.exclusiveMaximum &&
-                required == that.required &&
                 deprecated == that.deprecated &&
                 isString == that.isString &&
                 isNumeric == that.isNumeric &&
@@ -1037,7 +1022,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 name, defaultValue,
                 baseType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
-                exclusiveMinimum, exclusiveMaximum, required, deprecated,
+                exclusiveMinimum, exclusiveMaximum, deprecated,
                 isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
