@@ -52,7 +52,7 @@ Key | Input Type | Description  | Notes
 someParam | [parameter_0.schema](#parameter_0.schema) | | 
 
 
-# parameter_0.schema
+# parameter_0.application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -70,10 +70,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.schema](#response_for_200.schema), ] |  |
+body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.schema" >response_for_200.schema</a>
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

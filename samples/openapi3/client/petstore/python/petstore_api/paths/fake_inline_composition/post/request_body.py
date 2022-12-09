@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class application_json(
     schemas.AnyTypeSchema,
 ):
 
@@ -58,7 +58,7 @@ class schema(
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'schema':
+    ) -> 'application_json':
         return super().__new__(
             cls,
             *_args,
@@ -67,7 +67,7 @@ class schema(
         )
 
 
-class schema(
+class multipart_form_data(
     schemas.DictSchema
 ):
 
@@ -157,7 +157,7 @@ class schema(
         someProp: typing.Union[MetaOapg.properties.someProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'schema':
+    ) -> 'multipart_form_data':
         return super().__new__(
             cls,
             *_args,
@@ -169,10 +169,10 @@ class schema(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=schema
+            schema=application_json
         ),
         'multipart/form-data': api_client.MediaType(
-            schema=schema
+            schema=multipart_form_data
         ),
     },
 )

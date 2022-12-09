@@ -25,12 +25,12 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-schema = schemas.BinarySchema
+application_octet_stream = schemas.BinarySchema
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/octet-stream': api_client.MediaType(
-            schema=schema
+            schema=application_octet_stream
         ),
     },
     required=True,

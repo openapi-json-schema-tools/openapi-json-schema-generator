@@ -18,14 +18,14 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import string
 
 # body schemas
-schema = string.String
+application_json = string.String
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema,
+        application_json,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -34,7 +34,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=schema,
+            schema=application_json,
         ),
     },
 )

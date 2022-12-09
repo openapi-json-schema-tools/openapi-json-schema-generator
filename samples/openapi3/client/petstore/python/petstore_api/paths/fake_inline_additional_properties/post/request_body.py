@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class application_json(
     schemas.DictSchema
 ):
 
@@ -48,7 +48,7 @@ class schema(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.additional_properties, str, ],
-    ) -> 'schema':
+    ) -> 'application_json':
         return super().__new__(
             cls,
             *_args,
@@ -59,7 +59,7 @@ class schema(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=schema
+            schema=application_json
         ),
     },
     required=True,

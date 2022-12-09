@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import composed_one_of_different_types
 
 
-schema = composed_one_of_different_types.ComposedOneOfDifferentTypes
+application_json = composed_one_of_different_types.ComposedOneOfDifferentTypes
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=schema
+            schema=application_json
         ),
     },
 )

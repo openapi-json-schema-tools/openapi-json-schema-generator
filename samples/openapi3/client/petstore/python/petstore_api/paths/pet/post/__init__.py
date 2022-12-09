@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[request_body.schema,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -78,7 +78,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[request_body.schema,],
+        body: typing.Union[request_body.application_xml,],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -105,7 +105,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -116,7 +116,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet_oapg(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -129,7 +129,7 @@ class BaseApi(api_client.Api):
 
     def _add_pet_oapg(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -201,7 +201,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.schema,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -214,7 +214,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.schema,],
+        body: typing.Union[request_body.application_xml,],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -227,7 +227,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -241,7 +241,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -252,7 +252,7 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -265,7 +265,7 @@ class AddPet(BaseApi):
 
     def add_pet(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -288,7 +288,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.schema,],
+        body: typing.Union[request_body.application_json,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -301,7 +301,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.schema,],
+        body: typing.Union[request_body.application_xml,],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -314,7 +314,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -328,7 +328,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -339,7 +339,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -352,7 +352,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.schema,request_body.schema,],
+        body: typing.Union[request_body.application_json,request_body.application_xml,],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,

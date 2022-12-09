@@ -37,19 +37,19 @@ class FruitReq(
         # any type
         
         class one_of:
-            _0 = schemas.NoneSchema
+            oneOf_0 = schemas.NoneSchema
         
             @staticmethod
-            def _1() -> typing.Type['apple_req.AppleReq']:
+            def oneOf_1() -> typing.Type['apple_req.AppleReq']:
                 return apple_req.AppleReq
         
             @staticmethod
-            def _2() -> typing.Type['banana_req.BananaReq']:
+            def oneOf_2() -> typing.Type['banana_req.BananaReq']:
                 return banana_req.BananaReq
             classes = [
-                _0,
-                _1,
-                _2,
+                oneOf_0,
+                oneOf_1,
+                oneOf_2,
             ]
 
 

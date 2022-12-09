@@ -12,9 +12,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
-[_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# _1
+# allOf_1
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

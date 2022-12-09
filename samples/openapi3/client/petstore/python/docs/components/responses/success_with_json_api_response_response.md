@@ -4,10 +4,10 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[schema](#schema), ] |  |
+body | typing.Union[[application_json](#application_json), ] |  |
 headers | [Headers](#Headers) |  |
 
-# schema
+# application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**api_response.ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
@@ -17,8 +17,8 @@ Type | Description  | Notes
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [ref_schema_header_header.schema](../../components/headers/ref_schema_header_header.md#schema) | | 
-int32 | [int32_json_content_type_header_header.schema](../../components/headers/int32_json_content_type_header_header.md#schema) | | 
-ref-content-schema-header | [ref_content_schema_header_header.schema](../../components/headers/ref_content_schema_header_header.md#schema) | | 
+int32 | [int32_json_content_type_header_header.application_json](../../components/headers/int32_json_content_type_header_header.md#application_json) | | 
+ref-content-schema-header | [ref_content_schema_header_header.application_json](../../components/headers/ref_content_schema_header_header.md#application_json) | | 
 stringHeader | [string_header_header.schema](../../components/headers/string_header_header.md#schema) | | 
 numberHeader | [number_header_header.schema](../../components/headers/number_header_header.md#schema) | | optional
 

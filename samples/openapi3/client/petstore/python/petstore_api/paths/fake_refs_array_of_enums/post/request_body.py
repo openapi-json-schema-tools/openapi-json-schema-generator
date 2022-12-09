@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import array_of_enums
 
 
-schema = array_of_enums.ArrayOfEnums
+application_json = array_of_enums.ArrayOfEnums
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=schema
+            schema=application_json
         ),
     },
 )

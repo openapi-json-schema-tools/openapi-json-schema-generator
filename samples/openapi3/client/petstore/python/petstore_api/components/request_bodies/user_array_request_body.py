@@ -29,7 +29,7 @@ from petstore_api.components.schema import user
 
 
 
-class schema(
+class application_json(
     schemas.ListSchema
 ):
 
@@ -45,7 +45,7 @@ class schema(
         cls,
         _arg: typing.Union[typing.Tuple['user.User'], typing.List['user.User']],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'schema':
+    ) -> 'application_json':
         return super().__new__(
             cls,
             _arg,
@@ -58,7 +58,7 @@ class schema(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=schema
+            schema=application_json
         ),
     },
     required=True,

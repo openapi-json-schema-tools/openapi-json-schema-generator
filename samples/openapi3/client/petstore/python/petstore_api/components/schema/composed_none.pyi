@@ -39,9 +39,9 @@ class ComposedNone(
         }
         
         class all_of:
-            _0 = schemas.AnyTypeSchema
+            allOf_0 = schemas.AnyTypeSchema
             classes = [
-                _0,
+                allOf_0,
             ]
 
 

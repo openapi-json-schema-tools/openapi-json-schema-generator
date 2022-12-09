@@ -43,10 +43,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.schema](#response_for_200.schema), ] |  |
+body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.schema" >response_for_200.schema</a>
+# <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**health_check_result.HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 

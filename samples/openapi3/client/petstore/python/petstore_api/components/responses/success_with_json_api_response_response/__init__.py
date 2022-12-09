@@ -28,8 +28,8 @@ class Header:
         'RequiredParams',
         {
             'ref-schema-header': typing.Union[parameter_ref_schema_header.schema, ],
-            'int32': typing.Union[parameter_int32_json_content_type_header.schema, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.schema, ],
+            'int32': typing.Union[parameter_int32_json_content_type_header.application_json, decimal.Decimal, int, ],
+            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.application_json, ],
             'stringHeader': typing.Union[parameter_string_header.schema, str, ],
         }
     )
@@ -54,14 +54,14 @@ class Header:
         parameter_number_header.parameter_oapg,
     ]
 # body schemas
-schema = api_response.ApiResponse
+application_json = api_response.ApiResponse
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema,
+        application_json,
     ]
     headers: Header.Params
 
@@ -70,7 +70,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=schema,
+            schema=application_json,
         ),
     },
     headers=Header.parameters

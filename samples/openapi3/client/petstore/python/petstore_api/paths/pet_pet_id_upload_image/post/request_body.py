@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class multipart_form_data(
     schemas.DictSchema
 ):
 
@@ -89,7 +89,7 @@ class schema(
         file: typing.Union[MetaOapg.properties.file, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'schema':
+    ) -> 'multipart_form_data':
         return super().__new__(
             cls,
             *_args,
@@ -102,7 +102,7 @@ class schema(
 parameter_oapg = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(
-            schema=schema
+            schema=multipart_form_data
         ),
     },
 )

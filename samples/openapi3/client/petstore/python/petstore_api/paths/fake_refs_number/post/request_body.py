@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import number_with_validations
 
 
-schema = number_with_validations.NumberWithValidations
+application_json = number_with_validations.NumberWithValidations
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=schema
+            schema=application_json
         ),
     },
 )

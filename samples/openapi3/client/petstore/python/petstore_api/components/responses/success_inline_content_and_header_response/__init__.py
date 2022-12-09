@@ -42,7 +42,7 @@ class Header:
 # body schemas
 
 
-class schema(
+class application_json(
     schemas.DictSchema
 ):
 
@@ -63,7 +63,7 @@ class schema(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.additional_properties, decimal.Decimal, int, ],
-    ) -> 'schema':
+    ) -> 'application_json':
         return super().__new__(
             cls,
             *_args,
@@ -76,7 +76,7 @@ class schema(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema,
+        application_json,
     ]
     headers: Header.Params
 
@@ -85,7 +85,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=schema,
+            schema=application_json,
         ),
     },
     headers=Header.parameters

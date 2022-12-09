@@ -3421,6 +3421,15 @@ public class DefaultCodegen implements CodegenConfig {
                 if (lastPathFragment.equals("additionalProperties")) {
                     property.setSchemaIsFromAdditionalProperties(true);
                     usedName = getAdditionalPropertiesName();
+                } else if (lastPathFragment.equals("schema")) {
+                    String priorFragment = refPieces[refPieces.length-2];
+                    if (!"parameters".equals(priorFragment)) {
+                        String evenDeeperFragment = refPieces[refPieces.length-3];
+                        if ("content".equals(evenDeeperFragment)) {
+                            // body or parameter content type schemas, in which case 1 deeper is content
+                            usedName = ModelUtils.decodeSlashes(priorFragment);
+                        }
+                    }
                 } else {
                     try {
                         Integer.parseInt(usedName);

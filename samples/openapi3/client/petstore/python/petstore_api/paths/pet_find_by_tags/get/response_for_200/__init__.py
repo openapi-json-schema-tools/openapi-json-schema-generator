@@ -20,7 +20,7 @@ from petstore_api.components.schema import pet
 # body schemas
 
 
-class schema(
+class application_xml(
     schemas.ListSchema
 ):
 
@@ -36,7 +36,7 @@ class schema(
         cls,
         _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'schema':
+    ) -> 'application_xml':
         return super().__new__(
             cls,
             _arg,
@@ -47,7 +47,7 @@ class schema(
         return super().__getitem__(i)
 
 
-class schema(
+class application_json(
     schemas.ListSchema
 ):
 
@@ -63,7 +63,7 @@ class schema(
         cls,
         _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'schema':
+    ) -> 'application_json':
         return super().__new__(
             cls,
             _arg,
@@ -78,8 +78,8 @@ class schema(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema,
-        schema,
+        application_xml,
+        application_json,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -88,10 +88,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=schema,
+            schema=application_xml,
         ),
         'application/json': api_client.MediaType(
-            schema=schema,
+            schema=application_json,
         ),
     },
 )
