@@ -7,7 +7,7 @@
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 {{> model_templates/schema_python_types }} | {{> model_templates/schema_accessed_types }} | {{#if description}}{{description}}{{/if}} |{{> model_templates/notes_msg }}
-{{#or properties additionalProperties}}
+{{#or properties additionalProperties requiredProperties}}
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -30,7 +30,18 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
     {{/with}}
 {{/or}}
-{{#each properties}}
+{{#each requiredProperties}}
+{{#if this}}
+{{#unless refClass}}
+{{#if isComplicated}}
+
+# {{@key}}
+{{> schema_doc }}
+{{/if}}
+{{/unless}}
+{{/if}}
+{{/each}}
+{{#each optionalProperties}}
 {{#unless refClass}}
 {{#if isComplicated}}
 
