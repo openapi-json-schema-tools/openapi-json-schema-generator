@@ -79,7 +79,7 @@ query | [parameter_0.schema](#parameter_0.schema) | |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 ### Return Types, Responses
 

@@ -60,21 +60,21 @@ some_var | [parameter_2.schema](#parameter_2.schema) | |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 # parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 # parameter_2.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 ### Return Types, Responses
 

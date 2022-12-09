@@ -59,14 +59,14 @@ password | [parameter_1.schema](#parameter_1.schema) | |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 # parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 ### Return Types, Responses
 
@@ -88,14 +88,14 @@ headers | [response_for_200.Headers](#response_for_200.Headers) |  |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 # <a id="response_for_200.schema" >response_for_200.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 #### <a id="response_for_200.Headers" >response_for_200.Headers</a>
 
 Key | Accessed Type | Description  | Notes

@@ -736,6 +736,14 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         return this.items != null;
     }
 
+    public boolean isComplicated() {
+        // used by templates
+        if (isArray || isMap || allOf != null || anyOf != null || oneOf != null || not != null) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean getIsString() {
         return isString;

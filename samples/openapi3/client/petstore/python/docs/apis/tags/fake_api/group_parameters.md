@@ -98,7 +98,7 @@ int64_group | [parameter_5.schema](#parameter_5.schema) | | optional
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 # parameter_2.schema
 
@@ -112,7 +112,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 # parameter_5.schema
 
@@ -134,14 +134,14 @@ boolean_group | [parameter_4.schema](#parameter_4.schema) | | optional
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ] 
+str,  | str,  |  | must be one of ["true", "false", ]
 
 # parameter_4.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ] 
+str,  | str,  |  | must be one of ["true", "false", ]
 
 ### Return Types, Responses
 
