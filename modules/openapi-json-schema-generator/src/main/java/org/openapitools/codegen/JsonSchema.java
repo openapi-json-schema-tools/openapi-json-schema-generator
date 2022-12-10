@@ -116,15 +116,15 @@ public interface JsonSchema {
 
     void setAdditionalProperties(CodegenProperty additionalProperties);
 
-    LinkedHashMap<String, CodegenProperty> getProperties();
+    LinkedHashMap<CodegenKey, CodegenProperty> getProperties();
 
-    void setProperties(LinkedHashMap<String, CodegenProperty> properties);
+    void setProperties(LinkedHashMap<CodegenKey, CodegenProperty> properties);
 
-    LinkedHashMap<String, CodegenProperty> getOptionalProperties();
+    LinkedHashMap<CodegenKey, CodegenProperty> getOptionalProperties();
 
-    void setOptionalProperties(LinkedHashMap<String, CodegenProperty> optionalProperties);
+    void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties);
 
-    LinkedHashMap<String, CodegenProperty> getRequiredProperties();
+    LinkedHashMap<CodegenKey, CodegenProperty> getRequiredProperties();
 
     // goes from required propertyName to its CodegenProperty
     // Use Cases:
@@ -132,7 +132,7 @@ public interface JsonSchema {
     // 2. required property is not defined in properties, and additionalProperties is true or unset value is CodegenProperty made from empty schema
     // 3. required property is not defined in properties, and additionalProperties is schema, value is CodegenProperty made from schema
     // 4. required property is not defined in properties, and additionalProperties is false, value is null
-    void setRequiredProperties(LinkedHashMap<String, CodegenProperty> requiredProperties);
+    void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties);
 
 
     boolean getIsNull();

@@ -4614,8 +4614,8 @@ public class DefaultCodegen implements CodegenConfig {
         if (m instanceof CodegenModel) {
             cm = (CodegenModel) m;
         }
-        LinkedHashMap<String, CodegenProperty> propertiesMap = new LinkedHashMap<>();
-        LinkedHashMap<String, CodegenProperty> optionalProperties = new LinkedHashMap<>();
+        LinkedHashMap<CodegenKey, CodegenProperty> propertiesMap = new LinkedHashMap<>();
+        LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties = new LinkedHashMap<>();
 
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
             final String key = entry.getKey();
@@ -4628,9 +4628,16 @@ public class DefaultCodegen implements CodegenConfig {
                 String propertySourceJsonPath = sourceJsonPath + "/properties/" + key;
                 cp = fromProperty(prop, propertySourceJsonPath);
 
-                propertiesMap.put(key, cp);
+                boolean isValid = isValid(key);
+                CodegenKey ck = new CodegenKey(
+                        key,
+                        isValid,
+                        toVarName(key),
+                        toModelName(key)
+                );
+                propertiesMap.put(ck, cp);
                 if (!mandatory.contains(key)) {
-                    optionalProperties.put(key, cp);
+                    optionalProperties.put(ck, cp);
                 }
 
                 if (cm == null) {
@@ -5913,7 +5920,7 @@ public class DefaultCodegen implements CodegenConfig {
         - nameInSnakeCase can store valid name for a programming language
          */
         Map<String, Schema> properties = schema.getProperties();
-        LinkedHashMap<String, CodegenProperty> requiredProperties = new LinkedHashMap<>();
+        LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties = new LinkedHashMap<>();
         List<String> requiredPropertyNames = schema.getRequired();
         if (requiredPropertyNames == null) {
             return;
@@ -5921,18 +5928,25 @@ public class DefaultCodegen implements CodegenConfig {
         for (String requiredPropertyName: requiredPropertyNames) {
             // required property is defined in properties, value is that CodegenProperty
             String usedRequiredPropertyName = handleSpecialCharacters(requiredPropertyName);
+            boolean isValid = isValid(usedRequiredPropertyName);
+            CodegenKey ck = new CodegenKey(
+                    usedRequiredPropertyName,
+                    isValid,
+                    toVarName(usedRequiredPropertyName),
+                    toModelName(usedRequiredPropertyName)
+            );
             if (properties != null && properties.containsKey(requiredPropertyName)) {
                 // get cp from property
                 CodegenProperty cp = property.getProperties().get(requiredPropertyName);
                 if (cp != null) {
-                    requiredProperties.put(requiredPropertyName, cp);
+                    requiredProperties.put(ck, cp);
                 } else {
                     throw new RuntimeException("Property " + requiredPropertyName + " is missing from getVars");
                 }
             } else if (schema.getAdditionalProperties() instanceof Boolean && Boolean.FALSE.equals(schema.getAdditionalProperties())) {
                 // TODO add processing for requiredPropertyName
                 // required property is not defined in properties, and additionalProperties is false, value is null
-                requiredProperties.put(usedRequiredPropertyName, null);
+                requiredProperties.put(ck, null);
             } else {
                 // required property is not defined in properties, and additionalProperties is true or unset value is CodegenProperty made from empty schema
                 // required property is not defined in properties, and additionalProperties is schema, value is CodegenProperty made from schema
@@ -5950,7 +5964,7 @@ public class DefaultCodegen implements CodegenConfig {
                         // additionalProperties is schema
                         cp = fromProperty((Schema) schema.getAdditionalProperties(), addPropsJsonPath);
                     }
-                    requiredProperties.put(usedRequiredPropertyName, cp);
+                    requiredProperties.put(ck, cp);
                 }
             }
         }

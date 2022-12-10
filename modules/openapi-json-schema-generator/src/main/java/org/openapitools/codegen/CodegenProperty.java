@@ -152,9 +152,9 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     private List<CodegenProperty> oneOf = null;
     private CodegenProperty not = null;
     private boolean hasMultipleTypes = false;
-    private LinkedHashMap<String, CodegenProperty> requiredProperties;
-    private LinkedHashMap<String, CodegenProperty> properties;
-    private LinkedHashMap<String, CodegenProperty> optionalProperties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> properties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties;
     private String ref;
     private String refModule;
     private boolean schemaIsFromAdditionalProperties;
@@ -757,22 +757,22 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public void setIsUuid(boolean isUuid) { this.isUuid = isUuid; }
 
     @Override
-    public LinkedHashMap<String, CodegenProperty> getRequiredProperties() { return requiredProperties; }
+    public LinkedHashMap<CodegenKey, CodegenProperty> getRequiredProperties() { return requiredProperties; }
 
     @Override
-    public void setRequiredProperties(LinkedHashMap<String, CodegenProperty> requiredProperties) { this.requiredProperties = requiredProperties; }
+    public void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties) { this.requiredProperties = requiredProperties; }
 
     @Override
-    public LinkedHashMap<String, CodegenProperty> getProperties() { return properties; }
+    public LinkedHashMap<CodegenKey, CodegenProperty> getProperties() { return properties; }
 
     @Override
-    public void setProperties(LinkedHashMap<String, CodegenProperty> properties) { this.properties = properties; }
+    public void setProperties(LinkedHashMap<CodegenKey, CodegenProperty> properties) { this.properties = properties; }
 
     @Override
-    public LinkedHashMap<String, CodegenProperty> getOptionalProperties() { return optionalProperties; }
+    public LinkedHashMap<CodegenKey, CodegenProperty> getOptionalProperties() { return optionalProperties; }
 
     @Override
-    public void setOptionalProperties(LinkedHashMap<String, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
+    public void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
 
     public String getRefModule() { return refModule; }
 
