@@ -2,12 +2,12 @@ def {{methodName}}(
     self,
     name: typing.Union[
 {{#each getRequiredProperties}}
-    {{#with this}}
-        typing_extensions.Literal["{{{@key}}}"],
-    {{/with}}
+    {{#if this}}
+        typing_extensions.Literal["{{{@key.getName}}}"],
+    {{/if}}
 {{/each}}
 {{#each optionalProperties}}
-        typing_extensions.Literal["{{{@key}}}"],
+        typing_extensions.Literal["{{{@key.getName}}}"],
 {{/each}}
 {{#with additionalProperties}}
     {{#unless getIsBooleanSchemaFalse}}

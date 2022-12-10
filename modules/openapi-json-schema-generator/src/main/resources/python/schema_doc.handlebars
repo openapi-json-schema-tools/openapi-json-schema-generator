@@ -13,10 +13,10 @@ Input Type | Accessed Type | Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
     {{#each getRequiredProperties}}
-**{{@key}}** | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_python_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_accessed_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> model_templates/notes_msg }}
+**{{@key.getName}}** | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_python_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_accessed_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> model_templates/notes_msg }}
     {{/each}}
     {{#each optionalProperties}}
-**{{@key}}** | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_python_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_accessed_types }}{{#if isComplicated}}](#{{@key}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> model_templates/notes_msg }}
+**{{@key.getName}}** | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_python_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if refClass}}{{> refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> model_templates/schema_accessed_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> model_templates/notes_msg }}
     {{/each}}
     {{#with additionalProperties}}
     {{#unless getIsBooleanSchemaFalse}}
@@ -35,7 +35,7 @@ Key | Input Type | Accessed Type | Description | Notes
 {{#unless refClass}}
 {{#if isComplicated}}
 
-# {{@key}}
+# {{@key.getName}}
 {{> schema_doc }}
 {{/if}}
 {{/unless}}
@@ -45,7 +45,7 @@ Key | Input Type | Accessed Type | Description | Notes
 {{#unless refClass}}
 {{#if isComplicated}}
 
-# {{@key}}
+# {{@key.getName}}
 {{> schema_doc }}
 {{/if}}
 {{/unless}}

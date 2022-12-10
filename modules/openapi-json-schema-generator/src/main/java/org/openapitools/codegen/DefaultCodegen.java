@@ -5937,7 +5937,7 @@ public class DefaultCodegen implements CodegenConfig {
             );
             if (properties != null && properties.containsKey(requiredPropertyName)) {
                 // get cp from property
-                CodegenProperty cp = property.getProperties().get(requiredPropertyName);
+                CodegenProperty cp = property.getProperties().get(ck);
                 if (cp != null) {
                     requiredProperties.put(ck, cp);
                 } else {

@@ -12,32 +12,34 @@ def __new__(
 {{#unless isNull}}
 {{#if requiredProperties}}
 {{#each getRequiredProperties}}
+{{#if @key.getNameIsValid}}
 {{#with this}}
 {{#if refClass}}
-    {{@key}}: '{{refClass}}',
+    {{@key.getName}}: '{{refClass}}',
 {{else}}
     {{#and name name.getNameIsValid}}
         {{#if schemaIsFromAdditionalProperties}}
-    {{@key}}: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
         {{else}}
             {{#if name.getNameIsValid}}
-    {{@key}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}],
             {{/if}}
         {{/if}}
     {{else}}
-    {{@key}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
     {{/and}}
 {{/if}}
 {{/with}}
+{{/if}}
 {{/each}}
 {{/if}}
 {{/unless}}
 {{#each optionalProperties}}
-{{#if name.getNameIsValid}}
+{{#if @key.getNameIsValid}}
 {{#if refClass}}
-    {{@key}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
-    {{@key}}: typing.Union[MetaOapg.properties.{{@key}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
 {{/if}}
 {{/each}}
@@ -70,21 +72,17 @@ def __new__(
 {{#unless isNull}}
 {{#if requiredProperties}}
 {{#each getRequiredProperties}}
+{{#if @key.getNameIsValid}}
 {{#with this}}
-{{#if name}}
-{{#if name.getNameIsValid}}
-        {{@key}}={{@key}},
-{{/if}}
-{{else}}
-        {{@key}}={{@key}},
-{{/if}}
+        {{@key.getName}}={{@key.getName}},
 {{/with}}
+{{/if}}
 {{/each}}
 {{/if}}
 {{/unless}}
 {{#each optionalProperties}}
-{{#if name.getNameIsValid}}
-        {{@key}}={{@key}},
+{{#if @key.getNameIsValid}}
+        {{@key.getName}}={{@key.getName}},
 {{/if}}
 {{/each}}
         _configuration=_configuration,

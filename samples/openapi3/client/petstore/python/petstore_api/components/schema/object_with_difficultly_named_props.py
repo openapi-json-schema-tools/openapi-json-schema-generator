@@ -51,7 +51,6 @@ class ObjectWithDifficultlyNamedProps(
                 "123Number": _123_number,
             }
     
-    123-list: MetaOapg.properties.123-list
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> MetaOapg.properties._123_list: ...
@@ -103,7 +102,6 @@ class ObjectWithDifficultlyNamedProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        123-list: typing.Union[schemas.AnyTypeSchema, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectWithDifficultlyNamedProps':

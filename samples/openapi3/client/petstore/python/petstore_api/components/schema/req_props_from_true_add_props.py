@@ -41,7 +41,6 @@ class ReqPropsFromTrueAddProps(
         }
         additionalProperties = schemas.AnyTypeSchema
     
-    invalid-name: MetaOapg.additionalProperties
     validName: MetaOapg.additionalProperties
     
     @typing.overload
@@ -86,7 +85,6 @@ class ReqPropsFromTrueAddProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        invalid-name: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         validName: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
@@ -94,7 +92,6 @@ class ReqPropsFromTrueAddProps(
         return super().__new__(
             cls,
             *_args,
-            invalid-name=invalid-name,
             validName=validName,
             _configuration=_configuration,
             **kwargs,

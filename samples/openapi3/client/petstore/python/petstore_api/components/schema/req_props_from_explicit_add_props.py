@@ -41,7 +41,6 @@ class ReqPropsFromExplicitAddProps(
         }
         additionalProperties = schemas.StrSchema
     
-    invalid-name: MetaOapg.additionalProperties
     validName: MetaOapg.additionalProperties
     
     @typing.overload
@@ -86,7 +85,6 @@ class ReqPropsFromExplicitAddProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        invalid-name: typing.Union[MetaOapg.additionalProperties, str, ],
         validName: typing.Union[MetaOapg.additionalProperties, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
@@ -94,7 +92,6 @@ class ReqPropsFromExplicitAddProps(
         return super().__new__(
             cls,
             *_args,
-            invalid-name=invalid-name,
             validName=validName,
             _configuration=_configuration,
             **kwargs,
