@@ -886,7 +886,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     public String getTypeDeclaration(Schema p) {
         Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = ModelUtils.isGenerateAliasAsModel() ? p : schema;
+        Schema<?> target = schema;
         if (ModelUtils.isArraySchema(target)) {
             Schema<?> items = getSchemaItems((ArraySchema) schema);
             return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";

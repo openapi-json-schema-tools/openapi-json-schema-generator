@@ -406,11 +406,6 @@ public class DefaultCodegen implements CodegenConfig {
                     .get(CodegenConstants.ENABLE_POST_PROCESS_FILE).toString()));
         }
 
-        if (additionalProperties.containsKey(CodegenConstants.GENERATE_ALIAS_AS_MODEL)) {
-            ModelUtils.setGenerateAliasAsModel(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.GENERATE_ALIAS_AS_MODEL).toString()));
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX)) {
             this.setRemoveEnumValuePrefix(Boolean.parseBoolean(additionalProperties
                     .get(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX).toString()));
@@ -5597,7 +5592,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void updateRequestBodyForMap(CodegenParameter codegenParameter, Schema schema, String name, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
-        if (ModelUtils.isGenerateAliasAsModel(schema) && StringUtils.isNotBlank(name)) {
+        if (StringUtils.isNotBlank(name)) {
             this.addBodyModelSchema(codegenParameter, name, schema, imports, bodyParameterName, true, sourceJsonPath);
         } else {
             Schema inner = getAdditionalProperties(schema);
@@ -5658,7 +5653,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void updateRequestBodyForArray(CodegenParameter codegenParameter, Schema schema, String name, Set<String> imports, String bodyParameterName, String sourceJsonPath) {
-        if (ModelUtils.isGenerateAliasAsModel(schema) && StringUtils.isNotBlank(name)) {
+        if (StringUtils.isNotBlank(name)) {
             this.addBodyModelSchema(codegenParameter, name, schema, imports, bodyParameterName, true, sourceJsonPath);
         } else {
             final ArraySchema arraySchema = (ArraySchema) schema;

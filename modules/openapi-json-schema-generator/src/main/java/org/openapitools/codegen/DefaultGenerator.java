@@ -1042,24 +1042,6 @@ public class DefaultGenerator implements Generator {
                 }
 
                 Schema schema = schemas.get(name);
-
-                if (ModelUtils.isMapSchema(schema)) { // check to see if it's a "map" model
-                    // A composed schema (allOf, oneOf, anyOf) is considered a Map schema if the additionalproperties attribute is set
-                    // for that composed schema. However, in the case of a composed schema, the properties are defined or referenced
-                    // in the inner schemas, and the outer schema does not have properties.
-                    if (!ModelUtils.isGenerateAliasAsModel(schema) && !ModelUtils.isComposedSchema(schema) && (schema.getProperties() == null || schema.getProperties().isEmpty())) {
-                        // schema without property, i.e. alias to map
-                        LOGGER.info("Model {} not generated since it's an alias to map (without property) and `generateAliasAsModel` is set to false (default)", name);
-                        continue;
-                    }
-                } else if (ModelUtils.isArraySchema(schema)) { // check to see if it's an "array" model
-                    if (!ModelUtils.isGenerateAliasAsModel(schema) && (schema.getProperties() == null || schema.getProperties().isEmpty())) {
-                        // schema without property, i.e. alias to array
-                        LOGGER.info("Model {} not generated since it's an alias to array (without property) and `generateAliasAsModel` is set to false (default)", name);
-                        continue;
-                    }
-                }
-
                 Map<String, Schema> schemaMap = new HashMap<>();
                 schemaMap.put(name, schema);
                 ModelsMap models = processModels(config, schemaMap);

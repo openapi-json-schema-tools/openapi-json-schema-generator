@@ -109,7 +109,6 @@ public class WorkflowSettings {
         builder.validateSpec = copy.isValidateSpec();
         builder.enablePostProcessFile = copy.isEnablePostProcessFile();
         builder.enableMinimalUpdate = copy.isEnableMinimalUpdate();
-        builder.generateAliasAsModel = copy.isGenerateAliasAsModel();
         builder.strictSpecBehavior = copy.isStrictSpecBehavior();
         builder.templatingEngineName = copy.getTemplatingEngineName();
         builder.ignoreFileOverride = copy.getIgnoreFileOverride();
@@ -225,15 +224,6 @@ public class WorkflowSettings {
      */
     public boolean isEnableMinimalUpdate() {
         return enableMinimalUpdate;
-    }
-
-    /**
-     * Indicates whether or not the generation should convert aliases (primitives defined as schema for use within documents) as models.
-     *
-     * @return <code>true</code> if generate-alias-as-model is enabled, otherwise <code>false</code>.
-     */
-    public boolean isGenerateAliasAsModel() {
-        return generateAliasAsModel;
     }
 
     /**
@@ -604,7 +594,6 @@ public class WorkflowSettings {
                 isEnablePostProcessFile() == that.isEnablePostProcessFile() &&
                 isEnableMinimalUpdate() == that.isEnableMinimalUpdate() &&
                 isStrictSpecBehavior() == that.isStrictSpecBehavior() &&
-                isGenerateAliasAsModel() == that.isGenerateAliasAsModel() &&
                 Objects.equals(getInputSpec(), that.getInputSpec()) &&
                 Objects.equals(getOutputDir(), that.getOutputDir()) &&
                 Objects.equals(getTemplateDir(), that.getTemplateDir()) &&
@@ -624,7 +613,6 @@ public class WorkflowSettings {
                 isSkipOperationExample(),
                 isLogToStderr(),
                 isValidateSpec(),
-                isGenerateAliasAsModel(),
                 isEnablePostProcessFile(),
                 isEnableMinimalUpdate(),
                 isStrictSpecBehavior(),
