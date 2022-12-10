@@ -1,19 +1,17 @@
 {{#each getRequiredProperties}}
 {{#with this}}
-{{#unless nameInSnakeCase}}
 {{#if refClass}}
 {{@key}}: '{{refClass}}'
 {{else}}
-    {{#if baseName}}
+    {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-{{@key}}: MetaOapg.{{baseName}}
+{{@key}}: MetaOapg.{{name.name}}
         {{else}}
-{{@key}}: MetaOapg.properties.{{baseName}}
+{{@key}}: MetaOapg.properties.{{name.name}}
         {{/if}}
     {{else}}
 {{@key}}: schemas.AnyTypeSchema
     {{/if}}
 {{/if}}
-{{/unless}}
 {{/with}}
 {{/each}}

@@ -30,7 +30,7 @@ class properties:
 {{#if refClass}}
 
     @staticmethod
-    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
         return {{refClass}}
 {{else}}
     {{> model_templates/schema }}
@@ -38,10 +38,10 @@ class properties:
 {{/each}}
     __annotations__ = {
 {{#each properties}}
-{{#if nameInSnakeCase}}
-        "{{{@key}}}": {{name}},
+{{#if name.getNameIsValid}}
+        "{{{@key}}}": {{name.getName}},
 {{else}}
-        "{{{@key}}}": {{baseName}},
+        "{{{@key}}}": {{name.getSnakeCaseName}},
 {{/if}}
 {{/each}}
     }
@@ -50,7 +50,7 @@ class properties:
 {{#if refClass}}
 
 @staticmethod
-def {{baseName}}() -> typing.Type['{{refClass}}']:
+def {{name.getName}}() -> typing.Type['{{refClass}}']:
     return {{refClass}}
 {{else}}
 {{> model_templates/schema }}

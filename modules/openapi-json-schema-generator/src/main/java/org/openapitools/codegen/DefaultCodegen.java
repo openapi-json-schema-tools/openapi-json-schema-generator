@@ -1558,7 +1558,7 @@ public class DefaultCodegen implements CodegenConfig {
      */
     @SuppressWarnings("static-method")
     public String toEnumName(CodegenProperty property) {
-        return StringUtils.capitalize(property.name) + "Enum";
+        return StringUtils.capitalize(property.name.getName()) + "Enum";
     }
 
     /**
@@ -3374,7 +3374,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    protected boolean isUnsafeName(String name) {
+    protected boolean isValid(String name) {
         return isReservedWord(name);
     }
 
@@ -3451,14 +3451,14 @@ public class DefaultCodegen implements CodegenConfig {
                         ;
                     }
                 }
-                boolean isUnsafe = isUnsafeName(usedName);
+                boolean isValid = isValid(usedName);
                 CodegenKey ck = new CodegenKey(
                         usedName,
-                        isUnsafe,
+                        isValid,
                         toVarName(usedName),
                         toModelName(usedName)
                 );
-                property.name = toVarName(usedName);
+                property.name = ck;
                 property.baseName = usedName;
             }
         }
@@ -3466,10 +3466,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.openApiType = getSchemaType(p);
         } else {
             property.openApiType = p.getType();
-        }
-        if (property.name != null) {
-            property.nameInCamelCase = camelize(property.name, false);
-            property.nameInSnakeCase = CaseFormat.UPPER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, property.nameInCamelCase);
         }
         property.description = escapeText(p.getDescription());
         property.unescapedDescription = p.getDescription();

@@ -4,7 +4,7 @@ def __new__(
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{/if}}
@@ -13,27 +13,27 @@ def __new__(
 {{#if requiredProperties}}
 {{#each getRequiredProperties}}
 {{#with this}}
-{{#unless nameInSnakeCase}}
 {{#if refClass}}
     {{@key}}: '{{refClass}}',
 {{else}}
-    {{#if baseName}}
+    {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-    {{@key}}: typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}],
+    {{@key}}: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
         {{else}}
-    {{@key}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}],
+            {{#if name.getNameIsValid}}
+    {{@key}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}],
+            {{/if}}
         {{/if}}
     {{else}}
     {{@key}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
     {{/if}}
 {{/if}}
-{{/unless}}
 {{/with}}
 {{/each}}
 {{/if}}
 {{/unless}}
 {{#each optionalProperties}}
-{{#unless nameInSnakeCase}}
+{{#unless name.getNameIsValid}}
 {{#if refClass}}
     {{@key}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
@@ -47,7 +47,7 @@ def __new__(
 {{#if refClass}}
     **kwargs: '{{refClass}}',
 {{else}}
-    **kwargs: typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}],
+    **kwargs: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
 {{/if}}
 {{/unless}}
 {{else}}
@@ -71,7 +71,7 @@ def __new__(
 {{#if requiredProperties}}
 {{#each getRequiredProperties}}
 {{#with this}}
-{{#unless nameInSnakeCase}}
+{{#unless name.getNameIsValid}}
         {{@key}}={{@key}},
 {{/unless}}
 {{/with}}
@@ -79,7 +79,7 @@ def __new__(
 {{/if}}
 {{/unless}}
 {{#each optionalProperties}}
-{{#unless nameInSnakeCase}}
+{{#unless name.getNameIsValid}}
         {{@key}}={{@key}},
 {{/unless}}
 {{/each}}

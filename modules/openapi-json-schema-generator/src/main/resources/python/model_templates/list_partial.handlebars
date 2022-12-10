@@ -2,7 +2,7 @@
 {{#if refClass}}
 
 @staticmethod
-def {{baseName}}() -> typing.Type['{{refClass}}']:
+def {{name.getName}}() -> typing.Type['{{refClass}}']:
     return {{refClass}}
 {{else}}
 {{> model_templates/schema }}

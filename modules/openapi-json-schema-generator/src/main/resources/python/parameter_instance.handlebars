@@ -27,13 +27,13 @@ parameter_oapg = api_client.{{#if noName}}Header{{/if}}{{#if isQueryParam}}Query
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema={{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+    schema={{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}},
     {{/with}}
 {{/if}}
 {{#if getContent}}
     content={
 {{#each getContent}}
-        "{{@key}}": {{#with this}}{{#with schema}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/with}}{{/with}},
+        "{{@key}}": {{#with this}}{{#with schema}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}{{/with}}{{/with}},
 {{/each}}
     },
 {{/if}}

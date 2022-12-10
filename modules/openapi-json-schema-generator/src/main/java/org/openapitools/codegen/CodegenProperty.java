@@ -34,7 +34,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     /**
      * The name of this property in the OpenAPI schema.
      */
-    public String name;
+    public CodegenKey name;
     public String defaultValue;
     public String baseType;
     /**
@@ -134,9 +134,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
     public String discriminatorValue;
-    public String nameInLowerCase; // property name in lower case
-    public String nameInCamelCase; // property name in camel case
-    public String nameInSnakeCase; // property name in upper snake case
     public Integer maxItems;
     public Integer minItems;
 
@@ -238,11 +235,11 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.description = description;
     }
 
-    public String getName() {
+    public CodegenKey getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(CodegenKey name) {
         this.name = name;
     }
 
@@ -482,26 +479,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setVendorExtensions(Map<String, Object> vendorExtensions) {
         this.vendorExtensions = vendorExtensions;
-    }
-
-    public String getNameInLowerCase() {
-        return nameInLowerCase;
-    }
-
-    public void setNameInLowerCase(String nameInLowerCase) {
-        this.nameInLowerCase = nameInLowerCase;
-    }
-
-    public String getNameInCamelCase() {
-        return nameInCamelCase;
-    }
-
-    public void setNameInCamelCase(String nameInCamelCase) {
-        this.nameInCamelCase = nameInCamelCase;
-    }
-
-    public String getNameInSnakeCase() {
-        return nameInSnakeCase;
     }
 
     @Override
@@ -867,8 +844,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", hasValidation=").append(hasValidation);
         sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
-        sb.append(", nameInCamelCase='").append(nameInCamelCase).append('\'');
-        sb.append(", nameInSnakeCase='").append(nameInSnakeCase).append('\'');
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxProperties=").append(maxProperties);
@@ -981,8 +956,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(additionalProperties, that.additionalProperties) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(discriminatorValue, that.discriminatorValue) &&
-                Objects.equals(nameInCamelCase, that.nameInCamelCase) &&
-                Objects.equals(nameInSnakeCase, that.nameInSnakeCase) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
                 Objects.equals(xmlPrefix, that.xmlPrefix) &&
@@ -1005,8 +978,8 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
                 allowableValues, items, additionalProperties,
-                vendorExtensions, hasValidation, discriminatorValue, nameInCamelCase,
-                nameInSnakeCase, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
+                vendorExtensions, hasValidation, discriminatorValue,
+                maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredProperties,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,

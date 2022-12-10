@@ -790,13 +790,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return cp;
     }
 
-    protected boolean isUnsafeName(String name) {
-        boolean isUnsafe = super.isUnsafeName(name);
-        if (isUnsafe) {
+    protected boolean isValid(String name) {
+        boolean isValid = super.isValid(name);
+        if (isValid) {
             return true;
         }
         boolean nameValidPerRegex = name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
-        return !nameValidPerRegex;
+        return nameValidPerRegex;
     }
 
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
@@ -834,19 +834,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
-        }
-        // if we have a property that has a difficult name, either:
-        // 1. name is reserved, like class int float
-        // 2. name is invalid in python like '3rd' or 'Content-Type'
-        // set cp.nameInSnakeCase to a value so we can tell that we are in this use case
-        // we handle this in the schema templates
-        // templates use its presence to handle these badly named variables / keys
-        if (cp.baseName != null) {
-            if (isUnsafeName(cp.baseName)) {
-                cp.nameInSnakeCase = cp.name;
-            } else {
-                cp.nameInSnakeCase = null;
-            }
         }
         if (cp.isEnum) {
             updateCodegenPropertyEnum(cp);
@@ -1628,7 +1615,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
-                cp.setName(disc.getPropertyName());
+                CodegenKey ck = new CodegenKey(disc.getPropertyName(), false, null, null);
+                cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1798,7 +1786,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
-                cp.setName(disc.getPropertyName());
+                CodegenKey ck = new CodegenKey(disc.getPropertyName(), false, null, null);
+                cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
