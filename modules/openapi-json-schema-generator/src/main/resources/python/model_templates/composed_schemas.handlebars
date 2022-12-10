@@ -14,7 +14,7 @@ class all_of:
     classes = [
 {{#each allOf}}
     {{#if name.getNameIsValid}}
-        {{name}},
+        {{name.getName}},
     {{else}}
         {{name.getSnakeCaseName}},
     {{/if}}
@@ -37,7 +37,7 @@ class one_of:
     classes = [
 {{#each oneOf}}
     {{#if name.getNameIsValid}}
-        {{name}},
+        {{name.getName}},
     {{else}}
         {{name.getSnakeCaseName}},
     {{/if}}
@@ -60,7 +60,7 @@ class any_of:
     classes = [
 {{#each anyOf}}
     {{#if name.getNameIsValid}}
-        {{name}},
+        {{name.getName}},
     {{else}}
         {{name.getSnakeCaseName}},
     {{/if}}

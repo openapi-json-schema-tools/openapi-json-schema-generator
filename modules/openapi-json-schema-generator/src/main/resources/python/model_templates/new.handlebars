@@ -16,7 +16,7 @@ def __new__(
 {{#if refClass}}
     {{@key}}: '{{refClass}}',
 {{else}}
-    {{#if name}}
+    {{#and name name.getNameIsValid}}
         {{#if schemaIsFromAdditionalProperties}}
     {{@key}}: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
         {{else}}
@@ -26,20 +26,20 @@ def __new__(
         {{/if}}
     {{else}}
     {{@key}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
-    {{/if}}
+    {{/and}}
 {{/if}}
 {{/with}}
 {{/each}}
 {{/if}}
 {{/unless}}
 {{#each optionalProperties}}
-{{#unless name.getNameIsValid}}
+{{#if name.getNameIsValid}}
 {{#if refClass}}
     {{@key}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
     {{@key}}: typing.Union[MetaOapg.properties.{{@key}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
-{{/unless}}
+{{/if}}
 {{/each}}
     _configuration: typing.Optional[schemas.Configuration] = None,
 {{#with additionalProperties}}
@@ -71,17 +71,21 @@ def __new__(
 {{#if requiredProperties}}
 {{#each getRequiredProperties}}
 {{#with this}}
-{{#unless name.getNameIsValid}}
+{{#if name}}
+{{#if name.getNameIsValid}}
         {{@key}}={{@key}},
-{{/unless}}
+{{/if}}
+{{else}}
+        {{@key}}={{@key}},
+{{/if}}
 {{/with}}
 {{/each}}
 {{/if}}
 {{/unless}}
 {{#each optionalProperties}}
-{{#unless name.getNameIsValid}}
+{{#if name.getNameIsValid}}
         {{@key}}={{@key}},
-{{/unless}}
+{{/if}}
 {{/each}}
         _configuration=_configuration,
 {{#with additionalProperties}}

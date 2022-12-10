@@ -24,9 +24,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#_0) | str,  | str,  |  |
+[allOf_0](#allOf_0) | str,  | str,  |  |
 
-# _0
+# allOf_0
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

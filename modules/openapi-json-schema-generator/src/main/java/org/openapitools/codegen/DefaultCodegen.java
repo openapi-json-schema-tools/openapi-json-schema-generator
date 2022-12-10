@@ -3375,7 +3375,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected boolean isValid(String name) {
-        return isReservedWord(name);
+        return !isReservedWord(name);
     }
 
     /**
@@ -3564,17 +3564,17 @@ public class DefaultCodegen implements CodegenConfig {
         }
         List<Schema> allOfs = p.getAllOf();
         if (allOfs != null && !allOfs.isEmpty()) {
-            List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "all_of", sourceJsonPath);
+            List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "allOf", sourceJsonPath);
             property.setAllOf(allOfProps);
         }
         List<Schema> anyOfs = p.getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
-            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "any_of", sourceJsonPath);
+            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "anyOf", sourceJsonPath);
             property.setAnyOf(anyOfProps);
         }
         List<Schema> oneOfs = p.getOneOf();
         if (oneOfs != null && !oneOfs.isEmpty()) {
-            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "one_of", sourceJsonPath);
+            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "oneOf", sourceJsonPath);
             property.setOneOf(oneOfProps);
         }
         if (ModelUtils.isIntegerSchema(p)) { // integer type

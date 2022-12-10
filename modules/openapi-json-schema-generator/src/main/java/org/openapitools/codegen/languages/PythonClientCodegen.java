@@ -58,14 +58,12 @@ import org.openapitools.codegen.api.TemplateProcessor;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Path;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static org.openapitools.codegen.utils.OnceLogger.once;
 import static org.openapitools.codegen.utils.StringUtils.camelize;
@@ -792,8 +790,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     protected boolean isValid(String name) {
         boolean isValid = super.isValid(name);
-        if (isValid) {
-            return true;
+        if (!isValid) {
+            return false;
         }
         boolean nameValidPerRegex = name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
         return nameValidPerRegex;

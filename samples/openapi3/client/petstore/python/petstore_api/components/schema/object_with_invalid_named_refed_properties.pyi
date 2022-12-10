@@ -53,6 +53,8 @@ class ObjectWithInvalidNamedRefedProperties(
                 "!reference": reference,
             }
     
+    !reference: 'array_with_validations_in_items.ArrayWithValidationsInItems'
+    from: 'from_schema.FromSchema'
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
@@ -96,6 +98,8 @@ class ObjectWithInvalidNamedRefedProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        !reference: 'array_with_validations_in_items.ArrayWithValidationsInItems',
+        from: 'from_schema.FromSchema',
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectWithInvalidNamedRefedProperties':

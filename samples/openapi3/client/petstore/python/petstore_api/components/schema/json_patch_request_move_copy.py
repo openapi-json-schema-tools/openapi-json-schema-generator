@@ -74,6 +74,7 @@ class JSONPatchRequestMoveCopy(
             }
         additionalProperties = schemas.NotAnyTypeSchema
     
+    from: MetaOapg.properties.from
     op: MetaOapg.properties.op
     path: MetaOapg.properties.path
     
@@ -119,6 +120,7 @@ class JSONPatchRequestMoveCopy(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        from: typing.Union[schemas.AnyTypeSchema, str, ],
         op: typing.Union[MetaOapg.properties.op, str, ],
         path: typing.Union[MetaOapg.properties.path, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,

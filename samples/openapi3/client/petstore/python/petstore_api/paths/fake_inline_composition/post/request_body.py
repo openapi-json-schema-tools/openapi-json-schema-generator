@@ -38,7 +38,7 @@ class application_json(
         class all_of:
             
             
-            class _0(
+            class allOf_0(
                 schemas.StrSchema
             ):
             
@@ -49,7 +49,7 @@ class application_json(
                     }
                     min_length = 1
             classes = [
-                _0,
+                allOf_0,
             ]
 
 
@@ -89,7 +89,7 @@ class multipart_form_data(
                     class all_of:
                         
                         
-                        class _0(
+                        class allOf_0(
                             schemas.StrSchema
                         ):
                         
@@ -100,7 +100,7 @@ class multipart_form_data(
                                 }
                                 min_length = 1
                         classes = [
-                            _0,
+                            allOf_0,
                         ]
             
             
