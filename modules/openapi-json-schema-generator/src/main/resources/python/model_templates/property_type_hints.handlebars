@@ -1,9 +1,5 @@
 {{#if getRequiredProperties}}
 
-{{#if additionalProperties}}
 {{> model_templates/property_type_hints_required }}
-{{else}}
-{{> model_templates/property_type_hints_required addPropsUnset=true }}
-{{/if}}
 {{/if}}
 {{> model_templates/property_getitems }}

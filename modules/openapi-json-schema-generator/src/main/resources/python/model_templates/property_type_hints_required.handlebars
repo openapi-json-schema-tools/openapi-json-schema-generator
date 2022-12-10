@@ -5,9 +5,9 @@
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-{{@key}}: MetaOapg.{{name.name}}
+{{@key}}: MetaOapg.{{name.getName}}
         {{else}}
-{{@key}}: MetaOapg.properties.{{name.name}}
+{{@key}}: MetaOapg.properties.{{name.getName}}
         {{/if}}
     {{else}}
 {{@key}}: schemas.AnyTypeSchema

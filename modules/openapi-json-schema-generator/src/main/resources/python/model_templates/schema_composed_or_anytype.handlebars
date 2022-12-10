@@ -60,8 +60,4 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if name.getNameIsValid}}{{na
 
     {{> model_templates/property_type_hints }}
 
-{{#if additionalProperties}}
     {{> model_templates/new }}
-{{else}}
-    {{> model_templates/new addPropsUnset=true }}
-{{/if}}
