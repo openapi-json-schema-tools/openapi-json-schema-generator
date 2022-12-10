@@ -492,10 +492,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("signing." + templateExtension, packagePath(), "signing.py"));
         }
 
-        // default this to true so the python ModelSimple models will be generated
-        ModelUtils.setGenerateAliasAsModel(true);
-        LOGGER.info(CodegenConstants.GENERATE_ALIAS_AS_MODEL + " is hard coded to true in this generator. Alias models will only be generated if they contain validations or enums");
-
         // check library option to ensure only urllib3 is supported
         if (!DEFAULT_LIBRARY.equals(getLibrary())) {
             throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
