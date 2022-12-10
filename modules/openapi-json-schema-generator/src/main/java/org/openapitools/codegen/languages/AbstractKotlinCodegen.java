@@ -850,21 +850,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public CodegenModel fromModel(String name, Schema schema) {
-        CodegenModel m = super.fromModel(name, schema);
-        // Update allVars/requiredVars/optionalVars with isInherited
-        // Each of these lists contains elements that are similar, but they are all cloned
-        // via CodegenModel.removeAllDuplicatedProperty and therefore need to be updated
-        // separately.
-        // First find only the parent vars via baseName matching
-        Map<String, CodegenProperty> allVarsMap = m.allVars.stream()
-                .collect(Collectors.toMap(CodegenProperty::getBaseName, Function.identity()));
-        allVarsMap.keySet()
-                .removeAll(m.vars.stream().map(CodegenProperty::getBaseName).collect(Collectors.toSet()));
-        return m;
-    }
-
-    @Override
     public String toEnumValue(String value, String datatype) {
         if ("kotlin.Int".equals(datatype) || "kotlin.Long".equals(datatype)) {
             return value;

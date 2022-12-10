@@ -2799,7 +2799,7 @@ public class DefaultCodegen implements CodegenConfig {
             listOLists.add(m.allVars);
             for (List<CodegenProperty> theseVars : listOLists) {
                 for (CodegenProperty requiredVar : theseVars) {
-                    if (discPropName.equals(requiredVar.baseName)) {
+                    if (requiredVar.name != null && discPropName.equals(requiredVar.name.getName())) {
                         requiredVar.isDiscriminator = true;
                     }
                 }
@@ -3459,7 +3459,6 @@ public class DefaultCodegen implements CodegenConfig {
                         toModelName(usedName)
                 );
                 property.name = ck;
-                property.baseName = usedName;
             }
         }
         if (p.getType() == null) {
@@ -3474,7 +3473,7 @@ public class DefaultCodegen implements CodegenConfig {
         try {
             property.example = toExampleValue(p);
         } catch (Exception e) {
-            LOGGER.error("Error in generating `example` for the property {}. Default to ERROR_TO_EXAMPLE_VALUE. Enable debugging for more info.", property.baseName);
+            LOGGER.error("Error in generating `example` for the property {}. Default to ERROR_TO_EXAMPLE_VALUE. Enable debugging for more info.", sourceJsonPath);
             LOGGER.debug("Exception from toExampleValue: {}", e.getMessage());
             property.example = "ERROR_TO_EXAMPLE_VALUE";
         }

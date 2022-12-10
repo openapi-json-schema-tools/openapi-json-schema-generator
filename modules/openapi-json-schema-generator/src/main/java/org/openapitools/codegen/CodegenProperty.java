@@ -25,7 +25,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      * The per-language codegen logic may change to a language-specific type.
      */
     public String openApiType;
-    public String baseName;
     public String refClass;
     /**
      * The value of the 'description' attribute in the OpenAPI schema.
@@ -209,14 +208,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public void setIsBooleanSchemaFalse(boolean isBooleanSchemaFalse) {
         this.isBooleanSchemaFalse = isBooleanSchemaFalse;
-    }
-
-    public String getBaseName() {
-        return baseName;
-    }
-
-    public void setBaseName(String baseName) {
-        this.baseName = baseName;
     }
 
     public String getRefClass() {
@@ -791,7 +782,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenProperty{");
         sb.append("openApiType='").append(openApiType).append('\'');
-        sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", name='").append(name).append('\'');
@@ -936,7 +926,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 Objects.equals(optionalProperties, that.getOptionalProperties()) &&
                 Objects.equals(properties, that.getProperties()) &&
                 Objects.equals(openApiType, that.openApiType) &&
-                Objects.equals(baseName, that.baseName) &&
                 Objects.equals(refClass, that.refClass) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(name, that.name) &&
@@ -967,7 +956,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public int hashCode() {
 
-        return Objects.hash(openApiType, baseName, refClass, description,
+        return Objects.hash(openApiType, refClass, description,
                 name, defaultValue,
                 baseType, title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
@@ -981,9 +970,9 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 vendorExtensions, hasValidation, discriminatorValue,
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,
-                hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes, requiredProperties,
+                hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
-                optionalProperties, properties);
+                properties, optionalProperties, requiredProperties);
     }
 }

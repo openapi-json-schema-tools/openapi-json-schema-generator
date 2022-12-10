@@ -1220,11 +1220,13 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         while (iterator.hasNext()) {
             CodegenProperty element = iterator.next();
 
-            if (propertyNames.contains(element.baseName)) {
-                duplicatedNames.add(element.baseName);
-                iterator.remove();
-            } else {
-                propertyNames.add(element.baseName);
+            if (element.name != null) {
+                if (propertyNames.contains(element.name.getName())) {
+                    duplicatedNames.add(element.name.getName());
+                    iterator.remove();
+                } else {
+                    propertyNames.add(element.name.getName());
+                }
             }
         }
 
