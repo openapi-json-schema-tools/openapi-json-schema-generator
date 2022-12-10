@@ -84,7 +84,7 @@ class Drawing(
             }
         
         @staticmethod
-        def additional_properties() -> typing.Type['fruit.Fruit']:
+        def additionalProperties() -> typing.Type['fruit.Fruit']:
             return fruit.Fruit
     
     @typing.overload

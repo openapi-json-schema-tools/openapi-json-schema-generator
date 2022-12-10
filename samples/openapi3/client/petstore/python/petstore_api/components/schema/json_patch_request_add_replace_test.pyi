@@ -65,7 +65,7 @@ class JSONPatchRequestAddReplaceTest(
                 "value": value,
                 "op": op,
             }
-        additional_properties = schemas.NotAnyTypeSchema
+        additionalProperties = schemas.NotAnyTypeSchema
     
     op: MetaOapg.properties.op
     path: MetaOapg.properties.path

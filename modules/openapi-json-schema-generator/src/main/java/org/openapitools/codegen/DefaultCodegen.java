@@ -3374,6 +3374,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
+    protected boolean isUnsafeName(String name) {
+        return isReservedWord(name);
+    }
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -3415,12 +3419,16 @@ public class DefaultCodegen implements CodegenConfig {
         if (sourceJsonPath != null) {
             String[] refPieces = sourceJsonPath.split("/");
             if (refPieces.length >= 5) {
+                // # components schemas someSchema additionalProperties/items
                 String lastPathFragment = refPieces[refPieces.length-1];
                 String usedName = lastPathFragment;
                 usedName = handleSpecialCharacters(usedName);
                 if (lastPathFragment.equals("additionalProperties")) {
-                    property.setSchemaIsFromAdditionalProperties(true);
-                    usedName = getAdditionalPropertiesName();
+                    String priorFragment = refPieces[refPieces.length-2];
+                    if (!"properties".equals(priorFragment)) {
+                        property.setSchemaIsFromAdditionalProperties(true);
+                    }
+                    // usedName = getAdditionalPropertiesName();
                 } else if (lastPathFragment.equals("schema")) {
                     String priorFragment = refPieces[refPieces.length-2];
                     if (!"parameters".equals(priorFragment)) {
@@ -3443,6 +3451,13 @@ public class DefaultCodegen implements CodegenConfig {
                         ;
                     }
                 }
+                boolean isUnsafe = isUnsafeName(usedName);
+                CodegenKey ck = new CodegenKey(
+                        usedName,
+                        isUnsafe,
+                        toVarName(usedName),
+                        toModelName(usedName)
+                );
                 property.name = toVarName(usedName);
                 property.baseName = usedName;
             }

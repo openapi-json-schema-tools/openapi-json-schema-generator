@@ -3,7 +3,7 @@ package org.openapitools.codegen;
 import java.util.Objects;
 
 public class CodegenKey {
-    private CodegenKey(String name, boolean isUnsafe, String snakeCaseName, String camelCaseName) {
+    CodegenKey(String name, boolean isUnsafe, String snakeCaseName, String camelCaseName) {
         this.name = name;
         this.isUnsafe = isUnsafe;
         this.snakeCaseName = snakeCaseName;

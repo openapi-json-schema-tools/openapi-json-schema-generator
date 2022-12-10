@@ -42,7 +42,7 @@ JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD = {
     'required': 'required',
     'items': 'items',
     'properties': 'properties',
-    'additionalProperties': 'additional_properties',
+    'additionalProperties': 'additionalProperties',
     'oneOf': 'one_of',
     'anyOf': 'any_of',
     'allOf': 'all_of',

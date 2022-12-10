@@ -19,7 +19,7 @@ def __new__(
 {{else}}
     {{#if baseName}}
         {{#if schemaIsFromAdditionalProperties}}
-    {{@key}}: typing.Union[MetaOapg.additional_properties, {{> model_templates/schema_python_types }}],
+    {{@key}}: typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}],
         {{else}}
     {{@key}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}],
         {{/if}}
@@ -47,7 +47,7 @@ def __new__(
 {{#if refClass}}
     **kwargs: '{{refClass}}',
 {{else}}
-    **kwargs: typing.Union[MetaOapg.additional_properties, {{> model_templates/schema_python_types }}],
+    **kwargs: typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}],
 {{/if}}
 {{/unless}}
 {{else}}

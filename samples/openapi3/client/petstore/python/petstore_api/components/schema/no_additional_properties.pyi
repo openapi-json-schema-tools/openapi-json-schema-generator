@@ -45,7 +45,7 @@ class NoAdditionalProperties(
                 "id": id,
                 "petId": petId,
             }
-        additional_properties = schemas.NotAnyTypeSchema
+        additionalProperties = schemas.NotAnyTypeSchema
     
     id: MetaOapg.properties.id
     

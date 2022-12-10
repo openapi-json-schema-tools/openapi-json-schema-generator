@@ -790,8 +790,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return cp;
     }
 
-    private boolean isValidPythonVarOrClassName(String name) {
-        return name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
+    protected boolean isUnsafeName(String name) {
+        boolean isUnsafe = super.isUnsafeName(name);
+        if (isUnsafe) {
+            return true;
+        }
+        boolean nameValidPerRegex = name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
+        return !nameValidPerRegex;
     }
 
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
@@ -836,8 +841,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // set cp.nameInSnakeCase to a value so we can tell that we are in this use case
         // we handle this in the schema templates
         // templates use its presence to handle these badly named variables / keys
-        if (cp.baseName != null && cp.name != null) {
-            if ((isReservedWord(cp.baseName) || !isValidPythonVarOrClassName(cp.baseName)) && !cp.baseName.equals(cp.name)) {
+        if (cp.baseName != null) {
+            if (isUnsafeName(cp.baseName)) {
                 cp.nameInSnakeCase = cp.name;
             } else {
                 cp.nameInSnakeCase = null;

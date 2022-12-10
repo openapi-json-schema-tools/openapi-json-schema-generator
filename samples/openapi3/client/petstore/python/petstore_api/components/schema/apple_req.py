@@ -46,7 +46,7 @@ class AppleReq(
                 "cultivar": cultivar,
                 "mealy": mealy,
             }
-        additional_properties = schemas.NotAnyTypeSchema
+        additionalProperties = schemas.NotAnyTypeSchema
     
     cultivar: MetaOapg.properties.cultivar
     

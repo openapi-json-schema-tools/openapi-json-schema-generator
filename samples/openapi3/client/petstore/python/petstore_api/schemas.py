@@ -237,7 +237,7 @@ class MetaOapgTyped:
         # to hold object properties
         pass
 
-    additional_properties: typing.Optional[typing.Type['Schema']]
+    additionalProperties: typing.Optional[typing.Type['Schema']]
     max_properties: int
     min_properties: int
     all_of: typing.List[typing.Type['Schema']]
@@ -1098,7 +1098,7 @@ json_schema_keyword_to_validator = {
     'required': validate_required,
     'items': validate_items,
     'properties': validate_properties,
-    'additional_properties': validate_additional_properties,
+    'additionalProperties': validate_additional_properties,
     'one_of': validate_one_of,
     'any_of': validate_any_of,
     'all_of': validate_all_of,

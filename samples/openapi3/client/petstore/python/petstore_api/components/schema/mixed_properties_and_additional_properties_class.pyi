@@ -48,7 +48,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                 class MetaOapg:
                     
                     @staticmethod
-                    def additional_properties() -> typing.Type['animal.Animal']:
+                    def additionalProperties() -> typing.Type['animal.Animal']:
                         return animal.Animal
                 
                 def __getitem__(self, name: str) -> 'animal.Animal'

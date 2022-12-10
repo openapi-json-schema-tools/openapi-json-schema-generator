@@ -45,7 +45,7 @@ class SelfReferencingObjectModel(
             }
         
         @staticmethod
-        def additional_properties() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
+        def additionalProperties() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
             return self_referencing_object_model.SelfReferencingObjectModel
     
     @typing.overload

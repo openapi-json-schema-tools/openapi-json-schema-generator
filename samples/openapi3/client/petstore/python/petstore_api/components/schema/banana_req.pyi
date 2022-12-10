@@ -45,7 +45,7 @@ class BananaReq(
                 "lengthCm": lengthCm,
                 "sweet": sweet,
             }
-        additional_properties = schemas.NotAnyTypeSchema
+        additionalProperties = schemas.NotAnyTypeSchema
     
     lengthCm: MetaOapg.properties.lengthCm
     
