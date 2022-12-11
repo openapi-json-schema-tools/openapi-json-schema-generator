@@ -48,7 +48,7 @@ class ConfigurationTests(unittest.TestCase):
                     'User-Agent': 'OpenAPI-Generator/1.0.0/python'
                 }),
                 fields=None,
-                body=b'{"photoUrls":[],"name":"pet"}',
+                body=b'{"name":"pet","photoUrls":[]}',
                 stream=False,
                 timeout=None,
             )

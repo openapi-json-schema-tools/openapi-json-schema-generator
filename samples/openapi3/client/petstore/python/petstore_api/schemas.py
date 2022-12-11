@@ -243,7 +243,7 @@ class MetaOapgTyped:
     all_of: typing.List[typing.Type['Schema']]
     one_of: typing.List[typing.Type['Schema']]
     any_of: typing.List[typing.Type['Schema']]
-    not_schema: typing.Type['Schema']
+    _not: typing.Type['Schema']
     max_length: int
     min_length: int
     items: typing.Type['Schema']
@@ -1102,7 +1102,7 @@ json_schema_keyword_to_validator = {
     'one_of': validate_one_of,
     'any_of': validate_any_of,
     'all_of': validate_all_of,
-    'not_schema': validate_not,
+    '_not': validate_not,
     'discriminator': validate_discriminator
 }
 
@@ -2334,7 +2334,7 @@ class NotAnyTypeSchema(AnyTypeSchema):
     """
 
     class MetaOapg:
-        not_schema = AnyTypeSchema
+        _not = AnyTypeSchema
 
     def __new__(
         cls,

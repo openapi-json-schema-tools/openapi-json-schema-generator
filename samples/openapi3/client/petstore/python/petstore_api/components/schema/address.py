@@ -37,11 +37,11 @@ class Address(
         types = {frozendict.frozendict}
         additionalProperties = schemas.IntSchema
     
-    def __getitem__(self, name: str) -> MetaOapg.additionalProperties
+    def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties
+    def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
         return super().get_item_oapg(name)
 
     def __new__(

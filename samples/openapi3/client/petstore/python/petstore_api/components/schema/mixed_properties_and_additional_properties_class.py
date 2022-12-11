@@ -53,11 +53,11 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     def additionalProperties() -> typing.Type['animal.Animal']:
                         return animal.Animal
                 
-                def __getitem__(self, name: str) -> 'animal.Animal'
+                def __getitem__(self, name: str) -> 'animal.Animal':
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> 'animal.Animal'
+                def get_item_oapg(self, name: str) -> 'animal.Animal':
                     return super().get_item_oapg(name)
             
                 def __new__(
