@@ -976,7 +976,7 @@ public class JavaModelTest {
         final JavaClientCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
         codegen.setBooleanGetterPrefix("is");
-        final CodegenProperty cp = codegen.fromProperty("property", property, false, false, null);
+        final CodegenProperty cp = codegen.fromProperty(property, null);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.dataType, "Boolean");
@@ -993,7 +993,7 @@ public class JavaModelTest {
         final IntegerSchema property = new IntegerSchema();
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("property", property, false, false, null);
+        final CodegenProperty cp = codegen.fromProperty(property, null);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.dataType, "Integer");
@@ -1011,7 +1011,7 @@ public class JavaModelTest {
         final IntegerSchema property = new IntegerSchema().format("int64");
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
-        final CodegenProperty cp = codegen.fromProperty("property", property, false, false, null);
+        final CodegenProperty cp = codegen.fromProperty(property, null);
 
         Assert.assertEquals(cp.baseName, "property");
         Assert.assertEquals(cp.nameInCamelCase, "Property");
@@ -1092,7 +1092,7 @@ public class JavaModelTest {
         final DefaultCodegen codegen = new JavaClientCodegen();
         codegen.setOpenAPI(openAPI);
         final CodegenProperty cp = codegen.fromProperty(
-                "somePropertyWithMinMaxAndPattern", property, false, false, null);
+                property, null);
 
         Assert.assertEquals(cp.baseName, "somePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.nameInCamelCase, "SomePropertyWithMinMaxAndPattern");
@@ -1100,11 +1100,9 @@ public class JavaModelTest {
         Assert.assertEquals(cp.dataType, "String");
         Assert.assertEquals(cp.name, "somePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.baseType, "String");
-        Assert.assertFalse(cp.isContainer);
         Assert.assertFalse(cp.isLong);
         Assert.assertFalse(cp.isInteger);
         Assert.assertTrue(cp.isString);
-        Assert.assertEquals(cp.getter, "getSomePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.minLength, Integer.valueOf(3));
         Assert.assertEquals(cp.maxLength, Integer.valueOf(10));
         Assert.assertEquals(cp.pattern, "^[A-Z]+$");
@@ -1128,11 +1126,9 @@ public class JavaModelTest {
         Assert.assertEquals(cp.dataType, "String");
         Assert.assertEquals(cp.name, "somePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.baseType, "String");
-        Assert.assertFalse(cp.isContainer);
         Assert.assertFalse(cp.isLong);
         Assert.assertFalse(cp.isInteger);
         Assert.assertTrue(cp.isString);
-        Assert.assertEquals(cp.getter, "getSomePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.minLength, Integer.valueOf(3));
         Assert.assertEquals(cp.maxLength, Integer.valueOf(10));
         Assert.assertEquals(cp.pattern, "^[A-Z]+$");
@@ -1160,11 +1156,9 @@ public class JavaModelTest {
         Assert.assertEquals(cp.dataType, "String");
         Assert.assertEquals(cp.name, "somePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.baseType, "String");
-        Assert.assertFalse(cp.isContainer);
         Assert.assertFalse(cp.isLong);
         Assert.assertFalse(cp.isInteger);
         Assert.assertTrue(cp.isString);
-        Assert.assertEquals(cp.getter, "getSomePropertyWithMinMaxAndPattern");
         Assert.assertEquals(cp.minLength, Integer.valueOf(3));
         Assert.assertEquals(cp.maxLength, Integer.valueOf(10));
         Assert.assertEquals(cp.pattern, "^[A-Z]+$");
@@ -1186,10 +1180,8 @@ public class JavaModelTest {
         Assert.assertEquals(cp1.dataType, "List<Pet>");
         Assert.assertEquals(cp1.name, "pets");
         Assert.assertEquals(cp1.baseType, "List");
-        Assert.assertTrue(cp1.isContainer);
         Assert.assertTrue(cp1.isArray);
         Assert.assertFalse(cp1.isMap);
-        Assert.assertEquals(cp1.getter, "getPets");
         Assert.assertEquals(cp1.items.baseType, "Pet");
 
         Assert.assertTrue(cm.imports.contains("List"));
@@ -1216,7 +1208,6 @@ public class JavaModelTest {
         CodegenParameter cp1 = co.requestBody;
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().dataType, "List<Pet>");
-        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isContainer);
         Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isArray);
         Assert.assertFalse(cp1.getContent().get("application/json").getSchema().isMap);
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.baseType, "Pet");
@@ -1247,7 +1238,7 @@ public class JavaModelTest {
         CodegenResponse cr = co.responses.get("200");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cr.getContent().get("application/json").getSchema().dataType, "List<Pet>");
-        Assert.assertEquals(cr.getContent().get("application/json").getSchema().containerType, "array");
+        Assert.assertEquals(cr.getContent().get("application/json").getSchema().isArray, true);
 
         Assert.assertTrue(cr.imports.contains("Pet"));
     }
@@ -1269,7 +1260,6 @@ public class JavaModelTest {
         Assert.assertEquals(cp1.dataType, "List<List<Pet>>");
         Assert.assertEquals(cp1.name, "pets");
         Assert.assertEquals(cp1.baseType, "List");
-        Assert.assertEquals(cp1.getter, "getPets");
 
         Assert.assertTrue(cm.imports.contains("List"));
         Assert.assertTrue(cm.imports.contains("Pet"));
@@ -1296,7 +1286,7 @@ public class JavaModelTest {
         CodegenParameter cp1 = co.requestBody;
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().baseType, "List");
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().dataType, "List<List<Pet>>");
-        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isContainer);
+        Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isArray);
         Assert.assertTrue(cp1.getContent().get("application/json").getSchema().isArray);
         Assert.assertFalse(cp1.getContent().get("application/json").getSchema().isMap);
         Assert.assertEquals(cp1.getContent().get("application/json").getSchema().items.baseType, "List");
