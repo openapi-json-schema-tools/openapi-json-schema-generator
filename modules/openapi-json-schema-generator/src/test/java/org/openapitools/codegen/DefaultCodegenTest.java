@@ -2261,57 +2261,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testCircularReferencesDetection() {
-        // given
-        DefaultCodegen codegen = new DefaultCodegen();
-        final CodegenProperty inboundOut = new CodegenProperty();
-        inboundOut.baseName = "out";
-        inboundOut.dataType = "RoundA";
-        final CodegenProperty roundANext = new CodegenProperty();
-        roundANext.baseName = "next";
-        roundANext.dataType = "RoundB";
-        final CodegenProperty roundBNext = new CodegenProperty();
-        roundBNext.baseName = "next";
-        roundBNext.dataType = "RoundC";
-        final CodegenProperty roundCNext = new CodegenProperty();
-        roundCNext.baseName = "next";
-        roundCNext.dataType = "RoundA";
-        final CodegenProperty roundCOut = new CodegenProperty();
-        roundCOut.baseName = "out";
-        roundCOut.dataType = "Outbound";
-        final CodegenModel inboundModel = new CodegenModel();
-        inboundModel.setDataType("Inbound");
-        inboundModel.setAllVars(Collections.singletonList(inboundOut));
-        final CodegenModel roundAModel = new CodegenModel();
-        roundAModel.setDataType("RoundA");
-        roundAModel.setAllVars(Collections.singletonList(roundANext));
-        final CodegenModel roundBModel = new CodegenModel();
-        roundBModel.setDataType("RoundB");
-        roundBModel.setAllVars(Collections.singletonList(roundBNext));
-        final CodegenModel roundCModel = new CodegenModel();
-        roundCModel.setDataType("RoundC");
-        roundCModel.setAllVars(Arrays.asList(roundCNext, roundCOut));
-        final CodegenModel outboundModel = new CodegenModel();
-        outboundModel.setDataType("Outbound");
-        final Map<String, CodegenModel> models = new HashMap<>();
-        models.put("Inbound", inboundModel);
-        models.put("RoundA", roundAModel);
-        models.put("RoundB", roundBModel);
-        models.put("RoundC", roundCModel);
-        models.put("Outbound", outboundModel);
-
-        // when
-        codegen.setCircularReferences(models);
-
-        // then
-        Assert.assertFalse(inboundOut.isCircularReference);
-        Assert.assertTrue(roundANext.isCircularReference);
-        Assert.assertTrue(roundBNext.isCircularReference);
-        Assert.assertTrue(roundCNext.isCircularReference);
-        Assert.assertFalse(roundCOut.isCircularReference);
-    }
-
-    @Test
     public void testUseOneOfInterfaces() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-oneof.yaml");
         final DefaultCodegen cg = new DefaultCodegen();
@@ -2430,8 +2379,7 @@ public class DefaultCodegenTest {
         modelName = "UserSleep";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        final Set<String> expectedAllOf = new HashSet<>(Arrays.asList("UserTimeBase"));
-        assertEquals(cm.allOf, expectedAllOf);
+        assertEquals(cm.getAllOf().get(0).refClass, "UserTimeBase");
         assertEquals(openAPI.getComponents().getSchemas().size(), 2);
         assertNull(cm.getDiscriminator());
     }
@@ -2499,7 +2447,8 @@ public class DefaultCodegenTest {
         modelName = "ObjectWithValidationsInArrayPropItems";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertEquals(cm.getVars().get(0).getItems().getMaximum(), "7");
+        CodegenKey ck = codegen.getKey("arrayProp");
+        assertEquals(cm.getProperties().get(ck).getItems().getMaximum(), "7");
 
         String path;
         Operation operation;
@@ -2535,27 +2484,24 @@ public class DefaultCodegenTest {
         modelName = "AdditionalPropertiesUnset";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertEquals(cm.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(cm.getAdditionalPropertiesIsAnyType());
+        assertEquals(cm.getAdditionalProperties(), null);
 
         modelName = "AdditionalPropertiesTrue";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
         assertEquals(cm.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(cm.getAdditionalPropertiesIsAnyType());
+        assertTrue(cm.getAdditionalProperties().getIsBooleanSchemaTrue());
 
         modelName = "AdditionalPropertiesFalse";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertNull(cm.getAdditionalProperties());
-        assertFalse(cm.getAdditionalPropertiesIsAnyType());
+        assertTrue(cm.getAdditionalProperties().getIsBooleanSchemaFalse());
 
         modelName = "AdditionalPropertiesSchema";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), null);
+        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), "#/components/schemas/AdditionalPropertiesSchema/additionalProperties");
         assertEquals(cm.getAdditionalProperties(), stringCp);
-        assertFalse(cm.getAdditionalPropertiesIsAnyType());
     }
 
     @Test
@@ -2575,47 +2521,43 @@ public class DefaultCodegenTest {
         CodegenProperty mapWithAddPropsFalse;
         CodegenProperty mapWithAddPropsSchema;
 
-        // make sure isGenerateAliasAsModel is false
-        boolean isGenerateAliasAsModel = ModelUtils.isGenerateAliasAsModel();
-        if (isGenerateAliasAsModel) {
-            GlobalSettings.setProperty("generateAliasAsModel", "false");
-        }
-
         modelName = "ObjectModelWithRefAddPropsInProps";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        mapWithAddPropsUnset = cm.getVars().get(0);
-        assertEquals(mapWithAddPropsUnset.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsUnset.getAdditionalPropertiesIsAnyType());
-        mapWithAddPropsTrue = cm.getVars().get(1);
-        assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getAdditionalPropertiesIsAnyType());
-        mapWithAddPropsFalse = cm.getVars().get(2);
-        assertNull(mapWithAddPropsFalse.getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getAdditionalPropertiesIsAnyType());
-        mapWithAddPropsSchema = cm.getVars().get(3);
-        assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getAdditionalPropertiesIsAnyType());
+        CodegenKey ck = codegen.getKey("map_with_additional_properties_unset");
+        mapWithAddPropsUnset = cm.getProperties().get(ck);
+        assertEquals(mapWithAddPropsUnset.getAdditionalProperties(), null);
+        assertNotNull(mapWithAddPropsUnset.getRefClass());
+
+        mapWithAddPropsTrue = cm.getProperties().get(codegen.getKey("map_with_additional_properties_true"));
+        assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), null);
+        assertNotNull(mapWithAddPropsTrue.getRefClass());
+
+        mapWithAddPropsFalse = cm.getProperties().get(codegen.getKey("map_with_additional_properties_false"));
+        assertEquals(mapWithAddPropsFalse.getAdditionalProperties(), null);
+        assertNotNull(mapWithAddPropsFalse.getRefClass());
+
+        mapWithAddPropsSchema = cm.getProperties().get(codegen.getKey("map_with_additional_properties_schema"));
+        assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), null);
+        assertNotNull(mapWithAddPropsSchema.getRefClass());
 
         modelName = "ObjectModelWithAddPropsInProps";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        mapWithAddPropsUnset = cm.getVars().get(0);
-        assertEquals(mapWithAddPropsUnset.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsUnset.getAdditionalPropertiesIsAnyType());
-        mapWithAddPropsTrue = cm.getVars().get(1);
-        assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getAdditionalPropertiesIsAnyType());
-        mapWithAddPropsFalse = cm.getVars().get(2);
-        assertNull(mapWithAddPropsFalse.getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getAdditionalPropertiesIsAnyType());
-        mapWithAddPropsSchema = cm.getVars().get(3);
-        assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getAdditionalPropertiesIsAnyType());
 
-        if (isGenerateAliasAsModel) { // restore the setting
-            GlobalSettings.setProperty("generateAliasAsModel", "true");
-        }
+        mapWithAddPropsUnset = cm.getProperties().get(codegen.getKey("map_with_additional_properties_unset"));
+        assertEquals(mapWithAddPropsUnset.getAdditionalProperties(), null);
+
+        mapWithAddPropsTrue = cm.getProperties().get(codegen.getKey("map_with_additional_properties_true"));
+        assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), anyTypeSchema);
+        assertTrue(mapWithAddPropsTrue.getIsBooleanSchemaTrue());
+
+        mapWithAddPropsFalse = cm.getProperties().get(codegen.getKey("map_with_additional_properties_false"));
+        assertNotNull(mapWithAddPropsFalse.getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getIsBooleanSchemaFalse());
+
+        mapWithAddPropsSchema = cm.getProperties().get(codegen.getKey("map_with_additional_properties_schema"));
+        assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), stringCp);
     }
 
     @Test
@@ -2635,12 +2577,6 @@ public class DefaultCodegenTest {
         CodegenParameter mapWithAddPropsTrue;
         CodegenParameter mapWithAddPropsFalse;
         CodegenParameter mapWithAddPropsSchema;
-
-        // make sure isGenerateAliasAsModel is false
-        boolean isGenerateAliasAsModel = ModelUtils.isGenerateAliasAsModel();
-        if (isGenerateAliasAsModel) {
-            GlobalSettings.setProperty("generateAliasAsModel", "false");
-        }
 
         path = "/ref_additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2674,9 +2610,6 @@ public class DefaultCodegenTest {
         assertEquals(mapWithAddPropsSchema.getSchema().getAdditionalProperties(), stringCp);
         assertFalse(mapWithAddPropsSchema.getSchema().getAdditionalPropertiesIsAnyType());
 
-        if (isGenerateAliasAsModel) { // restore the setting
-            GlobalSettings.setProperty("generateAliasAsModel", "true");
-        }
     }
 
     @Test
@@ -2696,12 +2629,6 @@ public class DefaultCodegenTest {
         CodegenResponse mapWithAddPropsTrue;
         CodegenResponse mapWithAddPropsFalse;
         CodegenResponse mapWithAddPropsSchema;
-
-        // make sure isGenerateAliasAsModel is false
-        boolean isGenerateAliasAsModel = ModelUtils.isGenerateAliasAsModel();
-        if (isGenerateAliasAsModel) {
-            GlobalSettings.setProperty("generateAliasAsModel", "false");
-        }
 
         path = "/ref_additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2734,10 +2661,6 @@ public class DefaultCodegenTest {
         mapWithAddPropsSchema = co.responses.get("203");
         assertEquals(mapWithAddPropsSchema.getContent().get("application/json").getSchema().getAdditionalProperties(), stringCp);
         assertFalse(mapWithAddPropsSchema.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
-
-        if (isGenerateAliasAsModel) { // restore the setting
-            GlobalSettings.setProperty("generateAliasAsModel", "true");
-        }
     }
 
     @Test

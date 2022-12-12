@@ -45,7 +45,6 @@ public class WorkflowSettings {
     public static final boolean DEFAULT_ENABLE_POST_PROCESS_FILE = false;
     public static final boolean DEFAULT_ENABLE_MINIMAL_UPDATE = false;
     public static final boolean DEFAULT_STRICT_SPEC_BEHAVIOR = true;
-    public static final boolean DEFAULT_GENERATE_ALIAS_AS_MODEL = false;
     public static final String DEFAULT_TEMPLATING_ENGINE_NAME = null; // this is set by the generator
     public static final Map<String, String> DEFAULT_GLOBAL_PROPERTIES = Collections.unmodifiableMap(new HashMap<>());
 
@@ -60,7 +59,6 @@ public class WorkflowSettings {
     private boolean enablePostProcessFile = DEFAULT_ENABLE_POST_PROCESS_FILE;
     private boolean enableMinimalUpdate = DEFAULT_ENABLE_MINIMAL_UPDATE;
     private boolean strictSpecBehavior = DEFAULT_STRICT_SPEC_BEHAVIOR;
-    private boolean generateAliasAsModel = DEFAULT_GENERATE_ALIAS_AS_MODEL;
     private String templateDir;
     private String templatingEngineName = DEFAULT_TEMPLATING_ENGINE_NAME;
     private String ignoreFileOverride;
@@ -82,7 +80,6 @@ public class WorkflowSettings {
         this.templatingEngineName = builder.templatingEngineName;
         this.ignoreFileOverride = builder.ignoreFileOverride;
         this.globalProperties = Collections.unmodifiableMap(builder.globalProperties);
-        this.generateAliasAsModel = builder.generateAliasAsModel;
     }
 
     /**
@@ -298,7 +295,6 @@ public class WorkflowSettings {
         private Boolean enablePostProcessFile = DEFAULT_ENABLE_POST_PROCESS_FILE;
         private Boolean enableMinimalUpdate = DEFAULT_ENABLE_MINIMAL_UPDATE;
         private Boolean strictSpecBehavior = DEFAULT_STRICT_SPEC_BEHAVIOR;
-        private Boolean generateAliasAsModel = DEFAULT_GENERATE_ALIAS_AS_MODEL;
         private String templateDir;
         private String templatingEngineName = DEFAULT_TEMPLATING_ENGINE_NAME;
         private String ignoreFileOverride;
@@ -438,18 +434,6 @@ public class WorkflowSettings {
         }
 
         /**
-         * Sets the {@code generateAliasAsModel} and returns a reference to this Builder so that the methods can be chained together.
-         * An 'alias' is a primitive type defined as a schema, and this option will attempt to construct a model for that primitive.
-         *
-         * @param generateAliasAsModel the {@code generateAliasAsModel} to set
-         * @return a reference to this Builder
-         */
-        public Builder withGenerateAliasAsModel(Boolean generateAliasAsModel) {
-            this.generateAliasAsModel = generateAliasAsModel != null ? generateAliasAsModel : Boolean.valueOf(DEFAULT_GENERATE_ALIAS_AS_MODEL);
-            return this;
-        }
-
-        /**
          * Sets the {@code templateDir} and returns a reference to this Builder so that the methods can be chained together.
          *
          * @param templateDir the {@code templateDir} to set
@@ -576,7 +560,6 @@ public class WorkflowSettings {
                 ", templatingEngineName='" + templatingEngineName + '\'' +
                 ", ignoreFileOverride='" + ignoreFileOverride + '\'' +
                 ", globalProperties=" + globalProperties +
-                ", generateAliasAsModel=" + generateAliasAsModel +
                 '}';
     }
 

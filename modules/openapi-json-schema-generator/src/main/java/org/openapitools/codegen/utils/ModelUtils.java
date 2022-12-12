@@ -61,8 +61,6 @@ public class ModelUtils {
 
     private static final String URI_FORMAT = "uri";
 
-    private static final String generateAliasAsModelKey = "generateAliasAsModel";
-
     // A vendor extension to track the value of the 'swagger' field in a 2.0 doc, if applicable.
     private static final String openapiDocVersion = "x-original-swagger-version";
 
