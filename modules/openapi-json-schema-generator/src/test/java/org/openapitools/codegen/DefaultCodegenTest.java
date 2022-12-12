@@ -3935,7 +3935,7 @@ public class DefaultCodegenTest {
         path = "/requestBodyWithEncodingTypes";
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
         CodegenProperty formSchema = co.requestBody.getContent().get("application/x-www-form-urlencoded").getSchema();
-        List<CodegenProperty> formParams = formSchema.getVars();
+        List<CodegenProperty> formParams = formSchema.getProperties().values().stream().collect(Collectors.toList());
         LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.getContent().get("application/x-www-form-urlencoded").getEncoding();
 
         assertEquals(formSchema.getRef(), "#/components/schemas/_requestBodyWithEncodingTypes_post_request");
@@ -4043,16 +4043,14 @@ public class DefaultCodegenTest {
         modelName = "FooOptional";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenModel fooOptional = codegen.fromModel(modelName, sc);
-        Assert.assertTrue(fooRequired.vars.get(0).required);
-        Assert.assertEquals(fooRequired.vars.get(0).name, "foo");
+        CodegenKey ck = codegen.getKey("foo");
+        Assert.assertEquals(fooRequired.getProperties().get(ck).name.getName(), "foo");
 
-        Assert.assertEquals(fooRequired.requiredVars.size(), 1);
-        Assert.assertEquals(fooRequired.requiredVars.get(0).name, "foo");
-        Assert.assertTrue(fooRequired.requiredVars.get(0).required);
+        Assert.assertEquals(fooRequired.getRequiredProperties().size(), 1);
+        Assert.assertEquals(fooRequired.getRequiredProperties().get(ck).name.getName(), "foo");
 
-        Assert.assertFalse(fooOptional.vars.get(0).required);
-        Assert.assertEquals(fooOptional.vars.get(0).name, "foo");
-        Assert.assertEquals(fooOptional.requiredVars.size(), 0);
+        Assert.assertEquals(fooOptional.getProperties().get(ck).name.getName(), "foo");
+        Assert.assertEquals(fooOptional.getRequiredProperties(), null);
     }
 
     @Test
