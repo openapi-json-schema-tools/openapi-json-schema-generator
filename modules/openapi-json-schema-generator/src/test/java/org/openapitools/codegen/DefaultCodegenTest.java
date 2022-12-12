@@ -2582,34 +2582,29 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.queryParams.get(0);
-        assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsUnset.getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.queryParams.get(1);
         assertEquals(mapWithAddPropsTrue.getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getSchema().getAdditionalPropertiesIsAnyType());
+        assertTrue(mapWithAddPropsTrue.getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.queryParams.get(2);
-        assertNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getSchema().getAdditionalPropertiesIsAnyType());
+        assertNotNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.queryParams.get(3);
         assertEquals(mapWithAddPropsSchema.getSchema().getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getSchema().getAdditionalPropertiesIsAnyType());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.queryParams.get(0);
-        assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsUnset.getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.queryParams.get(1);
         assertEquals(mapWithAddPropsTrue.getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getSchema().getAdditionalPropertiesIsAnyType());
+        assertTrue(mapWithAddPropsTrue.getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.queryParams.get(2);
-        assertNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getSchema().getAdditionalPropertiesIsAnyType());
+        assertNotNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.queryParams.get(3);
         assertEquals(mapWithAddPropsSchema.getSchema().getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getSchema().getAdditionalPropertiesIsAnyType());
-
     }
 
     @Test
@@ -2634,33 +2629,29 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.responses.get("200");
-        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
         assertEquals(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalPropertiesIsAnyType());
+        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.responses.get("202");
-        assertNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalPropertiesIsAnyType());
+        assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
         assertEquals(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalPropertiesIsAnyType());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.responses.get("200");
-        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
-        assertEquals(mapWithAddPropsTrue.getContent().get("application/json").getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties(), anyTypeSchema);
+        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.responses.get("202");
-        assertNull(mapWithAddPropsFalse.getContent().get("application/json").getSchema().getAdditionalProperties());
-        assertFalse(mapWithAddPropsFalse.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
-        assertEquals(mapWithAddPropsSchema.getContent().get("application/json").getSchema().getAdditionalProperties(), stringCp);
-        assertFalse(mapWithAddPropsSchema.getContent().get("application/json").getSchema().getAdditionalPropertiesIsAnyType());
+        assertEquals(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties(), stringCp);
     }
 
     @Test
