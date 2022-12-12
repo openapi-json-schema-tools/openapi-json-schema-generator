@@ -164,17 +164,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "translations");
-        Assert.assertEquals(property.getter, "getTranslations");
-        Assert.assertEquals(property.setter, "setTranslations");
-        Assert.assertEquals(property.dataType, "Map<String, String>");
+        CodegenKey ck = codegen.getKey("translations");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "translations");
         Assert.assertEquals(property.name, "translations");
         Assert.assertEquals(property.defaultValue, "new HashMap<>()");
         Assert.assertEquals(property.baseType, "Map");
-        Assert.assertEquals(property.containerType, "map");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
+        Assert.assertTrue(property.isMap);
     }
 
     @Test(description = "convert a model with a map with complex list property")
@@ -194,17 +190,12 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "translations");
-        Assert.assertEquals(property.getter, "getTranslations");
-        Assert.assertEquals(property.setter, "setTranslations");
-        Assert.assertEquals(property.dataType, "Map<String, List<Pet>>");
-        Assert.assertEquals(property.name, "translations");
+        CodegenKey ck = codegen.getKey("translations");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "translations");
         Assert.assertEquals(property.defaultValue, "new HashMap<>()");
         Assert.assertEquals(property.baseType, "Map");
-        Assert.assertEquals(property.containerType, "map");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
+        Assert.assertEquals(property.isMap, true);
     }
 
     @Test(description = "convert a model with a 2D list property")
