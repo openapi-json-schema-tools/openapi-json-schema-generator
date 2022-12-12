@@ -3852,7 +3852,7 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "GET", operation, null);
         assertFalse(co.hasErrorResponseObject);
         cr = co.responses.get("200");
-        assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
+        assertTrue(cr.getContent().get("application/json").getSchema().getRefClass() != null);
     }
 
     @Test
@@ -3883,7 +3883,7 @@ public class DefaultCodegenTest {
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.refClass, "Coordinates");
-        assertEquals(cp.baseName, "schema");
+        assertEquals(cp.name.getName(), "schema");
     }
 
     @Test
@@ -3903,13 +3903,13 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get("application/json");
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
-        assertEquals(cp.baseName, "application/json");
+        assertEquals(cp.name.getName(), "application/json");
         assertNotNull(cp);
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "text/plain");
+        assertEquals(cp.name.getName(), "text/plain");
         assertNotNull(cp);
         // Note: the inline model resolver has a bug for this use case; it extracts an inline request body into a component
         // but the schema it references is not string type
@@ -3923,13 +3923,13 @@ public class DefaultCodegenTest {
         mt = content.get("application/json");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "application/json");
+        assertEquals(cp.name.getName(), "application/json");
         assertEquals(cp.refClass, "Coordinates");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "text/plain");
+        assertEquals(cp.name.getName(), "text/plain");
         assertTrue(cp.isString);
 
         path = "/requestBodyWithEncodingTypes";
@@ -3961,7 +3961,7 @@ public class DefaultCodegenTest {
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json")));
 
         CodegenParameter schemaParam = co.queryParams.get(2);
-        assertEquals(schemaParam.getSchema().baseName, "schema");
+        assertEquals(schemaParam.getSchema().name.getName(), "schema");
 
 
         CodegenResponse cr = co.responses.get("200");
@@ -3969,11 +3969,11 @@ public class DefaultCodegenTest {
         assertEquals(2, responseHeaders.size());
         CodegenHeader header1 = responseHeaders.get("X-Rate-Limit");
         assertTrue(header1.getSchema().isUnboundedInteger);
-        assertEquals(header1.getSchema().baseName, "schema");
+        assertEquals(header1.getSchema().name.getName(), "schema");
 
         CodegenHeader header2 = responseHeaders.get("X-Rate-Limit-Ref");
         assertTrue(header2.getSchema().isUnboundedInteger);
-        assertEquals(header2.getSchema().baseName, "schema");
+        assertEquals(header2.getSchema().name.getName(), "schema");
 
         content = cr.getContent();
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json", "text/plain")));
@@ -3982,12 +3982,12 @@ public class DefaultCodegenTest {
         CodegenProperty cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.refClass, "Coordinates");
-        assertEquals(cp.baseName, "application/json");
+        assertEquals(cp.name.getName(), "application/json");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "text/plain");
+        assertEquals(cp.name.getName(), "text/plain");
         assertTrue(cp.isString);
 
         cr = co.responses.get("201");
@@ -3998,12 +3998,12 @@ public class DefaultCodegenTest {
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.refClass, "Coordinates");
-        assertEquals(cp.baseName, "application/json");
+        assertEquals(cp.name.getName(), "application/json");
 
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.baseName, "text/plain");
+        assertEquals(cp.name.getName(), "text/plain");
         assertTrue(cp.isString);
     }
 
