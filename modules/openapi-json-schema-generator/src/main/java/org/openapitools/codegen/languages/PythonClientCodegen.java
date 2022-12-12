@@ -1609,7 +1609,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
-                CodegenKey ck = new CodegenKey(disc.getPropertyName(), false, null, null);
+                CodegenKey ck = getKey(disc.getPropertyName());
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
@@ -1780,7 +1780,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
-                CodegenKey ck = new CodegenKey(disc.getPropertyName(), false, null, null);
+                CodegenKey ck = getKey(disc.getPropertyName());
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);

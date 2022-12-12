@@ -260,13 +260,8 @@ public class DefaultCodegenTest {
 
         Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
         CodegenModel model = codegen.fromModel("updatePetWithForm_request", specModel);
-        CodegenKey ck = new CodegenKey(
-                "visitDate",
-                true,
-                "",
-                ""
-        );
-        Assert.assertEquals(model.getProperties().get("visitDate").defaultValue, "1971-12-19T03:39:57-08:00");
+        CodegenKey ck = codegen.getKey("visitDate");
+        Assert.assertEquals(model.getProperties().get(ck).defaultValue, "1971-12-19T03:39:57-08:00");
     }
 
     @Test
@@ -1978,10 +1973,9 @@ public class DefaultCodegenTest {
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", Collections.singletonList(1));
         items.setAllowableValues(allowableValues);
-        items.dataType = "Integer";
+        items.isInteger = true;
         array.items = items;
-        array.mostInnerItems = items;
-        array.dataType = "Array";
+        array.isArray = true;
         return array;
     }
 
@@ -1991,10 +1985,9 @@ public class DefaultCodegenTest {
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", values);
         items.setAllowableValues(allowableValues);
-        items.dataType = "String";
+        items.isString = true;
         array.items = items;
-        array.mostInnerItems = items;
-        array.dataType = "Array";
+        array.isArray = true;
         return array;
     }
 
@@ -2003,7 +1996,7 @@ public class DefaultCodegenTest {
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", values);
         var.setAllowableValues(allowableValues);
-        var.dataType = "String";
+        var.isString = true;
         Map<String, Object> extensions = Collections.singletonMap("x-enum-varnames", aliases);
         var.setVendorExtensions(extensions);
         return var;
@@ -2032,7 +2025,7 @@ public class DefaultCodegenTest {
         extensions.put("x-enum-varnames", aliases);
         extensions.put("x-enum-descriptions", descriptions);
         cm.setVendorExtensions(extensions);
-        cm.setVars(Collections.emptyList());
+        cm.setProperties(new LinkedHashMap<>());
         return TestUtils.createCodegenModelWrapper(cm);
     }
 
@@ -2133,9 +2126,9 @@ public class DefaultCodegenTest {
 
         CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", null);
 
-        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isContainer);
-        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.isModel);
-        Assert.assertFalse(codegenParameter.getContent().get("application/json").getSchema().items.isContainer);
+        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isArray);
+        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.refClass != null);
+        Assert.assertFalse(codegenParameter.getContent().get("application/json").getSchema().items.getRef() != null);
     }
 
     @Test
@@ -2149,9 +2142,9 @@ public class DefaultCodegenTest {
 
         CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", null);
 
-        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isContainer);
-        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.isModel);
-        Assert.assertFalse(codegenParameter.getContent().get("application/json").getSchema().items.isContainer);
+        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isArray);
+        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.refClass != null);
+        Assert.assertFalse(codegenParameter.getContent().get("application/json").getSchema().items.getRef() != null);
     }
 
     @Test
@@ -2537,7 +2530,7 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty anyTypeSchema = codegen.fromProperty("additional_properties", new Schema(), false, false, null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
 
         modelName = "AdditionalPropertiesUnset";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -2560,7 +2553,7 @@ public class DefaultCodegenTest {
         modelName = "AdditionalPropertiesSchema";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        CodegenProperty stringCp = codegen.fromProperty("additional_properties", new Schema().type("string"), false, false, null);
+        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), null);
         assertEquals(cm.getAdditionalProperties(), stringCp);
         assertFalse(cm.getAdditionalPropertiesIsAnyType());
     }
@@ -2575,8 +2568,8 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty anyTypeSchema = codegen.fromProperty("additional_properties", new Schema(), false, false, null);
-        CodegenProperty stringCp = codegen.fromProperty("additional_properties", new Schema().type("string"), false, false, null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
+        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), null);
         CodegenProperty mapWithAddPropsUnset;
         CodegenProperty mapWithAddPropsTrue;
         CodegenProperty mapWithAddPropsFalse;
@@ -2636,8 +2629,8 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty("additional_properties", new Schema(), false, false, null);
-        CodegenProperty stringCp = codegen.fromProperty("additional_properties", new Schema().type("string"), false, false, null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
+        CodegenProperty stringCp = codegen.fromProperty( new Schema().type("string"), null);
         CodegenParameter mapWithAddPropsUnset;
         CodegenParameter mapWithAddPropsTrue;
         CodegenParameter mapWithAddPropsFalse;
@@ -2697,8 +2690,8 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty("additional_properties", new Schema(), false, false, null);
-        CodegenProperty stringCp = codegen.fromProperty("additional_properties", new Schema().type("string"), false, false, null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
+        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), null);
         CodegenResponse mapWithAddPropsUnset;
         CodegenResponse mapWithAddPropsTrue;
         CodegenResponse mapWithAddPropsFalse;
@@ -2753,7 +2746,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty("additional_properties", new Schema(), false, false, null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
 
         Schema sc;
         CodegenModel cm;
@@ -3109,26 +3102,17 @@ public class DefaultCodegenTest {
         Schema sc;
         CodegenModel cm;
         CodegenProperty propA = codegen.fromProperty(
-                "a",
                 new Schema().type("string").minLength(1),
-                false,
-                false,
                 null
         );
         propA.setRequired(true);
         CodegenProperty propB = codegen.fromProperty(
-                "b",
                 new Schema().type("string").minLength(1),
-                false,
-                false,
                 null
         );
         propB.setRequired(true);
         CodegenProperty propC = codegen.fromProperty(
-                "c",
                 new Schema().type("string").minLength(1),
-                false,
-                false,
                 null
         );
         propC.setRequired(false);
@@ -3984,9 +3968,8 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         CodegenProperty cp = mt.getSchema();
         assertTrue(cp.isMap);
-        assertTrue(cp.isModel);
         assertEquals(cp.refClass, null);
-        assertEquals(cp.baseName, "schema");
+        assertEquals(cp.name.getName(), "schema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
         content = coordinatesReferencedSchema.getContent();

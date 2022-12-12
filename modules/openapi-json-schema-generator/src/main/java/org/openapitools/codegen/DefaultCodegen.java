@@ -3446,13 +3446,7 @@ public class DefaultCodegen implements CodegenConfig {
                         ;
                     }
                 }
-                boolean isValid = isValid(usedName);
-                CodegenKey ck = new CodegenKey(
-                        usedName,
-                        isValid,
-                        toVarName(usedName),
-                        toModelName(usedName)
-                );
+                CodegenKey ck = getKey(usedName);
                 property.name = ck;
             }
         }
@@ -4623,13 +4617,7 @@ public class DefaultCodegen implements CodegenConfig {
                 String propertySourceJsonPath = sourceJsonPath + "/properties/" + key;
                 cp = fromProperty(prop, propertySourceJsonPath);
 
-                boolean isValid = isValid(key);
-                CodegenKey ck = new CodegenKey(
-                        key,
-                        isValid,
-                        toVarName(key),
-                        toModelName(key)
-                );
+                CodegenKey ck = getKey(key);
                 propertiesMap.put(ck, cp);
                 if (!mandatory.contains(key)) {
                     optionalProperties.put(ck, cp);
@@ -5906,6 +5894,17 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenParameter;
     }
 
+    public CodegenKey getKey(String key) {
+        boolean isValid = isValid(key);
+        CodegenKey ck = new CodegenKey(
+                key,
+                isValid,
+                toVarName(key),
+                toModelName(key)
+        );
+        return ck;
+    }
+
     protected void addRequiredProperties(Schema schema, JsonSchema property, String sourceJsonPath) {
         /*
         this should be called after vars and additionalProperties are set
@@ -5923,13 +5922,7 @@ public class DefaultCodegen implements CodegenConfig {
         for (String requiredPropertyName: requiredPropertyNames) {
             // required property is defined in properties, value is that CodegenProperty
             String usedRequiredPropertyName = handleSpecialCharacters(requiredPropertyName);
-            boolean isValid = isValid(usedRequiredPropertyName);
-            CodegenKey ck = new CodegenKey(
-                    usedRequiredPropertyName,
-                    isValid,
-                    toVarName(usedRequiredPropertyName),
-                    toModelName(usedRequiredPropertyName)
-            );
+            CodegenKey ck = getKey(usedRequiredPropertyName);
             if (properties != null && properties.containsKey(requiredPropertyName)) {
                 // get cp from property
                 CodegenProperty cp = property.getProperties().get(ck);
