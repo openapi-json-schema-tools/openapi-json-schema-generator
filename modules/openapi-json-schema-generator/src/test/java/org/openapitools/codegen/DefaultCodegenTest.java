@@ -3105,7 +3105,7 @@ public class DefaultCodegenTest {
         for (String modelName : modelNames) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
             cm = codegen.fromModel(modelName, sc);
-            assertTrue(cm.getHasVars());
+            assertTrue(cm.getProperties() == null);
         }
     }
 
@@ -3126,10 +3126,16 @@ public class DefaultCodegenTest {
                 "ObjectModelWithAddPropsInProps",
                 "ObjectWithOptionalAndRequiredProps"
         );
+        HashMap<String, String> hm = new HashMap<>();
+        hm.put("ObjectWithValidationsInArrayPropItems", "arrayProp");
+        hm.put("ObjectModelWithRefAddPropsInProps", "map_with_additional_properties_unset");
+        hm.put("ObjectModelWithAddPropsInProps", "map_with_additional_properties_unset");
+        hm.put("ObjectWithOptionalAndRequiredProps", "a");
         for (String modelName : modelNames) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
             cm = codegen.fromModel(modelName, sc);
-            assertFalse(cm.vars.get(0).getHasVars());
+            CodegenKey ck = codegen.getKey(hm.get(modelName));
+            assertTrue(cm.getProperties().get(ck).getProperties() == null);
         }
 
         String modelName;
@@ -3138,14 +3144,14 @@ public class DefaultCodegenTest {
         assertEquals("#/components/schemas/ArrayWithObjectWithPropsInItems_inner", as.getItems().get$ref());
         sc = openAPI.getComponents().getSchemas().get("ArrayWithObjectWithPropsInItems_inner");
         cm = codegen.fromModel(modelName, sc);
-        assertTrue(cm.getHasVars());
+        assertTrue(cm.getProperties() == null);
 
         modelName = "ObjectWithObjectWithPropsInAdditionalProperties";
         MapSchema ms = (MapSchema) openAPI.getComponents().getSchemas().get(modelName);
         assertEquals("#/components/schemas/ArrayWithObjectWithPropsInItems_inner", as.getItems().get$ref());
         sc = openAPI.getComponents().getSchemas().get("ArrayWithObjectWithPropsInItems_inner");
         cm = codegen.fromModel(modelName, sc);
-        assertTrue(cm.getHasVars());
+        assertTrue(cm.getProperties() == null);
     }
 
     @Test
@@ -3162,15 +3168,15 @@ public class DefaultCodegenTest {
         path = "/array_with_validations_in_items/{items}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertFalse(co.pathParams.get(0).getSchema().getHasVars());
-        assertFalse(co.requestBody.getContent().get("application/json").getSchema().getHasVars());
+        assertTrue(co.pathParams.get(0).getSchema().getProperties() == null);
+        assertTrue(co.requestBody.getContent().get("application/json").getSchema().getProperties() == null);
 
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         // no vars because it's a ref
-        assertFalse(co.pathParams.get(0).getSchema().getHasVars());
-        assertFalse(co.requestBody.getContent().get("application/json").getSchema().getHasVars());
+        assertTrue(co.pathParams.get(0).getSchema().getProperties() == null);
+        assertTrue(co.requestBody.getContent().get("application/json").getSchema().getProperties() == null);
     }
 
     @Test
@@ -3187,13 +3193,13 @@ public class DefaultCodegenTest {
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertFalse(co.responses.get("200").getContent().get("application/json").getSchema().getHasVars());
+        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().getProperties() == null);
 
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         // does not have vars because the inline schema was extracted into a component ref
-        assertFalse(co.responses.get("200").getContent().get("application/json").getSchema().getHasVars());
+        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().getProperties() == null);
     }
 
     @Test
