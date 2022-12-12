@@ -3231,7 +3231,7 @@ public class DefaultCodegenTest {
         for (String modelName : modelNamesWithoutRequired) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
             cm = codegen.fromModel(modelName, sc);
-            assertFalse(cm.getHasRequired());
+            assertTrue(cm.getRequiredProperties() == null);
         }
 
         List<String> modelNamesWithRequired = Arrays.asList(
@@ -3247,7 +3247,7 @@ public class DefaultCodegenTest {
         for (String modelName : modelNamesWithRequired) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
             cm = codegen.fromModel(modelName, sc);
-            assertTrue(cm.getHasRequired());
+            assertTrue(cm.getRequiredProperties().size() > 0);
         }
     }
 
@@ -3286,15 +3286,13 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofReqPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
         ));
-        HashSet<String> modelNamesWithRequired = new HashSet(Arrays.asList(
-        ));
-        for (CodegenProperty var : cm.getVars()) {
-            boolean hasRequired = var.getHasRequired();
-            if (modelNamesWithoutRequired.contains(var.name)) {
-                assertFalse(hasRequired);
-            } else if (modelNamesWithRequired.contains(var.name)) {
-                assertTrue(hasRequired);
-            } else {
+        for (String modelNameWithoutRequired: modelNamesWithoutRequired) {
+            Schema schema = openAPI.getComponents().getSchemas().get(modelName);
+            CodegenModel model = codegen.fromModel(modelNameWithoutRequired, schema);
+            assertTrue(model.getRequiredProperties() == null);
+        }
+        for (CodegenProperty var : cm.getProperties().values().stream().collect(Collectors.toList())) {
+            if (!modelNamesWithoutRequired.contains(var.name.getName())) {
                 // All variables must be in the above sets
                 fail();
             }
@@ -3336,15 +3334,8 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofReqPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
         ));
-        HashSet<String> modelNamesWithRequired = new HashSet(Arrays.asList(
-        ));
         for (CodegenParameter param : co.pathParams) {
-            boolean hasRequired = param.getSchema().getHasRequired();
-            if (modelNamesWithoutRequired.contains(param.baseName)) {
-                assertFalse(hasRequired);
-            } else if (modelNamesWithRequired.contains(param.baseName)) {
-                assertTrue(hasRequired);
-            } else {
+            if (!modelNamesWithoutRequired.contains(param.baseName)) {
                 // All variables must be in the above sets
                 fail();
             }
@@ -3386,15 +3377,9 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofReqPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
         ));
-        HashSet<String> modelNamesWithRequired = new HashSet(Arrays.asList(
-        ));
         for (CodegenResponse cr : co.responses.values()) {
-            boolean hasRequired = cr.getContent().get("application/json").getSchema().getHasRequired();
-            if (modelNamesWithoutRequired.contains(cr.message)) {
-                assertFalse(hasRequired);
-            } else if (modelNamesWithRequired.contains(cr.message)) {
-                assertTrue(hasRequired);
-            } else {
+            boolean hasRequired = cr.getContent().get("application/json").getSchema().getRequiredProperties().size() > 0;
+            if (!modelNamesWithoutRequired.contains(cr.message)) {
                 // All variables must be in the above sets
                 fail();
             }
@@ -3847,9 +3832,9 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "GET", operation, null);
         //assertTrue(co.hasErrorResponseObject);
         cr = co.responses.get("200");
-        assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
+        assertTrue(cr.getContent().get("application/json").getSchema().getRefClass() != null);
         cr = co.responses.get("500");
-        assertFalse(cr.getContent().get("application/application").getSchema().isPrimitiveType);
+        assertTrue(cr.getContent().get("application/application").getSchema().getRefClass() != null);
 
         path = "/pet";
         operation = openAPI.getPaths().get(path).getPut();
@@ -3857,10 +3842,10 @@ public class DefaultCodegenTest {
         assertTrue(co.hasErrorResponseObject);
 
         cr = co.responses.get("200");
-        assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
+        assertTrue(cr.getContent().get("application/json").getSchema().getRefClass() != null);
 
         cr = co.responses.get("400");
-        assertFalse(cr.getContent().get("application/json").getSchema().isPrimitiveType);
+        assertTrue(cr.getContent().get("application/json").getSchema().getRefClass() != null);
 
         path = "/pet/findByTags";
         operation = openAPI.getPaths().get(path).getGet();
