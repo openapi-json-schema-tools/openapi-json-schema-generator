@@ -111,17 +111,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 2);
 
-        final CodegenProperty property = cm.vars.get(1);
-        Assert.assertEquals(property.baseName, "urls");
-        Assert.assertEquals(property.getter, "getUrls");
-        Assert.assertEquals(property.setter, "setUrls");
-        Assert.assertEquals(property.dataType, "List<String>");
+        CodegenKey ck = codegen.getKey("urls");
+        final CodegenProperty property = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "urls");
         Assert.assertEquals(property.name, "urls");
         Assert.assertEquals(property.defaultValue, "new ArrayList<>()");
         Assert.assertEquals(property.baseType, "List");
-        Assert.assertEquals(property.containerType, "array");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
+        Assert.assertTrue(property.isArray);
     }
 
     @Test(description = "convert a model with set property")
@@ -143,17 +139,12 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 2);
 
-        final CodegenProperty property = cm.vars.get(1);
-        Assert.assertEquals(property.baseName, "urls");
-        Assert.assertEquals(property.getter, "getUrls");
-        Assert.assertEquals(property.setter, "setUrls");
-        Assert.assertEquals(property.dataType, "Set<String>");
-        Assert.assertEquals(property.name, "urls");
+        CodegenKey ck = codegen.getKey("urls");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "urls");
         Assert.assertEquals(property.defaultValue, "new LinkedHashSet<>()");
         Assert.assertEquals(property.baseType, "Set");
-        Assert.assertEquals(property.containerType, "set");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
+        Assert.assertTrue(property.isArray);
     }
 
     @Test(description = "convert a model with a map property")
