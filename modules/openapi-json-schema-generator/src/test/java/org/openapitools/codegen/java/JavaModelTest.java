@@ -62,47 +62,35 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 3);
 
-        final List<CodegenProperty> vars = cm.vars;
-
-        final CodegenProperty property1 = vars.get(0);
-        Assert.assertEquals(property1.baseName, "id");
-        Assert.assertEquals(property1.nameInCamelCase, "Id");
-        Assert.assertEquals(property1.nameInSnakeCase, "ID");
-        Assert.assertEquals(property1.getter, "getId");
-        Assert.assertEquals(property1.setter, "setId");
-        Assert.assertEquals(property1.dataType, "Long");
+        CodegenKey ck = codegen.getKey("id");
+        final CodegenProperty property1 = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property1.name.getName(), "id");
+        Assert.assertEquals(property1.name.getCamelCaseName(), "Id");
+        Assert.assertEquals(property1.name.getSnakeCaseName(), "ID");
+        Assert.assertEquals(property1.isInteger, true);
+        Assert.assertEquals(property1.getFormat(), "int64");
         Assert.assertEquals(property1.name, "id");
         Assert.assertNull(property1.defaultValue);
         Assert.assertEquals(property1.baseType, "Long");
-        Assert.assertTrue(property1.required);
-        Assert.assertFalse(property1.isContainer);
 
-        final CodegenProperty property2 = vars.get(1);
-        Assert.assertEquals(property2.baseName, "name");
-        Assert.assertEquals(property2.nameInCamelCase, "Name");
-        Assert.assertEquals(property2.nameInSnakeCase, "NAME");
-        Assert.assertEquals(property2.getter, "getName");
-        Assert.assertEquals(property2.setter, "setName");
-        Assert.assertEquals(property2.dataType, "String");
-        Assert.assertEquals(property2.name, "name");
+        ck = codegen.getKey("name");
+        final CodegenProperty property2 = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property2.name.getName(), "name");
+        Assert.assertEquals(property2.name.getCamelCaseName(), "Name");
+        Assert.assertEquals(property2.name.getSnakeCaseName(), "NAME");
+        Assert.assertEquals(property2.isString, true);
         Assert.assertNull(property2.defaultValue);
         Assert.assertEquals(property2.baseType, "String");
         Assert.assertEquals(property2.example, "Tony");
-        Assert.assertTrue(property2.required);
-        Assert.assertFalse(property2.isContainer);
 
-        final CodegenProperty property3 = vars.get(2);
-        Assert.assertEquals(property3.baseName, "createdAt");
-        Assert.assertEquals(property3.nameInCamelCase, "CreatedAt");
-        Assert.assertEquals(property3.nameInSnakeCase, "CREATED_AT");
-        Assert.assertEquals(property3.getter, "getCreatedAt");
-        Assert.assertEquals(property3.setter, "setCreatedAt");
-        Assert.assertEquals(property3.dataType, "Date");
-        Assert.assertEquals(property3.name, "createdAt");
+        ck = codegen.getKey("createdAt");
+        final CodegenProperty property3 = cm.getProperties().get(ck);
+        Assert.assertEquals(property3.name.getName(), "createdAt");
+        Assert.assertEquals(property3.name.getCamelCaseName(), "CreatedAt");
+        Assert.assertEquals(property3.name.getSnakeCaseName(), "CREATED_AT");
+        Assert.assertEquals(property3.isDate, true);
         Assert.assertNull(property3.defaultValue);
         Assert.assertEquals(property3.baseType, "Date");
-        Assert.assertFalse(property3.required);
-        Assert.assertFalse(property3.isContainer);
     }
 
     @Test(description = "convert a model with list property")
