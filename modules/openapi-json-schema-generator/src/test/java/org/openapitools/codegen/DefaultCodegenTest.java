@@ -3049,26 +3049,25 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         // 0 because it is a ref
-        assertEquals(co.pathParams.get(0).getSchema().vars.size(), 0);
-        assertEquals(co.pathParams.get(0).getSchema().requiredVars.size(), 0);
-        assertEquals(co.requestBody.getContent().get("application/json").getSchema().vars.size(), 0);
-        assertEquals(co.requestBody.getContent().get("application/json").getSchema().requiredVars.size(), 0);
+        assertEquals(co.pathParams.get(0).getSchema().getProperties().size(), 0);
+        assertEquals(co.pathParams.get(0).getSchema().getRequiredProperties().size(), 0);
+        assertEquals(co.requestBody.getContent().get("application/json").getSchema().getProperties().size(), 0);
+        assertEquals(co.requestBody.getContent().get("application/json").getSchema().getRequiredProperties().size(), 0);
 
         // CodegenOperation puts the inline schema into schemas and refs it
-        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().isModel);
-        assertEquals(co.responses.get("200").getContent().get("application/json").getSchema().baseType, "objectWithOptionalAndRequiredProps_request");
+        assertEquals(co.responses.get("200").getContent().get("application/json").getSchema().refClass, "objectWithOptionalAndRequiredProps_request");
         modelName = "objectWithOptionalAndRequiredProps_request";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
         assertEquals(cm.vars, vars);
-        assertEquals(cm.requiredVars, requiredVars);
+        assertEquals(cm.getRequiredProperties().values().stream().collect(Collectors.toList()), requiredVars);
 
         // CodegenProperty puts the inline schema into schemas and refs it
         modelName = "ObjectPropContainsProps";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        CodegenProperty cp = cm.getVars().get(0);
-        assertTrue(cp.isModel);
+        CodegenKey ck = codegen.getKey("a");
+        CodegenProperty cp = cm.getProperties().get(ck);
         assertEquals(cp.refClass, "ObjectWithOptionalAndRequiredPropsRequest");
     }
 
@@ -3094,7 +3093,7 @@ public class DefaultCodegenTest {
         for (String modelName : modelNames) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
             cm = codegen.fromModel(modelName, sc);
-            assertFalse(cm.getHasVars());
+            assertTrue(cm.getProperties() == null);
         }
 
         modelNames = Arrays.asList(
