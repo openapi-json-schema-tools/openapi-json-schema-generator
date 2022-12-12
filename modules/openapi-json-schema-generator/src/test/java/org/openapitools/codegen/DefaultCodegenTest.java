@@ -2667,11 +2667,12 @@ public class DefaultCodegenTest {
 
         sc = openAPI.getComponents().getSchemas().get("AdditionalPropertiesTrue");
         cm = codegen.fromModel("AdditionalPropertiesTrue", sc);
-        assertEquals(cm.getVars().get(0).additionalProperties, anyTypeSchema);
+        CodegenKey ck = codegen.getKey("child");
+        assertEquals(cm.getProperties().get(ck).getAdditionalProperties(), anyTypeSchema);
 
         sc = openAPI.getComponents().getSchemas().get("AdditionalPropertiesAnyType");
         cm = codegen.fromModel("AdditionalPropertiesAnyType", sc);
-        assertEquals(cm.getVars().get(0).additionalProperties, anyTypeSchema);
+        assertEquals(cm.getProperties().get(ck).getAdditionalProperties(), anyTypeSchema);
     }
 
     @Test
@@ -2698,8 +2699,9 @@ public class DefaultCodegenTest {
         modelName = "ObjectWithTypeNullProperties";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertTrue(cm.getVars().get(0).isNull);
-        assertTrue(cm.getVars().get(1).getItems().isNull);
+        CodegenKey ck = codegen.getKey("nullProp");
+        assertTrue(cm.getProperties().get(ck).isNull);
+        assertTrue(cm.getProperties().get(codegen.getKey("listOfNulls")).getItems().isNull);
         assertTrue(cm.getAdditionalProperties().isNull);
 
         modelName = "ArrayOfNulls";
@@ -2710,8 +2712,9 @@ public class DefaultCodegenTest {
         modelName = "ObjectWithDateWithValidation";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertFalse(cm.getVars().get(0).isString);
-        assertTrue(cm.getVars().get(0).isDate);
+        ck = codegen.getKey("dateWithValidation");
+        assertFalse(cm.getProperties().get(ck).isString);
+        assertTrue(cm.getProperties().get(ck).isDate);
 
         String path;
         Operation operation;
@@ -2746,8 +2749,9 @@ public class DefaultCodegenTest {
         modelName = "ObjectWithDateTimeWithValidation";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertFalse(cm.getVars().get(0).isString);
-        assertTrue(cm.getVars().get(0).isDateTime);
+        ck = codegen.getKey("dateWithValidation");
+        assertFalse(cm.getProperties().get(ck).isString);
+        assertTrue(cm.getProperties().get(ck).isDateTime);
 
         path = "/ref_date_time_with_validation/{dateTime}";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2862,7 +2866,7 @@ public class DefaultCodegenTest {
         Schema sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenModel cm = codegen.fromModel(modelName, sc);
 
-        List<CodegenProperty> props = cm.getVars();
+        List<CodegenProperty> props = cm.getProperties().values().stream().collect(Collectors.toList());
         assertEquals(props.size(), 50);
         for (CodegenProperty prop : props) {
             assertTrue(prop.getHasValidation());
@@ -3019,17 +3023,14 @@ public class DefaultCodegenTest {
                 new Schema().type("string").minLength(1),
                 null
         );
-        propA.setRequired(true);
         CodegenProperty propB = codegen.fromProperty(
                 new Schema().type("string").minLength(1),
                 null
         );
-        propB.setRequired(true);
         CodegenProperty propC = codegen.fromProperty(
                 new Schema().type("string").minLength(1),
                 null
         );
-        propC.setRequired(false);
 
         List<CodegenProperty> vars = new ArrayList<>(Arrays.asList(propA, propB, propC));
         List<CodegenProperty> requiredVars = new ArrayList<>(Arrays.asList(propA, propB));
@@ -3037,8 +3038,8 @@ public class DefaultCodegenTest {
         modelName = "ObjectWithOptionalAndRequiredProps";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromModel(modelName, sc);
-        assertEquals(cm.vars, vars);
-        assertEquals(cm.requiredVars, requiredVars);
+        assertEquals(cm.getProperties().values().stream().collect(Collectors.toList()), vars);
+        assertEquals(cm.getRequiredProperties().values().stream().collect(Collectors.toList()), requiredVars);
 
         String path;
         Operation operation;
