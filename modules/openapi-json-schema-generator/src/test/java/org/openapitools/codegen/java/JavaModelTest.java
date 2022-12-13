@@ -312,19 +312,14 @@ public class JavaModelTest {
         Assert.assertEquals(cm.vars.size(), 1);
         Assert.assertEquals(Sets.intersection(cm.imports, Sets.newHashSet("Map", "Children")).size(), 2);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "children");
+        CodegenKey ck = codegen.getKey("children");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "children");
         Assert.assertEquals(property.additionalProperties.refClass, "Children");
-        Assert.assertEquals(property.getter, "getChildren");
-        Assert.assertEquals(property.setter, "setChildren");
-        Assert.assertEquals(property.dataType, "Map<String, Children>");
+        Assert.assertTrue(property.isMap);
         Assert.assertEquals(property.name, "children");
         Assert.assertEquals(property.defaultValue, "new HashMap<>()");
         Assert.assertEquals(property.baseType, "Map");
-        Assert.assertEquals(property.containerType, "map");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
-        Assert.assertTrue(property.isMap);
     }
 
     @Test(description = "convert a model with complex array property")
@@ -344,18 +339,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.vars.size(), 1);
         Assert.assertEquals(Sets.intersection(cm.imports, Sets.newHashSet("List", "Children")).size(), 2);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "children");
+        CodegenKey ck = codegen.getKey("children");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "children");
         Assert.assertEquals(property.items.refClass, "Children");
-        Assert.assertEquals(property.getter, "getChildren");
-        Assert.assertEquals(property.setter, "setChildren");
-        Assert.assertEquals(property.dataType, "List<Children>");
         Assert.assertEquals(property.name, "children");
         Assert.assertEquals(property.defaultValue, "new ArrayList<>()");
         Assert.assertEquals(property.baseType, "List");
-        Assert.assertEquals(property.containerType, "array");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
         Assert.assertTrue(property.isArray);
     }
 
@@ -377,19 +367,15 @@ public class JavaModelTest {
         Assert.assertEquals(cm.vars.size(), 1);
         Assert.assertTrue(cm.imports.contains("Set"));
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "children");
+        CodegenKey ck = codegen.getKey("children");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "children");
         Assert.assertEquals(property.items.refClass, "Children");
-        Assert.assertEquals(property.getter, "getChildren");
-        Assert.assertEquals(property.setter, "setChildren");
-        Assert.assertEquals(property.dataType, "Set<Children>");
         Assert.assertEquals(property.name, "children");
         Assert.assertEquals(property.defaultValue, "new LinkedHashSet<>()");
         Assert.assertEquals(property.baseType, "Set");
-        Assert.assertEquals(property.containerType, "set");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
-        Assert.assertTrue(property.getUniqueItemsBoolean());
+        Assert.assertTrue(property.isArray);
+        Assert.assertTrue(property.getUniqueItems());
     }
     @Test(description = "convert a model with an array property with item name")
     public void arrayModelWithItemNameTest() {
