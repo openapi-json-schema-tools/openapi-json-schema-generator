@@ -211,17 +211,13 @@ public class JavaModelTest {
 
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "list2D");
-        Assert.assertEquals(property.getter, "getList2D");
-        Assert.assertEquals(property.setter, "setList2D");
-        Assert.assertEquals(property.dataType, "List<List<Pet>>");
+        CodegenKey ck = codegen.getKey("list2D");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "list2D");
         Assert.assertEquals(property.name, "list2D");
         Assert.assertEquals(property.defaultValue, "new ArrayList<>()");
         Assert.assertEquals(property.baseType, "List");
-        Assert.assertEquals(property.containerType, "array");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
+        Assert.assertTrue(property.isArray);
     }
 
     @Test(description = "convert a model with restricted characters")
@@ -239,16 +235,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "@Some:restricted%characters#to!handle+");
-        Assert.assertEquals(property.getter, "getAtSomeColonRestrictedPercentCharactersHashToExclamationHandlePlus");
-        Assert.assertEquals(property.setter, "setAtSomeColonRestrictedPercentCharactersHashToExclamationHandlePlus");
-        Assert.assertEquals(property.dataType, "Boolean");
+        CodegenKey ck = codegen.getKey("@Some:restricted%characters#to!handle+");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "@Some:restricted%characters#to!handle+");
+        Assert.assertTrue(property.isBoolean);
         Assert.assertEquals(property.name, "atSomeColonRestrictedPercentCharactersHashToExclamationHandlePlus");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "Boolean");
-        Assert.assertFalse(property.required);
-        Assert.assertFalse(property.isContainer);
     }
 
     @Test(description = "convert a model with complex properties")
@@ -266,17 +259,14 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "children");
-        Assert.assertEquals(property.getter, "getChildren");
-        Assert.assertEquals(property.setter, "setChildren");
-        Assert.assertEquals(property.dataType, "Children");
+        CodegenKey ck = codegen.getKey("children");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "children");
+        Assert.assertEquals(property.refClass, "Children");
         Assert.assertEquals(property.name, "children");
         // "null" as default value for model
         Assert.assertEquals(property.defaultValue, "null");
         Assert.assertEquals(property.baseType, "Children");
-        Assert.assertFalse(property.required);
-        Assert.assertFalse(property.isContainer);
     }
 
     @Test(description = "convert a model with complex list property")
@@ -295,18 +285,14 @@ public class JavaModelTest {
         Assert.assertEquals(cm.description, "a sample model");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "children");
+        CodegenKey ck = codegen.getKey("children");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "children");
         Assert.assertEquals(property.items.refClass, "Children");
-        Assert.assertEquals(property.getter, "getChildren");
-        Assert.assertEquals(property.setter, "setChildren");
-        Assert.assertEquals(property.dataType, "List<Children>");
+        Assert.assertTrue(property.isArray);
         Assert.assertEquals(property.name, "children");
         Assert.assertEquals(property.defaultValue, "new ArrayList<>()");
         Assert.assertEquals(property.baseType, "List");
-        Assert.assertEquals(property.containerType, "array");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
     }
 
     @Test(description = "convert a model with complex map property")
