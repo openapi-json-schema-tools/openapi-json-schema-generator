@@ -28,6 +28,7 @@ import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
+import org.mozilla.javascript.optimizer.Codegen;
 import org.openapitools.codegen.*;
 import org.openapitools.codegen.config.CodegenConfigurator;
 import org.openapitools.codegen.languages.JavaClientCodegen;
@@ -400,22 +401,17 @@ public class JavaModelTest {
         Assert.assertEquals(cm.vars.size(), 1);
         Assert.assertEquals(Sets.intersection(cm.imports, Sets.newHashSet("List", "Child")).size(), 2);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "children");
+        CodegenKey ck = codegen.getKey("children");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "children");
         Assert.assertEquals(property.items.refClass, "Child");
-        Assert.assertEquals(property.getter, "getChildren");
-        Assert.assertEquals(property.setter, "setChildren");
-        Assert.assertEquals(property.dataType, "List<Child>");
         Assert.assertEquals(property.name, "children");
         Assert.assertEquals(property.defaultValue, "new ArrayList<>()");
         Assert.assertEquals(property.baseType, "List");
-        Assert.assertEquals(property.containerType, "array");
-        Assert.assertFalse(property.required);
-        Assert.assertTrue(property.isContainer);
+        Assert.assertTrue(property.isArray);
 
         final CodegenProperty itemsProperty = property.items;
-        Assert.assertEquals(itemsProperty.baseName, "child");
-        Assert.assertEquals(itemsProperty.name, "child");
+        Assert.assertEquals(itemsProperty.name.getName(), "child");
     }
 
     @Test(description = "convert an array model")
@@ -491,16 +487,12 @@ public class JavaModelTest {
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "NAME");
-        Assert.assertEquals(property.getter, "getNAME");
-        Assert.assertEquals(property.setter, "setNAME");
-        Assert.assertEquals(property.dataType, "String");
-        Assert.assertEquals(property.name, "NAME");
+        CodegenKey ck = codegen.getKey("NAME");
+        final CodegenProperty property = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "NAME");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "String");
-        Assert.assertTrue(property.required);
-        Assert.assertFalse(property.isContainer);
+        Assert.assertFalse(property.isString);
     }
 
     @Test(description = "convert a model with upper-case property names and Numbers")
@@ -518,16 +510,12 @@ public class JavaModelTest {
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "NAME1");
-        Assert.assertEquals(property.getter, "getNAME1");
-        Assert.assertEquals(property.setter, "setNAME1");
-        Assert.assertEquals(property.dataType, "String");
-        Assert.assertEquals(property.name, "NAME1");
+        CodegenKey ck = codegen.getKey("NAME1");
+        final CodegenProperty property = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "NAME1");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "String");
-        Assert.assertTrue(property.required);
-        Assert.assertFalse(property.isContainer);
+        Assert.assertTrue(property.isString);
     }
 
     @Test(description = "convert a model with a 2nd char upper-case property names")
@@ -545,16 +533,12 @@ public class JavaModelTest {
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "pId");
-        Assert.assertEquals(property.getter, "getpId");
-        Assert.assertEquals(property.setter, "setpId");
-        Assert.assertEquals(property.dataType, "String");
-        Assert.assertEquals(property.name, "pId");
+        CodegenKey ck = codegen.getKey("pId");
+        final CodegenProperty property = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "pId");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "String");
-        Assert.assertTrue(property.required);
-        Assert.assertFalse(property.isContainer);
+        Assert.assertTrue(property.isString);
     }
 
     @Test(description = "convert a model starting with two upper-case letter property names")
@@ -572,16 +556,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "ATTName");
-        Assert.assertEquals(property.getter, "getAtTName");
-        Assert.assertEquals(property.setter, "setAtTName");
-        Assert.assertEquals(property.dataType, "String");
+        CodegenKey ck = codegen.getKey("ATTName");
+        final CodegenProperty property = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "ATTName");
+        Assert.assertTrue(property.isString);
         Assert.assertEquals(property.name, "atTName");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "String");
-        Assert.assertTrue(property.required);
-        Assert.assertFalse(property.isContainer);
     }
 
     @Test(description = "convert a model with an all upper-case letter and one non letter property names")
@@ -599,16 +580,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "ATT_NAME");
-        Assert.assertEquals(property.getter, "getATTNAME");
-        Assert.assertEquals(property.setter, "setATTNAME");
-        Assert.assertEquals(property.dataType, "String");
+        CodegenKey ck = codegen.getKey("ATT_NAME");
+        final CodegenProperty property = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "ATT_NAME");
+        Assert.assertTrue(property.isString);
         Assert.assertEquals(property.name, "ATT_NAME");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "String");
-        Assert.assertTrue(property.required);
-        Assert.assertFalse(property.isContainer);
     }
 
     @Test(description = "convert hyphens per issue 503")
