@@ -806,33 +806,24 @@ public class JavaModelTest {
         Assert.assertEquals(cm.xmlNamespace, "xmlNamespace");
         Assert.assertEquals(cm.vars.size(), 3);
 
-        final List<CodegenProperty> vars = cm.vars;
-
-        final CodegenProperty property2 = vars.get(1);
-        Assert.assertEquals(property2.baseName, "name");
-        Assert.assertEquals(property2.getter, "getName");
-        Assert.assertEquals(property2.setter, "setName");
-        Assert.assertEquals(property2.dataType, "String");
+        CodegenKey ck = codegen.getKey("name");
+        final CodegenProperty property2 = cm.getRequiredProperties().get(ck);
+        Assert.assertEquals(property2.name.getName(), "name");
+        Assert.assertTrue(property2.isString);
         Assert.assertEquals(property2.name, "name");
         Assert.assertNull(property2.defaultValue);
         Assert.assertEquals(property2.baseType, "String");
         Assert.assertEquals(property2.example, "Tony");
-        Assert.assertTrue(property2.required);
-        Assert.assertFalse(property2.isContainer);
         Assert.assertTrue(property2.isXmlAttribute);
         Assert.assertEquals(property2.xmlName, "myName");
         Assert.assertNull(property2.xmlNamespace);
 
-        final CodegenProperty property3 = vars.get(2);
-        Assert.assertEquals(property3.baseName, "createdAt");
-        Assert.assertEquals(property3.getter, "getCreatedAt");
-        Assert.assertEquals(property3.setter, "setCreatedAt");
-        Assert.assertEquals(property3.dataType, "Date");
-        Assert.assertEquals(property3.name, "createdAt");
+        ck = codegen.getKey("createdAt");
+        final CodegenProperty property3 = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property3.name.getName(), "createdAt");
+        Assert.assertTrue(property3.isDate);
         Assert.assertNull(property3.defaultValue);
         Assert.assertEquals(property3.baseType, "Date");
-        Assert.assertFalse(property3.required);
-        Assert.assertFalse(property3.isContainer);
         Assert.assertFalse(property3.isXmlAttribute);
         Assert.assertEquals(property3.xmlName, "myCreatedAt");
         Assert.assertEquals(property3.xmlNamespace, "myNamespace");
@@ -871,24 +862,20 @@ public class JavaModelTest {
         Assert.assertEquals(cm.xmlNamespace, "xmlNamespace");
         Assert.assertEquals(cm.vars.size(), 2);
 
-        final List<CodegenProperty> vars = cm.vars;
-
-        final CodegenProperty property2 = vars.get(1);
-        Assert.assertEquals(property2.baseName, "array");
-        Assert.assertEquals(property2.getter, "getArray");
-        Assert.assertEquals(property2.setter, "setArray");
-        Assert.assertEquals(property2.dataType, "List<String>");
+        CodegenKey ck = codegen.getKey("array");
+        final CodegenProperty property2 = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property2.name.getName(), "array");
         Assert.assertEquals(property2.name, "array");
         Assert.assertEquals(property2.defaultValue, "new ArrayList<>()");
         Assert.assertEquals(property2.baseType, "List");
-        Assert.assertTrue(property2.isContainer);
+        Assert.assertTrue(property2.isArray);
         Assert.assertTrue(property2.isXmlWrapped);
         Assert.assertEquals(property2.xmlName, "xmlArray");
         Assert.assertNotNull(property2.xmlNamespace);
         Assert.assertNotNull(property2.items);
         CodegenProperty items = property2.items;
         Assert.assertEquals(items.xmlName, "i");
-        Assert.assertEquals(items.baseName, "array");
+        Assert.assertEquals(items.name.getName(), "array");
     }
 
     @Test(description = "convert a boolean parameter")
@@ -900,13 +887,10 @@ public class JavaModelTest {
         codegen.setBooleanGetterPrefix("is");
         final CodegenProperty cp = codegen.fromProperty(property, null);
 
-        Assert.assertEquals(cp.baseName, "property");
-        Assert.assertEquals(cp.dataType, "Boolean");
-        Assert.assertEquals(cp.name, "property");
-        Assert.assertEquals(cp.baseType, "Boolean");
-        Assert.assertFalse(cp.isContainer);
+        Assert.assertEquals(cp.name.getName(), "property");
         Assert.assertTrue(cp.isBoolean);
-        Assert.assertEquals(cp.getter, "isProperty");
+        Assert.assertEquals(cp.baseType, "Boolean");
+        Assert.assertTrue(cp.isBoolean);
     }
 
     @Test(description = "convert an integer property")
@@ -917,14 +901,10 @@ public class JavaModelTest {
         codegen.setOpenAPI(openAPI);
         final CodegenProperty cp = codegen.fromProperty(property, null);
 
-        Assert.assertEquals(cp.baseName, "property");
-        Assert.assertEquals(cp.dataType, "Integer");
-        Assert.assertEquals(cp.name, "property");
+        Assert.assertEquals(cp.name.getName(), "property");
         Assert.assertEquals(cp.baseType, "Integer");
-        Assert.assertFalse(cp.isContainer);
         Assert.assertTrue(cp.isInteger);
         Assert.assertFalse(cp.isLong);
-        Assert.assertEquals(cp.getter, "getProperty");
     }
 
     @Test(description = "convert a long property")
