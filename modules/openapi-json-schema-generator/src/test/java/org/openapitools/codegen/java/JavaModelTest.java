@@ -599,11 +599,10 @@ public class JavaModelTest {
         codegen.setOpenAPI(openAPI);
         final CodegenModel cm = codegen.fromModel("sample", schema);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "created-at");
-        Assert.assertEquals(property.getter, "getCreatedAt");
-        Assert.assertEquals(property.setter, "setCreatedAt");
-        Assert.assertEquals(property.name, "createdAt");
+        CodegenKey ck = codegen.getKey("created-at");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "created-at");
+        Assert.assertEquals(property.name.getCamelCaseName(), "createdAt");
     }
 
     @Test(description = "convert query[password] to queryPassword")
@@ -616,11 +615,10 @@ public class JavaModelTest {
         codegen.setOpenAPI(openAPI);
         final CodegenModel cm = codegen.fromModel("sample", schema);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "query[password]");
-        Assert.assertEquals(property.getter, "getQueryPassword");
-        Assert.assertEquals(property.setter, "setQueryPassword");
-        Assert.assertEquals(property.name, "queryPassword");
+        CodegenKey ck = codegen.getKey("query[password]");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "query[password]");
+        Assert.assertEquals(property.name.getCamelCaseName(), "queryPassword");
     }
 
     @Test(description = "properly escape names per 567")
@@ -646,16 +644,13 @@ public class JavaModelTest {
         codegen.setOpenAPI(openAPI);
         final CodegenModel cm = codegen.fromModel("sample", schema);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "inputBinaryData");
-        Assert.assertEquals(property.getter, "getInputBinaryData");
-        Assert.assertEquals(property.setter, "setInputBinaryData");
-        Assert.assertEquals(property.dataType, "byte[]");
+        CodegenKey ck = codegen.getKey("inputBinaryData");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "inputBinaryData");
+        Assert.assertTrue(property.isBinary);
         Assert.assertEquals(property.name, "inputBinaryData");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "byte[]");
-        Assert.assertFalse(property.required);
-        Assert.assertFalse(property.isContainer);
     }
 
     @Test(description = "translate an invalid param name")
@@ -672,15 +667,13 @@ public class JavaModelTest {
         Assert.assertEquals(cm.classname, "Sample");
         Assert.assertEquals(cm.vars.size(), 1);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, "_");
-        Assert.assertEquals(property.getter, "getU");
-        Assert.assertEquals(property.setter, "setU");
-        Assert.assertEquals(property.dataType, "String");
-        Assert.assertEquals(property.name, "u");
+        CodegenKey ck = codegen.getKey("_");
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), "_");
+        Assert.assertTrue(property.isString);
+        Assert.assertEquals(property.name.getSnakeCaseName(), "u");
         Assert.assertNull(property.defaultValue);
         Assert.assertEquals(property.baseType, "String");
-        Assert.assertFalse(property.isContainer);
     }
 
     @Test(description = "convert a parameter")
@@ -712,7 +705,6 @@ public class JavaModelTest {
         JavaClientCodegen codegen1 = new JavaClientCodegen();
         codegen1.setOpenAPI(openAPI1);
         final CodegenModel cm1 = codegen1.fromModel("sample", schema1);
-        Assert.assertEquals(cm1.vars.get(0).dataType, "Map<String, List<BigDecimal>>");
         Assert.assertTrue(cm1.imports.contains("BigDecimal"));
 
         Schema schema2 = new Schema()
@@ -724,7 +716,6 @@ public class JavaModelTest {
         JavaClientCodegen codegen2 = new JavaClientCodegen();
         codegen2.setOpenAPI(openAPI2);
         final CodegenModel cm2 = codegen2.fromModel("sample", schema2);
-        Assert.assertEquals(cm2.vars.get(0).dataType, "Map<String, Map<String, List<BigDecimal>>>");
         Assert.assertTrue(cm2.imports.contains("BigDecimal"));
     }
 
@@ -773,11 +764,10 @@ public class JavaModelTest {
         codegen.setOpenAPI(openAPI);
         final CodegenModel cm = codegen.fromModel("sample", schema);
 
-        final CodegenProperty property = cm.vars.get(0);
-        Assert.assertEquals(property.baseName, baseName);
-        Assert.assertEquals(property.getter, getter);
-        Assert.assertEquals(property.setter, setter);
-        Assert.assertEquals(property.name, name);
+        CodegenKey ck = codegen.getKey(baseName);
+        final CodegenProperty property = cm.getOptionalProperties().get(ck);
+        Assert.assertEquals(property.name.getName(), baseName);
+        Assert.assertEquals(property.name.getSnakeCaseName(), name);
     }
 
 
