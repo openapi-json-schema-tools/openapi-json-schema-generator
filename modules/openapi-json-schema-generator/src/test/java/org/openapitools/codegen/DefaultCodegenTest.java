@@ -1779,7 +1779,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty(schema, null);
+        final CodegenProperty cp = codegen.fromProperty(schema, "#/components/schemas/A/properties/someProperty");
         Assert.assertEquals(cp.baseType, "integer");
         Assert.assertEquals(cp.name.getName(), "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1811,7 +1811,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty(schema, null);
+        final CodegenProperty cp = codegen.fromProperty(schema, "#/components/schemas/A/properties/someProperty");
         Assert.assertEquals(cp.baseType, "long");
         Assert.assertEquals(cp.name.getName(), "someProperty");
         Assert.assertFalse(cp.isString);
@@ -2037,10 +2037,9 @@ public class DefaultCodegenTest {
 
         RequestBody requestBody = openAPI.getPaths().get("/api/instruments").getPost().getRequestBody();
 
-        HashSet<String> imports = new HashSet<>();
-        CodegenParameter param = codegen.fromRequestBody(requestBody, "", null);
+        CodegenParameter param = codegen.fromRequestBody(requestBody, "", "#/paths/~1api~1instruments/requestBody");
 
-        HashSet<String> expected = Sets.newHashSet("InstrumentDefinition", "map");
+        HashSet<String> expected = Sets.newHashSet("map");
 
         Assert.assertEquals(param.imports, expected);
     }
@@ -2055,7 +2054,7 @@ public class DefaultCodegenTest {
 
         CodegenModel codegenModel = codegen.fromModel("Dog", openAPI.getComponents().getSchemas().get("Dog"));
 
-        Assert.assertEquals(codegenModel.vars.size(), 1);
+        Assert.assertEquals(codegenModel.getProperties().size(), 3);
     }
 
     @Test
@@ -2069,8 +2068,9 @@ public class DefaultCodegenTest {
 
         CodegenModel codegenModel = codegen.fromModel("ParentType", openAPI.getComponents().getSchemas().get("ParentType"));
 
-        Assert.assertEquals(codegenModel.vars.size(), 1);
-        Assert.assertEquals(codegenModel.vars.get(0).getBaseType(), "string");
+        Assert.assertEquals(codegenModel.getProperties().size(), 1);
+        CodegenKey ck = codegen.getKey("typeAlias");
+        Assert.assertEquals(codegenModel.getOptionalProperties().get(ck).getBaseType(), "string");
     }
 
     @Test
@@ -2099,7 +2099,7 @@ public class DefaultCodegenTest {
 
         CodegenModel codegenModel = codegen.fromModel("Dog", openAPI.getComponents().getSchemas().get("Dog"));
 
-        Assert.assertEquals(codegenModel.vars.size(), 1);
+        Assert.assertEquals(codegenModel.getProperties().size(), 3);
     }
 
     @Test
@@ -2113,7 +2113,7 @@ public class DefaultCodegenTest {
 
         CodegenModel codegenModel = codegen.fromModel("Dog", openAPI.getComponents().getSchemas().get("Dog"));
 
-        Assert.assertEquals(codegenModel.vars.size(), 1);
+        Assert.assertEquals(codegenModel.getProperties().size(), 3);
     }
 
     @Test
