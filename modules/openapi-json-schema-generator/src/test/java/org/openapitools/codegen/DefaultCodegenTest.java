@@ -2128,7 +2128,7 @@ public class DefaultCodegenTest {
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isArray);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.refClass != null);
-        Assert.assertFalse(codegenParameter.getContent().get("application/json").getSchema().items.getRef() != null);
+        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.getRef() != null);
     }
 
     @Test
@@ -2144,7 +2144,7 @@ public class DefaultCodegenTest {
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isArray);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.refClass != null);
-        Assert.assertFalse(codegenParameter.getContent().get("application/json").getSchema().items.getRef() != null);
+        Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.getRef() != null);
     }
 
     @Test
