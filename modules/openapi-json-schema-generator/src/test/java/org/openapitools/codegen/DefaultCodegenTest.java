@@ -280,174 +280,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testAdditionalPropertiesV2SpecDisallowAdditionalPropertiesIfNotPresentTrue() {
-        // this is the legacy config that most of our tooling uses
-        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/additional-properties-for-testing.yaml");
-        DefaultCodegen codegen = new DefaultCodegen();
-        codegen.setOpenAPI(openAPI);
-        codegen.setDisallowAdditionalPropertiesIfNotPresent(true);
-
-        Schema schema = openAPI.getComponents().getSchemas().get("AdditionalPropertiesClass");
-        Assert.assertNull(schema.getAdditionalProperties());
-
-        Schema addProps = ModelUtils.getAdditionalProperties(openAPI, schema);
-        // The petstore-with-fake-endpoints-models-for-testing.yaml does not set the
-        // 'additionalProperties' keyword for this model, hence assert the value to be null.
-        Assert.assertNull(addProps);
-        CodegenModel cm = codegen.fromModel("AdditionalPropertiesClass", schema);
-        Assert.assertNull(cm.getAdditionalProperties());
-        // When the 'additionalProperties' keyword is not present, the model
-        // should allow undeclared properties. However, due to bug
-        // https://github.com/swagger-api/swagger-parser/issues/1369, the swagger
-        // converter does not retain the value of the additionalProperties.
-
-        Map<String, Schema> modelPropSchemas = schema.getProperties();
-        Schema map_string_sc = modelPropSchemas.get("map_string");
-        CodegenProperty map_string_cp = null;
-        Schema map_with_additional_properties_sc = modelPropSchemas.get("map_with_additional_properties");
-        CodegenProperty map_with_additional_properties_cp = null;
-        Schema map_without_additional_properties_sc = modelPropSchemas.get("map_without_additional_properties");
-        CodegenProperty map_without_additional_properties_cp = null;
-
-        for (CodegenProperty cp : cm.vars) {
-            if ("map_string".equals(cp.name.getName())) {
-                map_string_cp = cp;
-            } else if ("map_with_additional_properties".equals(cp.name.getName())) {
-                map_with_additional_properties_cp = cp;
-            } else if ("map_without_additional_properties".equals(cp.name.getName())) {
-                map_without_additional_properties_cp = cp;
-            }
-        }
-
-        // map_string
-        // This property has the following inline schema.
-        // additionalProperties:
-        //   type: string
-        Assert.assertNotNull(map_string_sc);
-        Assert.assertNotNull(map_string_sc.getAdditionalProperties());
-        Assert.assertNotNull(map_string_cp.getAdditionalProperties());
-
-        // map_with_additional_properties
-        // This property has the following inline schema.
-        // additionalProperties: true
-        Assert.assertNotNull(map_with_additional_properties_sc);
-        // It is unfortunate that child.getAdditionalProperties() returns null for a V2 schema.
-        // We cannot differentiate between 'additionalProperties' not present and
-        // additionalProperties: true.
-        Assert.assertNull(map_with_additional_properties_sc.getAdditionalProperties());
-        addProps = ModelUtils.getAdditionalProperties(openAPI, map_with_additional_properties_sc);
-        Assert.assertNull(addProps);
-        Assert.assertNull(map_with_additional_properties_cp.getAdditionalProperties());
-
-        // map_without_additional_properties
-        // This property has the following inline schema.
-        // additionalProperties: false
-        Assert.assertNotNull(map_without_additional_properties_sc);
-        // It is unfortunate that child.getAdditionalProperties() returns null for a V2 schema.
-        // We cannot differentiate between 'additionalProperties' not present and
-        // additionalProperties: false.
-        Assert.assertNull(map_without_additional_properties_sc.getAdditionalProperties());
-        addProps = ModelUtils.getAdditionalProperties(openAPI, map_without_additional_properties_sc);
-        Assert.assertNull(addProps);
-        Assert.assertNull(map_without_additional_properties_cp.getAdditionalProperties());
-
-        // check of composed schema model
-        String schemaName = "Parent";
-        schema = openAPI.getComponents().getSchemas().get(schemaName);
-        cm = codegen.fromModel(schemaName, schema);
-        Assert.assertNull(cm.getAdditionalProperties());
-    }
-
-    @Test
-    public void testAdditionalPropertiesV2SpecDisallowAdditionalPropertiesIfNotPresentFalse() {
-        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/additional-properties-for-testing.yaml");
-        DefaultCodegen codegen = new DefaultCodegen();
-        codegen.setOpenAPI(openAPI);
-        codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
-        codegen.supportsAdditionalPropertiesWithComposedSchema = true;
-        /*
-        When this DisallowAdditionalPropertiesIfNotPresent is false:
-        for CodegenModel/CodegenParameter/CodegenProperty/CodegenResponse.getAdditionalProperties
-        if the input additionalProperties is False or unset (null)
-        .getAdditionalProperties is set to AnyTypeSchema
-
-        For the False value this is incorrect, but it is the best that we can do because of this bug:
-        https://github.com/swagger-api/swagger-parser/issues/1369 where swagger parser
-        sets both null/False additionalProperties to null
-         */
-
-        Schema schema = openAPI.getComponents().getSchemas().get("AdditionalPropertiesClass");
-        Assert.assertNull(schema.getAdditionalProperties());
-
-        Schema addProps = ModelUtils.getAdditionalProperties(openAPI, schema);
-        // The petstore-with-fake-endpoints-models-for-testing.yaml does not set the
-        // 'additionalProperties' keyword for this model, hence assert the value to be null.
-        Assert.assertNull(addProps);
-        CodegenModel cm = codegen.fromModel("AdditionalPropertiesClass", schema);
-        Assert.assertNotNull(cm.getAdditionalProperties());
-        // When the 'additionalProperties' keyword is not present, the model
-        // should allow undeclared properties. However, due to bug
-        // https://github.com/swagger-api/swagger-parser/issues/1369, the swagger
-        // converter does not retain the value of the additionalProperties.
-
-        Map<String, Schema> modelPropSchemas = schema.getProperties();
-        Schema map_string_sc = modelPropSchemas.get("map_string");
-        CodegenProperty map_string_cp = null;
-        Schema map_with_additional_properties_sc = modelPropSchemas.get("map_with_additional_properties");
-        CodegenProperty map_with_additional_properties_cp = null;
-        Schema map_without_additional_properties_sc = modelPropSchemas.get("map_without_additional_properties");
-        CodegenProperty map_without_additional_properties_cp = null;
-
-        for (CodegenProperty cp : cm.vars) {
-            if ("map_string".equals(cp.name.getName())) {
-                map_string_cp = cp;
-            } else if ("map_with_additional_properties".equals(cp.name.getName())) {
-                map_with_additional_properties_cp = cp;
-            } else if ("map_without_additional_properties".equals(cp.name.getName())) {
-                map_without_additional_properties_cp = cp;
-            }
-        }
-
-        // map_string
-        // This property has the following inline schema.
-        // additionalProperties:
-        //   type: string
-        Assert.assertNotNull(map_string_sc);
-        Assert.assertNotNull(map_string_sc.getAdditionalProperties());
-        Assert.assertNotNull(map_string_cp.getAdditionalProperties());
-
-        // map_with_additional_properties
-        // This property has the following inline schema.
-        // additionalProperties: true
-        Assert.assertNotNull(map_with_additional_properties_sc);
-        // It is unfortunate that child.getAdditionalProperties() returns null for a V2 schema.
-        // We cannot differentiate between 'additionalProperties' not present and
-        // additionalProperties: true.
-        Assert.assertNull(map_with_additional_properties_sc.getAdditionalProperties());
-        addProps = ModelUtils.getAdditionalProperties(openAPI, map_with_additional_properties_sc);
-        Assert.assertNull(addProps);
-        Assert.assertNotNull(map_with_additional_properties_cp.getAdditionalProperties());
-
-        // map_without_additional_properties
-        // This property has the following inline schema.
-        // additionalProperties: false
-        Assert.assertNotNull(map_without_additional_properties_sc);
-        // It is unfortunate that child.getAdditionalProperties() returns null for a V2 schema.
-        // We cannot differentiate between 'additionalProperties' not present and
-        // additionalProperties: false.
-        Assert.assertNull(map_without_additional_properties_sc.getAdditionalProperties());
-        addProps = ModelUtils.getAdditionalProperties(openAPI, map_without_additional_properties_sc);
-        Assert.assertNull(addProps);
-        Assert.assertNotNull(map_without_additional_properties_cp.getAdditionalProperties());
-
-        // check of composed schema model
-        String schemaName = "Parent";
-        schema = openAPI.getComponents().getSchemas().get(schemaName);
-        cm = codegen.fromModel(schemaName, schema);
-        Assert.assertNotNull(cm.getAdditionalProperties());
-    }
-
-    @Test
     public void testAdditionalPropertiesV3SpecDisallowAdditionalPropertiesIfNotPresentFalse() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/python/petstore_customized.yaml");
         DefaultCodegen codegen = new DefaultCodegen();
@@ -1843,7 +1675,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty(schema, null);
+        final CodegenProperty cp = codegen.fromProperty(schema, "#/components/schemas/A/properties/someProperty");
         Assert.assertEquals(cp.baseType, "number");
         Assert.assertEquals(cp.name.getName(), "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1875,7 +1707,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty(schema, null);
+        final CodegenProperty cp = codegen.fromProperty(schema, "#/components/schemas/A/properties/someProperty");
         Assert.assertEquals(cp.baseType, "float");
         Assert.assertEquals(cp.name.getName(), "someProperty");
         Assert.assertFalse(cp.isString);
@@ -1907,7 +1739,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         //Property:
-        final CodegenProperty cp = codegen.fromProperty(schema, null);
+        final CodegenProperty cp = codegen.fromProperty(schema, "#/components/schemas/A/properties/someProperty");
         Assert.assertEquals(cp.baseType, "double");
         Assert.assertEquals(cp.name.getName(), "someProperty");
         Assert.assertFalse(cp.isString);
@@ -2084,8 +1916,9 @@ public class DefaultCodegenTest {
 
         CodegenModel codegenModel = codegen.fromModel("ParentType", openAPI.getComponents().getSchemas().get("ParentType"));
 
-        Assert.assertEquals(codegenModel.vars.size(), 1);
-        Assert.assertEquals(codegenModel.vars.get(0).getBaseType(), "TypeAlias");
+        Assert.assertEquals(codegenModel.getProperties().size(), 1);
+
+        Assert.assertEquals(codegenModel.getProperties().get(codegen.getKey("typeAlias")).getBaseType(), "TypeAlias");
     }
 
     @Test
@@ -2479,7 +2312,10 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(
+                new Schema(),
+                "#/components/schemas/AdditionalPropertiesTrue/additionalProperties"
+        );
 
         modelName = "AdditionalPropertiesUnset";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -2514,8 +2350,14 @@ public class DefaultCodegenTest {
         String modelName;
         Schema sc;
         CodegenModel cm;
-        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
-        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(
+                new Schema(),
+                "#/components/schemas/AdditionalPropertiesTrue/properties/child/additionalProperties"
+        );
+        CodegenProperty stringCp = codegen.fromProperty(
+                new Schema().type("string"),
+                "#/components/schemas/ObjectModelWithAddPropsInProps/properties/map_with_additional_properties_schema/additionalProperties"
+        );
         CodegenProperty mapWithAddPropsUnset;
         CodegenProperty mapWithAddPropsTrue;
         CodegenProperty mapWithAddPropsFalse;
@@ -2527,15 +2369,15 @@ public class DefaultCodegenTest {
         CodegenKey ck = codegen.getKey("map_with_additional_properties_unset");
         mapWithAddPropsUnset = cm.getProperties().get(ck);
         assertEquals(mapWithAddPropsUnset.getAdditionalProperties(), null);
-        assertNotNull(mapWithAddPropsUnset.getRefClass());
+        assertNull(mapWithAddPropsUnset.getRefClass()); // because unaliased
 
         mapWithAddPropsTrue = cm.getProperties().get(codegen.getKey("map_with_additional_properties_true"));
         assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), null);
         assertNotNull(mapWithAddPropsTrue.getRefClass());
 
         mapWithAddPropsFalse = cm.getProperties().get(codegen.getKey("map_with_additional_properties_false"));
-        assertEquals(mapWithAddPropsFalse.getAdditionalProperties(), null);
-        assertNotNull(mapWithAddPropsFalse.getRefClass());
+        assertNotNull(mapWithAddPropsFalse.getAdditionalProperties());
+        assertNull(mapWithAddPropsFalse.getRefClass()); // because unaliased
 
         mapWithAddPropsSchema = cm.getProperties().get(codegen.getKey("map_with_additional_properties_schema"));
         assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), null);
@@ -2550,11 +2392,11 @@ public class DefaultCodegenTest {
 
         mapWithAddPropsTrue = cm.getProperties().get(codegen.getKey("map_with_additional_properties_true"));
         assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getIsBooleanSchemaTrue());
+        assertTrue(mapWithAddPropsTrue.getAdditionalProperties().getIsBooleanSchemaTrue());
 
         mapWithAddPropsFalse = cm.getProperties().get(codegen.getKey("map_with_additional_properties_false"));
         assertNotNull(mapWithAddPropsFalse.getAdditionalProperties());
-        assertTrue(mapWithAddPropsFalse.getIsBooleanSchemaFalse());
+        assertTrue(mapWithAddPropsFalse.getAdditionalProperties().getIsBooleanSchemaFalse());
 
         mapWithAddPropsSchema = cm.getProperties().get(codegen.getKey("map_with_additional_properties_schema"));
         assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), stringCp);
@@ -2660,7 +2502,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), "#/components/schemas/AdditionalPropertiesTrue/properties/child/additionalProperties");
 
         Schema sc;
         CodegenModel cm;
@@ -3935,14 +3777,14 @@ public class DefaultCodegenTest {
         path = "/requestBodyWithEncodingTypes";
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
         CodegenProperty formSchema = co.requestBody.getContent().get("application/x-www-form-urlencoded").getSchema();
-        List<CodegenProperty> formParams = formSchema.getProperties().values().stream().collect(Collectors.toList());
-        LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.getContent().get("application/x-www-form-urlencoded").getEncoding();
-
         assertEquals(formSchema.getRef(), "#/components/schemas/_requestBodyWithEncodingTypes_post_request");
-        assertEquals(formParams.size(), 0, "no form params because the schema is referenced");
 
+        LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.getContent().get("application/x-www-form-urlencoded").getEncoding();
         assertEquals(encoding.get("int-param").getExplode(), true);
         assertEquals(encoding.get("explode-false").getExplode(), false);
+
+        CodegenModel cm = codegen.fromModel("_requestBodyWithEncodingTypes_post_request", openAPI.getComponents().getSchemas().get("_requestBodyWithEncodingTypes_post_request"));
+        assertEquals(cm.getProperties().size(), 6);
     }
 
     @Test
