@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinpropertiesValidation**](../../../components/schema/minproperties_validation.MinpropertiesValidation.md) |  | 
+[**minproperties_validation.MinpropertiesValidation**](../../../components/schema/minproperties_validation.MinpropertiesValidation.md) |  | 
 
 
 ### Return Types, Responses

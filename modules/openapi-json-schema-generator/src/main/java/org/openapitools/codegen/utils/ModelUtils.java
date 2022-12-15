@@ -61,8 +61,6 @@ public class ModelUtils {
 
     private static final String URI_FORMAT = "uri";
 
-    private static final String generateAliasAsModelKey = "generateAliasAsModel";
-
     // A vendor extension to track the value of the 'swagger' field in a 2.0 doc, if applicable.
     private static final String openapiDocVersion = "x-original-swagger-version";
 
@@ -84,18 +82,6 @@ public class ModelUtils {
 
     public static boolean isDisallowAdditionalPropertiesIfNotPresent() {
         return Boolean.parseBoolean(GlobalSettings.getProperty(disallowAdditionalPropertiesIfNotPresent, "true"));
-    }
-
-    public static void setGenerateAliasAsModel(boolean value) {
-        GlobalSettings.setProperty(generateAliasAsModelKey, Boolean.toString(value));
-    }
-
-    public static boolean isGenerateAliasAsModel() {
-        return Boolean.parseBoolean(GlobalSettings.getProperty(generateAliasAsModelKey, "false"));
-    }
-
-    public static boolean isGenerateAliasAsModel(Schema schema) {
-        return isGenerateAliasAsModel() || (schema.getExtensions() != null && schema.getExtensions().getOrDefault("x-generate-alias-as-model", false).equals(true));
     }
 
     /**
@@ -771,91 +757,6 @@ public class ModelUtils {
     }
 
     /**
-     * Check to see if the schema is a free form object.
-     *
-     * A free form object is an object (i.e. 'type: object' in a OAS document) that:
-     * 1) Does not define properties, and
-     * 2) Is not a composed schema (no anyOf, oneOf, allOf), and
-     * 3) additionalproperties is not defined, or additionalproperties: true, or additionalproperties: {}.
-     *
-     * Examples:
-     *
-     * components:
-     *   schemas:
-     *     arbitraryObject:
-     *       type: object
-     *       description: This is a free-form object.
-     *         The value must be a map of strings to values. The value cannot be 'null'.
-     *         It cannot be array, string, integer, number.
-     *     arbitraryNullableObject:
-     *       type: object
-     *       description: This is a free-form object.
-     *         The value must be a map of strings to values. The value can be 'null',
-     *         It cannot be array, string, integer, number.
-     *       nullable: true
-     *     arbitraryTypeValue:
-     *       description: This is NOT a free-form object.
-     *         The value can be any type except the 'null' value.
-     *
-     * @param openAPI the object that encapsulates the OAS document.
-     * @param schema potentially containing a '$ref'
-     * @return true if it's a free-form object
-     */
-    public static boolean isFreeFormObject(OpenAPI openAPI, Schema schema) {
-        if (schema == null) {
-            // TODO: Is this message necessary? A null schema is not a free-form object, so the result is correct.
-            once(LOGGER).error("Schema cannot be null in isFreeFormObject check");
-            return false;
-        }
-
-        // not free-form if allOf, anyOf, oneOf is not empty
-        if (schema instanceof ComposedSchema) {
-            ComposedSchema cs = (ComposedSchema) schema;
-            List<Schema> interfaces = ModelUtils.getInterfaces(cs);
-            if (interfaces != null && !interfaces.isEmpty()) {
-                return false;
-            }
-        }
-
-        // has at least one property
-        if ("object".equals(schema.getType())) {
-            // no properties
-            if ((schema.getProperties() == null || schema.getProperties().isEmpty())) {
-                Schema addlProps = getAdditionalProperties(openAPI, schema);
-
-                if (schema.getExtensions() != null && schema.getExtensions().containsKey(freeFormExplicit)) {
-                    // User has hard-coded vendor extension to handle free-form evaluation.
-                    boolean isFreeFormExplicit = Boolean.parseBoolean(String.valueOf(schema.getExtensions().get(freeFormExplicit)));
-                    if (!isFreeFormExplicit && addlProps != null && addlProps.getProperties() != null && !addlProps.getProperties().isEmpty()) {
-                        once(LOGGER).error(String.format(Locale.ROOT, "Potentially confusing usage of %s within model which defines additional properties", freeFormExplicit));
-                    }
-                    return isFreeFormExplicit;
-                }
-
-                // additionalProperties not defined
-                if (addlProps == null) {
-                    return true;
-                } else {
-                    if (addlProps instanceof ObjectSchema) {
-                        ObjectSchema objSchema = (ObjectSchema) addlProps;
-                        // additionalProperties defined as {}
-                        if (objSchema.getProperties() == null || objSchema.getProperties().isEmpty()) {
-                            return true;
-                        }
-                    } else if (addlProps instanceof Schema) {
-                        // additionalProperties defined as {}
-                        if (addlProps.getType() == null && addlProps.get$ref() == null && (addlProps.getProperties() == null || addlProps.getProperties().isEmpty())) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * If a Schema contains a reference to another Schema with '$ref', returns the referenced Schema if it is found or the actual Schema in the other cases.
      *
      * @param openAPI specification being checked
@@ -1213,25 +1114,14 @@ public class ModelUtils {
                 // top-level enum class
                 return schema;
             } else if (isArraySchema(ref)) {
-                if (isGenerateAliasAsModel(ref)) {
-                    return schema; // generate a model extending array
-                } else {
-                    return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())),
-                            schemaMappings);
-                }
+                return schema; // generate a model extending array
             } else if (isComposedSchema(ref)) {
                 return schema;
             } else if (isMapSchema(ref)) {
                 if (ref.getProperties() != null && !ref.getProperties().isEmpty()) // has at least one property
                     return schema; // treat it as model
                 else {
-                    if (isGenerateAliasAsModel(ref)) {
-                        return schema; // generate a model extending map
-                    } else {
-                        // treat it as a typical map
-                        return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())),
-                                schemaMappings);
-                    }
+                    return schema; // generate a model extending map
                 }
             } else if (isObjectSchema(ref)) { // model
                 if (ref.getProperties() != null && !ref.getProperties().isEmpty()) { // has at least one property
@@ -1672,7 +1562,6 @@ public class ModelUtils {
         if (minItems != null) target.setMinItems(minItems);
         if (maxItems != null) target.setMaxItems(maxItems);
         if (uniqueItems != null) target.setUniqueItems(uniqueItems);
-        if (uniqueItems != null) target.setUniqueItemsBoolean(uniqueItems);
     }
 
     private static void setObjectValidations(Integer minProperties, Integer maxProperties, JsonSchema target) {

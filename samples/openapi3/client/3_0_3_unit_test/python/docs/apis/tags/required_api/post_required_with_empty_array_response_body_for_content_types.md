@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredWithEmptyArray**](../../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
+[**required_with_empty_array.RequiredWithEmptyArray**](../../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Authorization

@@ -784,8 +784,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
             List<CodegenProperty> vars = Stream.of(
                             cm.vars,
                             cm.allVars,
-                            cm.optionalVars,
-                            cm.requiredVars,
+                            cm.getOptionalProperties().values().stream().collect(Collectors.toList()),
+                            cm.getRequiredProperties().values().stream().collect(Collectors.toList()),
                             cm.readOnlyVars,
                             cm.readWriteVars,
                             cm.parentVars
@@ -794,7 +794,9 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                     .collect(Collectors.toList());
 
             for (CodegenProperty var : vars) {
-                var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.baseName.replace("$", "\\$"));
+                if (var.name != null) {
+                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.name.getName().replace("$", "\\$"));
+                }
             }
         }
 
@@ -876,16 +878,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
                         return 0;
                     });
-                }
-
-                // modify the data type of binary form parameters to a more friendly type for ktor builds
-                if ((JVM_KTOR.equals(getLibrary()) || MULTIPLATFORM.equals(getLibrary())) && operation.allParams != null) {
-                    for (CodegenParameter param : operation.allParams) {
-                        CodegenProperty cp = param.getSchema();
-                        if (cp != null && cp.dataFormat != null && cp.dataFormat.equals("binary")) {
-                            cp.baseType = cp.dataType = "io.ktor.client.request.forms.InputProvider";
-                        }
-                    }
                 }
             }
         }

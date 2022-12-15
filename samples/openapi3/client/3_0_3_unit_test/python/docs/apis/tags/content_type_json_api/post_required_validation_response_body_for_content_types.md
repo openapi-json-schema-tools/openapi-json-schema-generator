@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RequiredValidation**](../../../components/schema/required_validation.RequiredValidation.md) |  | 
+[**required_validation.RequiredValidation**](../../../components/schema/required_validation.RequiredValidation.md) |  | 
 
 
 ### Authorization

@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
+[**nul_characters_in_strings.NulCharactersInStrings**](../../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
 
 
 ### Authorization

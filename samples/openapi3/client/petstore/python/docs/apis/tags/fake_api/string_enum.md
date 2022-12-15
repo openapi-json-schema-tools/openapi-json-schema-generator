@@ -47,7 +47,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../../components/schema/string_enum.StringEnum.md) |  | 
+[**string_enum.StringEnum**](../../../components/schema/string_enum.StringEnum.md) |  | 
 
 
 ### Return Types, Responses
@@ -67,7 +67,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringEnum**](../../../components/schema/string_enum.StringEnum.md) |  | 
+[**string_enum.StringEnum**](../../../components/schema/string_enum.StringEnum.md) |  | 
 
 
 ### Authorization

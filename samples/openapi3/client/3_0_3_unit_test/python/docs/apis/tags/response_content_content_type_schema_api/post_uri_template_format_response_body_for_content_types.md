@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriTemplateFormat**](../../../components/schema/uri_template_format.UriTemplateFormat.md) |  | 
+[**uri_template_format.UriTemplateFormat**](../../../components/schema/uri_template_format.UriTemplateFormat.md) |  | 
 
 
 ### Authorization

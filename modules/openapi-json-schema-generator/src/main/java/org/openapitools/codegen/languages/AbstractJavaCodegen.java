@@ -886,7 +886,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     public String getTypeDeclaration(Schema p) {
         Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = ModelUtils.isGenerateAliasAsModel() ? p : schema;
+        Schema<?> target = schema;
         if (ModelUtils.isArraySchema(target)) {
             Schema<?> items = getSchemaItems((ArraySchema) schema);
             return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";
@@ -1019,32 +1019,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         return super.toDefaultValue(schema);
     }
 
-    @Override
-    public String toDefaultParameterValue(final Schema<?> schema) {
-        Object defaultValue = schema.get$ref() != null ? ModelUtils.getReferencedSchema(openAPI, schema).getDefault() : schema.getDefault();
-        if (defaultValue == null) {
-            return null;
-        }
-        if (defaultValue instanceof Date) {
-            Date date = (Date) schema.getDefault();
-            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            return localDate.toString();
-        }
-        if (ModelUtils.isArraySchema(schema)) {
-            if (defaultValue instanceof ArrayNode) {
-                ArrayNode array = (ArrayNode) defaultValue;
-                return StreamSupport.stream(array.spliterator(), false)
-                    .map(JsonNode::toString)
-                    // remove wrapper quotes
-                    .map(item -> StringUtils.removeStart(item, "\""))
-                    .map(item -> StringUtils.removeEnd(item, "\""))
-                    .collect(Collectors.joining(","));
-            }
-        }
-        // escape quotes
-        return defaultValue.toString().replace("\"", "\\\"");
-    }
-
     /**
      * Return the example value of the parameter. Overrides the
      * setParameterExampleValue(CodegenParameter, Parameter) method in
@@ -1085,11 +1059,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        boolean isModel = false;
         CodegenProperty cp = codegenParameter.getSchema();
-        if (cp != null && (cp.isModel || (cp.isContainer && cp.getItems().isModel))) {
-            isModel = true;
-        }
 
         Content content = requestBody.getContent();
 
@@ -1100,23 +1070,15 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         MediaType mediaType = content.values().iterator().next();
         if (mediaType.getExample() != null) {
-            if (isModel) {
-                LOGGER.warn("Ignoring complex example on request body");
-            } else {
-                codegenParameter.example = mediaType.getExample().toString();
-                return;
-            }
+            codegenParameter.example = mediaType.getExample().toString();
+            return;
         }
 
         if (mediaType.getExamples() != null && !mediaType.getExamples().isEmpty()) {
             Example example = mediaType.getExamples().values().iterator().next();
             if (example.getValue() != null) {
-                if (isModel) {
-                    LOGGER.warn("Ignoring complex example on request body");
-                } else {
-                    codegenParameter.example = example.getValue().toString();
-                    return;
-                }
+                codegenParameter.example = example.getValue().toString();
+                return;
             }
         }
 
@@ -1141,7 +1103,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         String type = p.baseType;
         if (type == null) {
-            type = p.dataType;
+            Schema varSchema = new Schema();
+            if (p.baseType != null)
+                varSchema.setType(p.baseType);
+            if (p.getFormat() != null) {
+                varSchema.setFormat(p.getFormat());
+            }
+            if (p.getRef() != null) {
+                varSchema.set$ref(p.getRef());
+            }
+            type = getTypeDeclaration(varSchema);
         }
 
         if ("String".equals(type)) {
@@ -1216,8 +1187,23 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else if (Boolean.TRUE.equals(p.isArray)) {
 
             if (p.items.defaultValue != null) {
+
+                String itemsType = p.items.baseType;
+                if (type == null) {
+                    Schema varSchema = new Schema();
+                    if (p.items.baseType != null)
+                        varSchema.setType(p.items.baseType);
+                    if (p.items.getFormat() != null) {
+                        varSchema.setFormat(p.items.getFormat());
+                    }
+                    if (p.items.getRef() != null) {
+                        varSchema.set$ref(p.items.getRef());
+                    }
+                    itemsType = getTypeDeclaration(varSchema);
+                }
+
                 String innerExample;
-                if ("String".equals(p.items.dataType)) {
+                if ("String".equals(itemsType)) {
                     innerExample = "\"" + p.items.defaultValue + "\"";
                 } else {
                     innerExample = p.items.defaultValue;
@@ -1323,16 +1309,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (!fullJavaUtil) {
-            if ("array".equals(property.containerType)) {
+            if (property.isArray && !property.getUniqueItems()) {
                 model.imports.add("ArrayList");
-            } else if ("set".equals(property.containerType)) {
+            } else if (property.isArray && property.getUniqueItems()) {
                 model.imports.add("LinkedHashSet");
                 boolean canNotBeWrappedToNullable = !openApiNullable || !property.isNullable;
                 if (canNotBeWrappedToNullable) {
                     model.imports.add("JsonDeserialize");
                     property.vendorExtensions.put("x-setter-extra-annotation", "@JsonDeserialize(as = LinkedHashSet.class)");
                 }
-            } else if ("map".equals(property.containerType)) {
+            } else if (property.isMap) {
                 model.imports.add("HashMap");
             }
         }
@@ -1344,7 +1330,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (openApiNullable) {
-            if (Boolean.FALSE.equals(property.required) && Boolean.TRUE.equals(property.isNullable)) {
+            if (Boolean.TRUE.equals(property.isNullable)) {
                 model.imports.add("JsonNullable");
                 model.getVendorExtensions().put("x-jackson-optional-nullable-helpers", true);
             }
@@ -1352,11 +1338,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         if (property.isReadOnly) {
             model.getVendorExtensions().put("x-has-readonly-properties", true);
-        }
-
-        // if data type happens to be the same as the property name and both are upper case
-        if (property.dataType != null && property.dataType.equals(property.name) && property.dataType.toUpperCase(Locale.ROOT).equals(property.name)) {
-            property.name = property.name.toLowerCase(Locale.ROOT);
         }
     }
 
@@ -1410,9 +1391,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             Collection<String> operationImports = new ConcurrentSkipListSet<>();
             for (CodegenParameter p : op.allParams) {
                 CodegenProperty cp = getParameterSchema(p);
-                if (importMapping.containsKey(cp.dataType)) {
-                    operationImports.add(importMapping.get(cp.dataType));
-                }
             }
             op.vendorExtensions.put("x-java-import", operationImports);
 
@@ -1528,7 +1506,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     @Override
     public String toEnumName(CodegenProperty property) {
-        return sanitizeName(camelize(property.name)) + "Enum";
+        return sanitizeName(property.name.getCamelCaseName()) + "Enum";
     }
 
     @Override
@@ -1944,17 +1922,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     public String toRegularExpression(String pattern) {
         return escapeText(pattern);
-    }
-
-    /**
-     * Output the Getter name for boolean property, e.g. isActive
-     *
-     * @param name the name of the property
-     * @return getter name based on naming convention
-     */
-    @Override
-    public String toBooleanGetter(String name) {
-        return booleanGetterPrefix + getterAndSetterCapitalize(name);
     }
 
     @Override

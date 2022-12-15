@@ -39,6 +39,8 @@ class Whale(
         }
         
         class properties:
+            hasBaleen = schemas.BoolSchema
+            hasTeeth = schemas.BoolSchema
             
             
             class className(
@@ -48,12 +50,10 @@ class Whale(
                 @schemas.classproperty
                 def WHALE(cls):
                     return cls("whale")
-            hasBaleen = schemas.BoolSchema
-            hasTeeth = schemas.BoolSchema
             __annotations__ = {
-                "className": className,
                 "hasBaleen": hasBaleen,
                 "hasTeeth": hasTeeth,
+                "className": className,
             }
     
     className: MetaOapg.properties.className
@@ -70,10 +70,17 @@ class Whale(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["className", "hasBaleen", "hasTeeth", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["className"],
+            typing_extensions.Literal["hasBaleen"],
+            typing_extensions.Literal["hasTeeth"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
@@ -87,9 +94,16 @@ class Whale(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["className", "hasBaleen", "hasTeeth", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["className"],
+            typing_extensions.Literal["hasBaleen"],
+            typing_extensions.Literal["hasTeeth"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
+[**object_type_matches_objects.ObjectTypeMatchesObjects**](../../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Return Types, Responses

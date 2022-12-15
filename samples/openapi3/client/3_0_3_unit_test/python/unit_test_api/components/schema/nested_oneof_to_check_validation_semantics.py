@@ -39,7 +39,7 @@ class NestedOneofToCheckValidationSemantics(
         class one_of:
             
             
-            class one_of_0(
+            class oneOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -48,9 +48,9 @@ class NestedOneofToCheckValidationSemantics(
                     # any type
                     
                     class one_of:
-                        one_of_0 = schemas.NoneSchema
+                        oneOf_0 = schemas.NoneSchema
                         classes = [
-                            one_of_0,
+                            oneOf_0,
                         ]
             
             
@@ -59,7 +59,7 @@ class NestedOneofToCheckValidationSemantics(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'one_of_0':
+                ) -> 'oneOf_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -67,7 +67,7 @@ class NestedOneofToCheckValidationSemantics(
                         **kwargs,
                     )
             classes = [
-                one_of_0,
+                oneOf_0,
             ]
 
 

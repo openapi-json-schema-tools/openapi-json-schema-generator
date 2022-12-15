@@ -1725,7 +1725,6 @@ components:
         type: string
     NumberHeader:
       description: number header description
-      required: true
       schema:
         type: string
         format: number
@@ -3102,6 +3101,24 @@ components:
         propertyName: discriminator
       anyOf:
         - $ref: '#/components/schemas/AbstractStepMessage'
+    ReqPropsFromUnsetAddProps:
+      required:
+        - validName
+        - invalid-name
+      type: object
+    ReqPropsFromTrueAddProps:
+      required:
+        - validName
+        - invalid-name
+      type: object
+      additionalProperties: true
+    ReqPropsFromExplicitAddProps:
+      required:
+        - validName
+        - invalid-name
+      type: object
+      additionalProperties:
+        type: string
     SelfReferencingObjectModel:
       type: object
       properties:

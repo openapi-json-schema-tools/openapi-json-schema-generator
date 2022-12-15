@@ -1,4 +1,3 @@
-{{#with composedSchemas}}
 {{#if allOf}}
 
 class all_of:
@@ -8,16 +7,16 @@ class all_of:
 {{else}}
 
     @staticmethod
-    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
         return {{refClass}}
 {{/unless}}
 {{/each}}
     classes = [
 {{#each allOf}}
-    {{#if nameInSnakeCase}}
-        {{name}},
+    {{#if name.getNameIsValid}}
+        {{name.getName}},
     {{else}}
-        {{baseName}},
+        {{name.getSnakeCaseName}},
     {{/if}}
 {{/each}}
     ]
@@ -31,16 +30,16 @@ class one_of:
 {{else}}
 
     @staticmethod
-    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
         return {{refClass}}
 {{/unless}}
 {{/each}}
     classes = [
 {{#each oneOf}}
-    {{#if nameInSnakeCase}}
-        {{name}},
+    {{#if name.getNameIsValid}}
+        {{name.getName}},
     {{else}}
-        {{baseName}},
+        {{name.getSnakeCaseName}},
     {{/if}}
 {{/each}}
     ]
@@ -54,16 +53,16 @@ class any_of:
 {{else}}
 
     @staticmethod
-    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
         return {{refClass}}
 {{/unless}}
 {{/each}}
     classes = [
 {{#each anyOf}}
-    {{#if nameInSnakeCase}}
-        {{name}},
+    {{#if name.getNameIsValid}}
+        {{name.getName}},
     {{else}}
-        {{baseName}},
+        {{name.getSnakeCaseName}},
     {{/if}}
 {{/each}}
     ]
@@ -73,11 +72,10 @@ class any_of:
 {{#if refClass}}
 
 @staticmethod
-def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
     return {{refClass}}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}
 {{/with}}
 {{/if}}
-{{/with}}

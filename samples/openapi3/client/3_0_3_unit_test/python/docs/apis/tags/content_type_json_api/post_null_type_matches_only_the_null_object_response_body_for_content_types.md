@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NullTypeMatchesOnlyTheNullObject**](../../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
+[**null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject**](../../../components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md) |  | 
 
 
 ### Authorization

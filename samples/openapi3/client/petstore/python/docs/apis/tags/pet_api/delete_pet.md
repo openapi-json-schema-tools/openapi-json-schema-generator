@@ -87,7 +87,7 @@ api_key | [parameter_0.schema](#parameter_0.schema) | | optional
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 ### <a id="RequestPathParameters" >path_params</a>
 #### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>

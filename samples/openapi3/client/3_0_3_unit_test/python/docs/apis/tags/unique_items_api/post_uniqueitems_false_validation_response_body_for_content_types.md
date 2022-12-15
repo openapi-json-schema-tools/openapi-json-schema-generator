@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsFalseValidation**](../../../components/schema/uniqueitems_false_validation.UniqueitemsFalseValidation.md) |  | 
+[**uniqueitems_false_validation.UniqueitemsFalseValidation**](../../../components/schema/uniqueitems_false_validation.UniqueitemsFalseValidation.md) |  | 
 
 
 ### Authorization

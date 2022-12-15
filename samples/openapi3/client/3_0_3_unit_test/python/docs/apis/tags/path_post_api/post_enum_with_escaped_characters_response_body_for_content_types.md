@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
+[**enum_with_escaped_characters.EnumWithEscapedCharacters**](../../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
 
 
 ### Authorization

@@ -4,44 +4,44 @@ def __new__(
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{baseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{/if}}
 {{/if}}
 {{#unless isNull}}
-{{#if getHasRequired}}
-{{#each getRequiredVarsMap}}
+{{#if requiredProperties}}
+{{#each getRequiredProperties}}
+{{#if @key.getNameIsValid}}
 {{#with this}}
-{{#unless nameInSnakeCase}}
 {{#if refClass}}
-    {{baseName}}: '{{refClass}}',
+    {{@key.getName}}: '{{refClass}}',
 {{else}}
-    {{#if getSchemaIsFromAdditionalProperties}}
-        {{#if addPropsUnset}}
-    {{baseName}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
+    {{#and name name.getNameIsValid}}
+        {{#if schemaIsFromAdditionalProperties}}
+    {{@key.getName}}: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
         {{else}}
-    {{baseName}}: typing.Union[MetaOapg.additional_properties, {{> model_templates/schema_python_types }}],
+            {{#if name.getNameIsValid}}
+    {{@key.getName}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}],
+            {{/if}}
         {{/if}}
     {{else}}
-    {{baseName}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}],
-    {{/if}}
+    {{@key.getName}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
+    {{/and}}
 {{/if}}
-{{/unless}}
 {{/with}}
+{{/if}}
 {{/each}}
 {{/if}}
 {{/unless}}
-{{#each vars}}
-{{#unless nameInSnakeCase}}
-{{#unless getRequired}}
+{{#each optionalProperties}}
+{{#if @key.getNameIsValid}}
 {{#if refClass}}
-    {{baseName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
-    {{baseName}}: typing.Union[MetaOapg.properties.{{baseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
-{{/unless}}
-{{/unless}}
+{{/if}}
 {{/each}}
     _configuration: typing.Optional[schemas.Configuration] = None,
 {{#with additionalProperties}}
@@ -49,7 +49,7 @@ def __new__(
 {{#if refClass}}
     **kwargs: '{{refClass}}',
 {{else}}
-    **kwargs: typing.Union[MetaOapg.additional_properties, {{> model_templates/schema_python_types }}],
+    **kwargs: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
 {{/if}}
 {{/unless}}
 {{else}}
@@ -70,22 +70,20 @@ def __new__(
 {{/if}}
 {{/if}}
 {{#unless isNull}}
-{{#if getHasRequired}}
-{{#each getRequiredVarsMap}}
+{{#if requiredProperties}}
+{{#each getRequiredProperties}}
+{{#if @key.getNameIsValid}}
 {{#with this}}
-{{#unless nameInSnakeCase}}
-        {{baseName}}={{baseName}},
-{{/unless}}
+        {{@key.getName}}={{@key.getName}},
 {{/with}}
+{{/if}}
 {{/each}}
 {{/if}}
 {{/unless}}
-{{#each vars}}
-{{#unless getRequired}}
-{{#unless nameInSnakeCase}}
-        {{baseName}}={{baseName}},
-{{/unless}}
-{{/unless}}
+{{#each optionalProperties}}
+{{#if @key.getNameIsValid}}
+        {{@key.getName}}={{@key.getName}},
+{{/if}}
 {{/each}}
         _configuration=_configuration,
 {{#with additionalProperties}}

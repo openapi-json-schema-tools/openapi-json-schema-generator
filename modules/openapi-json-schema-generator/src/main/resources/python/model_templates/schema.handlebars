@@ -1,17 +1,16 @@
-{{#if composedSchemas}}
+{{#or allOf anyOf oneOf not}}
     {{#if getIsBooleanSchemaFalse}}
 {{> model_templates/var_equals_cls }}
     {{else}}
 {{> model_templates/schema_composed_or_anytype }}
     {{/if}}
-{{/if}}
-{{#unless composedSchemas}}
+{{else}}
     {{#if getHasMultipleTypes}}
 {{> model_templates/schema_composed_or_anytype }}
     {{else}}
         {{#or isMap isArray isAnyType}}
             {{#if isMap}}
-                {{#or hasVars hasValidation getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping additionalProperties }}
+                {{#or properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping additionalProperties }}
 {{> model_templates/schema_dict }}
                 {{else}}
 {{> model_templates/var_equals_cls }}
@@ -25,7 +24,7 @@
                 {{/or}}
             {{/if}}
             {{#if isAnyType}}
-                {{#or isEnum hasVars hasValidation getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping items getFormat}}
+                {{#or isEnum properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping items getFormat}}
 {{> model_templates/schema_composed_or_anytype }}
                 {{else}}
 {{> model_templates/var_equals_cls }}
@@ -39,4 +38,4 @@
             {{/or}}
         {{/or}}
     {{/if}}
-{{/unless}}
+{{/or}}

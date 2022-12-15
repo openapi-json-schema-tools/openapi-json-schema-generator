@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ObjectTypeMatchesObjects**](../../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
+[**object_type_matches_objects.ObjectTypeMatchesObjects**](../../../components/schema/object_type_matches_objects.ObjectTypeMatchesObjects.md) |  | 
 
 
 ### Authorization

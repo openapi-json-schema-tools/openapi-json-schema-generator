@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithEmptySchema**](../../../components/schema/oneof_with_empty_schema.OneofWithEmptySchema.md) |  | 
+[**oneof_with_empty_schema.OneofWithEmptySchema**](../../../components/schema/oneof_with_empty_schema.OneofWithEmptySchema.md) |  | 
 
 
 ### Authorization

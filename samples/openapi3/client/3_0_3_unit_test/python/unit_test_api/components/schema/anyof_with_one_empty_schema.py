@@ -37,11 +37,11 @@ class AnyofWithOneEmptySchema(
         # any type
         
         class any_of:
-            any_of_0 = schemas.NumberSchema
-            any_of_1 = schemas.AnyTypeSchema
+            anyOf_0 = schemas.NumberSchema
+            anyOf_1 = schemas.AnyTypeSchema
             classes = [
-                any_of_0,
-                any_of_1,
+                anyOf_0,
+                anyOf_1,
             ]
 
 

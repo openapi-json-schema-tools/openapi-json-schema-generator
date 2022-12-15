@@ -12,7 +12,7 @@ headers | [Headers](#Headers) |  |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -29,6 +29,6 @@ someHeader | [parameter_some_header.schema](#parameter_some_header.schema) | | o
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  |  |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

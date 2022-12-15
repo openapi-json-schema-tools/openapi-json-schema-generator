@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UniqueitemsValidation**](../../../components/schema/uniqueitems_validation.UniqueitemsValidation.md) |  | 
+[**uniqueitems_validation.UniqueitemsValidation**](../../../components/schema/uniqueitems_validation.UniqueitemsValidation.md) |  | 
 
 
 ### Return Types, Responses

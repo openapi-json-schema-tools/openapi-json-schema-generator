@@ -136,7 +136,6 @@ public class ModelUtilsTest {
         Schema commandSchema = ModelUtils.getSchema(openAPI, "Command");
 
         Assert.assertTrue(ModelUtils.isModel(commandSchema));
-        Assert.assertFalse(ModelUtils.isFreeFormObject(openAPI, commandSchema));
     }
 
     @Test
@@ -229,35 +228,6 @@ public class ModelUtilsTest {
 
         Assert.assertEquals(emailSchema, ModelUtils.unaliasSchema(openAPI, emailSchema, schemaMappings));
         Assert.assertEquals(stringSchema, ModelUtils.unaliasSchema(openAPI, emailSchema, new HashMap<>()));
-    }
-
-    /**
-     * Issue https://github.com/OpenAPITools/openapi-generator/issues/1624.
-     * ModelUtils.isFreeFormObject() should not throw an NPE when passed an empty
-     * object schema that has additionalProperties defined as an empty object schema.
-     */
-    @Test
-    public void testIsFreeFormObject() {
-        OpenAPI openAPI = new OpenAPI().openapi("3.0.0");
-        // Create initial "empty" object schema.
-        ObjectSchema objSchema = new ObjectSchema();
-        Assert.assertTrue(ModelUtils.isFreeFormObject(openAPI, objSchema));
-
-        // Set additionalProperties to an empty ObjectSchema.
-        objSchema.setAdditionalProperties(new ObjectSchema());
-        Assert.assertTrue(ModelUtils.isFreeFormObject(openAPI, objSchema));
-
-        // Add a single property to the schema (no longer a free-form object).
-        Map<String, Schema> props = new HashMap<>();
-        props.put("prop1", new StringSchema());
-        objSchema.setProperties(props);
-        Assert.assertFalse(ModelUtils.isFreeFormObject(openAPI, objSchema));
-
-        // Test a non-object schema
-        Assert.assertFalse(ModelUtils.isFreeFormObject(openAPI, new StringSchema()));
-
-        // Test a null schema
-        Assert.assertFalse(ModelUtils.isFreeFormObject(openAPI, null));
     }
 
     @Test

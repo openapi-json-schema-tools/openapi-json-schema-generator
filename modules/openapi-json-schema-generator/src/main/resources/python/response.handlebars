@@ -34,7 +34,7 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+        {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}},
     {{/with}}
 {{else}}
         schemas.Unset,
@@ -52,7 +52,7 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+        {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}},
     {{/with}}
 {{else}}
         schemas.Unset,
@@ -80,7 +80,7 @@ response = api_client.OpenApiResponse(
         '{{{@key}}}': api_client.MediaType(
         {{#if this.schema}}
             {{#with this.schema}}
-            schema={{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}},
+            schema={{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}},
             {{/with}}
         {{/if}}
         ),

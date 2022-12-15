@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UriReferenceFormat**](../../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
+[**uri_reference_format.UriReferenceFormat**](../../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
 
 
 ### Return Types, Responses

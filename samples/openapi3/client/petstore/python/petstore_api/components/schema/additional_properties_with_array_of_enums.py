@@ -37,7 +37,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         types = {frozendict.frozendict}
         
         
-        class additional_properties(
+        class additionalProperties(
             schemas.ListSchema
         ):
         
@@ -53,7 +53,7 @@ class AdditionalPropertiesWithArrayOfEnums(
                 cls,
                 _arg: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'additional_properties':
+            ) -> 'additionalProperties':
                 return super().__new__(
                     cls,
                     _arg,
@@ -63,18 +63,18 @@ class AdditionalPropertiesWithArrayOfEnums(
             def __getitem__(self, i: int) -> 'enum_class.EnumClass':
                 return super().__getitem__(i)
     
-    def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+    def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+    def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
         return super().get_item_oapg(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.additional_properties, list, tuple, ],
+        **kwargs: typing.Union[MetaOapg.additionalProperties, list, tuple, ],
     ) -> 'AdditionalPropertiesWithArrayOfEnums':
         return super().__new__(
             cls,

@@ -25,31 +25,17 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      * The per-language codegen logic may change to a language-specific type.
      */
     public String openApiType;
-    public String baseName;
     public String refClass;
-    public String getter;
-    public String setter;
     /**
      * The value of the 'description' attribute in the OpenAPI schema.
      */
     public String description;
     /**
-     * The language-specific data type for this property. For example, the OpenAPI type 'integer'
-     * may be represented as 'int', 'int32', 'Integer', etc, depending on the programming language.
-     */
-    public String dataType;
-    public String datatypeWithEnum;
-    public String dataFormat;
-    /**
      * The name of this property in the OpenAPI schema.
      */
-    public String name;
-    public String min; // TODO: is this really used?
-    public String max; // TODO: is this really used?
+    public CodegenKey name;
     public String defaultValue;
-    public String defaultValueWithParam;
     public String baseType;
-    public String containerType;
     /**
      * The value of the 'title' attribute in the OpenAPI schema.
      */
@@ -77,7 +63,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      */
     public String example;
 
-    public String jsonSchema;
     /**
      * The value of the 'minimum' attribute in the OpenAPI schema.
      * The value of "minimum" MUST be a number, representing an inclusive lower limit for a numeric instance.
@@ -103,18 +88,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
      * The value of "exclusiveMaximum" MUST be number, representing an exclusive upper limit for a numeric instance.
      */
     public boolean exclusiveMaximum;
-    public boolean required;
     public boolean deprecated;
-    public boolean hasMoreNonReadOnly; // for model constructor, true if next property is not readonly
-    public boolean isPrimitiveType;
-    public boolean isModel;
-    /**
-     * True if this property is an array of items or a map container.
-     * See:
-     * - ModelUtils.isArraySchema()
-     * - ModelUtils.isMapSchema()
-     */
-    public boolean isContainer;
     public boolean isString;
     public boolean isNumeric;
     public boolean isInteger;
@@ -136,12 +110,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean isEmail;
     public boolean isNull;
     /**
-     * The type is a free-form object, i.e. it is a map of string to values with no declared properties.
-     * A OAS free-form schema may include the 'additionalProperties' attribute, which puts a constraint
-     * on the type of the undeclared properties.
-     */
-    public boolean isFreeFormObject;
-    /**
      * The 'type' in the OAS schema is unspecified (i.e. not set). The value can be number, integer, string, object or array.
      * If the nullable attribute is set to true, the 'null' value is valid.
      */
@@ -149,7 +117,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public boolean isArray;
     public boolean isMap;
     public boolean isEnum;
-    public boolean isInnerEnum; // Enums declared inline will be located inside the generic model, changing how the enum is referenced in some cases.
     public boolean isReadOnly;
     public boolean isWriteOnly;
     public boolean isNullable;
@@ -163,25 +130,15 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     // the undeclared properties.
     public CodegenProperty items;
     public CodegenProperty additionalProperties;
-    public List<CodegenProperty> vars = new ArrayList<CodegenProperty>(); // all properties (without parent's properties)
-    public List<CodegenProperty> requiredVars = new ArrayList<>();
-    public CodegenProperty mostInnerItems;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
-    public boolean isInherited;
     public String discriminatorValue;
-    public String nameInLowerCase; // property name in lower case
-    public String nameInCamelCase; // property name in camel case
-    public String nameInSnakeCase; // property name in upper snake case
-    // enum name based on the property name, usually use as a prefix (e.g. VAR_NAME) for enum name (e.g. VAR_NAME_VALUE1)
-    public String enumName;
     public Integer maxItems;
     public Integer minItems;
 
     private Integer maxProperties;
     private Integer minProperties;
-    private boolean uniqueItems;
-    private Boolean uniqueItemsBoolean;
+    private Boolean uniqueItems;
 
     // XML
     public boolean isXmlAttribute = false;
@@ -189,13 +146,15 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String xmlName;
     public String xmlNamespace;
     public boolean isXmlWrapped = false;
-    private boolean additionalPropertiesIsAnyType;
-    private boolean hasVars;
-    private boolean hasRequired;
     private boolean hasDiscriminatorWithNonEmptyMapping;
-    private CodegenComposedSchemas composedSchemas = null;
+    private List<CodegenProperty> allOf = null;
+    private List<CodegenProperty> anyOf = null;
+    private List<CodegenProperty> oneOf = null;
+    private CodegenProperty not = null;
     private boolean hasMultipleTypes = false;
-    private Map<String, CodegenProperty> requiredVarsMap;
+    private LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> properties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties;
     private String ref;
     private String refModule;
     private boolean schemaIsFromAdditionalProperties;
@@ -251,36 +210,12 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.isBooleanSchemaFalse = isBooleanSchemaFalse;
     }
 
-    public String getBaseName() {
-        return baseName;
-    }
-
-    public void setBaseName(String baseName) {
-        this.baseName = baseName;
-    }
-
     public String getRefClass() {
         return refClass;
     }
 
     public void setRefClass(String refClass) {
         this.refClass = refClass;
-    }
-
-    public String getGetter() {
-        return getter;
-    }
-
-    public void setGetter(String getter) {
-        this.getter = getter;
-    }
-
-    public String getSetter() {
-        return setter;
-    }
-
-    public void setSetter(String setter) {
-        this.setter = setter;
     }
 
     public String getDescription() {
@@ -291,62 +226,12 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.description = description;
     }
 
-    /**
-     * @return dataType
-     * @deprecated since version 3.0.0, use {@link #getDataType()} instead.<br>
-     * May be removed with the next major release (4.0)
-     */
-    @Deprecated
-    public String getDatatype() {
-        return getDataType();
-    }
-
-    public String getDataType() {
-        return dataType;
-    }
-
-    public void setDatatype(String datatype) {
-        this.dataType = datatype;
-    }
-
-    public String getDatatypeWithEnum() {
-        return datatypeWithEnum;
-    }
-
-    public void setDatatypeWithEnum(String datatypeWithEnum) {
-        this.datatypeWithEnum = datatypeWithEnum;
-    }
-
-    public String getDataFormat() {
-        return dataFormat;
-    }
-
-    public void setDataFormat(String dataFormat) {
-        this.dataFormat = dataFormat;
-    }
-
-    public String getName() {
+    public CodegenKey getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(CodegenKey name) {
         this.name = name;
-    }
-
-    public String getMin() {
-        return min;
-    }
-
-    public void setMin(String min) {
-        this.min = min;
-    }
-
-    public String getMax() {
-        return max;
-    }
-
-    public void setMax(String max) {
-        this.max = max;
     }
 
     public String getDefaultValue() {
@@ -357,28 +242,12 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.defaultValue = defaultValue;
     }
 
-    public String getDefaultValueWithParam() {
-        return defaultValueWithParam;
-    }
-
-    public void setDefaultValueWithParam(String defaultValueWithParam) {
-        this.defaultValueWithParam = defaultValueWithParam;
-    }
-
     public String getBaseType() {
         return baseType;
     }
 
     public void setBaseType(String baseType) {
         this.baseType = baseType;
-    }
-
-    public String getContainerType() {
-        return containerType;
-    }
-
-    public void setContainerType(String containerType) {
-        this.containerType = containerType;
     }
 
     public String getTitle() {
@@ -445,14 +314,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.example = example;
     }
 
-    public String getJsonSchema() {
-        return jsonSchema;
-    }
-
-    public void setJsonSchema(String jsonSchema) {
-        this.jsonSchema = jsonSchema;
-    }
-
     @Override
     public String getMinimum() {
         return minimum;
@@ -497,18 +358,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.exclusiveMaximum = exclusiveMaximum;
     }
 
-    public boolean getRequired() {
-        return required;
-    }
-
-    public boolean compulsory(){
-        return getRequired() && !isNullable;
-    }
-
-    public void setRequired(boolean required) {
-        this.required = required;
-    }
-
     public List<String> get_enum() {
         return _enum;
     }
@@ -543,16 +392,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public void setAdditionalProperties(CodegenProperty additionalProperties) {
         this.additionalProperties = additionalProperties;
-    }
-
-    @Override
-    public boolean getIsModel() {
-        return isModel;
-    }
-
-    @Override
-    public void setIsModel(boolean isModel) {
-        this.isModel = isModel;
     }
 
     @Override
@@ -625,50 +464,12 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         this.isUnboundedInteger = isUnboundedInteger;
     }
 
-    @Override
-    public boolean getIsPrimitiveType() {
-        return isPrimitiveType;
-    }
-
-    @Override
-    public void setIsPrimitiveType(boolean isPrimitiveType) {
-        this.isPrimitiveType = isPrimitiveType;
-    }
-
     public Map<String, Object> getVendorExtensions() {
         return vendorExtensions;
     }
 
     public void setVendorExtensions(Map<String, Object> vendorExtensions) {
         this.vendorExtensions = vendorExtensions;
-    }
-
-    public String getNameInLowerCase() {
-        return nameInLowerCase;
-    }
-
-    public void setNameInLowerCase(String nameInLowerCase) {
-        this.nameInLowerCase = nameInLowerCase;
-    }
-
-    public String getNameInCamelCase() {
-        return nameInCamelCase;
-    }
-
-    public void setNameInCamelCase(String nameInCamelCase) {
-        this.nameInCamelCase = nameInCamelCase;
-    }
-
-    public String getNameInSnakeCase() {
-        return nameInSnakeCase;
-    }
-
-    public String getEnumName() {
-        return enumName;
-    }
-
-    public void setEnumName(String enumName) {
-        this.enumName = enumName;
     }
 
     @Override
@@ -716,13 +517,43 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public void setComposedSchemas(CodegenComposedSchemas composedSchemas) {
-        this.composedSchemas = composedSchemas;
+    public void setAllOf(List<CodegenProperty> allOf) {
+        this.allOf = allOf;
     }
 
     @Override
-    public CodegenComposedSchemas getComposedSchemas() {
-        return composedSchemas;
+    public List<CodegenProperty> getAllOf() {
+        return allOf;
+    }
+
+    @Override
+    public void setAnyOf(List<CodegenProperty> anyOf) {
+        this.anyOf = anyOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getAnyOf() {
+        return anyOf;
+    }
+
+    @Override
+    public void setOneOf(List<CodegenProperty> oneOf) {
+        this.oneOf = oneOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getOneOf() {
+        return oneOf;
+    }
+
+    @Override
+    public void setNot(CodegenProperty not) {
+        this.not = not;
+    }
+
+    @Override
+    public CodegenProperty getNot() {
+        return not;
     }
 
     @Override
@@ -751,23 +582,17 @@ public class CodegenProperty implements Cloneable, JsonSchema {
             if (this.additionalProperties != null) {
                 cp.additionalProperties = this.additionalProperties;
             }
-            if (this.vars != null) {
-                cp.vars = this.vars;
-            }
-            if (this.requiredVars != null) {
-                cp.requiredVars = this.requiredVars;
-            }
-            if (this.mostInnerItems != null) {
-                cp.mostInnerItems = this.mostInnerItems;
-            }
             if (this.vendorExtensions != null) {
                 cp.vendorExtensions = new HashMap<String, Object>(this.vendorExtensions);
             }
-            if (this.composedSchemas != null) {
-                cp.composedSchemas = this.composedSchemas;
+            if (this.requiredProperties != null) {
+                cp.setRequiredProperties(this.requiredProperties);
             }
-            if (this.requiredVarsMap != null) {
-                cp.setRequiredVarsMap(this.requiredVarsMap);
+            if (this.optionalProperties != null) {
+                cp.setOptionalProperties(this.optionalProperties);
+            }
+            if (this.properties != null) {
+                cp.setProperties(this.properties);
             }
             if (this.ref != null) {
                 cp.setRef(this.ref);
@@ -784,6 +609,18 @@ public class CodegenProperty implements Cloneable, JsonSchema {
             if (this.getRefModule() != null) {
                 cp.setRefClass(this.refModule);
             }
+            if (this.getAllOf() != null) {
+                cp.setAllOf(this.getAllOf());
+            }
+            if (this.getAnyOf() != null) {
+                cp.setAnyOf(this.getAnyOf());
+            }
+            if (this.getOneOf() != null) {
+                cp.setOneOf(this.getOneOf());
+            }
+            if (this.getNot() != null) {
+                cp.setNot(this.getNot());
+            }
 
             return cp;
         } catch (CloneNotSupportedException e) {
@@ -792,23 +629,13 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public boolean getUniqueItems() {
+    public Boolean getUniqueItems() {
         return uniqueItems;
     }
 
     @Override
-    public void setUniqueItems(boolean uniqueItems) {
+    public void setUniqueItems(Boolean uniqueItems) {
         this.uniqueItems = uniqueItems;
-    }
-
-    @Override
-    public Boolean getUniqueItemsBoolean() {
-        return uniqueItemsBoolean;
-    }
-
-    @Override
-    public void setUniqueItemsBoolean(Boolean uniqueItemsBoolean) {
-        this.uniqueItemsBoolean = uniqueItemsBoolean;
     }
 
     @Override
@@ -842,26 +669,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public List<CodegenProperty> getVars() {
-        return vars;
-    }
-
-    @Override
-    public void setVars(List<CodegenProperty> vars) {
-        this.vars = vars;
-    }
-
-    @Override
-    public List<CodegenProperty> getRequiredVars() {
-        return requiredVars;
-    }
-
-    @Override
-    public void setRequiredVars(List<CodegenProperty> requiredVars) {
-        this.requiredVars = requiredVars;
-    }
-
-    @Override
     public boolean getIsNull() {
         return isNull;
     }
@@ -882,36 +689,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     }
 
     @Override
-    public boolean getAdditionalPropertiesIsAnyType() {
-        return additionalPropertiesIsAnyType;
-    }
-
-    @Override
-    public void setAdditionalPropertiesIsAnyType(boolean additionalPropertiesIsAnyType) {
-        this.additionalPropertiesIsAnyType = additionalPropertiesIsAnyType;
-    }
-
-    @Override
-    public boolean getHasVars() {
-        return this.hasVars;
-    }
-
-    @Override
-    public void setHasVars(boolean hasVars) {
-        this.hasVars = hasVars;
-    }
-
-    @Override
-    public boolean getHasRequired() {
-        return this.hasRequired;
-    }
-
-    @Override
-    public void setHasRequired(boolean hasRequired) {
-        this.hasRequired = hasRequired;
-    }
-
-    @Override
     public boolean getHasDiscriminatorWithNonEmptyMapping() {
         return hasDiscriminatorWithNonEmptyMapping;
     }
@@ -925,6 +702,14 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public boolean getHasItems() {
         return this.items != null;
+    }
+
+    public boolean isComplicated() {
+        // used by templates
+        if (isArray || isMap || allOf != null || anyOf != null || oneOf != null || not != null) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -972,10 +757,22 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public void setIsUuid(boolean isUuid) { this.isUuid = isUuid; }
 
     @Override
-    public Map<String, CodegenProperty> getRequiredVarsMap() { return requiredVarsMap; }
+    public LinkedHashMap<CodegenKey, CodegenProperty> getRequiredProperties() { return requiredProperties; }
 
     @Override
-    public void setRequiredVarsMap(Map<String, CodegenProperty> requiredVarsMap) { this.requiredVarsMap=requiredVarsMap; }
+    public void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties) { this.requiredProperties = requiredProperties; }
+
+    @Override
+    public LinkedHashMap<CodegenKey, CodegenProperty> getProperties() { return properties; }
+
+    @Override
+    public void setProperties(LinkedHashMap<CodegenKey, CodegenProperty> properties) { this.properties = properties; }
+
+    @Override
+    public LinkedHashMap<CodegenKey, CodegenProperty> getOptionalProperties() { return optionalProperties; }
+
+    @Override
+    public void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
 
     public String getRefModule() { return refModule; }
 
@@ -985,38 +782,22 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenProperty{");
         sb.append("openApiType='").append(openApiType).append('\'');
-        sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", refClass='").append(refClass).append('\'');
-        sb.append(", getter='").append(getter).append('\'');
-        sb.append(", setter='").append(setter).append('\'');
         sb.append(", description='").append(description).append('\'');
-        sb.append(", dataType='").append(dataType).append('\'');
-        sb.append(", datatypeWithEnum='").append(datatypeWithEnum).append('\'');
-        sb.append(", dataFormat='").append(dataFormat).append('\'');
         sb.append(", name='").append(name).append('\'');
-        sb.append(", min='").append(min).append('\'');
-        sb.append(", max='").append(max).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
-        sb.append(", defaultValueWithParam='").append(defaultValueWithParam).append('\'');
         sb.append(", baseType='").append(baseType).append('\'');
-        sb.append(", containerType='").append(containerType).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", maxLength=").append(maxLength);
         sb.append(", minLength=").append(minLength);
         sb.append(", pattern='").append(pattern).append('\'');
         sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", minimum='").append(minimum).append('\'');
         sb.append(", maximum='").append(maximum).append('\'');
         sb.append(", exclusiveMinimum=").append(exclusiveMinimum);
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
-        sb.append(", required=").append(required);
         sb.append(", deprecated=").append(deprecated);
-        sb.append(", hasMoreNonReadOnly=").append(hasMoreNonReadOnly);
-        sb.append(", isPrimitiveType=").append(isPrimitiveType);
-        sb.append(", isModel=").append(isModel);
-        sb.append(", isContainer=").append(isContainer);
         sb.append(", isString=").append(isString);
         sb.append(", isNumeric=").append(isNumeric);
         sb.append(", isInteger=").append(isInteger);
@@ -1036,11 +817,9 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", isUuid=").append(isUuid);
         sb.append(", isUri=").append(isUri);
         sb.append(", isEmail=").append(isEmail);
-        sb.append(", isFreeFormObject=").append(isFreeFormObject);
         sb.append(", isArray=").append(isArray);
         sb.append(", isMap=").append(isMap);
         sb.append(", isEnum=").append(isEnum);
-        sb.append(", isInnerEnum=").append(isInnerEnum);
         sb.append(", isAnyType=").append(isAnyType);
         sb.append(", isReadOnly=").append(isReadOnly);
         sb.append(", isWriteOnly=").append(isWriteOnly);
@@ -1052,22 +831,14 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", allowableValues=").append(allowableValues);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
-        sb.append(", vars=").append(vars);
-        sb.append(", requiredVars=").append(requiredVars);
-        sb.append(", mostInnerItems=").append(mostInnerItems);
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", hasValidation=").append(hasValidation);
-        sb.append(", isInherited=").append(isInherited);
         sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
-        sb.append(", nameInCamelCase='").append(nameInCamelCase).append('\'');
-        sb.append(", nameInSnakeCase='").append(nameInSnakeCase).append('\'');
-        sb.append(", enumName='").append(enumName).append('\'');
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxProperties=").append(maxProperties);
         sb.append(", minProperties=").append(minProperties);
         sb.append(", uniqueItems=").append(uniqueItems);
-        sb.append(", uniqueItemsBoolean=").append(uniqueItemsBoolean);
         sb.append(", multipleOf=").append(multipleOf);
         sb.append(", isXmlAttribute=").append(isXmlAttribute);
         sb.append(", xmlPrefix='").append(xmlPrefix).append('\'');
@@ -1075,13 +846,11 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", xmlNamespace='").append(xmlNamespace).append('\'');
         sb.append(", isXmlWrapped=").append(isXmlWrapped);
         sb.append(", isNull=").append(isNull);
-        sb.append(", getAdditionalPropertiesIsAnyType=").append(getAdditionalPropertiesIsAnyType());
-        sb.append(", getHasVars=").append(getHasVars());
-        sb.append(", getHasRequired=").append(getHasRequired());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
-        sb.append(", composedSchemas=").append(composedSchemas);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
-        sb.append(", requiredVarsMap=").append(requiredVarsMap);
+        sb.append(", requiredProperties=").append(requiredProperties);
+        sb.append(", optionalProperties=").append(optionalProperties);
+        sb.append(", properties=").append(properties);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
@@ -1090,6 +859,10 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", format=").append(format);
         sb.append(", dependentRequired=").append(dependentRequired);
         sb.append(", contains=").append(contains);
+        sb.append(", allOf=").append(allOf);
+        sb.append(", anyOf=").append(anyOf);
+        sb.append(", oneOf=").append(oneOf);
+        sb.append(", not=").append(not);
         sb.append('}');
         return sb.toString();
     }
@@ -1101,12 +874,7 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         CodegenProperty that = (CodegenProperty) o;
         return exclusiveMinimum == that.exclusiveMinimum &&
                 exclusiveMaximum == that.exclusiveMaximum &&
-                required == that.required &&
                 deprecated == that.deprecated &&
-                hasMoreNonReadOnly == that.hasMoreNonReadOnly &&
-                isPrimitiveType == that.isPrimitiveType &&
-                isModel == that.isModel &&
-                isContainer == that.isContainer &&
                 isString == that.isString &&
                 isNumeric == that.isNumeric &&
                 isInteger == that.isInteger &&
@@ -1126,11 +894,9 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isUuid == that.isUuid &&
                 isUri == that.isUri &&
                 isEmail == that.isEmail &&
-                isFreeFormObject == that.isFreeFormObject &&
                 isArray == that.isArray &&
                 isMap == that.isMap &&
                 isEnum == that.isEnum &&
-                isInnerEnum == that.isInnerEnum &&
                 isAnyType == that.isAnyType &&
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
@@ -1139,7 +905,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isCircularReference == that.isCircularReference &&
                 isDiscriminator == that.isDiscriminator &&
                 hasValidation == that.hasValidation &&
-                isInherited == that.isInherited &&
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
@@ -1148,54 +913,38 @@ public class CodegenProperty implements Cloneable, JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
-                getAdditionalPropertiesIsAnyType() == that.getAdditionalPropertiesIsAnyType() &&
-                getHasVars() == that.getHasVars() &&
-                getHasRequired() == that.getHasRequired() &&
+                Objects.equals(allOf, that.getAllOf()) &&
+                Objects.equals(anyOf, that.getAnyOf()) &&
+                Objects.equals(oneOf, that.getOneOf()) &&
+                Objects.equals(not, that.getNot()) &&
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
-                Objects.equals(uniqueItemsBoolean, that.getUniqueItemsBoolean()) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
-                Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
-                Objects.equals(composedSchemas, that.composedSchemas) &&
+                Objects.equals(requiredProperties, that.getRequiredProperties()) &&
+                Objects.equals(optionalProperties, that.getOptionalProperties()) &&
+                Objects.equals(properties, that.getProperties()) &&
                 Objects.equals(openApiType, that.openApiType) &&
-                Objects.equals(baseName, that.baseName) &&
                 Objects.equals(refClass, that.refClass) &&
-                Objects.equals(getter, that.getter) &&
-                Objects.equals(setter, that.setter) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(dataType, that.dataType) &&
-                Objects.equals(datatypeWithEnum, that.datatypeWithEnum) &&
-                Objects.equals(dataFormat, that.dataFormat) &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(min, that.min) &&
-                Objects.equals(max, that.max) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
-                Objects.equals(defaultValueWithParam, that.defaultValueWithParam) &&
                 Objects.equals(baseType, that.baseType) &&
-                Objects.equals(containerType, that.containerType) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(maxLength, that.maxLength) &&
                 Objects.equals(minLength, that.minLength) &&
                 Objects.equals(pattern, that.pattern) &&
                 Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
                 Objects.equals(_enum, that._enum) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
-                Objects.equals(vars, that.vars) &&
-                Objects.equals(requiredVars, that.requiredVars) &&
-                Objects.equals(mostInnerItems, that.mostInnerItems) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(discriminatorValue, that.discriminatorValue) &&
-                Objects.equals(nameInCamelCase, that.nameInCamelCase) &&
-                Objects.equals(nameInSnakeCase, that.nameInSnakeCase) &&
-                Objects.equals(enumName, that.enumName) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
                 Objects.equals(xmlPrefix, that.xmlPrefix) &&
@@ -1207,22 +956,23 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public int hashCode() {
 
-        return Objects.hash(openApiType, baseName, refClass, getter, setter, description,
-                dataType, datatypeWithEnum, dataFormat, name, min, max, defaultValue,
-                defaultValueWithParam, baseType, containerType, title, unescapedDescription,
-                maxLength, minLength, pattern, example, jsonSchema, minimum, maximum,
-                exclusiveMinimum, exclusiveMaximum, required, deprecated,
-                hasMoreNonReadOnly, isPrimitiveType, isModel, isContainer, isString, isNumeric,
+        return Objects.hash(openApiType, refClass, description,
+                name, defaultValue,
+                baseType, title, unescapedDescription,
+                maxLength, minLength, pattern, example, minimum, maximum,
+                exclusiveMinimum, exclusiveMaximum, deprecated,
+                isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
-                isBoolean, isDate, isDateTime, isUuid, isUri, isEmail, isFreeFormObject,
-                isArray, isMap, isEnum, isInnerEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
+                isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
+                isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
-                allowableValues, items, mostInnerItems, additionalProperties, vars, requiredVars,
-                vendorExtensions, hasValidation, isInherited, discriminatorValue, nameInCamelCase,
-                nameInSnakeCase, enumName, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
-                xmlNamespace, isXmlWrapped, isNull, additionalPropertiesIsAnyType, hasVars, hasRequired,
-                hasDiscriminatorWithNonEmptyMapping, composedSchemas, hasMultipleTypes, requiredVarsMap,
-                ref, uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule);
+                allowableValues, items, additionalProperties,
+                vendorExtensions, hasValidation, discriminatorValue,
+                maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
+                xmlNamespace, isXmlWrapped, isNull,
+                hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes,
+                ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
+                format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
+                properties, optionalProperties, requiredProperties);
     }
 }
