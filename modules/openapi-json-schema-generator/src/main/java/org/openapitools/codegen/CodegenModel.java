@@ -31,7 +31,7 @@ public class CodegenModel extends CodegenProperty {
     // The name of the class is derived from the OpenAPI schema name with formatting rules applied.
     // The classname is derived from the OpenAPI schema name, with sanitization and escaping rules applied.
     public String classname;
-    public String classVarName, modelJson, dataType;
+    public String classVarName, modelJson;
     public CodegenDiscriminator discriminator;
     public Set<String> imports = new TreeSet<>();
     public ExternalDocumentation externalDocumentation;
@@ -71,14 +71,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setClassname(String classname) {
         this.classname = classname;
-    }
-
-    public String getDataType() {
-        return dataType;
-    }
-
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
     }
 
     public CodegenDiscriminator getDiscriminator() {
@@ -182,7 +174,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(description, that.description) &&
                 Objects.equals(classVarName, that.classVarName) &&
                 Objects.equals(modelJson, that.modelJson) &&
-                Objects.equals(dataType, that.dataType) &&
                 Objects.equals(xmlPrefix, that.xmlPrefix) &&
                 Objects.equals(xmlNamespace, that.xmlNamespace) &&
                 Objects.equals(xmlName, that.xmlName) &&
@@ -210,7 +201,7 @@ public class CodegenModel extends CodegenProperty {
     @Override
     public int hashCode() {
         return Objects.hash(getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
-                getDescription(), getClassVarName(), getModelJson(), getDataType(), getXmlPrefix(), getXmlNamespace(),
+                getDescription(), getClassVarName(), getModelJson(), getXmlPrefix(), getXmlNamespace(),
                 getXmlName(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
@@ -232,7 +223,6 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", classname='").append(classname).append('\'');
         sb.append(", classVarName='").append(classVarName).append('\'');
         sb.append(", modelJson='").append(modelJson).append('\'');
-        sb.append(", dataType='").append(dataType).append('\'');
         sb.append(", discriminator=").append(discriminator);
         sb.append(", imports=").append(imports);
         sb.append(", externalDocumentation=").append(externalDocumentation);

@@ -1487,7 +1487,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumVarName(String value, String datatype) {
+    public String toEnumVarName(String value, CodegenProperty prop) {
         if (value.length() == 0) {
             return "EMPTY";
         }
@@ -1502,8 +1502,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         // number
-        if ("Integer".equals(datatype) || "Long".equals(datatype) ||
-                "Float".equals(datatype) || "Double".equals(datatype) || "BigDecimal".equals(datatype)) {
+        if (prop.isInteger || prop.isLong|| prop.isFloat || prop.isDouble || prop.isDecimal) {
             String varName = "NUMBER_" + value;
             varName = varName.replaceAll("-", "MINUS_");
             varName = varName.replaceAll("\\+", "PLUS_");
@@ -1521,16 +1520,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumValue(String value, String datatype) {
-        if ("Integer".equals(datatype) || "Double".equals(datatype)) {
+    public String toEnumValue(String value, CodegenProperty prop) {
+        if (prop.isInteger || prop.isDouble) {
             return value;
-        } else if ("Long".equals(datatype)) {
+        } else if (prop.isLong) {
             // add l to number, e.g. 2048 => 2048l
             return value + "l";
-        } else if ("Float".equals(datatype)) {
+        } else if (prop.isFloat) {
             // add f to number, e.g. 3.14 => 3.14f
             return value + "f";
-        } else if ("BigDecimal".equals(datatype)) {
+        } else if (prop.isDecimal) {
             // use BigDecimal String constructor
             return "new BigDecimal(\"" + value + "\")";
         } else {

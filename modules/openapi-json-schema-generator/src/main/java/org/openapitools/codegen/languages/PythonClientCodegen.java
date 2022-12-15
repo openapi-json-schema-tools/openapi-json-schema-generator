@@ -28,6 +28,7 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 
 import org.apache.commons.io.FileUtils;
+import org.mozilla.javascript.optimizer.Codegen;
 import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.api.TemplatePathLocator;
 import org.openapitools.codegen.config.GlobalSettings;
@@ -835,19 +836,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return cp;
     }
 
-    /**
-     * checks if the data should be classified as "string" in enum
-     * e.g. double in C# needs to be double-quoted (e.g. "2.8") by treating it as a string
-     * In the future, we may rename this function to "isEnumString"
-     *
-     * @param dataType data type
-     * @return true if it's a enum string
-     */
-    @Override
-    public boolean isDataTypeString(String dataType) {
-        return "str".equals(dataType);
-    }
-
     public String getItemsName(Schema containingSchema, String containingSchemaName) {
         return "items";
     }
@@ -885,7 +873,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String dataType = (referencedSchema != null) ? getTypeDeclaration(referencedSchema) : varDataType;
 
         // put "enumVars" map into `allowableValues", including `name` and `value`
-        List<Map<String, Object>> enumVars = buildEnumVars(values, dataType);
+        List<Map<String, Object>> enumVars = buildEnumVars(values, var);
 
         allowableValues.put("enumVars", enumVars);
         // overwriting defaultValue omitted from here
@@ -984,10 +972,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * Return the sanitized variable name for enum
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop property
      * @return the sanitized variable name for enum
      */
-    public String toEnumVarName(String value, String datatype) {
+    @Override
+    public String toEnumVarName(String value, CodegenProperty prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
@@ -1067,7 +1056,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, String dataType) {
+    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenProperty prop) {
         List<Map<String, Object>> enumVars = new ArrayList<>();
         int truncateIdx = 0;
 
@@ -1088,7 +1077,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
             }
 
-            enumVar.put("name", toEnumVarName(enumName, dataType));
+            enumVar.put("name", toEnumVarName(enumName, prop));
             if (value instanceof Integer) {
                 enumVar.put("value", value);
             } else if (value instanceof Double) {
@@ -1111,7 +1100,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String fixedValue = (String) processTestExampleData(value);
                 enumVar.put("value", ensureQuotes(fixedValue));
             }
-            enumVar.put("isString", isDataTypeString(dataType));
+            enumVar.put("isString", prop.isString);
             enumVars.add(enumVar);
         }
 
@@ -1122,7 +1111,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             String enumName = enumUnknownDefaultCaseName;
 
             String enumValue;
-            if (isDataTypeString(dataType)) {
+            if (prop.isString) {
                 enumValue = enumUnknownDefaultCaseName;
             } else {
                 // This is a dummy value that attempts to avoid collisions with previously specified cases.
@@ -1134,9 +1123,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 enumValue = String.valueOf(11184809);
             }
 
-            enumVar.put("name", toEnumVarName(enumName, dataType));
-            enumVar.put("value", toEnumValue(enumValue, dataType));
-            enumVar.put("isString", isDataTypeString(dataType));
+            enumVar.put("name", toEnumVarName(enumName, prop));
+            enumVar.put("value", toEnumValue(enumValue, prop));
+            enumVar.put("isString", prop.isString);
             enumVars.add(enumVar);
         }
 

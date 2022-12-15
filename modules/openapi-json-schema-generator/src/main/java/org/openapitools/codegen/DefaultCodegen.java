@@ -546,9 +546,9 @@ public class DefaultCodegen implements CodegenConfig {
             if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
                 Map<String, Object> allowableValues = cm.allowableValues;
                 List<Object> values = (List<Object>) allowableValues.get("values");
-                List<Map<String, Object>> enumVars = buildEnumVars(values, cm.dataType);
+                List<Map<String, Object>> enumVars = buildEnumVars(values, cm);
                 // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-                updateEnumVarsWithExtensions(enumVars, cm.getVendorExtensions(), cm.dataType);
+                updateEnumVarsWithExtensions(enumVars, cm.getVendorExtensions(), cm);
                 cm.allowableValues.put("enumVars", enumVars);
             }
 
@@ -614,8 +614,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param datatype data type
      * @return the sanitized value for enum
      */
-    public String toEnumValue(String value, String datatype) {
-        if ("number".equalsIgnoreCase(datatype) || "boolean".equalsIgnoreCase(datatype)) {
+    public String toEnumValue(String value, CodegenProperty prop) {
+        if (prop.isNumber || prop.isBoolean) {
             return value;
         } else {
             return "\"" + escapeText(value) + "\"";
@@ -626,10 +626,10 @@ public class DefaultCodegen implements CodegenConfig {
      * Return the sanitized variable name for enum
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop the property that holds the data type booleans
      * @return the sanitized variable name for enum
      */
-    public String toEnumVarName(String value, String datatype) {
+    public String toEnumVarName(String value, CodegenProperty prop) {
         if (value.length() == 0) {
             return "EMPTY";
         }
@@ -2397,10 +2397,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (usedSchema instanceof ComposedSchema) {
             updateModelForComposedSchema(m, usedSchema, sourceJsonPath);
-        }
-
-        if (!ModelUtils.isArraySchema(usedSchema)) {
-            m.dataType = getSchemaType(usedSchema);
         }
 
         // set isDiscriminator on the discriminator property
@@ -4671,19 +4667,19 @@ public class DefaultCodegen implements CodegenConfig {
                 .map(Map.Entry::getValue)
                 .findFirst();
         String dataType = (referencedSchema.isPresent()) ? getTypeDeclaration(referencedSchema.get()) : varDataType;
-        List<Map<String, Object>> enumVars = buildEnumVars(values, dataType);
+        List<Map<String, Object>> enumVars = buildEnumVars(values, var);
 
         // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
         Map<String, Object> extensions = var.getVendorExtensions();
         if (referencedSchema.isPresent()) {
             extensions = referencedSchema.get().getExtensions();
         }
-        updateEnumVarsWithExtensions(enumVars, extensions, dataType);
+        updateEnumVarsWithExtensions(enumVars, extensions, var);
         allowableValues.put("enumVars", enumVars);
 
         // handle default value for enum, e.g. available => StatusEnum.AVAILABLE
         if (var.defaultValue != null) {
-            final String enumDefaultValue = getEnumDefaultValue(var.defaultValue, dataType);
+            final String enumDefaultValue = getEnumDefaultValue(var.defaultValue, var);
 
             String enumName = null;
             for (Map<String, Object> enumVar : enumVars) {
@@ -4698,17 +4694,17 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    protected String getEnumDefaultValue(String defaultValue, String dataType) {
+    protected String getEnumDefaultValue(String defaultValue, CodegenProperty prop) {
         final String enumDefaultValue;
-        if (isDataTypeString(dataType)) {
-            enumDefaultValue = toEnumValue(defaultValue, dataType);
+        if (prop.isString) {
+            enumDefaultValue = toEnumValue(defaultValue, prop);
         } else {
             enumDefaultValue = defaultValue;
         }
         return enumDefaultValue;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, String dataType) {
+    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenProperty prop) {
         List<Map<String, Object>> enumVars = new ArrayList<>();
         int truncateIdx = 0;
 
@@ -4729,9 +4725,9 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
 
-            enumVar.put("name", toEnumVarName(enumName, dataType));
-            enumVar.put("value", toEnumValue(String.valueOf(value), dataType));
-            enumVar.put("isString", isDataTypeString(dataType));
+            enumVar.put("name", toEnumVarName(enumName, prop));
+            enumVar.put("value", toEnumValue(String.valueOf(value), prop));
+            enumVar.put("isString", prop.isString);
             enumVars.add(enumVar);
         }
 
@@ -4742,7 +4738,7 @@ public class DefaultCodegen implements CodegenConfig {
             String enumName = enumUnknownDefaultCaseName;
 
             String enumValue;
-            if (isDataTypeString(dataType)) {
+            if (prop.isString) {
                 enumValue = enumUnknownDefaultCaseName;
             } else {
                 // This is a dummy value that attempts to avoid collisions with previously specified cases.
@@ -4754,16 +4750,16 @@ public class DefaultCodegen implements CodegenConfig {
                 enumValue = String.valueOf(11184809);
             }
 
-            enumVar.put("name", toEnumVarName(enumName, dataType));
-            enumVar.put("value", toEnumValue(enumValue, dataType));
-            enumVar.put("isString", isDataTypeString(dataType));
+            enumVar.put("name", toEnumVarName(enumName, prop));
+            enumVar.put("value", toEnumValue(enumValue, prop));
+            enumVar.put("isString", prop.isString);
             enumVars.add(enumVar);
         }
 
         return enumVars;
     }
 
-    protected void updateEnumVarsWithExtensions(List<Map<String, Object>> enumVars, Map<String, Object> vendorExtensions, String dataType) {
+    protected void updateEnumVarsWithExtensions(List<Map<String, Object>> enumVars, Map<String, Object> vendorExtensions, CodegenProperty prop) {
         if (vendorExtensions != null) {
             updateEnumVarsWithExtensions(enumVars, vendorExtensions, "x-enum-varnames", "name");
             updateEnumVarsWithExtensions(enumVars, vendorExtensions, "x-enum-descriptions", "enumDescription");
@@ -5506,18 +5502,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (yaml != null) {
             objs.put("openapi-yaml", yaml);
         }
-    }
-
-    /**
-     * checks if the data should be classified as "string" in enum
-     * e.g. double in C# needs to be double-quoted (e.g. "2.8") by treating it as a string
-     * In the future, we may rename this function to "isEnumString"
-     *
-     * @param dataType data type
-     * @return true if it's a enum string
-     */
-    public boolean isDataTypeString(String dataType) {
-        return "String".equals(dataType);
     }
 
     @Override

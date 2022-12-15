@@ -590,11 +590,11 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
      * Return the sanitized variable name for enum
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop property
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, String datatype) {
+    public String toEnumVarName(String value, CodegenProperty prop) {
         String modified;
         if (value.length() == 0) {
             modified = "EMPTY";
@@ -850,25 +850,20 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumValue(String value, String datatype) {
-        if ("kotlin.Int".equals(datatype) || "kotlin.Long".equals(datatype)) {
+    public String toEnumValue(String value, CodegenProperty prop) {
+        if (prop.isInteger) {
             return value;
-        } else if ("kotlin.Double".equals(datatype)) {
+        } else if (prop.isDouble) {
             if (value.contains(".")) {
                 return value;
             } else {
                 return value + ".0"; // Float and double must have .0
             }
-        } else if ("kotlin.Float".equals(datatype)) {
+        } else if (prop.isFloat) {
             return value + "f";
         } else {
             return "\"" + escapeText(value) + "\"";
         }
-    }
-
-    @Override
-    public boolean isDataTypeString(final String dataType) {
-        return "String".equals(dataType) || "kotlin.String".equals(dataType);
     }
 
     @Override
