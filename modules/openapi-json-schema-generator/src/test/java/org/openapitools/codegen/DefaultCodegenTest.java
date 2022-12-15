@@ -465,7 +465,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         CodegenProperty array = codegenPropertyWithArrayOfIntegerValues();
 
-        codegen.updateCodegenPropertyEnum(array);
+        codegen.updateCodegenPropertyEnum(array.getItems());
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) array.getItems().getAllowableValues().get("enumVars");
         Assert.assertNotNull(enumVars);
@@ -523,7 +523,7 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         CodegenProperty enumProperty = codegenProperty(Arrays.asList("animal_dog", "animal_cat"));
 
-        codegen.updateCodegenPropertyEnum(enumProperty);
+        codegen.updateCodegenPropertyEnum(enumProperty.getItems());
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.getItems().getAllowableValues().get("enumVars");
         Assert.assertNotNull(enumVars);
@@ -542,7 +542,7 @@ public class DefaultCodegenTest {
 
         CodegenProperty enumProperty = codegenProperty(Arrays.asList("animal_dog", "animal_cat"));
 
-        codegen.updateCodegenPropertyEnum(enumProperty);
+        codegen.updateCodegenPropertyEnum(enumProperty.getItems());
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.getItems().getAllowableValues().get("enumVars");
         Assert.assertNotNull(enumVars);
