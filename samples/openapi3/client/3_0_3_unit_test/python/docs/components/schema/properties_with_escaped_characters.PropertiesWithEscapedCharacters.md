@@ -10,13 +10,12 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**foo
-bar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
-**foo&quot;bar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
-**foo\bar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
-**foobar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
-**foo	bar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
-**foobar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
+**foo\nbar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
+**foo\&quot;bar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
+**foo\\bar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
+**foo\rbar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
+**foo\tbar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
+**foo\fbar** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

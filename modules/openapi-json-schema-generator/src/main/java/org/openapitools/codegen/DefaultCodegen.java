@@ -5901,12 +5901,13 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public CodegenKey getKey(String key) {
-        boolean isValid = isValid(key);
+        String usedKey = handleSpecialCharacters(key);
+        boolean isValid = isValid(usedKey);
         CodegenKey ck = new CodegenKey(
-                key,
+                usedKey,
                 isValid,
-                toVarName(key),
-                toModelName(key)
+                toVarName(usedKey),
+                toModelName(usedKey)
         );
         return ck;
     }

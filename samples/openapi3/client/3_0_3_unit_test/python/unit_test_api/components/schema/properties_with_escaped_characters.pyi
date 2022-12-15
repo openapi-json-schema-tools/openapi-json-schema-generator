@@ -37,41 +37,39 @@ class PropertiesWithEscapedCharacters(
         # any type
         
         class properties:
-            foo_nbar = schemas.NumberSchema
-            foo_bar = schemas.NumberSchema
-            foo__bar = schemas.NumberSchema
-            foo_rbar = schemas.NumberSchema
-            foo_tbar = schemas.NumberSchema
-            foo_fbar = schemas.NumberSchema
+            foo__nbar = schemas.NumberSchema
+            foo___bar = schemas.NumberSchema
+            foo____bar = schemas.NumberSchema
+            foo__rbar = schemas.NumberSchema
+            foo__tbar = schemas.NumberSchema
+            foo__fbar = schemas.NumberSchema
             __annotations__ = {
-                "foo
-bar": foo_nbar,
-                "foo"bar": foo_bar,
-                "foo\bar": foo__bar,
-                "foobar": foo_rbar,
-                "foo	bar": foo_tbar,
-                "foobar": foo_fbar,
+                "foo\nbar": foo__nbar,
+                "foo\"bar": foo___bar,
+                "foo\\bar": foo____bar,
+                "foo\rbar": foo__rbar,
+                "foo\tbar": foo__tbar,
+                "foo\fbar": foo__fbar,
             }
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo
-bar"]) -> MetaOapg.properties.foo_nbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> MetaOapg.properties.foo__nbar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"bar"]) -> MetaOapg.properties.foo_bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> MetaOapg.properties.foo___bar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\bar"]) -> MetaOapg.properties.foo__bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> MetaOapg.properties.foo____bar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foobar"]) -> MetaOapg.properties.foo_rbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> MetaOapg.properties.foo__rbar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo	bar"]) -> MetaOapg.properties.foo_tbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> MetaOapg.properties.foo__tbar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foobar"]) -> MetaOapg.properties.foo_fbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> MetaOapg.properties.foo__fbar: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -79,13 +77,12 @@ bar"]) -> MetaOapg.properties.foo_nbar: ...
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal["foo
-bar"],
-            typing_extensions.Literal["foo"bar"],
-            typing_extensions.Literal["foo\bar"],
-            typing_extensions.Literal["foobar"],
-            typing_extensions.Literal["foo	bar"],
-            typing_extensions.Literal["foobar"],
+            typing_extensions.Literal["foo\nbar"],
+            typing_extensions.Literal["foo\"bar"],
+            typing_extensions.Literal["foo\\bar"],
+            typing_extensions.Literal["foo\rbar"],
+            typing_extensions.Literal["foo\tbar"],
+            typing_extensions.Literal["foo\fbar"],
             str
         ]
     ):
@@ -93,23 +90,22 @@ bar"],
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo
-bar"]) -> typing.Union[MetaOapg.properties.foo_nbar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\nbar"]) -> typing.Union[MetaOapg.properties.foo__nbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo"bar"]) -> typing.Union[MetaOapg.properties.foo_bar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\"bar"]) -> typing.Union[MetaOapg.properties.foo___bar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\bar"]) -> typing.Union[MetaOapg.properties.foo__bar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\\bar"]) -> typing.Union[MetaOapg.properties.foo____bar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foobar"]) -> typing.Union[MetaOapg.properties.foo_rbar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\rbar"]) -> typing.Union[MetaOapg.properties.foo__rbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo	bar"]) -> typing.Union[MetaOapg.properties.foo_tbar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\tbar"]) -> typing.Union[MetaOapg.properties.foo__tbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foobar"]) -> typing.Union[MetaOapg.properties.foo_fbar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\fbar"]) -> typing.Union[MetaOapg.properties.foo__fbar, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -117,13 +113,12 @@ bar"]) -> typing.Union[MetaOapg.properties.foo_nbar, schemas.Unset]: ...
     def get_item_oapg(
         self,
         name: typing.Union[
-            typing_extensions.Literal["foo
-bar"],
-            typing_extensions.Literal["foo"bar"],
-            typing_extensions.Literal["foo\bar"],
-            typing_extensions.Literal["foobar"],
-            typing_extensions.Literal["foo	bar"],
-            typing_extensions.Literal["foobar"],
+            typing_extensions.Literal["foo\nbar"],
+            typing_extensions.Literal["foo\"bar"],
+            typing_extensions.Literal["foo\\bar"],
+            typing_extensions.Literal["foo\rbar"],
+            typing_extensions.Literal["foo\tbar"],
+            typing_extensions.Literal["foo\fbar"],
             str
         ]
     ):
