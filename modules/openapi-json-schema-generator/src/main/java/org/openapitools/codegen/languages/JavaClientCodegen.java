@@ -877,18 +877,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public CodegenModel fromModel(String name, Schema model) {
-        CodegenModel codegenModel = super.fromModel(name, model);
-        if (MICROPROFILE.equals(getLibrary())) {
-            if (codegenModel.imports.contains("ApiModel")) {
-                // Remove io.swagger.annotations.ApiModel import
-                codegenModel.imports.remove("ApiModel");
-            }
-        }
-        return codegenModel;
-    }
-
-    @Override
     public ModelsMap postProcessModelsEnum(ModelsMap objs) {
         objs = super.postProcessModelsEnum(objs);
         //Needed import for Gson based libraries

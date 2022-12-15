@@ -1269,29 +1269,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public CodegenModel fromModel(String name, Schema model) {
-        Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
-        CodegenModel codegenModel = super.fromModel(name, model);
-        if (codegenModel.description != null) {
-            codegenModel.imports.add("ApiModel");
-        }
-        if (codegenModel.discriminator != null && additionalProperties.containsKey(JACKSON)) {
-            codegenModel.imports.add("JsonSubTypes");
-            codegenModel.imports.add("JsonTypeInfo");
-            codegenModel.imports.add("JsonIgnoreProperties");
-        }
-        if (allDefinitions != null && codegenModel.parentSchema != null && codegenModel.hasEnums) {
-            final Schema parentModel = allDefinitions.get(codegenModel.parentSchema);
-            final CodegenModel parentCodegenModel = super.fromModel(codegenModel.parent, parentModel);
-            codegenModel = AbstractJavaCodegen.reconcileInlineEnums(codegenModel, parentCodegenModel);
-        }
-        if ("BigDecimal".equals(codegenModel.dataType)) {
-            codegenModel.imports.add("BigDecimal");
-        }
-        return codegenModel;
-    }
-
-    @Override
     public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
         if (model.getIsClassnameSanitized() && additionalProperties.containsKey(JACKSON)) {
             model.imports.add("JsonTypeName");
@@ -2031,14 +2008,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             // 2. supportsAdditionalPropertiesWithComposedSchema is set to true:
             //    The HashMap is a field.
             super.addAdditionPropertiesToCodeGenModel(codegenModel, schema);
-        }
-
-        // See https://github.com/OpenAPITools/openapi-generator/pull/1729#issuecomment-449937728
-        Schema s = getAdditionalProperties(schema);
-        // 's' may be null if 'additionalProperties: false' in the OpenAPI schema.
-        if (s != null) {
-            codegenModel.additionalPropertiesType = getSchemaType(s);
-            addImport(codegenModel, codegenModel.additionalPropertiesType);
         }
     }
 

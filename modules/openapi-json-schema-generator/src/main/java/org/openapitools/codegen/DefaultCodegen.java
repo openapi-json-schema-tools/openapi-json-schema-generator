@@ -20,7 +20,6 @@ package org.openapitools.codegen;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.Ticker;
-import com.google.common.base.CaseFormat;
 import com.google.common.collect.ImmutableMap;
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
@@ -2427,7 +2426,7 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public CodegenModel fromModel(Schema schema, String sourceJsonPath) {
         String[] refPieces = sourceJsonPath.split("/");
-        if (!sourceJsonPath.startsWith("#/components/models/") || refPieces.length != 4) {
+        if (!sourceJsonPath.startsWith("#/components/schemas/") || refPieces.length != 4) {
             throw new RuntimeException("Invalid sourceJsonPath "+ sourceJsonPath);
         }
         String name = refPieces[3];
@@ -2439,7 +2438,9 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
 
-        CodegenModel m = (CodegenModel) fromProperty(usedSchema, sourceJsonPath);
+        CodegenModel m = new CodegenModel();
+        setCodegenPropertyInfo(m, usedSchema, sourceJsonPath);
+
         m.setModulePath(toModulePath(name, "schemas"));
         String refModule = toRefModule(sourceJsonPath, "schemas");
         m.setRefModule(refModule);
@@ -2455,8 +2456,6 @@ public class DefaultCodegen implements CodegenConfig {
         m.classFilename = toModelFilename(name);
         m.modelJson = Json.pretty(usedSchema);
         m.externalDocumentation = usedSchema.getExternalDocs();
-        m.isAlias = (typeAliases.containsKey(name)
-                || isAliasOfSimpleTypes(schema)); // check if the unaliased schema is an alias of simple OAS types
         m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
             m.addDiscriminatorMappedModelsImports();
@@ -3053,32 +3052,15 @@ public class DefaultCodegen implements CodegenConfig {
         return !isReservedWord(name);
     }
 
-    /**
-     * Convert OAS Property object to Codegen Property object.
-     * <p>
-     * The return value is cached. An internal cache is looked up to determine
-     * if the CodegenProperty return value has already been instantiated for
-     * the (String name, Schema p) arguments.
-     * Any subsequent processing of the CodegenModel return value must be idempotent
-     * for a given (String name, Schema schema).
-     *
-     * @param p        OAS property schema
-     * @return Codegen Property object
-     */
-    public CodegenProperty fromProperty(Schema p, String sourceJsonPath) {
-        if (p == null) {
-            LOGGER.error("Undefined property/schema at `{}`", sourceJsonPath);
-            return null;
-        }
-        LOGGER.debug("debugging fromProperty for {} : {}", sourceJsonPath, p);
+    protected void setCodegenPropertyInfo(CodegenProperty property, Schema p, String sourceJsonPath) {
         NamedSchema ns = new NamedSchema(p, sourceJsonPath);
         CodegenProperty cpc = schemaCodegenPropertyCache.get(ns);
         if (cpc != null) {
             LOGGER.debug("Cached fromProperty for {} : {}", p, sourceJsonPath);
-            return cpc;
+            property.copyFrom(cpc);
+            return;
         }
 
-        CodegenProperty property = CodegenModelFactory.newInstance(CodegenModelType.PROPERTY);
         if (p.equals(trueSchema)) {
             property.setIsBooleanSchemaTrue(true);
         } else if (p.equals(falseSchema)) {
@@ -3287,9 +3269,31 @@ public class DefaultCodegen implements CodegenConfig {
                     sourceJsonPath
             ));
         }
+        schemaCodegenPropertyCache.put(ns, property);
+    }
+
+    /**
+     * Convert OAS Property object to Codegen Property object.
+     * <p>
+     * The return value is cached. An internal cache is looked up to determine
+     * if the CodegenProperty return value has already been instantiated for
+     * the (String name, Schema p) arguments.
+     * Any subsequent processing of the CodegenModel return value must be idempotent
+     * for a given (String name, Schema schema).
+     *
+     * @param p        OAS property schema
+     * @return Codegen Property object
+     */
+    public CodegenProperty fromProperty(Schema p, String sourceJsonPath) {
+        if (p == null) {
+            LOGGER.error("Undefined property/schema at `{}`", sourceJsonPath);
+            return null;
+        }
+        LOGGER.debug("debugging fromProperty for {} : {}", sourceJsonPath, p);
+        CodegenProperty property = new CodegenProperty();
+        setCodegenPropertyInfo(property, p, sourceJsonPath);
 
         LOGGER.debug("debugging from property return: {}", property);
-        schemaCodegenPropertyCache.put(ns, property);
         return property;
     }
 

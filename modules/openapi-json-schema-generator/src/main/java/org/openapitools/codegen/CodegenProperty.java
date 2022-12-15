@@ -19,7 +19,91 @@ package org.openapitools.codegen;
 
 import java.util.*;
 
-public class CodegenProperty implements Cloneable, JsonSchema {
+public class CodegenProperty implements JsonSchema {
+    public void copyFrom(CodegenProperty other) {
+        this.openApiType = other.openApiType;
+        this.refClass = other.refClass;
+        this.description = other.description;
+        this.name = other.name;
+        this.defaultValue = other.defaultValue;
+        this.baseType = other.baseType;
+        this.title = other.title;
+        this.unescapedDescription = other.unescapedDescription;
+        this.maxLength = other.maxLength;
+        this.minLength = other.minLength;
+        this.pattern = other.pattern;
+        this.example = other.example;
+        this.minimum = other.minimum;
+        this.maximum = other.maximum;
+        this.multipleOf = other.multipleOf;
+        this.exclusiveMinimum = other.exclusiveMinimum;
+        this.exclusiveMaximum = other.exclusiveMaximum;
+        this.deprecated = other.deprecated;
+        this.isString = other.isString;
+        this.isNumeric = other.isNumeric;
+        this.isInteger = other.isInteger;
+        this.isShort = other.isShort;
+        this.isLong = other.isLong;
+        this.isUnboundedInteger = other.isUnboundedInteger;
+        this.isNumber = other.isNumber;
+        this.isFloat = other.isFloat;
+        this.isDouble = other.isDouble;
+        this.isDecimal = other.isDecimal;
+        this.isByteArray = other.isByteArray;
+        this.isBinary = other.isBinary;
+        this.isFile = other.isFile;
+        this.isBoolean = other.isBoolean;
+        this.isDate = other.isDate; // full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21
+        this.isDateTime = other.isDateTime; // the date-time notation as defined by RFC 3339, section 5.6, for example, 2017-07-21T17:32:28Z
+        this.isUuid = other.isUuid;
+        this.isUri = other.isUuid;
+        this.isEmail = other.isEmail;
+        this.isNull = other.isNull;
+        this.isAnyType = other.isAnyType;
+        this.isArray = other.isArray;
+        this.isMap = other.isMap;
+        this.isEnum = other.isEnum;
+        this.isReadOnly = other.isReadOnly;
+        this.isWriteOnly = other.isWriteOnly;
+        this.isNullable = other.isNullable;
+        this.isSelfReference = other.isSelfReference;
+        this.isCircularReference = other.isCircularReference;
+        this.isDiscriminator = other.isDiscriminator;
+        this._enum = other._enum;
+        this.allowableValues = other.allowableValues;
+        this.items = other.items;
+        this.additionalProperties = other.additionalProperties;
+        this.vendorExtensions = other.vendorExtensions;
+        this.hasValidation = other.hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
+        this.discriminatorValue = other.discriminatorValue;
+        this.maxItems = other.maxItems;
+        this.minItems = other.minItems;
+        this.maxProperties = other.maxProperties;
+        this.minProperties = other.minProperties;
+        this.uniqueItems = other.uniqueItems;
+        this.isXmlAttribute = other.isXmlAttribute;
+        this.xmlPrefix = other.xmlPrefix;
+        this.xmlName = other.xmlName;
+        this.xmlNamespace = other.xmlNamespace;
+        this.isXmlWrapped = other.isXmlWrapped;
+        this.hasDiscriminatorWithNonEmptyMapping = other.hasDiscriminatorWithNonEmptyMapping;
+        this.allOf = other.allOf;
+        this.anyOf = other.anyOf;
+        this.oneOf = other.oneOf;
+        this.not = other.not;
+        this.hasMultipleTypes = other.hasMultipleTypes;
+        this.requiredProperties = other.requiredProperties;
+        this.properties = other.properties;
+        this.optionalProperties = other.optionalProperties;
+        this.ref = other.ref;
+        this.refModule = other.refModule;
+        this.schemaIsFromAdditionalProperties = other.schemaIsFromAdditionalProperties;
+        this.isBooleanSchemaTrue = other.isBooleanSchemaTrue;
+        this.isBooleanSchemaFalse = other.isBooleanSchemaFalse;
+        this.format = other.format;
+        this.dependentRequired = other.dependentRequired;
+        this.contains = other.contains;
+    }
     /**
      * The value of the 'type' attribute in the OpenAPI schema.
      * The per-language codegen logic may change to a language-specific type.
@@ -564,68 +648,6 @@ public class CodegenProperty implements Cloneable, JsonSchema {
     @Override
     public String getRef() {
         return ref;
-    }
-
-    @Override
-    public CodegenProperty clone() {
-        try {
-            CodegenProperty cp = (CodegenProperty) super.clone();
-            if (this._enum != null) {
-                cp._enum = new ArrayList<String>(this._enum);
-            }
-            if (this.allowableValues != null) {
-                cp.allowableValues = new HashMap<String, Object>(this.allowableValues);
-            }
-            if (this.items != null) {
-                cp.items = this.items;
-            }
-            if (this.additionalProperties != null) {
-                cp.additionalProperties = this.additionalProperties;
-            }
-            if (this.vendorExtensions != null) {
-                cp.vendorExtensions = new HashMap<String, Object>(this.vendorExtensions);
-            }
-            if (this.requiredProperties != null) {
-                cp.setRequiredProperties(this.requiredProperties);
-            }
-            if (this.optionalProperties != null) {
-                cp.setOptionalProperties(this.optionalProperties);
-            }
-            if (this.properties != null) {
-                cp.setProperties(this.properties);
-            }
-            if (this.ref != null) {
-                cp.setRef(this.ref);
-            }
-            if (this.format != null) {
-                cp.setFormat(this.format);
-            }
-            if (this.dependentRequired != null) {
-                cp.setDependentRequired(this.dependentRequired);
-            }
-            if (this.contains != null) {
-                cp.setContains(this.contains);
-            }
-            if (this.getRefModule() != null) {
-                cp.setRefClass(this.refModule);
-            }
-            if (this.getAllOf() != null) {
-                cp.setAllOf(this.getAllOf());
-            }
-            if (this.getAnyOf() != null) {
-                cp.setAnyOf(this.getAnyOf());
-            }
-            if (this.getOneOf() != null) {
-                cp.setOneOf(this.getOneOf());
-            }
-            if (this.getNot() != null) {
-                cp.setNot(this.getNot());
-            }
-
-            return cp;
-        } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException(e);
-        }
     }
 
     @Override

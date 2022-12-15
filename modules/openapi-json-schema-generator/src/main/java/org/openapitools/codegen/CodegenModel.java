@@ -54,7 +54,6 @@ public class CodegenModel extends CodegenProperty {
     public String classFilename; // store the class file name, mainly used for import
     public CodegenDiscriminator discriminator;
     public String arrayModelType;
-    public boolean isAlias; // Is this effectively an alias of another simple type
     public boolean isPrimitiveType;
     public List<CodegenProperty> vars = new ArrayList<>(); // all properties (without parent's properties)
     public List<CodegenProperty> allVars = new ArrayList<>(); // all properties (with parent's properties)
@@ -304,8 +303,7 @@ public class CodegenModel extends CodegenProperty {
         if (this == o) return true;
         if (!(o instanceof CodegenModel)) return false;
         CodegenModel that = (CodegenModel) o;
-        return isAlias == that.isAlias &&
-                isString == that.isString &&
+        return isString == that.isString &&
                 isInteger == that.isInteger &&
                 isShort == that.isShort &&
                 isLong == that.isLong &&
@@ -408,7 +406,7 @@ public class CodegenModel extends CodegenProperty {
                 getInterfaceModels(), getChildren(), getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
                 getDescription(), getClassVarName(), getModelJson(), getDataType(), getXmlPrefix(), getXmlNamespace(),
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
-                getArrayModelType(), isAlias, isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
+                getArrayModelType(), isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
                 getAllVars(), getNonNullableVars(), getReadOnlyVars(), getReadWriteVars(),
                 getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
@@ -440,7 +438,6 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", classFilename='").append(classFilename).append('\'');
         sb.append(", discriminator=").append(discriminator);
         sb.append(", arrayModelType='").append(arrayModelType).append('\'');
-        sb.append(", isAlias=").append(isAlias);
         sb.append(", vars=").append(vars);
         sb.append(", allVars=").append(allVars);
         sb.append(", nonNullableVars=").append(nonNullableVars);
@@ -506,7 +503,9 @@ public class CodegenModel extends CodegenProperty {
         // clone the list first
         List<CodegenProperty> newList = new ArrayList<>();
         for (CodegenProperty cp : vars) {
-            newList.add(cp.clone());
+            CodegenProperty newCp = new CodegenProperty();
+            newCp.copyFrom(cp);
+            newList.add(newCp);
         }
 
         Set<String> propertyNames = new TreeSet<>();

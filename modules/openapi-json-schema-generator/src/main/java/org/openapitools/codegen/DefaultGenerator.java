@@ -1073,14 +1073,6 @@ public class DefaultGenerator implements Generator {
                 List<ModelMap> modelList = models.getModels();
                 if (modelList != null && !modelList.isEmpty()) {
                     ModelMap modelTemplate = modelList.get(0);
-                    if (modelTemplate != null && modelTemplate.getModel() != null) {
-                        CodegenModel m = modelTemplate.getModel();
-                        if (m.isAlias && !(config instanceof PythonClientCodegen)) {
-                            // alias to number, string, enum, etc, which should not be generated as model
-                            // for PythonClientCodegen, all aliases are generated as models
-                            continue;  // Don't create user-defined classes for aliases
-                        }
-                    }
                     allModels.add(modelTemplate);
                 }
 
