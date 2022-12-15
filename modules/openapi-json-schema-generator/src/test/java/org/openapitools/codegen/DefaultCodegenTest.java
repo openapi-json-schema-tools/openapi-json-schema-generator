@@ -285,7 +285,7 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(addProps);
         Assert.assertEquals(addProps, new Schema());
         CodegenModel cm = codegen.fromModel("AdditionalPropertiesClass", componentSchema);
-        Assert.assertNotNull(cm.getAdditionalProperties());
+        Assert.assertNull(cm.getAdditionalProperties());
 
         Map<String, Schema> modelPropSchemas = componentSchema.getProperties();
         Schema map_with_undeclared_properties_string_sc = modelPropSchemas.get("map_with_undeclared_properties_string");
@@ -299,7 +299,7 @@ public class DefaultCodegenTest {
         Schema empty_map_sc = modelPropSchemas.get("empty_map");
         CodegenProperty empty_map_cp = null;
 
-        for (CodegenProperty cp : cm.vars) {
+        for (CodegenProperty cp : cm.getProperties().values()) {
             if ("map_with_undeclared_properties_string".equals(cp.name.getName())) {
                 map_with_undeclared_properties_string_cp = cp;
             } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name.getName())) {
@@ -329,7 +329,7 @@ public class DefaultCodegenTest {
         addProps = ModelUtils.getAdditionalProperties(openAPI, map_with_undeclared_properties_anytype_1_sc);
         Assert.assertNotNull(addProps);
         Assert.assertEquals(addProps, new Schema());
-        Assert.assertNotNull(map_with_undeclared_properties_anytype_1_cp.getAdditionalProperties());
+        Assert.assertNull(map_with_undeclared_properties_anytype_1_cp.getAdditionalProperties());
 
         // map_with_undeclared_properties_anytype_2
         // This property does not use the additionalProperties keyword,
@@ -339,7 +339,7 @@ public class DefaultCodegenTest {
         addProps = ModelUtils.getAdditionalProperties(openAPI, map_with_undeclared_properties_anytype_2_sc);
         Assert.assertNotNull(addProps);
         Assert.assertEquals(addProps, new Schema());
-        Assert.assertNotNull(map_with_undeclared_properties_anytype_2_cp.getAdditionalProperties());
+        Assert.assertNull(map_with_undeclared_properties_anytype_2_cp.getAdditionalProperties());
 
         // map_with_undeclared_properties_anytype_3
         // This property has the following inline schema.
@@ -353,6 +353,7 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(addProps);
         Assert.assertEquals(addProps, new Schema());
         Assert.assertNotNull(map_with_undeclared_properties_anytype_3_cp.getAdditionalProperties());
+        Assert.assertTrue(map_with_undeclared_properties_anytype_3_cp.getAdditionalProperties().getIsBooleanSchemaTrue());
 
         // empty_map
         // This property has the following inline schema.
@@ -364,13 +365,14 @@ public class DefaultCodegenTest {
         Assert.assertEquals(empty_map_sc.getAdditionalProperties(), Boolean.FALSE);
         addProps = ModelUtils.getAdditionalProperties(openAPI, empty_map_sc);
         Assert.assertNull(addProps);
-        Assert.assertNull(empty_map_cp.getAdditionalProperties());
+        Assert.assertNotNull(empty_map_cp.getAdditionalProperties());
+        Assert.assertTrue(empty_map_cp.getAdditionalProperties().getIsBooleanSchemaFalse());
 
         // check of composed schema model
         String schemaName = "SomeObject";
         Schema schema = openAPI.getComponents().getSchemas().get(schemaName);
         cm = codegen.fromModel(schemaName, schema);
-        Assert.assertNotNull(cm.getAdditionalProperties());
+        Assert.assertNull(cm.getAdditionalProperties());
     }
 
     @Test
