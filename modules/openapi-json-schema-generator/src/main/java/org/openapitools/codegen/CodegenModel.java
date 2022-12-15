@@ -36,18 +36,12 @@ public class CodegenModel extends CodegenProperty {
     public CodegenDiscriminator discriminator;
     public String arrayModelType;
     public boolean isPrimitiveType;
-    public List<CodegenProperty> vars = new ArrayList<>(); // all properties (without parent's properties)
-    public List<CodegenProperty> allVars = new ArrayList<>(); // all properties (with parent's properties)
-    public List<CodegenProperty> readOnlyVars = new ArrayList<>(); // a list of read-only properties
-    public List<CodegenProperty> readWriteVars = new ArrayList<>(); // a list of properties for read, write
-    public List<CodegenProperty> nonNullableVars = new ArrayList<>(); // a list of non-nullable properties
-
     // Sorted sets of required parameters.
     public Set<String> mandatory = new TreeSet<>(); // without parent's required properties
     public Set<String> allMandatory = new TreeSet<>(); // with parent's required properties
 
     public Set<String> imports = new TreeSet<>();
-    public boolean emptyVars, hasMoreModels, hasEnums;
+    public boolean hasMoreModels, hasEnums;
     /**
      * Indicates the type has at least one optional property.
      */
@@ -56,8 +50,6 @@ public class CodegenModel extends CodegenProperty {
     public ExternalDocumentation externalDocumentation;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     private String modulePath;
-
-    private boolean hasRequiredVars;
 
     public String getModulePath() {
         return modulePath;
@@ -73,22 +65,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setAllMandatory(Set<String> allMandatory) {
         this.allMandatory = allMandatory;
-    }
-
-    public List<CodegenProperty> getAllVars() {
-        return allVars;
-    }
-
-    public void setAllVars(List<CodegenProperty> allVars) {
-        this.allVars = allVars;
-    }
-
-    public List<CodegenProperty> getNonNullableVars() {
-        return nonNullableVars;
-    }
-
-    public void setNonNullableVars(List<CodegenProperty> nonNullableVars) {
-        this.nonNullableVars = nonNullableVars;
     }
 
     public String getArrayModelType() {
@@ -197,22 +173,6 @@ public class CodegenModel extends CodegenProperty {
         this.modelJson = modelJson;
     }
 
-    public List<CodegenProperty> getReadOnlyVars() {
-        return readOnlyVars;
-    }
-
-    public void setReadOnlyVars(List<CodegenProperty> readOnlyVars) {
-        this.readOnlyVars = readOnlyVars;
-    }
-
-    public List<CodegenProperty> getReadWriteVars() {
-        return readWriteVars;
-    }
-
-    public void setReadWriteVars(List<CodegenProperty> readWriteVars) {
-        this.readWriteVars = readWriteVars;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -230,7 +190,6 @@ public class CodegenModel extends CodegenProperty {
                 isDouble == that.isDouble &&
                 isDate == that.isDate &&
                 isDateTime == that.isDateTime &&
-                emptyVars == that.emptyVars &&
                 hasMoreModels == that.hasMoreModels &&
                 hasEnums == that.hasEnums &&
                 isEnum == that.isEnum &&
@@ -281,11 +240,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(discriminator, that.discriminator) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(arrayModelType, that.arrayModelType) &&
-                Objects.equals(vars, that.vars) &&
-                Objects.equals(allVars, that.allVars) &&
-                Objects.equals(nonNullableVars, that.nonNullableVars) &&
-                Objects.equals(readOnlyVars, that.readOnlyVars) &&
-                Objects.equals(readWriteVars, that.readWriteVars) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(mandatory, that.mandatory) &&
                 Objects.equals(allMandatory, that.allMandatory) &&
@@ -313,9 +267,8 @@ public class CodegenModel extends CodegenProperty {
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 getArrayModelType(), isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
-                getAllVars(), getNonNullableVars(), getReadOnlyVars(), getReadWriteVars(),
                 getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
-                isEmptyVars(), hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
+                hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
                 isMap, deprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
                 getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
@@ -336,15 +289,9 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", classFilename='").append(classFilename).append('\'');
         sb.append(", discriminator=").append(discriminator);
         sb.append(", arrayModelType='").append(arrayModelType).append('\'');
-        sb.append(", vars=").append(vars);
-        sb.append(", allVars=").append(allVars);
-        sb.append(", nonNullableVars=").append(nonNullableVars);
-        sb.append(", readOnlyVars=").append(readOnlyVars);
-        sb.append(", readWriteVars=").append(readWriteVars);
         sb.append(", mandatory=").append(mandatory);
         sb.append(", allMandatory=").append(allMandatory);
         sb.append(", imports=").append(imports);
-        sb.append(", emptyVars=").append(emptyVars);
         sb.append(", hasMoreModels=").append(hasMoreModels);
         sb.append(", hasEnums=").append(hasEnums);
         sb.append(", hasOptional=").append(hasOptional);
@@ -372,26 +319,6 @@ public class CodegenModel extends CodegenProperty {
                 imports.add(complexType);
             }
         }
-    }
-
-    public boolean isEmptyVars() {
-        return emptyVars;
-    }
-
-    public void setEmptyVars(boolean emptyVars) {
-        this.emptyVars = emptyVars;
-    }
-
-    /**
-     * Remove duplicated properties in all variable list
-     */
-    public void removeAllDuplicatedProperty() {
-        // remove duplicated properties
-        vars = removeDuplicatedProperty(vars);
-        allVars = removeDuplicatedProperty(allVars);
-        nonNullableVars = removeDuplicatedProperty(nonNullableVars);
-        readOnlyVars = removeDuplicatedProperty(readOnlyVars);
-        readWriteVars = removeDuplicatedProperty(readWriteVars);
     }
 
     private List<CodegenProperty> removeDuplicatedProperty(List<CodegenProperty> vars) {
@@ -427,10 +354,21 @@ public class CodegenModel extends CodegenProperty {
      * Remove self reference import
      */
     public void removeSelfReferenceImport() {
-        for (CodegenProperty cp : allVars) {
-            if (cp == null) {
-                // TODO cp shouldn't be null. Show a warning message instead
-            } else {
+        if (getRequiredProperties() != null) {
+            for (CodegenProperty cp : getRequiredProperties().values()) {
+                if (cp == null) {
+                    continue;
+                }
+                // detect self import
+                if (this.classname.equalsIgnoreCase(cp.refClass) ||
+                        ((cp.isMap || cp.isArray) && cp.items != null && this.classname.equalsIgnoreCase(cp.items.refClass))) {
+                    this.imports.remove(this.classname); // remove self import
+                    cp.isSelfReference = true;
+                }
+            }
+        }
+        if (getOptionalProperties() != null) {
+            for (CodegenProperty cp : getOptionalProperties().values()) {
                 // detect self import
                 if (this.classname.equalsIgnoreCase(cp.refClass) ||
                         ((cp.isMap || cp.isArray) && cp.items != null && this.classname.equalsIgnoreCase(cp.items.refClass))) {

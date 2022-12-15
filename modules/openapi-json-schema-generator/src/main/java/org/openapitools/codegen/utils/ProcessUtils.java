@@ -23,15 +23,9 @@ public class ProcessUtils {
             CodegenModel cm = mo.getModel();
 
             int i = initialIndex;
-            for (CodegenProperty var : cm.vars) {
+            for (CodegenProperty var : cm.getProperties().values()) {
                 var.vendorExtensions.put("x-index", i);
                 i++;
-            }
-
-            int j = initialIndex;
-            for (CodegenProperty var : cm.allVars) {
-                var.vendorExtensions.put("x-index", j);
-                j++;
             }
         }
     }

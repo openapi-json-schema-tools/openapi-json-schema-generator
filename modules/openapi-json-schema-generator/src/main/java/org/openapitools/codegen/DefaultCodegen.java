@@ -554,20 +554,11 @@ public class DefaultCodegen implements CodegenConfig {
 
             // update codegen property enum with proper naming convention
             // and handling of numbers, special characters
-            for (CodegenProperty var : cm.vars) {
-                updateCodegenPropertyEnum(var);
-            }
-
-            for (CodegenProperty var : cm.allVars) {
-                updateCodegenPropertyEnum(var);
-            }
-
-            for (CodegenProperty var : cm.nonNullableVars) {
-                updateCodegenPropertyEnum(var);
-            }
-
             if (cm.getRequiredProperties() != null) {
                 for (CodegenProperty var : cm.getRequiredProperties().values()) {
+                    if (var == null) {
+                        continue;
+                    }
                     updateCodegenPropertyEnum(var);
                 }
             }
@@ -577,15 +568,6 @@ public class DefaultCodegen implements CodegenConfig {
                     updateCodegenPropertyEnum(var);
                 }
             }
-
-            for (CodegenProperty var : cm.readOnlyVars) {
-                updateCodegenPropertyEnum(var);
-            }
-
-            for (CodegenProperty var : cm.readWriteVars) {
-                updateCodegenPropertyEnum(var);
-            }
-
         }
         return objs;
     }
@@ -2096,7 +2078,6 @@ public class DefaultCodegen implements CodegenConfig {
      * schema, the returned OAI type is 'object'.
      *
      * @param schema
-     * @return type
      */
     private String getPrimitiveType(Schema schema) {
         if (schema == null) {
@@ -2422,9 +2403,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (!ModelUtils.isArraySchema(usedSchema)) {
             m.dataType = getSchemaType(usedSchema);
         }
-
-        // remove duplicated properties
-        m.removeAllDuplicatedProperty();
 
         // set isDiscriminator on the discriminator property
         if (m.discriminator != null) {
@@ -4109,85 +4087,8 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    /**
-     * Add the model name of the child schema in a composed schema to the set of imports
-     *
-     * @param composed composed schema
-     * @param childSchema composed schema
-     * @param model codegen model
-     * @param modelName model name
-     */
-    protected void addImport(ComposedSchema composed, Schema childSchema, CodegenModel model, String modelName ) {
-        // import only if it's not allOf composition schema (without discriminator)
-        if (!(composed.getAllOf() != null && childSchema.getDiscriminator() == null)) {
-            addImport(model, modelName);
-        } else {
-            LOGGER.debug("Skipped import for allOf composition schema {}", modelName);
-        }
-    }
-
     protected boolean shouldAddImport(String type) {
         return type != null && needToImport(type);
-    }
-
-    /**
-     * Loop through properties and unalias the reference if $ref (reference) is defined
-     *
-     * @param properties model properties (schemas)
-     * @return model properties with direct reference to schemas
-     */
-    protected Map<String, Schema> unaliasPropertySchema(Map<String, Schema> properties) {
-        if (properties != null) {
-            for (String key : properties.keySet()) {
-                properties.put(key, unaliasSchema(properties.get(key)));
-
-            }
-        }
-
-        return properties;
-    }
-
-    protected void addVars(CodegenModel m, Map<String, Schema> properties, List<String> required,
-                           Map<String, Schema> allProperties, List<String> allRequired, String sourceJsonPath) {
-
-        if (properties != null && !properties.isEmpty()) {
-
-            Set<String> mandatory = required == null ? Collections.emptySet()
-                    : new TreeSet<>(required);
-
-            // update "vars" without parent's properties (all, required)
-            addProperties(m, properties, mandatory, sourceJsonPath);
-            m.allMandatory = m.mandatory = mandatory;
-        } else {
-            m.emptyVars = true;
-            m.hasEnums = false;
-        }
-
-        if (allProperties != null) {
-            Set<String> allMandatory = allRequired == null ? Collections.emptySet()
-                    : new TreeSet<>(allRequired);
-            // update "allVars" with parent's properties (all, required)
-            addProperties(m, allProperties, allMandatory, sourceJsonPath);
-            m.allMandatory = allMandatory;
-        } else { // without parent, allVars and vars are the same
-            m.allVars = m.vars;
-            m.allMandatory = m.mandatory;
-        }
-
-        // loop through list to update property name with toVarName
-        Set<String> renamedMandatory = new ConcurrentSkipListSet<>();
-        Iterator<String> mandatoryIterator = m.mandatory.iterator();
-        while (mandatoryIterator.hasNext()) {
-            renamedMandatory.add(toVarName(mandatoryIterator.next()));
-        }
-        m.mandatory = renamedMandatory;
-
-        Set<String> renamedAllMandatory = new ConcurrentSkipListSet<>();
-        Iterator<String> allMandatoryIterator = m.allMandatory.iterator();
-        while (allMandatoryIterator.hasNext()) {
-            renamedAllMandatory.add(toVarName(allMandatoryIterator.next()));
-        }
-        m.allMandatory = renamedAllMandatory;
     }
 
     /**
@@ -4242,18 +4143,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 if (!addSchemaImportsFromV3SpecLocations) {
                     addImportsForPropertyType(cm, cp);
-                }
-
-                // if readonly, add to readOnlyVars (list of properties)
-                if (Boolean.TRUE.equals(cp.isReadOnly)) {
-                    cm.readOnlyVars.add(cp);
-                } else { // else add to readWriteVars (list of properties)
-                    // duplicated properties will be removed by removeAllDuplicatedProperty later
-                    cm.readWriteVars.add(cp);
-                }
-
-                if (Boolean.FALSE.equals(cp.isNullable)){
-                    cm.nonNullableVars.add(cp);
                 }
             }
         }

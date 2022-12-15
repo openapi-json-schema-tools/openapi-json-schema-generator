@@ -782,12 +782,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
             // escape the variable base name for use as a string literal
             List<CodegenProperty> vars = Stream.of(
-                            cm.vars,
-                            cm.allVars,
                             cm.getOptionalProperties().values().stream().collect(Collectors.toList()),
-                            cm.getRequiredProperties().values().stream().collect(Collectors.toList()),
-                            cm.readOnlyVars,
-                            cm.readWriteVars
+                            cm.getRequiredProperties().values().stream().collect(Collectors.toList())
                     )
                     .flatMap(List::stream)
                     .collect(Collectors.toList());
