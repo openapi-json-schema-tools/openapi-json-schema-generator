@@ -522,21 +522,6 @@ public class DefaultCodegen implements CodegenConfig {
      */
     @Override
     public Map<String, ModelsMap> updateAllModels(Map<String, ModelsMap> objs) {
-        Map<String, CodegenModel> allModels = getAllModels(objs);
-
-        // Fix up all parent and interface CodegenModel references.
-        for (CodegenModel cm : allModels.values()) {
-            if (cm.getInterfaces() != null && !cm.getInterfaces().isEmpty()) {
-                cm.setInterfaceModels(new ArrayList<>(cm.getInterfaces().size()));
-                for (String intf : cm.getInterfaces()) {
-                    CodegenModel intfModel = allModels.get(intf);
-                    if (intfModel != null) {
-                        cm.getInterfaceModels().add(intfModel);
-                    }
-                }
-            }
-        }
-
         return objs;
     }
 

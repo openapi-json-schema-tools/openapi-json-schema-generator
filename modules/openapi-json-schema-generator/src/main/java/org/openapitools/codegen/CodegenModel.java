@@ -17,7 +17,6 @@
 
 package org.openapitools.codegen;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
 import java.util.*;
@@ -27,11 +26,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * CodegenModel represents a schema object in a OpenAPI document.
  */
-@JsonIgnoreProperties({"parentModel", "interfaceModels"})
 public class CodegenModel extends CodegenProperty {
-    public List<String> interfaces;
-    public List<CodegenModel> interfaceModels;
-
     // The language-specific name of the class that implements this schema.
     // The name of the class is derived from the OpenAPI schema name with formatting rules applied.
     // The classname is derived from the OpenAPI schema name, with sanitization and escaping rules applied.
@@ -186,22 +181,6 @@ public class CodegenModel extends CodegenProperty {
         this.imports = imports;
     }
 
-    public List<CodegenModel> getInterfaceModels() {
-        return interfaceModels;
-    }
-
-    public void setInterfaceModels(List<CodegenModel> interfaceModels) {
-        this.interfaceModels = interfaceModels;
-    }
-
-    public List<String> getInterfaces() {
-        return interfaces;
-    }
-
-    public void setInterfaces(List<String> interfaces) {
-        this.interfaces = interfaces;
-    }
-
     public Set<String> getMandatory() {
         return mandatory;
     }
@@ -283,8 +262,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(getRequiredProperties(), that.getRequiredProperties()) &&
                 Objects.equals(getOptionalProperties(), that.getOptionalProperties()) &&
                 Objects.equals(getProperties(), that.getProperties()) &&
-                Objects.equals(interfaces, that.interfaces) &&
-                Objects.equals(interfaceModels, that.interfaceModels) &&
                 Objects.equals(getAllOf(), that.getAllOf()) &&
                 Objects.equals(getAnyOf(), that.getAnyOf()) &&
                 Objects.equals(getOneOf(), that.getOneOf()) &&
@@ -331,8 +308,7 @@ public class CodegenModel extends CodegenProperty {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getInterfaces(),
-                getInterfaceModels(), getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
+        return Objects.hash(getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
                 getDescription(), getClassVarName(), getModelJson(), getDataType(), getXmlPrefix(), getXmlNamespace(),
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 getArrayModelType(), isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
@@ -353,8 +329,6 @@ public class CodegenModel extends CodegenProperty {
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
-        sb.append(", interfaces=").append(interfaces);
-        sb.append(", interfaceModels=").append(interfaceModels !=null ? interfaceModels.size() : "[]");
         sb.append(", classname='").append(classname).append('\'');
         sb.append(", classVarName='").append(classVarName).append('\'');
         sb.append(", modelJson='").append(modelJson).append('\'');
