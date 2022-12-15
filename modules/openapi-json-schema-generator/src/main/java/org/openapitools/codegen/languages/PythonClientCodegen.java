@@ -1143,18 +1143,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return enumVars;
     }
 
-    /**
-     * Sets the value of the 'model.parent' property in CodegenModel
-     * We have a custom version of this function so we can add the dataType on the ArrayModel
-     */
-    @Override
-    protected void addParentContainer(CodegenModel model, String name, Schema schema) {
-        super.addParentContainer(model, name, schema);
-
-        List<String> referencedModelNames = new ArrayList<String>();
-        model.dataType = getTypeString(schema, "", "", referencedModelNames);
-    }
-
     protected String toTestCaseName(String specTestCaseName) {
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, specTestCaseName);
     }
@@ -1975,37 +1963,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return modelNameToSchemaCache;
     }
 
-    /**
-     * Sets the booleans that define the model's type
-     *
-     * @param model the model to update
-     * @param schema the model's schema
-     */
-    protected void updateModelForString(CodegenModel model, Schema schema) {
-        if (ModelUtils.isDateTimeSchema(schema)) {
-            // isString stays true, format stores that this is a date-time
-        } else if (ModelUtils.isDateSchema(schema)) {
-            // isString stays true, format stores that this is a date
-        } else if (ModelUtils.isUUIDSchema(schema)) {
-            // isString stays true, format stores that this is a uuid
-        } else if (ModelUtils.isDecimalSchema(schema)) {
-            // isString stays true, format stores that this is a uuid
-        } else if (ModelUtils.isBinarySchema(schema)) {
-            // format stores that this is binary
-            model.isString = true;
-        }
-    }
-
-    protected void updateModelForNumber(CodegenModel model, Schema schema) {
-        model.setIsNumber(true);
-        // float vs double info is stored in format
-    }
-
-    protected void updateModelForInteger(CodegenModel model, Schema schema) {
-        model.isInteger = true;
-        // int32 int64 info is stored in format
-    }
-
     protected void updatePropertyForString(CodegenProperty property, Schema p) {
         if (ModelUtils.isByteArraySchema(p)) {
             // isString stays true, format stores that this is a byte
@@ -2046,73 +2003,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected void updatePropertyForInteger(CodegenProperty property, Schema p) {
         property.isInteger = true;
         // int32 and int64 differentiation is determined with format info
-    }
-
-    @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
-        // custom version of this method so properties are always added with addVars
-        if (schema.getProperties() != null || schema.getRequired() != null) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        // an object or anyType composed schema that has additionalProperties set
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-        addRequiredProperties(schema, m, sourceJsonPath);
-    }
-
-    @Override
-    protected void updateModelForAnyType(CodegenModel m, Schema schema, String sourceJsonPath) {
-        // The 'null' value is allowed when the OAS schema is 'any type'.
-        // See https://github.com/OAI/OpenAPI-Specification/issues/1389
-        if (Boolean.FALSE.equals(schema.getNullable())) {
-            LOGGER.error("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", m.name);
-        }
-        // todo add items support here in the future
-        if (schema.getProperties() != null || schema.getRequired() != null) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-        addRequiredProperties(schema, m, sourceJsonPath);
-    }
-
-    @Override
-    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, Map<String, Schema> allDefinitions, String sourceJsonPath) {
-        final ComposedSchema composed = (ComposedSchema) schema;
-
-        // TODO revise the logic below to set discriminator, xml attributes
-        if (composed.getAllOf() != null) {
-            int modelImplCnt = 0; // only one inline object allowed in a ComposedModel
-            int modelDiscriminators = 0; // only one discriminator allowed in a ComposedModel
-            for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
-                if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
-                    LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
-                    if (!this.getLegacyDiscriminatorBehavior()) {
-                        m.addDiscriminatorMappedModelsImports();
-                    }
-                    modelDiscriminators++;
-                }
-
-                if (innerSchema.getXml() != null) {
-                    m.xmlPrefix = innerSchema.getXml().getPrefix();
-                    m.xmlNamespace = innerSchema.getXml().getNamespace();
-                    m.xmlName = innerSchema.getXml().getName();
-                }
-                if (modelDiscriminators > 1) {
-                    LOGGER.error("Allof composed schema is inheriting >1 discriminator. Only use one discriminator: {}", composed);
-                }
-
-                if (modelImplCnt++ > 1) {
-                    LOGGER.warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
-                    break; // only one schema with discriminator allowed in allOf
-                }
-            }
-        }
     }
 
     @Override

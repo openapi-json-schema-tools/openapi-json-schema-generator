@@ -553,7 +553,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 parent.getChildren().add(cm);
                 parent.hasChildren = true;
-                Schema parentSchema = this.openAPI.getComponents().getSchemas().get(parent.name);
+                Schema parentSchema = this.openAPI.getComponents().getSchemas().get(parent.name.getName());
                 if (parentSchema == null) {
                     throw new NullPointerException(parent.name+" in "+this.openAPI.getComponents().getSchemas());
                 }
@@ -2334,198 +2334,33 @@ public class DefaultCodegen implements CodegenConfig {
 
     Map<NamedSchema, CodegenProperty> schemaCodegenPropertyCache = new HashMap<>();
 
-    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, Map<String, Schema> allDefinitions, String sourceJsonPath) {
+    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
-        Map<String, Schema> properties = new LinkedHashMap<>();
-        List<String> required = new ArrayList<>();
-        Map<String, Schema> allProperties = new LinkedHashMap<>();
-        List<String> allRequired = new ArrayList<>();
 
-        // if schema has properties outside of allOf/oneOf/anyOf also add them to m
-        if (composed.getProperties() != null && !composed.getProperties().isEmpty()) {
-            if (composed.getOneOf() != null && !composed.getOneOf().isEmpty()) {
-                LOGGER.warn("'oneOf' is intended to include only the additional optional OAS extension discriminator object. " +
-                        "For more details, see https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9.2.1.3 and the OAS section on 'Composition and Inheritance'.");
-            }
-            addVars(m, unaliasPropertySchema(composed.getProperties()), composed.getRequired(), null, null, sourceJsonPath);
-        }
-
-        // parent model
-        final String parentName = ModelUtils.getParentName(composed, allDefinitions);
-        final List<String> allParents = ModelUtils.getAllParentsName(composed, allDefinitions, false);
-        final Schema parent = StringUtils.isBlank(parentName) || allDefinitions == null ? null : allDefinitions.get(parentName);
-
-        // TODO revise the logic below to set discriminator, xml attributes
-        if (supportsInheritance || supportsMixins) {
-            m.allVars = new ArrayList<>();
-            if (composed.getAllOf() != null) {
-                int modelImplCnt = 0; // only one inline object allowed in a ComposedModel
-                int modelDiscriminators = 0; // only one discriminator allowed in a ComposedModel
-                for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
-                    if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
-                        LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                        m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
-                        if (!this.getLegacyDiscriminatorBehavior()) {
-                            m.addDiscriminatorMappedModelsImports();
-                        }
-                        modelDiscriminators++;
+        // TODO revise the logic below to set discriminator
+        if (composed.getAllOf() != null) {
+            int modelImplCnt = 0; // only one inline object allowed in a ComposedModel
+            int modelDiscriminators = 0; // only one discriminator allowed in a ComposedModel
+            for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
+                if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
+                    LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
+                    m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
+                    if (!this.getLegacyDiscriminatorBehavior()) {
+                        m.addDiscriminatorMappedModelsImports();
                     }
+                    modelDiscriminators++;
+                }
 
-                    if (innerSchema.getXml() != null) {
-                        m.xmlPrefix = innerSchema.getXml().getPrefix();
-                        m.xmlNamespace = innerSchema.getXml().getNamespace();
-                        m.xmlName = innerSchema.getXml().getName();
-                    }
-                    if (modelDiscriminators > 1) {
-                        LOGGER.error("Allof composed schema is inheriting >1 discriminator. Only use one discriminator: {}", composed);
-                    }
+                if (modelDiscriminators > 1) {
+                    LOGGER.error("Allof composed schema is inheriting >1 discriminator. Only use one discriminator: {}", composed);
+                }
 
-                    if (modelImplCnt++ > 1) {
-                        LOGGER.warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
-                        break; // only one schema with discriminator allowed in allOf
-                    }
+                if (modelImplCnt++ > 1) {
+                    LOGGER.warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
+                    break; // only one schema with discriminator allowed in allOf
                 }
             }
         }
-
-        // interfaces (schemas defined in allOf, anyOf, oneOf)
-        List<Schema> interfaces = ModelUtils.getInterfaces(composed);
-        if (!interfaces.isEmpty()) {
-            // m.interfaces is for backward compatibility
-            if (m.interfaces == null)
-                m.interfaces = new ArrayList<>();
-
-            for (Schema interfaceSchema : interfaces) {
-                interfaceSchema = unaliasSchema(interfaceSchema);
-
-                if (StringUtils.isBlank(interfaceSchema.get$ref())) {
-                    // primitive type
-                    String languageType = getTypeDeclaration(interfaceSchema);
-                    CodegenProperty interfaceProperty = fromProperty(interfaceSchema, sourceJsonPath);
-                    if (ModelUtils.isArraySchema(interfaceSchema) || ModelUtils.isMapSchema(interfaceSchema)) {
-                        while (interfaceProperty != null) {
-                            addImport(m, interfaceProperty.refClass);
-                            interfaceProperty = interfaceProperty.items;
-                        }
-                    }
-                    continue;
-                }
-
-                // the rest of the section is for model
-                Schema refSchema = null;
-                String ref = ModelUtils.getSimpleRef(interfaceSchema.get$ref());
-                if (allDefinitions != null) {
-                    refSchema = allDefinitions.get(ref);
-                }
-                final String modelName = toModelName(ref);
-                CodegenProperty interfaceProperty = fromProperty(interfaceSchema, sourceJsonPath);
-                m.interfaces.add(modelName);
-                addImport(composed, refSchema, m, modelName);
-
-                if (allDefinitions != null && refSchema != null) {
-                    if (allParents.contains(ref) && supportsMultipleInheritance) {
-                        // multiple inheritance
-                        addProperties(allProperties, allRequired, refSchema, new HashSet<>());
-                    } else if (parentName != null && parentName.equals(ref) && supportsInheritance) {
-                        // single inheritance
-                        addProperties(allProperties, allRequired, refSchema, new HashSet<>());
-                    } else {
-                        // composition
-                        addProperties(properties, required, refSchema, new HashSet<>());
-                        addProperties(allProperties, allRequired, refSchema, new HashSet<>());
-                    }
-                }
-            }
-        }
-
-        if (parent != null && composed.getAllOf() != null) { // set parent for allOf only
-            m.parentSchema = parentName;
-            m.parent = toModelName(parentName);
-
-            if (supportsMultipleInheritance) {
-                m.allParents = new ArrayList<>();
-                for (String pname : allParents) {
-                    String pModelName = toModelName(pname);
-                    m.allParents.add(pModelName);
-                    addImport(m, pModelName);
-                }
-            } else { // single inheritance
-                addImport(m, m.parent);
-            }
-        }
-
-        // child schema (properties owned by the schema itself)
-        for (Schema component : interfaces) {
-            if (component.get$ref() == null) {
-                if (component != null) {
-                    // component is the child schema
-                    addProperties(properties, required, component, new HashSet<>());
-
-                    // includes child's properties (all, required) in allProperties, allRequired
-                    addProperties(allProperties, allRequired, component, new HashSet<>());
-                }
-                break; // at most one child only
-            }
-        }
-
-        if (composed.getRequired() != null) {
-            required.addAll(composed.getRequired());
-            allRequired.addAll(composed.getRequired());
-        }
-
-        addVars(m, unaliasPropertySchema(properties), required, unaliasPropertySchema(allProperties), allRequired, sourceJsonPath);
-
-        // Per OAS specification, composed schemas may use the 'additionalProperties' keyword.
-        if (supportsAdditionalPropertiesWithComposedSchema) {
-            // Process the schema specified with the 'additionalProperties' keyword.
-            // This will set the 'CodegenModel.additionalPropertiesType' field
-            // and potentially 'Codegen.parent'.
-            //
-            // Note: it's not a good idea to use single class inheritance to implement
-            // the 'additionalProperties' keyword. Code generators that use single class
-            // inheritance sometimes use the 'Codegen.parent' field to implement the
-            // 'additionalProperties' keyword. However, that would be in conflict with
-            // 'allOf' composed schemas, because these code generators also want to set
-            // 'Codegen.parent' to the first child schema of the 'allOf' schema.
-            addAdditionPropertiesToCodeGenModel(m, schema);
-        }
-
-        if (Boolean.TRUE.equals(schema.getNullable())) {
-            m.isNullable = Boolean.TRUE;
-        }
-        // end of code block for composed schema
-    }
-
-    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
-        if (schema.getProperties() != null || schema.getRequired() != null && !(schema instanceof ComposedSchema)) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-        addRequiredProperties(schema, m, sourceJsonPath);
-    }
-
-    protected void updateModelForAnyType(CodegenModel m, Schema schema, String sourceJsonPath) {
-        // The 'null' value is allowed when the OAS schema is 'any type'.
-        // See https://github.com/OAI/OpenAPI-Specification/issues/1389
-        if (Boolean.FALSE.equals(schema.getNullable())) {
-            LOGGER.error("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", m.name);
-        }
-        // m.isNullable = true;
-        if (ModelUtils.isMapSchema(schema)) {
-            // an object or anyType composed schema that has additionalProperties set
-            addAdditionPropertiesToCodeGenModel(m, schema);
-            m.isMap = true;
-        }
-        if (schema.getProperties() != null || schema.getRequired() != null && !(schema instanceof ComposedSchema)) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     protected String toTestCaseName(String specTestCaseName) {
@@ -2578,52 +2413,6 @@ public class DefaultCodegen implements CodegenConfig {
         return schemaTestCases;
     }
 
-    /**
-     * Sets the booleans that define the model's type
-     *
-     * @param model the model to update
-     * @param schema the model's schema
-     */
-    protected void updateModelForString(CodegenModel model, Schema schema) {
-        // NOTE: String schemas as CodegenModel is a rare use case and may be removed at a later date.
-        if (ModelUtils.isDateTimeSchema(schema)) {
-            // NOTE: DateTime schemas as CodegenModel is a rare use case and may be removed at a later date.
-            model.setIsString(false); // for backward compatibility with 2.x
-            model.isDateTime = Boolean.TRUE;
-        } else if (ModelUtils.isDateSchema(schema)) {
-            // NOTE: Date schemas as CodegenModel is a rare use case and may be removed at a later date.
-            model.setIsString(false); // for backward compatibility with 2.x
-            model.isDate = Boolean.TRUE;
-        } else if (ModelUtils.isUUIDSchema(schema)) {
-            // NOTE: UUID schemas as CodegenModel is a rare use case and may be removed at a later date.
-            model.setIsString(false);
-            model.setIsUuid(true);
-        }
-    }
-
-    protected void updateModelForNumber(CodegenModel model, Schema schema) {
-        // NOTE: Number schemas as CodegenModel is a rare use case and may be removed at a later date.
-        model.isNumeric = Boolean.TRUE;
-        if (ModelUtils.isFloatSchema(schema)) { // float
-            model.isFloat = Boolean.TRUE;
-        } else if (ModelUtils.isDoubleSchema(schema)) { // double
-            model.isDouble = Boolean.TRUE;
-        }
-    }
-
-    protected void updateModelForInteger(CodegenModel model, Schema schema) {
-        // NOTE: Integral schemas as CodegenModel is a rare use case and may be removed at a later date.
-        model.isNumeric = Boolean.TRUE;
-        if (ModelUtils.isLongSchema(schema)) { // int64/long format
-            model.isLong = Boolean.TRUE;
-        } else {
-            model.isInteger = Boolean.TRUE; // older use case, int32 and unbounded int
-            if (ModelUtils.isShortSchema(schema)) { // int32
-                model.setIsShort(Boolean.TRUE);
-            }
-        }
-    }
-
     protected String toModulePath(String componentName, String priorJsonPathSegment) {
         return packageName + "." + priorJsonPathSegment + "." + componentName;
     }
@@ -2643,129 +2432,42 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String name = refPieces[3];
 
-        Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
-        if (typeAliases == null) {
-            // Only do this once during first call
-            typeAliases = getAllAliases(allDefinitions);
-        }
-
-        CodegenModel m = CodegenModelFactory.newInstance(CodegenModelType.MODEL);
-        m.setModulePath(toModulePath(name, "schemas"));
-        String refModule = toRefModule(sourceJsonPath, "schemas");
-        m.setRefModule(refModule);
-
-        if (schema.equals(trueSchema)) {
-            m.setIsBooleanSchemaTrue(true);
-        } else if (schema.equals(falseSchema)) {
-            m.setIsBooleanSchemaFalse(true);
-        }
         // unalias schema
-        schema = unaliasSchema(schema);
-        if (schema == null) {
+        Schema usedSchema = unaliasSchema(schema);
+        if (usedSchema == null) {
             LOGGER.warn("Schema {} not found", name);
             return null;
         }
 
-        ModelUtils.syncValidationProperties(schema, m);
+        CodegenModel m = (CodegenModel) fromProperty(usedSchema, sourceJsonPath);
+        m.setModulePath(toModulePath(name, "schemas"));
+        String refModule = toRefModule(sourceJsonPath, "schemas");
+        m.setRefModule(refModule);
+
+
         if (openAPI != null) {
             HashMap<String, SchemaTestCase> schemaTestCases = extractSchemaTestCases(xSchemaTestExamplesRefPrefix + name);
             m.testCases = schemaTestCases;
         }
 
-        m.setModulePath(toModulePath(name, "schemas"));
-        m.name = getKey(name);
-        m.title = escapeText(schema.getTitle());
-        m.description = escapeText(schema.getDescription());
-        m.unescapedDescription = schema.getDescription();
         m.classname = toModelName(name);
         m.classVarName = toVarName(name);
         m.classFilename = toModelFilename(name);
-        m.modelJson = Json.pretty(schema);
-        m.externalDocumentation = schema.getExternalDocs();
-        if (schema.getExtensions() != null && !schema.getExtensions().isEmpty()) {
-            m.getVendorExtensions().putAll(schema.getExtensions());
-        }
+        m.modelJson = Json.pretty(usedSchema);
+        m.externalDocumentation = usedSchema.getExternalDocs();
         m.isAlias = (typeAliases.containsKey(name)
                 || isAliasOfSimpleTypes(schema)); // check if the unaliased schema is an alias of simple OAS types
-        m.setDiscriminator(createDiscriminator(name, schema, this.openAPI, sourceJsonPath));
+        m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
             m.addDiscriminatorMappedModelsImports();
         }
 
-        if (schema.getDeprecated() != null) {
-            m.deprecated = schema.getDeprecated();
+        if (usedSchema instanceof ComposedSchema) {
+            updateModelForComposedSchema(m, usedSchema, sourceJsonPath);
         }
 
-        if (schema.getXml() != null) {
-            m.xmlPrefix = schema.getXml().getPrefix();
-            m.xmlNamespace = schema.getXml().getNamespace();
-            m.xmlName = schema.getXml().getName();
-        }
-        if (!ModelUtils.isAnyType(schema) && !ModelUtils.isTypeObjectSchema(schema) && !ModelUtils.isArraySchema(schema) && schema.get$ref() == null && schema.getEnum() != null && !schema.getEnum().isEmpty()) {
-            // TODO remove the anyType check here in the future ANyType models can have enums defined
-            m.isEnum = true;
-            // comment out below as allowableValues is not set in post processing model enum
-            m.allowableValues = new HashMap<>();
-            m.allowableValues.put("values", schema.getEnum());
-        }
-        if (!ModelUtils.isArraySchema(schema)) {
-            m.dataType = getSchemaType(schema);
-        }
-        if (!ModelUtils.isAnyType(schema) && Boolean.TRUE.equals(schema.getNullable())) {
-            m.isNullable = Boolean.TRUE;
-        }
-
-        m.setTypeProperties(schema);
-        m.setFormat(schema.getFormat());
-
-        Schema notSchema = schema.getNot();
-        if (notSchema != null) {
-            CodegenProperty notProperty = fromProperty(notSchema, sourceJsonPath + "/not");
-            m.setNot(notProperty);
-        }
-        List<Schema> allOfs = schema.getAllOf();
-        if (allOfs != null && !allOfs.isEmpty()) {
-             List<CodegenProperty> allOfProps = getComposedProperties(allOfs, "allOf", sourceJsonPath);
-             m.setAllOf(allOfProps);
-        }
-        List<Schema> anyOfs = schema.getAnyOf();
-        if (anyOfs != null && !anyOfs.isEmpty()) {
-            List<CodegenProperty> anyOfProps = getComposedProperties(anyOfs, "anyOf", sourceJsonPath);
-            m.setAnyOf(anyOfProps);
-        }
-        List<Schema> oneOfs = schema.getOneOf();
-        if (oneOfs != null && !oneOfs.isEmpty()) {
-            List<CodegenProperty> oneOfProps = getComposedProperties(oneOfs, "oneOf", sourceJsonPath);
-            m.setOneOf(oneOfProps);
-        }
-        if (ModelUtils.isArraySchema(schema)) {
-            CodegenProperty arrayProperty = fromProperty(schema, sourceJsonPath + "/items");
-            m.setItems(arrayProperty.items);
-            m.arrayModelType = arrayProperty.refClass;
-            addParentContainer(m, name, schema);
-        } else if (ModelUtils.isIntegerSchema(schema)) { // integer type
-            updateModelForInteger(m, schema);
-        } else if (ModelUtils.isStringSchema(schema)) {
-            updateModelForString(m, schema);
-        } else if (ModelUtils.isNumberSchema(schema)) {
-            updateModelForNumber(m, schema);
-        } else if (ModelUtils.isAnyType(schema)) {
-            updateModelForAnyType(m, schema, sourceJsonPath);
-        } else if (ModelUtils.isTypeObjectSchema(schema)) {
-            updateModelForObject(m, schema, sourceJsonPath);
-        } else if (!ModelUtils.isNullType(schema)) {
-            // referenced models here, component that refs another component which is a model
-            // if a component references a schema which is not a generated model, the refed schema will be loaded into
-            // schema by unaliasSchema and one of the above code paths will be taken
-            ;
-        }
-        if (schema.get$ref() != null) {
-            m.setRef(schema.get$ref());
-            // TODO set model refClass
-        }
-
-        if (schema instanceof ComposedSchema) {
-            updateModelForComposedSchema(m, schema, allDefinitions, sourceJsonPath);
+        if (!ModelUtils.isArraySchema(usedSchema)) {
+            m.dataType = getSchemaType(usedSchema);
         }
 
         // remove duplicated properties
@@ -2775,29 +2477,24 @@ public class DefaultCodegen implements CodegenConfig {
         if (m.discriminator != null) {
             String discPropName = m.discriminator.getPropertyBaseName();
             List<List<CodegenProperty>> listOLists = new ArrayList<>();
+            if (m.getProperties() != null) {
+                listOLists.add(m.getProperties().values().stream().collect(Collectors.toList()));
+            }
             if (m.getRequiredProperties() != null) {
                 listOLists.add(m.getRequiredProperties().values().stream().collect(Collectors.toList()));
             }
-            listOLists.add(m.vars);
-            listOLists.add(m.allVars);
+            if (m.getOptionalProperties() != null) {
+                listOLists.add(m.getOptionalProperties().values().stream().collect(Collectors.toList()));
+            }
             for (List<CodegenProperty> theseVars : listOLists) {
                 for (CodegenProperty requiredVar : theseVars) {
+                    if (requiredVar == null) {
+                        continue;
+                    }
                     if (requiredVar.name != null && discPropName.equals(requiredVar.name.getName())) {
                         requiredVar.isDiscriminator = true;
                     }
                 }
-            }
-        }
-
-        // post process model properties
-        if (m.vars != null) {
-            for (CodegenProperty prop : m.vars) {
-                postProcessModelProperty(m, prop);
-            }
-        }
-        if (m.allVars != null) {
-            for (CodegenProperty prop : m.allVars) {
-                postProcessModelProperty(m, prop);
             }
         }
 
@@ -3224,9 +2921,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param codegenModel The codegen representation of the schema.
      * @param schema       The input OAS schema.
      */
-    protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
-        addParentContainer(codegenModel, codegenModel.name.getName(), schema);
-    }
+    protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {}
 
     /**
      * Add schema's properties to "properties" and "required" list
@@ -4432,40 +4127,6 @@ public class DefaultCodegen implements CodegenConfig {
         co.operationIdSnakeCase = underscore(uniqueName);
         opList.add(co);
         co.baseName = tag;
-    }
-
-    /**
-     * Sets the value of the 'model.parent' property in CodegenModel, based on the value
-     * of the 'additionalProperties' keyword. Some language generator use class inheritance
-     * to implement additional properties. For example, in Java the generated model class
-     * has 'extends HashMap' to represent the additional properties.
-     * <p>
-     * TODO: it's not a good idea to use single class inheritance to implement
-     * additionalProperties. That may work for non-composed schemas, but that does not
-     * work for composed 'allOf' schemas. For example, in Java, if additionalProperties
-     * is set to true (which it should be by default, per OAS spec), then the generated
-     * code has extends HashMap. That wouldn't work for composed 'allOf' schemas.
-     *
-     * @param model  the codegen representation of the OAS schema.
-     * @param name   the name of the model.
-     * @param schema the input OAS schema.
-     */
-    protected void addParentContainer(CodegenModel model, String name, Schema schema) {
-        final CodegenProperty property = fromProperty(schema, null);
-        addImport(model, property.refClass);
-        model.parent = toInstantiationType(schema);
-        if (!addSchemaImportsFromV3SpecLocations) {
-            final String containerType = property.baseType;
-            final String instantiationType = instantiationTypes.get(containerType);
-            if (instantiationType != null) {
-                addImport(model, instantiationType);
-            }
-
-            final String mappedType = typeMapping.get(containerType);
-            if (mappedType != null) {
-                addImport(model, mappedType);
-            }
-        }
     }
 
     protected void addImports(CodegenModel m, JsonSchema type) {

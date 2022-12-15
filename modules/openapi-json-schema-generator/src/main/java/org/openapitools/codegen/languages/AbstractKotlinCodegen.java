@@ -1056,20 +1056,4 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     public GeneratorLanguage generatorLanguage() {
         return GeneratorLanguage.KOTLIN;
     }
-
-    @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
-        /**
-         * we have a custom version of this function so we only set isMap to true if
-         * ModelUtils.isMapSchema
-         * In other generators, isMap is true for all type object schemas
-         */
-        if (schema.getProperties() != null || schema.getRequired() != null && !(schema instanceof ComposedSchema)) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-    }
 }
