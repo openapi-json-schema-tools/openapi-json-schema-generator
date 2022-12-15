@@ -787,8 +787,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                             cm.getOptionalProperties().values().stream().collect(Collectors.toList()),
                             cm.getRequiredProperties().values().stream().collect(Collectors.toList()),
                             cm.readOnlyVars,
-                            cm.readWriteVars,
-                            cm.parentVars
+                            cm.readWriteVars
                     )
                     .flatMap(List::stream)
                     .collect(Collectors.toList());

@@ -29,22 +29,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 @JsonIgnoreProperties({"parentModel", "interfaceModels"})
 public class CodegenModel extends CodegenProperty {
-    // The parent model name from the schemas. The parent is determined by inspecting the allOf, anyOf and
-    // oneOf attributes in the OAS. First codegen inspects 'allOf', then 'anyOf', then 'oneOf'.
-    // If there are multiple object references in the attribute ('allOf', 'anyOf', 'oneOf'), and one of the
-    // object is a discriminator, that object is set as the parent. If no discriminator is specified,
-    // codegen returns the first one in the list, i.e. there is no obvious parent in the OpenAPI specification.
-    // When possible, the mustache templates should use 'allParents' to handle multiple parents.
-    public String parent, parentSchema;
     public List<String> interfaces;
-    // The list of parent model name from the schemas. In order of preference, the parent is obtained
-    // from the 'allOf' attribute, then 'anyOf', and finally 'oneOf'.
-    public List<String> allParents;
-
-    // References to parent and interface CodegenModels. Only set when code generator supports inheritance.
-    public CodegenModel parentModel;
     public List<CodegenModel> interfaceModels;
-    public List<CodegenModel> children;
 
     // The language-specific name of the class that implements this schema.
     // The name of the class is derived from the OpenAPI schema name with formatting rules applied.
@@ -59,7 +45,6 @@ public class CodegenModel extends CodegenProperty {
     public List<CodegenProperty> allVars = new ArrayList<>(); // all properties (with parent's properties)
     public List<CodegenProperty> readOnlyVars = new ArrayList<>(); // a list of read-only properties
     public List<CodegenProperty> readWriteVars = new ArrayList<>(); // a list of properties for read, write
-    public List<CodegenProperty> parentVars = new ArrayList<>();
     public List<CodegenProperty> nonNullableVars = new ArrayList<>(); // a list of non-nullable properties
 
     // Sorted sets of required parameters.
@@ -72,7 +57,6 @@ public class CodegenModel extends CodegenProperty {
      * Indicates the type has at least one optional property.
      */
     public boolean hasOptional;
-    public boolean hasChildren;
     public boolean hasOnlyReadOnly = true; // true if all properties are read-only
     public ExternalDocumentation externalDocumentation;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
@@ -94,14 +78,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setAllMandatory(Set<String> allMandatory) {
         this.allMandatory = allMandatory;
-    }
-
-    public List<String> getAllParents() {
-        return allParents;
-    }
-
-    public void setAllParents(List<String> allParents) {
-        this.allParents = allParents;
     }
 
     public List<CodegenProperty> getAllVars() {
@@ -126,14 +102,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setArrayModelType(String arrayModelType) {
         this.arrayModelType = arrayModelType;
-    }
-
-    public List<CodegenModel> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<CodegenModel> children) {
-        this.children = children;
     }
 
     public String getClassFilename() {
@@ -250,38 +218,6 @@ public class CodegenModel extends CodegenProperty {
         this.modelJson = modelJson;
     }
 
-    public String getParent() {
-        return parent;
-    }
-
-    public void setParent(String parent) {
-        this.parent = parent;
-    }
-
-    public CodegenModel getParentModel() {
-        return parentModel;
-    }
-
-    public void setParentModel(CodegenModel parentModel) {
-        this.parentModel = parentModel;
-    }
-
-    public String getParentSchema() {
-        return parentSchema;
-    }
-
-    public void setParentSchema(String parentSchema) {
-        this.parentSchema = parentSchema;
-    }
-
-    public List<CodegenProperty> getParentVars() {
-        return parentVars;
-    }
-
-    public void setParentVars(List<CodegenProperty> parentVars) {
-        this.parentVars = parentVars;
-    }
-
     public List<CodegenProperty> getReadOnlyVars() {
         return readOnlyVars;
     }
@@ -322,7 +258,6 @@ public class CodegenModel extends CodegenProperty {
                 isNullable == that.isNullable &&
                 hasOptional == that.hasOptional &&
                 isArray == that.isArray &&
-                hasChildren == that.hasChildren &&
                 isMap == that.isMap &&
                 deprecated == that.deprecated &&
                 hasOnlyReadOnly == that.hasOnlyReadOnly &&
@@ -348,13 +283,8 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(getRequiredProperties(), that.getRequiredProperties()) &&
                 Objects.equals(getOptionalProperties(), that.getOptionalProperties()) &&
                 Objects.equals(getProperties(), that.getProperties()) &&
-                Objects.equals(parent, that.parent) &&
-                Objects.equals(parentSchema, that.parentSchema) &&
                 Objects.equals(interfaces, that.interfaces) &&
-                Objects.equals(allParents, that.allParents) &&
-                Objects.equals(parentModel, that.parentModel) &&
                 Objects.equals(interfaceModels, that.interfaceModels) &&
-                Objects.equals(children, that.children) &&
                 Objects.equals(getAllOf(), that.getAllOf()) &&
                 Objects.equals(getAnyOf(), that.getAnyOf()) &&
                 Objects.equals(getOneOf(), that.getOneOf()) &&
@@ -379,7 +309,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(nonNullableVars, that.nonNullableVars) &&
                 Objects.equals(readOnlyVars, that.readOnlyVars) &&
                 Objects.equals(readWriteVars, that.readWriteVars) &&
-                Objects.equals(parentVars, that.parentVars) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(mandatory, that.mandatory) &&
                 Objects.equals(allMandatory, that.allMandatory) &&
@@ -402,16 +331,16 @@ public class CodegenModel extends CodegenProperty {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getParent(), getParentSchema(), getInterfaces(), getAllParents(), getParentModel(),
-                getInterfaceModels(), getChildren(), getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
+        return Objects.hash(getInterfaces(),
+                getInterfaceModels(), getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
                 getDescription(), getClassVarName(), getModelJson(), getDataType(), getXmlPrefix(), getXmlNamespace(),
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 getArrayModelType(), isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
                 getAllVars(), getNonNullableVars(), getReadOnlyVars(), getReadWriteVars(),
-                getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
+                getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
                 isEmptyVars(), hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
-                hasChildren, isMap, deprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
+                isMap, deprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
                 getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
                 getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(),
@@ -424,13 +353,8 @@ public class CodegenModel extends CodegenProperty {
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
-        sb.append(", parent='").append(parent).append('\'');
-        sb.append(", parentSchema='").append(parentSchema).append('\'');
         sb.append(", interfaces=").append(interfaces);
         sb.append(", interfaceModels=").append(interfaceModels !=null ? interfaceModels.size() : "[]");
-        sb.append(", allParents=").append(allParents);
-        sb.append(", parentModel=").append(parentModel);
-        sb.append(", children=").append(children != null ? children.size() : "[]");
         sb.append(", classname='").append(classname).append('\'');
         sb.append(", classVarName='").append(classVarName).append('\'');
         sb.append(", modelJson='").append(modelJson).append('\'');
@@ -443,7 +367,6 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", nonNullableVars=").append(nonNullableVars);
         sb.append(", readOnlyVars=").append(readOnlyVars);
         sb.append(", readWriteVars=").append(readWriteVars);
-        sb.append(", parentVars=").append(parentVars);
         sb.append(", mandatory=").append(mandatory);
         sb.append(", allMandatory=").append(allMandatory);
         sb.append(", imports=").append(imports);
@@ -451,7 +374,6 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", hasMoreModels=").append(hasMoreModels);
         sb.append(", hasEnums=").append(hasEnums);
         sb.append(", hasOptional=").append(hasOptional);
-        sb.append(", hasChildren=").append(hasChildren);
         sb.append(", hasOnlyReadOnly=").append(hasOnlyReadOnly);
         sb.append(", externalDocumentation=").append(externalDocumentation);
         sb.append(", getIsAnyType=").append(getIsAnyType());
@@ -492,7 +414,6 @@ public class CodegenModel extends CodegenProperty {
     public void removeAllDuplicatedProperty() {
         // remove duplicated properties
         vars = removeDuplicatedProperty(vars);
-        parentVars = removeDuplicatedProperty(parentVars);
         allVars = removeDuplicatedProperty(allVars);
         nonNullableVars = removeDuplicatedProperty(nonNullableVars);
         readOnlyVars = removeDuplicatedProperty(readOnlyVars);

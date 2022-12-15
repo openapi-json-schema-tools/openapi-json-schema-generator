@@ -526,9 +526,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         // Fix up all parent and interface CodegenModel references.
         for (CodegenModel cm : allModels.values()) {
-            if (cm.getParent() != null) {
-                cm.setParentModel(allModels.get(cm.getParent()));
-            }
             if (cm.getInterfaces() != null && !cm.getInterfaces().isEmpty()) {
                 cm.setInterfaceModels(new ArrayList<>(cm.getInterfaces().size()));
                 for (String intf : cm.getInterfaces()) {
@@ -536,30 +533,6 @@ public class DefaultCodegen implements CodegenConfig {
                     if (intfModel != null) {
                         cm.getInterfaceModels().add(intfModel);
                     }
-                }
-            }
-        }
-
-        // Let parent know about all its children
-        for (Map.Entry<String, CodegenModel> allModelsEntry : allModels.entrySet()) {
-            CodegenModel cm = allModelsEntry.getValue();
-            CodegenModel parent = allModels.get(cm.getParent());
-            // if a discriminator exists on the parent, don't add this child to the inheritance hierarchy
-            // TODO Determine what to do if the parent discriminator name == the grandparent discriminator name
-            while (parent != null) {
-                if (parent.getChildren() == null) {
-                    parent.setChildren(new ArrayList<>());
-                }
-                parent.getChildren().add(cm);
-                parent.hasChildren = true;
-                Schema parentSchema = this.openAPI.getComponents().getSchemas().get(parent.name.getName());
-                if (parentSchema == null) {
-                    throw new NullPointerException(parent.name+" in "+this.openAPI.getComponents().getSchemas());
-                }
-                if (parentSchema.getDiscriminator() == null) {
-                    parent = allModels.get(parent.getParent());
-                } else {
-                    parent = null;
                 }
             }
         }
@@ -618,10 +591,6 @@ public class DefaultCodegen implements CodegenConfig {
                 for (CodegenProperty var : cm.getOptionalProperties().values()) {
                     updateCodegenPropertyEnum(var);
                 }
-            }
-
-            for (CodegenProperty var : cm.parentVars) {
-                updateCodegenPropertyEnum(var);
             }
 
             for (CodegenProperty var : cm.readOnlyVars) {
