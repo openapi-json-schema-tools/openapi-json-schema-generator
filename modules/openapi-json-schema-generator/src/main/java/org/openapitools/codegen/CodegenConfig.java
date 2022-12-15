@@ -145,7 +145,7 @@ public interface CodegenConfig {
 
     void setOutputDir(String dir);
 
-    CodegenModel fromModel(String name, Schema schema);
+    CodegenModel fromModel(Schema schema, String sourceJsonPath);
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 

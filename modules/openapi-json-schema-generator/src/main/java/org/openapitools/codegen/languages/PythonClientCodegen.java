@@ -939,7 +939,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         CodegenModel codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
-            codegenModel = fromModel(name, schema);
+            codegenModel = fromModel(schema, "#/components/schemas/"+name);
         }
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
@@ -1221,19 +1221,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return value;
     }
 
-    /**
-     * Convert OAS Model object to Codegen Model object
-     * We have a custom version of this method so we can:
-     * - set the correct regex values for requiredVars + optionalVars
-     * - set model.defaultValue and model.hasRequired per the three use cases defined in this method
-     *
-     * @param name the name of the model
-     * @param sc   OAS Model object
-     * @return Codegen Model object
-     */
     @Override
-    public CodegenModel fromModel(String name, Schema sc) {
-        CodegenModel cm = super.fromModel(name, sc);
+    public CodegenModel fromModel(Schema sc, String sourceJsonPath) {
+        CodegenModel cm = super.fromModel(sc, sourceJsonPath);
         if (sc.getPattern() != null) {
             postProcessPattern(sc.getPattern(), cm.vendorExtensions);
             String pattern = (String) cm.vendorExtensions.get("x-regex");

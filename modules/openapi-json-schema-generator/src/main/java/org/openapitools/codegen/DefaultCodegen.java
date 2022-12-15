@@ -2631,12 +2631,18 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Convert OAS Model object to Codegen Model object.
      *
-     * @param name   the name of the model
      * @param schema OAS Model object
+     * @param sourceJsonPath   the path to the model schem
      * @return Codegen Model object
      */
     @Override
-    public CodegenModel fromModel(String name, Schema schema) {
+    public CodegenModel fromModel(Schema schema, String sourceJsonPath) {
+        String[] refPieces = sourceJsonPath.split("/");
+        if (!sourceJsonPath.startsWith("#/components/models/") || refPieces.length != 4) {
+            throw new RuntimeException("Invalid sourceJsonPath "+ sourceJsonPath);
+        }
+        String name = refPieces[3];
+
         Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
         if (typeAliases == null) {
             // Only do this once during first call
@@ -2644,6 +2650,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         CodegenModel m = CodegenModelFactory.newInstance(CodegenModelType.MODEL);
+        m.setModulePath(toModulePath(name, "schemas"));
+        String refModule = toRefModule(sourceJsonPath, "schemas");
+        m.setRefModule(refModule);
+
         if (schema.equals(trueSchema)) {
             m.setIsBooleanSchemaTrue(true);
         } else if (schema.equals(falseSchema)) {
@@ -2677,7 +2687,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         m.isAlias = (typeAliases.containsKey(name)
                 || isAliasOfSimpleTypes(schema)); // check if the unaliased schema is an alias of simple OAS types
-        String sourceJsonPath = "#/components/schemas/" + name;
         m.setDiscriminator(createDiscriminator(name, schema, this.openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
             m.addDiscriminatorMappedModelsImports();
@@ -5497,7 +5506,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenModel codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
-            codegenModel = fromModel(name, schema);
+            codegenModel = fromModel(schema, "#/components/schemas/"+name);
         }
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {

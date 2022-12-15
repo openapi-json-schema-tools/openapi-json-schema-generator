@@ -1857,10 +1857,11 @@ public class DefaultGenerator implements Generator {
             Schema schema = definitionsEntry.getValue();
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
-            CodegenModel cm = config.fromModel(schemaName, schema);
+            String sourceJsonPath = "#/components/schemas/"+schemaName;
+            CodegenModel cm = config.fromModel(schema, sourceJsonPath);
             ModelMap mo = new ModelMap();
             mo.setModel(cm);
-            mo.put("importPath", config.toModelImport(config.toRefClass("#/components/schemas/"+schemaName, "")));
+            mo.put("importPath", config.toModelImport(config.toRefClass(sourceJsonPath, "")));
             modelMaps.add(mo);
 
             cm.removeSelfReferenceImport();
