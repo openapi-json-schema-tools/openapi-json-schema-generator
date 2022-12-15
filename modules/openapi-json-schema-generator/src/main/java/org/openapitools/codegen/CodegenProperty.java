@@ -778,10 +778,8 @@ public class CodegenProperty implements Cloneable, JsonSchema {
 
     public void setRefModule(String refModule) { this.refModule=refModule; }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("CodegenProperty{");
-        sb.append("openApiType='").append(openApiType).append('\'');
+    protected void addInstanceInfo(StringBuilder sb) {
+        sb.append(", openApiType='").append(openApiType).append('\'');
         sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", name='").append(name).append('\'');
@@ -862,7 +860,11 @@ public class CodegenProperty implements Cloneable, JsonSchema {
         sb.append(", allOf=").append(allOf);
         sb.append(", anyOf=").append(anyOf);
         sb.append(", oneOf=").append(oneOf);
-        sb.append(", not=").append(not);
+        sb.append(", not=").append(not);    }
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenProperty{");
+        addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
     }

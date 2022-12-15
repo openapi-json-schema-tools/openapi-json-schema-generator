@@ -2101,7 +2101,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                 if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                     LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI, sourceJsonPath));
+                    m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
                     if (!this.getLegacyDiscriminatorBehavior()) {
                         m.addDiscriminatorMappedModelsImports();
                     }

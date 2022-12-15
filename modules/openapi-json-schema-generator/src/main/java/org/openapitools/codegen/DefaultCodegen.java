@@ -469,23 +469,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     @SuppressWarnings("static-method")
     public Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs) {
-        if (this.useOneOfInterfaces) {
-            // First, add newly created oneOf interfaces
-            for (CodegenModel cm : addOneOfInterfaces) {
-                ModelMap modelMapValue = new ModelMap(additionalProperties());
-                modelMapValue.setModel(cm);
-
-                List<Map<String, String>> importsValue = new ArrayList<>();
-                ModelsMap objsValue = new ModelsMap();
-                objsValue.setModels(Collections.singletonList(modelMapValue));
-                objsValue.put("package", modelPackage());
-                objsValue.setImports(importsValue);
-                objsValue.put("classname", cm.classname);
-                objsValue.putAll(additionalProperties);
-                objs.put(cm.name, objsValue);
-            }
-        }
-
         return objs;
     }
 
@@ -2381,7 +2364,7 @@ public class DefaultCodegen implements CodegenConfig {
                 for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                     if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                         LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                        m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI, sourceJsonPath));
+                        m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
                         if (!this.getLegacyDiscriminatorBehavior()) {
                             m.addDiscriminatorMappedModelsImports();
                         }
@@ -2680,11 +2663,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         m.setModulePath(toModulePath(name, "schemas"));
-        if (reservedWords.contains(name)) {
-            m.name = escapeReservedWord(name);
-        } else {
-            m.name = name;
-        }
+        m.name = getKey(name);
         m.title = escapeText(schema.getTitle());
         m.description = escapeText(schema.getDescription());
         m.unescapedDescription = schema.getDescription();
@@ -2705,7 +2684,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (schema.getDeprecated() != null) {
-            m.isDeprecated = schema.getDeprecated();
+            m.deprecated = schema.getDeprecated();
         }
 
         if (schema.getXml() != null) {
@@ -2838,9 +2817,6 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenModel m = null;
         if (property instanceof CodegenModel) {
             m = (CodegenModel) property;
-        }
-        if (m != null && isAdditionalPropertiesTrue) {
-            m.isAdditionalPropertiesTrue = true;
         }
         if (ModelUtils.isComposedSchema(schema) && !supportsAdditionalPropertiesWithComposedSchema) {
             return;
@@ -3240,7 +3216,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param schema       The input OAS schema.
      */
     protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
-        addParentContainer(codegenModel, codegenModel.name, schema);
+        addParentContainer(codegenModel, codegenModel.name.getName(), schema);
     }
 
     /**
