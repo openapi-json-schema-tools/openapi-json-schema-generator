@@ -2388,7 +2388,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         m.classname = toModelName(name);
         m.classVarName = toVarName(name);
-        m.classFilename = toModelFilename(name);
         m.modelJson = Json.pretty(usedSchema);
         m.externalDocumentation = usedSchema.getExternalDocs();
         m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
@@ -5281,6 +5280,8 @@ public class DefaultCodegen implements CodegenConfig {
                 return toHeaderFilename(refPieces[3]);
             case "parameters":
                 return toParameterFilename(refPieces[3]);
+            case "schemas":
+                return toModelFilename(refPieces[3]);
         }
         return null;
     }

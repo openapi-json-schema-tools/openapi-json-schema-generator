@@ -7,7 +7,7 @@ import unittest
 import {{packageName}}
 {{#each models}}
 {{#with model}}
-from {{packageName}}.{{modelPackage}}.{{classFilename}} import {{classname}}
+from {{packageName}}.{{modelPackage}}.{{refModule}} import {{classname}}
 from {{packageName}} import configuration
 
 

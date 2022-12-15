@@ -13,6 +13,6 @@
 
 {{#each models}}
 {{#with model}}
-from {{packageName}}.{{modelPackage}}.{{classFilename}} import {{classname}}
+from {{packageName}}.{{modelPackage}}.{{refModule}} import {{classname}}
 {{/with}}
 {{/each}}
