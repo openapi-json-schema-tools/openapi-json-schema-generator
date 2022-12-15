@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InvalidStringValueForDefault**](../../../components/schema/invalid_string_value_for_default.InvalidStringValueForDefault.md) |  | 
+[**invalid_string_value_for_default.InvalidStringValueForDefault**](../../../components/schema/invalid_string_value_for_default.InvalidStringValueForDefault.md) |  | 
 
 
 ### Authorization

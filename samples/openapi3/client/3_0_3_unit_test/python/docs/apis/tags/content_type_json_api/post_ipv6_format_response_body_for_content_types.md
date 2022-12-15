@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv6Format**](../../../components/schema/ipv6_format.Ipv6Format.md) |  | 
+[**ipv6_format.Ipv6Format**](../../../components/schema/ipv6_format.Ipv6Format.md) |  | 
 
 
 ### Authorization

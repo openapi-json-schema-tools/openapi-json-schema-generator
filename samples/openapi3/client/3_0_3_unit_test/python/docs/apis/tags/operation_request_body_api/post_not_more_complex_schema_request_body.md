@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotMoreComplexSchema**](../../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
+[**not_more_complex_schema.NotMoreComplexSchema**](../../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
 
 
 ### Return Types, Responses

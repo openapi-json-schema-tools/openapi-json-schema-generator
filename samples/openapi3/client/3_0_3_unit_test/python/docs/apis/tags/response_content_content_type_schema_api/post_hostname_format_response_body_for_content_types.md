@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HostnameFormat**](../../../components/schema/hostname_format.HostnameFormat.md) |  | 
+[**hostname_format.HostnameFormat**](../../../components/schema/hostname_format.HostnameFormat.md) |  | 
 
 
 ### Authorization

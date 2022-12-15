@@ -35,12 +35,12 @@ class AdditionalpropertiesShouldNotLookInApplicators(
 
     class MetaOapg:
         # any type
-        additional_properties = schemas.BoolSchema
+        additionalProperties = schemas.BoolSchema
         
         class all_of:
             
             
-            class all_of_0(
+            class allOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -61,10 +61,15 @@ class AdditionalpropertiesShouldNotLookInApplicators(
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.properties.foo, schemas.Unset]: ...
@@ -72,9 +77,14 @@ class AdditionalpropertiesShouldNotLookInApplicators(
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -82,7 +92,7 @@ class AdditionalpropertiesShouldNotLookInApplicators(
                     foo: typing.Union[MetaOapg.properties.foo, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_0':
+                ) -> 'allOf_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -91,22 +101,22 @@ class AdditionalpropertiesShouldNotLookInApplicators(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                allOf_0,
             ]
 
     
-    def __getitem__(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+    def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: typing.Union[str, ]) -> MetaOapg.additional_properties:
+    def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
         return super().get_item_oapg(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.additional_properties, bool, ],
+        **kwargs: typing.Union[MetaOapg.additionalProperties, bool, ],
     ) -> 'AdditionalpropertiesShouldNotLookInApplicators':
         return super().__new__(
             cls,

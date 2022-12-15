@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInProperty**](../../../components/schema/ref_in_property.RefInProperty.md) |  | 
+[**ref_in_property.RefInProperty**](../../../components/schema/ref_in_property.RefInProperty.md) |  | 
 
 
 ### Authorization

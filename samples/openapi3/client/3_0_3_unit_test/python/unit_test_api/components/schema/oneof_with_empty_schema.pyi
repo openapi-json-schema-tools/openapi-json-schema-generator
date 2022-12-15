@@ -37,11 +37,11 @@ class OneofWithEmptySchema(
         # any type
         
         class one_of:
-            one_of_0 = schemas.NumberSchema
-            one_of_1 = schemas.AnyTypeSchema
+            oneOf_0 = schemas.NumberSchema
+            oneOf_1 = schemas.AnyTypeSchema
             classes = [
-                one_of_0,
-                one_of_1,
+                oneOf_0,
+                oneOf_1,
             ]
 
 

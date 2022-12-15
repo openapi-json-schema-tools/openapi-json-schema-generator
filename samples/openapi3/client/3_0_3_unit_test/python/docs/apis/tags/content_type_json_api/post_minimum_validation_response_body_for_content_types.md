@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidation**](../../../components/schema/minimum_validation.MinimumValidation.md) |  | 
+[**minimum_validation.MinimumValidation**](../../../components/schema/minimum_validation.MinimumValidation.md) |  | 
 
 
 ### Authorization

@@ -39,7 +39,7 @@ class AllofSimpleTypes(
         class all_of:
             
             
-            class all_of_0(
+            class allOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -54,7 +54,7 @@ class AllofSimpleTypes(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_0':
+                ) -> 'allOf_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -63,7 +63,7 @@ class AllofSimpleTypes(
                     )
             
             
-            class all_of_1(
+            class allOf_1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -78,7 +78,7 @@ class AllofSimpleTypes(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_1':
+                ) -> 'allOf_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -86,8 +86,8 @@ class AllofSimpleTypes(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
+                allOf_0,
+                allOf_1,
             ]
 
 

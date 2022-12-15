@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../../components/schema/model_not.ModelNot.md) |  | 
+[**model_not.ModelNot**](../../../components/schema/model_not.ModelNot.md) |  | 
 
 
 ### Return Types, Responses

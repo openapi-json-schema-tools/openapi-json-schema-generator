@@ -37,11 +37,11 @@ class AllofWithTheFirstEmptySchema(
         # any type
         
         class all_of:
-            all_of_0 = schemas.AnyTypeSchema
-            all_of_1 = schemas.NumberSchema
+            allOf_0 = schemas.AnyTypeSchema
+            allOf_1 = schemas.NumberSchema
             classes = [
-                all_of_0,
-                all_of_1,
+                allOf_0,
+                allOf_1,
             ]
 
 
