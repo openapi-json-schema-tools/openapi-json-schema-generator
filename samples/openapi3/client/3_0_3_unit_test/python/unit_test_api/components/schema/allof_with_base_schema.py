@@ -48,7 +48,7 @@ class AllofWithBaseSchema(
         class all_of:
             
             
-            class all_of_0(
+            class allOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -74,10 +74,15 @@ class AllofWithBaseSchema(
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
@@ -85,9 +90,14 @@ class AllofWithBaseSchema(
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["foo", ], str]):
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -95,7 +105,7 @@ class AllofWithBaseSchema(
                     foo: typing.Union[MetaOapg.properties.foo, str, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_0':
+                ) -> 'allOf_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -105,7 +115,7 @@ class AllofWithBaseSchema(
                     )
             
             
-            class all_of_1(
+            class allOf_1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -131,10 +141,15 @@ class AllofWithBaseSchema(
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["baz", ], str]):
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["baz"],
+                        str
+                    ]
+                ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
@@ -142,9 +157,14 @@ class AllofWithBaseSchema(
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["baz", ], str]):
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["baz"],
+                        str
+                    ]
+                ):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -152,7 +172,7 @@ class AllofWithBaseSchema(
                     baz: typing.Union[MetaOapg.properties.baz, None, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_1':
+                ) -> 'allOf_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -161,8 +181,8 @@ class AllofWithBaseSchema(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
+                allOf_0,
+                allOf_1,
             ]
 
     
@@ -174,10 +194,15 @@ class AllofWithBaseSchema(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["bar", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
@@ -185,9 +210,14 @@ class AllofWithBaseSchema(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["bar", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

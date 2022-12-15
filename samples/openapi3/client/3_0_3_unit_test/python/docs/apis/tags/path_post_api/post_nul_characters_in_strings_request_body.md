@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NulCharactersInStrings**](../../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
+[**nul_characters_in_strings.NulCharactersInStrings**](../../../components/schema/nul_characters_in_strings.NulCharactersInStrings.md) |  | 
 
 
 ### Return Types, Responses

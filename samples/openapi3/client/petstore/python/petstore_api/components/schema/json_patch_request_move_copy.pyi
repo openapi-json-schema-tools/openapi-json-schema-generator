@@ -35,9 +35,9 @@ class JSONPatchRequestMoveCopy(
 
     class MetaOapg:
         required = {
+            "from",
             "op",
             "path",
-            "from",
         }
         
         class properties:
@@ -61,10 +61,13 @@ class JSONPatchRequestMoveCopy(
                 "path": path,
                 "op": op,
             }
-        additional_properties = schemas.NotAnyTypeSchema
+        additionalProperties = schemas.NotAnyTypeSchema
     
     op: MetaOapg.properties.op
     path: MetaOapg.properties.path
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["from"]) -> MetaOapg.properties._from: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
@@ -72,12 +75,19 @@ class JSONPatchRequestMoveCopy(
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["from"]) -> MetaOapg.properties._from: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["op"], typing_extensions.Literal["path"], typing_extensions.Literal["from"], ]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["from"],
+            typing_extensions.Literal["op"],
+            typing_extensions.Literal["path"],
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> MetaOapg.properties._from: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
@@ -85,10 +95,14 @@ class JSONPatchRequestMoveCopy(
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
     
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> MetaOapg.properties._from: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["op"], typing_extensions.Literal["path"], typing_extensions.Literal["from"], ]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["from"],
+            typing_extensions.Literal["op"],
+            typing_extensions.Literal["path"],
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

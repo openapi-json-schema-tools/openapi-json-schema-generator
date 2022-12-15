@@ -40,9 +40,9 @@ class AbstractStepMessage(
             frozendict.frozendict,
         }
         required = {
-            "sequenceNumber",
             "description",
             "discriminator",
+            "sequenceNumber",
         }
         
         @staticmethod
@@ -62,53 +62,81 @@ class AbstractStepMessage(
         class any_of:
         
             @staticmethod
-            def any_of_0() -> typing.Type['AbstractStepMessage']:
-                return AbstractStepMessage
+            def anyOf_0() -> typing.Type['abstract_step_message.AbstractStepMessage']:
+                return abstract_step_message.AbstractStepMessage
             classes = [
-                any_of_0,
+                anyOf_0,
             ]
 
     
-    sequenceNumber: schemas.AnyTypeSchema
     description: schemas.AnyTypeSchema
     discriminator: MetaOapg.properties.discriminator
+    sequenceNumber: schemas.AnyTypeSchema
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.properties.discriminator: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["discriminator", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["description"],
+            typing_extensions.Literal["discriminator"],
+            typing_extensions.Literal["sequenceNumber"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.properties.discriminator: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["discriminator", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["description"],
+            typing_extensions.Literal["discriminator"],
+            typing_extensions.Literal["sequenceNumber"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         description: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         discriminator: typing.Union[MetaOapg.properties.discriminator, str, ],
+        sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'AbstractStepMessage':
         return super().__new__(
             cls,
             *_args,
-            sequenceNumber=sequenceNumber,
             description=description,
             discriminator=discriminator,
+            sequenceNumber=sequenceNumber,
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import abstract_step_message

@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MaxitemsValidation**](../../../components/schema/maxitems_validation.MaxitemsValidation.md) |  | 
+[**maxitems_validation.MaxitemsValidation**](../../../components/schema/maxitems_validation.MaxitemsValidation.md) |  | 
 
 
 ### Return Types, Responses

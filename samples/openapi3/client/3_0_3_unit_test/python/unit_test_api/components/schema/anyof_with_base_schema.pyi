@@ -41,7 +41,7 @@ class AnyofWithBaseSchema(
         class any_of:
             
             
-            class any_of_0(
+            class anyOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -55,7 +55,7 @@ class AnyofWithBaseSchema(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'any_of_0':
+                ) -> 'anyOf_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -64,7 +64,7 @@ class AnyofWithBaseSchema(
                     )
             
             
-            class any_of_1(
+            class anyOf_1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -78,7 +78,7 @@ class AnyofWithBaseSchema(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'any_of_1':
+                ) -> 'anyOf_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -86,8 +86,8 @@ class AnyofWithBaseSchema(
                         **kwargs,
                     )
             classes = [
-                any_of_0,
-                any_of_1,
+                anyOf_0,
+                anyOf_1,
             ]
 
 

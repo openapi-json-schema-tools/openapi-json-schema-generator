@@ -1,6 +1,6 @@
 
 
-class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/if}}(
+class {{#if this.classname}}{{classname}}{{else}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}{{/if}}(
 {{#if getIsAnyType}}
     {{#if getFormat}}
     {{> model_templates/format_base }}
@@ -43,7 +43,7 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
 {{#if getItems}}
         {{> model_templates/list_partial }}
 {{/if}}
-{{#or additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars}}
+{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
         {{> model_templates/dict_partial }}
 {{/or}}
 {{#unless isStub}}
@@ -51,17 +51,13 @@ class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}
         {{> model_templates/validations }}
 {{/if}}
 {{/unless}}
-{{#if composedSchemas}}
+{{#or allOf anyOf oneOf not}}
         {{> model_templates/composed_schemas }}
-{{/if}}
+{{/or}}
 {{#if isEnum}}
     {{> model_templates/enums }}
 {{/if}}
 
     {{> model_templates/property_type_hints }}
 
-{{#if additionalProperties}}
     {{> model_templates/new }}
-{{else}}
-    {{> model_templates/new addPropsUnset=true }}
-{{/if}}

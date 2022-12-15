@@ -41,7 +41,7 @@ class OneofWithRequired(
         class one_of:
             
             
-            class one_of_0(
+            class oneOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -56,22 +56,65 @@ class OneofWithRequired(
                 
                 bar: schemas.AnyTypeSchema
                 foo: schemas.AnyTypeSchema
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["bar"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["foo"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["bar"],
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["bar"],
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    bar: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    foo: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'one_of_0':
+                ) -> 'oneOf_0':
                     return super().__new__(
                         cls,
                         *_args,
+                        bar=bar,
+                        foo=foo,
                         _configuration=_configuration,
                         **kwargs,
                     )
             
             
-            class one_of_1(
+            class oneOf_1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -79,29 +122,72 @@ class OneofWithRequired(
                 class MetaOapg:
                     # any type
                     required = {
-                        "foo",
                         "baz",
+                        "foo",
                     }
             
                 
-                foo: schemas.AnyTypeSchema
                 baz: schemas.AnyTypeSchema
+                foo: schemas.AnyTypeSchema
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["baz"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["foo"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+                
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["baz"],
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
+                    # dict_instance[name] accessor
+                    return super().__getitem__(name)
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
+                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["baz"],
+                        typing_extensions.Literal["foo"],
+                        str
+                    ]
+                ):
+                    return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    baz: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    foo: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'one_of_1':
+                ) -> 'oneOf_1':
                     return super().__new__(
                         cls,
                         *_args,
+                        baz=baz,
+                        foo=foo,
                         _configuration=_configuration,
                         **kwargs,
                     )
             classes = [
-                one_of_0,
-                one_of_1,
+                oneOf_0,
+                oneOf_1,
             ]
 
 

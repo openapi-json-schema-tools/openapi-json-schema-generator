@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofCombinedWithAnyofOneof**](../../../components/schema/allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.md) |  | 
+[**allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof**](../../../components/schema/allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.md) |  | 
 
 
 ### Return Types, Responses

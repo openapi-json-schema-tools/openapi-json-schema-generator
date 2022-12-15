@@ -1,19 +1,19 @@
-{{#each getRequiredVarsMap}}
+{{#each getRequiredProperties}}
+{{#if @key.nameIsValid}}
 {{#with this}}
-{{#unless nameInSnakeCase}}
 {{#if refClass}}
-{{baseName}}: '{{refClass}}'
+{{@key.getName}}: '{{refClass}}'
 {{else}}
-{{#if schemaIsFromAdditionalProperties}}
-{{#if addPropsUnset}}
-{{baseName}}: schemas.AnyTypeSchema
-{{else}}
-{{baseName}}: MetaOapg.additional_properties
+    {{#if name}}
+        {{#if schemaIsFromAdditionalProperties}}
+{{@key.getName}}: MetaOapg.{{name.getName}}
+        {{else}}
+{{@key.getName}}: MetaOapg.properties.{{name.getName}}
+        {{/if}}
+    {{else}}
+{{@key.getName}}: schemas.AnyTypeSchema
+    {{/if}}
 {{/if}}
-{{else}}
-{{baseName}}: MetaOapg.properties.{{baseName}}
-{{/if}}
-{{/if}}
-{{/unless}}
 {{/with}}
+{{/if}}
 {{/each}}

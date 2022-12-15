@@ -37,11 +37,16 @@ class Pet(
 
     class MetaOapg:
         required = {
-            "photoUrls",
             "name",
+            "photoUrls",
         }
         
         class properties:
+            id = schemas.Int64Schema
+        
+            @staticmethod
+            def category() -> typing.Type['category.Category']:
+                return category.Category
             name = schemas.StrSchema
             
             
@@ -67,11 +72,6 @@ class Pet(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
-            id = schemas.Int64Schema
-        
-            @staticmethod
-            def category() -> typing.Type['category.Category']:
-                return category.Category
             
             
             class tags(
@@ -117,16 +117,16 @@ class Pet(
                 def SOLD(cls):
                     return cls("sold")
             __annotations__ = {
-                "name": name,
-                "photoUrls": photoUrls,
                 "id": id,
                 "category": category,
+                "name": name,
+                "photoUrls": photoUrls,
                 "tags": tags,
                 "status": status,
             }
     
-    photoUrls: MetaOapg.properties.photoUrls
     name: MetaOapg.properties.name
+    photoUrls: MetaOapg.properties.photoUrls
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -149,10 +149,20 @@ class Pet(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "photoUrls", "id", "category", "tags", "status", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["name"],
+            typing_extensions.Literal["photoUrls"],
+            typing_extensions.Literal["id"],
+            typing_extensions.Literal["category"],
+            typing_extensions.Literal["tags"],
+            typing_extensions.Literal["status"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -175,15 +185,25 @@ class Pet(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "photoUrls", "id", "category", "tags", "status", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["name"],
+            typing_extensions.Literal["photoUrls"],
+            typing_extensions.Literal["id"],
+            typing_extensions.Literal["category"],
+            typing_extensions.Literal["tags"],
+            typing_extensions.Literal["status"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        photoUrls: typing.Union[MetaOapg.properties.photoUrls, list, tuple, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
+        photoUrls: typing.Union[MetaOapg.properties.photoUrls, list, tuple, ],
         id: typing.Union[MetaOapg.properties.id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
         tags: typing.Union[MetaOapg.properties.tags, list, tuple, schemas.Unset] = schemas.unset,
@@ -194,8 +214,8 @@ class Pet(
         return super().__new__(
             cls,
             *_args,
-            photoUrls=photoUrls,
             name=name,
+            photoUrls=photoUrls,
             id=id,
             category=category,
             tags=tags,

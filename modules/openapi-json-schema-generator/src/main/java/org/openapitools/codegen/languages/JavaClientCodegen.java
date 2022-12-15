@@ -869,7 +869,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             model.imports.remove("ToStringSerializer");
         }
 
-        if ("set".equals(property.containerType) && !JACKSON.equals(serializationLibrary)) {
+        if (property.isArray && property.getUniqueItems() && !JACKSON.equals(serializationLibrary)) {
             // clean-up
             model.imports.remove("JsonDeserialize");
             property.vendorExtensions.remove("x-setter-extra-annotation");
@@ -921,18 +921,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                 boolean addImports = false;
 
                 for (CodegenProperty var : cm.vars) {
-                    if (this.openApiNullable) {
-                        boolean isOptionalNullable = Boolean.FALSE.equals(var.required) && Boolean.TRUE.equals(var.isNullable);
-                        // only add JsonNullable and related imports to optional and nullable values
-                        addImports |= isOptionalNullable;
-                        var.getVendorExtensions().put("x-is-jackson-optional-nullable", isOptionalNullable);
-                        findByName(var.name, cm.readOnlyVars)
-                            .ifPresent(p -> p.getVendorExtensions().put("x-is-jackson-optional-nullable", isOptionalNullable));
-                    }
-
                     if (Boolean.TRUE.equals(var.getVendorExtensions().get("x-enum-as-string"))) {
-                        // treat enum string as just string
-                        var.datatypeWithEnum = var.dataType;
 
                         if (StringUtils.isNotEmpty(var.defaultValue)) { // has default value
                             String defaultValue = var.defaultValue.substring(var.defaultValue.lastIndexOf('.') + 1);
@@ -976,19 +965,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             CodegenModel cm = mo.getModel();
 
             cm.getVendorExtensions().putIfAbsent("x-implements", new ArrayList<String>());
-            if (JERSEY2.equals(getLibrary()) || JERSEY3.equals(getLibrary()) || NATIVE.equals(getLibrary()) || OKHTTP_GSON.equals(getLibrary())) {
-                if (cm.oneOf != null && !cm.oneOf.isEmpty() && cm.oneOf.contains("ModelNull")) {
-                    // if oneOf contains "null" type
-                    cm.isNullable = true;
-                    cm.oneOf.remove("ModelNull");
-                }
-
-                if (cm.anyOf != null && !cm.anyOf.isEmpty() && cm.anyOf.contains("ModelNull")) {
-                    // if anyOf contains "null" type
-                    cm.isNullable = true;
-                    cm.anyOf.remove("ModelNull");
-                }
-            }
             if (this.parcelableModel) {
                 ((ArrayList<String>) cm.getVendorExtensions().get("x-implements")).add("Parcelable");
             }

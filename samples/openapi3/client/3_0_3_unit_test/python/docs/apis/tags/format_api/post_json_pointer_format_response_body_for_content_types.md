@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**JsonPointerFormat**](../../../components/schema/json_pointer_format.JsonPointerFormat.md) |  | 
+[**json_pointer_format.JsonPointerFormat**](../../../components/schema/json_pointer_format.JsonPointerFormat.md) |  | 
 
 
 ### Authorization

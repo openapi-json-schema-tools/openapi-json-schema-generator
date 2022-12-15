@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**OneofWithBaseSchema**](../../../components/schema/oneof_with_base_schema.OneofWithBaseSchema.md) |  | 
+[**oneof_with_base_schema.OneofWithBaseSchema**](../../../components/schema/oneof_with_base_schema.OneofWithBaseSchema.md) |  | 
 
 
 ### Return Types, Responses

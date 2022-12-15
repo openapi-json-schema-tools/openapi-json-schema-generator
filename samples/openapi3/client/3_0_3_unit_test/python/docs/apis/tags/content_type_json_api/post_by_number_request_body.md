@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ByNumber**](../../../components/schema/by_number.ByNumber.md) |  | 
+[**by_number.ByNumber**](../../../components/schema/by_number.ByNumber.md) |  | 
 
 
 ### Return Types, Responses

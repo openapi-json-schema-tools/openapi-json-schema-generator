@@ -45,15 +45,15 @@ class Fruit(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['apple.Apple']:
+            def oneOf_0() -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def one_of_1() -> typing.Type['banana.Banana']:
+            def oneOf_1() -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                one_of_0,
-                one_of_1,
+                oneOf_0,
+                oneOf_1,
             ]
 
     
@@ -63,10 +63,15 @@ class Fruit(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["color", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["color"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.properties.color, schemas.Unset]: ...
@@ -74,9 +79,14 @@ class Fruit(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["color", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["color"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

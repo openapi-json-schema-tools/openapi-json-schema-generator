@@ -15,14 +15,14 @@ class {{> model_templates/classname }}(
     """
 {{/if}}
 {{#if isStub}}
-{{#or additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars}}
+{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
 
 
     class MetaOapg:
         {{> model_templates/dict_partial }}
 {{/or}}
 {{else}}
-{{#or additionalProperties getRequiredVarsMap getHasDiscriminatorWithNonEmptyMapping vars hasValidation}}
+{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties hasValidation}}
 
 
     class MetaOapg:
@@ -33,8 +33,4 @@ class {{> model_templates/classname }}(
 {{/if}}
     {{> model_templates/property_type_hints }}
 
-{{#if additionalProperties}}
     {{> model_templates/new }}
-{{else}}
-    {{> model_templates/new addPropsUnset=true }}
-{{/if}}

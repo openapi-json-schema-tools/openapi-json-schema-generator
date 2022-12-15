@@ -35,7 +35,7 @@ class AnyTypeNotString(
 
     class MetaOapg:
         # any type
-        not_schema = schemas.StrSchema
+        _not = schemas.StrSchema
 
 
     def __new__(

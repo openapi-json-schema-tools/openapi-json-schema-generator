@@ -39,10 +39,10 @@ class RefInOneof(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+            def oneOf_0() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
                 return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
             classes = [
-                one_of_0,
+                oneOf_0,
             ]
 
 

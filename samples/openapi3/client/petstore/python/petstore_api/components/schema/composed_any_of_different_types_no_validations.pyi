@@ -37,18 +37,18 @@ class ComposedAnyOfDifferentTypesNoValidations(
         # any type
         
         class any_of:
-            any_of_0 = schemas.DictSchema
-            any_of_1 = schemas.DateSchema
-            any_of_2 = schemas.DateTimeSchema
-            any_of_3 = schemas.BinarySchema
-            any_of_4 = schemas.StrSchema
-            any_of_5 = schemas.StrSchema
-            any_of_6 = schemas.DictSchema
-            any_of_7 = schemas.BoolSchema
-            any_of_8 = schemas.NoneSchema
+            anyOf_0 = schemas.DictSchema
+            anyOf_1 = schemas.DateSchema
+            anyOf_2 = schemas.DateTimeSchema
+            anyOf_3 = schemas.BinarySchema
+            anyOf_4 = schemas.StrSchema
+            anyOf_5 = schemas.StrSchema
+            anyOf_6 = schemas.DictSchema
+            anyOf_7 = schemas.BoolSchema
+            anyOf_8 = schemas.NoneSchema
             
             
-            class any_of_9(
+            class anyOf_9(
                 schemas.ListSchema
             ):
             
@@ -61,7 +61,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'any_of_9':
+                ) -> 'anyOf_9':
                     return super().__new__(
                         cls,
                         _arg,
@@ -70,29 +70,29 @@ class ComposedAnyOfDifferentTypesNoValidations(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
-            any_of_10 = schemas.NumberSchema
-            any_of_11 = schemas.Float32Schema
-            any_of_12 = schemas.Float64Schema
-            any_of_13 = schemas.IntSchema
-            any_of_14 = schemas.Int32Schema
-            any_of_15 = schemas.Int64Schema
+            anyOf_10 = schemas.NumberSchema
+            anyOf_11 = schemas.Float32Schema
+            anyOf_12 = schemas.Float64Schema
+            anyOf_13 = schemas.IntSchema
+            anyOf_14 = schemas.Int32Schema
+            anyOf_15 = schemas.Int64Schema
             classes = [
-                any_of_0,
-                any_of_1,
-                any_of_2,
-                any_of_3,
-                any_of_4,
-                any_of_5,
-                any_of_6,
-                any_of_7,
-                any_of_8,
-                any_of_9,
-                any_of_10,
-                any_of_11,
-                any_of_12,
-                any_of_13,
-                any_of_14,
-                any_of_15,
+                anyOf_0,
+                anyOf_1,
+                anyOf_2,
+                anyOf_3,
+                anyOf_4,
+                anyOf_5,
+                anyOf_6,
+                anyOf_7,
+                anyOf_8,
+                anyOf_9,
+                anyOf_10,
+                anyOf_11,
+                anyOf_12,
+                anyOf_13,
+                anyOf_14,
+                anyOf_15,
             ]
 
 

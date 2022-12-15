@@ -41,15 +41,6 @@ class EnumsInProperties(
         class properties:
             
             
-            class bar(
-                schemas.StrSchema
-            ):
-                
-                @schemas.classproperty
-                def BAR(cls):
-                    return cls("bar")
-            
-            
             class foo(
                 schemas.StrSchema
             ):
@@ -57,9 +48,18 @@ class EnumsInProperties(
                 @schemas.classproperty
                 def FOO(cls):
                     return cls("foo")
+            
+            
+            class bar(
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def BAR(cls):
+                    return cls("bar")
             __annotations__ = {
-                "bar": bar,
                 "foo": foo,
+                "bar": bar,
             }
     
     bar: MetaOapg.properties.bar
@@ -73,10 +73,16 @@ class EnumsInProperties(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["bar", "foo", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            typing_extensions.Literal["foo"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
@@ -87,9 +93,15 @@ class EnumsInProperties(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["bar", "foo", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            typing_extensions.Literal["foo"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

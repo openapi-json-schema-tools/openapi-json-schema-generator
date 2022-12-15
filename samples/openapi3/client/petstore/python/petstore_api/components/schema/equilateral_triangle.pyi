@@ -39,11 +39,11 @@ class EquilateralTriangle(
         class all_of:
         
             @staticmethod
-            def all_of_0() -> typing.Type['triangle_interface.TriangleInterface']:
+            def allOf_0() -> typing.Type['triangle_interface.TriangleInterface']:
                 return triangle_interface.TriangleInterface
             
             
-            class all_of_1(
+            class allOf_1(
                 schemas.DictSchema
             ):
             
@@ -70,10 +70,15 @@ class EquilateralTriangle(
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["triangleType", ], str]):
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["triangleType"],
+                        str
+                    ]
+                ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["triangleType"]) -> typing.Union[MetaOapg.properties.triangleType, schemas.Unset]: ...
@@ -81,9 +86,14 @@ class EquilateralTriangle(
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["triangleType", ], str]):
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["triangleType"],
+                        str
+                    ]
+                ):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -91,7 +101,7 @@ class EquilateralTriangle(
                     triangleType: typing.Union[MetaOapg.properties.triangleType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_1':
+                ) -> 'allOf_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -100,8 +110,8 @@ class EquilateralTriangle(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
+                allOf_0,
+                allOf_1,
             ]
 
 

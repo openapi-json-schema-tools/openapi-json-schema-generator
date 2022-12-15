@@ -46,11 +46,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public List<CodegenModel> interfaceModels;
     public List<CodegenModel> children;
 
-    // anyOf, oneOf, allOf
-    public Set<String> anyOf = new TreeSet<>();
-    public Set<String> oneOf = new TreeSet<>();
-    public Set<String> allOf = new TreeSet<>();
-
     // The schema name as written in the OpenAPI document.
     public String name;
     // The language-specific name of the class that implements this schema.
@@ -67,11 +62,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public String arrayModelType;
     public boolean isAlias; // Is this effectively an alias of another simple type
     public boolean isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble, isDate, isDateTime, isDecimal, isShort, isUnboundedInteger, isPrimitiveType, isBoolean;
-    private boolean additionalPropertiesIsAnyType;
     public List<CodegenProperty> vars = new ArrayList<>(); // all properties (without parent's properties)
     public List<CodegenProperty> allVars = new ArrayList<>(); // all properties (with parent's properties)
-    public List<CodegenProperty> requiredVars = new ArrayList<>(); // a list of required properties
-    public List<CodegenProperty> optionalVars = new ArrayList<>(); // a list of optional properties
     public List<CodegenProperty> readOnlyVars = new ArrayList<>(); // a list of read-only properties
     public List<CodegenProperty> readWriteVars = new ArrayList<>(); // a list of properties for read, write
     public List<CodegenProperty> parentVars = new ArrayList<>();
@@ -83,15 +75,11 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public Set<String> allMandatory = new TreeSet<>(); // with parent's required properties
 
     public Set<String> imports = new TreeSet<>();
-    public boolean hasVars, emptyVars, hasMoreModels, hasEnums, isEnum, hasValidation;
+    public boolean emptyVars, hasMoreModels, hasEnums, isEnum, hasValidation;
     /**
      * Indicates the OAS schema specifies "nullable: true".
      */
     public boolean isNullable;
-    /**
-     * Indicates the type has at least one required property.
-     */
-    public boolean hasRequired;
     /**
      * Indicates the type has at least one optional property.
      */
@@ -108,7 +96,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public ExternalDocumentation externalDocumentation;
 
     public Map<String, Object> vendorExtensions = new HashMap<>();
-    private CodegenComposedSchemas composedSchemas;
+    private List<CodegenProperty> allOf = null;
+    private List<CodegenProperty> anyOf = null;
+    private List<CodegenProperty> oneOf = null;
+    private CodegenProperty not = null;
     private boolean hasMultipleTypes = false;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     private boolean schemaIsFromAdditionalProperties;
@@ -153,8 +144,7 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
 
     private Integer maxProperties;
     private Integer minProperties;
-    private boolean uniqueItems;
-    private Boolean uniqueItemsBoolean;
+    private Boolean uniqueItems;
     private Integer maxItems;
     private Integer minItems;
     private Integer maxLength;
@@ -167,12 +157,14 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     private Number multipleOf;
     private CodegenProperty items;
     private CodegenProperty additionalProperties;
-    private boolean isModel;
+
     private boolean hasRequiredVars;
     private boolean hasDiscriminatorWithNonEmptyMapping;
     private boolean isAnyType;
     private boolean isUuid;
-    private Map<String, CodegenProperty> requiredVarsMap;
+    private LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties;
+    private LinkedHashMap<CodegenKey, CodegenProperty> properties;
     private String ref;
     private String refModule;
 
@@ -499,14 +491,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         this.name = name;
     }
 
-    public List<CodegenProperty> getOptionalVars() {
-        return optionalVars;
-    }
-
-    public void setOptionalVars(List<CodegenProperty> optionalVars) {
-        this.optionalVars = optionalVars;
-    }
-
     public String getParent() {
         return parent;
     }
@@ -630,23 +614,13 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public boolean getUniqueItems() {
+    public Boolean getUniqueItems() {
         return uniqueItems;
     }
 
     @Override
-    public void setUniqueItems(boolean uniqueItems) {
+    public void setUniqueItems(Boolean uniqueItems) {
         this.uniqueItems = uniqueItems;
-    }
-
-    @Override
-    public Boolean getUniqueItemsBoolean() {
-        return uniqueItemsBoolean;
-    }
-
-    @Override
-    public void setUniqueItemsBoolean(Boolean uniqueItemsBoolean) {
-        this.uniqueItemsBoolean = uniqueItemsBoolean;
     }
 
     @Override
@@ -687,16 +661,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     @Override
     public void setItems(CodegenProperty items) {
         this.items = items;
-    }
-
-    @Override
-    public boolean getIsModel() {
-        return isModel;
-    }
-
-    @Override
-    public void setIsModel(boolean isModel) {
-        this.isModel = isModel;
     }
 
     @Override
@@ -770,16 +734,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public boolean getIsPrimitiveType() {
-        return isPrimitiveType;
-    }
-
-    @Override
-    public void setIsPrimitiveType(boolean isPrimitiveType) {
-        this.isPrimitiveType = isPrimitiveType;
-    }
-
-    @Override
     public CodegenProperty getAdditionalProperties() {
         return additionalProperties;
     }
@@ -815,16 +769,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         this.readWriteVars = readWriteVars;
     }
 
-    @Override
-    public List<CodegenProperty> getRequiredVars() {
-        return requiredVars;
-    }
-
-    @Override
-    public void setRequiredVars(List<CodegenProperty> requiredVars) {
-        this.requiredVars = requiredVars;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -839,16 +783,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
 
     public void setUnescapedDescription(String unescapedDescription) {
         this.unescapedDescription = unescapedDescription;
-    }
-
-    @Override
-    public List<CodegenProperty> getVars() {
-        return vars;
-    }
-
-    @Override
-    public void setVars(List<CodegenProperty> vars) {
-        this.vars = vars;
     }
 
     public Map<String, Object> getVendorExtensions() {
@@ -891,36 +825,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     @Override
     public void setIsNull(boolean isNull) {
         this.isNull = isNull;
-    }
-
-    @Override
-    public boolean getAdditionalPropertiesIsAnyType() {
-        return additionalPropertiesIsAnyType;
-    }
-
-    @Override
-    public void setAdditionalPropertiesIsAnyType(boolean additionalPropertiesIsAnyType) {
-        this.additionalPropertiesIsAnyType = additionalPropertiesIsAnyType;
-    }
-
-    @Override
-    public boolean getHasVars() {
-        return this.hasVars;
-    }
-
-    @Override
-    public void setHasVars(boolean hasVars) {
-        this.hasVars = hasVars;
-    }
-
-    @Override
-    public boolean getHasRequired() {
-        return this.hasRequired;
-    }
-
-    @Override
-    public void setHasRequired(boolean hasRequired) {
-        this.hasRequired = hasRequired;
     }
 
     @Override
@@ -968,13 +872,43 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public void setIsUuid(boolean isUuid) { this.isUuid = isUuid; }
 
     @Override
-    public void setComposedSchemas(CodegenComposedSchemas composedSchemas) {
-        this.composedSchemas = composedSchemas;
+    public void setAllOf(List<CodegenProperty> allOf) {
+        this.allOf = allOf;
     }
 
     @Override
-    public CodegenComposedSchemas getComposedSchemas() {
-        return composedSchemas;
+    public List<CodegenProperty> getAllOf() {
+        return allOf;
+    }
+
+    @Override
+    public void setAnyOf(List<CodegenProperty> anyOf) {
+        this.anyOf = anyOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getAnyOf() {
+        return anyOf;
+    }
+
+    @Override
+    public void setOneOf(List<CodegenProperty> oneOf) {
+        this.oneOf = oneOf;
+    }
+
+    @Override
+    public List<CodegenProperty> getOneOf() {
+        return oneOf;
+    }
+
+    @Override
+    public void setNot(CodegenProperty not) {
+        this.not = not;
+    }
+
+    @Override
+    public CodegenProperty getNot() {
+        return not;
     }
 
     @Override
@@ -1005,13 +939,11 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 isDouble == that.isDouble &&
                 isDate == that.isDate &&
                 isDateTime == that.isDateTime &&
-                hasVars == that.hasVars &&
                 emptyVars == that.emptyVars &&
                 hasMoreModels == that.hasMoreModels &&
                 hasEnums == that.hasEnums &&
                 isEnum == that.isEnum &&
                 isNullable == that.isNullable &&
-                hasRequired == that.hasRequired &&
                 hasOptional == that.hasOptional &&
                 isArray == that.isArray &&
                 hasChildren == that.hasChildren &&
@@ -1028,7 +960,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
                 getIsAnyType() == that.getIsAnyType() &&
-                getAdditionalPropertiesIsAnyType() == that.getAdditionalPropertiesIsAnyType() &&
                 getUniqueItems() == that.getUniqueItems() &&
                 getExclusiveMinimum() == that.getExclusiveMinimum() &&
                 getExclusiveMaximum() == that.getExclusiveMaximum() &&
@@ -1036,11 +967,11 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
-                Objects.equals(uniqueItemsBoolean, that.getUniqueItemsBoolean()) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
-                Objects.equals(requiredVarsMap, that.getRequiredVarsMap()) &&
-                Objects.equals(composedSchemas, that.composedSchemas) &&
+                Objects.equals(requiredProperties, that.getRequiredProperties()) &&
+                Objects.equals(optionalProperties, that.getOptionalProperties()) &&
+                Objects.equals(properties, that.getProperties()) &&
                 Objects.equals(parent, that.parent) &&
                 Objects.equals(parentSchema, that.parentSchema) &&
                 Objects.equals(interfaces, that.interfaces) &&
@@ -1048,9 +979,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(parentModel, that.parentModel) &&
                 Objects.equals(interfaceModels, that.interfaceModels) &&
                 Objects.equals(children, that.children) &&
+                Objects.equals(allOf, that.allOf) &&
                 Objects.equals(anyOf, that.anyOf) &&
                 Objects.equals(oneOf, that.oneOf) &&
-                Objects.equals(allOf, that.allOf) &&
+                Objects.equals(not, that.not) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(classname, that.classname) &&
                 Objects.equals(title, that.title) &&
@@ -1069,8 +1001,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(vars, that.vars) &&
                 Objects.equals(allVars, that.allVars) &&
                 Objects.equals(nonNullableVars, that.nonNullableVars) &&
-                Objects.equals(requiredVars, that.requiredVars) &&
-                Objects.equals(optionalVars, that.optionalVars) &&
                 Objects.equals(readOnlyVars, that.readOnlyVars) &&
                 Objects.equals(readWriteVars, that.readWriteVars) &&
                 Objects.equals(parentVars, that.parentVars) &&
@@ -1092,7 +1022,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 Objects.equals(getPattern(), that.getPattern()) &&
                 Objects.equals(getItems(), that.getItems()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
-                Objects.equals(getIsModel(), that.getIsModel()) &&
                 Objects.equals(getMultipleOf(), that.getMultipleOf());
     }
 
@@ -1104,17 +1033,18 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 getArrayModelType(), isAlias, isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
-                getVars(), getAllVars(), getNonNullableVars(), getRequiredVars(), getOptionalVars(), getReadOnlyVars(), getReadWriteVars(),
-                getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(), hasVars,
-                isEmptyVars(), hasMoreModels, hasEnums, isEnum, isNullable, hasRequired, hasOptional, isArray,
+                getAllVars(), getNonNullableVars(), getReadOnlyVars(), getReadWriteVars(),
+                getParentVars(), getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
+                isEmptyVars(), hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
                 hasChildren, isMap, isDeprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
                 getAdditionalPropertiesType(), getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
-                getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(), getIsModel(),
-                getAdditionalPropertiesIsAnyType(), hasDiscriminatorWithNonEmptyMapping,
-                isAnyType, getComposedSchemas(), hasMultipleTypes, isDecimal, isUuid, requiredVarsMap, ref,
-                uniqueItemsBoolean, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule, modulePath);
+                getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(),
+                hasDiscriminatorWithNonEmptyMapping,
+                isAnyType, hasMultipleTypes, isDecimal, isUuid, requiredProperties, ref,
+                schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
+                format, dependentRequired, contains, refModule, modulePath, allOf, anyOf, oneOf, not,
+                optionalProperties, properties);
     }
 
     @Override
@@ -1128,9 +1058,10 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", allParents=").append(allParents);
         sb.append(", parentModel=").append(parentModel);
         sb.append(", children=").append(children != null ? children.size() : "[]");
+        sb.append(", allOf=").append(allOf);
         sb.append(", anyOf=").append(anyOf);
         sb.append(", oneOf=").append(oneOf);
-        sb.append(", allOf=").append(allOf);
+        sb.append(", not=").append(not);
         sb.append(", classname='").append(classname).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", description='").append(description).append('\'');
@@ -1161,8 +1092,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", vars=").append(vars);
         sb.append(", allVars=").append(allVars);
         sb.append(", nonNullableVars=").append(nonNullableVars);
-        sb.append(", requiredVars=").append(requiredVars);
-        sb.append(", optionalVars=").append(optionalVars);
         sb.append(", readOnlyVars=").append(readOnlyVars);
         sb.append(", readWriteVars=").append(readWriteVars);
         sb.append(", parentVars=").append(parentVars);
@@ -1170,13 +1099,11 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", mandatory=").append(mandatory);
         sb.append(", allMandatory=").append(allMandatory);
         sb.append(", imports=").append(imports);
-        sb.append(", hasVars=").append(hasVars);
         sb.append(", emptyVars=").append(emptyVars);
         sb.append(", hasMoreModels=").append(hasMoreModels);
         sb.append(", hasEnums=").append(hasEnums);
         sb.append(", isEnum=").append(isEnum);
         sb.append(", isNullable=").append(isNullable);
-        sb.append(", hasRequired=").append(hasRequired);
         sb.append(", hasOptional=").append(hasOptional);
         sb.append(", isArray=").append(isArray);
         sb.append(", hasChildren=").append(hasChildren);
@@ -1189,7 +1116,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", maxProperties=").append(maxProperties);
         sb.append(", minProperties=").append(minProperties);
         sb.append(", uniqueItems=").append(uniqueItems);
-        sb.append(", uniqueItemsBoolean=").append(uniqueItemsBoolean);
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxLength=").append(maxLength);
@@ -1202,17 +1128,16 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         sb.append(", multipleOf='").append(multipleOf).append('\'');
         sb.append(", items='").append(items).append('\'');
         sb.append(", additionalProperties='").append(additionalProperties).append('\'');
-        sb.append(", isModel='").append(isModel).append('\'');
         sb.append(", isNull='").append(isNull);
         sb.append(", hasValidation='").append(hasValidation);
-        sb.append(", getAdditionalPropertiesIsAnyType=").append(getAdditionalPropertiesIsAnyType());
         sb.append(", getHasDiscriminatorWithNonEmptyMapping=").append(hasDiscriminatorWithNonEmptyMapping);
         sb.append(", getIsAnyType=").append(getIsAnyType());
-        sb.append(", composedSchemas=").append(composedSchemas);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", isDecimal=").append(isDecimal);
         sb.append(", isUUID=").append(isUuid);
-        sb.append(", requiredVarsMap=").append(requiredVarsMap);
+        sb.append(", requiredProperties=").append(requiredProperties);
+        sb.append(", optionalProperties=").append(optionalProperties);
+        sb.append(", properties=").append(properties);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
@@ -1251,10 +1176,22 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     }
 
     @Override
-    public Map<String, CodegenProperty> getRequiredVarsMap() { return requiredVarsMap; }
+    public LinkedHashMap<CodegenKey, CodegenProperty> getRequiredProperties() { return requiredProperties; }
 
     @Override
-    public void setRequiredVarsMap(Map<String, CodegenProperty> requiredVarsMap) { this.requiredVarsMap=requiredVarsMap; }
+    public void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties) { this.requiredProperties=requiredProperties; }
+
+    @Override
+    public LinkedHashMap<CodegenKey, CodegenProperty> getProperties() { return properties; }
+
+    @Override
+    public void setProperties(LinkedHashMap<CodegenKey, CodegenProperty> properties) { this.properties = properties; }
+
+    @Override
+    public LinkedHashMap<CodegenKey, CodegenProperty> getOptionalProperties() { return optionalProperties; }
+
+    @Override
+    public void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties) { this.optionalProperties = optionalProperties; }
 
     /**
      * Remove duplicated properties in all variable list
@@ -1262,8 +1199,6 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
     public void removeAllDuplicatedProperty() {
         // remove duplicated properties
         vars = removeDuplicatedProperty(vars);
-        optionalVars = removeDuplicatedProperty(optionalVars);
-        requiredVars = removeDuplicatedProperty(requiredVars);
         parentVars = removeDuplicatedProperty(parentVars);
         allVars = removeDuplicatedProperty(allVars);
         nonNullableVars = removeDuplicatedProperty(nonNullableVars);
@@ -1285,11 +1220,13 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
         while (iterator.hasNext()) {
             CodegenProperty element = iterator.next();
 
-            if (propertyNames.contains(element.baseName)) {
-                duplicatedNames.add(element.baseName);
-                iterator.remove();
-            } else {
-                propertyNames.add(element.baseName);
+            if (element.name != null) {
+                if (propertyNames.contains(element.name.getName())) {
+                    duplicatedNames.add(element.name.getName());
+                    iterator.remove();
+                } else {
+                    propertyNames.add(element.name.getName());
+                }
             }
         }
 
@@ -1305,8 +1242,8 @@ public class CodegenModel implements JsonSchema, OpenapiComponent {
                 // TODO cp shouldn't be null. Show a warning message instead
             } else {
                 // detect self import
-                if (this.classname.equalsIgnoreCase(cp.dataType) ||
-                        (cp.isContainer && cp.items != null && this.classname.equalsIgnoreCase(cp.items.dataType))) {
+                if (this.classname.equalsIgnoreCase(cp.refClass) ||
+                        ((cp.isMap || cp.isArray) && cp.items != null && this.classname.equalsIgnoreCase(cp.items.refClass))) {
                     this.imports.remove(this.classname); // remove self import
                     cp.isSelfReference = true;
                 }

@@ -23,12 +23,9 @@ import com.google.common.base.CaseFormat;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.PathItem;
-import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
-import io.swagger.v3.oas.models.tags.Tag;
 
 import org.apache.commons.io.FileUtils;
 import org.openapitools.codegen.JsonSchema;
@@ -61,14 +58,12 @@ import org.openapitools.codegen.api.TemplateProcessor;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Path;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static org.openapitools.codegen.utils.OnceLogger.once;
 import static org.openapitools.codegen.utils.StringUtils.camelize;
@@ -497,10 +492,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("signing." + templateExtension, packagePath(), "signing.py"));
         }
 
-        // default this to true so the python ModelSimple models will be generated
-        ModelUtils.setGenerateAliasAsModel(true);
-        LOGGER.info(CodegenConstants.GENERATE_ALIAS_AS_MODEL + " is hard coded to true in this generator. Alias models will only be generated if they contain validations or enums");
-
         // check library option to ensure only urllib3 is supported
         if (!DEFAULT_LIBRARY.equals(getLibrary())) {
             throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
@@ -527,27 +518,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String parameterDocFileFolder() { return outputFolder + File.separator + parameterDocPath; }
-
-    protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
-        String adjustedOutputFilename = outputFilename.replaceAll("//", "/").replace('/', File.separatorChar);
-        File target = new File(adjustedOutputFilename);
-        if (ignoreProcessor.allowsFile(target)) {
-            if (shouldGenerate) {
-                Path outDir = java.nio.file.Paths.get(this.getOutputDir()).toAbsolutePath();
-                Path absoluteTarget = target.toPath().toAbsolutePath();
-                if (!absoluteTarget.startsWith(outDir)) {
-                    throw new RuntimeException(String.format(Locale.ROOT, "Target files must be generated within the output directory; absoluteTarget=%s outDir=%s", absoluteTarget, outDir));
-                }
-                return this.templateProcessor.write(templateData,templateName, target);
-            } else {
-                this.templateProcessor.skip(target.toPath(), String.format(Locale.ROOT, "Skipped by %s options supplied by user.", skippedByOption));
-                return null;
-            }
-        } else {
-            this.templateProcessor.ignore(target.toPath(), "Ignored by rule in ignore file.");
-            return null;
-        }
-    }
 
     @Override
     public String apiFilename(String templateName, String tag) {
@@ -586,22 +556,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (schema.getRequired() != null) {
                     requiredVars.addAll(schema.getRequired());
                 }
-                addVars(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
+                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
             }
-            addRequiredVarsMap(schema, property, sourceJsonPath);
+            addRequiredProperties(schema, property, sourceJsonPath);
             return;
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             HashSet<String> requiredVars = new HashSet<>();
             if (schema.getRequired() != null) {
                 requiredVars.addAll(schema.getRequired());
-                property.setHasRequired(true);
             }
-            addVars(property, property.getVars(), schema.getProperties(), requiredVars, sourceJsonPath);
-            if (property.getVars() != null && !property.getVars().isEmpty()) {
-                property.setHasVars(true);
-            }
+            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
         }
-        addRequiredVarsMap(schema, property, sourceJsonPath);
+        addRequiredProperties(schema, property, sourceJsonPath);
         return;
     }
 
@@ -818,8 +784,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return cp;
     }
 
-    private boolean isValidPythonVarOrClassName(String name) {
-        return name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
+    protected boolean isValid(String name) {
+        boolean isValid = super.isValid(name);
+        if (!isValid) {
+            return false;
+        }
+        boolean nameValidPerRegex = name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
+        return nameValidPerRegex;
     }
 
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
@@ -834,17 +805,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * Together with unaliasSchema this sets primitive types with validations as models
      * This method is used by fromResponse
      *
-     * @param name name of the property
      * @param p OAS property schema
-     * @param required true if the property is required in the next higher object schema, false otherwise
-     * @param schemaIsFromAdditionalProperties true if the property is defined by additional properties schema
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromProperty(String name, Schema p, boolean required, boolean schemaIsFromAdditionalProperties, String sourceJsonPath) {
+    public CodegenProperty fromProperty(Schema p, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
-        String fixedName = handleSpecialCharacters(name);
-        CodegenProperty cp = super.fromProperty(fixedName, p, required, schemaIsFromAdditionalProperties, sourceJsonPath);
+        CodegenProperty cp = super.fromProperty(p, sourceJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -861,17 +828,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
-        }
-        // if we have a property that has a difficult name, either:
-        // 1. name is reserved, like class int float
-        // 2. name is invalid in python like '3rd' or 'Content-Type'
-        // set cp.nameInSnakeCase to a value so we can tell that we are in this use case
-        // we handle this in the schema templates
-        // templates use its presence to handle these badly named variables / keys
-        if ((isReservedWord(cp.baseName) || !isValidPythonVarOrClassName(cp.baseName)) && !cp.baseName.equals(cp.name)) {
-            cp.nameInSnakeCase = cp.name;
-        } else {
-            cp.nameInSnakeCase = null;
         }
         if (cp.isEnum) {
             updateCodegenPropertyEnum(cp);
@@ -906,11 +862,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // we have a custom version of this method to omit overwriting the defaultValue
         Map<String, Object> allowableValues = var.allowableValues;
 
-        // handle array
-        if (var.mostInnerItems != null) {
-            allowableValues = var.mostInnerItems.allowableValues;
-        }
-
         if (allowableValues == null) {
             return;
         }
@@ -920,19 +871,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return;
         }
 
-        String varDataType = var.mostInnerItems != null ? var.mostInnerItems.dataType : var.dataType;
+        Schema varSchema = new Schema();
+        if (var.baseType != null)
+            varSchema.setType(var.baseType);
+        if (var.getFormat() != null) {
+            varSchema.setFormat(var.getFormat());
+        }
+        if (var.getRef() != null) {
+            varSchema.set$ref(var.getRef());
+        }
+        String varDataType = getTypeDeclaration(varSchema);
         Schema referencedSchema = getModelNameToSchemaCache().get(varDataType);
         String dataType = (referencedSchema != null) ? getTypeDeclaration(referencedSchema) : varDataType;
 
         // put "enumVars" map into `allowableValues", including `name` and `value`
         List<Map<String, Object>> enumVars = buildEnumVars(values, dataType);
 
-        // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-        Map<String, Object> extensions = var.mostInnerItems != null ? var.mostInnerItems.getVendorExtensions() : var.getVendorExtensions();
-        if (referencedSchema != null) {
-            extensions = referencedSchema.getExtensions();
-        }
-        updateEnumVarsWithExtensions(enumVars, extensions, dataType);
         allowableValues.put("enumVars", enumVars);
         // overwriting defaultValue omitted from here
     }
@@ -988,7 +942,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenModel = fromModel(name, schema);
         }
 
-        if (codegenModel != null && (codegenModel.hasVars || forceSimpleRef)) {
+        if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
                 codegenParameter.baseName = codegenModel.classname;
             } else {
@@ -997,7 +951,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromProperty("property", schema, false, false, sourceJsonPath);
+            CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
@@ -1655,7 +1609,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
-                cp.setName(disc.getPropertyName());
+                CodegenKey ck = getKey(disc.getPropertyName());
+                cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1825,7 +1780,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenProperty cp = new CodegenProperty();
-                cp.setName(disc.getPropertyName());
+                CodegenKey ck = getKey(disc.getPropertyName());
+                cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -2030,66 +1986,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /**
-     * Use cases:
-     * additional properties is unset: do nothing
-     * additional properties is true: add definiton to property
-     * additional properties is false: add definiton to property
-     * additional properties is schema: add definiton to property
-     *
-     * @param schema the schema that may contain an additional property schema
-     * @param property the property for the above schema
-     */
-    @Override
-    protected void setAddProps(Schema schema, JsonSchema property, String sourceJsonPath){
-        Schema addPropsSchema = getSchemaFromBooleanOrSchema(schema.getAdditionalProperties());
-        if (addPropsSchema == null) {
-            return;
-        }
-        CodegenProperty addPropProp = fromProperty(
-                getAdditionalPropertiesName(),
-                addPropsSchema,
-                false,
-                false,
-                sourceJsonPath
-        );
-        property.setAdditionalProperties(addPropProp);
-    }
-
-    /**
-     * Update property for array(list) container
-     *
-     * @param property      Codegen property
-     * @param innerProperty Codegen inner property of map or list
-     */
-    @Override
-    protected void updatePropertyForArray(CodegenProperty property, CodegenProperty innerProperty) {
-        if (innerProperty == null) {
-            if(LOGGER.isWarnEnabled()) {
-                LOGGER.warn("skipping invalid array property {}", Json.pretty(property));
-            }
-            return;
-        }
-        property.dataFormat = innerProperty.dataFormat;
-        if (languageSpecificPrimitives.contains(innerProperty.baseType)) {
-            property.isPrimitiveType = true;
-        }
-        property.items = innerProperty;
-        property.mostInnerItems = getMostInnerItems(innerProperty);
-        // inner item is Enum
-        if (isPropertyInnerMostEnum(property)) {
-            // isEnum is set to true when the type is an enum
-            // or the inner type of an array/map is an enum
-            property.isEnum = true;
-            // update datatypeWithEnum and default value for array
-            // e.g. List<string> => List<StatusEnum>
-            updateDataTypeWithEnumForArray(property);
-            // set allowable values to enum values (including array/map of enum)
-            property.allowableValues = getInnerEnumAllowableValues(property);
-        }
-
-    }
-
-    /**
      * Sets the booleans that define the model's type
      *
      * @param model the model to update
@@ -2162,22 +2058,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // int32 and int64 differentiation is determined with format info
     }
 
-
-    @Override
-    protected void updatePropertyForObject(CodegenProperty property, Schema p, String sourceJsonPath) {
-        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
-    }
-
-    @Override
-    protected void updatePropertyForAnyType(CodegenProperty property, Schema p, String sourceJsonPath) {
-        // The 'null' value is allowed when the OAS schema is 'any type'.
-        // See https://github.com/OAI/OpenAPI-Specification/issues/1389
-        if (Boolean.FALSE.equals(p.getNullable())) {
-            LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
-        }
-        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
-    }
-
     @Override
     protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
         // custom version of this method so properties are always added with addVars
@@ -2189,7 +2069,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
-        addRequiredVarsMap(schema, m, sourceJsonPath);
+        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     @Override
@@ -2207,7 +2087,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
-        addRequiredVarsMap(schema, m, sourceJsonPath);
+        addRequiredProperties(schema, m, sourceJsonPath);
     }
 
     @Override
@@ -2240,31 +2120,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (modelImplCnt++ > 1) {
                     LOGGER.warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
                     break; // only one schema with discriminator allowed in allOf
-                }
-            }
-        }
-
-        CodegenComposedSchemas cs = m.getComposedSchemas();
-        if (cs != null) {
-            if (cs.getAllOf() != null && !cs.getAllOf().isEmpty()) {
-                for (CodegenProperty cp: cs.getAllOf()) {
-                    if (cp.refClass != null) {
-                        addImport(m, cp.refClass);
-                    }
-                }
-            }
-            if (cs.getOneOf() != null && !cs.getOneOf().isEmpty()) {
-                for (CodegenProperty cp: cs.getOneOf()) {
-                    if (cp.refClass != null) {
-                        addImport(m, cp.refClass);
-                    }
-                }
-            }
-            if (cs.getAnyOf() != null && !cs.getAnyOf().isEmpty()) {
-                for (CodegenProperty cp: cs.getAnyOf()) {
-                    if (cp.refClass != null) {
-                        addImport(m, cp.refClass);
-                    }
                 }
             }
         }

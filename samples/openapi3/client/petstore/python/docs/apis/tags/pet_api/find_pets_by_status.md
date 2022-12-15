@@ -132,7 +132,7 @@ status | [parameter_0.schema](#parameter_0.schema) | |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
@@ -159,24 +159,24 @@ headers | Unset | headers were not defined |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  | 
+[**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) |  |
 
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  | 
+[**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) |  |
 
 #### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes

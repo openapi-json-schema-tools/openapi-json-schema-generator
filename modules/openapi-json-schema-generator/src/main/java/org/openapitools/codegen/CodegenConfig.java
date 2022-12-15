@@ -125,8 +125,6 @@ public interface CodegenConfig {
 
     String getTypeDeclaration(Schema schema);
 
-    String getTypeDeclaration(String name);
-
     void processOpts();
 
     List<CliOption> cliOptions();
@@ -347,12 +345,6 @@ public interface CodegenConfig {
     void setIgnoreFilePathOverride(String ignoreFileOverride);
 
     String getIgnoreFilePathOverride();
-
-    String toBooleanGetter(String name);
-
-    String toSetter(String name);
-
-    String toGetter(String name);
 
     String sanitizeName(String name);
 

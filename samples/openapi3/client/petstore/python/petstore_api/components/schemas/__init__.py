@@ -116,6 +116,9 @@ from petstore_api.components.schema.player import Player
 from petstore_api.components.schema.quadrilateral import Quadrilateral
 from petstore_api.components.schema.quadrilateral_interface import QuadrilateralInterface
 from petstore_api.components.schema.read_only_first import ReadOnlyFirst
+from petstore_api.components.schema.req_props_from_explicit_add_props import ReqPropsFromExplicitAddProps
+from petstore_api.components.schema.req_props_from_true_add_props import ReqPropsFromTrueAddProps
+from petstore_api.components.schema.req_props_from_unset_add_props import ReqPropsFromUnsetAddProps
 from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
 from petstore_api.components.schema.self_referencing_array_model import SelfReferencingArrayModel
 from petstore_api.components.schema.self_referencing_object_model import SelfReferencingObjectModel

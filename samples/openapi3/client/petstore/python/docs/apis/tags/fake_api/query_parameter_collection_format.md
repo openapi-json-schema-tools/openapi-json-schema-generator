@@ -76,65 +76,65 @@ refParam | [parameter_5.schema](#parameter_5.schema) | |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
+items | str,  | str,  |  |
 
 # parameter_1.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
+items | str,  | str,  |  |
 
 # parameter_2.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
+items | str,  | str,  |  |
 
 # parameter_3.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
+items | str,  | str,  |  |
 
 # parameter_4.schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+list, tuple,  | tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
+items | str,  | str,  |  |
 
 # parameter_5.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**StringWithValidation**](../../../components/schema/string_with_validation.StringWithValidation.md) |  | 
+[**string_with_validation.StringWithValidation**](../../../components/schema/string_with_validation.StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses

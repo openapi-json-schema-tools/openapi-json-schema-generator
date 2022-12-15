@@ -263,9 +263,6 @@ public class Generate extends OpenApiGeneratorCommand {
     @Option(name = {"--enable-post-process-file"}, title = "enable post-processing of files (in generators supporting it)", description = CodegenConstants.ENABLE_POST_PROCESS_FILE_DESC)
     private Boolean enablePostProcessFile;
 
-    @Option(name = {"--generate-alias-as-model"}, title = "generate alias (array, map) as model", description = CodegenConstants.GENERATE_ALIAS_AS_MODEL_DESC)
-    private Boolean generateAliasAsModel;
-
     @Option(name = {"--legacy-discriminator-behavior"}, title = "Support legacy logic for evaluating discriminators", description = CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR_DESC)
     private Boolean legacyDiscriminatorBehavior;
 
@@ -425,10 +422,6 @@ public class Generate extends OpenApiGeneratorCommand {
 
         if (enablePostProcessFile != null) {
             configurator.setEnablePostProcessFile(enablePostProcessFile);
-        }
-
-        if (generateAliasAsModel != null) {
-            configurator.setGenerateAliasAsModel(generateAliasAsModel);
         }
 
         if (minimalUpdate != null) {

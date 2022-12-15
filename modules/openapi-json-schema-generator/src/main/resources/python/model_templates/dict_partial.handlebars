@@ -1,7 +1,7 @@
-{{#if getRequiredVarsMap}}
+{{#if getRequiredProperties}}
 required = {
-{{#each getRequiredVarsMap}}
-    "{{{@key}}}",
+{{#each getRequiredProperties}}
+    "{{{@key.getName}}}",
 {{/each}}
 }
 {{/if}}
@@ -23,25 +23,25 @@ def discriminator():
 {{/each}}
 {{/with}}
 {{/if}}
-{{#if vars}}
+{{#if properties}}
 
 class properties:
-{{#each vars}}
+{{#each properties}}
 {{#if refClass}}
 
     @staticmethod
-    def {{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}() -> typing.Type['{{refClass}}']:
+    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
         return {{refClass}}
 {{else}}
     {{> model_templates/schema }}
 {{/if}}
 {{/each}}
     __annotations__ = {
-{{#each vars}}
-{{#if nameInSnakeCase}}
-        "{{{baseName}}}": {{name}},
+{{#each properties}}
+{{#if name.getNameIsValid}}
+        "{{{@key.getName}}}": {{name.getName}},
 {{else}}
-        "{{{baseName}}}": {{baseName}},
+        "{{{@key.getName}}}": {{name.getSnakeCaseName}},
 {{/if}}
 {{/each}}
     }
@@ -50,7 +50,7 @@ class properties:
 {{#if refClass}}
 
 @staticmethod
-def {{baseName}}() -> typing.Type['{{refClass}}']:
+def {{name.getName}}() -> typing.Type['{{refClass}}']:
     return {{refClass}}
 {{else}}
 {{> model_templates/schema }}
