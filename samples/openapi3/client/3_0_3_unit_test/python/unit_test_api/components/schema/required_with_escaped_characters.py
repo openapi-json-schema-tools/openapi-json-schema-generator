@@ -36,33 +36,33 @@ class RequiredWithEscapedCharacters(
     class MetaOapg:
         # any type
         required = {
-            "foo\\tbar",
-            "foo\\nbar",
-            "foo\\fbar",
-            "foo\\rbar",
-            "foo\\\"bar",
-            "foo\\\\bar",
+            "foo\tbar",
+            "foo\nbar",
+            "foo\fbar",
+            "foo\rbar",
+            "foo\"bar",
+            "foo\\bar",
         }
 
     
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\tbar"]) -> schemas.AnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\nbar"]) -> schemas.AnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\fbar"]) -> schemas.AnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\rbar"]) -> schemas.AnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\\"bar"]) -> schemas.AnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\\\bar"]) -> schemas.AnyTypeSchema: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -70,12 +70,12 @@ class RequiredWithEscapedCharacters(
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal["foo\\tbar"],
-            typing_extensions.Literal["foo\\nbar"],
-            typing_extensions.Literal["foo\\fbar"],
-            typing_extensions.Literal["foo\\rbar"],
-            typing_extensions.Literal["foo\\\"bar"],
-            typing_extensions.Literal["foo\\\\bar"],
+            typing_extensions.Literal["foo\tbar"],
+            typing_extensions.Literal["foo\nbar"],
+            typing_extensions.Literal["foo\fbar"],
+            typing_extensions.Literal["foo\rbar"],
+            typing_extensions.Literal["foo\"bar"],
+            typing_extensions.Literal["foo\\bar"],
             str
         ]
     ):
@@ -83,22 +83,22 @@ class RequiredWithEscapedCharacters(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\tbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\nbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\nbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\fbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\fbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\rbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\rbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\\"bar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\"bar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\\\bar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo\\bar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -106,12 +106,12 @@ class RequiredWithEscapedCharacters(
     def get_item_oapg(
         self,
         name: typing.Union[
-            typing_extensions.Literal["foo\\tbar"],
-            typing_extensions.Literal["foo\\nbar"],
-            typing_extensions.Literal["foo\\fbar"],
-            typing_extensions.Literal["foo\\rbar"],
-            typing_extensions.Literal["foo\\\"bar"],
-            typing_extensions.Literal["foo\\\\bar"],
+            typing_extensions.Literal["foo\tbar"],
+            typing_extensions.Literal["foo\nbar"],
+            typing_extensions.Literal["foo\fbar"],
+            typing_extensions.Literal["foo\rbar"],
+            typing_extensions.Literal["foo\"bar"],
+            typing_extensions.Literal["foo\\bar"],
             str
         ]
     ):

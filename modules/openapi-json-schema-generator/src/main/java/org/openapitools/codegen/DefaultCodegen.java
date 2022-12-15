@@ -3417,7 +3417,6 @@ public class DefaultCodegen implements CodegenConfig {
                 // # components schemas someSchema additionalProperties/items
                 String lastPathFragment = refPieces[refPieces.length-1];
                 String usedName = lastPathFragment;
-                usedName = handleSpecialCharacters(usedName);
                 if (lastPathFragment.equals("additionalProperties")) {
                     String priorFragment = refPieces[refPieces.length-2];
                     if (!"properties".equals(priorFragment)) {
@@ -5928,8 +5927,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         for (String requiredPropertyName: requiredPropertyNames) {
             // required property is defined in properties, value is that CodegenProperty
-            String usedRequiredPropertyName = handleSpecialCharacters(requiredPropertyName);
-            CodegenKey ck = getKey(usedRequiredPropertyName);
+            CodegenKey ck = getKey(requiredPropertyName);
             if (properties != null && properties.containsKey(requiredPropertyName)) {
                 // get cp from property
                 CodegenProperty cp = property.getProperties().get(ck);
