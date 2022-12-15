@@ -48,15 +48,15 @@ class Quadrilateral(
         class one_of:
         
             @staticmethod
-            def one_of_0() -> typing.Type['simple_quadrilateral.SimpleQuadrilateral']:
+            def oneOf_0() -> typing.Type['simple_quadrilateral.SimpleQuadrilateral']:
                 return simple_quadrilateral.SimpleQuadrilateral
         
             @staticmethod
-            def one_of_1() -> typing.Type['complex_quadrilateral.ComplexQuadrilateral']:
+            def oneOf_1() -> typing.Type['complex_quadrilateral.ComplexQuadrilateral']:
                 return complex_quadrilateral.ComplexQuadrilateral
             classes = [
-                one_of_0,
-                one_of_1,
+                oneOf_0,
+                oneOf_1,
             ]
 
 

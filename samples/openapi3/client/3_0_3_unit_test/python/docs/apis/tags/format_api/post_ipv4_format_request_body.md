@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Ipv4Format**](../../../components/schema/ipv4_format.Ipv4Format.md) |  | 
+[**ipv4_format.Ipv4Format**](../../../components/schema/ipv4_format.Ipv4Format.md) |  | 
 
 
 ### Return Types, Responses

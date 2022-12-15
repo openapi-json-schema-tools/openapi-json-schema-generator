@@ -84,7 +84,7 @@ class Drawing(
             }
         
         @staticmethod
-        def additional_properties() -> typing.Type['fruit.Fruit']:
+        def additionalProperties() -> typing.Type['fruit.Fruit']:
             return fruit.Fruit
     
     @typing.overload
@@ -102,7 +102,16 @@ class Drawing(
     @typing.overload
     def __getitem__(self, name: str) -> 'fruit.Fruit': ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["mainShape"], typing_extensions.Literal["shapeOrNull"], typing_extensions.Literal["nullableShape"], typing_extensions.Literal["shapes"], str, ]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["mainShape"],
+            typing_extensions.Literal["shapeOrNull"],
+            typing_extensions.Literal["nullableShape"],
+            typing_extensions.Literal["shapes"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -121,7 +130,16 @@ class Drawing(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["mainShape"], typing_extensions.Literal["shapeOrNull"], typing_extensions.Literal["nullableShape"], typing_extensions.Literal["shapes"], str, ]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["mainShape"],
+            typing_extensions.Literal["shapeOrNull"],
+            typing_extensions.Literal["nullableShape"],
+            typing_extensions.Literal["shapes"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
 
     def __new__(

@@ -50,12 +50,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] 
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
 ### Return Types, Responses
 

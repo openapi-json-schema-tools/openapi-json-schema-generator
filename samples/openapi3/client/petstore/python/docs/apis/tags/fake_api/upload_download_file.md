@@ -51,7 +51,7 @@ file to upload
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload | 
+bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload |
 
 ### Return Types, Responses
 
@@ -74,7 +74,7 @@ file to download
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to download | 
+bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to download |
 
 ### Authorization
 

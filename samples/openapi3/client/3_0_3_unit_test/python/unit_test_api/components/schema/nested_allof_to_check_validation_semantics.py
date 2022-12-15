@@ -39,7 +39,7 @@ class NestedAllofToCheckValidationSemantics(
         class all_of:
             
             
-            class all_of_0(
+            class allOf_0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -48,9 +48,9 @@ class NestedAllofToCheckValidationSemantics(
                     # any type
                     
                     class all_of:
-                        all_of_0 = schemas.NoneSchema
+                        allOf_0 = schemas.NoneSchema
                         classes = [
-                            all_of_0,
+                            allOf_0,
                         ]
             
             
@@ -59,7 +59,7 @@ class NestedAllofToCheckValidationSemantics(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_0':
+                ) -> 'allOf_0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -67,7 +67,7 @@ class NestedAllofToCheckValidationSemantics(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                allOf_0,
             ]
 
 

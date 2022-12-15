@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../../components/schema/model_not.ModelNot.md) |  | 
+[**model_not.ModelNot**](../../../components/schema/model_not.ModelNot.md) |  | 
 
 
 ### Authorization

@@ -370,7 +370,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     @Override
     public String getTypeDeclaration(Schema p) {
         Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = ModelUtils.isGenerateAliasAsModel() ? p : schema;
+        Schema<?> target = schema;
         if (ModelUtils.isArraySchema(target)) {
             Schema<?> items = getSchemaItems((ArraySchema) schema);
             return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";
@@ -635,7 +635,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
 
     @Override
     public String toEnumName(CodegenProperty property) {
-        return property.nameInCamelCase;
+        return property.name.getCamelCaseName();
     }
 
     @Override
@@ -847,29 +847,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
                 !defaultIncludes.contains(type) && !languageSpecificPrimitives.contains(type) &&
                 !type.contains(".");
         return imports;
-    }
-
-    @Override
-    public CodegenModel fromModel(String name, Schema schema) {
-        CodegenModel m = super.fromModel(name, schema);
-        m.optionalVars = m.optionalVars.stream().distinct().collect(Collectors.toList());
-        // Update allVars/requiredVars/optionalVars with isInherited
-        // Each of these lists contains elements that are similar, but they are all cloned
-        // via CodegenModel.removeAllDuplicatedProperty and therefore need to be updated
-        // separately.
-        // First find only the parent vars via baseName matching
-        Map<String, CodegenProperty> allVarsMap = m.allVars.stream()
-                .collect(Collectors.toMap(CodegenProperty::getBaseName, Function.identity()));
-        allVarsMap.keySet()
-                .removeAll(m.vars.stream().map(CodegenProperty::getBaseName).collect(Collectors.toSet()));
-        // Update the allVars
-        allVarsMap.values().forEach(p -> p.isInherited = true);
-        // Update any other vars (requiredVars, optionalVars)
-        Stream.of(m.requiredVars, m.optionalVars)
-                .flatMap(List::stream)
-                .filter(p -> allVarsMap.containsKey(p.baseName))
-                .forEach(p -> p.isInherited = true);
-        return m;
     }
 
     @Override
@@ -1091,17 +1068,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
             // passing null to allProperties and allRequired as there's no parent
             addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
         }
-        if (ModelUtils.isMapSchema(schema)) {
-            // an object or anyType composed schema that has additionalProperties set
-            addAdditionPropertiesToCodeGenModel(m, schema);
-        } else {
-            m.setIsMap(false);
-            if (ModelUtils.isFreeFormObject(openAPI, schema)) {
-                // non-composed object type with no properties + additionalProperties
-                // additionalProperties must be null, ObjectSchema, or empty Schema
-                addAdditionPropertiesToCodeGenModel(m, schema);
-            }
-        }
+        addAdditionPropertiesToCodeGenModel(m, schema);
         // process 'additionalProperties'
         setAddProps(schema, m, sourceJsonPath);
     }

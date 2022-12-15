@@ -46,7 +46,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ArrayTypeMatchesArrays**](../../../components/schema/array_type_matches_arrays.ArrayTypeMatchesArrays.md) |  | 
+[**array_type_matches_arrays.ArrayTypeMatchesArrays**](../../../components/schema/array_type_matches_arrays.ArrayTypeMatchesArrays.md) |  | 
 
 
 ### Return Types, Responses

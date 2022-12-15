@@ -1,6 +1,6 @@
 
 
-class {{#if this.classname}}{{classname}}{{else}}{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}{{/if}}(
+class {{#if this.classname}}{{classname}}{{else}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}{{/if}}(
     {{> model_templates/xbase_schema }}
 ):
 {{#if this.classname}}

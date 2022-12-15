@@ -37,14 +37,14 @@ class RefInAdditionalproperties(
         types = {frozendict.frozendict}
         
         @staticmethod
-        def additional_properties() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+        def additionalProperties() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
             return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
     
-    def __getitem__(self, name: typing.Union[str, ]) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
+    def __getitem__(self, name: str) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: typing.Union[str, ]) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
+    def get_item_oapg(self, name: str) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
         return super().get_item_oapg(name)
 
     def __new__(

@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AllofSimpleTypes**](../../../components/schema/allof_simple_types.AllofSimpleTypes.md) |  | 
+[**allof_simple_types.AllofSimpleTypes**](../../../components/schema/allof_simple_types.AllofSimpleTypes.md) |  | 
 
 
 ### Authorization

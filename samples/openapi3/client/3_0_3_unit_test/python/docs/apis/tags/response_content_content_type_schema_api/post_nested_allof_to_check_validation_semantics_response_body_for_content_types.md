@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NestedAllofToCheckValidationSemantics**](../../../components/schema/nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.md) |  | 
+[**nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics**](../../../components/schema/nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.md) |  | 
 
 
 ### Authorization

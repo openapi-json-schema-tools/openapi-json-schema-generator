@@ -10,7 +10,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if modulePath}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
@@ -19,7 +19,7 @@ headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#un
     {{/with}}
 {{/each}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{../@key}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}](#response_for_{{../@key}}.{{#if this.schema.nameInSnakeCase}}{{this.schema.name}}{{else}}{{this.schema.baseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{../@key}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#response_for_{{../@key}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#response_for_{{@key}}.Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
@@ -53,9 +53,9 @@ Key | Accessed Type | Description  | Notes
                     {{#with this}}
                         {{#with schema}}
                         {{#if ../refModule}}
-{{../../@key}} | [{{../refModule}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../components/headers/{{../refModule}}.md#{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../components/headers/{{../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{else}}
-{{../../@key}} | [{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/if}}
                         {{/with}}
                     {{/with}}
@@ -80,9 +80,9 @@ Key | Accessed Type | Description  | Notes
                     {{#with this}}
                         {{#with schema}}
                         {{#if ../refModule}}
-{{../../@key}} | [{{../refModule}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](../../../components/headers/{{../refModule}}.md#{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/headers/{{../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{else}}
-{{../../@key}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if nameInSnakeCase}}{{name}}{{else}}{{baseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/if}}
                         {{/with}}
                     {{/with}}

@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BooleanTypeMatchesBooleans**](../../../components/schema/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md) |  | 
+[**boolean_type_matches_booleans.BooleanTypeMatchesBooleans**](../../../components/schema/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md) |  | 
 
 
 ### Return Types, Responses

@@ -38,7 +38,7 @@ class schema(
         class all_of:
             
             
-            class all_of_0(
+            class allOf_0(
                 schemas.StrSchema
             ):
             
@@ -49,7 +49,7 @@ class schema(
                     }
                     min_length = 1
             classes = [
-                all_of_0,
+                allOf_0,
             ]
 
 

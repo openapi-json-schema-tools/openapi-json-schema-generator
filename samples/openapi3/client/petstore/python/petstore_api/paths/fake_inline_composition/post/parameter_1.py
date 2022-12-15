@@ -49,7 +49,7 @@ class schema(
                     class all_of:
                         
                         
-                        class all_of_0(
+                        class allOf_0(
                             schemas.StrSchema
                         ):
                         
@@ -60,7 +60,7 @@ class schema(
                                 }
                                 min_length = 1
                         classes = [
-                            all_of_0,
+                            allOf_0,
                         ]
             
             
@@ -86,10 +86,15 @@ class schema(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["someProp"],
+            str
+        ]
+    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.properties.someProp, schemas.Unset]: ...
@@ -97,9 +102,14 @@ class schema(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["someProp", ], str]):
+    def get_item_oapg(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["someProp"],
+            str
+        ]
+    ):
         return super().get_item_oapg(name)
-    
 
     def __new__(
         cls,

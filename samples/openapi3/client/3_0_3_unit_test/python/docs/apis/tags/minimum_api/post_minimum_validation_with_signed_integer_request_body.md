@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**MinimumValidationWithSignedInteger**](../../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
+[**minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger**](../../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Return Types, Responses

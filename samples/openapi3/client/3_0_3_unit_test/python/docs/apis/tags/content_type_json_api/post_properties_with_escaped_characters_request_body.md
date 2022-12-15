@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PropertiesWithEscapedCharacters**](../../../components/schema/properties_with_escaped_characters.PropertiesWithEscapedCharacters.md) |  | 
+[**properties_with_escaped_characters.PropertiesWithEscapedCharacters**](../../../components/schema/properties_with_escaped_characters.PropertiesWithEscapedCharacters.md) |  | 
 
 
 ### Return Types, Responses

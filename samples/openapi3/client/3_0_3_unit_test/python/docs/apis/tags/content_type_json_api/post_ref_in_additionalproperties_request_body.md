@@ -46,7 +46,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**RefInAdditionalproperties**](../../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
+[**ref_in_additionalproperties.RefInAdditionalproperties**](../../../components/schema/ref_in_additionalproperties.RefInAdditionalproperties.md) |  | 
 
 
 ### Return Types, Responses

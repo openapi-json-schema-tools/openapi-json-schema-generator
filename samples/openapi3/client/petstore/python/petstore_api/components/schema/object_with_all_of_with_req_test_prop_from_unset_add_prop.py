@@ -39,11 +39,11 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
         class all_of:
         
             @staticmethod
-            def all_of_0() -> typing.Type['object_with_optional_test_prop.ObjectWithOptionalTestProp']:
+            def allOf_0() -> typing.Type['object_with_optional_test_prop.ObjectWithOptionalTestProp']:
                 return object_with_optional_test_prop.ObjectWithOptionalTestProp
             
             
-            class all_of_1(
+            class allOf_1(
                 schemas.DictSchema
             ):
             
@@ -63,15 +63,27 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                 test: schemas.AnyTypeSchema
                 
                 @typing.overload
+                def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema: ...
+                
+                @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
                 
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", ], str]):
+                def __getitem__(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["test"],
+                        typing_extensions.Literal["name"],
+                        str
+                    ]
+                ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
+                @typing.overload
+                def get_item_oapg(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
@@ -79,9 +91,15 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", ], str]):
+                def get_item_oapg(
+                    self,
+                    name: typing.Union[
+                        typing_extensions.Literal["test"],
+                        typing_extensions.Literal["name"],
+                        str
+                    ]
+                ):
                     return super().get_item_oapg(name)
-                
             
                 def __new__(
                     cls,
@@ -90,7 +108,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                     name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'all_of_1':
+                ) -> 'allOf_1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -100,8 +118,8 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
-                all_of_1,
+                allOf_0,
+                allOf_1,
             ]
 
 

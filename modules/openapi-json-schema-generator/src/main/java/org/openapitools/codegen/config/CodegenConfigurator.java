@@ -292,12 +292,6 @@ public class CodegenConfigurator {
         return this;
     }
 
-    public CodegenConfigurator setGenerateAliasAsModel(boolean generateAliasAsModel) {
-        workflowSettingsBuilder.withGenerateAliasAsModel(generateAliasAsModel);
-        ModelUtils.setGenerateAliasAsModel(generateAliasAsModel);
-        return this;
-    }
-
     /**
      * Sets the name of the target generator.
      * <p>
@@ -562,9 +556,6 @@ public class CodegenConfigurator {
         for (Map.Entry<String, String> entry : workflowSettings.getGlobalProperties().entrySet()) {
             GlobalSettings.setProperty(entry.getKey(), entry.getValue());
         }
-
-        // if caller resets GlobalSettings, we'll need to reset generateAliasAsModel. As noted in this method, this should be moved.
-        ModelUtils.setGenerateAliasAsModel(workflowSettings.isGenerateAliasAsModel());
 
         // TODO: Support custom spec loader implementations (https://github.com/OpenAPITools/openapi-generator/issues/844)
         final List<AuthorizationValue> authorizationValues = AuthParser.parse(this.auth);

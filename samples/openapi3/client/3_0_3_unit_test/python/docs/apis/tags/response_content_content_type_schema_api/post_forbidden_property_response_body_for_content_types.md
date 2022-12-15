@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ForbiddenProperty**](../../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
+[**forbidden_property.ForbiddenProperty**](../../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Authorization
