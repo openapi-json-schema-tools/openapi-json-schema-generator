@@ -36,10 +36,6 @@ public class CodegenModel extends CodegenProperty {
     public CodegenDiscriminator discriminator;
     public String arrayModelType;
     public boolean isPrimitiveType;
-    // Sorted sets of required parameters.
-    public Set<String> mandatory = new TreeSet<>(); // without parent's required properties
-    public Set<String> allMandatory = new TreeSet<>(); // with parent's required properties
-
     public Set<String> imports = new TreeSet<>();
     public boolean hasMoreModels, hasEnums;
     /**
@@ -57,14 +53,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setModulePath(String modulePath) {
         this.modulePath = modulePath;
-    }
-
-    public Set<String> getAllMandatory() {
-        return allMandatory;
-    }
-
-    public void setAllMandatory(Set<String> allMandatory) {
-        this.allMandatory = allMandatory;
     }
 
     public String getArrayModelType() {
@@ -157,14 +145,6 @@ public class CodegenModel extends CodegenProperty {
         this.imports = imports;
     }
 
-    public Set<String> getMandatory() {
-        return mandatory;
-    }
-
-    public void setMandatory(Set<String> mandatory) {
-        this.mandatory = mandatory;
-    }
-
     public String getModelJson() {
         return modelJson;
     }
@@ -241,8 +221,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(arrayModelType, that.arrayModelType) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
-                Objects.equals(mandatory, that.mandatory) &&
-                Objects.equals(allMandatory, that.allMandatory) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(externalDocumentation, that.externalDocumentation) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
@@ -267,7 +245,7 @@ public class CodegenModel extends CodegenProperty {
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 getArrayModelType(), isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
-                getAllowableValues(), getMandatory(), getAllMandatory(), getImports(),
+                getAllowableValues(), getImports(),
                 hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
                 isMap, deprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
                 getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
@@ -289,8 +267,6 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", classFilename='").append(classFilename).append('\'');
         sb.append(", discriminator=").append(discriminator);
         sb.append(", arrayModelType='").append(arrayModelType).append('\'');
-        sb.append(", mandatory=").append(mandatory);
-        sb.append(", allMandatory=").append(allMandatory);
         sb.append(", imports=").append(imports);
         sb.append(", hasMoreModels=").append(hasMoreModels);
         sb.append(", hasEnums=").append(hasEnums);
