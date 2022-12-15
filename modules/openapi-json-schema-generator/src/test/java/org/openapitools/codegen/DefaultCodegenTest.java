@@ -2394,8 +2394,8 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
-        CodegenProperty stringCp = codegen.fromProperty(new Schema().type("string"), null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), "#/components/schemas/A/additionalProperties");
+        CodegenProperty stringCp = codegen.fromProperty( new Schema().type("string"), "#/components/schemas/A/additionalProperties");
         CodegenResponse mapWithAddPropsUnset;
         CodegenResponse mapWithAddPropsTrue;
         CodegenResponse mapWithAddPropsFalse;
@@ -2407,13 +2407,12 @@ public class DefaultCodegenTest {
         mapWithAddPropsUnset = co.responses.get("200");
         assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
-        assertEquals(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
+        assertNotNull(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getRefClass());
         mapWithAddPropsFalse = co.responses.get("202");
         assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
         assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
-        assertEquals(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties(), stringCp);
+        assertNotNull(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getRefClass());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
