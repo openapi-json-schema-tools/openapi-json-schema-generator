@@ -4130,17 +4130,7 @@ public class DefaultCodegen implements CodegenConfig {
                 if (cm == null) {
                     continue;
                 }
-                cm.hasOptional = cm.hasOptional || !mandatory.contains(key);
-                if (cp.isEnum) {
-                    // FIXME: if supporting inheritance, when called a second time for allProperties it is possible for
-                    // m.hasEnums to be set incorrectly if allProperties has enumerations but properties does not.
-                    cm.hasEnums = true;
-                }
 
-                // set model's hasOnlyReadOnly to false if the property is read-only
-                if (!Boolean.TRUE.equals(cp.isReadOnly)) {
-                    cm.hasOnlyReadOnly = false;
-                }
                 if (!addSchemaImportsFromV3SpecLocations) {
                     addImportsForPropertyType(cm, cp);
                 }

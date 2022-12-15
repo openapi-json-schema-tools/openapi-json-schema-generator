@@ -85,10 +85,6 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         //Add imports for Jackson
         if (!BooleanUtils.toBoolean(model.isEnum)) {
             model.imports.add("JsonProperty");
-
-            if (BooleanUtils.toBoolean(model.hasEnums)) {
-                model.imports.add("JsonValue");
-            }
         }
     }
 

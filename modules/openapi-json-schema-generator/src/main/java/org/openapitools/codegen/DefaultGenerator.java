@@ -1365,11 +1365,6 @@ public class DefaultGenerator implements Generator {
             bundle.put("externalDocs", openAPI.getExternalDocs());
         }
 
-        for (int i = 0; i < allModels.size() - 1; i++) {
-            CodegenModel m = allModels.get(i).getModel();
-            m.hasMoreModels = true;
-        }
-
         config.postProcessSupportingFileData(bundle);
 
         if (GlobalSettings.getProperty("debugSupportingFiles") != null) {

@@ -34,15 +34,7 @@ public class CodegenModel extends CodegenProperty {
     public String classVarName, modelJson, dataType;
     public String classFilename; // store the class file name, mainly used for import
     public CodegenDiscriminator discriminator;
-    public String arrayModelType;
-    public boolean isPrimitiveType;
     public Set<String> imports = new TreeSet<>();
-    public boolean hasMoreModels, hasEnums;
-    /**
-     * Indicates the type has at least one optional property.
-     */
-    public boolean hasOptional;
-    public boolean hasOnlyReadOnly = true; // true if all properties are read-only
     public ExternalDocumentation externalDocumentation;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     private String modulePath;
@@ -53,14 +45,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setModulePath(String modulePath) {
         this.modulePath = modulePath;
-    }
-
-    public String getArrayModelType() {
-        return arrayModelType;
-    }
-
-    public void setArrayModelType(String arrayModelType) {
-        this.arrayModelType = arrayModelType;
     }
 
     public String getClassFilename() {
@@ -170,15 +154,11 @@ public class CodegenModel extends CodegenProperty {
                 isDouble == that.isDouble &&
                 isDate == that.isDate &&
                 isDateTime == that.isDateTime &&
-                hasMoreModels == that.hasMoreModels &&
-                hasEnums == that.hasEnums &&
                 isEnum == that.isEnum &&
                 isNullable == that.isNullable &&
-                hasOptional == that.hasOptional &&
                 isArray == that.isArray &&
                 isMap == that.isMap &&
                 deprecated == that.deprecated &&
-                hasOnlyReadOnly == that.hasOnlyReadOnly &&
                 isNull == that.isNull &&
                 hasValidation == that.hasValidation &&
                 isDecimal == that.isDecimal &&
@@ -219,7 +199,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(discriminator, that.discriminator) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
-                Objects.equals(arrayModelType, that.arrayModelType) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(externalDocumentation, that.externalDocumentation) &&
@@ -243,11 +222,11 @@ public class CodegenModel extends CodegenProperty {
         return Objects.hash(getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
                 getDescription(), getClassVarName(), getModelJson(), getDataType(), getXmlPrefix(), getXmlNamespace(),
                 getXmlName(), getClassFilename(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
-                getArrayModelType(), isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
+                isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
                 getAllowableValues(), getImports(),
-                hasMoreModels, hasEnums, isEnum, isNullable, hasOptional, isArray,
-                isMap, deprecated, hasOnlyReadOnly, getExternalDocumentation(), getVendorExtensions(),
+                isEnum, isNullable, isArray,
+                isMap, deprecated, getExternalDocumentation(), getVendorExtensions(),
                 getMaxProperties(), getMinProperties(), getUniqueItems(), getMaxItems(),
                 getMinItems(), getMaxLength(), getMinLength(), getExclusiveMinimum(), getExclusiveMaximum(), getMinimum(),
                 getMaximum(), getPattern(), getMultipleOf(), getItems(), getAdditionalProperties(),
@@ -266,12 +245,7 @@ public class CodegenModel extends CodegenProperty {
         sb.append(", dataType='").append(dataType).append('\'');
         sb.append(", classFilename='").append(classFilename).append('\'');
         sb.append(", discriminator=").append(discriminator);
-        sb.append(", arrayModelType='").append(arrayModelType).append('\'');
         sb.append(", imports=").append(imports);
-        sb.append(", hasMoreModels=").append(hasMoreModels);
-        sb.append(", hasEnums=").append(hasEnums);
-        sb.append(", hasOptional=").append(hasOptional);
-        sb.append(", hasOnlyReadOnly=").append(hasOnlyReadOnly);
         sb.append(", externalDocumentation=").append(externalDocumentation);
         sb.append(", getIsAnyType=").append(getIsAnyType());
         sb.append(", modulePath").append(modulePath);
