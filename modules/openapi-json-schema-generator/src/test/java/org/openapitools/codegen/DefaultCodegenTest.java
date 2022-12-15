@@ -2348,8 +2348,8 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), null);
-        CodegenProperty stringCp = codegen.fromProperty( new Schema().type("string"), null);
+        CodegenProperty anyTypeSchema = codegen.fromProperty(new Schema(), "#/components/schemas/A/additionalProperties");
+        CodegenProperty stringCp = codegen.fromProperty( new Schema().type("string"), "#/components/schemas/A/additionalProperties");
         CodegenParameter mapWithAddPropsUnset;
         CodegenParameter mapWithAddPropsTrue;
         CodegenParameter mapWithAddPropsFalse;
@@ -2361,13 +2361,12 @@ public class DefaultCodegenTest {
         mapWithAddPropsUnset = co.queryParams.get(0);
         assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.queryParams.get(1);
-        assertEquals(mapWithAddPropsTrue.getSchema().getAdditionalProperties(), anyTypeSchema);
-        assertTrue(mapWithAddPropsTrue.getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
+        assertNotNull(mapWithAddPropsTrue.getSchema().getRefClass());
         mapWithAddPropsFalse = co.queryParams.get(2);
         assertNotNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
         assertTrue(mapWithAddPropsFalse.getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.queryParams.get(3);
-        assertEquals(mapWithAddPropsSchema.getSchema().getAdditionalProperties(), stringCp);
+        assertNotNull(mapWithAddPropsSchema.getSchema().getRefClass());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
