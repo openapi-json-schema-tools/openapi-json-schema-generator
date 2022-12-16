@@ -44,7 +44,7 @@ class File(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sourceURI"]) -> MetaOapg.properties.sourceURI: ...
+    def __getitem__(self, name: typing_extensions.Literal["sourceURI"]) -> MetaOapg.Properties.sourceURI: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -60,7 +60,7 @@ class File(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["sourceURI"]) -> typing.Union[MetaOapg.properties.sourceURI, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["sourceURI"]) -> typing.Union[MetaOapg.Properties.sourceURI, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -77,7 +77,7 @@ class File(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        sourceURI: typing.Union[MetaOapg.properties.sourceURI, str, schemas.Unset] = schemas.unset,
+        sourceURI: typing.Union[MetaOapg.Properties.sourceURI, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'File':

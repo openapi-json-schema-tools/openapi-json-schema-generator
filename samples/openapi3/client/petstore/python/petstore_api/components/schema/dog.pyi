@@ -57,7 +57,7 @@ class Dog(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["breed"]) -> MetaOapg.properties.breed: ...
+                def __getitem__(self, name: typing_extensions.Literal["breed"]) -> MetaOapg.Properties.breed: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -73,7 +73,7 @@ class Dog(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["breed"]) -> typing.Union[MetaOapg.properties.breed, schemas.Unset]: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["breed"]) -> typing.Union[MetaOapg.Properties.breed, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,7 +90,7 @@ class Dog(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    breed: typing.Union[MetaOapg.properties.breed, str, schemas.Unset] = schemas.unset,
+                    breed: typing.Union[MetaOapg.Properties.breed, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'AllOf1':

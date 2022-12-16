@@ -66,14 +66,14 @@ class JSONPatchRequestRemove(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    op: MetaOapg.properties.op
-    path: MetaOapg.properties.path
+    op: MetaOapg.Properties.op
+    path: MetaOapg.Properties.path
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
+    def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.op: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
+    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.path: ...
     
     def __getitem__(
         self,
@@ -86,10 +86,10 @@ class JSONPatchRequestRemove(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.op: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.path: ...
     
     def get_item_oapg(
         self,
@@ -103,8 +103,8 @@ class JSONPatchRequestRemove(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        op: typing.Union[MetaOapg.properties.op, str, ],
-        path: typing.Union[MetaOapg.properties.path, str, ],
+        op: typing.Union[MetaOapg.Properties.op, str, ],
+        path: typing.Union[MetaOapg.Properties.path, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'JSONPatchRequestRemove':
         return super().__new__(

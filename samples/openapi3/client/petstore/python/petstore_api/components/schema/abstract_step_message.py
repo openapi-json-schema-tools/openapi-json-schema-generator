@@ -70,14 +70,14 @@ class AbstractStepMessage(
 
     
     description: schemas.AnyTypeSchema
-    discriminator: MetaOapg.properties.discriminator
+    discriminator: MetaOapg.Properties.discriminator
     sequenceNumber: schemas.AnyTypeSchema
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.properties.discriminator: ...
+    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.Properties.discriminator: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
@@ -101,7 +101,7 @@ class AbstractStepMessage(
     def get_item_oapg(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.properties.discriminator: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.Properties.discriminator: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
@@ -124,7 +124,7 @@ class AbstractStepMessage(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         description: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        discriminator: typing.Union[MetaOapg.properties.discriminator, str, ],
+        discriminator: typing.Union[MetaOapg.Properties.discriminator, str, ],
         sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

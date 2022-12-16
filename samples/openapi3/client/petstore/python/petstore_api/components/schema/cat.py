@@ -58,7 +58,7 @@ class Cat(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> MetaOapg.properties.declawed: ...
+                def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> MetaOapg.Properties.declawed: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -74,7 +74,7 @@ class Cat(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[MetaOapg.properties.declawed, schemas.Unset]: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[MetaOapg.Properties.declawed, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -91,7 +91,7 @@ class Cat(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    declawed: typing.Union[MetaOapg.properties.declawed, bool, schemas.Unset] = schemas.unset,
+                    declawed: typing.Union[MetaOapg.Properties.declawed, bool, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'AllOf1':

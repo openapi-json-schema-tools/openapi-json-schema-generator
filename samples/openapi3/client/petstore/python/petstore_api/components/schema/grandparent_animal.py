@@ -54,10 +54,10 @@ class GrandparentAnimal(
                 "pet_type": PetType,
             }
     
-    pet_type: MetaOapg.properties.pet_type
+    pet_type: MetaOapg.Properties.pet_type
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.properties.pet_type: ...
+    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.Properties.pet_type: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -73,7 +73,7 @@ class GrandparentAnimal(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.properties.pet_type: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.Properties.pet_type: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,7 +90,7 @@ class GrandparentAnimal(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        pet_type: typing.Union[MetaOapg.properties.pet_type, str, ],
+        pet_type: typing.Union[MetaOapg.Properties.pet_type, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'GrandparentAnimal':

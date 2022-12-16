@@ -45,7 +45,7 @@ class SpecialModelName(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> MetaOapg.properties.a: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.a: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -61,7 +61,7 @@ class SpecialModelName(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> typing.Union[MetaOapg.properties.a, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> typing.Union[MetaOapg.Properties.a, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -78,7 +78,7 @@ class SpecialModelName(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        a: typing.Union[MetaOapg.properties.a, str, schemas.Unset] = schemas.unset,
+        a: typing.Union[MetaOapg.Properties.a, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SpecialModelName':

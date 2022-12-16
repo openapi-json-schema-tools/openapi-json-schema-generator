@@ -42,7 +42,7 @@ class ObjectWithOptionalTestProp(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["test"]) -> MetaOapg.properties.test: ...
+    def __getitem__(self, name: typing_extensions.Literal["test"]) -> MetaOapg.Properties.test: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -58,7 +58,7 @@ class ObjectWithOptionalTestProp(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["test"]) -> typing.Union[MetaOapg.properties.test, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["test"]) -> typing.Union[MetaOapg.Properties.test, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -75,7 +75,7 @@ class ObjectWithOptionalTestProp(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        test: typing.Union[MetaOapg.properties.test, str, schemas.Unset] = schemas.unset,
+        test: typing.Union[MetaOapg.Properties.test, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectWithOptionalTestProp':

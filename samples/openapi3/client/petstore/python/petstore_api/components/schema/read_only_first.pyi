@@ -44,10 +44,10 @@ class ReadOnlyFirst(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.bar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.properties.baz: ...
+    def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.Properties.baz: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -64,10 +64,10 @@ class ReadOnlyFirst(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.properties.bar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.Properties.bar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> typing.Union[MetaOapg.properties.baz, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> typing.Union[MetaOapg.Properties.baz, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -85,8 +85,8 @@ class ReadOnlyFirst(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        bar: typing.Union[MetaOapg.properties.bar, str, schemas.Unset] = schemas.unset,
-        baz: typing.Union[MetaOapg.properties.baz, str, schemas.Unset] = schemas.unset,
+        bar: typing.Union[MetaOapg.Properties.bar, str, schemas.Unset] = schemas.unset,
+        baz: typing.Union[MetaOapg.Properties.baz, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ReadOnlyFirst':

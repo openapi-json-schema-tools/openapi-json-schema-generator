@@ -43,7 +43,7 @@ class Client(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["client"]) -> MetaOapg.properties.client: ...
+    def __getitem__(self, name: typing_extensions.Literal["client"]) -> MetaOapg.Properties.client: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -59,7 +59,7 @@ class Client(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["client"]) -> typing.Union[MetaOapg.properties.client, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["client"]) -> typing.Union[MetaOapg.Properties.client, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -76,7 +76,7 @@ class Client(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        client: typing.Union[MetaOapg.properties.client, str, schemas.Unset] = schemas.unset,
+        client: typing.Union[MetaOapg.Properties.client, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Client':
