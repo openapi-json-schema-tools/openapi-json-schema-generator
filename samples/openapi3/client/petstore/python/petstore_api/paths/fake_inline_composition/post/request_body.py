@@ -58,7 +58,7 @@ class application_json(
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_json':
+    ) -> 'ApplicationJson':
         return super().__new__(
             cls,
             *_args,
@@ -67,7 +67,7 @@ class application_json(
         )
 
 
-class multipart_form_data(
+class MultipartFormData(
     schemas.DictSchema
 ):
 
@@ -157,7 +157,7 @@ class multipart_form_data(
         someProp: typing.Union[MetaOapg.properties.someProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'multipart_form_data':
+    ) -> 'MultipartFormData':
         return super().__new__(
             cls,
             *_args,

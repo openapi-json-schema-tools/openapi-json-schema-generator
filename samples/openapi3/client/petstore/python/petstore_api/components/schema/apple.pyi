@@ -111,7 +111,7 @@ class Apple(
         origin: typing.Union[MetaOapg.properties.origin, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'Apple':
+    ) -> 'apple':
         return super().__new__(
             cls,
             *_args,

@@ -94,7 +94,7 @@ class GmFruit(
         color: typing.Union[MetaOapg.properties.color, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'GmFruit':
+    ) -> 'gmFruit':
         return super().__new__(
             cls,
             *_args,

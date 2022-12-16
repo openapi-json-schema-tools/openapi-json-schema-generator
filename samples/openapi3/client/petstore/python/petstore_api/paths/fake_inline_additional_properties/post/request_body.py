@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_json(
+class ApplicationJson(
     schemas.DictSchema
 ):
 
@@ -48,7 +48,7 @@ class application_json(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
-    ) -> 'application_json':
+    ) -> 'ApplicationJson':
         return super().__new__(
             cls,
             *_args,

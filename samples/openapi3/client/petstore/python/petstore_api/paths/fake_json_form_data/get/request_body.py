@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_x_www_form_urlencoded(
+class ApplicationXWwwFormUrlencoded(
     schemas.DictSchema
 ):
 
@@ -96,7 +96,7 @@ class application_x_www_form_urlencoded(
         param2: typing.Union[MetaOapg.properties.param2, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_x_www_form_urlencoded':
+    ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
             *_args,

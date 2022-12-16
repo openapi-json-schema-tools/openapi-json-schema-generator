@@ -2981,36 +2981,40 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (sourceJsonPath != null) {
             String[] refPieces = sourceJsonPath.split("/");
-            if (refPieces.length >= 5) {
-                // # components schemas someSchema additionalProperties/items
+            if (refPieces.length >= 4) {
+                // component schemas + proprties/items/additionalProperties use case
                 String lastPathFragment = refPieces[refPieces.length-1];
                 String usedName = lastPathFragment;
-                if (lastPathFragment.equals("additionalProperties")) {
-                    String priorFragment = refPieces[refPieces.length-2];
-                    if (!"properties".equals(priorFragment)) {
-                        property.setSchemaIsFromAdditionalProperties(true);
-                    }
-                    // usedName = getAdditionalPropertiesName();
-                } else if (lastPathFragment.equals("schema")) {
-                    String priorFragment = refPieces[refPieces.length-2];
-                    if (!"parameters".equals(priorFragment)) {
-                        String evenDeeperFragment = refPieces[refPieces.length-3];
-                        if ("content".equals(evenDeeperFragment)) {
-                            // body or parameter content type schemas, in which case 1 deeper is content
-                            usedName = ModelUtils.decodeSlashes(priorFragment);
-                        }
-                    }
-                } else {
-                    try {
-                        Integer.parseInt(usedName);
-                        // for oneOf/anyOf/allOf
+                if (refPieces.length >= 5) {
+                    // proprties/items/additionalProperties use case
+                    // # components schemas someSchema additionalProperties/items
+                    if (lastPathFragment.equals("additionalProperties")) {
                         String priorFragment = refPieces[refPieces.length-2];
-                        if ("allOf".equals(priorFragment) || "anyOf".equals(priorFragment) || "oneOf".equals(priorFragment)) {
-                            usedName = refPieces[refPieces.length-2] + "_" + usedName;
+                        if (!"properties".equals(priorFragment)) {
+                            property.setSchemaIsFromAdditionalProperties(true);
                         }
-                    } catch (NumberFormatException nfe) {
-                        // any other case
-                        ;
+                        // usedName = getAdditionalPropertiesName();
+                    } else if (lastPathFragment.equals("schema")) {
+                        String priorFragment = refPieces[refPieces.length-2];
+                        if (!"parameters".equals(priorFragment)) {
+                            String evenDeeperFragment = refPieces[refPieces.length-3];
+                            if ("content".equals(evenDeeperFragment)) {
+                                // body or parameter content type schemas, in which case 1 deeper is content
+                                usedName = ModelUtils.decodeSlashes(priorFragment);
+                            }
+                        }
+                    } else {
+                        try {
+                            Integer.parseInt(usedName);
+                            // for oneOf/anyOf/allOf
+                            String priorFragment = refPieces[refPieces.length-2];
+                            if ("allOf".equals(priorFragment) || "anyOf".equals(priorFragment) || "oneOf".equals(priorFragment)) {
+                                usedName = refPieces[refPieces.length-2] + "_" + usedName;
+                            }
+                        } catch (NumberFormatException nfe) {
+                            // any other case
+                            ;
+                        }
                     }
                 }
                 CodegenKey ck = getKey(usedName);

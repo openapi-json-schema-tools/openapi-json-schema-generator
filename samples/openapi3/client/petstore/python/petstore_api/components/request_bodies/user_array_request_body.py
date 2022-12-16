@@ -29,7 +29,7 @@ from petstore_api.components.schema import user
 
 
 
-class application_json(
+class ApplicationJson(
     schemas.ListSchema
 ):
 
@@ -45,7 +45,7 @@ class application_json(
         cls,
         _arg: typing.Union[typing.Tuple['user.User'], typing.List['user.User']],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'application_json':
+    ) -> 'ApplicationJson':
         return super().__new__(
             cls,
             _arg,

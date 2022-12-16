@@ -20,7 +20,7 @@ from petstore_api.components.schema import pet
 # body schemas
 
 
-class application_xml(
+class ApplicationXml(
     schemas.ListSchema
 ):
 
@@ -36,7 +36,7 @@ class application_xml(
         cls,
         _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'application_xml':
+    ) -> 'ApplicationXml':
         return super().__new__(
             cls,
             _arg,
@@ -47,7 +47,7 @@ class application_xml(
         return super().__getitem__(i)
 
 
-class application_json(
+class ApplicationJson(
     schemas.ListSchema
 ):
 
@@ -63,7 +63,7 @@ class application_json(
         cls,
         _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'application_json':
+    ) -> 'ApplicationJson':
         return super().__new__(
             cls,
             _arg,
