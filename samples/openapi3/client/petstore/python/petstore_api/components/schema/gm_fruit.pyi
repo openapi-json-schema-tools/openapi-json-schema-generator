@@ -36,24 +36,24 @@ class GmFruit(
     class MetaOapg:
         # any type
         
-        class properties:
-            color = schemas.StrSchema
+        class Properties:
+            Color = schemas.StrSchema
             __annotations__ = {
-                "color": color,
+                "color": Color,
             }
         
-        class any_of:
+        class AnyOf:
         
             @staticmethod
-            def anyOf_0() -> typing.Type['apple.Apple']:
+            def any_of_0() -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def anyOf_1() -> typing.Type['banana.Banana']:
+            def any_of_1() -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                anyOf_0,
-                anyOf_1,
+                any_of_0,
+                any_of_1,
             ]
 
     
@@ -94,7 +94,7 @@ class GmFruit(
         color: typing.Union[MetaOapg.properties.color, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'gmFruit':
+    ) -> 'GmFruit':
         return super().__new__(
             cls,
             *_args,

@@ -36,20 +36,20 @@ class FruitReq(
     class MetaOapg:
         # any type
         
-        class one_of:
-            oneOf_0 = schemas.NoneSchema
+        class OneOf:
+            OneOf0 = schemas.NoneSchema
         
             @staticmethod
-            def oneOf_1() -> typing.Type['apple_req.AppleReq']:
+            def one_of_1() -> typing.Type['apple_req.AppleReq']:
                 return apple_req.AppleReq
         
             @staticmethod
-            def oneOf_2() -> typing.Type['banana_req.BananaReq']:
+            def one_of_2() -> typing.Type['banana_req.BananaReq']:
                 return banana_req.BananaReq
             classes = [
-                oneOf_0,
-                oneOf_1,
-                oneOf_2,
+                OneOf0,
+                one_of_1,
+                one_of_2,
             ]
 
 
@@ -58,7 +58,7 @@ class FruitReq(
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'fruitReq':
+    ) -> 'FruitReq':
         return super().__new__(
             cls,
             *_args,

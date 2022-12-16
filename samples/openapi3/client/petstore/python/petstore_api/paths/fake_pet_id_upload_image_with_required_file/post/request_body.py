@@ -38,12 +38,12 @@ class MultipartFormData(
             "requiredFile",
         }
         
-        class properties:
-            additionalMetadata = schemas.StrSchema
-            requiredFile = schemas.BinarySchema
+        class Properties:
+            AdditionalMetadata = schemas.StrSchema
+            RequiredFile = schemas.BinarySchema
             __annotations__ = {
-                "additionalMetadata": additionalMetadata,
-                "requiredFile": requiredFile,
+                "additionalMetadata": AdditionalMetadata,
+                "requiredFile": RequiredFile,
             }
     
     requiredFile: MetaOapg.properties.requiredFile

@@ -36,24 +36,24 @@ class Fruit(
     class MetaOapg:
         # any type
         
-        class properties:
-            color = schemas.StrSchema
+        class Properties:
+            Color = schemas.StrSchema
             __annotations__ = {
-                "color": color,
+                "color": Color,
             }
         
-        class one_of:
+        class OneOf:
         
             @staticmethod
-            def oneOf_0() -> typing.Type['apple.Apple']:
+            def one_of_0() -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def oneOf_1() -> typing.Type['banana.Banana']:
+            def one_of_1() -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                oneOf_0,
-                oneOf_1,
+                one_of_0,
+                one_of_1,
             ]
 
     
@@ -94,7 +94,7 @@ class Fruit(
         color: typing.Union[MetaOapg.properties.color, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'fruit':
+    ) -> 'Fruit':
         return super().__new__(
             cls,
             *_args,

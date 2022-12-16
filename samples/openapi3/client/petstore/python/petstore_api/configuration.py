@@ -41,11 +41,11 @@ JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD = {
     'format': 'format',
     'required': 'required',
     'items': 'items',
-    'properties': 'properties',
+    'properties': 'Properties',
     'additionalProperties': 'additionalProperties',
-    'oneOf': 'one_of',
-    'anyOf': 'any_of',
-    'allOf': 'all_of',
+    'oneOf': 'OneOf',
+    'anyOf': 'AnyOf',
+    'allOf': 'AllOf',
     'not': '_not',
     'discriminator': 'discriminator'
 }

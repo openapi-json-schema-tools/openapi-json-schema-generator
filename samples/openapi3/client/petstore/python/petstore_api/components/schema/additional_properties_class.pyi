@@ -35,16 +35,16 @@ class AdditionalPropertiesClass(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
             
             
-            class map_property(
+            class MapProperty(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
-                    additionalProperties = schemas.StrSchema
+                    AdditionalProperties = schemas.StrSchema
                 
                 def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
                     # dict_instance[name] accessor
@@ -58,7 +58,7 @@ class AdditionalPropertiesClass(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
-                ) -> 'map_property':
+                ) -> 'MapProperty':
                     return super().__new__(
                         cls,
                         *_args,
@@ -67,7 +67,7 @@ class AdditionalPropertiesClass(
                     )
             
             
-            class map_of_map_property(
+            class MapOfMapProperty(
                 schemas.DictSchema
             ):
             
@@ -75,13 +75,13 @@ class AdditionalPropertiesClass(
                 class MetaOapg:
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.DictSchema
                     ):
                     
                     
                         class MetaOapg:
-                            additionalProperties = schemas.StrSchema
+                            AdditionalProperties = schemas.StrSchema
                         
                         def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
                             # dict_instance[name] accessor
@@ -95,7 +95,7 @@ class AdditionalPropertiesClass(
                             *_args: typing.Union[dict, frozendict.frozendict, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
-                        ) -> 'additionalProperties':
+                        ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *_args,
@@ -115,25 +115,25 @@ class AdditionalPropertiesClass(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, ],
-                ) -> 'map_of_map_property':
+                ) -> 'MapOfMapProperty':
                     return super().__new__(
                         cls,
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
                     )
-            anytype_1 = schemas.AnyTypeSchema
-            map_with_undeclared_properties_anytype_1 = schemas.DictSchema
-            map_with_undeclared_properties_anytype_2 = schemas.DictSchema
+            Anytype1 = schemas.AnyTypeSchema
+            MapWithUndeclaredPropertiesAnytype1 = schemas.DictSchema
+            MapWithUndeclaredPropertiesAnytype2 = schemas.DictSchema
             
             
-            class map_with_undeclared_properties_anytype_3(
+            class MapWithUndeclaredPropertiesAnytype3(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
-                    additionalProperties = schemas.AnyTypeSchema
+                    AdditionalProperties = schemas.AnyTypeSchema
                 
                 def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
                     # dict_instance[name] accessor
@@ -147,7 +147,7 @@ class AdditionalPropertiesClass(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'map_with_undeclared_properties_anytype_3':
+                ) -> 'MapWithUndeclaredPropertiesAnytype3':
                     return super().__new__(
                         cls,
                         *_args,
@@ -156,19 +156,19 @@ class AdditionalPropertiesClass(
                     )
             
             
-            class empty_map(
+            class EmptyMap(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
-                    additionalProperties = schemas.NotAnyTypeSchema
+                    AdditionalProperties = schemas.NotAnyTypeSchema
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'empty_map':
+                ) -> 'EmptyMap':
                     return super().__new__(
                         cls,
                         *_args,
@@ -176,13 +176,13 @@ class AdditionalPropertiesClass(
                     )
             
             
-            class map_with_undeclared_properties_string(
+            class MapWithUndeclaredPropertiesString(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
-                    additionalProperties = schemas.StrSchema
+                    AdditionalProperties = schemas.StrSchema
                 
                 def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
                     # dict_instance[name] accessor
@@ -196,7 +196,7 @@ class AdditionalPropertiesClass(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
-                ) -> 'map_with_undeclared_properties_string':
+                ) -> 'MapWithUndeclaredPropertiesString':
                     return super().__new__(
                         cls,
                         *_args,
@@ -204,14 +204,14 @@ class AdditionalPropertiesClass(
                         **kwargs,
                     )
             __annotations__ = {
-                "map_property": map_property,
-                "map_of_map_property": map_of_map_property,
-                "anytype_1": anytype_1,
-                "map_with_undeclared_properties_anytype_1": map_with_undeclared_properties_anytype_1,
-                "map_with_undeclared_properties_anytype_2": map_with_undeclared_properties_anytype_2,
-                "map_with_undeclared_properties_anytype_3": map_with_undeclared_properties_anytype_3,
-                "empty_map": empty_map,
-                "map_with_undeclared_properties_string": map_with_undeclared_properties_string,
+                "map_property": MapProperty,
+                "map_of_map_property": MapOfMapProperty,
+                "anytype_1": Anytype1,
+                "map_with_undeclared_properties_anytype_1": MapWithUndeclaredPropertiesAnytype1,
+                "map_with_undeclared_properties_anytype_2": MapWithUndeclaredPropertiesAnytype2,
+                "map_with_undeclared_properties_anytype_3": MapWithUndeclaredPropertiesAnytype3,
+                "empty_map": EmptyMap,
+                "map_with_undeclared_properties_string": MapWithUndeclaredPropertiesString,
             }
     
     @typing.overload

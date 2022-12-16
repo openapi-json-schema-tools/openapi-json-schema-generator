@@ -39,7 +39,7 @@ class DanishPig(
             "className",
         }
         
-        class properties:
+        class Properties:
             
             
             class className(
@@ -59,7 +59,7 @@ class DanishPig(
                 def DANISH_PIG(cls):
                     return cls("DanishPig")
             __annotations__ = {
-                "className": className,
+                "className": ClassName,
             }
     
     className: MetaOapg.properties.className

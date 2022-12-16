@@ -36,7 +36,7 @@ class ArrayOfArrayOfNumberOnly(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
             class ArrayArrayNumber(
@@ -48,20 +48,20 @@ class ArrayOfArrayOfNumberOnly(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.ListSchema
                     ):
                     
                     
                         class MetaOapg:
                             types = {tuple}
-                            items = schemas.NumberSchema
+                            Items = schemas.NumberSchema
                     
                         def __new__(
                             cls,
                             _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
                             _configuration: typing.Optional[schemas.Configuration] = None,
-                        ) -> 'items':
+                        ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 _arg,

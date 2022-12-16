@@ -40,8 +40,8 @@ class JSONPatchRequestRemove(
             "path",
         }
         
-        class properties:
-            path = schemas.StrSchema
+        class Properties:
+            Path = schemas.StrSchema
             
             
             class op(
@@ -61,10 +61,10 @@ class JSONPatchRequestRemove(
                 def REMOVE(cls):
                     return cls("remove")
             __annotations__ = {
-                "path": path,
-                "op": op,
+                "path": Path,
+                "op": Op,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
     op: MetaOapg.properties.op
     path: MetaOapg.properties.path

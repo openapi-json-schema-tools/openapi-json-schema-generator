@@ -41,14 +41,14 @@ class Name(
             "name",
         }
         
-        class properties:
-            name = schemas.Int32Schema
-            snake_case = schemas.Int32Schema
-            _property = schemas.StrSchema
+        class Properties:
+            Name = schemas.Int32Schema
+            SnakeCase = schemas.Int32Schema
+            ModelProperty = schemas.StrSchema
             __annotations__ = {
-                "name": name,
-                "snake_case": snake_case,
-                "property": _property,
+                "name": Name,
+                "snake_case": SnakeCase,
+                "property": ModelProperty,
             }
 
     

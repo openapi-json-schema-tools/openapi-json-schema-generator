@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import array_of_enums
 
 
-application_json = array_of_enums.ArrayOfEnums
+ApplicationJson = array_of_enums.ArrayOfEnums
 
 parameter_oapg = api_client.RequestBody(
     content={

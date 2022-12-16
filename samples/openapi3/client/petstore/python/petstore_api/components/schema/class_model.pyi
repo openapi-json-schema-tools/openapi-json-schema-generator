@@ -38,10 +38,10 @@ class ClassModel(
     class MetaOapg:
         # any type
         
-        class properties:
-            _class = schemas.StrSchema
+        class Properties:
+            ModelClass = schemas.StrSchema
             __annotations__ = {
-                "_class": _class,
+                "_class": ModelClass,
             }
 
     

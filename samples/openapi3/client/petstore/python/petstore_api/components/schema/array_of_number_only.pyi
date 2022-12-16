@@ -35,7 +35,7 @@ class ArrayOfNumberOnly(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
             
             
             class ArrayNumber(
@@ -45,7 +45,7 @@ class ArrayOfNumberOnly(
             
                 class MetaOapg:
                     types = {tuple}
-                    items = schemas.NumberSchema
+                    Items = schemas.NumberSchema
             
                 def __new__(
                     cls,

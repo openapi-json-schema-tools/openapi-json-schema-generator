@@ -28,7 +28,7 @@ class ApplicationJson(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def string() -> typing.Type['foo.Foo']:

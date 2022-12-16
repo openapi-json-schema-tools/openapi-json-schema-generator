@@ -36,32 +36,32 @@ class ComposedAnyOfDifferentTypesNoValidations(
     class MetaOapg:
         # any type
         
-        class any_of:
-            anyOf_0 = schemas.DictSchema
-            anyOf_1 = schemas.DateSchema
-            anyOf_2 = schemas.DateTimeSchema
-            anyOf_3 = schemas.BinarySchema
-            anyOf_4 = schemas.StrSchema
-            anyOf_5 = schemas.StrSchema
-            anyOf_6 = schemas.DictSchema
-            anyOf_7 = schemas.BoolSchema
-            anyOf_8 = schemas.NoneSchema
+        class AnyOf:
+            AnyOf0 = schemas.DictSchema
+            AnyOf1 = schemas.DateSchema
+            AnyOf2 = schemas.DateTimeSchema
+            AnyOf3 = schemas.BinarySchema
+            AnyOf4 = schemas.StrSchema
+            AnyOf5 = schemas.StrSchema
+            AnyOf6 = schemas.DictSchema
+            AnyOf7 = schemas.BoolSchema
+            AnyOf8 = schemas.NoneSchema
             
             
-            class anyOf_9(
+            class AnyOf9(
                 schemas.ListSchema
             ):
             
             
                 class MetaOapg:
                     types = {tuple}
-                    items = schemas.AnyTypeSchema
+                    Items = schemas.AnyTypeSchema
             
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'anyOf_9':
+                ) -> 'AnyOf9':
                     return super().__new__(
                         cls,
                         _arg,
@@ -70,29 +70,29 @@ class ComposedAnyOfDifferentTypesNoValidations(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
-            anyOf_10 = schemas.NumberSchema
-            anyOf_11 = schemas.Float32Schema
-            anyOf_12 = schemas.Float64Schema
-            anyOf_13 = schemas.IntSchema
-            anyOf_14 = schemas.Int32Schema
-            anyOf_15 = schemas.Int64Schema
+            AnyOf10 = schemas.NumberSchema
+            AnyOf11 = schemas.Float32Schema
+            AnyOf12 = schemas.Float64Schema
+            AnyOf13 = schemas.IntSchema
+            AnyOf14 = schemas.Int32Schema
+            AnyOf15 = schemas.Int64Schema
             classes = [
-                anyOf_0,
-                anyOf_1,
-                anyOf_2,
-                anyOf_3,
-                anyOf_4,
-                anyOf_5,
-                anyOf_6,
-                anyOf_7,
-                anyOf_8,
-                anyOf_9,
-                anyOf_10,
-                anyOf_11,
-                anyOf_12,
-                anyOf_13,
-                anyOf_14,
-                anyOf_15,
+                AnyOf0,
+                AnyOf1,
+                AnyOf2,
+                AnyOf3,
+                AnyOf4,
+                AnyOf5,
+                AnyOf6,
+                AnyOf7,
+                AnyOf8,
+                AnyOf9,
+                AnyOf10,
+                AnyOf11,
+                AnyOf12,
+                AnyOf13,
+                AnyOf14,
+                AnyOf15,
             ]
 
 

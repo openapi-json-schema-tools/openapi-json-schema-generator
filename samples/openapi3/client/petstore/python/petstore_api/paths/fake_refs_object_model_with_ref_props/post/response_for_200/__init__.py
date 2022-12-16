@@ -18,7 +18,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import object_model_with_ref_props
 
 # body schemas
-application_json = object_model_with_ref_props.ObjectModelWithRefProps
+ApplicationJson = object_model_with_ref_props.ObjectModelWithRefProps
 
 
 @dataclasses.dataclass

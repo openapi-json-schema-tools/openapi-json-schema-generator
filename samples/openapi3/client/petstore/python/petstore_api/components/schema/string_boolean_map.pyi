@@ -34,7 +34,7 @@ class StringBooleanMap(
 
 
     class MetaOapg:
-        additionalProperties = schemas.BoolSchema
+        AdditionalProperties = schemas.BoolSchema
     
     def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
         # dict_instance[name] accessor

@@ -36,19 +36,19 @@ class ObjectWithDecimalProperties(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def length() -> typing.Type['decimal_payload.DecimalPayload']:
                 return decimal_payload.DecimalPayload
-            width = schemas.DecimalSchema
+            Width = schemas.DecimalSchema
         
             @staticmethod
             def cost() -> typing.Type['money.Money']:
                 return money.Money
             __annotations__ = {
                 "length": length,
-                "width": width,
+                "width": Width,
                 "cost": cost,
             }
     

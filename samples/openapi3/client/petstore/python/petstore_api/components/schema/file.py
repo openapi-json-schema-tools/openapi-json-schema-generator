@@ -38,10 +38,10 @@ class File(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            sourceURI = schemas.StrSchema
+        class Properties:
+            SourceURI = schemas.StrSchema
             __annotations__ = {
-                "sourceURI": sourceURI,
+                "sourceURI": SourceURI,
             }
     
     @typing.overload

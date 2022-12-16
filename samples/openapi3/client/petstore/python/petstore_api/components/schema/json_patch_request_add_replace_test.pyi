@@ -40,9 +40,9 @@ class JSONPatchRequestAddReplaceTest(
             "value",
         }
         
-        class properties:
-            path = schemas.StrSchema
-            value = schemas.AnyTypeSchema
+        class Properties:
+            Path = schemas.StrSchema
+            Value = schemas.AnyTypeSchema
             
             
             class op(
@@ -61,11 +61,11 @@ class JSONPatchRequestAddReplaceTest(
                 def TEST(cls):
                     return cls("test")
             __annotations__ = {
-                "path": path,
-                "value": value,
-                "op": op,
+                "path": Path,
+                "value": Value,
+                "op": Op,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
     op: MetaOapg.properties.op
     path: MetaOapg.properties.path

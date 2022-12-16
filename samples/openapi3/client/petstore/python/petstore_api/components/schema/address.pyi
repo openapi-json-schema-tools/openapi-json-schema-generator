@@ -34,7 +34,7 @@ class Address(
 
 
     class MetaOapg:
-        additionalProperties = schemas.IntSchema
+        AdditionalProperties = schemas.IntSchema
     
     def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
         # dict_instance[name] accessor

@@ -16,7 +16,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 # body schemas
-application_octet_stream = schemas.BinarySchema
+ApplicationOctetStream = schemas.BinarySchema
 
 
 @dataclasses.dataclass

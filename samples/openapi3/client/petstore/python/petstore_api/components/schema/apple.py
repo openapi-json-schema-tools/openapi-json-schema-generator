@@ -45,7 +45,7 @@ class Apple(
             "cultivar",
         }
         
-        class properties:
+        class Properties:
             
             
             class cultivar(
@@ -78,8 +78,8 @@ class Apple(
                         )
                     }
             __annotations__ = {
-                "cultivar": cultivar,
-                "origin": origin,
+                "cultivar": Cultivar,
+                "origin": Origin,
             }
 
     
@@ -130,7 +130,7 @@ class Apple(
         origin: typing.Union[MetaOapg.properties.origin, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'apple':
+    ) -> 'Apple':
         return super().__new__(
             cls,
             *_args,

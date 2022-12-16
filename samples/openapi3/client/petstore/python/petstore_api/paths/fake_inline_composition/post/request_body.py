@@ -35,7 +35,7 @@ class application_json(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
             
             
             class allOf_0(
@@ -49,7 +49,7 @@ class application_json(
                     }
                     min_length = 1
             classes = [
-                allOf_0,
+                AllOf0,
             ]
 
 
@@ -75,7 +75,7 @@ class MultipartFormData(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
             class someProp(
@@ -86,7 +86,7 @@ class MultipartFormData(
                 class MetaOapg:
                     # any type
                     
-                    class all_of:
+                    class AllOf:
                         
                         
                         class allOf_0(
@@ -100,7 +100,7 @@ class MultipartFormData(
                                 }
                                 min_length = 1
                         classes = [
-                            allOf_0,
+                            AllOf0,
                         ]
             
             
@@ -109,7 +109,7 @@ class MultipartFormData(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'someProp':
+                ) -> 'SomeProp':
                     return super().__new__(
                         cls,
                         *_args,
@@ -117,7 +117,7 @@ class MultipartFormData(
                         **kwargs,
                     )
             __annotations__ = {
-                "someProp": someProp,
+                "someProp": SomeProp,
             }
     
     @typing.overload

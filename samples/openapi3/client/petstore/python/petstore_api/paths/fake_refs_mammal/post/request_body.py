@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import mammal
 
 
-application_json = mammal.Mammal
+ApplicationJson = mammal.Mammal
 
 parameter_oapg = api_client.RequestBody(
     content={

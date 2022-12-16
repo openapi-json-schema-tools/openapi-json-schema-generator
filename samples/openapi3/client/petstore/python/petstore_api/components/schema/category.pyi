@@ -38,12 +38,12 @@ class Category(
             "name",
         }
         
-        class properties:
-            id = schemas.Int64Schema
-            name = schemas.StrSchema
+        class Properties:
+            Id = schemas.Int64Schema
+            Name = schemas.StrSchema
             __annotations__ = {
-                "id": id,
-                "name": name,
+                "id": Id,
+                "name": Name,
             }
     
     name: MetaOapg.properties.name

@@ -36,21 +36,21 @@ class EquilateralTriangle(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
         
             @staticmethod
-            def allOf_0() -> typing.Type['triangle_interface.TriangleInterface']:
+            def all_of_0() -> typing.Type['triangle_interface.TriangleInterface']:
                 return triangle_interface.TriangleInterface
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
                     
-                    class properties:
+                    class Properties:
                         
                         
                         class triangleType(
@@ -61,7 +61,7 @@ class EquilateralTriangle(
                             def EQUILATERAL_TRIANGLE(cls):
                                 return cls("EquilateralTriangle")
                         __annotations__ = {
-                            "triangleType": triangleType,
+                            "triangleType": TriangleType,
                         }
                 
                 @typing.overload
@@ -101,7 +101,7 @@ class EquilateralTriangle(
                     triangleType: typing.Union[MetaOapg.properties.triangleType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -110,8 +110,8 @@ class EquilateralTriangle(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                all_of_0,
+                AllOf1,
             ]
 
 

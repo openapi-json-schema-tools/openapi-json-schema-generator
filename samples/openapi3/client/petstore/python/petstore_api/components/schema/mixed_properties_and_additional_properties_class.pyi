@@ -35,12 +35,12 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     class MetaOapg:
         
-        class properties:
-            uuid = schemas.UUIDSchema
-            dateTime = schemas.DateTimeSchema
+        class Properties:
+            Uuid = schemas.UUIDSchema
+            DateTime = schemas.DateTimeSchema
             
             
-            class map(
+            class Map(
                 schemas.DictSchema
             ):
             
@@ -48,7 +48,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                 class MetaOapg:
                     
                     @staticmethod
-                    def additionalProperties() -> typing.Type['animal.Animal']:
+                    def additional_properties() -> typing.Type['animal.Animal']:
                         return animal.Animal
                 
                 def __getitem__(self, name: str) -> 'animal.Animal':
@@ -63,7 +63,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: 'animal.Animal',
-                ) -> 'map':
+                ) -> 'Map':
                     return super().__new__(
                         cls,
                         *_args,
@@ -71,9 +71,9 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                         **kwargs,
                     )
             __annotations__ = {
-                "uuid": uuid,
-                "dateTime": dateTime,
-                "map": map,
+                "uuid": Uuid,
+                "dateTime": DateTime,
+                "map": Map,
             }
     
     @typing.overload

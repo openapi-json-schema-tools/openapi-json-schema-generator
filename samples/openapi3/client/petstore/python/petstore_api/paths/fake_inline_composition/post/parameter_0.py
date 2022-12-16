@@ -35,7 +35,7 @@ class schema(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
             
             
             class allOf_0(
@@ -49,7 +49,7 @@ class schema(
                     }
                     min_length = 1
             classes = [
-                allOf_0,
+                AllOf0,
             ]
 
 
@@ -58,7 +58,7 @@ class schema(
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'schema':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *_args,

@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class Schema(
     schemas.DictSchema
 ):
 
@@ -35,10 +35,10 @@ class schema(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            keyword = schemas.StrSchema
+        class Properties:
+            Keyword = schemas.StrSchema
             __annotations__ = {
-                "keyword": keyword,
+                "keyword": Keyword,
             }
     
     @typing.overload
@@ -78,7 +78,7 @@ class schema(
         keyword: typing.Union[MetaOapg.properties.keyword, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'schema':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *_args,

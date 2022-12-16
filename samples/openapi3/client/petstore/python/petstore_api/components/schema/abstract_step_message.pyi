@@ -53,19 +53,19 @@ class AbstractStepMessage(
                 }
             }
         
-        class properties:
-            discriminator = schemas.StrSchema
+        class Properties:
+            Discriminator = schemas.StrSchema
             __annotations__ = {
-                "discriminator": discriminator,
+                "discriminator": Discriminator,
             }
         
-        class any_of:
+        class AnyOf:
         
             @staticmethod
-            def anyOf_0() -> typing.Type['abstract_step_message.AbstractStepMessage']:
+            def any_of_0() -> typing.Type['abstract_step_message.AbstractStepMessage']:
                 return abstract_step_message.AbstractStepMessage
             classes = [
-                anyOf_0,
+                any_of_0,
             ]
 
     

@@ -36,21 +36,21 @@ class SimpleQuadrilateral(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
         
             @staticmethod
-            def allOf_0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
+            def all_of_0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
                 return quadrilateral_interface.QuadrilateralInterface
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
                     
-                    class properties:
+                    class Properties:
                         
                         
                         class quadrilateralType(
@@ -61,7 +61,7 @@ class SimpleQuadrilateral(
                             def SIMPLE_QUADRILATERAL(cls):
                                 return cls("SimpleQuadrilateral")
                         __annotations__ = {
-                            "quadrilateralType": quadrilateralType,
+                            "quadrilateralType": QuadrilateralType,
                         }
                 
                 @typing.overload
@@ -101,7 +101,7 @@ class SimpleQuadrilateral(
                     quadrilateralType: typing.Union[MetaOapg.properties.quadrilateralType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -110,8 +110,8 @@ class SimpleQuadrilateral(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                all_of_0,
+                AllOf1,
             ]
 
 

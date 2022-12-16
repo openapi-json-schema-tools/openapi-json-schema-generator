@@ -18,8 +18,8 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import order
 
 # body schemas
-application_xml = order.Order
-application_json = order.Order
+ApplicationXml = order.Order
+ApplicationJson = order.Order
 
 
 @dataclasses.dataclass

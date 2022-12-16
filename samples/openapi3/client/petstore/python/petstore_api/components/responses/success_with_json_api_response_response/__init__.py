@@ -54,7 +54,7 @@ class Header:
         parameter_number_header.parameter_oapg,
     ]
 # body schemas
-application_json = api_response.ApiResponse
+ApplicationJson = api_response.ApiResponse
 
 
 @dataclasses.dataclass

@@ -41,9 +41,9 @@ class JSONPatchRequestMoveCopy(
             "path",
         }
         
-        class properties:
-            _from = schemas.StrSchema
-            path = schemas.StrSchema
+        class Properties:
+            ModelFrom = schemas.StrSchema
+            Path = schemas.StrSchema
             
             
             class op(
@@ -68,11 +68,11 @@ class JSONPatchRequestMoveCopy(
                 def COPY(cls):
                     return cls("copy")
             __annotations__ = {
-                "from": _from,
-                "path": path,
-                "op": op,
+                "from": ModelFrom,
+                "path": Path,
+                "op": Op,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
     op: MetaOapg.properties.op
     path: MetaOapg.properties.path

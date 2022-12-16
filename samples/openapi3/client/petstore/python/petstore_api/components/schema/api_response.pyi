@@ -35,14 +35,14 @@ class ApiResponse(
 
     class MetaOapg:
         
-        class properties:
-            code = schemas.Int32Schema
-            type = schemas.StrSchema
-            message = schemas.StrSchema
+        class Properties:
+            Code = schemas.Int32Schema
+            Type = schemas.StrSchema
+            Message = schemas.StrSchema
             __annotations__ = {
-                "code": code,
-                "type": type,
-                "message": message,
+                "code": Code,
+                "type": Type,
+                "message": Message,
             }
     
     @typing.overload

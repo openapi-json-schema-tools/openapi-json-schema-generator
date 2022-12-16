@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-application_octet_stream = schemas.BinarySchema
+ApplicationOctetStream = schemas.BinarySchema
 
 parameter_oapg = api_client.RequestBody(
     content={

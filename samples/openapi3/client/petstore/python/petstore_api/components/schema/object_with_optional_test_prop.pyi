@@ -35,10 +35,10 @@ class ObjectWithOptionalTestProp(
 
     class MetaOapg:
         
-        class properties:
-            test = schemas.StrSchema
+        class Properties:
+            Test = schemas.StrSchema
             __annotations__ = {
-                "test": test,
+                "test": Test,
             }
     
     @typing.overload

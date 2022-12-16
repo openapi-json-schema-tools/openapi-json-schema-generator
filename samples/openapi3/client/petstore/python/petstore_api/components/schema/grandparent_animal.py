@@ -48,10 +48,10 @@ class GrandparentAnimal(
                 }
             }
         
-        class properties:
-            pet_type = schemas.StrSchema
+        class Properties:
+            PetType = schemas.StrSchema
             __annotations__ = {
-                "pet_type": pet_type,
+                "pet_type": PetType,
             }
     
     pet_type: MetaOapg.properties.pet_type

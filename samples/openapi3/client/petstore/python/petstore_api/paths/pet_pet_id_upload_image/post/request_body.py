@@ -35,12 +35,12 @@ class MultipartFormData(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            additionalMetadata = schemas.StrSchema
-            file = schemas.BinarySchema
+        class Properties:
+            AdditionalMetadata = schemas.StrSchema
+            File = schemas.BinarySchema
             __annotations__ = {
-                "additionalMetadata": additionalMetadata,
-                "file": file,
+                "additionalMetadata": AdditionalMetadata,
+                "file": File,
             }
     
     @typing.overload

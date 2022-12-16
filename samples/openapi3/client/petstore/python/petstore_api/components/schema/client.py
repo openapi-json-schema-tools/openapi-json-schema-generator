@@ -36,10 +36,10 @@ class Client(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            client = schemas.StrSchema
+        class Properties:
+            Client = schemas.StrSchema
             __annotations__ = {
-                "client": client,
+                "client": Client,
             }
     
     @typing.overload

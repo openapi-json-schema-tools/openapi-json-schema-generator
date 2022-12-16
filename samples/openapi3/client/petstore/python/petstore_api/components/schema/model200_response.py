@@ -38,12 +38,12 @@ class Model200Response(
     class MetaOapg:
         # any type
         
-        class properties:
-            name = schemas.Int32Schema
-            _class = schemas.StrSchema
+        class Properties:
+            Name = schemas.Int32Schema
+            ModelClass = schemas.StrSchema
             __annotations__ = {
-                "name": name,
-                "class": _class,
+                "name": Name,
+                "class": ModelClass,
             }
 
     

@@ -36,14 +36,14 @@ class Dog(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
         
             @staticmethod
-            def allOf_0() -> typing.Type['animal.Animal']:
+            def all_of_0() -> typing.Type['animal.Animal']:
                 return animal.Animal
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.DictSchema
             ):
             
@@ -51,10 +51,10 @@ class Dog(
                 class MetaOapg:
                     types = {frozendict.frozendict}
                     
-                    class properties:
-                        breed = schemas.StrSchema
+                    class Properties:
+                        Breed = schemas.StrSchema
                         __annotations__ = {
-                            "breed": breed,
+                            "breed": Breed,
                         }
                 
                 @typing.overload
@@ -94,7 +94,7 @@ class Dog(
                     breed: typing.Union[MetaOapg.properties.breed, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -103,8 +103,8 @@ class Dog(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                all_of_0,
+                AllOf1,
             ]
 
 

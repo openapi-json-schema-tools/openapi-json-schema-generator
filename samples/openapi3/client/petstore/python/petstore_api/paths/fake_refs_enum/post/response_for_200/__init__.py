@@ -18,7 +18,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import string_enum
 
 # body schemas
-application_json = string_enum.StringEnum
+ApplicationJson = string_enum.StringEnum
 
 
 @dataclasses.dataclass

@@ -36,7 +36,7 @@ class NumberOnly(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             JustNumber = schemas.NumberSchema
             __annotations__ = {
                 "JustNumber": JustNumber,

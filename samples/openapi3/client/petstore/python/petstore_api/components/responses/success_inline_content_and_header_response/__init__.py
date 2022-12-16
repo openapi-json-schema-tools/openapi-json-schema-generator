@@ -49,7 +49,7 @@ class ApplicationJson(
 
     class MetaOapg:
         types = {frozendict.frozendict}
-        additionalProperties = schemas.Int32Schema
+        AdditionalProperties = schemas.Int32Schema
     
     def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
         # dict_instance[name] accessor

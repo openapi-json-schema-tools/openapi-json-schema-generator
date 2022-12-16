@@ -36,14 +36,14 @@ class FileSchemaTestClass(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def file() -> typing.Type['file.File']:
                 return file.File
             
             
-            class files(
+            class Files(
                 schemas.ListSchema
             ):
             
@@ -59,7 +59,7 @@ class FileSchemaTestClass(
                     cls,
                     _arg: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'files':
+                ) -> 'Files':
                     return super().__new__(
                         cls,
                         _arg,
@@ -70,7 +70,7 @@ class FileSchemaTestClass(
                     return super().__getitem__(i)
             __annotations__ = {
                 "file": file,
-                "files": files,
+                "files": Files,
             }
     
     @typing.overload

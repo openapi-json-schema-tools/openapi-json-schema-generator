@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import animal_farm
 
 
-application_json = animal_farm.AnimalFarm
+ApplicationJson = animal_farm.AnimalFarm
 
 parameter_oapg = api_client.RequestBody(
     content={

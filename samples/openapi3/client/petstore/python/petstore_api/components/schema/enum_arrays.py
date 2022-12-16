@@ -36,7 +36,7 @@ class EnumArrays(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
             class just_symbol(
@@ -62,7 +62,7 @@ class EnumArrays(
                     return cls("$")
             
             
-            class array_enum(
+            class ArrayEnum(
                 schemas.ListSchema
             ):
             
@@ -97,7 +97,7 @@ class EnumArrays(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'array_enum':
+                ) -> 'ArrayEnum':
                     return super().__new__(
                         cls,
                         _arg,
@@ -107,8 +107,8 @@ class EnumArrays(
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             __annotations__ = {
-                "just_symbol": just_symbol,
-                "array_enum": array_enum,
+                "just_symbol": JustSymbol,
+                "array_enum": ArrayEnum,
             }
     
     @typing.overload

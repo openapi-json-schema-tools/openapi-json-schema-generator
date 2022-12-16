@@ -38,23 +38,23 @@ class ObjectModelWithRefProps(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
-            def myNumber() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def my_number() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def myString() -> typing.Type['string.String']:
+            def my_string() -> typing.Type['string.String']:
                 return string.String
         
             @staticmethod
-            def myBoolean() -> typing.Type['boolean.Boolean']:
+            def my_boolean() -> typing.Type['boolean.Boolean']:
                 return boolean.Boolean
             __annotations__ = {
-                "myNumber": myNumber,
-                "myString": myString,
-                "myBoolean": myBoolean,
+                "myNumber": my_number,
+                "myString": my_string,
+                "myBoolean": my_boolean,
             }
     
     @typing.overload

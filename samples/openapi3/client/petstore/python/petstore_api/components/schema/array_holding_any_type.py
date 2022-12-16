@@ -35,7 +35,7 @@ class ArrayHoldingAnyType(
 
     class MetaOapg:
         types = {tuple}
-        items = schemas.AnyTypeSchema
+        Items = schemas.AnyTypeSchema
 
     def __new__(
         cls,

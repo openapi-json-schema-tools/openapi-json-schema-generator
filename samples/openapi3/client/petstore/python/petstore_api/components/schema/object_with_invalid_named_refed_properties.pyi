@@ -39,7 +39,7 @@ class ObjectWithInvalidNamedRefedProperties(
             "from",
         }
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def _from() -> typing.Type['from_schema.FromSchema']:

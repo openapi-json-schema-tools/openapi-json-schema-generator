@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import foo
 
 
-schema = foo.Foo
+Schema = foo.Foo
 
 
 parameter_oapg = api_client.QueryParameter(

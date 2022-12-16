@@ -40,12 +40,12 @@ class ObjectModelWithArgAndArgsProperties(
             "args",
         }
         
-        class properties:
-            arg = schemas.StrSchema
-            args = schemas.StrSchema
+        class Properties:
+            Arg = schemas.StrSchema
+            Args = schemas.StrSchema
             __annotations__ = {
-                "arg": arg,
-                "args": args,
+                "arg": Arg,
+                "args": Args,
             }
     
     arg: MetaOapg.properties.arg

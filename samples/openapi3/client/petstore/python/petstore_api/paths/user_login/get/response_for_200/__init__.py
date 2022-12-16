@@ -58,8 +58,8 @@ class Header:
         parameter_number_header.parameter_oapg,
     ]
 # body schemas
-application_xml = schemas.StrSchema
-application_json = schemas.StrSchema
+ApplicationXml = schemas.StrSchema
+ApplicationJson = schemas.StrSchema
 
 
 @dataclasses.dataclass

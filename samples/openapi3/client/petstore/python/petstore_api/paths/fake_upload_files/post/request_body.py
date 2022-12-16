@@ -35,23 +35,23 @@ class MultipartFormData(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
-            class files(
+            class Files(
                 schemas.ListSchema
             ):
             
             
                 class MetaOapg:
                     types = {tuple}
-                    items = schemas.BinarySchema
+                    Items = schemas.BinarySchema
             
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'files':
+                ) -> 'Files':
                     return super().__new__(
                         cls,
                         _arg,
@@ -61,7 +61,7 @@ class MultipartFormData(
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             __annotations__ = {
-                "files": files,
+                "files": Files,
             }
     
     @typing.overload

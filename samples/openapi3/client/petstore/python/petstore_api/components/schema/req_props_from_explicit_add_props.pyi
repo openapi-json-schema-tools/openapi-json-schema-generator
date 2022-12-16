@@ -38,7 +38,7 @@ class ReqPropsFromExplicitAddProps(
             "invalid-name",
             "validName",
         }
-        additionalProperties = schemas.StrSchema
+        AdditionalProperties = schemas.StrSchema
     
     validName: MetaOapg.additionalProperties
     

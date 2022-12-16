@@ -36,12 +36,12 @@ class Tag(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            id = schemas.Int64Schema
-            name = schemas.StrSchema
+        class Properties:
+            Id = schemas.Int64Schema
+            Name = schemas.StrSchema
             __annotations__ = {
-                "id": id,
-                "name": name,
+                "id": Id,
+                "name": Name,
             }
     
     @typing.overload

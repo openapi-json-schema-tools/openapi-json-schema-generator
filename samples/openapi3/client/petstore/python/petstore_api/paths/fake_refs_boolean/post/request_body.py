@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import boolean
 
 
-application_json = boolean.Boolean
+ApplicationJson = boolean.Boolean
 
 parameter_oapg = api_client.RequestBody(
     content={

@@ -18,7 +18,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import string
 
 # body schemas
-application_json = string.String
+ApplicationJson = string.String
 
 
 @dataclasses.dataclass

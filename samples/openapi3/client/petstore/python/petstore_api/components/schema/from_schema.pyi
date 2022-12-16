@@ -35,12 +35,12 @@ class FromSchema(
 
     class MetaOapg:
         
-        class properties:
-            data = schemas.StrSchema
-            id = schemas.IntSchema
+        class Properties:
+            Data = schemas.StrSchema
+            Id = schemas.IntSchema
             __annotations__ = {
-                "data": data,
-                "id": id,
+                "data": Data,
+                "id": Id,
             }
     
     @typing.overload

@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-schema = schemas.DecimalSchema
+Schema = schemas.DecimalSchema
 
 
 parameter_oapg = api_client.HeaderParameterWithoutName(

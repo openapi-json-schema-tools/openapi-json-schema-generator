@@ -42,29 +42,29 @@ class Pet(
             "photoUrls",
         }
         
-        class properties:
-            id = schemas.Int64Schema
+        class Properties:
+            Id = schemas.Int64Schema
         
             @staticmethod
             def category() -> typing.Type['category.Category']:
                 return category.Category
-            name = schemas.StrSchema
+            Name = schemas.StrSchema
             
             
-            class photoUrls(
+            class PhotoUrls(
                 schemas.ListSchema
             ):
             
             
                 class MetaOapg:
                     types = {tuple}
-                    items = schemas.StrSchema
+                    Items = schemas.StrSchema
             
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'photoUrls':
+                ) -> 'PhotoUrls':
                     return super().__new__(
                         cls,
                         _arg,
@@ -75,7 +75,7 @@ class Pet(
                     return super().__getitem__(i)
             
             
-            class tags(
+            class Tags(
                 schemas.ListSchema
             ):
             
@@ -91,7 +91,7 @@ class Pet(
                     cls,
                     _arg: typing.Union[typing.Tuple['tag.Tag'], typing.List['tag.Tag']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'tags':
+                ) -> 'Tags':
                     return super().__new__(
                         cls,
                         _arg,
@@ -129,12 +129,12 @@ class Pet(
                 def SOLD(cls):
                     return cls("sold")
             __annotations__ = {
-                "id": id,
+                "id": Id,
                 "category": category,
-                "name": name,
-                "photoUrls": photoUrls,
-                "tags": tags,
-                "status": status,
+                "name": Name,
+                "photoUrls": PhotoUrls,
+                "tags": Tags,
+                "status": Status,
             }
     
     name: MetaOapg.properties.name

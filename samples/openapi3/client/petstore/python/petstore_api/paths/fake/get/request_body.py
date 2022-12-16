@@ -35,10 +35,10 @@ class ApplicationXWwwFormUrlencoded(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
-            class enum_form_string_array(
+            class EnumFormStringArray(
                 schemas.ListSchema
             ):
             
@@ -73,7 +73,7 @@ class ApplicationXWwwFormUrlencoded(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'enum_form_string_array':
+                ) -> 'EnumFormStringArray':
                     return super().__new__(
                         cls,
                         _arg,
@@ -111,8 +111,8 @@ class ApplicationXWwwFormUrlencoded(
                 def XYZ(cls):
                     return cls("(xyz)")
             __annotations__ = {
-                "enum_form_string_array": enum_form_string_array,
-                "enum_form_string": enum_form_string,
+                "enum_form_string_array": EnumFormStringArray,
+                "enum_form_string": EnumFormString,
             }
     
     @typing.overload

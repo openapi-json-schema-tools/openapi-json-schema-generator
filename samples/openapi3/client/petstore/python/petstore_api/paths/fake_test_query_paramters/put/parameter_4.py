@@ -27,20 +27,20 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class Schema(
     schemas.ListSchema
 ):
 
 
     class MetaOapg:
         types = {tuple}
-        items = schemas.StrSchema
+        Items = schemas.StrSchema
 
     def __new__(
         cls,
         _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'schema':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             _arg,

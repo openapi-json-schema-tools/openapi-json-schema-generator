@@ -1,68 +1,62 @@
 {{#if allOf}}
 
-class all_of:
+class AllOf:
 {{#each allOf}}
-{{#unless refClass}}
-    {{> model_templates/schema }}
-{{else}}
+{{#if refClass}}
 
-    @staticmethod
-    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
-        return {{refClass}}
-{{/unless}}
+    {{> model_templates/refClassStaticmethod }}
+{{else}}
+    {{> model_templates/schema }}
+{{/if}}
 {{/each}}
     classes = [
 {{#each allOf}}
-    {{#if name.getNameIsValid}}
-        {{name.getName}},
-    {{else}}
+    {{#if refClass}}
         {{name.getSnakeCaseName}},
+    {{else}}
+        {{name.getCamelCaseName}},
     {{/if}}
 {{/each}}
     ]
 {{/if}}
 {{#if oneOf}}
 
-class one_of:
+class OneOf:
 {{#each oneOf}}
-{{#unless refClass}}
-    {{> model_templates/schema }}
-{{else}}
+{{#if refClass}}
 
-    @staticmethod
-    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
-        return {{refClass}}
-{{/unless}}
+    {{> model_templates/refClassStaticmethod }}
+{{else}}
+    {{> model_templates/schema }}
+{{/if}}
 {{/each}}
     classes = [
 {{#each oneOf}}
-    {{#if name.getNameIsValid}}
-        {{name.getName}},
-    {{else}}
+    {{#if refClass}}
         {{name.getSnakeCaseName}},
+    {{else}}
+        {{name.getCamelCaseName}},
     {{/if}}
 {{/each}}
     ]
 {{/if}}
 {{#if anyOf}}
 
-class any_of:
+class AnyOf:
 {{#each anyOf}}
-{{#unless refClass}}
-    {{> model_templates/schema }}
-{{else}}
+{{#if refClass}}
 
-    @staticmethod
-    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
-        return {{refClass}}
-{{/unless}}
+    {{> model_templates/refClassStaticmethod }}
+{{else}}
+    {{> model_templates/schema }}
+{{/if}}
 {{/each}}
     classes = [
 {{#each anyOf}}
-    {{#if name.getNameIsValid}}
-        {{name.getName}},
-    {{else}}
+    {{#if refClass}}
         {{name.getSnakeCaseName}},
+    {{else}}
+        {{name.getCamelCaseName}},
     {{/if}}
 {{/each}}
     ]
@@ -71,9 +65,7 @@ class any_of:
 {{#with not}}
 {{#if refClass}}
 
-@staticmethod
-def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
-    return {{refClass}}
+{{> model_templates/refClassStaticmethod }}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}

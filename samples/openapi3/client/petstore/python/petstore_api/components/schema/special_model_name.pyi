@@ -37,10 +37,10 @@ class SpecialModelName(
 
     class MetaOapg:
         
-        class properties:
-            a = schemas.StrSchema
+        class Properties:
+            A = schemas.StrSchema
             __annotations__ = {
-                "a": a,
+                "a": A,
             }
     
     @typing.overload

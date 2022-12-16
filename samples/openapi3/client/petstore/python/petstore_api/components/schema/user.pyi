@@ -35,16 +35,16 @@ class User(
 
     class MetaOapg:
         
-        class properties:
-            id = schemas.Int64Schema
-            username = schemas.StrSchema
-            firstName = schemas.StrSchema
-            lastName = schemas.StrSchema
-            email = schemas.StrSchema
-            password = schemas.StrSchema
-            phone = schemas.StrSchema
-            userStatus = schemas.Int32Schema
-            objectWithNoDeclaredProps = schemas.DictSchema
+        class Properties:
+            Id = schemas.Int64Schema
+            Username = schemas.StrSchema
+            FirstName = schemas.StrSchema
+            LastName = schemas.StrSchema
+            Email = schemas.StrSchema
+            Password = schemas.StrSchema
+            Phone = schemas.StrSchema
+            UserStatus = schemas.Int32Schema
+            ObjectWithNoDeclaredProps = schemas.DictSchema
             
             
             class objectWithNoDeclaredPropsNullable(
@@ -67,14 +67,14 @@ class User(
                     *_args: typing.Union[dict, frozendict.frozendict, None, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'objectWithNoDeclaredPropsNullable':
+                ) -> 'ObjectWithNoDeclaredPropsNullable':
                     return super().__new__(
                         cls,
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
                     )
-            anyTypeProp = schemas.AnyTypeSchema
+            AnyTypeProp = schemas.AnyTypeSchema
             
             
             class anyTypeExceptNullProp(
@@ -84,7 +84,7 @@ class User(
             
                 class MetaOapg:
                     # any type
-                    _not = schemas.NoneSchema
+                    ModelNot = schemas.NoneSchema
             
             
                 def __new__(
@@ -92,28 +92,28 @@ class User(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'anyTypeExceptNullProp':
+                ) -> 'AnyTypeExceptNullProp':
                     return super().__new__(
                         cls,
                         *_args,
                         _configuration=_configuration,
                         **kwargs,
                     )
-            anyTypePropNullable = schemas.AnyTypeSchema
+            AnyTypePropNullable = schemas.AnyTypeSchema
             __annotations__ = {
-                "id": id,
-                "username": username,
-                "firstName": firstName,
-                "lastName": lastName,
-                "email": email,
-                "password": password,
-                "phone": phone,
-                "userStatus": userStatus,
-                "objectWithNoDeclaredProps": objectWithNoDeclaredProps,
-                "objectWithNoDeclaredPropsNullable": objectWithNoDeclaredPropsNullable,
-                "anyTypeProp": anyTypeProp,
-                "anyTypeExceptNullProp": anyTypeExceptNullProp,
-                "anyTypePropNullable": anyTypePropNullable,
+                "id": Id,
+                "username": Username,
+                "firstName": FirstName,
+                "lastName": LastName,
+                "email": Email,
+                "password": Password,
+                "phone": Phone,
+                "userStatus": UserStatus,
+                "objectWithNoDeclaredProps": ObjectWithNoDeclaredProps,
+                "objectWithNoDeclaredPropsNullable": ObjectWithNoDeclaredPropsNullable,
+                "anyTypeProp": AnyTypeProp,
+                "anyTypeExceptNullProp": AnyTypeExceptNullProp,
+                "anyTypePropNullable": AnyTypePropNullable,
             }
     
     @typing.overload

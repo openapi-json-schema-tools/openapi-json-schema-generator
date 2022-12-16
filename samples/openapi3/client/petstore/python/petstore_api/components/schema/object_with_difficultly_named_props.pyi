@@ -40,14 +40,14 @@ class ObjectWithDifficultlyNamedProps(
             "123-list",
         }
         
-        class properties:
-            special_property_name = schemas.Int64Schema
-            _123_list = schemas.StrSchema
-            _123_number = schemas.IntSchema
+        class Properties:
+            SpecialPropertyName = schemas.Int64Schema
+            Model123List = schemas.StrSchema
+            Model123Number = schemas.IntSchema
             __annotations__ = {
-                "$special[property.name]": special_property_name,
-                "123-list": _123_list,
-                "123Number": _123_number,
+                "$special[property.name]": SpecialPropertyName,
+                "123-list": Model123List,
+                "123Number": Model123Number,
             }
     
     

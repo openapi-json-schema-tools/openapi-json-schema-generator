@@ -38,10 +38,10 @@ class ModelReturn(
     class MetaOapg:
         # any type
         
-        class properties:
-            _return = schemas.Int32Schema
+        class Properties:
+            ModelReturn = schemas.Int32Schema
             __annotations__ = {
-                "return": _return,
+                "return": ModelReturn,
             }
 
     

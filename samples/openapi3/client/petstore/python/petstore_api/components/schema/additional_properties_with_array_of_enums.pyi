@@ -36,7 +36,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     class MetaOapg:
         
         
-        class additionalProperties(
+        class AdditionalProperties(
             schemas.ListSchema
         ):
         
@@ -52,7 +52,7 @@ class AdditionalPropertiesWithArrayOfEnums(
                 cls,
                 _arg: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'additionalProperties':
+            ) -> 'AdditionalProperties':
                 return super().__new__(
                     cls,
                     _arg,

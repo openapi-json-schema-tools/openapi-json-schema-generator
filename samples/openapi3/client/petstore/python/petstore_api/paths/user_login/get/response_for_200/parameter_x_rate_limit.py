@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-application_json = schemas.Int32Schema
+ApplicationJson = schemas.Int32Schema
 
 
 parameter_oapg = api_client.HeaderParameterWithoutName(

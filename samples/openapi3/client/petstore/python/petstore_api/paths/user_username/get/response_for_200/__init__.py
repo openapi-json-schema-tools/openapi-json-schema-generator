@@ -18,8 +18,8 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import user
 
 # body schemas
-application_xml = user.User
-application_json = user.User
+ApplicationXml = user.User
+ApplicationJson = user.User
 
 
 @dataclasses.dataclass

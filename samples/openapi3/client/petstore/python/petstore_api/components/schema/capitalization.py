@@ -36,20 +36,20 @@ class Capitalization(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            smallCamel = schemas.StrSchema
+        class Properties:
+            SmallCamel = schemas.StrSchema
             CapitalCamel = schemas.StrSchema
-            small_Snake = schemas.StrSchema
-            Capital_Snake = schemas.StrSchema
-            SCA_ETH_Flow_Points = schemas.StrSchema
-            ATT_NAME = schemas.StrSchema
+            SmallSnake = schemas.StrSchema
+            CapitalSnake = schemas.StrSchema
+            SCAETHFlowPoints = schemas.StrSchema
+            ATTNAME = schemas.StrSchema
             __annotations__ = {
-                "smallCamel": smallCamel,
+                "smallCamel": SmallCamel,
                 "CapitalCamel": CapitalCamel,
-                "small_Snake": small_Snake,
-                "Capital_Snake": Capital_Snake,
-                "SCA_ETH_Flow_Points": SCA_ETH_Flow_Points,
-                "ATT_NAME": ATT_NAME,
+                "small_Snake": SmallSnake,
+                "Capital_Snake": CapitalSnake,
+                "SCA_ETH_Flow_Points": SCAETHFlowPoints,
+                "ATT_NAME": ATTNAME,
             }
     
     @typing.overload

@@ -38,12 +38,12 @@ class MultipartFormData(
             "file",
         }
         
-        class properties:
-            additionalMetadata = schemas.StrSchema
-            file = schemas.BinarySchema
+        class Properties:
+            AdditionalMetadata = schemas.StrSchema
+            File = schemas.BinarySchema
             __annotations__ = {
-                "additionalMetadata": additionalMetadata,
-                "file": file,
+                "additionalMetadata": AdditionalMetadata,
+                "file": File,
             }
     
     file: MetaOapg.properties.file

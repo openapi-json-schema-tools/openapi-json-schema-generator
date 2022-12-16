@@ -35,11 +35,11 @@ class Order(
 
     class MetaOapg:
         
-        class properties:
-            id = schemas.Int64Schema
-            petId = schemas.Int64Schema
-            quantity = schemas.Int32Schema
-            shipDate = schemas.DateTimeSchema
+        class Properties:
+            Id = schemas.Int64Schema
+            PetId = schemas.Int64Schema
+            Quantity = schemas.Int32Schema
+            ShipDate = schemas.DateTimeSchema
             
             
             class status(
@@ -57,14 +57,14 @@ class Order(
                 @schemas.classproperty
                 def DELIVERED(cls):
                     return cls("delivered")
-            complete = schemas.BoolSchema
+            Complete = schemas.BoolSchema
             __annotations__ = {
-                "id": id,
-                "petId": petId,
-                "quantity": quantity,
-                "shipDate": shipDate,
-                "status": status,
-                "complete": complete,
+                "id": Id,
+                "petId": PetId,
+                "quantity": Quantity,
+                "shipDate": ShipDate,
+                "status": Status,
+                "complete": Complete,
             }
     
     @typing.overload

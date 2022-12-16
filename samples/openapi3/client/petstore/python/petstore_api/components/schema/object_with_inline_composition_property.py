@@ -36,7 +36,7 @@ class ObjectWithInlineCompositionProperty(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
             class someProp(
@@ -47,7 +47,7 @@ class ObjectWithInlineCompositionProperty(
                 class MetaOapg:
                     # any type
                     
-                    class all_of:
+                    class AllOf:
                         
                         
                         class allOf_0(
@@ -61,7 +61,7 @@ class ObjectWithInlineCompositionProperty(
                                 }
                                 min_length = 1
                         classes = [
-                            allOf_0,
+                            AllOf0,
                         ]
             
             
@@ -70,7 +70,7 @@ class ObjectWithInlineCompositionProperty(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'someProp':
+                ) -> 'SomeProp':
                     return super().__new__(
                         cls,
                         *_args,
@@ -78,7 +78,7 @@ class ObjectWithInlineCompositionProperty(
                         **kwargs,
                     )
             __annotations__ = {
-                "someProp": someProp,
+                "someProp": SomeProp,
             }
     
     @typing.overload

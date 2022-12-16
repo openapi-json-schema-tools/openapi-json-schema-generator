@@ -41,21 +41,21 @@ class FormatTest(
             "password",
         }
         
-        class properties:
+        class Properties:
             
             
             class integer(
                 schemas.IntSchema
             ):
                 pass
-            int32 = schemas.Int32Schema
+            Int32 = schemas.Int32Schema
             
             
             class int32withValidations(
                 schemas.Int32Schema
             ):
                 pass
-            int64 = schemas.Int64Schema
+            Int64 = schemas.Int64Schema
             
             
             class number(
@@ -68,17 +68,17 @@ class FormatTest(
                 schemas.Float32Schema
             ):
                 pass
-            float32 = schemas.Float32Schema
+            Float32 = schemas.Float32Schema
             
             
             class double(
                 schemas.Float64Schema
             ):
                 pass
-            float64 = schemas.Float64Schema
+            Float64 = schemas.Float64Schema
             
             
-            class arrayWithUniqueItems(
+            class ArrayWithUniqueItems(
                 schemas.ListSchema
             ):
             
@@ -86,13 +86,13 @@ class FormatTest(
                 class MetaOapg:
                     types = {tuple}
                     unique_items = True
-                    items = schemas.NumberSchema
+                    Items = schemas.NumberSchema
             
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'arrayWithUniqueItems':
+                ) -> 'ArrayWithUniqueItems':
                     return super().__new__(
                         cls,
                         _arg,
@@ -107,12 +107,12 @@ class FormatTest(
                 schemas.StrSchema
             ):
                 pass
-            byte = schemas.StrSchema
-            binary = schemas.BinarySchema
-            date = schemas.DateSchema
-            dateTime = schemas.DateTimeSchema
-            uuid = schemas.UUIDSchema
-            uuidNoExample = schemas.UUIDSchema
+            Byte = schemas.StrSchema
+            Binary = schemas.BinarySchema
+            Date = schemas.DateSchema
+            DateTime = schemas.DateTimeSchema
+            Uuid = schemas.UUIDSchema
+            UuidNoExample = schemas.UUIDSchema
             
             
             class password(
@@ -131,29 +131,29 @@ class FormatTest(
                 schemas.StrSchema
             ):
                 pass
-            noneProp = schemas.NoneSchema
+            NoneProp = schemas.NoneSchema
             __annotations__ = {
-                "integer": integer,
-                "int32": int32,
-                "int32withValidations": int32withValidations,
-                "int64": int64,
-                "number": number,
-                "float": _float,
-                "float32": float32,
-                "double": double,
-                "float64": float64,
-                "arrayWithUniqueItems": arrayWithUniqueItems,
-                "string": string,
-                "byte": byte,
-                "binary": binary,
-                "date": date,
-                "dateTime": dateTime,
-                "uuid": uuid,
-                "uuidNoExample": uuidNoExample,
-                "password": password,
-                "pattern_with_digits": pattern_with_digits,
-                "pattern_with_digits_and_delimiter": pattern_with_digits_and_delimiter,
-                "noneProp": noneProp,
+                "integer": Integer,
+                "int32": Int32,
+                "int32withValidations": Int32withValidations,
+                "int64": Int64,
+                "number": Number,
+                "float": ModelFloat,
+                "float32": Float32,
+                "double": Double,
+                "float64": Float64,
+                "arrayWithUniqueItems": ArrayWithUniqueItems,
+                "string": String,
+                "byte": Byte,
+                "binary": Binary,
+                "date": Date,
+                "dateTime": DateTime,
+                "uuid": Uuid,
+                "uuidNoExample": UuidNoExample,
+                "password": Password,
+                "pattern_with_digits": PatternWithDigits,
+                "pattern_with_digits_and_delimiter": PatternWithDigitsAndDelimiter,
+                "noneProp": NoneProp,
             }
     
     byte: MetaOapg.properties.byte

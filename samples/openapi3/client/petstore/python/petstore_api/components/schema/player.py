@@ -38,15 +38,15 @@ class Player(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            name = schemas.StrSchema
+        class Properties:
+            Name = schemas.StrSchema
         
             @staticmethod
-            def enemyPlayer() -> typing.Type['player.Player']:
+            def enemy_player() -> typing.Type['player.Player']:
                 return player.Player
             __annotations__ = {
-                "name": name,
-                "enemyPlayer": enemyPlayer,
+                "name": Name,
+                "enemyPlayer": enemy_player,
             }
     
     @typing.overload

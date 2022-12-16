@@ -36,23 +36,23 @@ class ArrayTest(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
-            class array_of_string(
+            class ArrayOfString(
                 schemas.ListSchema
             ):
             
             
                 class MetaOapg:
                     types = {tuple}
-                    items = schemas.StrSchema
+                    Items = schemas.StrSchema
             
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'array_of_string':
+                ) -> 'ArrayOfString':
                     return super().__new__(
                         cls,
                         _arg,
@@ -63,7 +63,7 @@ class ArrayTest(
                     return super().__getitem__(i)
             
             
-            class array_array_of_integer(
+            class ArrayArrayOfInteger(
                 schemas.ListSchema
             ):
             
@@ -72,20 +72,20 @@ class ArrayTest(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.ListSchema
                     ):
                     
                     
                         class MetaOapg:
                             types = {tuple}
-                            items = schemas.Int64Schema
+                            Items = schemas.Int64Schema
                     
                         def __new__(
                             cls,
                             _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, ]]],
                             _configuration: typing.Optional[schemas.Configuration] = None,
-                        ) -> 'items':
+                        ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 _arg,
@@ -99,7 +99,7 @@ class ArrayTest(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'array_array_of_integer':
+                ) -> 'ArrayArrayOfInteger':
                     return super().__new__(
                         cls,
                         _arg,
@@ -110,7 +110,7 @@ class ArrayTest(
                     return super().__getitem__(i)
             
             
-            class array_array_of_model(
+            class ArrayArrayOfModel(
                 schemas.ListSchema
             ):
             
@@ -119,7 +119,7 @@ class ArrayTest(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.ListSchema
                     ):
                     
@@ -135,7 +135,7 @@ class ArrayTest(
                             cls,
                             _arg: typing.Union[typing.Tuple['read_only_first.ReadOnlyFirst'], typing.List['read_only_first.ReadOnlyFirst']],
                             _configuration: typing.Optional[schemas.Configuration] = None,
-                        ) -> 'items':
+                        ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 _arg,
@@ -149,7 +149,7 @@ class ArrayTest(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'array_array_of_model':
+                ) -> 'ArrayArrayOfModel':
                     return super().__new__(
                         cls,
                         _arg,
@@ -159,9 +159,9 @@ class ArrayTest(
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             __annotations__ = {
-                "array_of_string": array_of_string,
-                "array_array_of_integer": array_array_of_integer,
-                "array_array_of_model": array_array_of_model,
+                "array_of_string": ArrayOfString,
+                "array_array_of_integer": ArrayArrayOfInteger,
+                "array_array_of_model": ArrayArrayOfModel,
             }
     
     @typing.overload

@@ -35,12 +35,12 @@ class ReadOnlyFirst(
 
     class MetaOapg:
         
-        class properties:
-            bar = schemas.StrSchema
-            baz = schemas.StrSchema
+        class Properties:
+            Bar = schemas.StrSchema
+            Baz = schemas.StrSchema
             __annotations__ = {
-                "bar": bar,
-                "baz": baz,
+                "bar": Bar,
+                "baz": Baz,
             }
     
     @typing.overload

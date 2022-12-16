@@ -40,7 +40,7 @@ class TriangleInterface(
             "triangleType",
         }
         
-        class properties:
+        class Properties:
             
             
             class shapeType(
@@ -50,10 +50,10 @@ class TriangleInterface(
                 @schemas.classproperty
                 def TRIANGLE(cls):
                     return cls("Triangle")
-            triangleType = schemas.StrSchema
+            TriangleType = schemas.StrSchema
             __annotations__ = {
-                "shapeType": shapeType,
-                "triangleType": triangleType,
+                "shapeType": ShapeType,
+                "triangleType": TriangleType,
             }
 
     

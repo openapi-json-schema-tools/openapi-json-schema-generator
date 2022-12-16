@@ -35,10 +35,10 @@ class MapTest(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
             
             
-            class map_map_of_string(
+            class MapMapOfString(
                 schemas.DictSchema
             ):
             
@@ -46,13 +46,13 @@ class MapTest(
                 class MetaOapg:
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.DictSchema
                     ):
                     
                     
                         class MetaOapg:
-                            additionalProperties = schemas.StrSchema
+                            AdditionalProperties = schemas.StrSchema
                         
                         def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
                             # dict_instance[name] accessor
@@ -66,7 +66,7 @@ class MapTest(
                             *_args: typing.Union[dict, frozendict.frozendict, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
-                        ) -> 'additionalProperties':
+                        ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *_args,
@@ -86,7 +86,7 @@ class MapTest(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, ],
-                ) -> 'map_map_of_string':
+                ) -> 'MapMapOfString':
                     return super().__new__(
                         cls,
                         *_args,
@@ -95,7 +95,7 @@ class MapTest(
                     )
             
             
-            class map_of_enum_string(
+            class MapOfEnumString(
                 schemas.DictSchema
             ):
             
@@ -127,7 +127,7 @@ class MapTest(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
-                ) -> 'map_of_enum_string':
+                ) -> 'MapOfEnumString':
                     return super().__new__(
                         cls,
                         *_args,
@@ -136,13 +136,13 @@ class MapTest(
                     )
             
             
-            class direct_map(
+            class DirectMap(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
-                    additionalProperties = schemas.BoolSchema
+                    AdditionalProperties = schemas.BoolSchema
                 
                 def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
                     # dict_instance[name] accessor
@@ -156,7 +156,7 @@ class MapTest(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.additionalProperties, bool, ],
-                ) -> 'direct_map':
+                ) -> 'DirectMap':
                     return super().__new__(
                         cls,
                         *_args,
@@ -168,9 +168,9 @@ class MapTest(
             def indirect_map() -> typing.Type['string_boolean_map.StringBooleanMap']:
                 return string_boolean_map.StringBooleanMap
             __annotations__ = {
-                "map_map_of_string": map_map_of_string,
-                "map_of_enum_string": map_of_enum_string,
-                "direct_map": direct_map,
+                "map_map_of_string": MapMapOfString,
+                "map_of_enum_string": MapOfEnumString,
+                "direct_map": DirectMap,
                 "indirect_map": indirect_map,
             }
     

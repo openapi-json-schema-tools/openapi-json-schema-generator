@@ -35,12 +35,12 @@ class ApplicationXWwwFormUrlencoded(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            name = schemas.StrSchema
-            status = schemas.StrSchema
+        class Properties:
+            Name = schemas.StrSchema
+            Status = schemas.StrSchema
             __annotations__ = {
-                "name": name,
-                "status": status,
+                "name": Name,
+                "status": Status,
             }
     
     @typing.overload

@@ -41,7 +41,7 @@ class ApplicationXWwwFormUrlencoded(
             "pattern_without_delimiter",
         }
         
-        class properties:
+        class Properties:
             
             
             class integer(
@@ -70,7 +70,7 @@ class ApplicationXWwwFormUrlencoded(
                     format = 'int32'
                     inclusive_maximum = 200
                     inclusive_minimum = 20
-            int64 = schemas.Int64Schema
+            Int64 = schemas.Int64Schema
             
             
             class number(
@@ -142,10 +142,10 @@ class ApplicationXWwwFormUrlencoded(
                     regex={
                         'pattern': r'^[A-Z].*',  # noqa: E501
                     }
-            byte = schemas.StrSchema
-            binary = schemas.BinarySchema
-            date = schemas.DateSchema
-            dateTime = schemas.DateTimeSchema
+            Byte = schemas.StrSchema
+            Binary = schemas.BinarySchema
+            Date = schemas.DateSchema
+            DateTime = schemas.DateTimeSchema
             
             
             class password(
@@ -160,22 +160,22 @@ class ApplicationXWwwFormUrlencoded(
                     format = 'password'
                     max_length = 64
                     min_length = 10
-            callback = schemas.StrSchema
+            Callback = schemas.StrSchema
             __annotations__ = {
-                "integer": integer,
-                "int32": int32,
-                "int64": int64,
-                "number": number,
-                "float": _float,
-                "double": double,
-                "string": string,
-                "pattern_without_delimiter": pattern_without_delimiter,
-                "byte": byte,
-                "binary": binary,
-                "date": date,
-                "dateTime": dateTime,
-                "password": password,
-                "callback": callback,
+                "integer": Integer,
+                "int32": Int32,
+                "int64": Int64,
+                "number": Number,
+                "float": ModelFloat,
+                "double": Double,
+                "string": String,
+                "pattern_without_delimiter": PatternWithoutDelimiter,
+                "byte": Byte,
+                "binary": Binary,
+                "date": Date,
+                "dateTime": DateTime,
+                "password": Password,
+                "callback": Callback,
             }
     
     byte: MetaOapg.properties.byte

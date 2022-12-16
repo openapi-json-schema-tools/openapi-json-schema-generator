@@ -48,12 +48,12 @@ class Animal(
                 }
             }
         
-        class properties:
-            className = schemas.StrSchema
-            color = schemas.StrSchema
+        class Properties:
+            ClassName = schemas.StrSchema
+            Color = schemas.StrSchema
             __annotations__ = {
-                "className": className,
-                "color": color,
+                "className": ClassName,
+                "color": Color,
             }
     
     className: MetaOapg.properties.className

@@ -39,12 +39,12 @@ class ApplicationXWwwFormUrlencoded(
             "param2",
         }
         
-        class properties:
-            param = schemas.StrSchema
-            param2 = schemas.StrSchema
+        class Properties:
+            Param = schemas.StrSchema
+            Param2 = schemas.StrSchema
             __annotations__ = {
-                "param": param,
-                "param2": param2,
+                "param": Param,
+                "param2": Param2,
             }
     
     param: MetaOapg.properties.param

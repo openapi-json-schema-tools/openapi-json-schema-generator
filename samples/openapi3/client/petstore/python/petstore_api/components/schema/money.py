@@ -40,14 +40,14 @@ class Money(
             "currency",
         }
         
-        class properties:
-            amount = schemas.DecimalSchema
+        class Properties:
+            Amount = schemas.DecimalSchema
         
             @staticmethod
             def currency() -> typing.Type['currency.Currency']:
                 return currency.Currency
             __annotations__ = {
-                "amount": amount,
+                "amount": Amount,
                 "currency": currency,
             }
     

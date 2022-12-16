@@ -37,7 +37,7 @@ class HealthCheckResult(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
             
             
             class NullableMessage(

@@ -40,7 +40,7 @@ class QuadrilateralInterface(
             "shapeType",
         }
         
-        class properties:
+        class Properties:
             
             
             class shapeType(
@@ -59,10 +59,10 @@ class QuadrilateralInterface(
                 @schemas.classproperty
                 def QUADRILATERAL(cls):
                     return cls("Quadrilateral")
-            quadrilateralType = schemas.StrSchema
+            QuadrilateralType = schemas.StrSchema
             __annotations__ = {
-                "shapeType": shapeType,
-                "quadrilateralType": quadrilateralType,
+                "shapeType": ShapeType,
+                "quadrilateralType": QuadrilateralType,
             }
 
     
