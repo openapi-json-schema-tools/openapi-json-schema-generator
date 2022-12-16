@@ -66,16 +66,16 @@ class Whale(
                 "className": ClassName,
             }
     
-    className: MetaOapg.Properties.className
+    className: MetaOapg.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.className: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> MetaOapg.Properties.hasBaleen: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> MetaOapg.Properties.HasBaleen: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> MetaOapg.Properties.hasTeeth: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> MetaOapg.Properties.HasTeeth: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -93,13 +93,13 @@ class Whale(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.className: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["hasBaleen"]) -> typing.Union[MetaOapg.Properties.hasBaleen, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["hasBaleen"]) -> typing.Union[MetaOapg.Properties.HasBaleen, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[MetaOapg.Properties.hasTeeth, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[MetaOapg.Properties.HasTeeth, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -118,9 +118,9 @@ class Whale(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.className, str, ],
-        hasBaleen: typing.Union[MetaOapg.Properties.hasBaleen, bool, schemas.Unset] = schemas.unset,
-        hasTeeth: typing.Union[MetaOapg.Properties.hasTeeth, bool, schemas.Unset] = schemas.unset,
+        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
+        hasBaleen: typing.Union[MetaOapg.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
+        hasTeeth: typing.Union[MetaOapg.Properties.HasTeeth, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Whale':

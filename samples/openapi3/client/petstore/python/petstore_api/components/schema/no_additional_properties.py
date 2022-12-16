@@ -48,13 +48,13 @@ class NoAdditionalProperties(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    id: MetaOapg.Properties.id
+    id: MetaOapg.Properties.Id
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.id: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.petId: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.PetId: ...
     
     def __getitem__(
         self,
@@ -67,10 +67,10 @@ class NoAdditionalProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.id: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.petId, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.PetId, schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -84,8 +84,8 @@ class NoAdditionalProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        id: typing.Union[MetaOapg.Properties.id, decimal.Decimal, int, ],
-        petId: typing.Union[MetaOapg.Properties.petId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, ],
+        petId: typing.Union[MetaOapg.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'NoAdditionalProperties':
         return super().__new__(

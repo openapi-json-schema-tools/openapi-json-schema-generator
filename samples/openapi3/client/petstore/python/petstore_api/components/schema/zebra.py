@@ -92,16 +92,16 @@ class Zebra(
             }
         AdditionalProperties = schemas.AnyTypeSchema
     
-    className: MetaOapg.Properties.className
+    className: MetaOapg.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.className: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.Properties.type: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.Properties.Type: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.additionalProperties: ...
+    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -115,13 +115,13 @@ class Zebra(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.className: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.Properties.type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.Properties.Type, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.additionalProperties, schemas.Unset]: ...
+    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -136,10 +136,10 @@ class Zebra(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.className, str, ],
-        type: typing.Union[MetaOapg.Properties.type, str, schemas.Unset] = schemas.unset,
+        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
+        type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
     ) -> 'Zebra':
         return super().__new__(
             cls,

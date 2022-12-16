@@ -49,18 +49,18 @@ class AdditionalPropertiesValidator(
                 class MetaOapg:
                     AdditionalProperties = schemas.AnyTypeSchema
                 
-                def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'AllOf0':
                     return super().__new__(
                         cls,
@@ -100,18 +100,18 @@ class AdditionalPropertiesValidator(
                                 **kwargs,
                             )
                 
-                def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'AllOf1':
                     return super().__new__(
                         cls,
@@ -151,18 +151,18 @@ class AdditionalPropertiesValidator(
                                 **kwargs,
                             )
                 
-                def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'AllOf2':
                     return super().__new__(
                         cls,

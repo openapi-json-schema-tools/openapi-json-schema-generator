@@ -83,13 +83,13 @@ class Apple(
             }
 
     
-    cultivar: MetaOapg.Properties.cultivar
+    cultivar: MetaOapg.Properties.Cultivar
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.cultivar: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> MetaOapg.Properties.origin: ...
+    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> MetaOapg.Properties.Origin: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -106,10 +106,10 @@ class Apple(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.cultivar: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["origin"]) -> typing.Union[MetaOapg.Properties.origin, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["origin"]) -> typing.Union[MetaOapg.Properties.Origin, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -127,7 +127,7 @@ class Apple(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, None, ],
-        origin: typing.Union[MetaOapg.Properties.origin, str, schemas.Unset] = schemas.unset,
+        origin: typing.Union[MetaOapg.Properties.Origin, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Apple':

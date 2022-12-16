@@ -65,7 +65,7 @@ class SimpleQuadrilateral(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.Properties.quadrilateralType: ...
+                def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.Properties.QuadrilateralType: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -81,7 +81,7 @@ class SimpleQuadrilateral(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing.Union[MetaOapg.Properties.quadrilateralType, schemas.Unset]: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing.Union[MetaOapg.Properties.QuadrilateralType, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -98,7 +98,7 @@ class SimpleQuadrilateral(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    quadrilateralType: typing.Union[MetaOapg.Properties.quadrilateralType, str, schemas.Unset] = schemas.unset,
+                    quadrilateralType: typing.Union[MetaOapg.Properties.QuadrilateralType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'AllOf1':

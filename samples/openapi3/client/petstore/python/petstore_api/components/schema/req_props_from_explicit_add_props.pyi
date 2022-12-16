@@ -40,16 +40,16 @@ class ReqPropsFromExplicitAddProps(
         }
         AdditionalProperties = schemas.StrSchema
     
-    validName: MetaOapg.additionalProperties
+    validName: MetaOapg.AdditionalProperties
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.additionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.AdditionalProperties: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.additionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.AdditionalProperties: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.additionalProperties: ...
+    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -63,13 +63,13 @@ class ReqPropsFromExplicitAddProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.additionalProperties: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.AdditionalProperties: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.additionalProperties: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.AdditionalProperties: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.additionalProperties, schemas.Unset]: ...
+    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -84,9 +84,9 @@ class ReqPropsFromExplicitAddProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        validName: typing.Union[MetaOapg.additionalProperties, str, ],
+        validName: typing.Union[MetaOapg.AdditionalProperties, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.additionalProperties, str, ],
+        **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
     ) -> 'ReqPropsFromExplicitAddProps':
         return super().__new__(
             cls,

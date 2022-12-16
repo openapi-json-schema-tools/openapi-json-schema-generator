@@ -52,7 +52,7 @@ class ArrayWithValidationsInItems(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ArrayWithValidationsInItems':
         return super().__new__(

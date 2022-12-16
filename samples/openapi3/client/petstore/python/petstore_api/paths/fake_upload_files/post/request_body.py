@@ -49,7 +49,7 @@ class MultipartFormData(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, bytes, io.FileIO, io.BufferedReader, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.Items, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'Files':
                     return super().__new__(
@@ -65,7 +65,7 @@ class MultipartFormData(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["files"]) -> MetaOapg.Properties.files: ...
+    def __getitem__(self, name: typing_extensions.Literal["files"]) -> MetaOapg.Properties.Files: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -81,7 +81,7 @@ class MultipartFormData(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["files"]) -> typing.Union[MetaOapg.Properties.files, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["files"]) -> typing.Union[MetaOapg.Properties.Files, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -98,7 +98,7 @@ class MultipartFormData(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        files: typing.Union[MetaOapg.Properties.files, list, tuple, schemas.Unset] = schemas.unset,
+        files: typing.Union[MetaOapg.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'MultipartFormData':

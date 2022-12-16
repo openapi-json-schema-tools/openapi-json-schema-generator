@@ -60,7 +60,7 @@ class Schema(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, str, ]], typing.List[typing.Union[MetaOapg.Items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'Schema':
         return super().__new__(
