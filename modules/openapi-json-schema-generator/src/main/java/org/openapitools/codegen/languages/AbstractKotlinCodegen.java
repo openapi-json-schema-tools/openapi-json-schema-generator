@@ -361,33 +361,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         return toModelName(type);
     }
 
-    /**
-     * Output the type declaration of the property
-     *
-     * @param p OpenAPI Property object
-     * @return a string presentation of the property type
-     */
-    @Override
-    public String getTypeDeclaration(Schema p) {
-        Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = schema;
-        if (ModelUtils.isArraySchema(target)) {
-            Schema<?> items = getSchemaItems((ArraySchema) schema);
-            return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";
-        } else if (ModelUtils.isMapSchema(target)) {
-            // Note: ModelUtils.isMapSchema(p) returns true when p is a composed schema that also defines
-            // additionalproperties: true
-            Schema<?> inner = getAdditionalProperties(target);
-            if (inner == null) {
-                LOGGER.error("`{}` (map property) does not have a proper inner type defined. Default to type:string", p.getName());
-                inner = new StringSchema().description("TODO default missing map inner type to string");
-                p.setAdditionalProperties(inner);
-            }
-            return getSchemaType(target) + "<kotlin.String, " + getTypeDeclaration(inner) + ">";
-        }
-        return super.getTypeDeclaration(target);
-    }
-
     @Override
     public String modelDocFileFolder() {
         return (outputFolder + "/" + modelDocPath).replace('/', File.separatorChar);

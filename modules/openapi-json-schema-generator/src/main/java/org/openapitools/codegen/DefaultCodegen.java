@@ -599,11 +599,11 @@ public class DefaultCodegen implements CodegenConfig {
      * Return the enum default value in the language specified format
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop property
      * @return the default value for the enum
      */
-    public String toEnumDefaultValue(String value, String datatype) {
-        return datatype + "." + value;
+    public String toEnumDefaultValue(String value, CodegenProperty prop) {
+        return value;
     }
 
     /**
@@ -611,7 +611,7 @@ public class DefaultCodegen implements CodegenConfig {
      * e.g. status becomes "status"
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop property
      * @return the sanitized value for enum
      */
     public String toEnumValue(String value, CodegenProperty prop) {
@@ -2172,27 +2172,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Output the language-specific type declaration of the property.
-     *
-     * @param schema property schema
-     * @return a string presentation of the property type
-     */
-    @Override
-    public String getTypeDeclaration(Schema schema) {
-        if (schema == null) {
-            LOGGER.warn("Null schema found. Default type to `NULL_SCHEMA_ERR`");
-            return "NULL_SCHEMA_ERR";
-        }
-
-        String oasType = getSchemaType(schema);
-        if (typeMapping.containsKey(oasType)) {
-            return typeMapping.get(oasType);
-        }
-
-        return oasType;
-    }
-
-    /**
      * Determine the type alias for the given type if it exists. This feature
      * was originally developed for Java because the language does not have an aliasing
      * mechanism of its own but later extends to handle other languages
@@ -3038,11 +3017,6 @@ public class DefaultCodegen implements CodegenConfig {
                 property.name = ck;
             }
         }
-        if (p.getType() == null) {
-            property.openApiType = getSchemaType(p);
-        } else {
-            property.openApiType = p.getType();
-        }
         property.description = escapeText(p.getDescription());
         property.unescapedDescription = p.getDescription();
         property.title = p.getTitle();
@@ -3130,8 +3104,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.isNullable = referencedSchema.getNullable();
         }
 
-        property.baseType = getSchemaType(p);
-
         property.setTypeProperties(p);
         Schema notSchema = p.getNot();
         if (notSchema != null) {
@@ -3166,7 +3138,6 @@ public class DefaultCodegen implements CodegenConfig {
             updatePropertyForNumber(property, p);
         } else if (ModelUtils.isArraySchema(p)) {
             // default to string if inner item is undefined
-            property.baseType = getSchemaType(p);
             if (p.getXml() != null) {
                 property.isXmlWrapped = p.getXml().getWrapped() == null ? false : p.getXml().getWrapped();
                 property.xmlPrefix = p.getXml().getPrefix();
@@ -4652,21 +4623,10 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
 
-        Schema varSchema = new Schema();
-        if (var.baseType != null)
-            varSchema.setType(var.baseType);
-        if (var.getFormat() != null) {
-            varSchema.setFormat(var.getFormat());
-        }
-        if (var.getRef() != null) {
-            varSchema.set$ref(var.getRef());
-        }
-        String varDataType = getTypeDeclaration(varSchema);
         Optional<Schema> referencedSchema = ModelUtils.getSchemas(openAPI).entrySet().stream()
-                .filter(entry -> Objects.equals(varDataType, toModelName(entry.getKey())))
+                .filter(entry -> Objects.equals(var.refClass, toModelName(entry.getKey())))
                 .map(Map.Entry::getValue)
                 .findFirst();
-        String dataType = (referencedSchema.isPresent()) ? getTypeDeclaration(referencedSchema.get()) : varDataType;
         List<Map<String, Object>> enumVars = buildEnumVars(values, var);
 
         // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
@@ -4689,7 +4649,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
             if (enumName != null) {
-                var.defaultValue = toEnumDefaultValue(enumName, varDataType);
+                var.defaultValue = toEnumDefaultValue(enumName, var);
             }
         }
     }
@@ -5075,7 +5035,6 @@ public class DefaultCodegen implements CodegenConfig {
             CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
 
             if (!addSchemaImportsFromV3SpecLocations) {
-                imports.add(codegenProperty.baseType);
                 CodegenProperty innerCp = codegenProperty;
                 while (innerCp != null) {
                     if (innerCp.refClass != null) {
@@ -5133,9 +5092,6 @@ public class DefaultCodegen implements CodegenConfig {
                throw new RuntimeException("CodegenProperty cannot be null. arraySchema for debugging: " + arraySchema);
             }
 
-            if (!addSchemaImportsFromV3SpecLocations) {
-                imports.add(codegenProperty.baseType);
-            }
             CodegenProperty innerCp = codegenProperty;
             CodegenProperty mostInnerItem = innerCp;
             // loop through multidimensional array to add proper import
@@ -5164,13 +5120,6 @@ public class DefaultCodegen implements CodegenConfig {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toArrayModelParamName(codegenParameter.baseName);
-
-            if (!addSchemaImportsFromV3SpecLocations) {
-                while (codegenProperty != null) {
-                    imports.add(codegenProperty.baseType);
-                    codegenProperty = codegenProperty.items;
-                }
-            }
         }
     }
 

@@ -884,27 +884,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String getTypeDeclaration(Schema p) {
-        Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = schema;
-        if (ModelUtils.isArraySchema(target)) {
-            Schema<?> items = getSchemaItems((ArraySchema) schema);
-            return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";
-        } else if (ModelUtils.isMapSchema(target)) {
-            // Note: ModelUtils.isMapSchema(p) returns true when p is a composed schema that also defines
-            // additionalproperties: true
-            Schema<?> inner = getAdditionalProperties(target);
-            if (inner == null) {
-                LOGGER.error("`{}` (map property) does not have a proper inner type defined. Default to type:string", p.getName());
-                inner = new StringSchema().description("TODO default missing map inner type to string");
-                p.setAdditionalProperties(inner);
-            }
-            return getSchemaType(target) + "<String, " + getTypeDeclaration(inner) + ">";
-        }
-        return super.getTypeDeclaration(target);
-    }
-
-    @Override
     public String getAlias(String name) {
         if (typeAliases != null && typeAliases.containsKey(name)) {
             return typeAliases.get(name);
@@ -1100,75 +1079,60 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else {
             example = p.defaultValue;
         }
-
-        String type = p.baseType;
-        if (type == null) {
-            Schema varSchema = new Schema();
-            if (p.baseType != null)
-                varSchema.setType(p.baseType);
-            if (p.getFormat() != null) {
-                varSchema.setFormat(p.getFormat());
-            }
-            if (p.getRef() != null) {
-                varSchema.set$ref(p.getRef());
-            }
-            type = getTypeDeclaration(varSchema);
+        CodegenProperty schema = param.getSchema();
+        if (schema == null) {
+            String contentType = (String) param.getContent().keySet().toArray()[0];
+            schema = param.getContent().get(contentType).getSchema();
         }
 
-        if ("String".equals(type)) {
+        if (schema.isString) {
             if (example == null) {
                 example = param.paramName + "_example";
             }
             example = "\"" + escapeText(example) + "\"";
-        } else if ("Integer".equals(type) || "Short".equals(type)) {
+        } else if (schema.isInteger || schema.isShort) {
             if (example == null) {
                 example = "56";
             }
-        } else if ("Long".equals(type)) {
+        } else if (schema.isLong) {
             if (example == null) {
                 example = "56";
             }
             example = StringUtils.appendIfMissingIgnoreCase(example, "L");
-        } else if ("Float".equals(type)) {
+        } else if (schema.isFloat) {
             if (example == null) {
                 example = "3.4";
             }
             example = StringUtils.appendIfMissingIgnoreCase(example, "F");
-        } else if ("Double".equals(type)) {
+        } else if (schema.isDouble) {
             if (example == null) {
                 example = "3.4";
             }
             example = StringUtils.appendIfMissingIgnoreCase(example, "D");
-        } else if ("Boolean".equals(type)) {
+        } else if (schema.isBoolean) {
             if (example == null) {
                 example = "true";
             }
-        } else if ("File".equals(type)) {
+        } else if (schema.isFile) {
             if (example == null) {
                 example = "/path/to/file";
             }
             example = "new File(\"" + escapeText(example) + "\")";
-        } else if ("Date".equals(type)) {
+        } else if (schema.isDate) {
             example = "new Date()";
-        } else if ("LocalDate".equals(type)) {
+        } else if (schema.isDateTime) {
             if (example == null) {
                 example = "LocalDate.now()";
             } else {
                 example = "LocalDate.parse(\"" + example + "\")";
             }
-        } else if ("OffsetDateTime".equals(type)) {
-            if (example == null) {
-                example = "OffsetDateTime.now()";
-            } else {
-                example = "OffsetDateTime.parse(\"" + example + "\")";
-            }
-        } else if ("BigDecimal".equals(type)) {
+        } else if (schema.isDecimal) {
             if (example == null) {
                 example = "new BigDecimal(78)";
             } else {
                 example = "new BigDecimal(\"" + example + "\")";
             }
-        } else if ("UUID".equals(type)) {
+        } else if (schema.isUuid) {
             if (example == null) {
                 example = "UUID.randomUUID()";
             } else {
@@ -1176,10 +1140,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             }
         } else if (hasAllowableValues) {
             //parameter is enum defined as a schema component
-            example = type + ".fromValue(\"" + example + "\")";
-        } else if (!languageSpecificPrimitives.contains(type)) {
-            // type is a model class, e.g. User
-            example = "new " + type + "()";
+            example = ".fromValue(\"" + example + "\")";
         }
 
         if (example == null) {
@@ -1188,22 +1149,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
             if (p.items.defaultValue != null) {
 
-                String itemsType = p.items.baseType;
-                if (type == null) {
-                    Schema varSchema = new Schema();
-                    if (p.items.baseType != null)
-                        varSchema.setType(p.items.baseType);
-                    if (p.items.getFormat() != null) {
-                        varSchema.setFormat(p.items.getFormat());
-                    }
-                    if (p.items.getRef() != null) {
-                        varSchema.set$ref(p.items.getRef());
-                    }
-                    itemsType = getTypeDeclaration(varSchema);
-                }
-
                 String innerExample;
-                if ("String".equals(itemsType)) {
+                if (schema.items.isString) {
                     innerExample = "\"" + p.items.defaultValue + "\"";
                 } else {
                     innerExample = p.items.defaultValue;
@@ -1275,7 +1222,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (serializeBigDecimalAsString) {
-            if ("decimal".equals(property.baseType)) {
+            if (property.isDecimal) {
                 // we serialize BigDecimal as `string` to avoid precision loss
                 property.vendorExtensions.put("x-extra-annotation", "@JsonSerialize(using = ToStringSerializer.class)");
 

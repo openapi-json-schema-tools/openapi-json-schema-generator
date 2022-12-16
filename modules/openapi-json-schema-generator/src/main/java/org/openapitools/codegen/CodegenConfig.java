@@ -123,8 +123,6 @@ public interface CodegenConfig {
 
     String escapeQuotationMark(String input);
 
-    String getTypeDeclaration(Schema schema);
-
     void processOpts();
 
     List<CliOption> cliOptions();

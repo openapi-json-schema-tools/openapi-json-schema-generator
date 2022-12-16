@@ -859,19 +859,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return;
         }
 
-        Schema varSchema = new Schema();
-        if (var.baseType != null)
-            varSchema.setType(var.baseType);
-        if (var.getFormat() != null) {
-            varSchema.setFormat(var.getFormat());
-        }
-        if (var.getRef() != null) {
-            varSchema.set$ref(var.getRef());
-        }
-        String varDataType = getTypeDeclaration(varSchema);
-        Schema referencedSchema = getModelNameToSchemaCache().get(varDataType);
-        String dataType = (referencedSchema != null) ? getTypeDeclaration(referencedSchema) : varDataType;
-
         // put "enumVars" map into `allowableValues", including `name` and `value`
         List<Map<String, Object>> enumVars = buildEnumVars(values, var);
 
@@ -1337,21 +1324,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         String baseType = getSchemaType(p);
         return prefix + baseType + fullSuffix;
-    }
-
-    /**
-     * Output the type declaration of a given name
-     *
-     * @param p property schema
-     * @return a string presentation of the type
-     */
-    @Override
-    public String getTypeDeclaration(Schema p) {
-        // this is used to set dataType, which defines a python tuple of classes
-        // in Python we will wrap this in () to make it a tuple but here we
-        // will omit the parens so the generated documentation will not include
-        // them
-        return getTypeString(p, "", "", null);
     }
 
     @Override

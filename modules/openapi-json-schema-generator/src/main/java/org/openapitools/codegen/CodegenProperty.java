@@ -21,12 +21,10 @@ import java.util.*;
 
 public class CodegenProperty implements JsonSchema {
     public void copyFrom(CodegenProperty other) {
-        this.openApiType = other.openApiType;
         this.refClass = other.refClass;
         this.description = other.description;
         this.name = other.name;
         this.defaultValue = other.defaultValue;
-        this.baseType = other.baseType;
         this.title = other.title;
         this.unescapedDescription = other.unescapedDescription;
         this.maxLength = other.maxLength;
@@ -104,11 +102,6 @@ public class CodegenProperty implements JsonSchema {
         this.dependentRequired = other.dependentRequired;
         this.contains = other.contains;
     }
-    /**
-     * The value of the 'type' attribute in the OpenAPI schema.
-     * The per-language codegen logic may change to a language-specific type.
-     */
-    public String openApiType;
     public String refClass;
     /**
      * The value of the 'description' attribute in the OpenAPI schema.
@@ -119,7 +112,6 @@ public class CodegenProperty implements JsonSchema {
      */
     public CodegenKey name;
     public String defaultValue;
-    public String baseType;
     /**
      * The value of the 'title' attribute in the OpenAPI schema.
      */
@@ -325,15 +317,6 @@ public class CodegenProperty implements JsonSchema {
     public void setDefaultValue(String defaultValue) {
         this.defaultValue = defaultValue;
     }
-
-    public String getBaseType() {
-        return baseType;
-    }
-
-    public void setBaseType(String baseType) {
-        this.baseType = baseType;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -801,12 +784,10 @@ public class CodegenProperty implements JsonSchema {
     public void setRefModule(String refModule) { this.refModule=refModule; }
 
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append(", openApiType='").append(openApiType).append('\'');
         sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
-        sb.append(", baseType='").append(baseType).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", maxLength=").append(maxLength);
@@ -949,12 +930,10 @@ public class CodegenProperty implements JsonSchema {
                 Objects.equals(requiredProperties, that.getRequiredProperties()) &&
                 Objects.equals(optionalProperties, that.getOptionalProperties()) &&
                 Objects.equals(properties, that.getProperties()) &&
-                Objects.equals(openApiType, that.openApiType) &&
                 Objects.equals(refClass, that.refClass) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
-                Objects.equals(baseType, that.baseType) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(maxLength, that.maxLength) &&
@@ -980,9 +959,9 @@ public class CodegenProperty implements JsonSchema {
     @Override
     public int hashCode() {
 
-        return Objects.hash(openApiType, refClass, description,
+        return Objects.hash(refClass, description,
                 name, defaultValue,
-                baseType, title, unescapedDescription,
+                title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated,
                 isString, isNumeric,
