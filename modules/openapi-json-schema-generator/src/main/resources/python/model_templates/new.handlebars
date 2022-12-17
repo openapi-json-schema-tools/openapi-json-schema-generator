@@ -55,7 +55,7 @@ def __new__(
     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
 {{/or}}
 {{/with}}
-) -> '{{> model_templates/classname }}':
+) -> '{{name.getCamelCaseName}}':
     return super().__new__(
         cls,
 {{#if getHasMultipleTypes}}
