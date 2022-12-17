@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.media.Schema;
 import org.openapitools.codegen.meta.FeatureSet;
 import org.openapitools.codegen.meta.features.SchemaSupportFeature;
@@ -202,6 +203,14 @@ public interface JsonSchema {
     void setFormat(String format);
 
     String getFormat();
+
+    /**
+     * OpenAPI field, externalDocs
+     * @return ExternalDocumentation
+     */
+    ExternalDocumentation getExternalDocumentation();
+
+    void setExternalDocumentation(ExternalDocumentation externalDocumentation);
 
     /**
      * Syncs all the schema's type properties into the JsonSchema instance
