@@ -2365,9 +2365,6 @@ public class DefaultCodegen implements CodegenConfig {
             m.testCases = schemaTestCases;
         }
 
-        m.classname = toModelName(name);
-        m.classVarName = toVarName(name);
-        m.modelJson = Json.pretty(usedSchema);
         m.externalDocumentation = usedSchema.getExternalDocs();
         m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
@@ -4968,7 +4965,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
-                codegenParameter.baseName = codegenModel.classname;
+                codegenParameter.baseName = codegenModel.name.getCamelCaseName();
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
@@ -4994,7 +4991,7 @@ public class DefaultCodegen implements CodegenConfig {
                     String codegenModelName, codegenModelDescription;
 
                     if (codegenModel != null) {
-                        codegenModelName = codegenModel.classname;
+                        codegenModelName = codegenModel.name.getCamelCaseName();
                         codegenModelDescription = codegenModel.description;
                     } else {
                         LOGGER.warn("The following schema has undefined (null) baseType. " +

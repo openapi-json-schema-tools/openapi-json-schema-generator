@@ -27,11 +27,6 @@ import org.apache.commons.lang3.StringUtils;
  * CodegenModel represents a schema object in a OpenAPI document.
  */
 public class CodegenModel extends CodegenProperty {
-    // The language-specific name of the class that implements this schema.
-    // The name of the class is derived from the OpenAPI schema name with formatting rules applied.
-    // The classname is derived from the OpenAPI schema name, with sanitization and escaping rules applied.
-    public String classname;
-    public String classVarName, modelJson;
     public CodegenDiscriminator discriminator;
     public Set<String> imports = new TreeSet<>();
     public ExternalDocumentation externalDocumentation;
@@ -44,33 +39,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setModulePath(String modulePath) {
         this.modulePath = modulePath;
-    }
-
-    public String getClassVarName() {
-        return classVarName;
-    }
-
-    public void setClassVarName(String classVarName) {
-        this.classVarName = classVarName;
-    }
-
-    /**
-     * Return true if the classname property is sanitized, false if it is the same as the OpenAPI schema name.
-     * The OpenAPI schema name may be any valid JSON schema name, including non-ASCII characters.
-     * The name of the class may have to be sanitized with character escaping.
-     *
-     * @return true if the classname property is sanitized
-     */
-    public boolean getIsClassnameSanitized() {
-        return !StringUtils.equals(classname, name.getName());
-    }
-
-    public String getClassname() {
-        return classname;
-    }
-
-    public void setClassname(String classname) {
-        this.classname = classname;
     }
 
     public CodegenDiscriminator getDiscriminator() {
@@ -110,14 +78,6 @@ public class CodegenModel extends CodegenProperty {
 
     public void setImports(Set<String> imports) {
         this.imports = imports;
-    }
-
-    public String getModelJson() {
-        return modelJson;
-    }
-
-    public void setModelJson(String modelJson) {
-        this.modelJson = modelJson;
     }
 
     @Override
@@ -169,11 +129,8 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(getOneOf(), that.getOneOf()) &&
                 Objects.equals(getNot(), that.getNot()) &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(classname, that.classname) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(classVarName, that.classVarName) &&
-                Objects.equals(modelJson, that.modelJson) &&
                 Objects.equals(xmlPrefix, that.xmlPrefix) &&
                 Objects.equals(xmlNamespace, that.xmlNamespace) &&
                 Objects.equals(xmlName, that.xmlName) &&
@@ -200,8 +157,8 @@ public class CodegenModel extends CodegenProperty {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAnyOf(), getOneOf(), getAllOf(), getName(), getClassname(), getTitle(),
-                getDescription(), getClassVarName(), getModelJson(), getXmlPrefix(), getXmlNamespace(),
+        return Objects.hash(getAnyOf(), getOneOf(), getAllOf(), getName(), getTitle(),
+                getDescription(), getXmlPrefix(), getXmlNamespace(),
                 getXmlName(), getUnescapedDescription(), getDiscriminator(), getDefaultValue(),
                 isString, isInteger, isLong, isNumber, isNumeric, isFloat, isDouble,
                 isDate, isDateTime, isNull, hasValidation, isShort, isUnboundedInteger, isBoolean,
@@ -220,9 +177,6 @@ public class CodegenModel extends CodegenProperty {
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
-        sb.append(", classname='").append(classname).append('\'');
-        sb.append(", classVarName='").append(classVarName).append('\'');
-        sb.append(", modelJson='").append(modelJson).append('\'');
         sb.append(", discriminator=").append(discriminator);
         sb.append(", imports=").append(imports);
         sb.append(", externalDocumentation=").append(externalDocumentation);
@@ -288,9 +242,9 @@ public class CodegenModel extends CodegenProperty {
                     continue;
                 }
                 // detect self import
-                if (this.classname.equalsIgnoreCase(cp.refClass) ||
-                        ((cp.isMap || cp.isArray) && cp.items != null && this.classname.equalsIgnoreCase(cp.items.refClass))) {
-                    this.imports.remove(this.classname); // remove self import
+                if (this.name.getCamelCaseName().equalsIgnoreCase(cp.refClass) ||
+                        ((cp.isMap || cp.isArray) && cp.items != null && this.name.getCamelCaseName().equalsIgnoreCase(cp.items.refClass))) {
+                    this.imports.remove(this.name.getCamelCaseName()); // remove self import
                     cp.isSelfReference = true;
                 }
             }
@@ -298,9 +252,9 @@ public class CodegenModel extends CodegenProperty {
         if (getOptionalProperties() != null) {
             for (CodegenProperty cp : getOptionalProperties().values()) {
                 // detect self import
-                if (this.classname.equalsIgnoreCase(cp.refClass) ||
-                        ((cp.isMap || cp.isArray) && cp.items != null && this.classname.equalsIgnoreCase(cp.items.refClass))) {
-                    this.imports.remove(this.classname); // remove self import
+                if (this.name.getCamelCaseName().equalsIgnoreCase(cp.refClass) ||
+                        ((cp.isMap || cp.isArray) && cp.items != null && this.name.getCamelCaseName().equalsIgnoreCase(cp.items.refClass))) {
+                    this.imports.remove(this.name.getCamelCaseName()); // remove self import
                     cp.isSelfReference = true;
                 }
             }
