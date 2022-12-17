@@ -23,7 +23,7 @@ ApplicationJsonCharsetutf8 = schemas.AnyTypeSchema
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json_charsetutf_8,
+        ApplicationJsonCharsetutf8,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -32,7 +32,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json; charset=utf-8': api_client.MediaType(
-            schema=application_json_charsetutf_8,
+            schema=ApplicationJsonCharsetutf8,
         ),
     },
 )

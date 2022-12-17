@@ -38,7 +38,7 @@ class NullableClass(
         class Properties:
             
             
-            class integer_prop(
+            class IntegerProp(
                 schemas.IntBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -66,7 +66,7 @@ class NullableClass(
                     )
             
             
-            class number_prop(
+            class NumberProp(
                 schemas.NumberBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -93,7 +93,7 @@ class NullableClass(
                     )
             
             
-            class boolean_prop(
+            class BooleanProp(
                 schemas.BoolBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -120,7 +120,7 @@ class NullableClass(
                     )
             
             
-            class string_prop(
+            class StringProp(
                 schemas.StrBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -147,7 +147,7 @@ class NullableClass(
                     )
             
             
-            class date_prop(
+            class DateProp(
                 schemas.DateBase,
                 schemas.StrBase,
                 schemas.NoneBase,
@@ -176,7 +176,7 @@ class NullableClass(
                     )
             
             
-            class datetime_prop(
+            class DatetimeProp(
                 schemas.DateTimeBase,
                 schemas.StrBase,
                 schemas.NoneBase,
@@ -205,7 +205,7 @@ class NullableClass(
                     )
             
             
-            class array_nullable_prop(
+            class ArrayNullableProp(
                 schemas.ListBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -233,7 +233,7 @@ class NullableClass(
                     )
             
             
-            class array_and_items_nullable_prop(
+            class ArrayAndItemsNullableProp(
                 schemas.ListBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -248,7 +248,7 @@ class NullableClass(
                     }
                     
                     
-                    class items(
+                    class Items(
                         schemas.DictBase,
                         schemas.NoneBase,
                         schemas.Schema,
@@ -298,7 +298,7 @@ class NullableClass(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.DictBase,
                         schemas.NoneBase,
                         schemas.Schema,
@@ -337,11 +337,11 @@ class NullableClass(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class object_nullable_prop(
+            class ObjectNullableProp(
                 schemas.DictBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -378,7 +378,7 @@ class NullableClass(
                     )
             
             
-            class object_and_items_nullable_prop(
+            class ObjectAndItemsNullableProp(
                 schemas.DictBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -393,7 +393,7 @@ class NullableClass(
                     }
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.DictBase,
                         schemas.NoneBase,
                         schemas.Schema,
@@ -451,7 +451,7 @@ class NullableClass(
                 class MetaOapg:
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.DictBase,
                         schemas.NoneBase,
                         schemas.Schema,
@@ -514,7 +514,7 @@ class NullableClass(
             }
         
         
-        class additionalProperties(
+        class AdditionalProperties(
             schemas.DictBase,
             schemas.NoneBase,
             schemas.Schema,

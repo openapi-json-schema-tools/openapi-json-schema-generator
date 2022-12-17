@@ -43,7 +43,7 @@ class TriangleInterface(
         class Properties:
             
             
-            class shapeType(
+            class ShapeType(
                 schemas.StrSchema
             ):
             

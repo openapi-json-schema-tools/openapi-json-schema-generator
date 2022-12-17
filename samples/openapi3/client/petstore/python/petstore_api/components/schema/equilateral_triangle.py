@@ -54,7 +54,7 @@ class EquilateralTriangle(
                     class Properties:
                         
                         
-                        class triangleType(
+                        class TriangleType(
                             schemas.StrSchema
                         ):
                         

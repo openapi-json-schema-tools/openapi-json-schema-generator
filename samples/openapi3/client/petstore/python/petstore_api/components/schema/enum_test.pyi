@@ -41,7 +41,7 @@ class EnumTest(
         class Properties:
             
             
-            class enum_string(
+            class EnumString(
                 schemas.StrSchema
             ):
                 
@@ -58,7 +58,7 @@ class EnumTest(
                     return cls("")
             
             
-            class enum_string_required(
+            class EnumStringRequired(
                 schemas.StrSchema
             ):
                 
@@ -75,7 +75,7 @@ class EnumTest(
                     return cls("")
             
             
-            class enum_integer(
+            class EnumInteger(
                 schemas.Int32Schema
             ):
                 
@@ -88,7 +88,7 @@ class EnumTest(
                     return cls(-1)
             
             
-            class enum_number(
+            class EnumNumber(
                 schemas.Float64Schema
             ):
                 

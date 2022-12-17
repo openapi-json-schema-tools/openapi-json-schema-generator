@@ -102,7 +102,7 @@ class ApplicationXWwwFormUrlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=ApplicationXWwwFormUrlencoded
         ),
     },
 )

@@ -30,7 +30,7 @@ ApplicationJsonCharsetutf8 = schemas.AnyTypeSchema
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json; charset=utf-8': api_client.MediaType(
-            schema=application_json_charsetutf_8
+            schema=ApplicationJsonCharsetutf8
         ),
     },
 )

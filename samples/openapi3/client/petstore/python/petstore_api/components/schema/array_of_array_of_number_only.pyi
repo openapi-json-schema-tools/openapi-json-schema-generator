@@ -67,7 +67,7 @@ class ArrayOfArrayOfNumberOnly(
                                 _configuration=_configuration,
                             )
                     
-                        def __getitem__(self, i: int) -> MetaOapg.items:
+                        def __getitem__(self, i: int) -> MetaOapg.Items:
                             return super().__getitem__(i)
             
                 def __new__(
@@ -81,7 +81,7 @@ class ArrayOfArrayOfNumberOnly(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             __annotations__ = {
                 "ArrayArrayNumber": ArrayArrayNumber,

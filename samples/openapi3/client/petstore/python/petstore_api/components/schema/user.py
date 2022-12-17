@@ -48,7 +48,7 @@ class User(
             ObjectWithNoDeclaredProps = schemas.DictSchema
             
             
-            class objectWithNoDeclaredPropsNullable(
+            class ObjectWithNoDeclaredPropsNullable(
                 schemas.DictBase,
                 schemas.NoneBase,
                 schemas.Schema,
@@ -78,7 +78,7 @@ class User(
             AnyTypeProp = schemas.AnyTypeSchema
             
             
-            class anyTypeExceptNullProp(
+            class AnyTypeExceptNullProp(
                 schemas.AnyTypeSchema,
             ):
             

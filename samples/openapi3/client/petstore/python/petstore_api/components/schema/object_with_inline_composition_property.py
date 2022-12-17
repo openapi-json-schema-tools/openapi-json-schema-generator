@@ -39,7 +39,7 @@ class ObjectWithInlineCompositionProperty(
         class Properties:
             
             
-            class someProp(
+            class SomeProp(
                 schemas.AnyTypeSchema,
             ):
             
@@ -50,7 +50,7 @@ class ObjectWithInlineCompositionProperty(
                     class AllOf:
                         
                         
-                        class allOf_0(
+                        class AllOf0(
                             schemas.StrSchema
                         ):
                         

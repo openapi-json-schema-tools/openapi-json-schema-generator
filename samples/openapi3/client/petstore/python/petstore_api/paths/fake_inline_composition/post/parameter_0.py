@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class Schema(
     schemas.AnyTypeSchema,
 ):
 
@@ -38,7 +38,7 @@ class schema(
         class AllOf:
             
             
-            class allOf_0(
+            class AllOf0(
                 schemas.StrSchema
             ):
             
@@ -70,6 +70,6 @@ class schema(
 parameter_oapg = api_client.QueryParameter(
     name="compositionAtRoot",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     explode=True,
 )

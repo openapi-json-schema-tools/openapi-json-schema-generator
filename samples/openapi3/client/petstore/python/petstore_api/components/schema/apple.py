@@ -48,7 +48,7 @@ class Apple(
         class Properties:
             
             
-            class cultivar(
+            class Cultivar(
                 schemas.StrSchema
             ):
             
@@ -62,7 +62,7 @@ class Apple(
                     }
             
             
-            class origin(
+            class Origin(
                 schemas.StrSchema
             ):
             

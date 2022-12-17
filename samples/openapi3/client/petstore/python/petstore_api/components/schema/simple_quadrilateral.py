@@ -54,7 +54,7 @@ class SimpleQuadrilateral(
                     class Properties:
                         
                         
-                        class quadrilateralType(
+                        class QuadrilateralType(
                             schemas.StrSchema
                         ):
                         

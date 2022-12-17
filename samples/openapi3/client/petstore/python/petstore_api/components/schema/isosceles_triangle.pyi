@@ -53,7 +53,7 @@ class IsoscelesTriangle(
                     class Properties:
                         
                         
-                        class triangleType(
+                        class TriangleType(
                             schemas.StrSchema
                         ):
                             

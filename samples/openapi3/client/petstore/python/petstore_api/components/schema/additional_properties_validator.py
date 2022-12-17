@@ -80,7 +80,7 @@ class AdditionalPropertiesValidator(
                     types = {frozendict.frozendict}
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.AnyTypeSchema,
                     ):
                     
@@ -133,7 +133,7 @@ class AdditionalPropertiesValidator(
                     types = {frozendict.frozendict}
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.AnyTypeSchema,
                     ):
                     

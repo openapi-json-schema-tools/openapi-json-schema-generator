@@ -97,11 +97,11 @@ class ComposedOneOfDifferentTypes(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class oneOf_6(
+            class OneOf6(
                 schemas.DateTimeSchema
             ):
             

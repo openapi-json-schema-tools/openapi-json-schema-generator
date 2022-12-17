@@ -46,7 +46,7 @@ class JSONPatchRequestMoveCopy(
             Path = schemas.StrSchema
             
             
-            class op(
+            class Op(
                 schemas.StrSchema
             ):
             

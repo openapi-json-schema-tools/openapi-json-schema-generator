@@ -38,7 +38,7 @@ class EnumArrays(
         class Properties:
             
             
-            class just_symbol(
+            class JustSymbol(
                 schemas.StrSchema
             ):
                 
@@ -60,7 +60,7 @@ class EnumArrays(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.StrSchema
                     ):
                         
@@ -83,7 +83,7 @@ class EnumArrays(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             __annotations__ = {
                 "just_symbol": JustSymbol,

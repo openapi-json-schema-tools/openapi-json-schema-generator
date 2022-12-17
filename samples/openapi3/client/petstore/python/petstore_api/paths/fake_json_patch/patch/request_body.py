@@ -32,7 +32,7 @@ ApplicationJsonPatchjson = json_patch_request.JSONPatchRequest
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json-patch+json': api_client.MediaType(
-            schema=application_json_patchjson
+            schema=ApplicationJsonPatchjson
         ),
     },
 )

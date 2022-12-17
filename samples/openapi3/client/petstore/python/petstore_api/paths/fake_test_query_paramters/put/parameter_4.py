@@ -47,14 +47,14 @@ class Schema(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)
 
 
 parameter_oapg = api_client.QueryParameter(
     name="context",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     required=True,
     explode=True,
 )

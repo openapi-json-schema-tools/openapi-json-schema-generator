@@ -36,7 +36,7 @@ class Schema(
         types = {tuple}
         
         
-        class items(
+        class Items(
             schemas.StrSchema
         ):
         
@@ -69,12 +69,12 @@ class Schema(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)
 
 
 parameter_oapg = api_client.HeaderParameter(
     name="enum_header_string_array",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=schema,
+    schema=Schema,
 )

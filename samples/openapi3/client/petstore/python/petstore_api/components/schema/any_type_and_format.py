@@ -39,7 +39,7 @@ class AnyTypeAndFormat(
         class Properties:
             
             
-            class uuid(
+            class Uuid(
                 schemas.UUIDBase,
                 schemas.AnyTypeSchema,
             ):
@@ -64,7 +64,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class date(
+            class Date(
                 schemas.DateBase,
                 schemas.AnyTypeSchema,
             ):
@@ -89,7 +89,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class date_time(
+            class DateTime(
                 schemas.DateTimeBase,
                 schemas.AnyTypeSchema,
             ):
@@ -114,7 +114,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class number(
+            class Number(
                 schemas.DecimalBase,
                 schemas.AnyTypeSchema,
             ):
@@ -139,7 +139,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class binary(
+            class Binary(
                 schemas.AnyTypeSchema,
             ):
             
@@ -163,7 +163,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class int32(
+            class Int32(
                 schemas.AnyTypeSchema,
             ):
             
@@ -187,7 +187,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class int64(
+            class Int64(
                 schemas.AnyTypeSchema,
             ):
             
@@ -211,7 +211,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class double(
+            class Double(
                 schemas.AnyTypeSchema,
             ):
             
@@ -235,7 +235,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class _float(
+            class ModelFloat(
                 schemas.AnyTypeSchema,
             ):
             

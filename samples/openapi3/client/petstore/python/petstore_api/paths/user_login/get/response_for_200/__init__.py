@@ -66,8 +66,8 @@ ApplicationJson = schemas.StrSchema
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml,
-        application_json,
+        ApplicationXml,
+        ApplicationJson,
     ]
     headers: Header.Params
 
@@ -76,10 +76,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=application_xml,
+            schema=ApplicationXml,
         ),
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
     headers=Header.parameters

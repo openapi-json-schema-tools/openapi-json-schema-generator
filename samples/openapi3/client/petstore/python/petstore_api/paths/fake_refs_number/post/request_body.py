@@ -32,7 +32,7 @@ ApplicationJson = number_with_validations.NumberWithValidations
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
 )

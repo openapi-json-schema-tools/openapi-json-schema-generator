@@ -38,7 +38,7 @@ class ArrayWithValidationsInItems(
         max_items = 2
         
         
-        class items(
+        class Items(
             schemas.Int64Schema
         ):
             pass
@@ -54,5 +54,5 @@ class ArrayWithValidationsInItems(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)

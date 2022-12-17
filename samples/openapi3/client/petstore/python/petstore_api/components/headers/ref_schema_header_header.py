@@ -32,6 +32,6 @@ Schema = string_with_validation.StringWithValidation
 
 parameter_oapg = api_client.HeaderParameterWithoutName(
     style=api_client.ParameterStyle.SIMPLE,
-    schema=schema,
+    schema=Schema,
     required=True,
 )

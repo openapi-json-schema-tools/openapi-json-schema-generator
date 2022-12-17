@@ -44,7 +44,7 @@ class ApplicationXWwwFormUrlencoded(
         class Properties:
             
             
-            class integer(
+            class Integer(
                 schemas.IntSchema
             ):
             
@@ -58,7 +58,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_minimum = 10
             
             
-            class int32(
+            class Int32(
                 schemas.Int32Schema
             ):
             
@@ -73,7 +73,7 @@ class ApplicationXWwwFormUrlencoded(
             Int64 = schemas.Int64Schema
             
             
-            class number(
+            class Number(
                 schemas.NumberSchema
             ):
             
@@ -86,7 +86,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_minimum = 32.1
             
             
-            class _float(
+            class ModelFloat(
                 schemas.Float32Schema
             ):
             
@@ -99,7 +99,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_maximum = 987.6
             
             
-            class double(
+            class Double(
                 schemas.Float64Schema
             ):
             
@@ -113,7 +113,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_minimum = 67.8
             
             
-            class string(
+            class String(
                 schemas.StrSchema
             ):
             
@@ -130,7 +130,7 @@ class ApplicationXWwwFormUrlencoded(
                     }
             
             
-            class pattern_without_delimiter(
+            class PatternWithoutDelimiter(
                 schemas.StrSchema
             ):
             
@@ -148,7 +148,7 @@ class ApplicationXWwwFormUrlencoded(
             DateTime = schemas.DateTimeSchema
             
             
-            class password(
+            class Password(
                 schemas.StrSchema
             ):
             
@@ -360,7 +360,7 @@ class ApplicationXWwwFormUrlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=ApplicationXWwwFormUrlencoded
         ),
     },
 )

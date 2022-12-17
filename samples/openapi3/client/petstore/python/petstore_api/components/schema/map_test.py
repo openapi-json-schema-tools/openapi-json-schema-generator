@@ -107,7 +107,7 @@ class MapTest(
                     types = {frozendict.frozendict}
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.StrSchema
                     ):
                     

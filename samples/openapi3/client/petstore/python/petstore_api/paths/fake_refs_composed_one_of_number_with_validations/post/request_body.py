@@ -32,7 +32,7 @@ ApplicationJson = composed_one_of_different_types.ComposedOneOfDifferentTypes
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
 )

@@ -53,7 +53,7 @@ class ScaleneTriangle(
                     class Properties:
                         
                         
-                        class triangleType(
+                        class TriangleType(
                             schemas.StrSchema
                         ):
                             

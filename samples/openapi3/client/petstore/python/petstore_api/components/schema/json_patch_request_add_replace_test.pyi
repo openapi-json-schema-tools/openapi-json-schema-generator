@@ -45,7 +45,7 @@ class JSONPatchRequestAddReplaceTest(
             Value = schemas.AnyTypeSchema
             
             
-            class op(
+            class Op(
                 schemas.StrSchema
             ):
                 

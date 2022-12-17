@@ -58,7 +58,7 @@ class MultipartFormData(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             __annotations__ = {
                 "files": Files,
@@ -113,7 +113,7 @@ class MultipartFormData(
 parameter_oapg = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data
+            schema=MultipartFormData
         ),
     },
 )

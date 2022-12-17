@@ -44,34 +44,34 @@ class FormatTest(
         class Properties:
             
             
-            class integer(
+            class Integer(
                 schemas.IntSchema
             ):
                 pass
             Int32 = schemas.Int32Schema
             
             
-            class int32withValidations(
+            class Int32withValidations(
                 schemas.Int32Schema
             ):
                 pass
             Int64 = schemas.Int64Schema
             
             
-            class number(
+            class Number(
                 schemas.NumberSchema
             ):
                 pass
             
             
-            class _float(
+            class ModelFloat(
                 schemas.Float32Schema
             ):
                 pass
             Float32 = schemas.Float32Schema
             
             
-            class double(
+            class Double(
                 schemas.Float64Schema
             ):
                 pass
@@ -99,11 +99,11 @@ class FormatTest(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class string(
+            class String(
                 schemas.StrSchema
             ):
                 pass
@@ -115,19 +115,19 @@ class FormatTest(
             UuidNoExample = schemas.UUIDSchema
             
             
-            class password(
+            class Password(
                 schemas.StrSchema
             ):
                 pass
             
             
-            class pattern_with_digits(
+            class PatternWithDigits(
                 schemas.StrSchema
             ):
                 pass
             
             
-            class pattern_with_digits_and_delimiter(
+            class PatternWithDigitsAndDelimiter(
                 schemas.StrSchema
             ):
                 pass

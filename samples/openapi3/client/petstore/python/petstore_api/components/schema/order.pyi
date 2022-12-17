@@ -42,7 +42,7 @@ class Order(
             ShipDate = schemas.DateTimeSchema
             
             
-            class status(
+            class Status(
                 schemas.StrSchema
             ):
                 

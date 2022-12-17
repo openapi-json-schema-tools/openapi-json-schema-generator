@@ -31,6 +31,6 @@ Schema = schemas.StrSchema
 parameter_oapg = api_client.PathParameter(
     name="Ab",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=schema,
+    schema=Schema,
     required=True,
 )

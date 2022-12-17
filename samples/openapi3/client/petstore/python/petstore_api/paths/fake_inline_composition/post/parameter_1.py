@@ -38,7 +38,7 @@ class Schema(
         class Properties:
             
             
-            class someProp(
+            class SomeProp(
                 schemas.AnyTypeSchema,
             ):
             
@@ -49,7 +49,7 @@ class Schema(
                     class AllOf:
                         
                         
-                        class allOf_0(
+                        class AllOf0(
                             schemas.StrSchema
                         ):
                         
@@ -130,6 +130,6 @@ class Schema(
 parameter_oapg = api_client.QueryParameter(
     name="compositionInProperty",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     explode=True,
 )

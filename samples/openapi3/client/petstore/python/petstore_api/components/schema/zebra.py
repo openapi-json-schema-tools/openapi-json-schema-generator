@@ -42,7 +42,7 @@ class Zebra(
         class Properties:
             
             
-            class type(
+            class Type(
                 schemas.StrSchema
             ):
             
@@ -70,7 +70,7 @@ class Zebra(
                     return cls("grevys")
             
             
-            class className(
+            class ClassName(
                 schemas.StrSchema
             ):
             

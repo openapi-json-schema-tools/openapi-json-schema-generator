@@ -48,13 +48,13 @@ class Apple(
         class Properties:
             
             
-            class cultivar(
+            class Cultivar(
                 schemas.StrSchema
             ):
                 pass
             
             
-            class origin(
+            class Origin(
                 schemas.StrSchema
             ):
                 pass

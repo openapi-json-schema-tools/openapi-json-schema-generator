@@ -78,8 +78,8 @@ class ApplicationJson(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml,
-        application_json,
+        ApplicationXml,
+        ApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -88,10 +88,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=application_xml,
+            schema=ApplicationXml,
         ),
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
 )

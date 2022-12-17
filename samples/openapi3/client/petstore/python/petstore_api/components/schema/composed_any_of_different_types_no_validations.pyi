@@ -68,7 +68,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             AnyOf10 = schemas.NumberSchema
             AnyOf11 = schemas.Float32Schema

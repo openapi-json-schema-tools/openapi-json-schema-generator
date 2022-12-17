@@ -18,7 +18,7 @@ from petstore_api import schemas  # noqa: F401
 # body schemas
 
 
-class application_json(
+class ApplicationJson(
     schemas.AnyTypeSchema,
 ):
 
@@ -29,7 +29,7 @@ class application_json(
         class AllOf:
             
             
-            class allOf_0(
+            class AllOf0(
                 schemas.StrSchema
             ):
             
@@ -69,7 +69,7 @@ class MultipartFormData(
         class Properties:
             
             
-            class someProp(
+            class SomeProp(
                 schemas.AnyTypeSchema,
             ):
             
@@ -80,7 +80,7 @@ class MultipartFormData(
                     class AllOf:
                         
                         
-                        class allOf_0(
+                        class AllOf0(
                             schemas.StrSchema
                         ):
                         
@@ -162,8 +162,8 @@ class MultipartFormData(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json,
-        multipart_form_data,
+        ApplicationJson,
+        MultipartFormData,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -172,10 +172,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data,
+            schema=MultipartFormData,
         ),
     },
 )

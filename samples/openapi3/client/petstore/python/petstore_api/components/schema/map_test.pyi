@@ -103,7 +103,7 @@ class MapTest(
                 class MetaOapg:
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.StrSchema
                     ):
                         

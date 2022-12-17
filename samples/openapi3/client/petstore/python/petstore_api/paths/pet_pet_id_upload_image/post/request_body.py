@@ -102,7 +102,7 @@ class MultipartFormData(
 parameter_oapg = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data
+            schema=MultipartFormData
         ),
     },
 )

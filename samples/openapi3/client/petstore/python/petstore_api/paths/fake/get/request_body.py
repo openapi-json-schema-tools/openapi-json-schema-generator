@@ -47,7 +47,7 @@ class ApplicationXWwwFormUrlencoded(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.StrSchema
                     ):
                     
@@ -80,11 +80,11 @@ class ApplicationXWwwFormUrlencoded(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class enum_form_string(
+            class EnumFormString(
                 schemas.StrSchema
             ):
             
@@ -174,7 +174,7 @@ class ApplicationXWwwFormUrlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=ApplicationXWwwFormUrlencoded
         ),
     },
 )

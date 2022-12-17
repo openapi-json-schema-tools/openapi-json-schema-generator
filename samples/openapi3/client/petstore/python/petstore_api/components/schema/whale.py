@@ -44,7 +44,7 @@ class Whale(
             HasTeeth = schemas.BoolSchema
             
             
-            class className(
+            class ClassName(
                 schemas.StrSchema
             ):
             

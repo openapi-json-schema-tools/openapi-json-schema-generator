@@ -32,7 +32,7 @@ ApplicationJson = array_of_enums.ArrayOfEnums
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
 )

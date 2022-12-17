@@ -32,7 +32,7 @@ ApplicationJson = additional_properties_with_array_of_enums.AdditionalProperties
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
 )

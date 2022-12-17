@@ -42,7 +42,7 @@ class DanishPig(
         class Properties:
             
             
-            class className(
+            class ClassName(
                 schemas.StrSchema
             ):
             

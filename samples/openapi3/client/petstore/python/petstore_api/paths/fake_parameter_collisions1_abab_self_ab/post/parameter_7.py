@@ -31,5 +31,5 @@ Schema = schemas.StrSchema
 parameter_oapg = api_client.HeaderParameter(
     name="self",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=schema,
+    schema=Schema,
 )

@@ -70,7 +70,7 @@ class Pet(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
@@ -101,7 +101,7 @@ class Pet(
                     return super().__getitem__(i)
             
             
-            class status(
+            class Status(
                 schemas.StrSchema
             ):
                 

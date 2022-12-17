@@ -45,7 +45,7 @@ class FormatTest(
         class Properties:
             
             
-            class integer(
+            class Integer(
                 schemas.IntSchema
             ):
             
@@ -61,7 +61,7 @@ class FormatTest(
             Int32 = schemas.Int32Schema
             
             
-            class int32withValidations(
+            class Int32withValidations(
                 schemas.Int32Schema
             ):
             
@@ -76,7 +76,7 @@ class FormatTest(
             Int64 = schemas.Int64Schema
             
             
-            class number(
+            class Number(
                 schemas.NumberSchema
             ):
             
@@ -90,7 +90,7 @@ class FormatTest(
                     multiple_of = 32.5
             
             
-            class _float(
+            class ModelFloat(
                 schemas.Float32Schema
             ):
             
@@ -105,7 +105,7 @@ class FormatTest(
             Float32 = schemas.Float32Schema
             
             
-            class double(
+            class Double(
                 schemas.Float64Schema
             ):
             
@@ -141,11 +141,11 @@ class FormatTest(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class string(
+            class String(
                 schemas.StrSchema
             ):
             
@@ -168,7 +168,7 @@ class FormatTest(
             UuidNoExample = schemas.UUIDSchema
             
             
-            class password(
+            class Password(
                 schemas.StrSchema
             ):
             
@@ -182,7 +182,7 @@ class FormatTest(
                     min_length = 10
             
             
-            class pattern_with_digits(
+            class PatternWithDigits(
                 schemas.StrSchema
             ):
             
@@ -196,7 +196,7 @@ class FormatTest(
                     }
             
             
-            class pattern_with_digits_and_delimiter(
+            class PatternWithDigitsAndDelimiter(
                 schemas.StrSchema
             ):
             

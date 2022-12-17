@@ -37,7 +37,7 @@ class JSONPatchRequest(
         types = {tuple}
         
         
-        class items(
+        class Items(
             schemas.AnyTypeSchema,
         ):
         
@@ -89,7 +89,7 @@ class JSONPatchRequest(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)
 
 from petstore_api.components.schema import json_patch_request_add_replace_test

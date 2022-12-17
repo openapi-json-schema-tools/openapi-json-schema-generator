@@ -33,6 +33,6 @@ Schema = foo.Foo
 parameter_oapg = api_client.QueryParameter(
     name="mapBean",
     style=api_client.ParameterStyle.DEEP_OBJECT,
-    schema=schema,
+    schema=Schema,
     explode=True,
 )

@@ -30,7 +30,7 @@ ApplicationOctetStream = schemas.BinarySchema
 parameter_oapg = api_client.RequestBody(
     content={
         'application/octet-stream': api_client.MediaType(
-            schema=application_octet_stream
+            schema=ApplicationOctetStream
         ),
     },
     required=True,

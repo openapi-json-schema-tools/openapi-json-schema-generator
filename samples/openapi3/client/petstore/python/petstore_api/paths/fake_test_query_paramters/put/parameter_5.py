@@ -33,7 +33,7 @@ Schema = string_with_validation.StringWithValidation
 parameter_oapg = api_client.QueryParameter(
     name="refParam",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     required=True,
     explode=True,
 )

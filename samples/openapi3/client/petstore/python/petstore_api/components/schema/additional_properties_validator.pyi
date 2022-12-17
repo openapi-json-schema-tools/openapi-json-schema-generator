@@ -78,7 +78,7 @@ class AdditionalPropertiesValidator(
                 class MetaOapg:
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.AnyTypeSchema,
                     ):
                     
@@ -129,7 +129,7 @@ class AdditionalPropertiesValidator(
                 class MetaOapg:
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.AnyTypeSchema,
                     ):
                     

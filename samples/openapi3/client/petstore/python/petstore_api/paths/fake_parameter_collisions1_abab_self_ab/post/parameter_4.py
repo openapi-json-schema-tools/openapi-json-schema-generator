@@ -31,6 +31,6 @@ Schema = schemas.StrSchema
 parameter_oapg = api_client.QueryParameter(
     name="A-B",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     explode=True,
 )

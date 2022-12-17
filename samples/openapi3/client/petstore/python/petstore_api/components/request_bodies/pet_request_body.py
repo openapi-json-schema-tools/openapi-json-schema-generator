@@ -33,10 +33,10 @@ ApplicationXml = pet.Pet
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
         'application/xml': api_client.MediaType(
-            schema=application_xml
+            schema=ApplicationXml
         ),
     },
     required=True,
