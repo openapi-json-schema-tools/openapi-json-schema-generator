@@ -1217,7 +1217,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     @Override
     public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
-        if (model.getIsClassnameSanitized() && additionalProperties.containsKey(JACKSON)) {
+        if (additionalProperties.containsKey(JACKSON)) {
             model.imports.add("JsonTypeName");
         }
 

@@ -919,7 +919,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
-                codegenParameter.baseName = codegenModel.classname;
+                codegenParameter.baseName = codegenModel.name.getCamelCaseName();
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
@@ -934,7 +934,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String codegenModelName, codegenModelDescription;
 
                 if (codegenModel != null) {
-                    codegenModelName = codegenModel.classname;
+                    codegenModelName = codegenModel.name.getCamelCaseName();
                     codegenModelDescription = codegenModel.description;
                 } else {
                     codegenModelName = "anyType";
