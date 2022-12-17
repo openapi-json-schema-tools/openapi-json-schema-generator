@@ -22,89 +22,6 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import java.util.*;
 
 public class CodegenProperty implements JsonSchema {
-    public void copyFrom(CodegenProperty other) {
-        this.refClass = other.refClass;
-        this.description = other.description;
-        this.name = other.name;
-        this.defaultValue = other.defaultValue;
-        this.title = other.title;
-        this.unescapedDescription = other.unescapedDescription;
-        this.maxLength = other.maxLength;
-        this.minLength = other.minLength;
-        this.pattern = other.pattern;
-        this.example = other.example;
-        this.minimum = other.minimum;
-        this.maximum = other.maximum;
-        this.multipleOf = other.multipleOf;
-        this.exclusiveMinimum = other.exclusiveMinimum;
-        this.exclusiveMaximum = other.exclusiveMaximum;
-        this.deprecated = other.deprecated;
-        this.isString = other.isString;
-        this.isNumeric = other.isNumeric;
-        this.isInteger = other.isInteger;
-        this.isShort = other.isShort;
-        this.isLong = other.isLong;
-        this.isUnboundedInteger = other.isUnboundedInteger;
-        this.isNumber = other.isNumber;
-        this.isFloat = other.isFloat;
-        this.isDouble = other.isDouble;
-        this.isDecimal = other.isDecimal;
-        this.isByteArray = other.isByteArray;
-        this.isBinary = other.isBinary;
-        this.isFile = other.isFile;
-        this.isBoolean = other.isBoolean;
-        this.isDate = other.isDate; // full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21
-        this.isDateTime = other.isDateTime; // the date-time notation as defined by RFC 3339, section 5.6, for example, 2017-07-21T17:32:28Z
-        this.isUuid = other.isUuid;
-        this.isUri = other.isUuid;
-        this.isEmail = other.isEmail;
-        this.isNull = other.isNull;
-        this.isAnyType = other.isAnyType;
-        this.isArray = other.isArray;
-        this.isMap = other.isMap;
-        this.isEnum = other.isEnum;
-        this.isReadOnly = other.isReadOnly;
-        this.isWriteOnly = other.isWriteOnly;
-        this.isNullable = other.isNullable;
-        this.isSelfReference = other.isSelfReference;
-        this.isCircularReference = other.isCircularReference;
-        this.isDiscriminator = other.isDiscriminator;
-        this._enum = other._enum;
-        this.allowableValues = other.allowableValues;
-        this.items = other.items;
-        this.additionalProperties = other.additionalProperties;
-        this.vendorExtensions = other.vendorExtensions;
-        this.hasValidation = other.hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
-        this.discriminatorValue = other.discriminatorValue;
-        this.maxItems = other.maxItems;
-        this.minItems = other.minItems;
-        this.maxProperties = other.maxProperties;
-        this.minProperties = other.minProperties;
-        this.uniqueItems = other.uniqueItems;
-        this.isXmlAttribute = other.isXmlAttribute;
-        this.xmlPrefix = other.xmlPrefix;
-        this.xmlName = other.xmlName;
-        this.xmlNamespace = other.xmlNamespace;
-        this.isXmlWrapped = other.isXmlWrapped;
-        this.hasDiscriminatorWithNonEmptyMapping = other.hasDiscriminatorWithNonEmptyMapping;
-        this.allOf = other.allOf;
-        this.anyOf = other.anyOf;
-        this.oneOf = other.oneOf;
-        this.not = other.not;
-        this.hasMultipleTypes = other.hasMultipleTypes;
-        this.requiredProperties = other.requiredProperties;
-        this.properties = other.properties;
-        this.optionalProperties = other.optionalProperties;
-        this.ref = other.ref;
-        this.refModule = other.refModule;
-        this.schemaIsFromAdditionalProperties = other.schemaIsFromAdditionalProperties;
-        this.isBooleanSchemaTrue = other.isBooleanSchemaTrue;
-        this.isBooleanSchemaFalse = other.isBooleanSchemaFalse;
-        this.format = other.format;
-        this.dependentRequired = other.dependentRequired;
-        this.contains = other.contains;
-        this.externalDocumentation = other.externalDocumentation;
-    }
     private ExternalDocumentation externalDocumentation;
     public String refClass;
     /**
@@ -243,6 +160,103 @@ public class CodegenProperty implements JsonSchema {
     private String format;
     private LinkedHashMap<String, List<String>> dependentRequired;
     private CodegenProperty contains;
+    public CodegenDiscriminator discriminator;
+
+    public void copyFrom(CodegenProperty other) {
+        this.refClass = other.refClass;
+        this.description = other.description;
+        this.name = other.name;
+        this.defaultValue = other.defaultValue;
+        this.title = other.title;
+        this.unescapedDescription = other.unescapedDescription;
+        this.maxLength = other.maxLength;
+        this.minLength = other.minLength;
+        this.pattern = other.pattern;
+        this.example = other.example;
+        this.minimum = other.minimum;
+        this.maximum = other.maximum;
+        this.multipleOf = other.multipleOf;
+        this.exclusiveMinimum = other.exclusiveMinimum;
+        this.exclusiveMaximum = other.exclusiveMaximum;
+        this.deprecated = other.deprecated;
+        this.isString = other.isString;
+        this.isNumeric = other.isNumeric;
+        this.isInteger = other.isInteger;
+        this.isShort = other.isShort;
+        this.isLong = other.isLong;
+        this.isUnboundedInteger = other.isUnboundedInteger;
+        this.isNumber = other.isNumber;
+        this.isFloat = other.isFloat;
+        this.isDouble = other.isDouble;
+        this.isDecimal = other.isDecimal;
+        this.isByteArray = other.isByteArray;
+        this.isBinary = other.isBinary;
+        this.isFile = other.isFile;
+        this.isBoolean = other.isBoolean;
+        this.isDate = other.isDate; // full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21
+        this.isDateTime = other.isDateTime; // the date-time notation as defined by RFC 3339, section 5.6, for example, 2017-07-21T17:32:28Z
+        this.isUuid = other.isUuid;
+        this.isUri = other.isUuid;
+        this.isEmail = other.isEmail;
+        this.isNull = other.isNull;
+        this.isAnyType = other.isAnyType;
+        this.isArray = other.isArray;
+        this.isMap = other.isMap;
+        this.isEnum = other.isEnum;
+        this.isReadOnly = other.isReadOnly;
+        this.isWriteOnly = other.isWriteOnly;
+        this.isNullable = other.isNullable;
+        this.isSelfReference = other.isSelfReference;
+        this.isCircularReference = other.isCircularReference;
+        this.isDiscriminator = other.isDiscriminator;
+        this._enum = other._enum;
+        this.allowableValues = other.allowableValues;
+        this.items = other.items;
+        this.additionalProperties = other.additionalProperties;
+        this.vendorExtensions = other.vendorExtensions;
+        this.hasValidation = other.hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
+        this.discriminatorValue = other.discriminatorValue;
+        this.maxItems = other.maxItems;
+        this.minItems = other.minItems;
+        this.maxProperties = other.maxProperties;
+        this.minProperties = other.minProperties;
+        this.uniqueItems = other.uniqueItems;
+        this.isXmlAttribute = other.isXmlAttribute;
+        this.xmlPrefix = other.xmlPrefix;
+        this.xmlName = other.xmlName;
+        this.xmlNamespace = other.xmlNamespace;
+        this.isXmlWrapped = other.isXmlWrapped;
+        this.hasDiscriminatorWithNonEmptyMapping = other.hasDiscriminatorWithNonEmptyMapping;
+        this.allOf = other.allOf;
+        this.anyOf = other.anyOf;
+        this.oneOf = other.oneOf;
+        this.not = other.not;
+        this.hasMultipleTypes = other.hasMultipleTypes;
+        this.requiredProperties = other.requiredProperties;
+        this.properties = other.properties;
+        this.optionalProperties = other.optionalProperties;
+        this.ref = other.ref;
+        this.refModule = other.refModule;
+        this.schemaIsFromAdditionalProperties = other.schemaIsFromAdditionalProperties;
+        this.isBooleanSchemaTrue = other.isBooleanSchemaTrue;
+        this.isBooleanSchemaFalse = other.isBooleanSchemaFalse;
+        this.format = other.format;
+        this.dependentRequired = other.dependentRequired;
+        this.contains = other.contains;
+        this.externalDocumentation = other.externalDocumentation;
+        this.discriminator = other.discriminator;
+    }
+
+    public CodegenDiscriminator getDiscriminator() {
+        return discriminator;
+    }
+
+    public void setDiscriminator(CodegenDiscriminator discriminator) {
+        this.discriminator = discriminator;
+        if (discriminator != null && !discriminator.getMappedModels().isEmpty()) {
+            this.setHasDiscriminatorWithNonEmptyMapping(true);
+        }
+    }
 
     public ExternalDocumentation getExternalDocumentation() {
         return externalDocumentation;
@@ -877,6 +891,7 @@ public class CodegenProperty implements JsonSchema {
         sb.append(", oneOf=").append(oneOf);
         sb.append(", not=").append(not);
         sb.append(", externalDocumentation=").append(externalDocumentation);
+        sb.append(", discriminator=").append(discriminator);
     }
     @Override
     public String toString() {
@@ -932,6 +947,7 @@ public class CodegenProperty implements JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
+                Objects.equals(discriminator, that.getDiscriminator()) &&
                 Objects.equals(externalDocumentation, that.getExternalDocumentation()) &&
                 Objects.equals(allOf, that.getAllOf()) &&
                 Objects.equals(anyOf, that.getAnyOf()) &&
@@ -973,7 +989,6 @@ public class CodegenProperty implements JsonSchema {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(refClass, description,
                 name, defaultValue,
                 title, unescapedDescription,
@@ -991,6 +1006,7 @@ public class CodegenProperty implements JsonSchema {
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
-                properties, optionalProperties, requiredProperties, externalDocumentation);
+                properties, optionalProperties, requiredProperties, externalDocumentation,
+                discriminator);
     }
 }

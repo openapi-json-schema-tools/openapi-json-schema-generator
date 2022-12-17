@@ -2258,9 +2258,6 @@ public class DefaultCodegen implements CodegenConfig {
                 if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                     LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
                     m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
-                    if (!this.getLegacyDiscriminatorBehavior()) {
-                        m.addDiscriminatorMappedModelsImports();
-                    }
                     modelDiscriminators++;
                 }
 
@@ -2366,9 +2363,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
-        if (!this.getLegacyDiscriminatorBehavior()) {
-            m.addDiscriminatorMappedModelsImports();
-        }
 
         if (usedSchema instanceof ComposedSchema) {
             updateModelForComposedSchema(m, usedSchema, sourceJsonPath);

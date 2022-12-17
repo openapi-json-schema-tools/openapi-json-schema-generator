@@ -150,6 +150,11 @@ public interface JsonSchema {
     // discriminators are only supported in request bodies and response payloads per OpenApi
     void setHasDiscriminatorWithNonEmptyMapping(boolean hasDiscriminatorWithNonEmptyMapping);
 
+    // OpenAPI field, discriminator
+    CodegenDiscriminator getDiscriminator();
+
+    void setDiscriminator(CodegenDiscriminator discriminator);
+
     boolean getIsString();
 
     void setIsString(boolean isNumber);
@@ -296,6 +301,15 @@ public interface JsonSchema {
      */
     default Set<String> getImports(boolean importBaseType, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
+        if (getDiscriminator() != null && getDiscriminator().getMappedModels() != null) {
+            CodegenDiscriminator disc = getDiscriminator();
+            for (CodegenDiscriminator.MappedModel mm : disc.getMappedModels()) {
+                if (!"".equals(mm.getModelName())) {
+                    String complexType = mm.getModelName();
+                    imports.add(complexType);
+                }
+            }
+        }
         if (getAllOf() != null || getAnyOf() != null || getOneOf() != null || getNot() != null) {
             List<CodegenProperty> allOfs = Collections.emptyList();
             List<CodegenProperty> oneOfs = Collections.emptyList();
