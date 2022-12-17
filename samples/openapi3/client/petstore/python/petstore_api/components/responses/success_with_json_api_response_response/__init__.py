@@ -27,16 +27,16 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[parameter_ref_schema_header.schema, ],
-            'int32': typing.Union[parameter_int32_json_content_type_header.application_json, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.application_json, ],
-            'stringHeader': typing.Union[parameter_string_header.schema, str, ],
+            'ref-schema-header': typing.Union[parameter_ref_schema_header.Schema, ],
+            'int32': typing.Union[parameter_int32_json_content_type_header.ApplicationJson, decimal.Decimal, int, ],
+            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.ApplicationJson, ],
+            'stringHeader': typing.Union[parameter_string_header.Schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'numberHeader': typing.Union[parameter_number_header.schema, str, ],
+            'numberHeader': typing.Union[parameter_number_header.Schema, str, ],
         },
         total=False
     )
