@@ -17,6 +17,8 @@
 
 package org.openapitools.codegen;
 
+import io.swagger.v3.oas.models.ExternalDocumentation;
+
 import java.util.*;
 
 public class CodegenProperty implements JsonSchema {
@@ -101,7 +103,9 @@ public class CodegenProperty implements JsonSchema {
         this.format = other.format;
         this.dependentRequired = other.dependentRequired;
         this.contains = other.contains;
+        this.externalDocumentation = other.externalDocumentation;
     }
+    private ExternalDocumentation externalDocumentation;
     public String refClass;
     /**
      * The value of the 'description' attribute in the OpenAPI schema.
@@ -239,6 +243,14 @@ public class CodegenProperty implements JsonSchema {
     private String format;
     private LinkedHashMap<String, List<String>> dependentRequired;
     private CodegenProperty contains;
+
+    public ExternalDocumentation getExternalDocumentation() {
+        return externalDocumentation;
+    }
+
+    public void setExternalDocumentation(ExternalDocumentation externalDocumentation) {
+        this.externalDocumentation = externalDocumentation;
+    }
 
     @Override
     public CodegenProperty getContains() {
@@ -863,7 +875,9 @@ public class CodegenProperty implements JsonSchema {
         sb.append(", allOf=").append(allOf);
         sb.append(", anyOf=").append(anyOf);
         sb.append(", oneOf=").append(oneOf);
-        sb.append(", not=").append(not);    }
+        sb.append(", not=").append(not);
+        sb.append(", externalDocumentation=").append(externalDocumentation);
+    }
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenProperty{");
@@ -918,6 +932,7 @@ public class CodegenProperty implements JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
+                Objects.equals(externalDocumentation, that.getExternalDocumentation()) &&
                 Objects.equals(allOf, that.getAllOf()) &&
                 Objects.equals(anyOf, that.getAnyOf()) &&
                 Objects.equals(oneOf, that.getOneOf()) &&
@@ -976,6 +991,6 @@ public class CodegenProperty implements JsonSchema {
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes,
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
-                properties, optionalProperties, requiredProperties);
+                properties, optionalProperties, requiredProperties, externalDocumentation);
     }
 }

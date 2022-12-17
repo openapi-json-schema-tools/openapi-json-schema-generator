@@ -2365,7 +2365,6 @@ public class DefaultCodegen implements CodegenConfig {
             m.testCases = schemaTestCases;
         }
 
-        m.externalDocumentation = usedSchema.getExternalDocs();
         m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
         if (!this.getLegacyDiscriminatorBehavior()) {
             m.addDiscriminatorMappedModelsImports();
@@ -2975,6 +2974,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         ModelUtils.syncValidationProperties(p, property);
         property.setFormat(p.getFormat());
+        property.setExternalDocumentation(p.getExternalDocs());
 
         if (sourceJsonPath != null) {
             String[] refPieces = sourceJsonPath.split("/");

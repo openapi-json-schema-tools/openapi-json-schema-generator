@@ -17,11 +17,7 @@
 
 package org.openapitools.codegen;
 
-import io.swagger.v3.oas.models.ExternalDocumentation;
-
 import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * CodegenModel represents a schema object in a OpenAPI document.
@@ -29,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 public class CodegenModel extends CodegenProperty {
     public CodegenDiscriminator discriminator;
     public Set<String> imports = new TreeSet<>();
-    public ExternalDocumentation externalDocumentation;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     private String modulePath;
 
@@ -62,14 +57,6 @@ public class CodegenModel extends CodegenProperty {
      */
     public String getDiscriminatorName() {
         return discriminator == null ? null : discriminator.getPropertyName();
-    }
-
-    public ExternalDocumentation getExternalDocumentation() {
-        return externalDocumentation;
-    }
-
-    public void setExternalDocumentation(ExternalDocumentation externalDocumentation) {
-        this.externalDocumentation = externalDocumentation;
     }
 
     public Set<String> getImports() {
@@ -139,7 +126,6 @@ public class CodegenModel extends CodegenProperty {
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(imports, that.imports) &&
-                Objects.equals(externalDocumentation, that.externalDocumentation) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(getMaxProperties(), that.getMaxProperties()) &&
                 Objects.equals(getMinProperties(), that.getMinProperties()) &&
@@ -179,7 +165,6 @@ public class CodegenModel extends CodegenProperty {
         super.addInstanceInfo(sb);
         sb.append(", discriminator=").append(discriminator);
         sb.append(", imports=").append(imports);
-        sb.append(", externalDocumentation=").append(externalDocumentation);
         sb.append(", modulePath").append(modulePath);
     }
 
