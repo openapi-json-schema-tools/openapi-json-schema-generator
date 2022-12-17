@@ -1219,12 +1219,15 @@ json_schema_keyword_to_validator = {
     'format': validate_format,
     'required': validate_required,
     'items': validate_items,
+    'Items': validate_items,
     'Properties': validate_properties,
-    'additionalProperties': validate_additional_properties,
+    'AdditionalProperties': validate_additional_properties,
+    'additional_properties': validate_additional_properties,
     'OneOf': validate_one_of,
     'AnyOf': validate_any_of,
     'AllOf': validate_all_of,
     '_not': validate_not,
+    'ModelNot': validate_not,
     'discriminator': validate_discriminator
 }
 
@@ -2418,7 +2421,7 @@ class BinarySchema(
         types = {FileIO, bytes}
         format = 'binary'
 
-        class one_of:
+        class OneOf:
             classes = [
                 BytesSchema,
                 FileSchema,

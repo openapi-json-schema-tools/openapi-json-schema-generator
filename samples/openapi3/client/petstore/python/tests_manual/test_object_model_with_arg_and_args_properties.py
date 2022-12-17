@@ -24,13 +24,13 @@ class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):
         self.assertTrue(
             isinstance(
                 model["arg"],
-                ObjectModelWithArgAndArgsProperties.MetaOapg.properties.arg
+                ObjectModelWithArgAndArgsProperties.MetaOapg.Properties.Arg
             )
         )
         self.assertTrue(
             isinstance(
                 model["args"],
-                ObjectModelWithArgAndArgsProperties.MetaOapg.properties.args
+                ObjectModelWithArgAndArgsProperties.MetaOapg.Properties.Args
             )
         )
         self.assertTrue(isinstance(model["arg"], schemas.StrSchema))
