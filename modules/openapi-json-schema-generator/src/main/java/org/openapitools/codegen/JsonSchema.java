@@ -277,28 +277,16 @@ public interface JsonSchema {
         }
     }
 
-    /**
-     * @return basic type - no generics supported.
-     */
-    default String getBaseType() {
-        return null;
-    };
 
-    /**
-     * @return complex type that can contain type parameters - like {@code List<Items>} for Java
-     */
-    default String getRefClass() {
-        return getBaseType();
-    };
+   String getRefClass();
 
     /**
      * Recursively collect all necessary imports to include so that the type may be resolved.
      *
-     * @param importBaseType whether or not to include the base types in the returned imports.
      * @param featureSet the generator feature set, used to determine if composed schemas should be added
      * @return all of the imports
      */
-    default Set<String> getImports(boolean importBaseType, FeatureSet featureSet) {
+    default Set<String> getImports(FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
         if (getDiscriminator() != null && getDiscriminator().getMappedModels() != null) {
             CodegenDiscriminator disc = getDiscriminator();
@@ -329,19 +317,19 @@ public interface JsonSchema {
             Stream<CodegenSchema> innerTypes = Stream.of(
                             allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
                     .flatMap(i -> i);
-            innerTypes.flatMap(cp -> cp.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+            innerTypes.flatMap(cp -> cp.getImports(featureSet).stream()).forEach(s -> imports.add(s));
         }
         // items can exist for AnyType and type array
         if (this.getItems() != null && this.getIsArray()) {
-            imports.addAll(this.getItems().getImports(importBaseType, featureSet));
+            imports.addAll(this.getItems().getImports(featureSet));
         }
         // additionalProperties can exist for AnyType and type object
         if (this.getAdditionalProperties() != null) {
-            imports.addAll(this.getAdditionalProperties().getImports(importBaseType, featureSet));
+            imports.addAll(this.getAdditionalProperties().getImports(featureSet));
         }
         // vars can exist for AnyType and type object
         if (this.getProperties() != null && !this.getProperties().isEmpty()) {
-            this.getProperties().values().stream().flatMap(v -> v.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+            this.getProperties().values().stream().flatMap(v -> v.getImports(featureSet).stream()).forEach(s -> imports.add(s));
         }
         if (this.getIsArray() || this.getIsMap()) {
             /*
@@ -354,24 +342,12 @@ public interface JsonSchema {
                 // self reference classes do not contain periods
                 imports.add(refClass);
             }
-            /*
-            use-case:
-            Adding List/Map etc, Java uses this
-             */
-            String baseType = this.getBaseType();
-            if (importBaseType && baseType != null) {
-                imports.add(baseType);
-            }
         } else {
             // referenced or inline schemas
             String refClass = this.getRefClass();
             if (refClass != null && refClass.contains(".")) {
                 // self reference classes do not contain periods
                 imports.add(refClass);
-            }
-            String baseType = this.getBaseType();
-            if (importBaseType && baseType != null) {
-                imports.add(baseType);
             }
             return imports;
         }

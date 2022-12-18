@@ -3119,7 +3119,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (addSchemaImportsFromV3SpecLocations && isComponentSchema) {
             property.imports = new TreeSet<>();
-            addImports(property.imports, property.getImports(importBaseType, generatorMetadata.getFeatureSet()));
+            addImports(property.imports, property.getImports(generatorMetadata.getFeatureSet()));
         }
         schemaCodegenPropertyCache.put(ns, property);
 
@@ -3635,7 +3635,7 @@ public class DefaultCodegen implements CodegenConfig {
             );
             codegenHeader.setSchema(prop);
             if (addSchemaImportsFromV3SpecLocations) {
-                addImports(codegenHeader.imports, prop.getImports(importBaseType, generatorMetadata.getFeatureSet()));
+                addImports(codegenHeader.imports, prop.getImports(generatorMetadata.getFeatureSet()));
             }
         } else if (header.getContent() != null) {
             Content content = header.getContent();
@@ -3968,7 +3968,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, JsonSchema type) {
-        addImports(importsToBeAddedTo, type.getImports(importBaseType, generatorMetadata.getFeatureSet()));
+        addImports(importsToBeAddedTo, type.getImports(generatorMetadata.getFeatureSet()));
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {
@@ -4053,6 +4053,9 @@ public class DefaultCodegen implements CodegenConfig {
      */
     protected void addImportsForPropertyType(CodegenSchema model, CodegenSchema property) {
         if (property.isArray) {
+            if (model.imports == null) {
+                model.imports = new TreeSet<>();
+            }
             if (Boolean.TRUE.equals(property.getUniqueItems())) { // set
                 addImport(model.imports, typeMapping.get("set"));
             } else { // array
@@ -4061,6 +4064,9 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (property.isMap) { // map
+            if (model.imports == null) {
+                model.imports = new TreeSet<>();
+            }
             addImport(model.imports, typeMapping.get("map"));
         }
 
@@ -5121,7 +5127,7 @@ public class DefaultCodegen implements CodegenConfig {
             cmtContent.put(contentType, codegenMt);
             if (schemaProp != null) {
                 if (addSchemaImportsFromV3SpecLocations) {
-                    addImports(imports, schemaProp.getImports(importBaseType, generatorMetadata.getFeatureSet()));
+                    addImports(imports, schemaProp.getImports(generatorMetadata.getFeatureSet()));
                 }
             }
         }
