@@ -43,7 +43,6 @@ import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.api.TemplatingEngineAdapter;
 import org.openapitools.codegen.api.TemplateFileType;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
-import org.openapitools.codegen.languages.PythonClientCodegen;
 import org.openapitools.codegen.meta.GeneratorMetadata;
 import org.openapitools.codegen.meta.Stability;
 import org.openapitools.codegen.model.ApiInfoMap;
@@ -1845,7 +1844,7 @@ public class DefaultGenerator implements Generator {
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
             String sourceJsonPath = "#/components/schemas/"+schemaName;
-            CodegenProperty cm = config.fromSchema(schema, sourceJsonPath);
+            CodegenSchema cm = config.fromSchema(schema, sourceJsonPath);
             ModelMap mo = new ModelMap();
             mo.setModel(cm);
             mo.put("importPath", config.toModelImport(config.toRefClass(sourceJsonPath, "")));

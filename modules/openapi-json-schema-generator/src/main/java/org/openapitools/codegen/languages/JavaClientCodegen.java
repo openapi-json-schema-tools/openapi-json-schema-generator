@@ -18,7 +18,6 @@
 package org.openapitools.codegen.languages;
 
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.media.Schema;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
@@ -836,7 +835,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public void postProcessModelProperty(CodegenProperty model, CodegenProperty property) {
+    public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
         if (!BooleanUtils.toBoolean(model.isEnum)) {
             //final String lib = getLibrary();
@@ -883,7 +882,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
             List<Map<String, String>> imports = objs.getImports();
             for (ModelMap mo : objs.getModels()) {
-                CodegenProperty cm = mo.getModel();
+                CodegenSchema cm = mo.getModel();
                 // for enum model
                 if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
                     cm.imports.add(importMapping.get("SerializedName"));

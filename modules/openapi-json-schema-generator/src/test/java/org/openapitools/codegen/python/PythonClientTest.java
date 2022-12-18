@@ -178,7 +178,7 @@ public class PythonClientTest {
         String modelName = "UUID";
         Schema schema = openAPI.getComponents().getSchemas().get(modelName);
 
-        CodegenProperty cm = codegen.fromSchema(modelName, schema);
+        CodegenSchema cm = codegen.fromSchema(modelName, schema);
         String expectedRegexPattern = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
         Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
@@ -194,7 +194,7 @@ public class PythonClientTest {
         String modelName = "StringWithRegexWithThreeFlags";
         Schema schema = openAPI.getComponents().getSchemas().get(modelName);
 
-        CodegenProperty cm = codegen.fromSchema(modelName, schema);
+        CodegenSchema cm = codegen.fromSchema(modelName, schema);
         String expectedRegexPattern = "a.";
         Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
@@ -210,7 +210,7 @@ public class PythonClientTest {
         String modelName = "StringEnum";
         Schema schema = openAPI.getComponents().getSchemas().get(modelName);
 
-        CodegenProperty cm = codegen.fromSchema(modelName, schema);
+        CodegenSchema cm = codegen.fromSchema(modelName, schema);
 
         ModelMap modelMap = new ModelMap();
         modelMap.setModel(cm);

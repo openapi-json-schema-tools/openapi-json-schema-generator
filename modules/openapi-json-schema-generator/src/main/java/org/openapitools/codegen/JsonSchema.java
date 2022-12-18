@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -17,10 +16,10 @@ import org.openapitools.codegen.utils.ModelUtils;
 
 public interface JsonSchema {
     // 3.1.0
-    CodegenProperty getContains();
+    CodegenSchema getContains();
 
     // 3.1.0
-    void setContains(CodegenProperty contains);
+    void setContains(CodegenSchema contains);
 
     // 3.1.0
     LinkedHashMap<String, List<String>> getDependentRequired();
@@ -80,9 +79,9 @@ public interface JsonSchema {
 
     void setMultipleOf(Number multipleOf);
 
-    CodegenProperty getItems();
+    CodegenSchema getItems();
 
-    void setItems(CodegenProperty items);
+    void setItems(CodegenSchema items);
 
     boolean getIsDate();
 
@@ -113,27 +112,27 @@ public interface JsonSchema {
 
     void setIsUnboundedInteger(boolean isUnboundedInteger);
 
-    CodegenProperty getAdditionalProperties();
+    CodegenSchema getAdditionalProperties();
 
-    void setAdditionalProperties(CodegenProperty additionalProperties);
+    void setAdditionalProperties(CodegenSchema additionalProperties);
 
-    LinkedHashMap<CodegenKey, CodegenProperty> getProperties();
+    LinkedHashMap<CodegenKey, CodegenSchema> getProperties();
 
-    void setProperties(LinkedHashMap<CodegenKey, CodegenProperty> properties);
+    void setProperties(LinkedHashMap<CodegenKey, CodegenSchema> properties);
 
-    LinkedHashMap<CodegenKey, CodegenProperty> getOptionalProperties();
+    LinkedHashMap<CodegenKey, CodegenSchema> getOptionalProperties();
 
-    void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties);
+    void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties);
 
-    LinkedHashMap<CodegenKey, CodegenProperty> getRequiredProperties();
+    LinkedHashMap<CodegenKey, CodegenSchema> getRequiredProperties();
 
-    // goes from required propertyName to its CodegenProperty
+    // goes from required propertyName to its CodegenSchema
     // Use Cases:
-    // 1. required property is defined in properties, value is that CodegenProperty
-    // 2. required property is not defined in properties, and additionalProperties is true or unset value is CodegenProperty made from empty schema
-    // 3. required property is not defined in properties, and additionalProperties is schema, value is CodegenProperty made from schema
+    // 1. required property is defined in properties, value is that CodegenSchema
+    // 2. required property is not defined in properties, and additionalProperties is true or unset value is CodegenSchema made from empty schema
+    // 3. required property is not defined in properties, and additionalProperties is schema, value is CodegenSchema made from schema
     // 4. required property is not defined in properties, and additionalProperties is false, value is null
-    void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties);
+    void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties);
 
 
     boolean getIsNull();
@@ -171,21 +170,21 @@ public interface JsonSchema {
 
     void setRef(String ref);
 
-    List<CodegenProperty> getAllOf();
+    List<CodegenSchema> getAllOf();
 
-    void setAllOf(List<CodegenProperty> allOf);
+    void setAllOf(List<CodegenSchema> allOf);
 
-    List<CodegenProperty> getAnyOf();
+    List<CodegenSchema> getAnyOf();
 
-    void setAnyOf(List<CodegenProperty> anyOf);
+    void setAnyOf(List<CodegenSchema> anyOf);
 
-    List<CodegenProperty> getOneOf();
+    List<CodegenSchema> getOneOf();
 
-    void setOneOf(List<CodegenProperty> oneOf);
+    void setOneOf(List<CodegenSchema> oneOf);
 
-    CodegenProperty getNot();
+    CodegenSchema getNot();
 
-    void setNot(CodegenProperty not);
+    void setNot(CodegenSchema not);
 
     boolean getHasMultipleTypes();
 
@@ -311,10 +310,10 @@ public interface JsonSchema {
             }
         }
         if (getAllOf() != null || getAnyOf() != null || getOneOf() != null || getNot() != null) {
-            List<CodegenProperty> allOfs = Collections.emptyList();
-            List<CodegenProperty> oneOfs = Collections.emptyList();
-            List<CodegenProperty> anyOfs = Collections.emptyList();
-            List<CodegenProperty> nots = Collections.emptyList();
+            List<CodegenSchema> allOfs = Collections.emptyList();
+            List<CodegenSchema> oneOfs = Collections.emptyList();
+            List<CodegenSchema> anyOfs = Collections.emptyList();
+            List<CodegenSchema> nots = Collections.emptyList();
             if (getAllOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
                 allOfs = getAllOf();
             }
@@ -327,7 +326,7 @@ public interface JsonSchema {
             if (getNot() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
                 nots = Arrays.asList(getNot());
             }
-            Stream<CodegenProperty> innerTypes = Stream.of(
+            Stream<CodegenSchema> innerTypes = Stream.of(
                             allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
                     .flatMap(i -> i);
             innerTypes.flatMap(cp -> cp.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));

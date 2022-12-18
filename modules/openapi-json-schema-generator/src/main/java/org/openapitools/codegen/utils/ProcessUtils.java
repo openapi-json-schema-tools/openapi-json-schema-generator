@@ -2,7 +2,7 @@ package org.openapitools.codegen.utils;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityScheme;
-import org.openapitools.codegen.CodegenProperty;
+import org.openapitools.codegen.CodegenSchema;
 import org.openapitools.codegen.CodegenSecurity;
 import org.openapitools.codegen.model.ModelMap;
 
@@ -19,10 +19,10 @@ public class ProcessUtils {
      */
     public static void addIndexToProperties(List<ModelMap> models, int initialIndex) {
         for (ModelMap mo : models) {
-            CodegenProperty cm = mo.getModel();
+            CodegenSchema cm = mo.getModel();
 
             int i = initialIndex;
-            for (CodegenProperty var : cm.getProperties().values()) {
+            for (CodegenSchema var : cm.getProperties().values()) {
                 var.vendorExtensions.put("x-index", i);
                 i++;
             }

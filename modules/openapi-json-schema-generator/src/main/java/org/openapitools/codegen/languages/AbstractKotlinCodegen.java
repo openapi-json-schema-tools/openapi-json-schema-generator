@@ -19,9 +19,7 @@ package org.openapitools.codegen.languages;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import io.swagger.v3.oas.models.media.ArraySchema;
-import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.Schema;
-import io.swagger.v3.oas.models.media.StringSchema;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
@@ -34,10 +32,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Function;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.openapitools.codegen.utils.StringUtils.*;
 
@@ -375,13 +370,13 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     public ModelsMap postProcessModels(ModelsMap objs) {
         objs = super.postProcessModelsEnum(objs);
         for (ModelMap mo : objs.getModels()) {
-            CodegenProperty cm = mo.getModel();
+            CodegenSchema cm = mo.getModel();
             if (cm.getDiscriminator() != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
                 break;
             }
 
-            for (CodegenProperty var : cm.getProperties().values()) {
+            for (CodegenSchema var : cm.getProperties().values()) {
                 if (var.isEnum || isSerializableModel()) {
                     cm.vendorExtensions.put("x-has-data-class-body", true);
                     break;
@@ -567,7 +562,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, CodegenProperty prop) {
+    public String toEnumVarName(String value, CodegenSchema prop) {
         String modified;
         if (value.length() == 0) {
             modified = "EMPTY";
@@ -607,7 +602,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumName(CodegenProperty property) {
+    public String toEnumName(CodegenSchema property) {
         return property.name.getCamelCaseName();
     }
 
@@ -823,7 +818,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumValue(String value, CodegenProperty prop) {
+    public String toEnumValue(String value, CodegenSchema prop) {
         if (prop.isInteger) {
             return value;
         } else if (prop.isDouble) {

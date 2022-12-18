@@ -17,8 +17,6 @@
 
 package org.openapitools.codegen.languages;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -51,9 +49,7 @@ import java.time.ZoneId;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 import static org.openapitools.codegen.utils.StringUtils.*;
 
@@ -1038,7 +1034,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        CodegenProperty cp = codegenParameter.getSchema();
+        CodegenSchema cp = codegenParameter.getSchema();
 
         Content content = requestBody.getContent();
 
@@ -1067,7 +1063,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     public void setParameterExampleValue(CodegenParameter param) {
         String example;
-        CodegenProperty p = getParameterSchema(param);
+        CodegenSchema p = getParameterSchema(param);
 
         boolean hasAllowableValues = p.allowableValues != null && !p.allowableValues.isEmpty();
         if (hasAllowableValues) {
@@ -1079,7 +1075,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else {
             example = p.defaultValue;
         }
-        CodegenProperty schema = param.getSchema();
+        CodegenSchema schema = param.getSchema();
         if (schema == null) {
             String contentType = (String) param.getContent().keySet().toArray()[0];
             schema = param.getContent().get(contentType).getSchema();
@@ -1216,7 +1212,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public void postProcessModelProperty(CodegenProperty model, CodegenProperty property) {
+    public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         if (additionalProperties.containsKey(JACKSON)) {
             model.imports.add("JsonTypeName");
         }
@@ -1286,7 +1282,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         // add x-implements for serializable to all models
         for (ModelMap mo : objs.getModels()) {
-            CodegenProperty cm = mo.getModel();
+            CodegenSchema cm = mo.getModel();
             if (this.serializableModel) {
                 cm.getVendorExtensions().putIfAbsent("x-implements", new ArrayList<String>());
                 ((ArrayList<String>) cm.getVendorExtensions().get("x-implements")).add("Serializable");
@@ -1314,7 +1310,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         for (CodegenOperation op : operationList) {
             Collection<String> operationImports = new ConcurrentSkipListSet<>();
             for (CodegenParameter p : op.allParams) {
-                CodegenProperty cp = getParameterSchema(p);
+                CodegenSchema cp = getParameterSchema(p);
             }
             op.vendorExtensions.put("x-java-import", operationImports);
 
@@ -1429,12 +1425,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumName(CodegenProperty property) {
+    public String toEnumName(CodegenSchema property) {
         return sanitizeName(property.name.getCamelCaseName()) + "Enum";
     }
 
     @Override
-    public String toEnumVarName(String value, CodegenProperty prop) {
+    public String toEnumVarName(String value, CodegenSchema prop) {
         if (value.length() == 0) {
             return "EMPTY";
         }
@@ -1467,7 +1463,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumValue(String value, CodegenProperty prop) {
+    public String toEnumValue(String value, CodegenSchema prop) {
         if (prop.isInteger || prop.isDouble) {
             return value;
         } else if (prop.isLong) {
@@ -1901,7 +1897,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenProperty codegenModel, Schema schema) {
+    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {
         if (!supportsAdditionalPropertiesWithComposedSchema) {
             // The additional (undeclared) properties are modeled in Java as a HashMap.
             //
@@ -1916,12 +1912,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     /**
-     * Search for property by {@link CodegenProperty#name}
+     * Search for property by {@link CodegenSchema#name}
      * @param name - name to search for
      * @param properties - list of properties
      * @return either found property or {@link Optional#empty()} if nothing has been found
      */
-    protected Optional<CodegenProperty> findByName(String name, List<CodegenProperty> properties) {
+    protected Optional<CodegenSchema> findByName(String name, List<CodegenSchema> properties) {
         if (properties == null || properties.isEmpty()) {
             return Optional.empty();
         }

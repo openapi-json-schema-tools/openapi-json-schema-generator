@@ -34,7 +34,7 @@ import io.swagger.v3.parser.ObjectMapperFactory;
 import io.swagger.v3.parser.util.RemoteUrl;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.openapitools.codegen.CodegenProperty;
+import org.openapitools.codegen.CodegenSchema;
 import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.model.ModelMap;
@@ -91,13 +91,13 @@ public class ModelUtils {
      * @param models Map of models
      * @return model
      */
-    public static CodegenProperty getModelByName(final String name, final Map<String, ModelsMap> models) {
+    public static CodegenSchema getModelByName(final String name, final Map<String, ModelsMap> models) {
         final ModelsMap data = models.get(name);
         if (data != null) {
             final List<ModelMap> dataModelsList = data.getModels();
             if (dataModelsList != null) {
                 for (final ModelMap entryMap : dataModelsList) {
-                    final CodegenProperty model = entryMap.getModel();
+                    final CodegenSchema model = entryMap.getModel();
                     if (model != null) {
                         return model;
                     }

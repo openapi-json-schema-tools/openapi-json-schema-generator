@@ -28,7 +28,6 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 
 import org.apache.commons.io.FileUtils;
-import org.mozilla.javascript.optimizer.Codegen;
 import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.api.TemplatePathLocator;
 import org.openapitools.codegen.config.GlobalSettings;
@@ -746,7 +745,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 continue;
             }
             for (ModelMap model : objModel.getModels()) {
-                CodegenProperty cm = model.getModel();
+                CodegenSchema cm = model.getModel();
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
@@ -810,9 +809,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromSchema(Schema p, String sourceJsonPath) {
+    public CodegenSchema fromSchema(Schema p, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
-        CodegenProperty cp = super.fromSchema(p, sourceJsonPath);
+        CodegenSchema cp = super.fromSchema(p, sourceJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -843,10 +842,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     /**
      * Update codegen property's enum by adding "enumVars" (with name and value)
      *
-     * @param var list of CodegenProperty
+     * @param var list of CodegenSchema
      */
     @Override
-    public void updateCodegenPropertyEnum(CodegenProperty var) {
+    public void updateCodegenPropertyEnum(CodegenSchema var) {
         // we have a custom version of this method to omit overwriting the defaultValue
         Map<String, Object> allowableValues = var.allowableValues;
 
@@ -911,7 +910,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
         }
 
-        CodegenProperty codegenModel = null;
+        CodegenSchema codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
             codegenModel = fromSchema(schema, "#/components/schemas/" + name);
@@ -926,11 +925,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromSchema(schema, sourceJsonPath);
+            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
-            } else if (codegenProperty != null) {
+            } else if (codegenSchema != null) {
                 String codegenModelName, codegenModelDescription;
 
                 if (codegenModel != null) {
@@ -963,7 +962,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, CodegenProperty prop) {
+    public String toEnumVarName(String value, CodegenSchema prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
@@ -1043,7 +1042,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenProperty prop) {
+    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenSchema prop) {
         List<Map<String, Object>> enumVars = new ArrayList<>();
         int truncateIdx = 0;
 
@@ -1335,7 +1334,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenProperty codegenModel, Schema schema) {
+    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {
     }
 
     /**
@@ -1547,7 +1546,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String discPropNameValue = mm.getMappingName();
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
-                CodegenProperty cp = new CodegenProperty();
+                CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.getPropertyName());
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
@@ -1718,7 +1717,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String discPropNameValue = mm.getMappingName();
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
-                CodegenProperty cp = new CodegenProperty();
+                CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.getPropertyName());
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
@@ -1761,7 +1760,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null != schema.get$ref() || ModelUtils.isArraySchema(schema) || ModelUtils.isMapSchema(schema) || ModelUtils.isObjectSchema(schema) || ModelUtils.isComposedSchema(schema);
     }
 
-    private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenProperty discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
+    private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenSchema discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
 
         if (schema == null) {
             String A = "a";
@@ -1924,7 +1923,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return modelNameToSchemaCache;
     }
 
-    protected void updatePropertyForString(CodegenProperty property, Schema p) {
+    protected void updatePropertyForString(CodegenSchema property, Schema p) {
         if (ModelUtils.isByteArraySchema(p)) {
             // isString stays true, format stores that this is a byte
         } else if (ModelUtils.isBinarySchema(p)) {
@@ -1956,12 +1955,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return extractedPattern;
     }
 
-    protected void updatePropertyForNumber(CodegenProperty property, Schema p) {
+    protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
         property.setIsNumber(true);
         // float and double differentiation is determined with format info
     }
 
-    protected void updatePropertyForInteger(CodegenProperty property, Schema p) {
+    protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
         property.isInteger = true;
         // int32 and int64 differentiation is determined with format info
     }

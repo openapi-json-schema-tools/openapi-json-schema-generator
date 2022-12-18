@@ -143,7 +143,7 @@ public interface CodegenConfig {
 
     void setOutputDir(String dir);
 
-    CodegenProperty fromSchema(Schema schema, String sourceJsonPath);
+    CodegenSchema fromSchema(Schema schema, String sourceJsonPath);
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
@@ -275,7 +275,7 @@ public interface CodegenConfig {
 
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
 
-    void postProcessModelProperty(CodegenProperty model, CodegenProperty property);
+    void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
 
     void postProcessParameter(CodegenParameter parameter);
 
