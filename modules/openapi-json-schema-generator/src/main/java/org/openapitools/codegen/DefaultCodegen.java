@@ -3136,7 +3136,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         schemaCodegenPropertyCache.put(ns, property);
 
-        LOGGER.debug("debugging from property return: {}", property);
+        LOGGER.debug("debugging fromSchema return: {}", property);
         return property;
     }
 
