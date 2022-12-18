@@ -2361,10 +2361,6 @@ public class DefaultCodegen implements CodegenConfig {
             HashMap<String, SchemaTestCase> schemaTestCases = extractSchemaTestCases(xSchemaTestExamplesRefPrefix + name);
             m.testCases = schemaTestCases;
         }
-
-        if (addSchemaImportsFromV3SpecLocations) {
-            addImports(m.imports, m.getImports(importBaseType, generatorMetadata.getFeatureSet()));
-        }
         return m;
     }
 
@@ -2940,6 +2936,7 @@ public class DefaultCodegen implements CodegenConfig {
         property.setFormat(p.getFormat());
         property.setExternalDocumentation(p.getExternalDocs());
 
+        boolean isComponentSchema = false;
         if (sourceJsonPath != null) {
             String[] refPieces = sourceJsonPath.split("/");
             if (refPieces.length >= 4) {
@@ -2980,6 +2977,7 @@ public class DefaultCodegen implements CodegenConfig {
                 } else {
                     // component schema use case
                     // TODO set discriminator on any schema instances in the future not just these
+                    isComponentSchema = true;
                     property.setDiscriminator(createDiscriminator(usedName, p, this.openAPI, sourceJsonPath));
                     if (p instanceof ComposedSchema) {
                         updateModelForComposedSchema(property, p, sourceJsonPath);
@@ -3139,6 +3137,10 @@ public class DefaultCodegen implements CodegenConfig {
                     ref,
                     sourceJsonPath
             ));
+        }
+        if (addSchemaImportsFromV3SpecLocations && isComponentSchema) {
+            property.imports = new TreeSet<>();
+            addImports(property.imports, property.getImports(importBaseType, generatorMetadata.getFeatureSet()));
         }
         schemaCodegenPropertyCache.put(ns, property);
     }

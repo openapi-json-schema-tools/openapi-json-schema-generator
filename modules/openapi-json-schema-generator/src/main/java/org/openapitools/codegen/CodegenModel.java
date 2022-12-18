@@ -23,7 +23,6 @@ import java.util.*;
  * CodegenModel represents a schema object in a OpenAPI document.
  */
 public class CodegenModel extends CodegenProperty {
-    public Set<String> imports = new TreeSet<>();
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     private String modulePath;
 
@@ -35,14 +34,6 @@ public class CodegenModel extends CodegenProperty {
         this.modulePath = modulePath;
     }
 
-    public Set<String> getImports() {
-        return imports;
-    }
-
-    public void setImports(Set<String> imports) {
-        this.imports = imports;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,7 +41,6 @@ public class CodegenModel extends CodegenProperty {
         if (! super.equals(o)) return false;
         CodegenModel that = (CodegenModel) o;
         return Objects.equals(modulePath, that.modulePath) &&
-                Objects.equals(imports, that.imports) &&
                 Objects.equals(testCases, that.testCases);
     }
 
@@ -76,7 +66,6 @@ public class CodegenModel extends CodegenProperty {
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
-        sb.append(", imports=").append(imports);
         sb.append(", modulePath").append(modulePath);
     }
 

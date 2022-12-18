@@ -22,6 +22,7 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import java.util.*;
 
 public class CodegenProperty implements JsonSchema {
+    public TreeSet<String> imports;
     private ExternalDocumentation externalDocumentation;
     public String refClass;
     /**
@@ -243,6 +244,14 @@ public class CodegenProperty implements JsonSchema {
         this.contains = other.contains;
         this.externalDocumentation = other.externalDocumentation;
         this.discriminator = other.discriminator;
+    }
+
+    public Set<String> getImports() {
+        return imports;
+    }
+
+    public void setImports(TreeSet<String> imports) {
+        this.imports = imports;
     }
 
     public CodegenDiscriminator getDiscriminator() {
@@ -889,6 +898,7 @@ public class CodegenProperty implements JsonSchema {
         sb.append(", not=").append(not);
         sb.append(", externalDocumentation=").append(externalDocumentation);
         sb.append(", discriminator=").append(discriminator);
+        sb.append(", imports=").append(imports);
     }
     @Override
     public String toString() {
@@ -943,6 +953,7 @@ public class CodegenProperty implements JsonSchema {
                 isBooleanSchemaTrue == that.getIsBooleanSchemaTrue() &&
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
+                Objects.equals(imports, that.getImports()) &&
                 Objects.equals(discriminator, that.getDiscriminator()) &&
                 Objects.equals(externalDocumentation, that.getExternalDocumentation()) &&
                 Objects.equals(allOf, that.getAllOf()) &&
@@ -1003,6 +1014,6 @@ public class CodegenProperty implements JsonSchema {
                 ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
                 properties, optionalProperties, requiredProperties, externalDocumentation,
-                discriminator);
+                discriminator, imports);
     }
 }
