@@ -1184,36 +1184,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return value;
     }
 
-//    @Override
-//    public CodegenModel fromSchema(Schema sc, String sourceJsonPath) {
-//        CodegenModel cm = super.fromSchema(sc, sourceJsonPath);
-//        if (sc.getPattern() != null) {
-//            postProcessPattern(sc.getPattern(), cm.vendorExtensions);
-//            String pattern = (String) cm.vendorExtensions.get("x-regex");
-//            cm.setPattern(pattern);
-//        }
-//        if (cm.isInteger && cm.getFormat() == null) {
-//            // this generator treats integers as type number
-//            // this is done so type int + float has the same base class (decimal.Decimal)
-//            // so integer validation info must be set using formatting
-//            cm.setFormat("int");
-//        }
-//        if (cm.isNullable) {
-//            cm.setIsNull(true);
-//            cm.isNullable = false;
-//            cm.setHasMultipleTypes(true);
-//        }
-//        Boolean isNotPythonModelSimpleModel = (ModelUtils.isComposedSchema(sc) || ModelUtils.isObjectSchema(sc) || ModelUtils.isMapSchema(sc));
-//        if (isNotPythonModelSimpleModel) {
-//            return cm;
-//        }
-//        String defaultValue = toDefaultValue(sc);
-//        if (sc.getDefault() != null) {
-//            cm.defaultValue = defaultValue;
-//        }
-//        return cm;
-//    }
-
     /**
      * Returns the python type for the property.
      *

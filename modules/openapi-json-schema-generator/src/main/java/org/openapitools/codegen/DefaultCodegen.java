@@ -2800,19 +2800,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    /**
-     * Camelize the method name of the getter and setter
-     *
-     * @param name string to be camelized
-     * @return Camelized string
-     */
-    public String getterAndSetterCapitalize(String name) {
-        if (name == null || name.length() == 0) {
-            return name;
-        }
-        return camelize(toVarName(name));
-    }
-
     protected void updatePropertyForObject(CodegenSchema property, Schema p, String sourceJsonPath) {
         addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath);
     }
