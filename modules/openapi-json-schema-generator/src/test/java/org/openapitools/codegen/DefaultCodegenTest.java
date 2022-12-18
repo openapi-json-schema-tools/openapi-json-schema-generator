@@ -1101,7 +1101,7 @@ public class DefaultCodegenTest {
         // ref oneOf models with discriminator in properties in those models
         modelName = "FruitReqDisc";
         sc = openAPI.getComponents().getSchemas().get(modelName);
-        cm = codegen.fromSchema(sc, modelName);
+        cm = codegen.fromSchema(sc, "#/components/schemas/" + modelName);
         hs = new java.util.LinkedHashSet();
         mn = "AppleReqDisc";
         hs.add(new CodegenDiscriminator.MappedModel(mn, mn));
