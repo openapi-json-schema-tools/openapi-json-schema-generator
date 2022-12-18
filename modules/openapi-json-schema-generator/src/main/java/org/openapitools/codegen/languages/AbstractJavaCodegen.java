@@ -1082,10 +1082,18 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (schema.isString) {
-            if (example == null) {
-                example = param.paramName + "_example";
+            if (schema.isUuid) {
+                if (example == null) {
+                    example = "UUID.randomUUID()";
+                } else {
+                    example = "UUID.fromString(\"" + example + "\")";
+                }
+            } else {
+                if (example == null) {
+                    example = param.paramName + "_example";
+                }
+                example = "\"" + escapeText(example) + "\"";
             }
-            example = "\"" + escapeText(example) + "\"";
         } else if (schema.isInteger || schema.isShort) {
             if (example == null) {
                 example = "56";
@@ -1127,12 +1135,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 example = "new BigDecimal(78)";
             } else {
                 example = "new BigDecimal(\"" + example + "\")";
-            }
-        } else if (schema.isUuid) {
-            if (example == null) {
-                example = "UUID.randomUUID()";
-            } else {
-                example = "UUID.fromString(\"" + example + "\")";
             }
         } else if (hasAllowableValues) {
             //parameter is enum defined as a schema component
