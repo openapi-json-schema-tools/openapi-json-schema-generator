@@ -415,7 +415,7 @@ public class DefaultGeneratorTest {
         Assert.assertEquals(unaliasedStringRegex.getPattern(), expectedPattern);
 
         // Validate when converting to property
-        CodegenProperty stringRegexProperty = config.fromProperty(
+        CodegenProperty stringRegexProperty = config.fromSchema(
                 stringRegex, null);
         Assert.assertEquals(stringRegexProperty.pattern, escapedPattern);
 

@@ -746,7 +746,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 continue;
             }
             for (ModelMap model : objModel.getModels()) {
-                CodegenModel cm = model.getModel();
+                CodegenProperty cm = model.getModel();
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
@@ -810,9 +810,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromProperty(Schema p, String sourceJsonPath) {
+    public CodegenProperty fromSchema(Schema p, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
-        CodegenProperty cp = super.fromProperty(p, sourceJsonPath);
+        CodegenProperty cp = super.fromSchema(p, sourceJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -911,10 +911,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
         }
 
-        CodegenModel codegenModel = null;
+        CodegenProperty codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
-            codegenModel = fromModel(schema, "#/components/schemas/"+name);
+            codegenModel = fromSchema(schema, "#/components/schemas/" + name);
         }
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
@@ -926,7 +926,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
+            CodegenProperty codegenProperty = fromSchema(schema, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
@@ -1185,35 +1185,35 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return value;
     }
 
-    @Override
-    public CodegenModel fromModel(Schema sc, String sourceJsonPath) {
-        CodegenModel cm = super.fromModel(sc, sourceJsonPath);
-        if (sc.getPattern() != null) {
-            postProcessPattern(sc.getPattern(), cm.vendorExtensions);
-            String pattern = (String) cm.vendorExtensions.get("x-regex");
-            cm.setPattern(pattern);
-        }
-        if (cm.isInteger && cm.getFormat() == null) {
-            // this generator treats integers as type number
-            // this is done so type int + float has the same base class (decimal.Decimal)
-            // so integer validation info must be set using formatting
-            cm.setFormat("int");
-        }
-        if (cm.isNullable) {
-            cm.setIsNull(true);
-            cm.isNullable = false;
-            cm.setHasMultipleTypes(true);
-        }
-        Boolean isNotPythonModelSimpleModel = (ModelUtils.isComposedSchema(sc) || ModelUtils.isObjectSchema(sc) || ModelUtils.isMapSchema(sc));
-        if (isNotPythonModelSimpleModel) {
-            return cm;
-        }
-        String defaultValue = toDefaultValue(sc);
-        if (sc.getDefault() != null) {
-            cm.defaultValue = defaultValue;
-        }
-        return cm;
-    }
+//    @Override
+//    public CodegenModel fromSchema(Schema sc, String sourceJsonPath) {
+//        CodegenModel cm = super.fromSchema(sc, sourceJsonPath);
+//        if (sc.getPattern() != null) {
+//            postProcessPattern(sc.getPattern(), cm.vendorExtensions);
+//            String pattern = (String) cm.vendorExtensions.get("x-regex");
+//            cm.setPattern(pattern);
+//        }
+//        if (cm.isInteger && cm.getFormat() == null) {
+//            // this generator treats integers as type number
+//            // this is done so type int + float has the same base class (decimal.Decimal)
+//            // so integer validation info must be set using formatting
+//            cm.setFormat("int");
+//        }
+//        if (cm.isNullable) {
+//            cm.setIsNull(true);
+//            cm.isNullable = false;
+//            cm.setHasMultipleTypes(true);
+//        }
+//        Boolean isNotPythonModelSimpleModel = (ModelUtils.isComposedSchema(sc) || ModelUtils.isObjectSchema(sc) || ModelUtils.isMapSchema(sc));
+//        if (isNotPythonModelSimpleModel) {
+//            return cm;
+//        }
+//        String defaultValue = toDefaultValue(sc);
+//        if (sc.getDefault() != null) {
+//            cm.defaultValue = defaultValue;
+//        }
+//        return cm;
+//    }
 
     /**
      * Returns the python type for the property.
@@ -1335,7 +1335,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
+    protected void addAdditionPropertiesToCodeGenModel(CodegenProperty codegenModel, Schema schema) {
     }
 
     /**

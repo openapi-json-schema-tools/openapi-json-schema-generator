@@ -375,7 +375,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     public ModelsMap postProcessModels(ModelsMap objs) {
         objs = super.postProcessModelsEnum(objs);
         for (ModelMap mo : objs.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenProperty cm = mo.getModel();
             if (cm.getDiscriminator() != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
                 break;

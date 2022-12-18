@@ -28,7 +28,6 @@ import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.CliOption;
 import org.openapitools.codegen.CodegenConstants;
-import org.openapitools.codegen.CodegenModel;
 import org.openapitools.codegen.CodegenOperation;
 import org.openapitools.codegen.CodegenParameter;
 import org.openapitools.codegen.CodegenProperty;
@@ -775,7 +774,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         ModelsMap objects = super.postProcessModels(objs);
 
         for (ModelMap mo : objects.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenProperty cm = mo.getModel();
             if (getGenerateRoomModels()) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
             }

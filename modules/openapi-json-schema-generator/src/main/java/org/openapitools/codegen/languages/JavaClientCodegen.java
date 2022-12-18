@@ -836,7 +836,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
+    public void postProcessModelProperty(CodegenProperty model, CodegenProperty property) {
         super.postProcessModelProperty(model, property);
         if (!BooleanUtils.toBoolean(model.isEnum)) {
             //final String lib = getLibrary();
@@ -883,7 +883,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
             List<Map<String, String>> imports = objs.getImports();
             for (ModelMap mo : objs.getModels()) {
-                CodegenModel cm = mo.getModel();
+                CodegenProperty cm = mo.getModel();
                 // for enum model
                 if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
                     cm.imports.add(importMapping.get("SerializedName"));

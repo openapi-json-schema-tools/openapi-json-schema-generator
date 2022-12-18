@@ -76,7 +76,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
     }
 
     @Override
-    public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
+    public void postProcessModelProperty(CodegenProperty model, CodegenProperty property) {
         super.postProcessModelProperty(model, property);
         if ("null".equals(property.example)) {
             property.example = null;
@@ -137,7 +137,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         //Add imports for Jackson
         List<Map<String, String>> imports = objs.getImports();
         for (ModelMap mo : objs.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenProperty cm = mo.getModel();
             // for enum model
             if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
                 cm.imports.add(importMapping.get("JsonValue"));

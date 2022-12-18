@@ -1216,7 +1216,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
+    public void postProcessModelProperty(CodegenProperty model, CodegenProperty property) {
         if (additionalProperties.containsKey(JACKSON)) {
             model.imports.add("JsonTypeName");
         }
@@ -1286,7 +1286,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         // add x-implements for serializable to all models
         for (ModelMap mo : objs.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenProperty cm = mo.getModel();
             if (this.serializableModel) {
                 cm.getVendorExtensions().putIfAbsent("x-implements", new ArrayList<String>());
                 ((ArrayList<String>) cm.getVendorExtensions().get("x-implements")).add("Serializable");
@@ -1901,7 +1901,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
+    protected void addAdditionPropertiesToCodeGenModel(CodegenProperty codegenModel, Schema schema) {
         if (!supportsAdditionalPropertiesWithComposedSchema) {
             // The additional (undeclared) properties are modeled in Java as a HashMap.
             //

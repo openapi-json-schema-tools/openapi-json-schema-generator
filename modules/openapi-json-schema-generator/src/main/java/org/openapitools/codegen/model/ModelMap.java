@@ -3,7 +3,7 @@ package org.openapitools.codegen.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openapitools.codegen.CodegenModel;
+import org.openapitools.codegen.CodegenProperty;
 
 public class ModelMap extends HashMap<String, Object> {
 
@@ -15,11 +15,11 @@ public class ModelMap extends HashMap<String, Object> {
         putAll(init);
     }
 
-    public void setModel(CodegenModel model) {
+    public void setModel(CodegenProperty model) {
         put("model", model);
     }
 
-    public CodegenModel getModel() {
-        return (CodegenModel) get("model");
+    public CodegenProperty getModel() {
+        return (CodegenProperty) get("model");
     }
 }
