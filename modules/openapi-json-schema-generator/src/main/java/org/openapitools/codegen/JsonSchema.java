@@ -170,6 +170,10 @@ public interface JsonSchema {
 
     void setRef(String ref);
 
+    String getRefModule();
+
+    void setRefModule(String ref);
+
     List<CodegenSchema> getAllOf();
 
     void setAllOf(List<CodegenSchema> allOf);
@@ -338,14 +342,16 @@ public interface JsonSchema {
             DefaultCodegenTest.mapParamImportInnerObject
             */
             String refClass = this.getRefClass();
-            if (refClass != null && refClass.contains(".")) {
+            String refModule = this.getRefModule();
+            if (refClass != null && refModule != null) {
                 // self reference classes do not contain periods
                 imports.add(refClass);
             }
         } else {
             // referenced or inline schemas
             String refClass = this.getRefClass();
-            if (refClass != null && refClass.contains(".")) {
+            String refModule = this.getRefModule();
+            if (refClass != null && refModule != null) {
                 // self reference classes do not contain periods
                 imports.add(refClass);
             }

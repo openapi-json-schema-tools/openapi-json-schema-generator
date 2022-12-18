@@ -3116,6 +3116,7 @@ public class DefaultCodegen implements CodegenConfig {
                     ref,
                     sourceJsonPath
             ));
+            property.setRefModule(toRefModule(ref, "schemas"));
         }
         if (addSchemaImportsFromV3SpecLocations && isComponentSchema) {
             property.imports = new TreeSet<>();
@@ -3231,7 +3232,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             op.path = path;
         }
-        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(op.path) + "/" + op.httpMethod;
+        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(op.path) + "/" + httpMethod;
 
         op.operationId = toOperationId(operationId);
         op.summary = escapeText(operation.getSummary());
@@ -4052,10 +4053,10 @@ public class DefaultCodegen implements CodegenConfig {
      * @param property The codegen representation of the OAS schema's property.
      */
     protected void addImportsForPropertyType(CodegenSchema model, CodegenSchema property) {
+        if (model.imports == null) {
+            model.imports = new TreeSet<>();
+        }
         if (property.isArray) {
-            if (model.imports == null) {
-                model.imports = new TreeSet<>();
-            }
             if (Boolean.TRUE.equals(property.getUniqueItems())) { // set
                 addImport(model.imports, typeMapping.get("set"));
             } else { // array
@@ -4064,9 +4065,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (property.isMap) { // map
-            if (model.imports == null) {
-                model.imports = new TreeSet<>();
-            }
             addImport(model.imports, typeMapping.get("map"));
         }
 
