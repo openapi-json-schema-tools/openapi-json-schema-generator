@@ -119,7 +119,6 @@ public class CodegenProperty implements JsonSchema {
     public boolean isNullable;
     public boolean isSelfReference;
     public boolean isCircularReference;
-    public boolean isDiscriminator;
     public List<String> _enum;
     public Map<String, Object> allowableValues;
     // If 'additionalProperties' is not set, items is null.
@@ -208,7 +207,6 @@ public class CodegenProperty implements JsonSchema {
         this.isNullable = other.isNullable;
         this.isSelfReference = other.isSelfReference;
         this.isCircularReference = other.isCircularReference;
-        this.isDiscriminator = other.isDiscriminator;
         this._enum = other._enum;
         this.allowableValues = other.allowableValues;
         this.items = other.items;
@@ -853,7 +851,6 @@ public class CodegenProperty implements JsonSchema {
         sb.append(", isNullable=").append(isNullable);
         sb.append(", isSelfReference=").append(isSelfReference);
         sb.append(", isCircularReference=").append(isCircularReference);
-        sb.append(", isDiscriminator=").append(isDiscriminator);
         sb.append(", _enum=").append(_enum);
         sb.append(", allowableValues=").append(allowableValues);
         sb.append(", items=").append(items);
@@ -937,7 +934,6 @@ public class CodegenProperty implements JsonSchema {
                 isNullable == that.isNullable &&
                 isSelfReference == that.isSelfReference &&
                 isCircularReference == that.isCircularReference &&
-                isDiscriminator == that.isDiscriminator &&
                 hasValidation == that.hasValidation &&
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
@@ -998,7 +994,7 @@ public class CodegenProperty implements JsonSchema {
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
                 isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
-                isUnboundedInteger, isSelfReference, isCircularReference, isDiscriminator, _enum,
+                isUnboundedInteger, isSelfReference, isCircularReference, _enum,
                 allowableValues, items, additionalProperties,
                 vendorExtensions, hasValidation, discriminatorValue,
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,

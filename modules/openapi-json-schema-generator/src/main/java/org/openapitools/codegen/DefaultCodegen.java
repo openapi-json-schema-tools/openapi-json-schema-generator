@@ -2247,7 +2247,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     Map<NamedSchema, CodegenProperty> schemaCodegenPropertyCache = new HashMap<>();
 
-    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, String sourceJsonPath) {
+    protected void updateModelForComposedSchema(CodegenProperty m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
 
         // TODO revise the logic below to set discriminator
@@ -2360,37 +2360,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (openAPI != null) {
             HashMap<String, SchemaTestCase> schemaTestCases = extractSchemaTestCases(xSchemaTestExamplesRefPrefix + name);
             m.testCases = schemaTestCases;
-        }
-
-        m.setDiscriminator(createDiscriminator(name, usedSchema, this.openAPI, sourceJsonPath));
-
-        if (usedSchema instanceof ComposedSchema) {
-            updateModelForComposedSchema(m, usedSchema, sourceJsonPath);
-        }
-
-        // set isDiscriminator on the discriminator property
-        if (m.discriminator != null) {
-            String discPropName = m.discriminator.getPropertyBaseName();
-            List<List<CodegenProperty>> listOLists = new ArrayList<>();
-            if (m.getProperties() != null) {
-                listOLists.add(m.getProperties().values().stream().collect(Collectors.toList()));
-            }
-            if (m.getRequiredProperties() != null) {
-                listOLists.add(m.getRequiredProperties().values().stream().collect(Collectors.toList()));
-            }
-            if (m.getOptionalProperties() != null) {
-                listOLists.add(m.getOptionalProperties().values().stream().collect(Collectors.toList()));
-            }
-            for (List<CodegenProperty> theseVars : listOLists) {
-                for (CodegenProperty requiredVar : theseVars) {
-                    if (requiredVar == null) {
-                        continue;
-                    }
-                    if (requiredVar.name != null && discPropName.equals(requiredVar.name.getName())) {
-                        requiredVar.isDiscriminator = true;
-                    }
-                }
-            }
         }
 
         if (addSchemaImportsFromV3SpecLocations) {
@@ -2684,6 +2653,7 @@ public class DefaultCodegen implements CodegenConfig {
         while (100000 > count++) {
             for (String childName : keys) {
                 if (childName.equals(thisSchemaName)) {
+                    // skip the source schema
                     continue;
                 }
                 Schema child = schemas.get(childName);
@@ -3007,6 +2977,14 @@ public class DefaultCodegen implements CodegenConfig {
                             ;
                         }
                     }
+                } else {
+                    // component schema use case
+                    // TODO set discriminator on any schema instances in the future not just these
+                    property.setDiscriminator(createDiscriminator(usedName, p, this.openAPI, sourceJsonPath));
+                    if (p instanceof ComposedSchema) {
+                        updateModelForComposedSchema(property, p, sourceJsonPath);
+                    }
+
                 }
                 CodegenKey ck = getKey(usedName);
                 property.name = ck;
