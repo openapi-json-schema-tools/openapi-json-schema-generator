@@ -1,4 +1,4 @@
-# user_array_request_body
+# petstore_api.components.request_bodies.user_array_request_body
 # application_json
 
 ## Model Type Info

@@ -1,4 +1,4 @@
-# client_request_body
+# petstore_api.components.request_bodies.client_request_body
 # application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
