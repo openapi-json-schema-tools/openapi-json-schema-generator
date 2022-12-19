@@ -2652,13 +2652,9 @@ public class DefaultCodegen implements CodegenConfig {
         return descendentSchemas;
     }
 
-    private String getRefClassWithModule(String ref, String sourceJsonPath) {
-        String refModule = toRefModule(ref, "schemas", sourceJsonPath);
+    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
         String refClass = toRefClass(ref, sourceJsonPath);
-        if (refModule == null) {
-            return refClass;
-        }
-        return refModule + "." + refClass;
+        return refClass;
     }
 
     protected CodegenDiscriminator createDiscriminator(String schemaName, Schema schema, OpenAPI openAPI, String sourceJsonPath) {
@@ -2868,12 +2864,11 @@ public class DefaultCodegen implements CodegenConfig {
         return !isReservedWord(name);
     }
 
-    private String getImport(String className, CodegenSchema schema) {
+    protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return "from " + packageName() + ".components.schema import " + schema.getRefModule();
+            return schema.getRefClass();
         }
-        String[] classPieces = className.split("\\.");
-        return "from " + packageName() + ".components.schema import " + classPieces[0];
+        return className;
     }
 
     /**

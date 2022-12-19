@@ -2089,6 +2089,25 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
+    protected String getImport(String className, CodegenSchema schema) {
+        if (className == null) {
+            return "from " + packageName() + ".components.schema import " + schema.getRefModule();
+        }
+        String[] classPieces = className.split("\\.");
+        return "from " + packageName() + ".components.schema import " + classPieces[0];
+    }
+
+    @Override
+    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
+        String refModule = toRefModule(ref, "schemas", sourceJsonPath);
+        String refClass = toRefClass(ref, sourceJsonPath);
+        if (refModule == null) {
+            return refClass;
+        }
+        return refModule + "." + refClass;
+    }
+
+    @Override
     public String toParameterFilename(String name) {
         try {
             Integer.parseInt(name);

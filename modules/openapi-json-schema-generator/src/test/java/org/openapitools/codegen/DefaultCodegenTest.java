@@ -790,6 +790,7 @@ public class DefaultCodegenTest {
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
         petDisc.setMappedModels(hs);
+        petDisc.setPropertyType("String");
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema pet = codegen.fromSchema(
