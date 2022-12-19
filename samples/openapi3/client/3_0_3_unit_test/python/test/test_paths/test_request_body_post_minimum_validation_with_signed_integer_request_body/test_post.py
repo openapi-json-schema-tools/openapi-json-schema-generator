@@ -41,7 +41,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             payload = (
                 -2
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -71,7 +71,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             payload = (
                 0
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -129,7 +129,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             payload = (
                 -2.0
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -159,7 +159,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             payload = (
                 -1
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -189,7 +189,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             payload = (
                 "x"
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

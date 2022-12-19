@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import json_pointer_format
 
 
-application_json = json_pointer_format.JsonPointerFormat
+ApplicationJson = json_pointer_format.JsonPointerFormat
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

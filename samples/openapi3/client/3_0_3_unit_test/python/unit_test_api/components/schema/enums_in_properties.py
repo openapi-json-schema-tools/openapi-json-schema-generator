@@ -39,10 +39,10 @@ class EnumsInProperties(
             "bar",
         }
         
-        class properties:
+        class Properties:
             
             
-            class foo(
+            class Foo(
                 schemas.StrSchema
             ):
             
@@ -60,7 +60,7 @@ class EnumsInProperties(
                     return cls("foo")
             
             
-            class bar(
+            class Bar(
                 schemas.StrSchema
             ):
             
@@ -77,17 +77,17 @@ class EnumsInProperties(
                 def BAR(cls):
                     return cls("bar")
             __annotations__ = {
-                "foo": foo,
-                "bar": bar,
+                "foo": Foo,
+                "bar": Bar,
             }
     
-    bar: MetaOapg.properties.bar
+    bar: MetaOapg.Properties.Bar
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.Properties.Foo: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -104,10 +104,10 @@ class EnumsInProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.properties.foo, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.Properties.Foo, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -125,8 +125,8 @@ class EnumsInProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        bar: typing.Union[MetaOapg.properties.bar, str, ],
-        foo: typing.Union[MetaOapg.properties.foo, str, schemas.Unset] = schemas.unset,
+        bar: typing.Union[MetaOapg.Properties.Bar, str, ],
+        foo: typing.Union[MetaOapg.Properties.Foo, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'EnumsInProperties':

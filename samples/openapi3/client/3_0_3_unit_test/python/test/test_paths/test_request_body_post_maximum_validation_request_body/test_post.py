@@ -41,7 +41,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 2.6
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -71,7 +71,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 3.0
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 "x"
             )
-            body = post.request_body.application_json.from_openapi_data_oapg(
+            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

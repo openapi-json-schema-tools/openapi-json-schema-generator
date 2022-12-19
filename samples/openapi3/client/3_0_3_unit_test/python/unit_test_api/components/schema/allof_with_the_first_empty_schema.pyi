@@ -36,12 +36,12 @@ class AllofWithTheFirstEmptySchema(
     class MetaOapg:
         # any type
         
-        class all_of:
-            allOf_0 = schemas.AnyTypeSchema
-            allOf_1 = schemas.NumberSchema
+        class AllOf:
+            AllOf0 = schemas.AnyTypeSchema
+            AllOf1 = schemas.NumberSchema
             classes = [
-                allOf_0,
-                allOf_1,
+                AllOf0,
+                AllOf1,
             ]
 
 

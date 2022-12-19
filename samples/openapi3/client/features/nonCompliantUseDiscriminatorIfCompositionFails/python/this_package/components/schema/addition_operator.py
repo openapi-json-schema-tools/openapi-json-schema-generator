@@ -41,29 +41,29 @@ class AdditionOperator(
             "operator_id",
         }
         
-        class properties:
-            a = schemas.Float64Schema
-            b = schemas.Float64Schema
-            operator_id = schemas.StrSchema
+        class Properties:
+            A = schemas.Float64Schema
+            B = schemas.Float64Schema
+            OperatorId = schemas.StrSchema
             __annotations__ = {
-                "a": a,
-                "b": b,
-                "operator_id": operator_id,
+                "a": A,
+                "b": B,
+                "operator_id": OperatorId,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
-    a: MetaOapg.properties.a
-    b: MetaOapg.properties.b
-    operator_id: MetaOapg.properties.operator_id
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> MetaOapg.properties.a: ...
+    a: MetaOapg.Properties.A
+    b: MetaOapg.Properties.B
+    operator_id: MetaOapg.Properties.OperatorId
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> MetaOapg.properties.b: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.properties.operator_id: ...
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
     
     def __getitem__(
         self,
@@ -77,13 +77,13 @@ class AdditionOperator(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> MetaOapg.properties.a: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["b"]) -> MetaOapg.properties.b: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.properties.operator_id: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
     
     def get_item_oapg(
         self,
@@ -98,9 +98,9 @@ class AdditionOperator(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        a: typing.Union[MetaOapg.properties.a, decimal.Decimal, int, float, ],
-        b: typing.Union[MetaOapg.properties.b, decimal.Decimal, int, float, ],
-        operator_id: typing.Union[MetaOapg.properties.operator_id, str, ],
+        a: typing.Union[MetaOapg.Properties.A, decimal.Decimal, int, float, ],
+        b: typing.Union[MetaOapg.Properties.B, decimal.Decimal, int, float, ],
+        operator_id: typing.Union[MetaOapg.Properties.OperatorId, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AdditionOperator':
         return super().__new__(

@@ -36,11 +36,11 @@ class Oneof(
     class MetaOapg:
         # any type
         
-        class one_of:
-            oneOf_0 = schemas.IntSchema
+        class OneOf:
+            OneOf0 = schemas.IntSchema
             
             
-            class oneOf_1(
+            class OneOf1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -55,7 +55,7 @@ class Oneof(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'oneOf_1':
+                ) -> 'OneOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -63,8 +63,8 @@ class Oneof(
                         **kwargs,
                     )
             classes = [
-                oneOf_0,
-                oneOf_1,
+                OneOf0,
+                OneOf1,
             ]
 
 

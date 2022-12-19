@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import forbidden_property
 
 
-application_json = forbidden_property.ForbiddenProperty
+ApplicationJson = forbidden_property.ForbiddenProperty
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

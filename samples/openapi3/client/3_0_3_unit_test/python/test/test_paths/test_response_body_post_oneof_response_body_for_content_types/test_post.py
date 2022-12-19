@@ -32,7 +32,7 @@ class TestResponseBodyPostOneofResponseBodyForContentTypes(ApiTestMixin, unittes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.application_json
+    response_body_schema = post.response_for_200.ApplicationJson
 
     def test_second_oneof_valid_passes(self):
         # second oneOf valid

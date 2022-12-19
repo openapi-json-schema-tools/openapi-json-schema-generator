@@ -27,12 +27,12 @@ from this_package import schemas  # noqa: F401
 from this_package.components.schema import operator
 
 
-application_json = operator.Operator
+ApplicationJson = operator.Operator
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
 )
