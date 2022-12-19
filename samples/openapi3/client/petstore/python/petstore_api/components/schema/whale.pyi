@@ -40,7 +40,7 @@ class Whale(
         
         class Properties:
             HasBaleen = schemas.BoolSchema
-            HasBaleen = schemas.BoolSchema
+            HasTeeth = schemas.BoolSchema
             
             
             class ClassName(
@@ -52,7 +52,7 @@ class Whale(
                     return cls("whale")
             __annotations__ = {
                 "hasBaleen": HasBaleen,
-                "hasTeeth": HasBaleen,
+                "hasTeeth": HasTeeth,
                 "className": ClassName,
             }
     
@@ -65,7 +65,7 @@ class Whale(
     def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> MetaOapg.Properties.HasBaleen: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> MetaOapg.Properties.HasBaleen: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> MetaOapg.Properties.HasTeeth: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -89,7 +89,7 @@ class Whale(
     def get_item_oapg(self, name: typing_extensions.Literal["hasBaleen"]) -> typing.Union[MetaOapg.Properties.HasBaleen, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[MetaOapg.Properties.HasBaleen, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[MetaOapg.Properties.HasTeeth, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -110,7 +110,7 @@ class Whale(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         className: typing.Union[MetaOapg.Properties.ClassName, str, ],
         hasBaleen: typing.Union[MetaOapg.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
-        hasTeeth: typing.Union[MetaOapg.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
+        hasTeeth: typing.Union[MetaOapg.Properties.HasTeeth, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Whale':

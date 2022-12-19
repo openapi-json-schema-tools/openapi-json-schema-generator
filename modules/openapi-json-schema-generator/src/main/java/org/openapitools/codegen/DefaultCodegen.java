@@ -2222,13 +2222,15 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     private static class NamedSchema {
-        private NamedSchema(Schema s, String sourceJsonPath) {
+        private NamedSchema(Schema s, String sourceJsonPath, String currentJsonPath) {
             this.schema = s;
             this.sourceJsonPath = sourceJsonPath;
+            this.currentJsonPath = currentJsonPath;
         }
 
         private Schema schema;
         private String sourceJsonPath;
+        private String currentJsonPath;
 
         @Override
         public boolean equals(Object o) {
@@ -2236,7 +2238,8 @@ public class DefaultCodegen implements CodegenConfig {
             if (o == null || getClass() != o.getClass()) return false;
             NamedSchema that = (NamedSchema) o;
             return Objects.equals(schema, that.schema) &&
-                    Objects.equals(sourceJsonPath, that.sourceJsonPath);
+                    Objects.equals(sourceJsonPath, that.sourceJsonPath) &&
+                    Objects.equals(currentJsonPath, that.currentJsonPath);
         }
 
         @Override
@@ -2875,12 +2878,12 @@ public class DefaultCodegen implements CodegenConfig {
             LOGGER.error("Undefined property/schema at `{}`", currentJsonPath);
             return null;
         }
-        LOGGER.debug("debugging fromSchema for {} : {}", currentJsonPath, p);
+        LOGGER.debug("debugging fromSchema for {} {} : {}", sourceJsonPath, currentJsonPath, p);
         CodegenSchema property = new CodegenSchema();
-        NamedSchema ns = new NamedSchema(p, sourceJsonPath);
+        NamedSchema ns = new NamedSchema(p, sourceJsonPath, currentJsonPath);
         CodegenSchema cpc = schemaCodegenPropertyCache.get(ns);
         if (cpc != null) {
-            LOGGER.debug("Cached fromSchema for {} : {}", p, sourceJsonPath);
+            LOGGER.debug("Cached fromSchema for {} {}: {}", sourceJsonPath, currentJsonPath, p);
             return cpc;
         }
 

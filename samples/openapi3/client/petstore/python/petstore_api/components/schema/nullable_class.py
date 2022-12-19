@@ -249,7 +249,7 @@ class NullableClass(
                     }
                     
                     
-                    class AdditionalProperties(
+                    class Items(
                         schemas.DictBase,
                         schemas.NoneBase,
                         schemas.Schema,
@@ -269,7 +269,7 @@ class NullableClass(
                             *_args: typing.Union[dict, frozendict.frozendict, None, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                        ) -> 'AdditionalProperties':
+                        ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 *_args,
@@ -299,7 +299,7 @@ class NullableClass(
                     types = {tuple}
                     
                     
-                    class AdditionalProperties(
+                    class Items(
                         schemas.DictBase,
                         schemas.NoneBase,
                         schemas.Schema,
@@ -319,7 +319,7 @@ class NullableClass(
                             *_args: typing.Union[dict, frozendict.frozendict, None, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                        ) -> 'AdditionalProperties':
+                        ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 *_args,
@@ -329,7 +329,7 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, None, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, None, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'ArrayItemsNullable':
                     return super().__new__(
@@ -338,7 +338,7 @@ class NullableClass(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.AdditionalProperties:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
@@ -355,21 +355,21 @@ class NullableClass(
                         schemas.NoneClass,
                         frozendict.frozendict,
                     }
-                    Items = schemas.DictSchema
+                    AdditionalProperties = schemas.DictSchema
             
                 
-                def __getitem__(self, name: str) -> MetaOapg.Items:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.Items:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, None, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.Items, dict, frozendict.frozendict, ],
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, ],
                 ) -> 'ObjectNullableProp':
                     return super().__new__(
                         cls,

@@ -38,7 +38,7 @@ class Order(
         
         class Properties:
             Id = schemas.Int64Schema
-            Id = schemas.Int64Schema
+            PetId = schemas.Int64Schema
             Quantity = schemas.Int32Schema
             ShipDate = schemas.DateTimeSchema
             
@@ -72,7 +72,7 @@ class Order(
             Complete = schemas.BoolSchema
             __annotations__ = {
                 "id": Id,
-                "petId": Id,
+                "petId": PetId,
                 "quantity": Quantity,
                 "shipDate": ShipDate,
                 "status": Status,
@@ -83,7 +83,7 @@ class Order(
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.Id: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.PetId: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> MetaOapg.Properties.Quantity: ...
@@ -119,7 +119,7 @@ class Order(
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.Properties.Id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.Id, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.PetId, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["quantity"]) -> typing.Union[MetaOapg.Properties.Quantity, schemas.Unset]: ...
@@ -154,7 +154,7 @@ class Order(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        petId: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        petId: typing.Union[MetaOapg.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         quantity: typing.Union[MetaOapg.Properties.Quantity, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         shipDate: typing.Union[MetaOapg.Properties.ShipDate, str, datetime, schemas.Unset] = schemas.unset,
         status: typing.Union[MetaOapg.Properties.Status, str, schemas.Unset] = schemas.unset,

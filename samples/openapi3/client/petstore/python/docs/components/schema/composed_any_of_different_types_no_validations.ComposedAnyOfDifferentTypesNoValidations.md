@@ -17,7 +17,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [anyOf_3](#anyOf_3) | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
 [anyOf_4](#anyOf_4) | str,  | str,  |  |
 [anyOf_5](#anyOf_5) | str,  | str,  |  |
-[anyOf_0](#anyOf_0) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[anyOf_6](#anyOf_6) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 [anyOf_7](#anyOf_7) | bool,  | BoolClass,  |  |
 [anyOf_8](#anyOf_8) | None,  | NoneClass,  |  |
 [anyOf_9](#anyOf_9) | list, tuple,  | tuple,  |  |
@@ -70,7 +70,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# anyOf_0
+# anyOf_6
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

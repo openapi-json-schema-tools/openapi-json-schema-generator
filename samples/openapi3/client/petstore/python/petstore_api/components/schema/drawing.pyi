@@ -59,7 +59,7 @@ class Drawing(
                     types = {tuple}
                     
                     @staticmethod
-                    def main_shape() -> typing.Type['shape.Shape']:
+                    def items() -> typing.Type['shape.Shape']:
                         return shape.Shape
             
                 def __new__(

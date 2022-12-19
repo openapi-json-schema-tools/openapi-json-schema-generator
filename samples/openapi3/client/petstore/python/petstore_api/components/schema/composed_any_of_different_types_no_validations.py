@@ -43,7 +43,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
             AnyOf3 = schemas.BinarySchema
             AnyOf4 = schemas.StrSchema
             AnyOf5 = schemas.StrSchema
-            AnyOf0 = schemas.DictSchema
+            AnyOf6 = schemas.DictSchema
             AnyOf7 = schemas.BoolSchema
             AnyOf8 = schemas.NoneSchema
             
@@ -83,7 +83,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                 AnyOf3,
                 AnyOf4,
                 AnyOf5,
-                AnyOf0,
+                AnyOf6,
                 AnyOf7,
                 AnyOf8,
                 AnyOf9,

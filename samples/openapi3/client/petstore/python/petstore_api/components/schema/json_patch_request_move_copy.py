@@ -43,7 +43,7 @@ class JSONPatchRequestMoveCopy(
         
         class Properties:
             ModelFrom = schemas.StrSchema
-            ModelFrom = schemas.StrSchema
+            Path = schemas.StrSchema
             
             
             class Op(
@@ -69,13 +69,13 @@ class JSONPatchRequestMoveCopy(
                     return cls("copy")
             __annotations__ = {
                 "from": ModelFrom,
-                "path": ModelFrom,
+                "path": Path,
                 "op": Op,
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
     op: MetaOapg.Properties.Op
-    path: MetaOapg.Properties.ModelFrom
+    path: MetaOapg.Properties.Path
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties.ModelFrom: ...
@@ -84,7 +84,7 @@ class JSONPatchRequestMoveCopy(
     def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.ModelFrom: ...
+    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
     
     def __getitem__(
         self,
@@ -104,7 +104,7 @@ class JSONPatchRequestMoveCopy(
     def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.ModelFrom: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
     
     def get_item_oapg(
         self,
@@ -120,7 +120,7 @@ class JSONPatchRequestMoveCopy(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         op: typing.Union[MetaOapg.Properties.Op, str, ],
-        path: typing.Union[MetaOapg.Properties.ModelFrom, str, ],
+        path: typing.Union[MetaOapg.Properties.Path, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'JSONPatchRequestMoveCopy':
         return super().__new__(

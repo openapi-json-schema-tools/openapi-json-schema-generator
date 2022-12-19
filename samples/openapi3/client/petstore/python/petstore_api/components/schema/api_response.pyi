@@ -38,11 +38,11 @@ class ApiResponse(
         class Properties:
             Code = schemas.Int32Schema
             Type = schemas.StrSchema
-            Type = schemas.StrSchema
+            Message = schemas.StrSchema
             __annotations__ = {
                 "code": Code,
                 "type": Type,
-                "message": Type,
+                "message": Message,
             }
     
     @typing.overload
@@ -52,7 +52,7 @@ class ApiResponse(
     def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.Properties.Type: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.Properties.Type: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.Properties.Message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -76,7 +76,7 @@ class ApiResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.Properties.Type, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.Properties.Type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.Properties.Message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -97,7 +97,7 @@ class ApiResponse(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         code: typing.Union[MetaOapg.Properties.Code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
-        message: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.Properties.Message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ApiResponse':

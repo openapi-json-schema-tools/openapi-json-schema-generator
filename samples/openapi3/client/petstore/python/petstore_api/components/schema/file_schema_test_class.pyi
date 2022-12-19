@@ -51,7 +51,7 @@ class FileSchemaTestClass(
                     types = {tuple}
                     
                     @staticmethod
-                    def file() -> typing.Type['file.File']:
+                    def items() -> typing.Type['file.File']:
                         return file.File
             
                 def __new__(
