@@ -49,7 +49,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**health_check_result.HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
+[**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
 
 
 ### Authorization

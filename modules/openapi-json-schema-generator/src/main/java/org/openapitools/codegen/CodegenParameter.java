@@ -63,8 +63,8 @@ public class CodegenParameter extends CodegenHeader {
         if (this.imports != null) {
             output.imports = imports;
         }
-        if (this.modulePath != null) {
-            output.modulePath = modulePath;
+        if (this.componentModule != null) {
+            output.componentModule = componentModule;
         }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
@@ -77,7 +77,7 @@ public class CodegenParameter extends CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, modulePath);
+        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override

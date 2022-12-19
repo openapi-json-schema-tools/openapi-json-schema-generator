@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**object_properties_validation.ObjectPropertiesValidation**](../../../components/schema/object_properties_validation.ObjectPropertiesValidation.md) |  | 
+[**ObjectPropertiesValidation**](../../../components/schema/object_properties_validation.ObjectPropertiesValidation.md) |  | 
 
 
 ### Authorization

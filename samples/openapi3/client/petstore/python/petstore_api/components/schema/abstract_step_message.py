@@ -62,8 +62,8 @@ class AbstractStepMessage(
         class AnyOf:
         
             @staticmethod
-            def any_of_0() -> typing.Type['abstract_step_message.AbstractStepMessage']:
-                return abstract_step_message.AbstractStepMessage
+            def any_of_0() -> typing.Type['AbstractStepMessage']:
+                return AbstractStepMessage
             classes = [
                 any_of_0,
             ]
@@ -138,5 +138,3 @@ class AbstractStepMessage(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import abstract_step_message

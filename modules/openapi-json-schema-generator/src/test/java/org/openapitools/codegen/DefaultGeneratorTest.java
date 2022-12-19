@@ -416,7 +416,10 @@ public class DefaultGeneratorTest {
 
         // Validate when converting to property
         CodegenSchema stringRegexProperty = config.fromSchema(
-                stringRegex, null);
+                stringRegex,
+                "#/components/schemas/A",
+                "#/components/schemas/A"
+        );
         Assert.assertEquals(stringRegexProperty.pattern, escapedPattern);
 
         // Validate when converting to parameter

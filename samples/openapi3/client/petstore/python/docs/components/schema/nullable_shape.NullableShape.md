@@ -13,8 +13,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**triangle.Triangle**](triangle.Triangle.md) | [**triangle.Triangle**](triangle.Triangle.md) | [**triangle.Triangle**](triangle.Triangle.md) |  |
-[**quadrilateral.Quadrilateral**](quadrilateral.Quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.Quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
+[**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
+[**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 [oneOf_2](#oneOf_2) | None,  | NoneClass,  |  |
 
 # oneOf_2

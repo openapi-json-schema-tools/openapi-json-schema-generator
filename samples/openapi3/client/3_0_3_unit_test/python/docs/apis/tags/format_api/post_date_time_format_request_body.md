@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**date_time_format.DateTimeFormat**](../../../components/schema/date_time_format.DateTimeFormat.md) |  | 
+[**DateTimeFormat**](../../../components/schema/date_time_format.DateTimeFormat.md) |  | 
 
 
 ### Return Types, Responses

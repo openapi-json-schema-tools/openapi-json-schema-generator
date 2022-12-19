@@ -1,6 +1,6 @@
-{{#if parameter.modulePath}}
+{{#if parameter.componentModule}}
 <a name="top"></a>
-## {{parameter.modulePath}}
+## {{packageName}}.components.parameters.{{parameter.componentModule}}
 {{/if}}
 {{#if parameter.schema}}
     {{#with parameter.schema}}
@@ -15,7 +15,7 @@
         {{/with}}
     {{/each}}
 {{/if}}
-{{#if parameter.modulePath}}
+{{#if parameter.componentModule}}
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" parametersLink=true}}
 {{/if}}

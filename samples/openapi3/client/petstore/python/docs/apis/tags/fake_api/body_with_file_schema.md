@@ -53,7 +53,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**file_schema_test_class.FileSchemaTestClass**](../../../components/schema/file_schema_test_class.FileSchemaTestClass.md) |  | 
+[**FileSchemaTestClass**](../../../components/schema/file_schema_test_class.FileSchemaTestClass.md) |  | 
 
 
 ### Return Types, Responses

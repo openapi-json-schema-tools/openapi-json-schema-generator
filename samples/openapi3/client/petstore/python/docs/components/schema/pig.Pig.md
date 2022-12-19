@@ -11,7 +11,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**basque_pig.BasquePig**](basque_pig.BasquePig.md) | [**basque_pig.BasquePig**](basque_pig.BasquePig.md) | [**basque_pig.BasquePig**](basque_pig.BasquePig.md) |  |
-[**danish_pig.DanishPig**](danish_pig.DanishPig.md) | [**danish_pig.DanishPig**](danish_pig.DanishPig.md) | [**danish_pig.DanishPig**](danish_pig.DanishPig.md) |  |
+[**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) |  |
+[**DanishPig**](danish_pig.DanishPig.md) | [**DanishPig**](danish_pig.DanishPig.md) | [**DanishPig**](danish_pig.DanishPig.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

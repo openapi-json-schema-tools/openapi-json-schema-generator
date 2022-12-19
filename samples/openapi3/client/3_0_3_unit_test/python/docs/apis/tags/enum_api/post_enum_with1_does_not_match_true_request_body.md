@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue**](../../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
+[**EnumWith1DoesNotMatchTrue**](../../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
 
 
 ### Return Types, Responses

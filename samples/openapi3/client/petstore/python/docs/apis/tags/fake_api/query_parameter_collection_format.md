@@ -134,7 +134,7 @@ items | str,  | str,  |  |
 # parameter_5.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**string_with_validation.StringWithValidation**](../../../components/schema/string_with_validation.StringWithValidation.md) |  | 
+[**StringWithValidation**](../../../components/schema/string_with_validation.StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses

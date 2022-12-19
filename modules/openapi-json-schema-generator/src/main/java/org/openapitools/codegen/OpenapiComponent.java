@@ -15,7 +15,8 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 public interface OpenapiComponent {
-    String getModulePath();
+    String getComponentModule();
 
-    void setModulePath(String modulePath);
+    void setComponentModule(String componentModule);
+
 }

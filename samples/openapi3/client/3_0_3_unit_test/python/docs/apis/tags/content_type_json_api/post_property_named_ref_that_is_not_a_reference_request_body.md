@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference**](../../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Return Types, Responses

@@ -53,7 +53,7 @@ public class CodegenHeader implements OpenapiComponent {
 
     public Set<String> imports = new HashSet<String>();
 
-    protected String modulePath;
+    protected String componentModule;
 
     public CodegenHeader copy() {
         CodegenHeader output = new CodegenHeader();
@@ -82,8 +82,8 @@ public class CodegenHeader implements OpenapiComponent {
         if (this.imports != null) {
             output.imports = imports;
         }
-        if (this.modulePath != null) {
-            output.modulePath = modulePath;
+        if (this.componentModule != null) {
+            output.componentModule = componentModule;
         }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
@@ -92,17 +92,17 @@ public class CodegenHeader implements OpenapiComponent {
         return output;
     }
 
-    public String getModulePath() {
-        return modulePath;
+    public String getComponentModule() {
+        return componentModule;
     }
 
-    public void setModulePath(String modulePath) {
-        this.modulePath = modulePath;
+    public void setComponentModule(String componentModule) {
+        this.componentModule = componentModule;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, modulePath);
+        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class CodegenHeader implements OpenapiComponent {
         return isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
-                Objects.equals(modulePath, that.modulePath) &&
+                Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(refModule, that.getRefModule()) &&
@@ -145,7 +145,7 @@ public class CodegenHeader implements OpenapiComponent {
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
-        sb.append(", modulePath=").append(modulePath);
+        sb.append(", componentModule=").append(componentModule);
     }
 
     @Override

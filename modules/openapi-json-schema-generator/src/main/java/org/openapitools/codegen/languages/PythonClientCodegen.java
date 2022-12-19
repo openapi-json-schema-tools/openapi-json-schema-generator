@@ -23,8 +23,6 @@ import com.google.common.base.CaseFormat;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.headers.Header;
-import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 
 import org.apache.commons.io.FileUtils;
@@ -34,8 +32,6 @@ import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapitools.codegen.model.ModelMap;
 import org.openapitools.codegen.model.ModelsMap;
-import org.openapitools.codegen.model.OperationMap;
-import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.templating.*;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.media.*;
@@ -540,8 +536,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     they are not.
      */
     @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath){
-        setAddProps(schema, property, sourceJsonPath);
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath, String currentJsonPath){
+        setAddProps(schema, property, sourceJsonPath, currentJsonPath);
         if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
             // if anyType schema has properties then add them
             if (schema.getProperties() != null && !schema.getProperties().isEmpty()) {
@@ -556,19 +552,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (schema.getRequired() != null) {
                     requiredVars.addAll(schema.getRequired());
                 }
-                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
+                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
             }
-            addRequiredProperties(schema, property, sourceJsonPath);
+            addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
             return;
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             HashSet<String> requiredVars = new HashSet<>();
             if (schema.getRequired() != null) {
                 requiredVars.addAll(schema.getRequired());
             }
-            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
+            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
         }
-        addRequiredProperties(schema, property, sourceJsonPath);
-        return;
+        addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
     }
 
     /**
@@ -690,34 +685,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return "from " + packageName + "." +  modelPackage() + " import " + modelModule;
     }
 
-    private void fixSchemaImports(Set<String> imports) {
-        if (imports.size() == 0) {
-            return;
-        }
-        String[] modelNames = imports.toArray(new String[0]);
-        imports.clear();
-        for (String modelName : modelNames) {
-            if (needToImport(modelName)) {
-                imports.add(toModelImport(modelName));
-            }
-        }
-    }
-
-    @Override
-    @SuppressWarnings("static-method")
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
-        // fix the imports that each model has, add the module reference to the model
-        // loops through imports and converts them all
-        // from 'Pet' to 'from petstore_api.model.pet import Pet'
-
-        OperationMap val = objs.getOperations();
-        List<CodegenOperation> operations = val.getOperation();
-        for (CodegenOperation operation : operations) {
-            fixSchemaImports(operation.imports);
-        }
-        return objs;
-    }
-
     /***
      * Override with special post-processing for all models.
      * we have a custom version of this method to:
@@ -749,10 +716,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
-                if (cm.imports == null || cm.imports.size() == 0) {
-                    continue;
-                }
-                fixSchemaImports(cm.imports);
             }
         }
         boolean testFolderSet = testFolder != null;
@@ -771,19 +734,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
-    public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
-        CodegenHeader codegenHeader = super.fromHeader(header, sourceJsonPath);
-        fixSchemaImports(codegenHeader.imports);
-        return codegenHeader;
-    }
-
-
-    public CodegenParameter fromParameter(Parameter parameter, String priorJsonPathFragment) {
-        CodegenParameter cp = super.fromParameter(parameter, priorJsonPathFragment);
-        fixSchemaImports(cp.imports);
-        return cp;
-    }
-
     protected boolean isValid(String name) {
         boolean isValid = super.isValid(name);
         if (!isValid) {
@@ -791,12 +741,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         boolean nameValidPerRegex = name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
         return nameValidPerRegex;
-    }
-
-    public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
-        CodegenResponse cr = super.fromResponse(response, sourceJsonPath);
-        fixSchemaImports(cr.imports);
-        return cr;
     }
 
     /**
@@ -809,9 +753,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return Codegen Property object
      */
     @Override
-    public CodegenSchema fromSchema(Schema p, String sourceJsonPath) {
+    public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
         // fix needed for values with /n /t etc in them
-        CodegenSchema cp = super.fromSchema(p, sourceJsonPath);
+        CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -870,21 +814,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /***
-     * We have a custom version of this method to produce links to models when they are
-     * primitive type (not map, not array, not object) and include validations or are enums
-     *
-     * @param body requesst body
-     * @param bodyParameterName body parameter name
-     * @return the resultant CodegenParameter
-     */
-    @Override
-    public CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath) {
-        CodegenParameter cp = super.fromRequestBody(body, bodyParameterName, sourceJsonPath);
-        fixSchemaImports(cp.imports);
-        return cp;
-    }
-
-    /***
      * Adds the body model schema to the body parameter
      * We have a custom version of this method so we can flip forceSimpleRef
      * to True based upon the results of unaliasSchema
@@ -913,7 +842,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         CodegenSchema codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
-            codegenModel = fromSchema(schema, "#/components/schemas/" + name);
+            String path = "#/components/schemas/" + name;
+            codegenModel = fromSchema(schema, path, path);
         }
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
@@ -925,7 +855,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath);
+            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
@@ -1204,95 +1134,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String getSchemaRefClass(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
-            return toRefClass(ref, "");
+            return  toRefModule(ref, "schemas", null) + "." + toRefClass(ref, null);
         }
         return null;
-    }
-
-    /**
-     * Return a string representation of the Python types for the specified OAS schema.
-     * Primitive types in the OAS specification are implemented in Python using the corresponding
-     * Python primitive types.
-     * Composed types (e.g. allAll, oneOf, anyOf) are represented in Python using list of types.
-     * <p>
-     * The caller should set the prefix and suffix arguments to empty string, except when
-     * getTypeString invokes itself recursively. A non-empty prefix/suffix may be specified
-     * to wrap the return value in a python dict, list or tuple.
-     * <p>
-     * Examples:
-     * - "bool, date, float"  The data must be a bool, date or float.
-     * - "[bool, date]"       The data must be an array, and the array items must be a bool or date.
-     *
-     * @param p                    The OAS schema.
-     * @param prefix               prepended to the returned value.
-     * @param suffix               appended to the returned value.
-     * @param referencedModelNames a list of models that are being referenced while generating the types,
-     *                             may be used to generate imports.
-     * @return a comma-separated string representation of the Python types
-     */
-    private String getTypeString(Schema p, String prefix, String suffix, List<String> referencedModelNames) {
-        String fullSuffix = suffix;
-        if (")".equals(suffix)) {
-            fullSuffix = "," + suffix;
-        }
-        if (StringUtils.isNotEmpty(p.get$ref())) {
-            // The input schema is a reference. If the resolved schema is
-            // a composed schema, convert the name to a Python class.
-            Schema unaliasedSchema = unaliasSchema(p);
-            if (unaliasedSchema.get$ref() != null) {
-                String modelName = toModelName(ModelUtils.getSimpleRef(p.get$ref()));
-                if (referencedModelNames != null) {
-                    referencedModelNames.add(modelName);
-                }
-                return prefix + modelName + fullSuffix;
-            }
-        }
-        if (ModelUtils.isAnyType(p)) {
-            return prefix + "bool, date, datetime, dict, float, int, list, str, none_type" + suffix;
-        }
-        // Resolve $ref because ModelUtils.isXYZ methods do not automatically resolve references.
-        if (ModelUtils.isNullable(ModelUtils.getReferencedSchema(this.openAPI, p))) {
-            fullSuffix = ", none_type" + suffix;
-        }
-        if (ModelUtils.isNumberSchema(p)) {
-            return prefix + "int, float" + fullSuffix;
-        } else if (ModelUtils.isTypeObjectSchema(p)) {
-            if (p.getAdditionalProperties() != null && p.getAdditionalProperties().equals(false)) {
-                if (p.getProperties() == null) {
-                    // type object with no properties and additionalProperties = false, empty dict only
-                    return prefix + "{str: typing.Any}" + fullSuffix;
-                } else {
-                    // properties only
-                    // TODO add type hints for those properties only as values
-                    return prefix + "{str: typing.Any}" + fullSuffix;
-                }
-            } else {
-                // additionalProperties exists
-                Schema inner = getAdditionalProperties(p);
-                return prefix + "{str: " + getTypeString(inner, "(", ")", referencedModelNames) + "}" + fullSuffix;
-                // TODO add code here to add property values too if they exist
-            }
-        } else if (ModelUtils.isArraySchema(p)) {
-            ArraySchema ap = (ArraySchema) p;
-            Schema inner = ap.getItems();
-            if (inner == null) {
-                // In OAS 3.0.x, the array "items" attribute is required.
-                // In OAS >= 3.1, the array "items" attribute is optional such that the OAS
-                // specification is aligned with the JSON schema specification.
-                // When "items" is not specified, the elements of the array may be anything at all.
-                // In that case, the return value should be:
-                //    "[bool, date, datetime, dict, float, int, list, str, none_type]"
-                // Using recursion to wrap the allowed python types in an array.
-                Schema anyType = new Schema(); // A Schema without any attribute represents 'any type'.
-                return getTypeString(anyType, "[", "]", referencedModelNames);
-            } else {
-                return prefix + getTypeString(inner, "[", "]", referencedModelNames) + fullSuffix;
-            }
-        } else if (ModelUtils.isFileSchema(p)) {
-            return prefix + "file_type" + fullSuffix;
-        }
-        String baseType = getSchemaType(p);
-        return prefix + baseType + fullSuffix;
     }
 
     @Override
@@ -2245,6 +2089,25 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
+    protected String getImport(String className, CodegenSchema schema) {
+        if (className == null) {
+            return "from " + packageName() + ".components.schema import " + schema.getRefModule();
+        }
+        String[] classPieces = className.split("\\.");
+        return "from " + packageName() + ".components.schema import " + classPieces[0];
+    }
+
+    @Override
+    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
+        String refModule = toRefModule(ref, "schemas", sourceJsonPath);
+        String refClass = toRefClass(ref, sourceJsonPath);
+        if (refModule == null) {
+            return refClass;
+        }
+        return refModule + "." + refClass;
+    }
+
+    @Override
     public String toParameterFilename(String name) {
         try {
             Integer.parseInt(name);
@@ -2264,19 +2127,19 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toParameterFilename(basename);
     }
 
-    protected String toModulePath(String componentName, String priorJsonPathSegment) {
-        String prefix = packageName + ".components.";
+    @Override
+    protected String toComponentModule(String componentName, String priorJsonPathSegment) {
         switch (priorJsonPathSegment) {
             case "schemas":
-                return prefix + "schema." + toModelFilename(componentName);
+                return toModelFilename(componentName);
             case "requestBodies":
-                return prefix + "request_bodies." + toRequestBodyFilename(componentName);
+                return toRequestBodyFilename(componentName);
             case "responses":
-                return prefix + "responses." + toResponseModuleName(componentName);
+                return toResponseModuleName(componentName);
             case "headers":
-                return prefix + "headers." + toHeaderFilename(componentName);
+                return toHeaderFilename(componentName);
             case "parameters":
-                return prefix + "headers." + toParameterFilename(componentName);
+                return toParameterFilename(componentName);
         }
         return null;
     }
@@ -2310,9 +2173,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return null;
         }
         // reference is external, import needed
+        // module info is stored in refModule
         if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
             String schemaName = refPieces[3];
-            String refClass = toModelFilename(schemaName) + "." + toModelName(schemaName);
+            String refClass = toModelName(schemaName);
             return refClass;
         }
         return null;

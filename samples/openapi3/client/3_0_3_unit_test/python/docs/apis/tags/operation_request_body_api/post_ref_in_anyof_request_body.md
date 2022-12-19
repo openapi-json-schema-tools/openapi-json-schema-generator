@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ref_in_anyof.RefInAnyof**](../../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
+[**RefInAnyof**](../../../components/schema/ref_in_anyof.RefInAnyof.md) |  | 
 
 
 ### Return Types, Responses

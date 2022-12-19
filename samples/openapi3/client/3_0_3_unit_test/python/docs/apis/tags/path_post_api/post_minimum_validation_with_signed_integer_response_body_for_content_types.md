@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger**](../../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
+[**MinimumValidationWithSignedInteger**](../../../components/schema/minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger.md) |  | 
 
 
 ### Authorization

@@ -10,7 +10,7 @@ headers | [Headers](#Headers) |  |
 # application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**api_response.ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 ## Headers
 

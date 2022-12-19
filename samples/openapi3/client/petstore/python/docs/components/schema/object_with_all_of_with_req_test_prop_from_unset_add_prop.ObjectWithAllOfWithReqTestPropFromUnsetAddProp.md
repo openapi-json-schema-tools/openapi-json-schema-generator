@@ -11,7 +11,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
+[**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
 [allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # allOf_1
