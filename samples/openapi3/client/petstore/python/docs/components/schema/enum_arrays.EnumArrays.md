@@ -24,6 +24,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-EnumArrays | str,  | str,  |  | must be one of ["fish", "crab", ]
+items | str,  | str,  |  | must be one of ["fish", "crab", ]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

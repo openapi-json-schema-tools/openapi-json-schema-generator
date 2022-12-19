@@ -34,9 +34,9 @@ list, tuple, None,  | tuple, NoneClass,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[NullableClass](#NullableClass) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# NullableClass
+# items
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -53,9 +53,9 @@ list, tuple, None,  | tuple, NoneClass,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[NullableClass](#NullableClass) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+[additionalProperties](#additionalProperties) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
-# NullableClass
+# additionalProperties
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -72,9 +72,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[NullableClass](#NullableClass) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+[additionalProperties](#additionalProperties) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
-# NullableClass
+# additionalProperties
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

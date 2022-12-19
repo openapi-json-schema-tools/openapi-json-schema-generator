@@ -29,10 +29,10 @@ class ApplicationJson(
         class Properties:
         
             @staticmethod
-            def application_json() -> typing.Type['foo.Foo']:
+            def string() -> typing.Type['foo.Foo']:
                 return foo.Foo
             __annotations__ = {
-                "string": application_json,
+                "string": string,
             }
     
     @typing.overload

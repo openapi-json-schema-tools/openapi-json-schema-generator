@@ -21,6 +21,6 @@ Key | Input Type | Accessed Type | Description | Notes
 #### anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) |  |
+[**AbstractStepMessage**](AbstractStepMessage.md) | [**AbstractStepMessage**](AbstractStepMessage.md) | [**AbstractStepMessage**](AbstractStepMessage.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

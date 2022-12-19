@@ -49,20 +49,20 @@ class Animal(
             }
         
         class Properties:
-            Animal = schemas.StrSchema
-            Animal = schemas.StrSchema
+            ClassName = schemas.StrSchema
+            Color = schemas.StrSchema
             __annotations__ = {
-                "className": Animal,
-                "color": Animal,
+                "className": ClassName,
+                "color": Color,
             }
     
-    className: MetaOapg.Properties.Animal
+    className: MetaOapg.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.Animal: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.Properties.Animal: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.Properties.Color: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -79,10 +79,10 @@ class Animal(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.Animal: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.Properties.Animal, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.Properties.Color, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -100,8 +100,8 @@ class Animal(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.Animal, str, ],
-        color: typing.Union[MetaOapg.Properties.Animal, str, schemas.Unset] = schemas.unset,
+        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
+        color: typing.Union[MetaOapg.Properties.Color, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Animal':

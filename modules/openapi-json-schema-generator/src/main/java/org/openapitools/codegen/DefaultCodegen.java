@@ -2872,10 +2872,10 @@ public class DefaultCodegen implements CodegenConfig {
      */
     public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
         if (p == null) {
-            LOGGER.error("Undefined property/schema at `{}`", sourceJsonPath);
+            LOGGER.error("Undefined property/schema at `{}`", currentJsonPath);
             return null;
         }
-        LOGGER.debug("debugging fromSchema for {} : {}", sourceJsonPath, p);
+        LOGGER.debug("debugging fromSchema for {} : {}", currentJsonPath, p);
         CodegenSchema property = new CodegenSchema();
         NamedSchema ns = new NamedSchema(p, sourceJsonPath);
         CodegenSchema cpc = schemaCodegenPropertyCache.get(ns);
@@ -2898,8 +2898,8 @@ public class DefaultCodegen implements CodegenConfig {
         property.setExternalDocumentation(p.getExternalDocs());
 
         boolean isComponentSchema = false;
-        if (sourceJsonPath != null) {
-            String[] refPieces = sourceJsonPath.split("/");
+        if (currentJsonPath != null) {
+            String[] refPieces = currentJsonPath.split("/");
             if (refPieces.length >= 4) {
                 // component schemas + proprties/items/additionalProperties use case
                 String lastPathFragment = refPieces[refPieces.length-1];
@@ -2938,14 +2938,14 @@ public class DefaultCodegen implements CodegenConfig {
                 } else {
                     // component schema use case
                     // TODO set discriminator on any schema instances in the future not just these
-                    if (!sourceJsonPath.startsWith("#/components/schemas/") || refPieces.length != 4) {
+                    if (!currentJsonPath.startsWith("#/components/schemas/") || refPieces.length != 4) {
                         throw new RuntimeException("Invalid sourceJsonPath "+ sourceJsonPath);
                     }
 
                     isComponentSchema = true;
-                    property.setDiscriminator(createDiscriminator(usedName, p, this.openAPI, sourceJsonPath));
+                    property.setDiscriminator(createDiscriminator(usedName, p, this.openAPI, currentJsonPath));
                     if (p instanceof ComposedSchema) {
-                        updateModelForComposedSchema(property, p, sourceJsonPath);
+                        updateModelForComposedSchema(property, p, currentJsonPath);
                     }
 
                     property.setComponentModule(toComponentModule(usedName, "schemas"));

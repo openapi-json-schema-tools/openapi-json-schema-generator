@@ -35,11 +35,11 @@ class ArrayHoldingAnyType(
 
     class MetaOapg:
         types = {tuple}
-        ArrayHoldingAnyType = schemas.AnyTypeSchema
+        Items = schemas.AnyTypeSchema
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.ArrayHoldingAnyType, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.ArrayHoldingAnyType, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ArrayHoldingAnyType':
         return super().__new__(
@@ -48,5 +48,5 @@ class ArrayHoldingAnyType(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.ArrayHoldingAnyType:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)

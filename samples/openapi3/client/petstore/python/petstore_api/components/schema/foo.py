@@ -39,10 +39,10 @@ class Foo(
         class Properties:
         
             @staticmethod
-            def foo() -> typing.Type['bar.Bar']:
+            def bar() -> typing.Type['bar.Bar']:
                 return bar.Bar
             __annotations__ = {
-                "bar": foo,
+                "bar": bar,
             }
     
     @typing.overload

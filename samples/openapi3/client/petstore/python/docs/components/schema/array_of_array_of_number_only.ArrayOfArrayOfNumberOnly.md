@@ -23,9 +23,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[ArrayOfArrayOfNumberOnly](#ArrayOfArrayOfNumberOnly) | list, tuple,  | tuple,  |  |
+[items](#items) | list, tuple,  | tuple,  |  |
 
-# ArrayOfArrayOfNumberOnly
+# items
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -35,6 +35,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-ArrayOfArrayOfNumberOnly | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
+items | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

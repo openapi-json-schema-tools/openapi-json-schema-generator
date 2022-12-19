@@ -137,7 +137,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  |
+items | str,  | str,  |  |
 
 ### Return Types, Responses
 

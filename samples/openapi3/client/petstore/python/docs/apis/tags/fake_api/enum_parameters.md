@@ -95,7 +95,7 @@ list, tuple,  | tuple,  | Form parameter enum test (string array) |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-application/x-www-form-urlencoded | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
+items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 ### <a id="RequestQueryParameters" >query_params</a>
 #### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
@@ -118,7 +118,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
+items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 # parameter_3.schema
 
@@ -159,7 +159,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
+items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 # parameter_1.schema
 

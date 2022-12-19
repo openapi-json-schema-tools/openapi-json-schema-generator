@@ -38,7 +38,7 @@ class ApplicationJson(
         class AllOf:
             
             
-            class ApplicationJson(
+            class AllOf0(
                 schemas.StrSchema
             ):
             
@@ -49,7 +49,7 @@ class ApplicationJson(
                     }
                     min_length = 1
             classes = [
-                ApplicationJson,
+                AllOf0,
             ]
 
 
@@ -78,7 +78,7 @@ class MultipartFormData(
         class Properties:
             
             
-            class MultipartFormData(
+            class SomeProp(
                 schemas.AnyTypeSchema,
             ):
             
@@ -89,7 +89,7 @@ class MultipartFormData(
                     class AllOf:
                         
                         
-                        class MultipartFormData(
+                        class AllOf0(
                             schemas.StrSchema
                         ):
                         
@@ -100,7 +100,7 @@ class MultipartFormData(
                                 }
                                 min_length = 1
                         classes = [
-                            MultipartFormData,
+                            AllOf0,
                         ]
             
             
@@ -109,7 +109,7 @@ class MultipartFormData(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'MultipartFormData':
+                ) -> 'SomeProp':
                     return super().__new__(
                         cls,
                         *_args,
@@ -117,11 +117,11 @@ class MultipartFormData(
                         **kwargs,
                     )
             __annotations__ = {
-                "someProp": MultipartFormData,
+                "someProp": SomeProp,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.Properties.MultipartFormData: ...
+    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.Properties.SomeProp: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -137,7 +137,7 @@ class MultipartFormData(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.Properties.MultipartFormData, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.Properties.SomeProp, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -154,7 +154,7 @@ class MultipartFormData(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        someProp: typing.Union[MetaOapg.Properties.MultipartFormData, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        someProp: typing.Union[MetaOapg.Properties.SomeProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'MultipartFormData':

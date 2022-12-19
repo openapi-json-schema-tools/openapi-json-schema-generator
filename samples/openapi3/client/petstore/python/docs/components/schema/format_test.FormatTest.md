@@ -43,6 +43,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-FormatTest | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
+items | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

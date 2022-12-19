@@ -36,18 +36,18 @@ class MultipartFormData(
         types = {frozendict.frozendict}
         
         class Properties:
-            MultipartFormData = schemas.StrSchema
-            MultipartFormData = schemas.BinarySchema
+            AdditionalMetadata = schemas.StrSchema
+            File = schemas.BinarySchema
             __annotations__ = {
-                "additionalMetadata": MultipartFormData,
-                "file": MultipartFormData,
+                "additionalMetadata": AdditionalMetadata,
+                "file": File,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.Properties.MultipartFormData: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.Properties.AdditionalMetadata: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["file"]) -> MetaOapg.Properties.MultipartFormData: ...
+    def __getitem__(self, name: typing_extensions.Literal["file"]) -> MetaOapg.Properties.File: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -64,10 +64,10 @@ class MultipartFormData(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.Properties.MultipartFormData, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.Properties.AdditionalMetadata, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union[MetaOapg.Properties.MultipartFormData, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union[MetaOapg.Properties.File, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -85,8 +85,8 @@ class MultipartFormData(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        additionalMetadata: typing.Union[MetaOapg.Properties.MultipartFormData, str, schemas.Unset] = schemas.unset,
-        file: typing.Union[MetaOapg.Properties.MultipartFormData, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        additionalMetadata: typing.Union[MetaOapg.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
+        file: typing.Union[MetaOapg.Properties.File, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'MultipartFormData':

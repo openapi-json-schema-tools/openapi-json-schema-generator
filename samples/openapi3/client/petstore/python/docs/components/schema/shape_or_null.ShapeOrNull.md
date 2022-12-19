@@ -13,11 +13,11 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[ShapeOrNull](#ShapeOrNull) | None,  | NoneClass,  |  |
+[oneOf_0](#oneOf_0) | None,  | NoneClass,  |  |
 [**Triangle**](Triangle.md) | [**Triangle**](Triangle.md) | [**Triangle**](Triangle.md) |  |
 [**Quadrilateral**](Quadrilateral.md) | [**Quadrilateral**](Quadrilateral.md) | [**Quadrilateral**](Quadrilateral.md) |  |
 
-# ShapeOrNull
+# oneOf_0
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

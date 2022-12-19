@@ -10,6 +10,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**SelfReferencingArrayModel**](#SelfReferencingArrayModel) | [**SelfReferencingArrayModel**](#SelfReferencingArrayModel) | [**SelfReferencingArrayModel**](#SelfReferencingArrayModel) |  |
+[**SelfReferencingArrayModel**](SelfReferencingArrayModel.md) | [**SelfReferencingArrayModel**](SelfReferencingArrayModel.md) | [**SelfReferencingArrayModel**](SelfReferencingArrayModel.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

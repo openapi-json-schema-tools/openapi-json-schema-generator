@@ -48,15 +48,15 @@ class Shape(
         class OneOf:
         
             @staticmethod
-            def shape() -> typing.Type['triangle.Triangle']:
+            def one_of_0() -> typing.Type['triangle.Triangle']:
                 return triangle.Triangle
         
             @staticmethod
-            def shape() -> typing.Type['quadrilateral.Quadrilateral']:
+            def one_of_1() -> typing.Type['quadrilateral.Quadrilateral']:
                 return quadrilateral.Quadrilateral
             classes = [
-                shape,
-                shape,
+                one_of_0,
+                one_of_1,
             ]
 
 

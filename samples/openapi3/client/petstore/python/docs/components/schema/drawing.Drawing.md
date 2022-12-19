@@ -11,8 +11,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **mainShape** | [**Shape**](Shape.md) | [**Shape**](Shape.md) |  | [optional]
-**shapeOrNull** | [**ShapeOrNull**](ShapeOrNull.md) | [**ShapeOrNull**](ShapeOrNull.md) |  | [optional]
-**nullableShape** | [**NullableShape**](NullableShape.md) | [**NullableShape**](NullableShape.md) |  | [optional]
+**shapeOrNull** | [**ShapeOrNull**](#ShapeOrNull) | [**ShapeOrNull**](#ShapeOrNull) |  | [optional]
+**nullableShape** | [**NullableShape**](#NullableShape) | [**NullableShape**](#NullableShape) |  | [optional]
 **shapes** | [list, tuple, ](#shapes) | [tuple, ](#shapes) |  | [optional]
 **any_string_name** | [**Fruit**](Fruit.md) | [**Fruit**](Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 

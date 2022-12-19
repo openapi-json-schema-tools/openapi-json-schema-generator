@@ -12,9 +12,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**QuadrilateralInterface**](QuadrilateralInterface.md) | [**QuadrilateralInterface**](QuadrilateralInterface.md) | [**QuadrilateralInterface**](QuadrilateralInterface.md) |  |
-[SimpleQuadrilateral](#SimpleQuadrilateral) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# SimpleQuadrilateral
+# allOf_1
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

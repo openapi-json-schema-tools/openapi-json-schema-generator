@@ -36,18 +36,18 @@ class ApplicationXWwwFormUrlencoded(
         types = {frozendict.frozendict}
         
         class Properties:
-            ApplicationXWwwFormUrlencoded = schemas.StrSchema
-            ApplicationXWwwFormUrlencoded = schemas.StrSchema
+            Name = schemas.StrSchema
+            Status = schemas.StrSchema
             __annotations__ = {
-                "name": ApplicationXWwwFormUrlencoded,
-                "status": ApplicationXWwwFormUrlencoded,
+                "name": Name,
+                "status": Status,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.Properties.Status: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -64,10 +64,10 @@ class ApplicationXWwwFormUrlencoded(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.Properties.Status, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -85,8 +85,8 @@ class ApplicationXWwwFormUrlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        name: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, schemas.Unset] = schemas.unset,
+        name: typing.Union[MetaOapg.Properties.Name, str, schemas.Unset] = schemas.unset,
+        status: typing.Union[MetaOapg.Properties.Status, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ApplicationXWwwFormUrlencoded':

@@ -54,30 +54,30 @@ class AbstractStepMessage(
             }
         
         class Properties:
-            AbstractStepMessage = schemas.StrSchema
+            Discriminator = schemas.StrSchema
             __annotations__ = {
-                "discriminator": AbstractStepMessage,
+                "discriminator": Discriminator,
             }
         
         class AnyOf:
         
             @staticmethod
-            def abstract_step_message() -> typing.Type['AbstractStepMessage']:
+            def any_of_0() -> typing.Type['AbstractStepMessage']:
                 return AbstractStepMessage
             classes = [
-                abstract_step_message,
+                any_of_0,
             ]
 
     
     description: schemas.AnyTypeSchema
-    discriminator: MetaOapg.Properties.AbstractStepMessage
+    discriminator: MetaOapg.Properties.Discriminator
     sequenceNumber: schemas.AnyTypeSchema
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.Properties.AbstractStepMessage: ...
+    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.Properties.Discriminator: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
@@ -101,7 +101,7 @@ class AbstractStepMessage(
     def get_item_oapg(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.Properties.AbstractStepMessage: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["discriminator"]) -> MetaOapg.Properties.Discriminator: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
@@ -124,7 +124,7 @@ class AbstractStepMessage(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         description: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        discriminator: typing.Union[MetaOapg.Properties.AbstractStepMessage, str, ],
+        discriminator: typing.Union[MetaOapg.Properties.Discriminator, str, ],
         sequenceNumber: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

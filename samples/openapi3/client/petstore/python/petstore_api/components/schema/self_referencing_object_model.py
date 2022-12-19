@@ -39,14 +39,14 @@ class SelfReferencingObjectModel(
         class Properties:
         
             @staticmethod
-            def self_referencing_object_model() -> typing.Type['SelfReferencingObjectModel']:
+            def additional_properties() -> typing.Type['SelfReferencingObjectModel']:
                 return SelfReferencingObjectModel
             __annotations__ = {
-                "selfRef": self_referencing_object_model,
+                "selfRef": additional_properties,
             }
         
         @staticmethod
-        def self_referencing_object_model() -> typing.Type['SelfReferencingObjectModel']:
+        def additional_properties() -> typing.Type['SelfReferencingObjectModel']:
             return SelfReferencingObjectModel
     
     @typing.overload

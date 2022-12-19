@@ -137,7 +137,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of "available"
+items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of "available"
 
 ### Return Types, Responses
 

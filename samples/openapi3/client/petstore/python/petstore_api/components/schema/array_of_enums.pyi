@@ -37,7 +37,7 @@ class ArrayOfEnums(
         types = {tuple}
         
         @staticmethod
-        def array_of_enums() -> typing.Type['string_enum.StringEnum']:
+        def items() -> typing.Type['string_enum.StringEnum']:
             return string_enum.StringEnum
 
     def __new__(

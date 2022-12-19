@@ -25,7 +25,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-ArrayTest | str,  | str,  |  |
+items | str,  | str,  |  |
 
 # array_array_of_integer
 
@@ -37,9 +37,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[ArrayTest](#ArrayTest) | list, tuple,  | tuple,  |  |
+[items](#items) | list, tuple,  | tuple,  |  |
 
-# ArrayTest
+# items
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -49,7 +49,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-ArrayTest | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 # array_array_of_model
 
@@ -61,9 +61,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[ArrayTest](#ArrayTest) | list, tuple,  | tuple,  |  |
+[items](#items) | list, tuple,  | tuple,  |  |
 
-# ArrayTest
+# items
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

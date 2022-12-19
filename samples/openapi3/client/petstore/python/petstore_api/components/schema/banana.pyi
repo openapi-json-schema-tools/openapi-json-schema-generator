@@ -39,15 +39,15 @@ class Banana(
         }
         
         class Properties:
-            Banana = schemas.NumberSchema
+            LengthCm = schemas.NumberSchema
             __annotations__ = {
-                "lengthCm": Banana,
+                "lengthCm": LengthCm,
             }
     
-    lengthCm: MetaOapg.Properties.Banana
+    lengthCm: MetaOapg.Properties.LengthCm
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.Properties.Banana: ...
+    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.Properties.LengthCm: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -63,7 +63,7 @@ class Banana(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.Properties.Banana: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.Properties.LengthCm: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -80,7 +80,7 @@ class Banana(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        lengthCm: typing.Union[MetaOapg.Properties.Banana, decimal.Decimal, int, float, ],
+        lengthCm: typing.Union[MetaOapg.Properties.LengthCm, decimal.Decimal, int, float, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Banana':

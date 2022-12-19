@@ -42,15 +42,15 @@ class ObjectWithInvalidNamedRefedProperties(
         class Properties:
         
             @staticmethod
-            def object_with_invalid_named_refed_properties() -> typing.Type['from_schema.FromSchema']:
+            def _from() -> typing.Type['from_schema.FromSchema']:
                 return from_schema.FromSchema
         
             @staticmethod
-            def object_with_invalid_named_refed_properties() -> typing.Type['array_with_validations_in_items.ArrayWithValidationsInItems']:
+            def reference() -> typing.Type['array_with_validations_in_items.ArrayWithValidationsInItems']:
                 return array_with_validations_in_items.ArrayWithValidationsInItems
             __annotations__ = {
-                "from": object_with_invalid_named_refed_properties,
-                "!reference": object_with_invalid_named_refed_properties,
+                "from": _from,
+                "!reference": reference,
             }
     
     

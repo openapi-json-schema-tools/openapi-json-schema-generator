@@ -39,18 +39,18 @@ class Player(
         types = {frozendict.frozendict}
         
         class Properties:
-            Player = schemas.StrSchema
+            Name = schemas.StrSchema
         
             @staticmethod
-            def player() -> typing.Type['Player']:
+            def enemy_player() -> typing.Type['Player']:
                 return Player
             __annotations__ = {
-                "name": Player,
-                "enemyPlayer": player,
+                "name": Name,
+                "enemyPlayer": enemy_player,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Player: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enemyPlayer"]) -> 'Player': ...
@@ -70,7 +70,7 @@ class Player(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Player, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["enemyPlayer"]) -> typing.Union['Player', schemas.Unset]: ...
@@ -91,7 +91,7 @@ class Player(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        name: typing.Union[MetaOapg.Properties.Player, str, schemas.Unset] = schemas.unset,
+        name: typing.Union[MetaOapg.Properties.Name, str, schemas.Unset] = schemas.unset,
         enemyPlayer: typing.Union['Player', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

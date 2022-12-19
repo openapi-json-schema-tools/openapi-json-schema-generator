@@ -40,20 +40,20 @@ class ObjectModelWithRefProps(
         class Properties:
         
             @staticmethod
-            def object_model_with_ref_props() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def my_number() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def object_model_with_ref_props() -> typing.Type['string.String']:
+            def my_string() -> typing.Type['string.String']:
                 return string.String
         
             @staticmethod
-            def object_model_with_ref_props() -> typing.Type['boolean.Boolean']:
+            def my_boolean() -> typing.Type['boolean.Boolean']:
                 return boolean.Boolean
             __annotations__ = {
-                "myNumber": object_model_with_ref_props,
-                "myString": object_model_with_ref_props,
-                "myBoolean": object_model_with_ref_props,
+                "myNumber": my_number,
+                "myString": my_string,
+                "myBoolean": my_boolean,
             }
     
     @typing.overload

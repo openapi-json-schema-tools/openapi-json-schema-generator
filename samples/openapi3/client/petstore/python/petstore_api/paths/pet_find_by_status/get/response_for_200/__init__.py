@@ -27,7 +27,7 @@ class ApplicationXml(
         types = {tuple}
         
         @staticmethod
-        def application_xml() -> typing.Type['pet.Pet']:
+        def items() -> typing.Type['pet.Pet']:
             return pet.Pet
 
     def __new__(
@@ -54,7 +54,7 @@ class ApplicationJson(
         types = {tuple}
         
         @staticmethod
-        def application_json() -> typing.Type['pet.Pet']:
+        def items() -> typing.Type['pet.Pet']:
             return pet.Pet
 
     def __new__(

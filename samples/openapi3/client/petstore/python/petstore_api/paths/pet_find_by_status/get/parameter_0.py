@@ -36,7 +36,7 @@ class Schema(
         types = {tuple}
         
         
-        class Schema(
+        class Items(
             schemas.StrSchema
         ):
         
@@ -65,7 +65,7 @@ class Schema(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Schema, str, ]], typing.List[typing.Union[MetaOapg.Schema, str, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, str, ]], typing.List[typing.Union[MetaOapg.Items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'Schema':
         return super().__new__(
@@ -74,7 +74,7 @@ class Schema(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.Schema:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)
 
 

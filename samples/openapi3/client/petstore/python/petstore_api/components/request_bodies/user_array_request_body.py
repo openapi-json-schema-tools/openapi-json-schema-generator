@@ -36,7 +36,7 @@ class ApplicationJson(
         types = {tuple}
         
         @staticmethod
-        def application_json() -> typing.Type['user.User']:
+        def items() -> typing.Type['user.User']:
             return user.User
 
     def __new__(

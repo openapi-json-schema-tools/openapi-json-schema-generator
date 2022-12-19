@@ -81,7 +81,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  |
+items | str,  | str,  |  |
 
 # parameter_1.schema
 
@@ -93,7 +93,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  |
+items | str,  | str,  |  |
 
 # parameter_2.schema
 
@@ -105,7 +105,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  |
+items | str,  | str,  |  |
 
 # parameter_3.schema
 
@@ -117,7 +117,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  |
+items | str,  | str,  |  |
 
 # parameter_4.schema
 
@@ -129,7 +129,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-schema | str,  | str,  |  |
+items | str,  | str,  |  |
 
 # parameter_5.schema
 Type | Description  | Notes

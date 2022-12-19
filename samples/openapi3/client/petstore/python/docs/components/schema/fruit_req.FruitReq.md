@@ -11,11 +11,11 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[fruitReq](#fruitReq) | None,  | NoneClass,  |  |
+[oneOf_0](#oneOf_0) | None,  | NoneClass,  |  |
 [**AppleReq**](AppleReq.md) | [**AppleReq**](AppleReq.md) | [**AppleReq**](AppleReq.md) |  |
 [**BananaReq**](BananaReq.md) | [**BananaReq**](BananaReq.md) | [**BananaReq**](BananaReq.md) |  |
 
-# fruitReq
+# oneOf_0
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
