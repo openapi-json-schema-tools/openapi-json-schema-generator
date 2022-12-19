@@ -13,6 +13,6 @@
 
 {{#each models}}
 {{#with model}}
-from {{packageName}}.{{modelPackage}}.{{refModule}} import {{name.getCamelCaseName}}
+from {{packageName}}.{{modelPackage}}.{{getComponentModule}} import {{name.getCamelCaseName}}
 {{/with}}
 {{/each}}
