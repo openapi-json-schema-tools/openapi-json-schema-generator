@@ -40,8 +40,8 @@ class Shape(
         def discriminator():
             return {
                 'shapeType': {
-                    'Quadrilateral': Quadrilateral,
-                    'Triangle': Triangle,
+                    'Quadrilateral': quadrilateral.Quadrilateral,
+                    'Triangle': triangle.Triangle,
                 }
             }
         
@@ -72,3 +72,6 @@ class Shape(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import quadrilateral
+from petstore_api.components.schema import triangle

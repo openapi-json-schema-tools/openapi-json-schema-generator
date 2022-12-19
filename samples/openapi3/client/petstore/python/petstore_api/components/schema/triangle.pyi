@@ -40,9 +40,9 @@ class Triangle(
         def discriminator():
             return {
                 'triangleType': {
-                    'EquilateralTriangle': EquilateralTriangle,
-                    'IsoscelesTriangle': IsoscelesTriangle,
-                    'ScaleneTriangle': ScaleneTriangle,
+                    'EquilateralTriangle': equilateral_triangle.EquilateralTriangle,
+                    'IsoscelesTriangle': isosceles_triangle.IsoscelesTriangle,
+                    'ScaleneTriangle': scalene_triangle.ScaleneTriangle,
                 }
             }
         
@@ -78,3 +78,7 @@ class Triangle(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import equilateral_triangle
+from petstore_api.components.schema import isosceles_triangle
+from petstore_api.components.schema import scalene_triangle

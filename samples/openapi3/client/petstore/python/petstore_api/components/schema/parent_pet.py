@@ -42,7 +42,7 @@ class ParentPet(
         def discriminator():
             return {
                 'pet_type': {
-                    'ChildCat': ChildCat,
+                    'ChildCat': child_cat.ChildCat,
                 }
             }
         
@@ -68,3 +68,5 @@ class ParentPet(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import child_cat

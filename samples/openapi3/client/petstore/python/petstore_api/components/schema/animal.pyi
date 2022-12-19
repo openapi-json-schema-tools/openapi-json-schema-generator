@@ -42,8 +42,8 @@ class Animal(
         def discriminator():
             return {
                 'className': {
-                    'Cat': Cat,
-                    'Dog': Dog,
+                    'Cat': cat.Cat,
+                    'Dog': dog.Dog,
                 }
             }
         
@@ -112,3 +112,6 @@ class Animal(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import cat
+from petstore_api.components.schema import dog

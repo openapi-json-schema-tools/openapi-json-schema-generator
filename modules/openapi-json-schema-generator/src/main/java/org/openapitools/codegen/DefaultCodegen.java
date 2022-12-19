@@ -2577,7 +2577,7 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn("'{}' defines discriminator '{}', but the referenced schema '{}' is incorrect. {}",
                             composedSchemaName, discPropName, modelName, msgSuffix);
                 }
-                MappedModel mm = new MappedModel(modelName, toRefClass("#/components/schemas/" + modelName, sourceJsonPath));
+                MappedModel mm = new MappedModel(modelName, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath));
                 descendentSchemas.add(mm);
                 Schema cs = ModelUtils.getSchema(openAPI, modelName);
                 if (cs == null) { // cannot lookup the model based on the name
@@ -2586,7 +2586,7 @@ public class DefaultCodegen implements CodegenConfig {
                     Map<String, Object> vendorExtensions = cs.getExtensions();
                     if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                         String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                        mm = new MappedModel(xDiscriminatorValue, toRefClass("#/components/schemas/" + modelName, sourceJsonPath));
+                        mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath));
                         descendentSchemas.add(mm);
                     }
                 }
@@ -2639,17 +2639,26 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             }
             currentSchemaName = queue.remove(0);
-            MappedModel mm = new MappedModel(currentSchemaName, toRefClass("#/components/schemas/" + currentSchemaName, sourceJsonPath));
+            MappedModel mm = new MappedModel(currentSchemaName, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath));
             descendentSchemas.add(mm);
             Schema cs = schemas.get(currentSchemaName);
             Map<String, Object> vendorExtensions = cs.getExtensions();
             if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                 String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                mm = new MappedModel(xDiscriminatorValue, toRefClass("#/components/schemas/" + currentSchemaName, sourceJsonPath));
+                mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath));
                 descendentSchemas.add(mm);
             }
         }
         return descendentSchemas;
+    }
+
+    private String getRefClassWithModule(String ref, String sourceJsonPath) {
+        String refModule = toRefModule(ref, "schemas", sourceJsonPath);
+        String refClass = toRefClass(ref, sourceJsonPath);
+        if (refModule == null) {
+            return refClass;
+        }
+        return refModule + "." + refClass;
     }
 
     protected CodegenDiscriminator createDiscriminator(String schemaName, Schema schema, OpenAPI openAPI, String sourceJsonPath) {
@@ -2686,11 +2695,11 @@ public class DefaultCodegen implements CodegenConfig {
                     if (ModelUtils.getSchema(openAPI, name) == null) {
                         LOGGER.error("Failed to lookup the schema '{}' when processing the discriminator mapping of oneOf/anyOf. Please check to ensure it's defined properly.", name);
                     } else {
-                        modelName = toRefClass(e.getValue(), sourceJsonPath);
+                        modelName = getRefClassWithModule(e.getValue(), sourceJsonPath);
                     }
                 } else {
                     String ref = "#/components/schemas/" + value;
-                    modelName = toRefClass(ref, sourceJsonPath);
+                    modelName = getRefClassWithModule(ref, sourceJsonPath);
                 }
                 if (modelName != null) {
                     uniqueDescendants.add(new MappedModel(e.getKey(), modelName));
