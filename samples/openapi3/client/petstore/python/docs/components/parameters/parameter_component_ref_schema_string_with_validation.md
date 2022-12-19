@@ -1,5 +1,5 @@
 <a name="top"></a>
-## parameter_component_ref_schema_string_with_validation
+## petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
 # application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
