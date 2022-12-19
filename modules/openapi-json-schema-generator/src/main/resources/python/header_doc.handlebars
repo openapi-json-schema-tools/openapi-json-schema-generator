@@ -24,7 +24,7 @@
     {{#each headers}}
         {{#with this}}
             {{#if componentModule}}
-# {{componentModule}}
+# {{packageName}}.components.headers.{{componentModule}}
                 {{#if schema}}
                     {{#with schema}}
 {{> api_doc_schema_type_hint }}
