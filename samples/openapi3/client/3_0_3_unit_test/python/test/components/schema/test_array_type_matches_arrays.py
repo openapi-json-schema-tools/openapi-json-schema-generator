@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema. import ArrayTypeMatchesArrays
 from unit_test_api import configuration
 
 

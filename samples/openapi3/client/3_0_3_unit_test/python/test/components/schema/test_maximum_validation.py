@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.maximum_validation import MaximumValidation
+from unit_test_api.components.schema. import MaximumValidation
 from unit_test_api import configuration
 
 

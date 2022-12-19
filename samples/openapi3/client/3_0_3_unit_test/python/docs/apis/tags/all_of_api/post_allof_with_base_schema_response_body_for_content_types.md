@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**allof_with_base_schema.AllofWithBaseSchema**](../../../components/schema/allof_with_base_schema.AllofWithBaseSchema.md) |  | 
+[**AllofWithBaseSchema**](../../../components/schema/allof_with_base_schema.AllofWithBaseSchema.md) |  | 
 
 
 ### Authorization

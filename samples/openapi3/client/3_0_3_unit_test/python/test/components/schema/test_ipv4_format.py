@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.ipv4_format import Ipv4Format
+from unit_test_api.components.schema. import Ipv4Format
 from unit_test_api import configuration
 
 

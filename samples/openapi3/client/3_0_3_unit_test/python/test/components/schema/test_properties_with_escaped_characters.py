@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.properties_with_escaped_characters import PropertiesWithEscapedCharacters
+from unit_test_api.components.schema. import PropertiesWithEscapedCharacters
 from unit_test_api import configuration
 
 

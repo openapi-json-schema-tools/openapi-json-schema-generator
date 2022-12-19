@@ -11,7 +11,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**addition_operator.AdditionOperator**](addition_operator.AdditionOperator.md) | [**addition_operator.AdditionOperator**](addition_operator.AdditionOperator.md) | [**addition_operator.AdditionOperator**](addition_operator.AdditionOperator.md) |  |
-[**subtraction_operator.SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**subtraction_operator.SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**subtraction_operator.SubtractionOperator**](subtraction_operator.SubtractionOperator.md) |  |
+[**AdditionOperator**](addition_operator.AdditionOperator.md) | [**AdditionOperator**](addition_operator.AdditionOperator.md) | [**AdditionOperator**](addition_operator.AdditionOperator.md) |  |
+[**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) | [**SubtractionOperator**](subtraction_operator.SubtractionOperator.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

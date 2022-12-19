@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.maximum_validation_with_unsigned_integer import MaximumValidationWithUnsignedInteger
+from unit_test_api.components.schema. import MaximumValidationWithUnsignedInteger
 from unit_test_api import configuration
 
 

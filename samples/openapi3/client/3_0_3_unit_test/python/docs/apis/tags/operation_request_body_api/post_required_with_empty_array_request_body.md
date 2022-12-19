@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**required_with_empty_array.RequiredWithEmptyArray**](../../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
+[**RequiredWithEmptyArray**](../../../components/schema/required_with_empty_array.RequiredWithEmptyArray.md) |  | 
 
 
 ### Return Types, Responses

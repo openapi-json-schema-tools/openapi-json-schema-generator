@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
+from unit_test_api.components.schema. import NumberTypeMatchesNumbers
 from unit_test_api import configuration
 
 

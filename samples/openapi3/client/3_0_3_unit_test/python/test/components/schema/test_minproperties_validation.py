@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
+from unit_test_api.components.schema. import MinpropertiesValidation
 from unit_test_api import configuration
 
 

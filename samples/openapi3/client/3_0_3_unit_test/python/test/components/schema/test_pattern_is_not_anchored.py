@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.pattern_is_not_anchored import PatternIsNotAnchored
+from unit_test_api.components.schema. import PatternIsNotAnchored
 from unit_test_api import configuration
 
 

@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema**](../../../components/schema/allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema.md) |  | 
+[**AllofWithTheFirstEmptySchema**](../../../components/schema/allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema.md) |  | 
 
 
 ### Return Types, Responses

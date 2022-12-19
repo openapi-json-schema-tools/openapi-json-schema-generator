@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema. import NullTypeMatchesOnlyTheNullObject
 from unit_test_api import configuration
 
 

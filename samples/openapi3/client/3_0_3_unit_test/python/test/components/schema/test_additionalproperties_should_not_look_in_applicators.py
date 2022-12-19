@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.additionalproperties_should_not_look_in_applicators import AdditionalpropertiesShouldNotLookInApplicators
+from unit_test_api.components.schema. import AdditionalpropertiesShouldNotLookInApplicators
 from unit_test_api import configuration
 
 

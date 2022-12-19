@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate import AdditionalpropertiesAllowsASchemaWhichShouldValidate
+from unit_test_api.components.schema. import AdditionalpropertiesAllowsASchemaWhichShouldValidate
 from unit_test_api import configuration
 
 

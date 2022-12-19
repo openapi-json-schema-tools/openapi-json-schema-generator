@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference**](../../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
+[**PropertyNamedRefThatIsNotAReference**](../../../components/schema/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  | 
 
 
 ### Authorization

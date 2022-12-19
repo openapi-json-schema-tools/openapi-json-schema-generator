@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema. import EnumsInProperties
 from unit_test_api import configuration
 
 

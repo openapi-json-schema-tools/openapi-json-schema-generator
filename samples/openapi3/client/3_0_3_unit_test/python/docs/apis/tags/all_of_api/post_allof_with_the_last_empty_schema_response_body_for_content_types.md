@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema**](../../../components/schema/allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema.md) |  | 
+[**AllofWithTheLastEmptySchema**](../../../components/schema/allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema.md) |  | 
 
 
 ### Authorization

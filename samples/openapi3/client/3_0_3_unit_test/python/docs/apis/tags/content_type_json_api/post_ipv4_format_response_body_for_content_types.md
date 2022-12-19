@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ipv4_format.Ipv4Format**](../../../components/schema/ipv4_format.Ipv4Format.md) |  | 
+[**Ipv4Format**](../../../components/schema/ipv4_format.Ipv4Format.md) |  | 
 
 
 ### Authorization

@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.ipv6_format import Ipv6Format
+from unit_test_api.components.schema. import Ipv6Format
 from unit_test_api import configuration
 
 

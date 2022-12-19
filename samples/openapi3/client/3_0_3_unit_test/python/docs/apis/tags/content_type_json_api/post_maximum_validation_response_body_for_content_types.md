@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**maximum_validation.MaximumValidation**](../../../components/schema/maximum_validation.MaximumValidation.md) |  | 
+[**MaximumValidation**](../../../components/schema/maximum_validation.MaximumValidation.md) |  | 
 
 
 ### Authorization

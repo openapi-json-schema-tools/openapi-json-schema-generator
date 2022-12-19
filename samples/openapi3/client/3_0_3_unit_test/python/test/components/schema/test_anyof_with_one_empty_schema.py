@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema. import AnyofWithOneEmptySchema
 from unit_test_api import configuration
 
 

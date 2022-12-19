@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema.allof_simple_types import AllofSimpleTypes
+from unit_test_api.components.schema. import AllofSimpleTypes
 from unit_test_api import configuration
 
 
