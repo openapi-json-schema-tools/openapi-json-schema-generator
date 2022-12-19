@@ -39,21 +39,21 @@ class SelfReferencingObjectModel(
         class Properties:
         
             @staticmethod
-            def self_ref() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
-                return self_referencing_object_model.SelfReferencingObjectModel
+            def self_ref() -> typing.Type['SelfReferencingObjectModel']:
+                return SelfReferencingObjectModel
             __annotations__ = {
                 "selfRef": self_ref,
             }
         
         @staticmethod
-        def additional_properties() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
-            return self_referencing_object_model.SelfReferencingObjectModel
+        def additional_properties() -> typing.Type['SelfReferencingObjectModel']:
+            return SelfReferencingObjectModel
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> 'self_referencing_object_model.SelfReferencingObjectModel': ...
+    def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> 'SelfReferencingObjectModel': ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> 'self_referencing_object_model.SelfReferencingObjectModel': ...
+    def __getitem__(self, name: str) -> 'SelfReferencingObjectModel': ...
     
     def __getitem__(
         self,
@@ -66,10 +66,10 @@ class SelfReferencingObjectModel(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["selfRef"]) -> typing.Union['self_referencing_object_model.SelfReferencingObjectModel', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["selfRef"]) -> typing.Union['SelfReferencingObjectModel', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union['self_referencing_object_model.SelfReferencingObjectModel', schemas.Unset]: ...
+    def get_item_oapg(self, name: str) -> typing.Union['SelfReferencingObjectModel', schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -83,9 +83,9 @@ class SelfReferencingObjectModel(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        selfRef: typing.Union['self_referencing_object_model.SelfReferencingObjectModel', schemas.Unset] = schemas.unset,
+        selfRef: typing.Union['SelfReferencingObjectModel', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: 'self_referencing_object_model.SelfReferencingObjectModel',
+        **kwargs: 'SelfReferencingObjectModel',
     ) -> 'SelfReferencingObjectModel':
         return super().__new__(
             cls,
@@ -94,5 +94,3 @@ class SelfReferencingObjectModel(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import self_referencing_object_model

@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**not_more_complex_schema.NotMoreComplexSchema**](../../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
+[**NotMoreComplexSchema**](../../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 
 
 
 ### Authorization

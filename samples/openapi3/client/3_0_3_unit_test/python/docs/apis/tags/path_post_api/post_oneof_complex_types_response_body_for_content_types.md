@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**oneof_complex_types.OneofComplexTypes**](../../../components/schema/oneof_complex_types.OneofComplexTypes.md) |  | 
+[**OneofComplexTypes**](../../../components/schema/oneof_complex_types.OneofComplexTypes.md) |  | 
 
 
 ### Authorization

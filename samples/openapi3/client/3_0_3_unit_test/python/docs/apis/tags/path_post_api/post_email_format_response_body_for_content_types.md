@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**email_format.EmailFormat**](../../../components/schema/email_format.EmailFormat.md) |  | 
+[**EmailFormat**](../../../components/schema/email_format.EmailFormat.md) |  | 
 
 
 ### Authorization

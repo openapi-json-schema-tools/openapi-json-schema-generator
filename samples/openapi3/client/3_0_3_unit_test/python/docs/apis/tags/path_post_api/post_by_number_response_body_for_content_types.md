@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**by_number.ByNumber**](../../../components/schema/by_number.ByNumber.md) |  | 
+[**ByNumber**](../../../components/schema/by_number.ByNumber.md) |  | 
 
 
 ### Authorization

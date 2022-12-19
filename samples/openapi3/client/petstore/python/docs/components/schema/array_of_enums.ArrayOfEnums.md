@@ -10,6 +10,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**string_enum.StringEnum**](string_enum.StringEnum.md) | [**string_enum.StringEnum**](string_enum.StringEnum.md) | [**string_enum.StringEnum**](string_enum.StringEnum.md) |  |
+[**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**integer_type_matches_integers.IntegerTypeMatchesIntegers**](../../../components/schema/integer_type_matches_integers.IntegerTypeMatchesIntegers.md) |  | 
+[**IntegerTypeMatchesIntegers**](../../../components/schema/integer_type_matches_integers.IntegerTypeMatchesIntegers.md) |  | 
 
 
 ### Return Types, Responses

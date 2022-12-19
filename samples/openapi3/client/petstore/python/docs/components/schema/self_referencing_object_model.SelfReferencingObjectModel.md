@@ -10,7 +10,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**selfRef** | [**self_referencing_object_model.SelfReferencingObjectModel**](self_referencing_object_model.SelfReferencingObjectModel.md) | [**self_referencing_object_model.SelfReferencingObjectModel**](self_referencing_object_model.SelfReferencingObjectModel.md) |  | [optional]
-**any_string_name** | [**self_referencing_object_model.SelfReferencingObjectModel**](self_referencing_object_model.SelfReferencingObjectModel.md) | [**self_referencing_object_model.SelfReferencingObjectModel**](self_referencing_object_model.SelfReferencingObjectModel.md) | any string name can be used but the value must be the correct type | [optional]
+**selfRef** | [**SelfReferencingObjectModel**](#SelfReferencingObjectModel) | [**SelfReferencingObjectModel**](#SelfReferencingObjectModel) |  | [optional]
+**any_string_name** | [**SelfReferencingObjectModel**](#SelfReferencingObjectModel) | [**SelfReferencingObjectModel**](#SelfReferencingObjectModel) | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

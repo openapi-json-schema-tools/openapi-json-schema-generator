@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**uri_reference_format.UriReferenceFormat**](../../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
+[**UriReferenceFormat**](../../../components/schema/uri_reference_format.UriReferenceFormat.md) |  | 
 
 
 ### Authorization

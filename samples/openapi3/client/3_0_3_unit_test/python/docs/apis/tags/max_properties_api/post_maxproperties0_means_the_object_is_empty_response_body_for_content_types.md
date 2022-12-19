@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty**](../../../components/schema/maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.md) |  | 
+[**Maxproperties0MeansTheObjectIsEmpty**](../../../components/schema/maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.md) |  | 
 
 
 ### Authorization

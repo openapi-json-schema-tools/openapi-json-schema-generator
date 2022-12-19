@@ -47,7 +47,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1**](../../../components/schema/enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1.md) |  | 
+[**EnumWithTrueDoesNotMatch1**](../../../components/schema/enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1.md) |  | 
 
 
 ### Authorization

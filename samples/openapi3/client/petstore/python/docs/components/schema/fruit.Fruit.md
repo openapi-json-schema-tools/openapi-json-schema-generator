@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**apple.Apple**](apple.Apple.md) | [**apple.Apple**](apple.Apple.md) | [**apple.Apple**](apple.Apple.md) |  |
-[**banana.Banana**](banana.Banana.md) | [**banana.Banana**](banana.Banana.md) | [**banana.Banana**](banana.Banana.md) |  |
+[**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) |  |
+[**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -67,7 +67,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**user.User**](../../../components/schema/user.User.md) |  | 
+[**User**](../../../components/schema/user.User.md) |  | 
 
 
 ### <a id="RequestPathParameters" >path_params</a>

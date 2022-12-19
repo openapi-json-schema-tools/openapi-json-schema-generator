@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**required_default_validation.RequiredDefaultValidation**](../../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
+[**RequiredDefaultValidation**](../../../components/schema/required_default_validation.RequiredDefaultValidation.md) |  | 
 
 
 ### Return Types, Responses

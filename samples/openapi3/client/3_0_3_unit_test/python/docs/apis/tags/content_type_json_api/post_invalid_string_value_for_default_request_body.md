@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**invalid_string_value_for_default.InvalidStringValueForDefault**](../../../components/schema/invalid_string_value_for_default.InvalidStringValueForDefault.md) |  | 
+[**InvalidStringValueForDefault**](../../../components/schema/invalid_string_value_for_default.InvalidStringValueForDefault.md) |  | 
 
 
 ### Return Types, Responses
