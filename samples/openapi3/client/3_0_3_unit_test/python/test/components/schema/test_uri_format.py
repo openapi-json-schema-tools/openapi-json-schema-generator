@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import UriFormat
+from unit_test_api.components.schema.uri_format import UriFormat
 from unit_test_api import configuration
 
 

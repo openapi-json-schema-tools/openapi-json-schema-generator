@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import EnumWithEscapedCharacters
+from unit_test_api.components.schema.enum_with_escaped_characters import EnumWithEscapedCharacters
 from unit_test_api import configuration
 
 

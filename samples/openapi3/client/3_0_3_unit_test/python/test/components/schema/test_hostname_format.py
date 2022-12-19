@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import HostnameFormat
+from unit_test_api.components.schema.hostname_format import HostnameFormat
 from unit_test_api import configuration
 
 

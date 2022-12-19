@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import Allof
+from unit_test_api.components.schema.allof import Allof
 from unit_test_api import configuration
 
 

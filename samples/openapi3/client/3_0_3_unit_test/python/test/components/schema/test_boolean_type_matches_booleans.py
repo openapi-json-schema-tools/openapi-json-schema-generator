@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import BooleanTypeMatchesBooleans
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 from unit_test_api import configuration
 
 

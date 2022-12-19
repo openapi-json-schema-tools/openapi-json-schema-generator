@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import JsonPointerFormat
+from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat
 from unit_test_api import configuration
 
 

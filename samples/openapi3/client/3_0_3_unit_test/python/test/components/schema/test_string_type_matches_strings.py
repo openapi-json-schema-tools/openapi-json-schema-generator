@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import StringTypeMatchesStrings
+from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
 from unit_test_api import configuration
 
 

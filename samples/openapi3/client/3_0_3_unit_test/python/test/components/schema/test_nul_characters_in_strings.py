@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import NulCharactersInStrings
+from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
 from unit_test_api import configuration
 
 

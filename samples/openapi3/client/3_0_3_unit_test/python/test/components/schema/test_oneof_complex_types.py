@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import OneofComplexTypes
+from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
 from unit_test_api import configuration
 
 

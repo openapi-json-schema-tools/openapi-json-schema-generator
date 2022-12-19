@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import SimpleEnumValidation
+from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
 from unit_test_api import configuration
 
 

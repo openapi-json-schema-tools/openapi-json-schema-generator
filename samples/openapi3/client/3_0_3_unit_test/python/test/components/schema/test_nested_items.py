@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import NestedItems
+from unit_test_api.components.schema.nested_items import NestedItems
 from unit_test_api import configuration
 
 

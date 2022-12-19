@@ -12,7 +12,7 @@
 import unittest
 
 import unit_test_api
-from unit_test_api.components.schema. import AllofWithTheLastEmptySchema
+from unit_test_api.components.schema.allof_with_the_last_empty_schema import AllofWithTheLastEmptySchema
 from unit_test_api import configuration
 
 
