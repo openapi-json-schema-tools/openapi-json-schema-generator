@@ -2868,6 +2868,13 @@ public class DefaultCodegen implements CodegenConfig {
         return !isReservedWord(name);
     }
 
+    private String getImport(String className, CodegenSchema schema) {
+        if (className == null) {
+            return "from " + packageName() + ".components.schema import " + schema.getRefModule();
+        }
+        String[] classPieces = className.split("\\.");
+        return "from " + packageName() + ".components.schema import " + classPieces[0];
+    }
 
     /**
      * Recursively collect all necessary imports to include so that the type may be resolved.
@@ -2882,7 +2889,9 @@ public class DefaultCodegen implements CodegenConfig {
             for (CodegenDiscriminator.MappedModel mm : disc.getMappedModels()) {
                 if (!"".equals(mm.getModelName())) {
                     String complexType = mm.getModelName();
-                    imports.add(complexType);
+                    if (shouldAddImport(complexType)) {
+                        imports.add(getImport(complexType, null));
+                    }
                 }
             }
         }
@@ -2903,10 +2912,11 @@ public class DefaultCodegen implements CodegenConfig {
             if (schema.getNot() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
                 nots = Arrays.asList(schema.getNot());
             }
-            Stream<CodegenSchema> innerTypes = Stream.of(
-                            allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
-                    .flatMap(i -> i);
-            innerTypes.flatMap(cp -> getImports(cp, featureSet).stream()).forEach(s -> imports.add(s));
+            Stream<CodegenSchema> allSchemas = Stream.of(
+                    allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream()).flatMap(i -> i);
+            for (CodegenSchema cs: allSchemas.collect(Collectors.toList())) {
+                imports.addAll(getImports(cs, featureSet));
+            }
         }
         // items can exist for AnyType and type array
         if (schema.getItems() != null && schema.getIsArray()) {
@@ -2918,14 +2928,16 @@ public class DefaultCodegen implements CodegenConfig {
         }
         // vars can exist for AnyType and type object
         if (schema.getProperties() != null && !schema.getProperties().isEmpty()) {
-            schema.getProperties().values().stream().flatMap(v -> getImports(v, featureSet).stream()).forEach(s -> imports.add(s));
+            for (CodegenSchema cs: schema.getProperties().values()) {
+                imports.addAll(getImports(cs, featureSet));
+            }
         }
         // referenced or inline schemas
         String refClass = schema.getRefClass();
         String refModule = schema.getRefModule();
         if (refClass != null && refModule != null) {
             // self reference classes do not contain refModule
-            imports.add(refModule + "." + refClass);
+            imports.add(getImport(null, schema));
         }
         return imports;
     }

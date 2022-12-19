@@ -23,8 +23,6 @@ import com.google.common.base.CaseFormat;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.headers.Header;
-import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.servers.Server;
 
 import org.apache.commons.io.FileUtils;
@@ -34,8 +32,6 @@ import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapitools.codegen.model.ModelMap;
 import org.openapitools.codegen.model.ModelsMap;
-import org.openapitools.codegen.model.OperationMap;
-import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.templating.*;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.media.*;
@@ -568,7 +564,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
         }
         addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
-        return;
     }
 
     /**
@@ -690,34 +685,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return "from " + packageName + "." +  modelPackage() + " import " + modelModule;
     }
 
-    private void fixSchemaImports(Set<String> imports) {
-        if (imports.size() == 0) {
-            return;
-        }
-        String[] modelNames = imports.toArray(new String[0]);
-        imports.clear();
-        for (String modelName : modelNames) {
-            if (needToImport(modelName)) {
-                imports.add(toModelImport(modelName));
-            }
-        }
-    }
-
-    @Override
-    @SuppressWarnings("static-method")
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
-        // fix the imports that each model has, add the module reference to the model
-        // loops through imports and converts them all
-        // from 'Pet' to 'from petstore_api.model.pet import Pet'
-
-        OperationMap val = objs.getOperations();
-        List<CodegenOperation> operations = val.getOperation();
-        for (CodegenOperation operation : operations) {
-            fixSchemaImports(operation.imports);
-        }
-        return objs;
-    }
-
     /***
      * Override with special post-processing for all models.
      * we have a custom version of this method to:
@@ -749,10 +716,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
-                if (cm.imports == null || cm.imports.size() == 0) {
-                    continue;
-                }
-                fixSchemaImports(cm.imports);
             }
         }
         boolean testFolderSet = testFolder != null;
@@ -771,19 +734,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return objs;
     }
 
-    public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
-        CodegenHeader codegenHeader = super.fromHeader(header, sourceJsonPath);
-        fixSchemaImports(codegenHeader.imports);
-        return codegenHeader;
-    }
-
-
-    public CodegenParameter fromParameter(Parameter parameter, String priorJsonPathFragment) {
-        CodegenParameter cp = super.fromParameter(parameter, priorJsonPathFragment);
-        fixSchemaImports(cp.imports);
-        return cp;
-    }
-
     protected boolean isValid(String name) {
         boolean isValid = super.isValid(name);
         if (!isValid) {
@@ -791,12 +741,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         boolean nameValidPerRegex = name.matches("^[_a-zA-Z][_a-zA-Z0-9]*$");
         return nameValidPerRegex;
-    }
-
-    public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
-        CodegenResponse cr = super.fromResponse(response, sourceJsonPath);
-        fixSchemaImports(cr.imports);
-        return cr;
     }
 
     /**
@@ -867,21 +811,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     public String getBodyParameterName(CodegenOperation co) {
         return "body";
-    }
-
-    /***
-     * We have a custom version of this method to produce links to models when they are
-     * primitive type (not map, not array, not object) and include validations or are enums
-     *
-     * @param body requesst body
-     * @param bodyParameterName body parameter name
-     * @return the resultant CodegenParameter
-     */
-    @Override
-    public CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath) {
-        CodegenParameter cp = super.fromRequestBody(body, bodyParameterName, sourceJsonPath);
-        fixSchemaImports(cp.imports);
-        return cp;
     }
 
     /***
@@ -1208,92 +1137,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return  toRefModule(ref, "schemas", null) + "." + toRefClass(ref, null);
         }
         return null;
-    }
-
-    /**
-     * Return a string representation of the Python types for the specified OAS schema.
-     * Primitive types in the OAS specification are implemented in Python using the corresponding
-     * Python primitive types.
-     * Composed types (e.g. allAll, oneOf, anyOf) are represented in Python using list of types.
-     * <p>
-     * The caller should set the prefix and suffix arguments to empty string, except when
-     * getTypeString invokes itself recursively. A non-empty prefix/suffix may be specified
-     * to wrap the return value in a python dict, list or tuple.
-     * <p>
-     * Examples:
-     * - "bool, date, float"  The data must be a bool, date or float.
-     * - "[bool, date]"       The data must be an array, and the array items must be a bool or date.
-     *
-     * @param p                    The OAS schema.
-     * @param prefix               prepended to the returned value.
-     * @param suffix               appended to the returned value.
-     * @param referencedModelNames a list of models that are being referenced while generating the types,
-     *                             may be used to generate imports.
-     * @return a comma-separated string representation of the Python types
-     */
-    private String getTypeString(Schema p, String prefix, String suffix, List<String> referencedModelNames) {
-        String fullSuffix = suffix;
-        if (")".equals(suffix)) {
-            fullSuffix = "," + suffix;
-        }
-        if (StringUtils.isNotEmpty(p.get$ref())) {
-            // The input schema is a reference. If the resolved schema is
-            // a composed schema, convert the name to a Python class.
-            Schema unaliasedSchema = unaliasSchema(p);
-            if (unaliasedSchema.get$ref() != null) {
-                String modelName = toModelName(ModelUtils.getSimpleRef(p.get$ref()));
-                if (referencedModelNames != null) {
-                    referencedModelNames.add(modelName);
-                }
-                return prefix + modelName + fullSuffix;
-            }
-        }
-        if (ModelUtils.isAnyType(p)) {
-            return prefix + "bool, date, datetime, dict, float, int, list, str, none_type" + suffix;
-        }
-        // Resolve $ref because ModelUtils.isXYZ methods do not automatically resolve references.
-        if (ModelUtils.isNullable(ModelUtils.getReferencedSchema(this.openAPI, p))) {
-            fullSuffix = ", none_type" + suffix;
-        }
-        if (ModelUtils.isNumberSchema(p)) {
-            return prefix + "int, float" + fullSuffix;
-        } else if (ModelUtils.isTypeObjectSchema(p)) {
-            if (p.getAdditionalProperties() != null && p.getAdditionalProperties().equals(false)) {
-                if (p.getProperties() == null) {
-                    // type object with no properties and additionalProperties = false, empty dict only
-                    return prefix + "{str: typing.Any}" + fullSuffix;
-                } else {
-                    // properties only
-                    // TODO add type hints for those properties only as values
-                    return prefix + "{str: typing.Any}" + fullSuffix;
-                }
-            } else {
-                // additionalProperties exists
-                Schema inner = getAdditionalProperties(p);
-                return prefix + "{str: " + getTypeString(inner, "(", ")", referencedModelNames) + "}" + fullSuffix;
-                // TODO add code here to add property values too if they exist
-            }
-        } else if (ModelUtils.isArraySchema(p)) {
-            ArraySchema ap = (ArraySchema) p;
-            Schema inner = ap.getItems();
-            if (inner == null) {
-                // In OAS 3.0.x, the array "items" attribute is required.
-                // In OAS >= 3.1, the array "items" attribute is optional such that the OAS
-                // specification is aligned with the JSON schema specification.
-                // When "items" is not specified, the elements of the array may be anything at all.
-                // In that case, the return value should be:
-                //    "[bool, date, datetime, dict, float, int, list, str, none_type]"
-                // Using recursion to wrap the allowed python types in an array.
-                Schema anyType = new Schema(); // A Schema without any attribute represents 'any type'.
-                return getTypeString(anyType, "[", "]", referencedModelNames);
-            } else {
-                return prefix + getTypeString(inner, "[", "]", referencedModelNames) + fullSuffix;
-            }
-        } else if (ModelUtils.isFileSchema(p)) {
-            return prefix + "file_type" + fullSuffix;
-        }
-        String baseType = getSchemaType(p);
-        return prefix + baseType + fullSuffix;
     }
 
     @Override
