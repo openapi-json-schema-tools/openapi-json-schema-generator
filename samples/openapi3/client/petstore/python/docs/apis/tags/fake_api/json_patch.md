@@ -24,7 +24,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = JSONPatchRequest([
+    body = json_patch_request.JSONPatchRequest([
         None
     ])
     try:

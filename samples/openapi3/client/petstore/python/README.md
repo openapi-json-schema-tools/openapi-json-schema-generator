@@ -151,7 +151,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = another_fake_api.AnotherFakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Client(
+    body = client.Client(
         client="client_example",
     )
     try:

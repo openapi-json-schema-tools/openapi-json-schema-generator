@@ -23,12 +23,12 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = FileSchemaTestClass(
-        file=File(
+    body = file_schema_test_class.FileSchemaTestClass(
+        file=file.File(
             source_uri="source_uri_example",
         ),
         files=[
-            File()
+            file.File()
         ],
     )
     try:

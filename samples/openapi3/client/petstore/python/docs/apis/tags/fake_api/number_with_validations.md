@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = NumberWithValidations(10)
+    body = number_with_validations.NumberWithValidations(10)
     try:
         api_response = api_instance.number_with_validations(
             body=body,

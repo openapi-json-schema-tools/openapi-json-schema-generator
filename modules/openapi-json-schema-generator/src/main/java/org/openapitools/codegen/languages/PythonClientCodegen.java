@@ -1205,7 +1205,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String getSchemaRefClass(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
-            return toRefClass(ref, "");
+            return  toRefModule(ref, "schemas", null) + "." + toRefClass(ref, null);
         }
         return null;
     }

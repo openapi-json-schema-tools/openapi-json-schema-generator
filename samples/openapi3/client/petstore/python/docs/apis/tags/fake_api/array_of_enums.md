@@ -22,8 +22,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = ArrayOfEnums([
-        StringEnum("placed")
+    body = array_of_enums.ArrayOfEnums([
+        string_enum.StringEnum("placed")
     ])
     try:
         # Array of Enums

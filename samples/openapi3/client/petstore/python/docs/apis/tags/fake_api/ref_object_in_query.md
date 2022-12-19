@@ -23,8 +23,8 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'mapBean': Foo(
-        bar=Bar("bar"),
+        'mapBean': foo.Foo(
+        bar=bar.Bar("bar"),
     ),
     }
     try:

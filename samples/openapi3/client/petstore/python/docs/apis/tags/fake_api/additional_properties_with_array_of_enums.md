@@ -22,9 +22,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = AdditionalPropertiesWithArrayOfEnums(
+    body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums(
         key=[
-            EnumClass("-efg")
+            enum_class.EnumClass("-efg")
         ],
     )
     try:

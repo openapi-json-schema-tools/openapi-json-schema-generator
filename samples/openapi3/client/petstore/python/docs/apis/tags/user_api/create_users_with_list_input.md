@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = [
-        User(
+        user.User(
             id=1,
             username="username_example",
             first_name="first_name_example",

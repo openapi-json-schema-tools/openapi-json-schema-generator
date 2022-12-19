@@ -23,8 +23,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = AnimalFarm([
-        Animal()
+    body = animal_farm.AnimalFarm([
+        animal.Animal()
     ])
     try:
         api_response = api_instance.array_model(

@@ -39,7 +39,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         'context': [
         "context_example"
     ],
-        'refParam': StringWithValidation("refParam_example"),
+        'refParam': string_with_validation.StringWithValidation("refParam_example"),
     }
     try:
         api_response = api_instance.query_parameter_collection_format(

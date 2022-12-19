@@ -5124,7 +5124,7 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(name) + "_request_body";
     }
 
-    private String toRefModule(String ref, String expectedComponentType, String sourceJsonPath) {
+    protected String toRefModule(String ref, String expectedComponentType, String sourceJsonPath) {
         // ref #/components/schemas/SomeModel -> some_model
         // ref #/components/requestBodies/SomeBody -> some_body
         // ref #/components/parameters/SomeParam -> some_param

@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = Mammal(
+    body = mammal.Mammal(
         has_baleen=True,
         has_teeth=True,
         class_name="whale",
