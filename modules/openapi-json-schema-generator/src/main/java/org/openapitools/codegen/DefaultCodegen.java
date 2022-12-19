@@ -2868,6 +2868,68 @@ public class DefaultCodegen implements CodegenConfig {
         return !isReservedWord(name);
     }
 
+
+    /**
+     * Recursively collect all necessary imports to include so that the type may be resolved.
+     *
+     * @param featureSet the generator feature set, used to determine if composed schemas should be added
+     * @return all of the imports
+     */
+    private Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
+        Set<String> imports = new HashSet<>();
+        if (schema.getDiscriminator() != null && schema.getDiscriminator().getMappedModels() != null) {
+            CodegenDiscriminator disc = schema.getDiscriminator();
+            for (CodegenDiscriminator.MappedModel mm : disc.getMappedModels()) {
+                if (!"".equals(mm.getModelName())) {
+                    String complexType = mm.getModelName();
+                    imports.add(complexType);
+                }
+            }
+        }
+        if (schema.getAllOf() != null || schema.getAnyOf() != null || schema.getOneOf() != null || schema.getNot() != null) {
+            List<CodegenSchema> allOfs = Collections.emptyList();
+            List<CodegenSchema> oneOfs = Collections.emptyList();
+            List<CodegenSchema> anyOfs = Collections.emptyList();
+            List<CodegenSchema> nots = Collections.emptyList();
+            if (schema.getAllOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
+                allOfs = schema.getAllOf();
+            }
+            if (schema.getOneOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.oneOf)) {
+                oneOfs = schema.getOneOf();
+            }
+            if (schema.getAnyOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.anyOf)) {
+                anyOfs = schema.getAnyOf();
+            }
+            if (schema.getNot() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
+                nots = Arrays.asList(schema.getNot());
+            }
+            Stream<CodegenSchema> innerTypes = Stream.of(
+                            allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
+                    .flatMap(i -> i);
+            innerTypes.flatMap(cp -> getImports(cp, featureSet).stream()).forEach(s -> imports.add(s));
+        }
+        // items can exist for AnyType and type array
+        if (schema.getItems() != null && schema.getIsArray()) {
+            imports.addAll(getImports(schema.getItems(), featureSet));
+        }
+        // additionalProperties can exist for AnyType and type object
+        if (schema.getAdditionalProperties() != null) {
+            imports.addAll(getImports(schema.getAdditionalProperties(), featureSet));
+        }
+        // vars can exist for AnyType and type object
+        if (schema.getProperties() != null && !schema.getProperties().isEmpty()) {
+            schema.getProperties().values().stream().flatMap(v -> getImports(v, featureSet).stream()).forEach(s -> imports.add(s));
+        }
+        // referenced or inline schemas
+        String refClass = schema.getRefClass();
+        String refModule = schema.getRefModule();
+        if (refClass != null && refModule != null) {
+            // self reference classes do not contain refModule
+            imports.add(refModule + "." + refClass);
+        }
+        return imports;
+    }
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -3124,7 +3186,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (addSchemaImportsFromV3SpecLocations && isComponentSchema) {
             property.imports = new TreeSet<>();
-            addImports(property.imports, property.getImports(generatorMetadata.getFeatureSet()));
+            addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }
         schemaCodegenPropertyCache.put(ns, property);
 
@@ -3637,7 +3699,7 @@ public class DefaultCodegen implements CodegenConfig {
             );
             codegenHeader.setSchema(prop);
             if (addSchemaImportsFromV3SpecLocations) {
-                addImports(codegenHeader.imports, prop.getImports(generatorMetadata.getFeatureSet()));
+                addImports(codegenHeader.imports, getImports(prop, generatorMetadata.getFeatureSet()));
             }
         } else if (header.getContent() != null) {
             Content content = header.getContent();
@@ -3963,20 +4025,16 @@ public class DefaultCodegen implements CodegenConfig {
         co.baseName = tag;
     }
 
-    protected void addImports(CodegenSchema m, JsonSchema type) {
+    protected void addImports(CodegenSchema m, CodegenSchema type) {
         addImports(m.imports, type);
     }
 
-    protected void addImports(Set<String> importsToBeAddedTo, JsonSchema type) {
-        addImports(importsToBeAddedTo, type.getImports(generatorMetadata.getFeatureSet()));
+    protected void addImports(Set<String> importsToBeAddedTo, CodegenSchema type) {
+        addImports(importsToBeAddedTo, getImports(type, generatorMetadata.getFeatureSet()));
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {
         importsToAdd.stream().forEach(i -> addImport(importsToBeAddedTo, i));
-    }
-
-    protected void addImport(CodegenSchema m, String type) {
-        addImport(m.imports, type);
     }
 
     protected void addImport(Set<String> importsToBeAddedTo, String type) {
@@ -5125,7 +5183,7 @@ public class DefaultCodegen implements CodegenConfig {
             cmtContent.put(contentType, codegenMt);
             if (schemaProp != null) {
                 if (addSchemaImportsFromV3SpecLocations) {
-                    addImports(imports, schemaProp.getImports(generatorMetadata.getFeatureSet()));
+                    addImports(imports, getImports(schemaProp, generatorMetadata.getFeatureSet()));
                 }
             }
         }
