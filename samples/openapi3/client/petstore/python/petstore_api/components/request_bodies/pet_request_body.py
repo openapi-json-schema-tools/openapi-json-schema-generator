@@ -24,6 +24,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
+from petstore_api.components.schema import pet
+
 
 ApplicationJson = pet.Pet
 ApplicationXml = pet.Pet

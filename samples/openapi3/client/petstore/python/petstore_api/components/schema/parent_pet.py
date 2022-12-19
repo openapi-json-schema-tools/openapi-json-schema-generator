@@ -70,3 +70,4 @@ class ParentPet(
         )
 
 from petstore_api.components.schema import child_cat
+from petstore_api.components.schema import grandparent_animal

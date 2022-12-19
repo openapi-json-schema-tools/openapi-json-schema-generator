@@ -223,3 +223,6 @@ class Pet(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import category
+from petstore_api.components.schema import tag

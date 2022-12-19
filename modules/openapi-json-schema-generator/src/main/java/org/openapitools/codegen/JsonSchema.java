@@ -344,16 +344,16 @@ public interface JsonSchema {
             String refClass = this.getRefClass();
             String refModule = this.getRefModule();
             if (refClass != null && refModule != null) {
-                // self reference classes do not contain periods
-                imports.add(refClass);
+                // self reference classes do not contain refModule
+                imports.add(refModule + "." + refClass);
             }
         } else {
             // referenced or inline schemas
             String refClass = this.getRefClass();
             String refModule = this.getRefModule();
             if (refClass != null && refModule != null) {
-                // self reference classes do not contain periods
-                imports.add(refClass);
+                // self reference classes do not contain refModule
+                imports.add(refModule + "." + refClass);
             }
             return imports;
         }

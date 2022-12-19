@@ -14,6 +14,8 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
+
+from petstore_api.components.schema import api_response
 from petstore_api.components.headers import ref_schema_header_header as parameter_ref_schema_header
 from petstore_api.components.headers import int32_json_content_type_header_header as parameter_int32_json_content_type_header
 from petstore_api.components.headers import ref_content_schema_header_header as parameter_ref_content_schema_header

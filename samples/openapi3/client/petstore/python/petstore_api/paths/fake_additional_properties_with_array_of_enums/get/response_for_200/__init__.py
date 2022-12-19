@@ -15,6 +15,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
+from petstore_api.components.schema import additional_properties_with_array_of_enums
+
 # body schemas
 ApplicationJson = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
 

@@ -15,6 +15,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
+from petstore_api.components.schema import order
+
 # body schemas
 ApplicationXml = order.Order
 ApplicationJson = order.Order

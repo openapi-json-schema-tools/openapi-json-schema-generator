@@ -143,3 +143,5 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             _configuration=_configuration,
             **kwargs,
         )
+
+from petstore_api.components.schema import animal
