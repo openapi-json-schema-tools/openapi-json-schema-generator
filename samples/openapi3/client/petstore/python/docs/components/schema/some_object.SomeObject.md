@@ -11,6 +11,6 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**ObjectInterface**](ObjectInterface.md) | [**ObjectInterface**](ObjectInterface.md) | [**ObjectInterface**](ObjectInterface.md) |  |
+[**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

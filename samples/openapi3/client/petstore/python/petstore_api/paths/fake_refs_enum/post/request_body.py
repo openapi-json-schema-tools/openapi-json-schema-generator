@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-ApplicationJson = StringEnum
+ApplicationJson = string_enum.StringEnum
 
 parameter_oapg = api_client.RequestBody(
     content={

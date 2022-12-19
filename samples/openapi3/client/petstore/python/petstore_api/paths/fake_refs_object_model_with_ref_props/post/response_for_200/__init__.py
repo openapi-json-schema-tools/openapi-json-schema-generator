@@ -16,7 +16,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 # body schemas
-ApplicationJson = ObjectModelWithRefProps
+ApplicationJson = object_model_with_ref_props.ObjectModelWithRefProps
 
 
 @dataclasses.dataclass

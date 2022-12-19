@@ -23,8 +23,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**JSONPatchRequestAddReplaceTest**](JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](JSONPatchRequestAddReplaceTest.md) |  |
-[**JSONPatchRequestRemove**](JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](JSONPatchRequestRemove.md) |  |
-[**JSONPatchRequestMoveCopy**](JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](JSONPatchRequestMoveCopy.md) |  |
+[**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |  |
+[**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) |  |
+[**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

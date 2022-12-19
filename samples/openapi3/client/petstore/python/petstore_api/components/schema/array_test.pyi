@@ -132,7 +132,7 @@ class ArrayTest(
                     
                         def __new__(
                             cls,
-                            _arg: typing.Union[typing.Tuple['ReadOnlyFirst'], typing.List['ReadOnlyFirst']],
+                            _arg: typing.Union[typing.Tuple['read_only_first.ReadOnlyFirst'], typing.List['read_only_first.ReadOnlyFirst']],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                         ) -> 'Items':
                             return super().__new__(
@@ -141,7 +141,7 @@ class ArrayTest(
                                 _configuration=_configuration,
                             )
                     
-                        def __getitem__(self, i: int) -> 'ReadOnlyFirst':
+                        def __getitem__(self, i: int) -> 'read_only_first.ReadOnlyFirst':
                             return super().__getitem__(i)
             
                 def __new__(

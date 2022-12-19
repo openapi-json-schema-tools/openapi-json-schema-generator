@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-ApplicationJson = ObjectModelWithRefProps
+ApplicationJson = object_model_with_ref_props.ObjectModelWithRefProps
 
 parameter_oapg = api_client.RequestBody(
     content={

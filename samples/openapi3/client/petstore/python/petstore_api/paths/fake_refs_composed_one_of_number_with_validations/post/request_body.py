@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-ApplicationJson = ComposedOneOfDifferentTypes
+ApplicationJson = composed_one_of_different_types.ComposedOneOfDifferentTypes
 
 parameter_oapg = api_client.RequestBody(
     content={

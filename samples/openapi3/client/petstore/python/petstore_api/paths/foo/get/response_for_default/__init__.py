@@ -36,7 +36,7 @@ class ApplicationJson(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'Foo': ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'foo.Foo': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -52,7 +52,7 @@ class ApplicationJson(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union['Foo', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union['foo.Foo', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -69,7 +69,7 @@ class ApplicationJson(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        string: typing.Union['Foo', schemas.Unset] = schemas.unset,
+        string: typing.Union['foo.Foo', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ApplicationJson':

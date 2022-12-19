@@ -32,7 +32,7 @@ class ApplicationXml(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['Pet'], typing.List['Pet']],
+        _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ApplicationXml':
         return super().__new__(
@@ -41,7 +41,7 @@ class ApplicationXml(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'Pet':
+    def __getitem__(self, i: int) -> 'pet.Pet':
         return super().__getitem__(i)
 
 
@@ -59,7 +59,7 @@ class ApplicationJson(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['Pet'], typing.List['Pet']],
+        _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ApplicationJson':
         return super().__new__(
@@ -68,7 +68,7 @@ class ApplicationJson(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'Pet':
+    def __getitem__(self, i: int) -> 'pet.Pet':
         return super().__getitem__(i)
 
 

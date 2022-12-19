@@ -42,7 +42,7 @@ class AnimalFarm(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['Animal'], typing.List['Animal']],
+        _arg: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AnimalFarm':
         return super().__new__(
@@ -51,5 +51,5 @@ class AnimalFarm(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'Animal':
+    def __getitem__(self, i: int) -> 'animal.Animal':
         return super().__getitem__(i)

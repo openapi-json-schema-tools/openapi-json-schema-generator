@@ -64,7 +64,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Client**](../../../components/schema/Client.md) |  | 
+[**Client**](../../../components/schema/client.Client.md) |  | 
 
 
 ### Authorization

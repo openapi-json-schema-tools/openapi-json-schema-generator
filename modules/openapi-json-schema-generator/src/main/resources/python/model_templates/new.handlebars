@@ -4,7 +4,7 @@ def __new__(
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{/if}}
@@ -15,7 +15,7 @@ def __new__(
 {{#if @key.getNameIsValid}}
 {{#with this}}
 {{#if refClass}}
-    {{@key.getName}}: '{{refClass}}',
+    {{@key.getName}}: '{{> refclass_with_module }}',
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
@@ -35,7 +35,7 @@ def __new__(
 {{#each optionalProperties}}
 {{#if @key.getNameIsValid}}
 {{#if refClass}}
-    {{@key.getName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union['{{> refclass_with_module }}', schemas.Unset] = schemas.unset,
 {{else}}
     {{@key.getName}}: typing.Union[MetaOapg.Properties.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
@@ -45,7 +45,7 @@ def __new__(
 {{#with additionalProperties}}
 {{#unless getIsBooleanSchemaFalse}}
 {{#if refClass}}
-    **kwargs: '{{refClass}}',
+    **kwargs: '{{> refclass_with_module }}',
 {{else}}
     **kwargs: typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
 {{/if}}

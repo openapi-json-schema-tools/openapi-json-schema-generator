@@ -11,8 +11,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**EquilateralTriangle**](EquilateralTriangle.md) | [**EquilateralTriangle**](EquilateralTriangle.md) | [**EquilateralTriangle**](EquilateralTriangle.md) |  |
-[**IsoscelesTriangle**](IsoscelesTriangle.md) | [**IsoscelesTriangle**](IsoscelesTriangle.md) | [**IsoscelesTriangle**](IsoscelesTriangle.md) |  |
-[**ScaleneTriangle**](ScaleneTriangle.md) | [**ScaleneTriangle**](ScaleneTriangle.md) | [**ScaleneTriangle**](ScaleneTriangle.md) |  |
+[**EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) |  |
+[**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) |  |
+[**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -78,7 +78,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ApiResponse**](../../../components/schema/ApiResponse.md) |  | 
+[**ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 
 
 
 ### Authorization

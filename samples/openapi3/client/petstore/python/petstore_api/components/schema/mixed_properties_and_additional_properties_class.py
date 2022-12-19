@@ -53,18 +53,18 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     def additional_properties() -> typing.Type['animal.Animal']:
                         return animal.Animal
                 
-                def __getitem__(self, name: str) -> 'Animal':
+                def __getitem__(self, name: str) -> 'animal.Animal':
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> 'Animal':
+                def get_item_oapg(self, name: str) -> 'animal.Animal':
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: 'Animal',
+                    **kwargs: 'animal.Animal',
                 ) -> 'Map':
                     return super().__new__(
                         cls,

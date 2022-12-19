@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 #### anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Apple**](Apple.md) | [**Apple**](Apple.md) | [**Apple**](Apple.md) |  |
-[**Banana**](Banana.md) | [**Banana**](Banana.md) | [**Banana**](Banana.md) |  |
+[**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) | [**Apple**](apple.Apple.md) |  |
+[**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) | [**Banana**](banana.Banana.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -58,13 +58,13 @@ class ObjectModelWithRefProps(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'NumberWithValidations': ...
+    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'number_with_validations.NumberWithValidations': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'String': ...
+    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'string.String': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'Boolean': ...
+    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'boolean.Boolean': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -82,13 +82,13 @@ class ObjectModelWithRefProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['NumberWithValidations', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['number_with_validations.NumberWithValidations', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union['String', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union['string.String', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['Boolean', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['boolean.Boolean', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -107,9 +107,9 @@ class ObjectModelWithRefProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        myNumber: typing.Union['NumberWithValidations', schemas.Unset] = schemas.unset,
-        myString: typing.Union['String', schemas.Unset] = schemas.unset,
-        myBoolean: typing.Union['Boolean', schemas.Unset] = schemas.unset,
+        myNumber: typing.Union['number_with_validations.NumberWithValidations', schemas.Unset] = schemas.unset,
+        myString: typing.Union['string.String', schemas.Unset] = schemas.unset,
+        myBoolean: typing.Union['boolean.Boolean', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectModelWithRefProps':

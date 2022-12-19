@@ -65,7 +65,7 @@ class Drawing(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['Shape'], typing.List['Shape']],
+                    _arg: typing.Union[typing.Tuple['shape.Shape'], typing.List['shape.Shape']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'Shapes':
                     return super().__new__(
@@ -74,7 +74,7 @@ class Drawing(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> 'Shape':
+                def __getitem__(self, i: int) -> 'shape.Shape':
                     return super().__getitem__(i)
             __annotations__ = {
                 "mainShape": main_shape,
@@ -88,19 +88,19 @@ class Drawing(
             return fruit.Fruit
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mainShape"]) -> 'Shape': ...
+    def __getitem__(self, name: typing_extensions.Literal["mainShape"]) -> 'shape.Shape': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeOrNull"]) -> 'ShapeOrNull': ...
+    def __getitem__(self, name: typing_extensions.Literal["shapeOrNull"]) -> 'shape_or_null.ShapeOrNull': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> 'NullableShape': ...
+    def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> 'nullable_shape.NullableShape': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> MetaOapg.Properties.Shapes: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> 'Fruit': ...
+    def __getitem__(self, name: str) -> 'fruit.Fruit': ...
     
     def __getitem__(
         self,
@@ -116,19 +116,19 @@ class Drawing(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["mainShape"]) -> typing.Union['Shape', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["mainShape"]) -> typing.Union['shape.Shape', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shapeOrNull"]) -> typing.Union['ShapeOrNull', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["shapeOrNull"]) -> typing.Union['shape_or_null.ShapeOrNull', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['NullableShape', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['nullable_shape.NullableShape', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[MetaOapg.Properties.Shapes, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union['Fruit', schemas.Unset]: ...
+    def get_item_oapg(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -145,12 +145,12 @@ class Drawing(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        mainShape: typing.Union['Shape', schemas.Unset] = schemas.unset,
-        shapeOrNull: typing.Union['ShapeOrNull', schemas.Unset] = schemas.unset,
-        nullableShape: typing.Union['NullableShape', schemas.Unset] = schemas.unset,
+        mainShape: typing.Union['shape.Shape', schemas.Unset] = schemas.unset,
+        shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
+        nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
         shapes: typing.Union[MetaOapg.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: 'Fruit',
+        **kwargs: 'fruit.Fruit',
     ) -> 'Drawing':
         return super().__new__(
             cls,

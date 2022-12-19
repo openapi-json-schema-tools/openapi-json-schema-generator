@@ -88,7 +88,7 @@ class Pet(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['Tag'], typing.List['Tag']],
+                    _arg: typing.Union[typing.Tuple['tag.Tag'], typing.List['tag.Tag']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'Tags':
                     return super().__new__(
@@ -97,7 +97,7 @@ class Pet(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> 'Tag':
+                def __getitem__(self, i: int) -> 'tag.Tag':
                     return super().__getitem__(i)
             
             
@@ -138,7 +138,7 @@ class Pet(
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'Category': ...
+    def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'category.Category': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["tags"]) -> MetaOapg.Properties.Tags: ...
@@ -174,7 +174,7 @@ class Pet(
     def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.Properties.Id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["category"]) -> typing.Union['Category', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["category"]) -> typing.Union['category.Category', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["tags"]) -> typing.Union[MetaOapg.Properties.Tags, schemas.Unset]: ...
@@ -205,7 +205,7 @@ class Pet(
         name: typing.Union[MetaOapg.Properties.Name, str, ],
         photoUrls: typing.Union[MetaOapg.Properties.PhotoUrls, list, tuple, ],
         id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        category: typing.Union['Category', schemas.Unset] = schemas.unset,
+        category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
         tags: typing.Union[MetaOapg.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
         status: typing.Union[MetaOapg.Properties.Status, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,

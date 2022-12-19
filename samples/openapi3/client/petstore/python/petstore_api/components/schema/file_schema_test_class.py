@@ -57,7 +57,7 @@ class FileSchemaTestClass(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['File'], typing.List['File']],
+                    _arg: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'Files':
                     return super().__new__(
@@ -66,7 +66,7 @@ class FileSchemaTestClass(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> 'File':
+                def __getitem__(self, i: int) -> 'file.File':
                     return super().__getitem__(i)
             __annotations__ = {
                 "file": file,
@@ -74,7 +74,7 @@ class FileSchemaTestClass(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["file"]) -> 'File': ...
+    def __getitem__(self, name: typing_extensions.Literal["file"]) -> 'file.File': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["files"]) -> MetaOapg.Properties.Files: ...
@@ -94,7 +94,7 @@ class FileSchemaTestClass(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union['File', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union['file.File', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["files"]) -> typing.Union[MetaOapg.Properties.Files, schemas.Unset]: ...
@@ -115,7 +115,7 @@ class FileSchemaTestClass(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        file: typing.Union['File', schemas.Unset] = schemas.unset,
+        file: typing.Union['file.File', schemas.Unset] = schemas.unset,
         files: typing.Union[MetaOapg.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

@@ -2,12 +2,12 @@
 # application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 # application_xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../components/schema/Pet.md) |  | 
+[**Pet**](../../components/schema/pet.Pet.md) |  | 
 
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

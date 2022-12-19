@@ -41,7 +41,7 @@ class ApplicationJson(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['User'], typing.List['User']],
+        _arg: typing.Union[typing.Tuple['user.User'], typing.List['user.User']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ApplicationJson':
         return super().__new__(
@@ -50,7 +50,7 @@ class ApplicationJson(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'User':
+    def __getitem__(self, i: int) -> 'user.User':
         return super().__getitem__(i)
 
 parameter_oapg = api_client.RequestBody(

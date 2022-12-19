@@ -2,7 +2,7 @@
 {{#if @key.nameIsValid}}
 {{#with this}}
 {{#if refClass}}
-{{@key.getName}}: '{{refClass}}'
+{{@key.getName}}: '{{> refclass_with_module }}'
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
