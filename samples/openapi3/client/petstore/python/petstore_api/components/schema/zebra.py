@@ -39,10 +39,10 @@ class Zebra(
             "className",
         }
         
-        class properties:
+        class Properties:
             
             
-            class type(
+            class Type(
                 schemas.StrSchema
             ):
             
@@ -70,7 +70,7 @@ class Zebra(
                     return cls("grevys")
             
             
-            class className(
+            class ClassName(
                 schemas.StrSchema
             ):
             
@@ -87,21 +87,21 @@ class Zebra(
                 def ZEBRA(cls):
                     return cls("zebra")
             __annotations__ = {
-                "type": type,
-                "className": className,
+                "type": Type,
+                "className": ClassName,
             }
-        additionalProperties = schemas.AnyTypeSchema
+        AdditionalProperties = schemas.AnyTypeSchema
     
-    className: MetaOapg.properties.className
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
+    className: MetaOapg.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.additionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.Properties.Type: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -115,13 +115,13 @@ class Zebra(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.properties.type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.Properties.Type, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.additionalProperties, schemas.Unset]: ...
+    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -136,10 +136,10 @@ class Zebra(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.properties.className, str, ],
-        type: typing.Union[MetaOapg.properties.type, str, schemas.Unset] = schemas.unset,
+        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
+        type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
     ) -> 'Zebra':
         return super().__new__(
             cls,

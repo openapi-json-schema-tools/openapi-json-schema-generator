@@ -35,7 +35,7 @@ class Foo(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def bar() -> typing.Type['bar.Bar']:

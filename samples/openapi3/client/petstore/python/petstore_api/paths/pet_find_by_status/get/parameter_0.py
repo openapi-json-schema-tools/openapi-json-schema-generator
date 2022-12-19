@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class Schema(
     schemas.ListSchema
 ):
 
@@ -36,7 +36,7 @@ class schema(
         types = {tuple}
         
         
-        class items(
+        class Items(
             schemas.StrSchema
         ):
         
@@ -65,22 +65,22 @@ class schema(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, str, ]], typing.List[typing.Union[MetaOapg.Items, str, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'schema':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             _arg,
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)
 
 
 parameter_oapg = api_client.QueryParameter(
     name="status",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     required=True,
 )

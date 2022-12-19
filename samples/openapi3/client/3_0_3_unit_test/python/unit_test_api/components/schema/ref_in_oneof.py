@@ -36,13 +36,13 @@ class RefInOneof(
     class MetaOapg:
         # any type
         
-        class one_of:
+        class OneOf:
         
             @staticmethod
-            def oneOf_0() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+            def one_of_0() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
                 return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
             classes = [
-                oneOf_0,
+                one_of_0,
             ]
 
 

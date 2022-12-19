@@ -46,23 +46,23 @@ class Mammal(
                 }
             }
         
-        class one_of:
+        class OneOf:
         
             @staticmethod
-            def oneOf_0() -> typing.Type['whale.Whale']:
+            def one_of_0() -> typing.Type['whale.Whale']:
                 return whale.Whale
         
             @staticmethod
-            def oneOf_1() -> typing.Type['zebra.Zebra']:
+            def one_of_1() -> typing.Type['zebra.Zebra']:
                 return zebra.Zebra
         
             @staticmethod
-            def oneOf_2() -> typing.Type['pig.Pig']:
+            def one_of_2() -> typing.Type['pig.Pig']:
                 return pig.Pig
             classes = [
-                oneOf_0,
-                oneOf_1,
-                oneOf_2,
+                one_of_0,
+                one_of_1,
+                one_of_2,
             ]
 
 

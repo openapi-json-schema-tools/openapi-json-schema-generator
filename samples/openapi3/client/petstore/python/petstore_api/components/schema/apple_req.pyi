@@ -38,22 +38,22 @@ class AppleReq(
             "cultivar",
         }
         
-        class properties:
-            cultivar = schemas.StrSchema
-            mealy = schemas.BoolSchema
+        class Properties:
+            Cultivar = schemas.StrSchema
+            Mealy = schemas.BoolSchema
             __annotations__ = {
-                "cultivar": cultivar,
-                "mealy": mealy,
+                "cultivar": Cultivar,
+                "mealy": Mealy,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
-    cultivar: MetaOapg.properties.cultivar
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.properties.cultivar: ...
+    cultivar: MetaOapg.Properties.Cultivar
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> MetaOapg.properties.mealy: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> MetaOapg.Properties.Mealy: ...
     
     def __getitem__(
         self,
@@ -66,10 +66,10 @@ class AppleReq(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.properties.cultivar: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["mealy"]) -> typing.Union[MetaOapg.properties.mealy, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["mealy"]) -> typing.Union[MetaOapg.Properties.Mealy, schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -83,8 +83,8 @@ class AppleReq(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        cultivar: typing.Union[MetaOapg.properties.cultivar, str, ],
-        mealy: typing.Union[MetaOapg.properties.mealy, bool, schemas.Unset] = schemas.unset,
+        cultivar: typing.Union[MetaOapg.Properties.Cultivar, str, ],
+        mealy: typing.Union[MetaOapg.Properties.Mealy, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AppleReq':
         return super().__new__(

@@ -25,23 +25,21 @@ def discriminator():
 {{/if}}
 {{#if properties}}
 
-class properties:
+class Properties:
 {{#each properties}}
 {{#if refClass}}
 
-    @staticmethod
-    def {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}() -> typing.Type['{{refClass}}']:
-        return {{refClass}}
+    {{> model_templates/refClassStaticmethod }}
 {{else}}
     {{> model_templates/schema }}
 {{/if}}
 {{/each}}
     __annotations__ = {
 {{#each properties}}
-{{#if name.getNameIsValid}}
-        "{{{@key.getName}}}": {{name.getName}},
-{{else}}
+{{#if refClass}}
         "{{{@key.getName}}}": {{name.getSnakeCaseName}},
+{{else}}
+        "{{{@key.getName}}}": {{name.getCamelCaseName}},
 {{/if}}
 {{/each}}
     }
@@ -49,9 +47,7 @@ class properties:
 {{#with additionalProperties}}
 {{#if refClass}}
 
-@staticmethod
-def {{name.getName}}() -> typing.Type['{{refClass}}']:
-    return {{refClass}}
+{{> model_templates/refClassStaticmethod }}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}

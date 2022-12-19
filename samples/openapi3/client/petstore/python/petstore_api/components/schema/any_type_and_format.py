@@ -36,10 +36,10 @@ class AnyTypeAndFormat(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
-            class uuid(
+            class Uuid(
                 schemas.UUIDBase,
                 schemas.AnyTypeSchema,
             ):
@@ -55,7 +55,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'uuid':
+                ) -> 'Uuid':
                     return super().__new__(
                         cls,
                         *_args,
@@ -64,7 +64,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class date(
+            class Date(
                 schemas.DateBase,
                 schemas.AnyTypeSchema,
             ):
@@ -80,7 +80,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'date':
+                ) -> 'Date':
                     return super().__new__(
                         cls,
                         *_args,
@@ -89,7 +89,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class date_time(
+            class DateTime(
                 schemas.DateTimeBase,
                 schemas.AnyTypeSchema,
             ):
@@ -105,7 +105,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'date_time':
+                ) -> 'DateTime':
                     return super().__new__(
                         cls,
                         *_args,
@@ -114,7 +114,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class number(
+            class Number(
                 schemas.DecimalBase,
                 schemas.AnyTypeSchema,
             ):
@@ -130,7 +130,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'number':
+                ) -> 'Number':
                     return super().__new__(
                         cls,
                         *_args,
@@ -139,7 +139,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class binary(
+            class Binary(
                 schemas.AnyTypeSchema,
             ):
             
@@ -154,7 +154,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'binary':
+                ) -> 'Binary':
                     return super().__new__(
                         cls,
                         *_args,
@@ -163,7 +163,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class int32(
+            class Int32(
                 schemas.AnyTypeSchema,
             ):
             
@@ -178,7 +178,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'int32':
+                ) -> 'Int32':
                     return super().__new__(
                         cls,
                         *_args,
@@ -187,7 +187,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class int64(
+            class Int64(
                 schemas.AnyTypeSchema,
             ):
             
@@ -202,7 +202,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'int64':
+                ) -> 'Int64':
                     return super().__new__(
                         cls,
                         *_args,
@@ -211,7 +211,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class double(
+            class Double(
                 schemas.AnyTypeSchema,
             ):
             
@@ -226,7 +226,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'double':
+                ) -> 'Double':
                     return super().__new__(
                         cls,
                         *_args,
@@ -235,7 +235,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class _float(
+            class ModelFloat(
                 schemas.AnyTypeSchema,
             ):
             
@@ -250,7 +250,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> '_float':
+                ) -> 'ModelFloat':
                     return super().__new__(
                         cls,
                         *_args,
@@ -258,43 +258,43 @@ class AnyTypeAndFormat(
                         **kwargs,
                     )
             __annotations__ = {
-                "uuid": uuid,
-                "date": date,
-                "date-time": date_time,
-                "number": number,
-                "binary": binary,
-                "int32": int32,
-                "int64": int64,
-                "double": double,
-                "float": _float,
+                "uuid": Uuid,
+                "date": Date,
+                "date-time": DateTime,
+                "number": Number,
+                "binary": Binary,
+                "int32": Int32,
+                "int64": Int64,
+                "double": Double,
+                "float": ModelFloat,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.properties.uuid: ...
+    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.Properties.Uuid: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.Properties.Date: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date-time"]) -> MetaOapg.properties.date_time: ...
+    def __getitem__(self, name: typing_extensions.Literal["date-time"]) -> MetaOapg.Properties.DateTime: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.properties.binary: ...
+    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.Properties.Binary: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.Properties.Int32: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.Int64: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -318,31 +318,31 @@ class AnyTypeAndFormat(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[MetaOapg.properties.uuid, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[MetaOapg.Properties.Uuid, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.properties.date, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.Properties.Date, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["date-time"]) -> typing.Union[MetaOapg.properties.date_time, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["date-time"]) -> typing.Union[MetaOapg.Properties.DateTime, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> typing.Union[MetaOapg.properties.number, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> typing.Union[MetaOapg.Properties.Number, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.properties.binary, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.Properties.Binary, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.properties.int32, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.Properties.Int32, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.properties.int64, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.Int64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> typing.Union[MetaOapg.properties.double, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> typing.Union[MetaOapg.Properties.Double, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.properties._float, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -367,13 +367,13 @@ class AnyTypeAndFormat(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        uuid: typing.Union[MetaOapg.properties.uuid, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        date: typing.Union[MetaOapg.properties.date, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        number: typing.Union[MetaOapg.properties.number, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        binary: typing.Union[MetaOapg.properties.binary, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        int32: typing.Union[MetaOapg.properties.int32, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        int64: typing.Union[MetaOapg.properties.int64, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        double: typing.Union[MetaOapg.properties.double, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        uuid: typing.Union[MetaOapg.Properties.Uuid, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        date: typing.Union[MetaOapg.Properties.Date, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        number: typing.Union[MetaOapg.Properties.Number, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        binary: typing.Union[MetaOapg.Properties.Binary, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        int32: typing.Union[MetaOapg.Properties.Int32, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        int64: typing.Union[MetaOapg.Properties.Int64, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        double: typing.Union[MetaOapg.Properties.Double, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'AnyTypeAndFormat':

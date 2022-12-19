@@ -28,10 +28,9 @@ import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.CliOption;
 import org.openapitools.codegen.CodegenConstants;
-import org.openapitools.codegen.CodegenModel;
 import org.openapitools.codegen.CodegenOperation;
 import org.openapitools.codegen.CodegenParameter;
-import org.openapitools.codegen.CodegenProperty;
+import org.openapitools.codegen.CodegenSchema;
 import org.openapitools.codegen.CodegenType;
 import org.openapitools.codegen.SupportingFile;
 import org.openapitools.codegen.meta.features.ClientModificationFeature;
@@ -775,25 +774,20 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         ModelsMap objects = super.postProcessModels(objs);
 
         for (ModelMap mo : objects.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenSchema cm = mo.getModel();
             if (getGenerateRoomModels()) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
             }
 
             // escape the variable base name for use as a string literal
-            List<CodegenProperty> vars = Stream.of(
-                            cm.vars,
-                            cm.allVars,
+            List<CodegenSchema> vars = Stream.of(
                             cm.getOptionalProperties().values().stream().collect(Collectors.toList()),
-                            cm.getRequiredProperties().values().stream().collect(Collectors.toList()),
-                            cm.readOnlyVars,
-                            cm.readWriteVars,
-                            cm.parentVars
+                            cm.getRequiredProperties().values().stream().collect(Collectors.toList())
                     )
                     .flatMap(List::stream)
                     .collect(Collectors.toList());
 
-            for (CodegenProperty var : vars) {
+            for (CodegenSchema var : vars) {
                 if (var.name != null) {
                     var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.name.getName().replace("$", "\\$"));
                 }

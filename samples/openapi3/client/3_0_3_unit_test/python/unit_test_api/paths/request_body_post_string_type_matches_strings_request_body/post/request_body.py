@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import string_type_matches_strings
 
 
-application_json = string_type_matches_strings.StringTypeMatchesStrings
+ApplicationJson = string_type_matches_strings.StringTypeMatchesStrings
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

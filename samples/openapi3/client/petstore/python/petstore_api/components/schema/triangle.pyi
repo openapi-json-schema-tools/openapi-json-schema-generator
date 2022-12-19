@@ -46,23 +46,23 @@ class Triangle(
                 }
             }
         
-        class one_of:
+        class OneOf:
         
             @staticmethod
-            def oneOf_0() -> typing.Type['equilateral_triangle.EquilateralTriangle']:
+            def one_of_0() -> typing.Type['equilateral_triangle.EquilateralTriangle']:
                 return equilateral_triangle.EquilateralTriangle
         
             @staticmethod
-            def oneOf_1() -> typing.Type['isosceles_triangle.IsoscelesTriangle']:
+            def one_of_1() -> typing.Type['isosceles_triangle.IsoscelesTriangle']:
                 return isosceles_triangle.IsoscelesTriangle
         
             @staticmethod
-            def oneOf_2() -> typing.Type['scalene_triangle.ScaleneTriangle']:
+            def one_of_2() -> typing.Type['scalene_triangle.ScaleneTriangle']:
                 return scalene_triangle.ScaleneTriangle
             classes = [
-                oneOf_0,
-                oneOf_1,
-                oneOf_2,
+                one_of_0,
+                one_of_1,
+                one_of_2,
             ]
 
 

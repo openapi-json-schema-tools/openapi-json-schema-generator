@@ -39,7 +39,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         DictSchema,
@@ -56,7 +56,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         ListSchema,
@@ -73,7 +73,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         StrSchema,
@@ -90,7 +90,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         NumberSchema,
@@ -114,7 +114,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         IntSchema,
@@ -135,7 +135,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         BoolSchema,
@@ -159,7 +159,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         NoneSchema,
@@ -176,7 +176,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         DateSchema,
@@ -193,7 +193,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         DateTimeSchema,
@@ -210,7 +210,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class MetaOapg:
 
-                class all_of:
+                class AllOf:
                     classes = [
                         AnyTypeSchema,
                         DecimalSchema,

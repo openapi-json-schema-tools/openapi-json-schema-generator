@@ -35,10 +35,10 @@ class ObjectWithInlineCompositionProperty(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
             
             
-            class someProp(
+            class SomeProp(
                 schemas.AnyTypeSchema,
             ):
             
@@ -46,15 +46,15 @@ class ObjectWithInlineCompositionProperty(
                 class MetaOapg:
                     # any type
                     
-                    class all_of:
+                    class AllOf:
                         
                         
-                        class allOf_0(
+                        class AllOf0(
                             schemas.StrSchema
                         ):
                             pass
                         classes = [
-                            allOf_0,
+                            AllOf0,
                         ]
             
             
@@ -63,7 +63,7 @@ class ObjectWithInlineCompositionProperty(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'someProp':
+                ) -> 'SomeProp':
                     return super().__new__(
                         cls,
                         *_args,
@@ -71,11 +71,11 @@ class ObjectWithInlineCompositionProperty(
                         **kwargs,
                     )
             __annotations__ = {
-                "someProp": someProp,
+                "someProp": SomeProp,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.properties.someProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.Properties.SomeProp: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -91,7 +91,7 @@ class ObjectWithInlineCompositionProperty(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.properties.someProp, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.Properties.SomeProp, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -108,7 +108,7 @@ class ObjectWithInlineCompositionProperty(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        someProp: typing.Union[MetaOapg.properties.someProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        someProp: typing.Union[MetaOapg.Properties.SomeProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectWithInlineCompositionProperty':

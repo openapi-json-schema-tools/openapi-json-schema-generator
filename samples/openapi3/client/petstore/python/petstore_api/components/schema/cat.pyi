@@ -36,28 +36,28 @@ class Cat(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
         
             @staticmethod
-            def allOf_0() -> typing.Type['animal.Animal']:
+            def all_of_0() -> typing.Type['animal.Animal']:
                 return animal.Animal
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
                     
-                    class properties:
-                        declawed = schemas.BoolSchema
+                    class Properties:
+                        Declawed = schemas.BoolSchema
                         __annotations__ = {
-                            "declawed": declawed,
+                            "declawed": Declawed,
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> MetaOapg.properties.declawed: ...
+                def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> MetaOapg.Properties.Declawed: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -73,7 +73,7 @@ class Cat(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[MetaOapg.properties.declawed, schemas.Unset]: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[MetaOapg.Properties.Declawed, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,10 +90,10 @@ class Cat(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    declawed: typing.Union[MetaOapg.properties.declawed, bool, schemas.Unset] = schemas.unset,
+                    declawed: typing.Union[MetaOapg.Properties.Declawed, bool, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -102,8 +102,8 @@ class Cat(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                all_of_0,
+                AllOf1,
             ]
 
 

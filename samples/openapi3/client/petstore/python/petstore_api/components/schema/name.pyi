@@ -41,27 +41,27 @@ class Name(
             "name",
         }
         
-        class properties:
-            name = schemas.Int32Schema
-            snake_case = schemas.Int32Schema
-            _property = schemas.StrSchema
+        class Properties:
+            Name = schemas.Int32Schema
+            SnakeCase = schemas.Int32Schema
+            ModelProperty = schemas.StrSchema
             __annotations__ = {
-                "name": name,
-                "snake_case": snake_case,
-                "property": _property,
+                "name": Name,
+                "snake_case": SnakeCase,
+                "property": ModelProperty,
             }
 
     
-    name: MetaOapg.properties.name
+    name: MetaOapg.Properties.Name
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> MetaOapg.properties.snake_case: ...
+    def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> MetaOapg.Properties.SnakeCase: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["property"]) -> MetaOapg.properties._property: ...
+    def __getitem__(self, name: typing_extensions.Literal["property"]) -> MetaOapg.Properties.ModelProperty: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -79,13 +79,13 @@ class Name(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["snake_case"]) -> typing.Union[MetaOapg.properties.snake_case, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["snake_case"]) -> typing.Union[MetaOapg.Properties.SnakeCase, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["property"]) -> typing.Union[MetaOapg.properties._property, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["property"]) -> typing.Union[MetaOapg.Properties.ModelProperty, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -104,8 +104,8 @@ class Name(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        name: typing.Union[MetaOapg.properties.name, decimal.Decimal, int, ],
-        snake_case: typing.Union[MetaOapg.properties.snake_case, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        name: typing.Union[MetaOapg.Properties.Name, decimal.Decimal, int, ],
+        snake_case: typing.Union[MetaOapg.Properties.SnakeCase, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Name':

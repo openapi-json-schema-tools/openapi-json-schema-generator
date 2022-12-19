@@ -38,10 +38,10 @@ class AnyofWithBaseSchema(
             str,
         }
         
-        class any_of:
+        class AnyOf:
             
             
-            class anyOf_0(
+            class AnyOf0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -55,7 +55,7 @@ class AnyofWithBaseSchema(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'anyOf_0':
+                ) -> 'AnyOf0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -64,7 +64,7 @@ class AnyofWithBaseSchema(
                     )
             
             
-            class anyOf_1(
+            class AnyOf1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -78,7 +78,7 @@ class AnyofWithBaseSchema(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'anyOf_1':
+                ) -> 'AnyOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -86,8 +86,8 @@ class AnyofWithBaseSchema(
                         **kwargs,
                     )
             classes = [
-                anyOf_0,
-                anyOf_1,
+                AnyOf0,
+                AnyOf1,
             ]
 
 

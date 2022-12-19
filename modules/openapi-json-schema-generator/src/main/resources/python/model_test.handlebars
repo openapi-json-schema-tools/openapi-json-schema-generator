@@ -7,12 +7,12 @@ import unittest
 import {{packageName}}
 {{#each models}}
 {{#with model}}
-from {{packageName}}.{{modelPackage}}.{{classFilename}} import {{classname}}
+from {{packageName}}.{{modelPackage}}.{{refModule}} import {{name.getCamelCaseName}}
 from {{packageName}} import configuration
 
 
-class Test{{classname}}(unittest.TestCase):
-    """{{classname}} unit test stubs"""
+class Test{{name.getCamelCaseName}}(unittest.TestCase):
+    """{{name.getCamelCaseName}} unit test stubs"""
     _configuration = configuration.Configuration()
 
 {{#each testCases}}
@@ -20,7 +20,7 @@ class Test{{classname}}(unittest.TestCase):
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
 {{#if valid}}
-        {{classname}}.from_openapi_data_oapg(
+        {{name.getCamelCaseName}}.from_openapi_data_oapg(
 {{#with data}}
             {{> model_templates/payload_renderer endChar=',' }}
 {{/with}}
@@ -28,7 +28,7 @@ class Test{{classname}}(unittest.TestCase):
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            {{classname}}.from_openapi_data_oapg(
+            {{name.getCamelCaseName}}.from_openapi_data_oapg(
 {{#with data}}
                 {{> model_templates/payload_renderer endChar=','}}
 {{/with}}

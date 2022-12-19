@@ -18,16 +18,16 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import order
 
 # body schemas
-application_xml = order.Order
-application_json = order.Order
+ApplicationXml = order.Order
+ApplicationJson = order.Order
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml,
-        application_json,
+        ApplicationXml,
+        ApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -36,10 +36,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=application_xml,
+            schema=ApplicationXml,
         ),
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
 )

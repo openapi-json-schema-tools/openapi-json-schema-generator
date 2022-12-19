@@ -38,19 +38,19 @@ class Player(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            name = schemas.StrSchema
+        class Properties:
+            Name = schemas.StrSchema
         
             @staticmethod
-            def enemyPlayer() -> typing.Type['player.Player']:
+            def enemy_player() -> typing.Type['player.Player']:
                 return player.Player
             __annotations__ = {
-                "name": name,
-                "enemyPlayer": enemyPlayer,
+                "name": Name,
+                "enemyPlayer": enemy_player,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enemyPlayer"]) -> 'player.Player': ...
@@ -70,7 +70,7 @@ class Player(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["enemyPlayer"]) -> typing.Union['player.Player', schemas.Unset]: ...
@@ -91,7 +91,7 @@ class Player(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
+        name: typing.Union[MetaOapg.Properties.Name, str, schemas.Unset] = schemas.unset,
         enemyPlayer: typing.Union['player.Player', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.media.Schema;
 import org.openapitools.codegen.meta.FeatureSet;
 import org.openapitools.codegen.meta.features.SchemaSupportFeature;
@@ -16,10 +16,10 @@ import org.openapitools.codegen.utils.ModelUtils;
 
 public interface JsonSchema {
     // 3.1.0
-    CodegenProperty getContains();
+    CodegenSchema getContains();
 
     // 3.1.0
-    void setContains(CodegenProperty contains);
+    void setContains(CodegenSchema contains);
 
     // 3.1.0
     LinkedHashMap<String, List<String>> getDependentRequired();
@@ -79,9 +79,9 @@ public interface JsonSchema {
 
     void setMultipleOf(Number multipleOf);
 
-    CodegenProperty getItems();
+    CodegenSchema getItems();
 
-    void setItems(CodegenProperty items);
+    void setItems(CodegenSchema items);
 
     boolean getIsDate();
 
@@ -112,27 +112,27 @@ public interface JsonSchema {
 
     void setIsUnboundedInteger(boolean isUnboundedInteger);
 
-    CodegenProperty getAdditionalProperties();
+    CodegenSchema getAdditionalProperties();
 
-    void setAdditionalProperties(CodegenProperty additionalProperties);
+    void setAdditionalProperties(CodegenSchema additionalProperties);
 
-    LinkedHashMap<CodegenKey, CodegenProperty> getProperties();
+    LinkedHashMap<CodegenKey, CodegenSchema> getProperties();
 
-    void setProperties(LinkedHashMap<CodegenKey, CodegenProperty> properties);
+    void setProperties(LinkedHashMap<CodegenKey, CodegenSchema> properties);
 
-    LinkedHashMap<CodegenKey, CodegenProperty> getOptionalProperties();
+    LinkedHashMap<CodegenKey, CodegenSchema> getOptionalProperties();
 
-    void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenProperty> optionalProperties);
+    void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties);
 
-    LinkedHashMap<CodegenKey, CodegenProperty> getRequiredProperties();
+    LinkedHashMap<CodegenKey, CodegenSchema> getRequiredProperties();
 
-    // goes from required propertyName to its CodegenProperty
+    // goes from required propertyName to its CodegenSchema
     // Use Cases:
-    // 1. required property is defined in properties, value is that CodegenProperty
-    // 2. required property is not defined in properties, and additionalProperties is true or unset value is CodegenProperty made from empty schema
-    // 3. required property is not defined in properties, and additionalProperties is schema, value is CodegenProperty made from schema
+    // 1. required property is defined in properties, value is that CodegenSchema
+    // 2. required property is not defined in properties, and additionalProperties is true or unset value is CodegenSchema made from empty schema
+    // 3. required property is not defined in properties, and additionalProperties is schema, value is CodegenSchema made from schema
     // 4. required property is not defined in properties, and additionalProperties is false, value is null
-    void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenProperty> requiredProperties);
+    void setRequiredProperties(LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties);
 
 
     boolean getIsNull();
@@ -148,6 +148,11 @@ public interface JsonSchema {
 
     // discriminators are only supported in request bodies and response payloads per OpenApi
     void setHasDiscriminatorWithNonEmptyMapping(boolean hasDiscriminatorWithNonEmptyMapping);
+
+    // OpenAPI field, discriminator
+    CodegenDiscriminator getDiscriminator();
+
+    void setDiscriminator(CodegenDiscriminator discriminator);
 
     boolean getIsString();
 
@@ -165,21 +170,25 @@ public interface JsonSchema {
 
     void setRef(String ref);
 
-    List<CodegenProperty> getAllOf();
+    String getRefModule();
 
-    void setAllOf(List<CodegenProperty> allOf);
+    void setRefModule(String ref);
 
-    List<CodegenProperty> getAnyOf();
+    List<CodegenSchema> getAllOf();
 
-    void setAnyOf(List<CodegenProperty> anyOf);
+    void setAllOf(List<CodegenSchema> allOf);
 
-    List<CodegenProperty> getOneOf();
+    List<CodegenSchema> getAnyOf();
 
-    void setOneOf(List<CodegenProperty> oneOf);
+    void setAnyOf(List<CodegenSchema> anyOf);
 
-    CodegenProperty getNot();
+    List<CodegenSchema> getOneOf();
 
-    void setNot(CodegenProperty not);
+    void setOneOf(List<CodegenSchema> oneOf);
+
+    CodegenSchema getNot();
+
+    void setNot(CodegenSchema not);
 
     boolean getHasMultipleTypes();
 
@@ -202,6 +211,14 @@ public interface JsonSchema {
     void setFormat(String format);
 
     String getFormat();
+
+    /**
+     * OpenAPI field, externalDocs
+     * @return ExternalDocumentation
+     */
+    ExternalDocumentation getExternalDocumentation();
+
+    void setExternalDocumentation(ExternalDocumentation externalDocumentation);
 
     /**
      * Syncs all the schema's type properties into the JsonSchema instance
@@ -264,34 +281,31 @@ public interface JsonSchema {
         }
     }
 
-    /**
-     * @return basic type - no generics supported.
-     */
-    default String getBaseType() {
-        return null;
-    };
 
-    /**
-     * @return complex type that can contain type parameters - like {@code List<Items>} for Java
-     */
-    default String getRefClass() {
-        return getBaseType();
-    };
+   String getRefClass();
 
     /**
      * Recursively collect all necessary imports to include so that the type may be resolved.
      *
-     * @param importBaseType whether or not to include the base types in the returned imports.
      * @param featureSet the generator feature set, used to determine if composed schemas should be added
      * @return all of the imports
      */
-    default Set<String> getImports(boolean importBaseType, FeatureSet featureSet) {
+    default Set<String> getImports(FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
+        if (getDiscriminator() != null && getDiscriminator().getMappedModels() != null) {
+            CodegenDiscriminator disc = getDiscriminator();
+            for (CodegenDiscriminator.MappedModel mm : disc.getMappedModels()) {
+                if (!"".equals(mm.getModelName())) {
+                    String complexType = mm.getModelName();
+                    imports.add(complexType);
+                }
+            }
+        }
         if (getAllOf() != null || getAnyOf() != null || getOneOf() != null || getNot() != null) {
-            List<CodegenProperty> allOfs = Collections.emptyList();
-            List<CodegenProperty> oneOfs = Collections.emptyList();
-            List<CodegenProperty> anyOfs = Collections.emptyList();
-            List<CodegenProperty> nots = Collections.emptyList();
+            List<CodegenSchema> allOfs = Collections.emptyList();
+            List<CodegenSchema> oneOfs = Collections.emptyList();
+            List<CodegenSchema> anyOfs = Collections.emptyList();
+            List<CodegenSchema> nots = Collections.emptyList();
             if (getAllOf() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
                 allOfs = getAllOf();
             }
@@ -304,22 +318,22 @@ public interface JsonSchema {
             if (getNot() != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
                 nots = Arrays.asList(getNot());
             }
-            Stream<CodegenProperty> innerTypes = Stream.of(
+            Stream<CodegenSchema> innerTypes = Stream.of(
                             allOfs.stream(), anyOfs.stream(), oneOfs.stream(), nots.stream())
                     .flatMap(i -> i);
-            innerTypes.flatMap(cp -> cp.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+            innerTypes.flatMap(cp -> cp.getImports(featureSet).stream()).forEach(s -> imports.add(s));
         }
         // items can exist for AnyType and type array
         if (this.getItems() != null && this.getIsArray()) {
-            imports.addAll(this.getItems().getImports(importBaseType, featureSet));
+            imports.addAll(this.getItems().getImports(featureSet));
         }
         // additionalProperties can exist for AnyType and type object
         if (this.getAdditionalProperties() != null) {
-            imports.addAll(this.getAdditionalProperties().getImports(importBaseType, featureSet));
+            imports.addAll(this.getAdditionalProperties().getImports(featureSet));
         }
         // vars can exist for AnyType and type object
         if (this.getProperties() != null && !this.getProperties().isEmpty()) {
-            this.getProperties().values().stream().flatMap(v -> v.getImports(importBaseType, featureSet).stream()).forEach(s -> imports.add(s));
+            this.getProperties().values().stream().flatMap(v -> v.getImports(featureSet).stream()).forEach(s -> imports.add(s));
         }
         if (this.getIsArray() || this.getIsMap()) {
             /*
@@ -328,28 +342,18 @@ public interface JsonSchema {
             DefaultCodegenTest.mapParamImportInnerObject
             */
             String refClass = this.getRefClass();
-            if (refClass != null && refClass.contains(".")) {
+            String refModule = this.getRefModule();
+            if (refClass != null && refModule != null) {
                 // self reference classes do not contain periods
                 imports.add(refClass);
-            }
-            /*
-            use-case:
-            Adding List/Map etc, Java uses this
-             */
-            String baseType = this.getBaseType();
-            if (importBaseType && baseType != null) {
-                imports.add(baseType);
             }
         } else {
             // referenced or inline schemas
             String refClass = this.getRefClass();
-            if (refClass != null && refClass.contains(".")) {
+            String refModule = this.getRefModule();
+            if (refClass != null && refModule != null) {
                 // self reference classes do not contain periods
                 imports.add(refClass);
-            }
-            String baseType = this.getBaseType();
-            if (importBaseType && baseType != null) {
-                imports.add(baseType);
             }
             return imports;
         }

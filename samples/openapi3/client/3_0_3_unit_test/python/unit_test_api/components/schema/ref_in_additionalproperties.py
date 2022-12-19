@@ -37,7 +37,7 @@ class RefInAdditionalproperties(
         types = {frozendict.frozendict}
         
         @staticmethod
-        def additionalProperties() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+        def additional_properties() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
             return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
     
     def __getitem__(self, name: str) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':

@@ -339,7 +339,7 @@ public class TestUtils {
                 .toType();
     }
 
-    public static ModelsMap createCodegenModelWrapper(CodegenModel cm) {
+    public static ModelsMap createCodegenModelWrapper(CodegenSchema cm) {
         ModelsMap objs = new ModelsMap();
         List<ModelMap> modelMaps = new ArrayList<>();
         ModelMap modelMap = new ModelMap();

@@ -36,10 +36,10 @@ class AllofSimpleTypes(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
             
             
-            class allOf_0(
+            class AllOf0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -53,7 +53,7 @@ class AllofSimpleTypes(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_0':
+                ) -> 'AllOf0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -62,7 +62,7 @@ class AllofSimpleTypes(
                     )
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -76,7 +76,7 @@ class AllofSimpleTypes(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -84,8 +84,8 @@ class AllofSimpleTypes(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                AllOf0,
+                AllOf1,
             ]
 
 

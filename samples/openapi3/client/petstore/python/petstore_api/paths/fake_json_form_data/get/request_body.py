@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_x_www_form_urlencoded(
+class ApplicationXWwwFormUrlencoded(
     schemas.DictSchema
 ):
 
@@ -39,22 +39,22 @@ class application_x_www_form_urlencoded(
             "param2",
         }
         
-        class properties:
-            param = schemas.StrSchema
-            param2 = schemas.StrSchema
+        class Properties:
+            Param = schemas.StrSchema
+            Param2 = schemas.StrSchema
             __annotations__ = {
-                "param": param,
-                "param2": param2,
+                "param": Param,
+                "param2": Param2,
             }
     
-    param: MetaOapg.properties.param
-    param2: MetaOapg.properties.param2
+    param: MetaOapg.Properties.Param
+    param2: MetaOapg.Properties.Param2
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["param"]) -> MetaOapg.properties.param: ...
+    def __getitem__(self, name: typing_extensions.Literal["param"]) -> MetaOapg.Properties.Param: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.properties.param2: ...
+    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.Properties.Param2: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -71,10 +71,10 @@ class application_x_www_form_urlencoded(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["param"]) -> MetaOapg.properties.param: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["param"]) -> MetaOapg.Properties.Param: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.properties.param2: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.Properties.Param2: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -92,11 +92,11 @@ class application_x_www_form_urlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        param: typing.Union[MetaOapg.properties.param, str, ],
-        param2: typing.Union[MetaOapg.properties.param2, str, ],
+        param: typing.Union[MetaOapg.Properties.Param, str, ],
+        param2: typing.Union[MetaOapg.Properties.Param2, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_x_www_form_urlencoded':
+    ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
             *_args,
@@ -109,7 +109,7 @@ class application_x_www_form_urlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=ApplicationXWwwFormUrlencoded
         ),
     },
 )

@@ -32,7 +32,7 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.application_json
+    response_body_schema = post.response_for_200.ApplicationJson
 
     def test_match_string_with_nul_passes(self):
         # match string with nul

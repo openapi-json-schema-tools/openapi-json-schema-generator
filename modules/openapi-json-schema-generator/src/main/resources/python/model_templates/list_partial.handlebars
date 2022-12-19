@@ -1,9 +1,7 @@
 {{#with items}}
 {{#if refClass}}
 
-@staticmethod
-def {{name.getName}}() -> typing.Type['{{refClass}}']:
-    return {{refClass}}
+{{> model_templates/refClassStaticmethod }}
 {{else}}
 {{> model_templates/schema }}
 {{/if}}

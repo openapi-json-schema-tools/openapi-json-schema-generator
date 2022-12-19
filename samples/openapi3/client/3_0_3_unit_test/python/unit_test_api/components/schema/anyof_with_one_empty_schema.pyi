@@ -36,12 +36,12 @@ class AnyofWithOneEmptySchema(
     class MetaOapg:
         # any type
         
-        class any_of:
-            anyOf_0 = schemas.NumberSchema
-            anyOf_1 = schemas.AnyTypeSchema
+        class AnyOf:
+            AnyOf0 = schemas.NumberSchema
+            AnyOf1 = schemas.AnyTypeSchema
             classes = [
-                anyOf_0,
-                anyOf_1,
+                AnyOf0,
+                AnyOf1,
             ]
 
 

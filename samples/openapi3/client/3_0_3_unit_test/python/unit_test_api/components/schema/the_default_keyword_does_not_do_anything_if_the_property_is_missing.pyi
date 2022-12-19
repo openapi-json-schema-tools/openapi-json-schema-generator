@@ -35,19 +35,19 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
             
             
-            class alpha(
+            class Alpha(
                 schemas.NumberSchema
             ):
                 pass
             __annotations__ = {
-                "alpha": alpha,
+                "alpha": Alpha,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["alpha"]) -> MetaOapg.properties.alpha: ...
+    def __getitem__(self, name: typing_extensions.Literal["alpha"]) -> MetaOapg.Properties.Alpha: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -63,7 +63,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["alpha"]) -> typing.Union[MetaOapg.properties.alpha, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["alpha"]) -> typing.Union[MetaOapg.Properties.Alpha, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -80,7 +80,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        alpha: typing.Union[MetaOapg.properties.alpha, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        alpha: typing.Union[MetaOapg.Properties.Alpha, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing':

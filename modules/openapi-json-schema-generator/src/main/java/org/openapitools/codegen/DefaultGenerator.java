@@ -43,7 +43,6 @@ import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.api.TemplatingEngineAdapter;
 import org.openapitools.codegen.api.TemplateFileType;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
-import org.openapitools.codegen.languages.PythonClientCodegen;
 import org.openapitools.codegen.meta.GeneratorMetadata;
 import org.openapitools.codegen.meta.Stability;
 import org.openapitools.codegen.model.ApiInfoMap;
@@ -1073,14 +1072,6 @@ public class DefaultGenerator implements Generator {
                 List<ModelMap> modelList = models.getModels();
                 if (modelList != null && !modelList.isEmpty()) {
                     ModelMap modelTemplate = modelList.get(0);
-                    if (modelTemplate != null && modelTemplate.getModel() != null) {
-                        CodegenModel m = modelTemplate.getModel();
-                        if (m.isAlias && !(config instanceof PythonClientCodegen)) {
-                            // alias to number, string, enum, etc, which should not be generated as model
-                            // for PythonClientCodegen, all aliases are generated as models
-                            continue;  // Don't create user-defined classes for aliases
-                        }
-                    }
                     allModels.add(modelTemplate);
                 }
 
@@ -1371,11 +1362,6 @@ public class DefaultGenerator implements Generator {
 
         if (openAPI.getExternalDocs() != null) {
             bundle.put("externalDocs", openAPI.getExternalDocs());
-        }
-
-        for (int i = 0; i < allModels.size() - 1; i++) {
-            CodegenModel m = allModels.get(i).getModel();
-            m.hasMoreModels = true;
         }
 
         config.postProcessSupportingFileData(bundle);
@@ -1857,13 +1843,12 @@ public class DefaultGenerator implements Generator {
             Schema schema = definitionsEntry.getValue();
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
-            CodegenModel cm = config.fromModel(schemaName, schema);
+            String sourceJsonPath = "#/components/schemas/"+schemaName;
+            CodegenSchema cm = config.fromSchema(schema, sourceJsonPath);
             ModelMap mo = new ModelMap();
             mo.setModel(cm);
-            mo.put("importPath", config.toModelImport(config.toRefClass("#/components/schemas/"+schemaName, "")));
+            mo.put("importPath", config.toModelImport(config.toRefClass(sourceJsonPath, "")));
             modelMaps.add(mo);
-
-            cm.removeSelfReferenceImport();
 
             if (cm.imports == null || cm.imports.size() == 0) {
                 continue;
