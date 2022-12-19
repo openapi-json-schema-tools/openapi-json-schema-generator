@@ -1,5 +1,5 @@
 <a name="top"></a>
-## api_response
+## petstore_api.components.schema.api_response
 # ApiResponse
 
 ## Model Type Info

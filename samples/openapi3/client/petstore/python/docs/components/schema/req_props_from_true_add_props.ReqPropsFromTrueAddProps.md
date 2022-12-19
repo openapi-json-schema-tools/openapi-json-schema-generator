@@ -1,5 +1,5 @@
 <a name="top"></a>
-## req_props_from_true_add_props
+## petstore_api.components.schema.req_props_from_true_add_props
 # ReqPropsFromTrueAddProps
 
 ## Model Type Info

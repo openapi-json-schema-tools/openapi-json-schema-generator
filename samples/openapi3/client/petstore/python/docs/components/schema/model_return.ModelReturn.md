@@ -1,5 +1,5 @@
 <a name="top"></a>
-## model_return
+## petstore_api.components.schema.model_return
 # ModelReturn
 
 Model for testing reserved words

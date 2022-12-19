@@ -1,5 +1,5 @@
 <a name="top"></a>
-## fruit
+## petstore_api.components.schema.fruit
 # Fruit
 
 ## Model Type Info

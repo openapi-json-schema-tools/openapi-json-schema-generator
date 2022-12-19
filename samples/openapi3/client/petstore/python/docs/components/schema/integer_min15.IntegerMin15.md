@@ -1,5 +1,5 @@
 <a name="top"></a>
-## integer_min15
+## petstore_api.components.schema.integer_min15
 # IntegerMin15
 
 ## Model Type Info

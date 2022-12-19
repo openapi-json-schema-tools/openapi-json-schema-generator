@@ -1,5 +1,5 @@
 <a name="top"></a>
-## gm_fruit
+## petstore_api.components.schema.gm_fruit
 # GmFruit
 
 ## Model Type Info

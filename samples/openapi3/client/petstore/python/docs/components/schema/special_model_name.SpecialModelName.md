@@ -1,5 +1,5 @@
 <a name="top"></a>
-## special_model_name
+## petstore_api.components.schema.special_model_name
 # SpecialModelName
 
 model with an invalid class name for python

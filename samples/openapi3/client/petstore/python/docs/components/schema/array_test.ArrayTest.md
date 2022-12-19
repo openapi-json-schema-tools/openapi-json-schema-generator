@@ -1,5 +1,5 @@
 <a name="top"></a>
-## array_test
+## petstore_api.components.schema.array_test
 # ArrayTest
 
 ## Model Type Info

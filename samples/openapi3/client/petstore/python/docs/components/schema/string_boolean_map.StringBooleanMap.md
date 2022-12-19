@@ -1,5 +1,5 @@
 <a name="top"></a>
-## string_boolean_map
+## petstore_api.components.schema.string_boolean_map
 # StringBooleanMap
 
 ## Model Type Info

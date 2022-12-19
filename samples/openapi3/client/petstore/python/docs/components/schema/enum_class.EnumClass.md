@@ -1,5 +1,5 @@
 <a name="top"></a>
-## enum_class
+## petstore_api.components.schema.enum_class
 # EnumClass
 
 ## Model Type Info

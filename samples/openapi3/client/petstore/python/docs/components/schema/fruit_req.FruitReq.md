@@ -1,5 +1,5 @@
 <a name="top"></a>
-## fruit_req
+## petstore_api.components.schema.fruit_req
 # FruitReq
 
 ## Model Type Info

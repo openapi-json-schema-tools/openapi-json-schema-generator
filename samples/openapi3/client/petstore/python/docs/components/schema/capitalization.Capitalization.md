@@ -1,5 +1,5 @@
 <a name="top"></a>
-## capitalization
+## petstore_api.components.schema.capitalization
 # Capitalization
 
 ## Model Type Info

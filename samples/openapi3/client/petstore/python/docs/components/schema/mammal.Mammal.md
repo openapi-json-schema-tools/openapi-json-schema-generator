@@ -1,5 +1,5 @@
 <a name="top"></a>
-## mammal
+## petstore_api.components.schema.mammal
 # Mammal
 
 ## Model Type Info

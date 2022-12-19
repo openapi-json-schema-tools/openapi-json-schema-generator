@@ -1,5 +1,5 @@
 <a name="top"></a>
-## some_object
+## petstore_api.components.schema.some_object
 # SomeObject
 
 ## Model Type Info

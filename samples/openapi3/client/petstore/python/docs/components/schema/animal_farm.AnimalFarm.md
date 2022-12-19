@@ -1,5 +1,5 @@
 <a name="top"></a>
-## animal_farm
+## petstore_api.components.schema.animal_farm
 # AnimalFarm
 
 ## Model Type Info

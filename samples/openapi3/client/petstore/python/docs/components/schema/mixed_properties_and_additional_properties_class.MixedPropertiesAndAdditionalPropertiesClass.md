@@ -1,5 +1,5 @@
 <a name="top"></a>
-## mixed_properties_and_additional_properties_class
+## petstore_api.components.schema.mixed_properties_and_additional_properties_class
 # MixedPropertiesAndAdditionalPropertiesClass
 
 ## Model Type Info

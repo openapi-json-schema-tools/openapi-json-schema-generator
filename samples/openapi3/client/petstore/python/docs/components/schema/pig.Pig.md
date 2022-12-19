@@ -1,5 +1,5 @@
 <a name="top"></a>
-## pig
+## petstore_api.components.schema.pig
 # Pig
 
 ## Model Type Info

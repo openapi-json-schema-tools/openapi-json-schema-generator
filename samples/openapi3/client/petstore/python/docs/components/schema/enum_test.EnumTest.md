@@ -1,5 +1,5 @@
 <a name="top"></a>
-## enum_test
+## petstore_api.components.schema.enum_test
 # EnumTest
 
 ## Model Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## user
+## petstore_api.components.schema.user
 # User
 
 ## Model Type Info

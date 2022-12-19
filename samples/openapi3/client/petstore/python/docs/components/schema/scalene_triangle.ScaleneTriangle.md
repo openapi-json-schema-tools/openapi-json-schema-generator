@@ -1,5 +1,5 @@
 <a name="top"></a>
-## scalene_triangle
+## petstore_api.components.schema.scalene_triangle
 # ScaleneTriangle
 
 ## Model Type Info

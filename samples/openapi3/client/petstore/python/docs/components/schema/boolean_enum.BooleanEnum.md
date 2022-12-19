@@ -1,5 +1,5 @@
 <a name="top"></a>
-## boolean_enum
+## petstore_api.components.schema.boolean_enum
 # BooleanEnum
 
 ## Model Type Info

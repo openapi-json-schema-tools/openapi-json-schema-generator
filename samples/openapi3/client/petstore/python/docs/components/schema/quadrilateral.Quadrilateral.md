@@ -1,5 +1,5 @@
 <a name="top"></a>
-## quadrilateral
+## petstore_api.components.schema.quadrilateral
 # Quadrilateral
 
 ## Model Type Info

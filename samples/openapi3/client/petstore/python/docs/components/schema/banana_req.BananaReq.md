@@ -1,5 +1,5 @@
 <a name="top"></a>
-## banana_req
+## petstore_api.components.schema.banana_req
 # BananaReq
 
 ## Model Type Info

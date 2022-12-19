@@ -1,5 +1,5 @@
 <a name="top"></a>
-## integer_max10
+## petstore_api.components.schema.integer_max10
 # IntegerMax10
 
 ## Model Type Info

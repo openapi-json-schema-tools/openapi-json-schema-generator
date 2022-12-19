@@ -1,5 +1,5 @@
 <a name="top"></a>
-## composed_array
+## petstore_api.components.schema.composed_array
 # ComposedArray
 
 ## Model Type Info

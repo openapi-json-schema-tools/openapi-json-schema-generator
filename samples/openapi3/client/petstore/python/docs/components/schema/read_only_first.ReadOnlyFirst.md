@@ -1,5 +1,5 @@
 <a name="top"></a>
-## read_only_first
+## petstore_api.components.schema.read_only_first
 # ReadOnlyFirst
 
 ## Model Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## any_type_and_format
+## petstore_api.components.schema.any_type_and_format
 # AnyTypeAndFormat
 
 ## Model Type Info

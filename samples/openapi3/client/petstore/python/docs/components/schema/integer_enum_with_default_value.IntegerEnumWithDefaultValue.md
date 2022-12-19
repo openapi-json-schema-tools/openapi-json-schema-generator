@@ -1,5 +1,5 @@
 <a name="top"></a>
-## integer_enum_with_default_value
+## petstore_api.components.schema.integer_enum_with_default_value
 # IntegerEnumWithDefaultValue
 
 ## Model Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## object_interface
+## petstore_api.components.schema.object_interface
 # ObjectInterface
 
 ## Model Type Info

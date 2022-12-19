@@ -1,5 +1,5 @@
 <a name="top"></a>
-## boolean
+## petstore_api.components.schema.boolean
 # Boolean
 
 ## Model Type Info

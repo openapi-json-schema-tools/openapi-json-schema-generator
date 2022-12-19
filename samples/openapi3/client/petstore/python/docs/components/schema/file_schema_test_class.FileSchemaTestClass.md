@@ -1,5 +1,5 @@
 <a name="top"></a>
-## file_schema_test_class
+## petstore_api.components.schema.file_schema_test_class
 # FileSchemaTestClass
 
 ## Model Type Info

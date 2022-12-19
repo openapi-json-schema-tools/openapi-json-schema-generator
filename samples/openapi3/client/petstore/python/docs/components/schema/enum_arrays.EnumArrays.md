@@ -1,5 +1,5 @@
 <a name="top"></a>
-## enum_arrays
+## petstore_api.components.schema.enum_arrays
 # EnumArrays
 
 ## Model Type Info

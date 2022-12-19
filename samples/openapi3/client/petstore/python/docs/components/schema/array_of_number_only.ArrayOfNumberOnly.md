@@ -1,5 +1,5 @@
 <a name="top"></a>
-## array_of_number_only
+## petstore_api.components.schema.array_of_number_only
 # ArrayOfNumberOnly
 
 ## Model Type Info

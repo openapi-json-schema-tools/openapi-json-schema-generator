@@ -1,5 +1,5 @@
 <a name="top"></a>
-## json_patch_request_move_copy
+## petstore_api.components.schema.json_patch_request_move_copy
 # JSONPatchRequestMoveCopy
 
 ## Model Type Info

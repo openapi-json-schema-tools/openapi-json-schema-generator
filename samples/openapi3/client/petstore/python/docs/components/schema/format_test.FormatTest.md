@@ -1,5 +1,5 @@
 <a name="top"></a>
-## format_test
+## petstore_api.components.schema.format_test
 # FormatTest
 
 ## Model Type Info

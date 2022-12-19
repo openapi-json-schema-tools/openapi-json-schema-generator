@@ -1,5 +1,5 @@
 <a name="top"></a>
-## json_patch_request
+## petstore_api.components.schema.json_patch_request
 # JSONPatchRequest
 
 ## Model Type Info

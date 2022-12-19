@@ -1,5 +1,5 @@
 <a name="top"></a>
-## map_test
+## petstore_api.components.schema.map_test
 # MapTest
 
 ## Model Type Info

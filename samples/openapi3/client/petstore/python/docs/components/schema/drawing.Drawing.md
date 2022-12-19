@@ -1,5 +1,5 @@
 <a name="top"></a>
-## drawing
+## petstore_api.components.schema.drawing
 # Drawing
 
 ## Model Type Info

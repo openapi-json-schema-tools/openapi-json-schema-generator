@@ -1,5 +1,5 @@
 <a name="top"></a>
-## array_holding_any_type
+## petstore_api.components.schema.array_holding_any_type
 # ArrayHoldingAnyType
 
 ## Model Type Info

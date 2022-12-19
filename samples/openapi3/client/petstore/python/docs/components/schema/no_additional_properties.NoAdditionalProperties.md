@@ -1,5 +1,5 @@
 <a name="top"></a>
-## no_additional_properties
+## petstore_api.components.schema.no_additional_properties
 # NoAdditionalProperties
 
 ## Model Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## order
+## petstore_api.components.schema.order
 # Order
 
 ## Model Type Info

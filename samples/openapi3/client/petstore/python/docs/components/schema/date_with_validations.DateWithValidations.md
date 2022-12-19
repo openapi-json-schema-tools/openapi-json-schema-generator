@@ -1,5 +1,5 @@
 <a name="top"></a>
-## date_with_validations
+## petstore_api.components.schema.date_with_validations
 # DateWithValidations
 
 ## Model Type Info

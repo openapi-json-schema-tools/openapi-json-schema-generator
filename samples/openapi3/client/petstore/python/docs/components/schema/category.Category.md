@@ -1,5 +1,5 @@
 <a name="top"></a>
-## category
+## petstore_api.components.schema.category
 # Category
 
 ## Model Type Info
