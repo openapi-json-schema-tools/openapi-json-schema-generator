@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import invalid_string_value_for_default
 
 
-application_json = invalid_string_value_for_default.InvalidStringValueForDefault
+ApplicationJson = invalid_string_value_for_default.InvalidStringValueForDefault
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

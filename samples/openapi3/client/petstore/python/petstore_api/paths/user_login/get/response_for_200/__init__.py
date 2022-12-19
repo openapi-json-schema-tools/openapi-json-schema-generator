@@ -27,18 +27,18 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[parameter_ref_schema_header.schema, ],
-            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.application_json, decimal.Decimal, int, ],
-            'int32': typing.Union[parameter_int32_json_content_type_header.application_json, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.application_json, ],
-            'stringHeader': typing.Union[parameter_string_header.schema, str, ],
+            'ref-schema-header': typing.Union[parameter_ref_schema_header.Schema, ],
+            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.ApplicationJson, decimal.Decimal, int, ],
+            'int32': typing.Union[parameter_int32_json_content_type_header.ApplicationJson, decimal.Decimal, int, ],
+            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.ApplicationJson, ],
+            'stringHeader': typing.Union[parameter_string_header.Schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Expires-After': typing.Union[parameter_x_expires_after.schema, str, datetime, ],
-            'numberHeader': typing.Union[parameter_number_header.schema, str, ],
+            'X-Expires-After': typing.Union[parameter_x_expires_after.Schema, str, datetime, ],
+            'numberHeader': typing.Union[parameter_number_header.Schema, str, ],
         },
         total=False
     )
@@ -58,16 +58,16 @@ class Header:
         parameter_number_header.parameter_oapg,
     ]
 # body schemas
-application_xml = schemas.StrSchema
-application_json = schemas.StrSchema
+ApplicationXml = schemas.StrSchema
+ApplicationJson = schemas.StrSchema
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml,
-        application_json,
+        ApplicationXml,
+        ApplicationJson,
     ]
     headers: Header.Params
 
@@ -76,10 +76,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=application_xml,
+            schema=ApplicationXml,
         ),
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
     headers=Header.parameters

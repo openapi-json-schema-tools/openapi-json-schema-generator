@@ -35,24 +35,24 @@ class ApiResponse(
 
     class MetaOapg:
         
-        class properties:
-            code = schemas.Int32Schema
-            type = schemas.StrSchema
-            message = schemas.StrSchema
+        class Properties:
+            Code = schemas.Int32Schema
+            Type = schemas.StrSchema
+            Message = schemas.StrSchema
             __annotations__ = {
-                "code": code,
-                "type": type,
-                "message": message,
+                "code": Code,
+                "type": Type,
+                "message": Message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["code"]) -> MetaOapg.properties.code: ...
+    def __getitem__(self, name: typing_extensions.Literal["code"]) -> MetaOapg.Properties.Code: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.Properties.Type: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.Properties.Message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -70,13 +70,13 @@ class ApiResponse(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["code"]) -> typing.Union[MetaOapg.properties.code, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["code"]) -> typing.Union[MetaOapg.Properties.Code, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.properties.type, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.Properties.Type, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.Properties.Message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -95,9 +95,9 @@ class ApiResponse(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        code: typing.Union[MetaOapg.properties.code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        type: typing.Union[MetaOapg.properties.type, str, schemas.Unset] = schemas.unset,
-        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
+        code: typing.Union[MetaOapg.Properties.Code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.Properties.Message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ApiResponse':

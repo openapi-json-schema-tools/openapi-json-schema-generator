@@ -38,10 +38,10 @@ class ComposedNumber(
             decimal.Decimal,
         }
         
-        class all_of:
-            allOf_0 = schemas.AnyTypeSchema
+        class AllOf:
+            AllOf0 = schemas.AnyTypeSchema
             classes = [
-                allOf_0,
+                AllOf0,
             ]
 
 

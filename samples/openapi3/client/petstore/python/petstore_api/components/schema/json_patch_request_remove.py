@@ -40,11 +40,11 @@ class JSONPatchRequestRemove(
             "path",
         }
         
-        class properties:
-            path = schemas.StrSchema
+        class Properties:
+            Path = schemas.StrSchema
             
             
-            class op(
+            class Op(
                 schemas.StrSchema
             ):
             
@@ -61,19 +61,19 @@ class JSONPatchRequestRemove(
                 def REMOVE(cls):
                     return cls("remove")
             __annotations__ = {
-                "path": path,
-                "op": op,
+                "path": Path,
+                "op": Op,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
-    op: MetaOapg.properties.op
-    path: MetaOapg.properties.path
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
+    op: MetaOapg.Properties.Op
+    path: MetaOapg.Properties.Path
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
+    def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
     
     def __getitem__(
         self,
@@ -86,10 +86,10 @@ class JSONPatchRequestRemove(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
     
     def get_item_oapg(
         self,
@@ -103,8 +103,8 @@ class JSONPatchRequestRemove(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        op: typing.Union[MetaOapg.properties.op, str, ],
-        path: typing.Union[MetaOapg.properties.path, str, ],
+        op: typing.Union[MetaOapg.Properties.Op, str, ],
+        path: typing.Union[MetaOapg.Properties.Path, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'JSONPatchRequestRemove':
         return super().__new__(

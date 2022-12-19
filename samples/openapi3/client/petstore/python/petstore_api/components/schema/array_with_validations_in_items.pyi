@@ -38,14 +38,14 @@ class ArrayWithValidationsInItems(
         max_items = 2
         
         
-        class items(
+        class Items(
             schemas.Int64Schema
         ):
             pass
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ArrayWithValidationsInItems':
         return super().__new__(
@@ -54,5 +54,5 @@ class ArrayWithValidationsInItems(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)

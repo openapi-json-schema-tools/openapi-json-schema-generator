@@ -36,20 +36,20 @@ class InvalidStringValueForDefault(
     class MetaOapg:
         # any type
         
-        class properties:
+        class Properties:
             
             
-            class bar(
+            class Bar(
                 schemas.StrSchema
             ):
                 pass
             __annotations__ = {
-                "bar": bar,
+                "bar": Bar,
             }
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -65,7 +65,7 @@ class InvalidStringValueForDefault(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.properties.bar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.Properties.Bar, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -82,7 +82,7 @@ class InvalidStringValueForDefault(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        bar: typing.Union[MetaOapg.properties.bar, str, schemas.Unset] = schemas.unset,
+        bar: typing.Union[MetaOapg.Properties.Bar, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'InvalidStringValueForDefault':

@@ -37,7 +37,7 @@ class NestedItems(
         types = {tuple}
         
         
-        class items(
+        class Items(
             schemas.ListSchema
         ):
         
@@ -46,7 +46,7 @@ class NestedItems(
                 types = {tuple}
                 
                 
-                class items(
+                class Items(
                     schemas.ListSchema
                 ):
                 
@@ -55,60 +55,60 @@ class NestedItems(
                         types = {tuple}
                         
                         
-                        class items(
+                        class Items(
                             schemas.ListSchema
                         ):
                         
                         
                             class MetaOapg:
                                 types = {tuple}
-                                items = schemas.NumberSchema
+                                Items = schemas.NumberSchema
                         
                             def __new__(
                                 cls,
-                                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
+                                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]]],
                                 _configuration: typing.Optional[schemas.Configuration] = None,
-                            ) -> 'items':
+                            ) -> 'Items':
                                 return super().__new__(
                                     cls,
                                     _arg,
                                     _configuration=_configuration,
                                 )
                         
-                            def __getitem__(self, i: int) -> MetaOapg.items:
+                            def __getitem__(self, i: int) -> MetaOapg.Items:
                                 return super().__getitem__(i)
                 
                     def __new__(
                         cls,
-                        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
+                        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, list, tuple, ]], typing.List[typing.Union[MetaOapg.Items, list, tuple, ]]],
                         _configuration: typing.Optional[schemas.Configuration] = None,
-                    ) -> 'items':
+                    ) -> 'Items':
                         return super().__new__(
                             cls,
                             _arg,
                             _configuration=_configuration,
                         )
                 
-                    def __getitem__(self, i: int) -> MetaOapg.items:
+                    def __getitem__(self, i: int) -> MetaOapg.Items:
                         return super().__getitem__(i)
         
             def __new__(
                 cls,
-                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
+                _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, list, tuple, ]], typing.List[typing.Union[MetaOapg.Items, list, tuple, ]]],
                 _configuration: typing.Optional[schemas.Configuration] = None,
-            ) -> 'items':
+            ) -> 'Items':
                 return super().__new__(
                     cls,
                     _arg,
                     _configuration=_configuration,
                 )
         
-            def __getitem__(self, i: int) -> MetaOapg.items:
+            def __getitem__(self, i: int) -> MetaOapg.Items:
                 return super().__getitem__(i)
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, list, tuple, ]], typing.List[typing.Union[MetaOapg.items, list, tuple, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, list, tuple, ]], typing.List[typing.Union[MetaOapg.Items, list, tuple, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'NestedItems':
         return super().__new__(
@@ -117,5 +117,5 @@ class NestedItems(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)

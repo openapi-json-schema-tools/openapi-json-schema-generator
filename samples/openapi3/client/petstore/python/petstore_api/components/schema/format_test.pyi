@@ -41,44 +41,44 @@ class FormatTest(
             "password",
         }
         
-        class properties:
+        class Properties:
             
             
-            class integer(
+            class Integer(
                 schemas.IntSchema
             ):
                 pass
-            int32 = schemas.Int32Schema
+            Int32 = schemas.Int32Schema
             
             
-            class int32withValidations(
+            class Int32withValidations(
                 schemas.Int32Schema
             ):
                 pass
-            int64 = schemas.Int64Schema
+            Int64 = schemas.Int64Schema
             
             
-            class number(
+            class Number(
                 schemas.NumberSchema
             ):
                 pass
             
             
-            class _float(
+            class ModelFloat(
                 schemas.Float32Schema
             ):
                 pass
-            float32 = schemas.Float32Schema
+            Float32 = schemas.Float32Schema
             
             
-            class double(
+            class Double(
                 schemas.Float64Schema
             ):
                 pass
-            float64 = schemas.Float64Schema
+            Float64 = schemas.Float64Schema
             
             
-            class arrayWithUniqueItems(
+            class ArrayWithUniqueItems(
                 schemas.ListSchema
             ):
             
@@ -86,143 +86,143 @@ class FormatTest(
                 class MetaOapg:
                     types = {tuple}
                     unique_items = True
-                    items = schemas.NumberSchema
+                    Items = schemas.NumberSchema
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.items, decimal.Decimal, int, float, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'arrayWithUniqueItems':
+                ) -> 'ArrayWithUniqueItems':
                     return super().__new__(
                         cls,
                         _arg,
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class string(
+            class String(
                 schemas.StrSchema
             ):
                 pass
-            byte = schemas.StrSchema
-            binary = schemas.BinarySchema
-            date = schemas.DateSchema
-            dateTime = schemas.DateTimeSchema
-            uuid = schemas.UUIDSchema
-            uuidNoExample = schemas.UUIDSchema
+            Byte = schemas.StrSchema
+            Binary = schemas.BinarySchema
+            Date = schemas.DateSchema
+            DateTime = schemas.DateTimeSchema
+            Uuid = schemas.UUIDSchema
+            UuidNoExample = schemas.UUIDSchema
             
             
-            class password(
-                schemas.StrSchema
-            ):
-                pass
-            
-            
-            class pattern_with_digits(
+            class Password(
                 schemas.StrSchema
             ):
                 pass
             
             
-            class pattern_with_digits_and_delimiter(
+            class PatternWithDigits(
                 schemas.StrSchema
             ):
                 pass
-            noneProp = schemas.NoneSchema
+            
+            
+            class PatternWithDigitsAndDelimiter(
+                schemas.StrSchema
+            ):
+                pass
+            NoneProp = schemas.NoneSchema
             __annotations__ = {
-                "integer": integer,
-                "int32": int32,
-                "int32withValidations": int32withValidations,
-                "int64": int64,
-                "number": number,
-                "float": _float,
-                "float32": float32,
-                "double": double,
-                "float64": float64,
-                "arrayWithUniqueItems": arrayWithUniqueItems,
-                "string": string,
-                "byte": byte,
-                "binary": binary,
-                "date": date,
-                "dateTime": dateTime,
-                "uuid": uuid,
-                "uuidNoExample": uuidNoExample,
-                "password": password,
-                "pattern_with_digits": pattern_with_digits,
-                "pattern_with_digits_and_delimiter": pattern_with_digits_and_delimiter,
-                "noneProp": noneProp,
+                "integer": Integer,
+                "int32": Int32,
+                "int32withValidations": Int32withValidations,
+                "int64": Int64,
+                "number": Number,
+                "float": ModelFloat,
+                "float32": Float32,
+                "double": Double,
+                "float64": Float64,
+                "arrayWithUniqueItems": ArrayWithUniqueItems,
+                "string": String,
+                "byte": Byte,
+                "binary": Binary,
+                "date": Date,
+                "dateTime": DateTime,
+                "uuid": Uuid,
+                "uuidNoExample": UuidNoExample,
+                "password": Password,
+                "pattern_with_digits": PatternWithDigits,
+                "pattern_with_digits_and_delimiter": PatternWithDigitsAndDelimiter,
+                "noneProp": NoneProp,
             }
     
-    byte: MetaOapg.properties.byte
-    date: MetaOapg.properties.date
-    number: MetaOapg.properties.number
-    password: MetaOapg.properties.password
+    byte: MetaOapg.Properties.Byte
+    date: MetaOapg.Properties.Date
+    number: MetaOapg.Properties.Number
+    password: MetaOapg.Properties.Password
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
+    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.Byte: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.Properties.Date: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
+    def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.Properties.Password: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
+    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.Properties.Integer: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.Properties.Int32: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32withValidations"]) -> MetaOapg.properties.int32withValidations: ...
+    def __getitem__(self, name: typing_extensions.Literal["int32withValidations"]) -> MetaOapg.Properties.Int32withValidations: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.Int64: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float32"]) -> MetaOapg.properties.float32: ...
+    def __getitem__(self, name: typing_extensions.Literal["float32"]) -> MetaOapg.Properties.Float32: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float64"]) -> MetaOapg.properties.float64: ...
+    def __getitem__(self, name: typing_extensions.Literal["float64"]) -> MetaOapg.Properties.Float64: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> MetaOapg.properties.arrayWithUniqueItems: ...
+    def __getitem__(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> MetaOapg.Properties.ArrayWithUniqueItems: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.properties.string: ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.Properties.String: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.properties.binary: ...
+    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.Properties.Binary: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.properties.dateTime: ...
+    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.Properties.DateTime: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.properties.uuid: ...
+    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.Properties.Uuid: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuidNoExample"]) -> MetaOapg.properties.uuidNoExample: ...
+    def __getitem__(self, name: typing_extensions.Literal["uuidNoExample"]) -> MetaOapg.Properties.UuidNoExample: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits"]) -> MetaOapg.properties.pattern_with_digits: ...
+    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits"]) -> MetaOapg.Properties.PatternWithDigits: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> MetaOapg.properties.pattern_with_digits_and_delimiter: ...
+    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> MetaOapg.Properties.PatternWithDigitsAndDelimiter: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["noneProp"]) -> MetaOapg.properties.noneProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["noneProp"]) -> MetaOapg.Properties.NoneProp: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -258,67 +258,67 @@ class FormatTest(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.Byte: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> MetaOapg.Properties.Date: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> MetaOapg.Properties.Password: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.properties.integer, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.Properties.Integer, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.properties.int32, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.Properties.Int32, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int32withValidations"]) -> typing.Union[MetaOapg.properties.int32withValidations, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int32withValidations"]) -> typing.Union[MetaOapg.Properties.Int32withValidations, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.properties.int64, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.Int64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.properties._float, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float32"]) -> typing.Union[MetaOapg.properties.float32, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float32"]) -> typing.Union[MetaOapg.Properties.Float32, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> typing.Union[MetaOapg.properties.double, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> typing.Union[MetaOapg.Properties.Double, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float64"]) -> typing.Union[MetaOapg.properties.float64, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float64"]) -> typing.Union[MetaOapg.Properties.Float64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> typing.Union[MetaOapg.properties.arrayWithUniqueItems, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> typing.Union[MetaOapg.Properties.ArrayWithUniqueItems, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.properties.string, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.Properties.String, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.properties.binary, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.Properties.Binary, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.properties.dateTime, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.Properties.DateTime, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[MetaOapg.properties.uuid, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[MetaOapg.Properties.Uuid, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["uuidNoExample"]) -> typing.Union[MetaOapg.properties.uuidNoExample, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["uuidNoExample"]) -> typing.Union[MetaOapg.Properties.UuidNoExample, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pattern_with_digits"]) -> typing.Union[MetaOapg.properties.pattern_with_digits, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["pattern_with_digits"]) -> typing.Union[MetaOapg.Properties.PatternWithDigits, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> typing.Union[MetaOapg.properties.pattern_with_digits_and_delimiter, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> typing.Union[MetaOapg.Properties.PatternWithDigitsAndDelimiter, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["noneProp"]) -> typing.Union[MetaOapg.properties.noneProp, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["noneProp"]) -> typing.Union[MetaOapg.Properties.NoneProp, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -355,26 +355,26 @@ class FormatTest(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        byte: typing.Union[MetaOapg.properties.byte, str, ],
-        date: typing.Union[MetaOapg.properties.date, str, date, ],
-        number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
-        password: typing.Union[MetaOapg.properties.password, str, ],
-        integer: typing.Union[MetaOapg.properties.integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[MetaOapg.properties.int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32withValidations: typing.Union[MetaOapg.properties.int32withValidations, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[MetaOapg.properties.int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        float32: typing.Union[MetaOapg.properties.float32, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        double: typing.Union[MetaOapg.properties.double, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        float64: typing.Union[MetaOapg.properties.float64, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        arrayWithUniqueItems: typing.Union[MetaOapg.properties.arrayWithUniqueItems, list, tuple, schemas.Unset] = schemas.unset,
-        string: typing.Union[MetaOapg.properties.string, str, schemas.Unset] = schemas.unset,
-        binary: typing.Union[MetaOapg.properties.binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[MetaOapg.properties.dateTime, str, datetime, schemas.Unset] = schemas.unset,
-        uuid: typing.Union[MetaOapg.properties.uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        uuidNoExample: typing.Union[MetaOapg.properties.uuidNoExample, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        pattern_with_digits: typing.Union[MetaOapg.properties.pattern_with_digits, str, schemas.Unset] = schemas.unset,
-        pattern_with_digits_and_delimiter: typing.Union[MetaOapg.properties.pattern_with_digits_and_delimiter, str, schemas.Unset] = schemas.unset,
-        noneProp: typing.Union[MetaOapg.properties.noneProp, None, schemas.Unset] = schemas.unset,
+        byte: typing.Union[MetaOapg.Properties.Byte, str, ],
+        date: typing.Union[MetaOapg.Properties.Date, str, date, ],
+        number: typing.Union[MetaOapg.Properties.Number, decimal.Decimal, int, float, ],
+        password: typing.Union[MetaOapg.Properties.Password, str, ],
+        integer: typing.Union[MetaOapg.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int32: typing.Union[MetaOapg.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int32withValidations: typing.Union[MetaOapg.Properties.Int32withValidations, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int64: typing.Union[MetaOapg.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        float32: typing.Union[MetaOapg.Properties.Float32, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        double: typing.Union[MetaOapg.Properties.Double, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        float64: typing.Union[MetaOapg.Properties.Float64, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        arrayWithUniqueItems: typing.Union[MetaOapg.Properties.ArrayWithUniqueItems, list, tuple, schemas.Unset] = schemas.unset,
+        string: typing.Union[MetaOapg.Properties.String, str, schemas.Unset] = schemas.unset,
+        binary: typing.Union[MetaOapg.Properties.Binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        dateTime: typing.Union[MetaOapg.Properties.DateTime, str, datetime, schemas.Unset] = schemas.unset,
+        uuid: typing.Union[MetaOapg.Properties.Uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
+        uuidNoExample: typing.Union[MetaOapg.Properties.UuidNoExample, str, uuid.UUID, schemas.Unset] = schemas.unset,
+        pattern_with_digits: typing.Union[MetaOapg.Properties.PatternWithDigits, str, schemas.Unset] = schemas.unset,
+        pattern_with_digits_and_delimiter: typing.Union[MetaOapg.Properties.PatternWithDigitsAndDelimiter, str, schemas.Unset] = schemas.unset,
+        noneProp: typing.Union[MetaOapg.Properties.NoneProp, None, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'FormatTest':

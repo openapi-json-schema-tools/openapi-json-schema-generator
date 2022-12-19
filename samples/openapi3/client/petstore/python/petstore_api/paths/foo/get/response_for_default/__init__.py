@@ -20,7 +20,7 @@ from petstore_api.components.schema import foo
 # body schemas
 
 
-class application_json(
+class ApplicationJson(
     schemas.DictSchema
 ):
 
@@ -28,7 +28,7 @@ class application_json(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def string() -> typing.Type['foo.Foo']:
@@ -74,7 +74,7 @@ class application_json(
         string: typing.Union['foo.Foo', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_json':
+    ) -> 'ApplicationJson':
         return super().__new__(
             cls,
             *_args,
@@ -88,7 +88,7 @@ class application_json(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json,
+        ApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -97,7 +97,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
 )

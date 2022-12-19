@@ -37,7 +37,7 @@ class JSONPatchRequest(
         types = {tuple}
         
         
-        class items(
+        class Items(
             schemas.AnyTypeSchema,
         ):
         
@@ -45,23 +45,23 @@ class JSONPatchRequest(
             class MetaOapg:
                 # any type
                 
-                class one_of:
+                class OneOf:
                 
                     @staticmethod
-                    def oneOf_0() -> typing.Type['json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest']:
+                    def one_of_0() -> typing.Type['json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest']:
                         return json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest
                 
                     @staticmethod
-                    def oneOf_1() -> typing.Type['json_patch_request_remove.JSONPatchRequestRemove']:
+                    def one_of_1() -> typing.Type['json_patch_request_remove.JSONPatchRequestRemove']:
                         return json_patch_request_remove.JSONPatchRequestRemove
                 
                     @staticmethod
-                    def oneOf_2() -> typing.Type['json_patch_request_move_copy.JSONPatchRequestMoveCopy']:
+                    def one_of_2() -> typing.Type['json_patch_request_move_copy.JSONPatchRequestMoveCopy']:
                         return json_patch_request_move_copy.JSONPatchRequestMoveCopy
                     classes = [
-                        oneOf_0,
-                        oneOf_1,
-                        oneOf_2,
+                        one_of_0,
+                        one_of_1,
+                        one_of_2,
                     ]
         
         
@@ -70,7 +70,7 @@ class JSONPatchRequest(
                 *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'items':
+            ) -> 'Items':
                 return super().__new__(
                     cls,
                     *_args,
@@ -80,7 +80,7 @@ class JSONPatchRequest(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'JSONPatchRequest':
         return super().__new__(
@@ -89,7 +89,7 @@ class JSONPatchRequest(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.items:
+    def __getitem__(self, i: int) -> MetaOapg.Items:
         return super().__getitem__(i)
 
 from petstore_api.components.schema import json_patch_request_add_replace_test

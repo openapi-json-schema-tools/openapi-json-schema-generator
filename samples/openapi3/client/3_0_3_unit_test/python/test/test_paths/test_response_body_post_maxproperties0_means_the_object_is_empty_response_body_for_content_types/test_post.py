@@ -32,7 +32,7 @@ class TestResponseBodyPostMaxproperties0MeansTheObjectIsEmptyResponseBodyForCont
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.application_json
+    response_body_schema = post.response_for_200.ApplicationJson
 
     def test_no_properties_is_valid_passes(self):
         # no properties is valid

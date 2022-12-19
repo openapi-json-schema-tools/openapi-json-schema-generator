@@ -36,10 +36,10 @@ class Allof(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
             
             
-            class allOf_0(
+            class AllOf0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -50,17 +50,17 @@ class Allof(
                         "bar",
                     }
                     
-                    class properties:
-                        bar = schemas.IntSchema
+                    class Properties:
+                        Bar = schemas.IntSchema
                         __annotations__ = {
-                            "bar": bar,
+                            "bar": Bar,
                         }
             
                 
-                bar: MetaOapg.properties.bar
+                bar: MetaOapg.Properties.Bar
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
+                def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -76,7 +76,7 @@ class Allof(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.properties.bar: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -93,10 +93,10 @@ class Allof(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    bar: typing.Union[MetaOapg.properties.bar, decimal.Decimal, int, ],
+                    bar: typing.Union[MetaOapg.Properties.Bar, decimal.Decimal, int, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_0':
+                ) -> 'AllOf0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -106,7 +106,7 @@ class Allof(
                     )
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -117,17 +117,17 @@ class Allof(
                         "foo",
                     }
                     
-                    class properties:
-                        foo = schemas.StrSchema
+                    class Properties:
+                        Foo = schemas.StrSchema
                         __annotations__ = {
-                            "foo": foo,
+                            "foo": Foo,
                         }
             
                 
-                foo: MetaOapg.properties.foo
+                foo: MetaOapg.Properties.Foo
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
+                def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.Properties.Foo: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -143,7 +143,7 @@ class Allof(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.Properties.Foo: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -160,10 +160,10 @@ class Allof(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    foo: typing.Union[MetaOapg.properties.foo, str, ],
+                    foo: typing.Union[MetaOapg.Properties.Foo, str, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -172,8 +172,8 @@ class Allof(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                AllOf0,
+                AllOf1,
             ]
 
 

@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class Schema(
     schemas.Float64Schema
 ):
 
@@ -54,6 +54,6 @@ class schema(
 parameter_oapg = api_client.QueryParameter(
     name="enum_query_double",
     style=api_client.ParameterStyle.FORM,
-    schema=schema,
+    schema=Schema,
     explode=True,
 )

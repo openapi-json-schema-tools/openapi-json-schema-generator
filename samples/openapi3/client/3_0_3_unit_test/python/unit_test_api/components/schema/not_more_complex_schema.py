@@ -37,7 +37,7 @@ class NotMoreComplexSchema(
         # any type
         
         
-        class _not(
+        class ModelNot(
             schemas.DictSchema
         ):
         
@@ -45,14 +45,14 @@ class NotMoreComplexSchema(
             class MetaOapg:
                 types = {frozendict.frozendict}
                 
-                class properties:
-                    foo = schemas.StrSchema
+                class Properties:
+                    Foo = schemas.StrSchema
                     __annotations__ = {
-                        "foo": foo,
+                        "foo": Foo,
                     }
             
             @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.properties.foo: ...
+            def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.Properties.Foo: ...
             
             @typing.overload
             def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -68,7 +68,7 @@ class NotMoreComplexSchema(
                 return super().__getitem__(name)
             
             @typing.overload
-            def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.properties.foo, schemas.Unset]: ...
+            def get_item_oapg(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.Properties.Foo, schemas.Unset]: ...
             
             @typing.overload
             def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -85,10 +85,10 @@ class NotMoreComplexSchema(
             def __new__(
                 cls,
                 *_args: typing.Union[dict, frozendict.frozendict, ],
-                foo: typing.Union[MetaOapg.properties.foo, str, schemas.Unset] = schemas.unset,
+                foo: typing.Union[MetaOapg.Properties.Foo, str, schemas.Unset] = schemas.unset,
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> '_not':
+            ) -> 'ModelNot':
                 return super().__new__(
                     cls,
                     *_args,

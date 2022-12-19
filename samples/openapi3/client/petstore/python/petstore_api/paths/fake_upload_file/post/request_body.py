@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class multipart_form_data(
+class MultipartFormData(
     schemas.DictSchema
 ):
 
@@ -38,21 +38,21 @@ class multipart_form_data(
             "file",
         }
         
-        class properties:
-            additionalMetadata = schemas.StrSchema
-            file = schemas.BinarySchema
+        class Properties:
+            AdditionalMetadata = schemas.StrSchema
+            File = schemas.BinarySchema
             __annotations__ = {
-                "additionalMetadata": additionalMetadata,
-                "file": file,
+                "additionalMetadata": AdditionalMetadata,
+                "file": File,
             }
     
-    file: MetaOapg.properties.file
+    file: MetaOapg.Properties.File
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["file"]) -> MetaOapg.properties.file: ...
+    def __getitem__(self, name: typing_extensions.Literal["file"]) -> MetaOapg.Properties.File: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.properties.additionalMetadata: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.Properties.AdditionalMetadata: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -69,10 +69,10 @@ class multipart_form_data(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> MetaOapg.properties.file: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> MetaOapg.Properties.File: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.properties.additionalMetadata, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.Properties.AdditionalMetadata, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,11 +90,11 @@ class multipart_form_data(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        file: typing.Union[MetaOapg.properties.file, bytes, io.FileIO, io.BufferedReader, ],
-        additionalMetadata: typing.Union[MetaOapg.properties.additionalMetadata, str, schemas.Unset] = schemas.unset,
+        file: typing.Union[MetaOapg.Properties.File, bytes, io.FileIO, io.BufferedReader, ],
+        additionalMetadata: typing.Union[MetaOapg.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'multipart_form_data':
+    ) -> 'MultipartFormData':
         return super().__new__(
             cls,
             *_args,
@@ -107,7 +107,7 @@ class multipart_form_data(
 parameter_oapg = api_client.RequestBody(
     content={
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data
+            schema=MultipartFormData
         ),
     },
 )

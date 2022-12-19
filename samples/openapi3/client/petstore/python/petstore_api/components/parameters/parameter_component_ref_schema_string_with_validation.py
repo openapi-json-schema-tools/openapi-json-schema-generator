@@ -27,13 +27,13 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import string_with_validation
 
 
-application_json = string_with_validation.StringWithValidation
+ApplicationJson = string_with_validation.StringWithValidation
 
 
 parameter_oapg = api_client.PathParameter(
     name="CRSstringWithValidation",
     content={
-        "application/json": application_json,
+        "application/json": ApplicationJson,
     },
     required=True,
 )

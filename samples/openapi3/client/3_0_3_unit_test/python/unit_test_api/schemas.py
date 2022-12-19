@@ -233,16 +233,16 @@ class MetaOapgTyped:
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
 
 
-    class properties:
+    class Properties:
         # to hold object properties
         pass
 
     additionalProperties: typing.Optional[typing.Type['Schema']]
     max_properties: int
     min_properties: int
-    all_of: typing.List[typing.Type['Schema']]
-    one_of: typing.List[typing.Type['Schema']]
-    any_of: typing.List[typing.Type['Schema']]
+    AllOf: typing.List[typing.Type['Schema']]
+    OneOf: typing.List[typing.Type['Schema']]
+    AnyOf: typing.List[typing.Type['Schema']]
     _not: typing.Type['Schema']
     max_length: int
     min_length: int
@@ -832,7 +832,7 @@ def validate_additional_properties(
         return None
     schema = _get_class_oapg(additional_properties_schema)
     path_to_schemas = {}
-    properties_annotations = cls.MetaOapg.properties.__annotations__ if hasattr(cls.MetaOapg, 'properties') else {}
+    properties_annotations = cls.MetaOapg.Properties.__annotations__ if hasattr(cls.MetaOapg, 'Properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
     for property_name, value in present_additional_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
@@ -1006,28 +1006,28 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
     if discriminated_cls is not None:
         return discriminated_cls
     if not (
-        hasattr(cls.MetaOapg, 'all_of') or
-        hasattr(cls.MetaOapg, 'one_of') or
-        hasattr(cls.MetaOapg, 'any_of')
+        hasattr(cls.MetaOapg, 'AllOf') or
+        hasattr(cls.MetaOapg, 'OneOf') or
+        hasattr(cls.MetaOapg, 'AnyOf')
     ):
         return None
     # TODO stop traveling if a cycle is hit
-    if hasattr(cls.MetaOapg, 'all_of'):
-        for allof_cls in cls.MetaOapg.all_of.classes:
+    if hasattr(cls.MetaOapg, 'AllOf'):
+        for allof_cls in cls.MetaOapg.AllOf.classes:
             allof_cls = _get_class_oapg(allof_cls)
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.MetaOapg, 'one_of'):
-        for oneof_cls in cls.MetaOapg.one_of.classes:
+    if hasattr(cls.MetaOapg, 'OneOf'):
+        for oneof_cls in cls.MetaOapg.OneOf.classes:
             oneof_cls = _get_class_oapg(oneof_cls)
             discriminated_cls = __get_discriminated_class(
                 oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.MetaOapg, 'any_of'):
-        for anyof_cls in cls.MetaOapg.any_of.classes:
+    if hasattr(cls.MetaOapg, 'AnyOf'):
+        for anyof_cls in cls.MetaOapg.AnyOf.classes:
             anyof_cls = _get_class_oapg(anyof_cls)
             discriminated_cls = __get_discriminated_class(
                 anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
@@ -1097,12 +1097,15 @@ json_schema_keyword_to_validator = {
     'format': validate_format,
     'required': validate_required,
     'items': validate_items,
-    'properties': validate_properties,
-    'additionalProperties': validate_additional_properties,
-    'one_of': validate_one_of,
-    'any_of': validate_any_of,
-    'all_of': validate_all_of,
+    'Items': validate_items,
+    'Properties': validate_properties,
+    'AdditionalProperties': validate_additional_properties,
+    'additional_properties': validate_additional_properties,
+    'OneOf': validate_one_of,
+    'AnyOf': validate_any_of,
+    'AllOf': validate_all_of,
     '_not': validate_not,
+    'ModelNot': validate_not,
     'discriminator': validate_discriminator
 }
 
@@ -2280,7 +2283,7 @@ class BinarySchema(
         types = {FileIO, bytes}
         format = 'binary'
 
-        class one_of:
+        class OneOf:
             classes = [
                 BytesSchema,
                 FileSchema,

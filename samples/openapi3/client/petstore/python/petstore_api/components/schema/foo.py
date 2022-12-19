@@ -36,7 +36,7 @@ class Foo(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
             def bar() -> typing.Type['bar.Bar']:

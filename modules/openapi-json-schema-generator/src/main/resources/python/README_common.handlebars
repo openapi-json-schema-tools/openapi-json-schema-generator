@@ -28,7 +28,7 @@ HTTP request | Method | Description
 
 {{#each models}}
 {{#with model}}
- - [{{classname}}]({{modelDocPath}}{{classFilename}}.{{classname}}.md)
+ - [{{name.getCamelCaseName}}]({{modelDocPath}}{{refModule}}.{{name.getCamelCaseName}}.md)
 {{/with}}
 {{/each}}
 {{#if requestBodies}}

@@ -7,9 +7,9 @@ class {{xParamsName}}:
 {{#each xParams}}
 {{#if required}}
 {{#if schema}}
-            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/if}}
 {{/each}}
@@ -21,9 +21,9 @@ class {{xParamsName}}:
 {{#each xParams}}
 {{#unless required}}
 {{#if schema}}
-            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/unless}}
 {{/each}}

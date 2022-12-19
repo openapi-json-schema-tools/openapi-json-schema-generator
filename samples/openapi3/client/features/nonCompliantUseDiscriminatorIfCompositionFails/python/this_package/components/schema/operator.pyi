@@ -47,18 +47,18 @@ class Operator(
                 }
             }
         
-        class one_of:
+        class OneOf:
         
             @staticmethod
-            def oneOf_0() -> typing.Type['addition_operator.AdditionOperator']:
+            def one_of_0() -> typing.Type['addition_operator.AdditionOperator']:
                 return addition_operator.AdditionOperator
         
             @staticmethod
-            def oneOf_1() -> typing.Type['subtraction_operator.SubtractionOperator']:
+            def one_of_1() -> typing.Type['subtraction_operator.SubtractionOperator']:
                 return subtraction_operator.SubtractionOperator
             classes = [
-                oneOf_0,
-                oneOf_1,
+                one_of_0,
+                one_of_1,
             ]
 
 

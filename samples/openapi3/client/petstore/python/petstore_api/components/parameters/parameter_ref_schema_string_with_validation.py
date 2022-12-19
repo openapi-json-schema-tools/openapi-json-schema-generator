@@ -27,12 +27,12 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.schema import string_with_validation
 
 
-schema = string_with_validation.StringWithValidation
+Schema = string_with_validation.StringWithValidation
 
 
 parameter_oapg = api_client.PathParameter(
     name="RSstringWithValidation",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=schema,
+    schema=Schema,
     required=True,
 )

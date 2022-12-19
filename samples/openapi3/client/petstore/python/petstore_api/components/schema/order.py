@@ -36,14 +36,14 @@ class Order(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            id = schemas.Int64Schema
-            petId = schemas.Int64Schema
-            quantity = schemas.Int32Schema
-            shipDate = schemas.DateTimeSchema
+        class Properties:
+            Id = schemas.Int64Schema
+            PetId = schemas.Int64Schema
+            Quantity = schemas.Int32Schema
+            ShipDate = schemas.DateTimeSchema
             
             
-            class status(
+            class Status(
                 schemas.StrSchema
             ):
             
@@ -69,33 +69,33 @@ class Order(
                 @schemas.classproperty
                 def DELIVERED(cls):
                     return cls("delivered")
-            complete = schemas.BoolSchema
+            Complete = schemas.BoolSchema
             __annotations__ = {
-                "id": id,
-                "petId": petId,
-                "quantity": quantity,
-                "shipDate": shipDate,
-                "status": status,
-                "complete": complete,
+                "id": Id,
+                "petId": PetId,
+                "quantity": Quantity,
+                "shipDate": ShipDate,
+                "status": Status,
+                "complete": Complete,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.properties.petId: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.PetId: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> MetaOapg.properties.quantity: ...
+    def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> MetaOapg.Properties.Quantity: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shipDate"]) -> MetaOapg.properties.shipDate: ...
+    def __getitem__(self, name: typing_extensions.Literal["shipDate"]) -> MetaOapg.Properties.ShipDate: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.Properties.Status: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["complete"]) -> MetaOapg.properties.complete: ...
+    def __getitem__(self, name: typing_extensions.Literal["complete"]) -> MetaOapg.Properties.Complete: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -116,22 +116,22 @@ class Order(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.Properties.Id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.properties.petId, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.PetId, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["quantity"]) -> typing.Union[MetaOapg.properties.quantity, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["quantity"]) -> typing.Union[MetaOapg.Properties.Quantity, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shipDate"]) -> typing.Union[MetaOapg.properties.shipDate, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["shipDate"]) -> typing.Union[MetaOapg.Properties.ShipDate, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.Properties.Status, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["complete"]) -> typing.Union[MetaOapg.properties.complete, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["complete"]) -> typing.Union[MetaOapg.Properties.Complete, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -153,12 +153,12 @@ class Order(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        id: typing.Union[MetaOapg.properties.id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        petId: typing.Union[MetaOapg.properties.petId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        quantity: typing.Union[MetaOapg.properties.quantity, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        shipDate: typing.Union[MetaOapg.properties.shipDate, str, datetime, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, str, schemas.Unset] = schemas.unset,
-        complete: typing.Union[MetaOapg.properties.complete, bool, schemas.Unset] = schemas.unset,
+        id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        petId: typing.Union[MetaOapg.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        quantity: typing.Union[MetaOapg.Properties.Quantity, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        shipDate: typing.Union[MetaOapg.Properties.ShipDate, str, datetime, schemas.Unset] = schemas.unset,
+        status: typing.Union[MetaOapg.Properties.Status, str, schemas.Unset] = schemas.unset,
+        complete: typing.Union[MetaOapg.Properties.Complete, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Order':

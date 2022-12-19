@@ -39,22 +39,22 @@ class ObjectModelWithArgAndArgsProperties(
             "args",
         }
         
-        class properties:
-            arg = schemas.StrSchema
-            args = schemas.StrSchema
+        class Properties:
+            Arg = schemas.StrSchema
+            Args = schemas.StrSchema
             __annotations__ = {
-                "arg": arg,
-                "args": args,
+                "arg": Arg,
+                "args": Args,
             }
     
-    arg: MetaOapg.properties.arg
-    args: MetaOapg.properties.args
+    arg: MetaOapg.Properties.Arg
+    args: MetaOapg.Properties.Args
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.properties.arg: ...
+    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.Arg: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["args"]) -> MetaOapg.properties.args: ...
+    def __getitem__(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.Args: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -71,10 +71,10 @@ class ObjectModelWithArgAndArgsProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.properties.arg: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.Arg: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["args"]) -> MetaOapg.properties.args: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.Args: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -92,8 +92,8 @@ class ObjectModelWithArgAndArgsProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        arg: typing.Union[MetaOapg.properties.arg, str, ],
-        args: typing.Union[MetaOapg.properties.args, str, ],
+        arg: typing.Union[MetaOapg.Properties.Arg, str, ],
+        args: typing.Union[MetaOapg.Properties.Args, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectModelWithArgAndArgsProperties':

@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class schema(
+class Schema(
     schemas.DictSchema
 ):
 
@@ -35,14 +35,14 @@ class schema(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
-            keyword = schemas.StrSchema
+        class Properties:
+            Keyword = schemas.StrSchema
             __annotations__ = {
-                "keyword": keyword,
+                "keyword": Keyword,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["keyword"]) -> MetaOapg.properties.keyword: ...
+    def __getitem__(self, name: typing_extensions.Literal["keyword"]) -> MetaOapg.Properties.Keyword: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -58,7 +58,7 @@ class schema(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["keyword"]) -> typing.Union[MetaOapg.properties.keyword, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["keyword"]) -> typing.Union[MetaOapg.Properties.Keyword, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -75,10 +75,10 @@ class schema(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        keyword: typing.Union[MetaOapg.properties.keyword, str, schemas.Unset] = schemas.unset,
+        keyword: typing.Union[MetaOapg.Properties.Keyword, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'schema':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *_args,
@@ -91,6 +91,6 @@ class schema(
 parameter_oapg = api_client.QueryParameter(
     name="mapBean",
     style=api_client.ParameterStyle.DEEP_OBJECT,
-    schema=schema,
+    schema=Schema,
     explode=True,
 )

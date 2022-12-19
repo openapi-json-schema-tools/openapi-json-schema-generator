@@ -123,8 +123,6 @@ public interface CodegenConfig {
 
     String escapeQuotationMark(String input);
 
-    String getTypeDeclaration(Schema schema);
-
     void processOpts();
 
     List<CliOption> cliOptions();
@@ -145,7 +143,7 @@ public interface CodegenConfig {
 
     void setOutputDir(String dir);
 
-    CodegenModel fromModel(String name, Schema schema);
+    CodegenSchema fromSchema(Schema schema, String sourceJsonPath);
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
@@ -277,7 +275,7 @@ public interface CodegenConfig {
 
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
 
-    void postProcessModelProperty(CodegenModel model, CodegenProperty property);
+    void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
 
     void postProcessParameter(CodegenParameter parameter);
 

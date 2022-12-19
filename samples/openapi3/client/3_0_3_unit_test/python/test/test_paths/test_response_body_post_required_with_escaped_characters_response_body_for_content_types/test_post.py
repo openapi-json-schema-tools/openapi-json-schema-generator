@@ -32,7 +32,7 @@ class TestResponseBodyPostRequiredWithEscapedCharactersResponseBodyForContentTyp
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.application_json
+    response_body_schema = post.response_for_200.ApplicationJson
 
     def test_object_with_some_properties_missing_is_invalid_fails(self):
         # object with some properties missing is invalid
