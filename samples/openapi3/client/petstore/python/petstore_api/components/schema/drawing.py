@@ -36,22 +36,22 @@ class Drawing(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
         
             @staticmethod
-            def mainShape() -> typing.Type['shape.Shape']:
+            def main_shape() -> typing.Type['shape.Shape']:
                 return shape.Shape
         
             @staticmethod
-            def shapeOrNull() -> typing.Type['shape_or_null.ShapeOrNull']:
+            def shape_or_null() -> typing.Type['shape_or_null.ShapeOrNull']:
                 return shape_or_null.ShapeOrNull
         
             @staticmethod
-            def nullableShape() -> typing.Type['nullable_shape.NullableShape']:
+            def nullable_shape() -> typing.Type['nullable_shape.NullableShape']:
                 return nullable_shape.NullableShape
             
             
-            class shapes(
+            class Shapes(
                 schemas.ListSchema
             ):
             
@@ -67,7 +67,7 @@ class Drawing(
                     cls,
                     _arg: typing.Union[typing.Tuple['shape.Shape'], typing.List['shape.Shape']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'shapes':
+                ) -> 'Shapes':
                     return super().__new__(
                         cls,
                         _arg,
@@ -77,14 +77,14 @@ class Drawing(
                 def __getitem__(self, i: int) -> 'shape.Shape':
                     return super().__getitem__(i)
             __annotations__ = {
-                "mainShape": mainShape,
-                "shapeOrNull": shapeOrNull,
-                "nullableShape": nullableShape,
-                "shapes": shapes,
+                "mainShape": main_shape,
+                "shapeOrNull": shape_or_null,
+                "nullableShape": nullable_shape,
+                "shapes": Shapes,
             }
         
         @staticmethod
-        def additionalProperties() -> typing.Type['fruit.Fruit']:
+        def additional_properties() -> typing.Type['fruit.Fruit']:
             return fruit.Fruit
     
     @typing.overload
@@ -97,7 +97,7 @@ class Drawing(
     def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> 'nullable_shape.NullableShape': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> MetaOapg.properties.shapes: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> MetaOapg.Properties.Shapes: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> 'fruit.Fruit': ...
@@ -125,7 +125,7 @@ class Drawing(
     def get_item_oapg(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['nullable_shape.NullableShape', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[MetaOapg.properties.shapes, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[MetaOapg.Properties.Shapes, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
@@ -148,7 +148,7 @@ class Drawing(
         mainShape: typing.Union['shape.Shape', schemas.Unset] = schemas.unset,
         shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
-        shapes: typing.Union[MetaOapg.properties.shapes, list, tuple, schemas.Unset] = schemas.unset,
+        shapes: typing.Union[MetaOapg.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: 'fruit.Fruit',
     ) -> 'Drawing':

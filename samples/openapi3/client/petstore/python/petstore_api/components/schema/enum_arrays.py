@@ -36,10 +36,10 @@ class EnumArrays(
     class MetaOapg:
         types = {frozendict.frozendict}
         
-        class properties:
+        class Properties:
             
             
-            class just_symbol(
+            class JustSymbol(
                 schemas.StrSchema
             ):
             
@@ -62,7 +62,7 @@ class EnumArrays(
                     return cls("$")
             
             
-            class array_enum(
+            class ArrayEnum(
                 schemas.ListSchema
             ):
             
@@ -71,7 +71,7 @@ class EnumArrays(
                     types = {tuple}
                     
                     
-                    class items(
+                    class Items(
                         schemas.StrSchema
                     ):
                     
@@ -95,27 +95,27 @@ class EnumArrays(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, str, ]], typing.List[typing.Union[MetaOapg.Items, str, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'array_enum':
+                ) -> 'ArrayEnum':
                     return super().__new__(
                         cls,
                         _arg,
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             __annotations__ = {
-                "just_symbol": just_symbol,
-                "array_enum": array_enum,
+                "just_symbol": JustSymbol,
+                "array_enum": ArrayEnum,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> MetaOapg.properties.just_symbol: ...
+    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> MetaOapg.Properties.JustSymbol: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_enum"]) -> MetaOapg.properties.array_enum: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_enum"]) -> MetaOapg.Properties.ArrayEnum: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -132,10 +132,10 @@ class EnumArrays(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["just_symbol"]) -> typing.Union[MetaOapg.properties.just_symbol, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["just_symbol"]) -> typing.Union[MetaOapg.Properties.JustSymbol, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_enum"]) -> typing.Union[MetaOapg.properties.array_enum, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["array_enum"]) -> typing.Union[MetaOapg.Properties.ArrayEnum, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -153,8 +153,8 @@ class EnumArrays(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        just_symbol: typing.Union[MetaOapg.properties.just_symbol, str, schemas.Unset] = schemas.unset,
-        array_enum: typing.Union[MetaOapg.properties.array_enum, list, tuple, schemas.Unset] = schemas.unset,
+        just_symbol: typing.Union[MetaOapg.Properties.JustSymbol, str, schemas.Unset] = schemas.unset,
+        array_enum: typing.Union[MetaOapg.Properties.ArrayEnum, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'EnumArrays':

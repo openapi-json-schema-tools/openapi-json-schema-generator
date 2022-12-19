@@ -38,31 +38,31 @@ class AdditionalPropertiesValidator(
             frozendict.frozendict,
         }
         
-        class all_of:
+        class AllOf:
             
             
-            class allOf_0(
+            class AllOf0(
                 schemas.DictSchema
             ):
             
             
                 class MetaOapg:
                     types = {frozendict.frozendict}
-                    additionalProperties = schemas.AnyTypeSchema
+                    AdditionalProperties = schemas.AnyTypeSchema
                 
-                def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'allOf_0':
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                ) -> 'AllOf0':
                     return super().__new__(
                         cls,
                         *_args,
@@ -71,7 +71,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.DictSchema
             ):
             
@@ -80,7 +80,7 @@ class AdditionalPropertiesValidator(
                     types = {frozendict.frozendict}
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.AnyTypeSchema,
                     ):
                     
@@ -95,7 +95,7 @@ class AdditionalPropertiesValidator(
                             *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                        ) -> 'additionalProperties':
+                        ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *_args,
@@ -103,19 +103,19 @@ class AdditionalPropertiesValidator(
                                 **kwargs,
                             )
                 
-                def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'allOf_1':
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -124,7 +124,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class allOf_2(
+            class AllOf2(
                 schemas.DictSchema
             ):
             
@@ -133,7 +133,7 @@ class AdditionalPropertiesValidator(
                     types = {frozendict.frozendict}
                     
                     
-                    class additionalProperties(
+                    class AdditionalProperties(
                         schemas.AnyTypeSchema,
                     ):
                     
@@ -148,7 +148,7 @@ class AdditionalPropertiesValidator(
                             *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                             _configuration: typing.Optional[schemas.Configuration] = None,
                             **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                        ) -> 'additionalProperties':
+                        ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *_args,
@@ -156,19 +156,19 @@ class AdditionalPropertiesValidator(
                                 **kwargs,
                             )
                 
-                def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
                     return super().get_item_oapg(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.additionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'allOf_2':
+                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                ) -> 'AllOf2':
                     return super().__new__(
                         cls,
                         *_args,
@@ -176,9 +176,9 @@ class AdditionalPropertiesValidator(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
-                allOf_2,
+                AllOf0,
+                AllOf1,
+                AllOf2,
             ]
 
 

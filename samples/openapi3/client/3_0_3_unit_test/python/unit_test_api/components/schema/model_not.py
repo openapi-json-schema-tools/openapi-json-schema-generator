@@ -35,7 +35,7 @@ class ModelNot(
 
     class MetaOapg:
         # any type
-        _not = schemas.IntSchema
+        ModelNot = schemas.IntSchema
 
 
     def __new__(

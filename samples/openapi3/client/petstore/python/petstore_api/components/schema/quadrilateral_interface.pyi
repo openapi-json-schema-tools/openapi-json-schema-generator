@@ -40,31 +40,31 @@ class QuadrilateralInterface(
             "shapeType",
         }
         
-        class properties:
+        class Properties:
             
             
-            class shapeType(
+            class ShapeType(
                 schemas.StrSchema
             ):
                 
                 @schemas.classproperty
                 def QUADRILATERAL(cls):
                     return cls("Quadrilateral")
-            quadrilateralType = schemas.StrSchema
+            QuadrilateralType = schemas.StrSchema
             __annotations__ = {
-                "shapeType": shapeType,
-                "quadrilateralType": quadrilateralType,
+                "shapeType": ShapeType,
+                "quadrilateralType": QuadrilateralType,
             }
 
     
-    quadrilateralType: MetaOapg.properties.quadrilateralType
-    shapeType: MetaOapg.properties.shapeType
+    quadrilateralType: MetaOapg.Properties.QuadrilateralType
+    shapeType: MetaOapg.Properties.ShapeType
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.properties.quadrilateralType: ...
+    def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.Properties.QuadrilateralType: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.properties.shapeType: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.Properties.ShapeType: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -81,10 +81,10 @@ class QuadrilateralInterface(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.properties.quadrilateralType: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.Properties.QuadrilateralType: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.properties.shapeType: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.Properties.ShapeType: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -102,8 +102,8 @@ class QuadrilateralInterface(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        quadrilateralType: typing.Union[MetaOapg.properties.quadrilateralType, str, ],
-        shapeType: typing.Union[MetaOapg.properties.shapeType, str, ],
+        quadrilateralType: typing.Union[MetaOapg.Properties.QuadrilateralType, str, ],
+        shapeType: typing.Union[MetaOapg.Properties.ShapeType, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'QuadrilateralInterface':

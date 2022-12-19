@@ -38,12 +38,12 @@ class Whale(
             "className",
         }
         
-        class properties:
-            hasBaleen = schemas.BoolSchema
-            hasTeeth = schemas.BoolSchema
+        class Properties:
+            HasBaleen = schemas.BoolSchema
+            HasTeeth = schemas.BoolSchema
             
             
-            class className(
+            class ClassName(
                 schemas.StrSchema
             ):
                 
@@ -51,21 +51,21 @@ class Whale(
                 def WHALE(cls):
                     return cls("whale")
             __annotations__ = {
-                "hasBaleen": hasBaleen,
-                "hasTeeth": hasTeeth,
-                "className": className,
+                "hasBaleen": HasBaleen,
+                "hasTeeth": HasTeeth,
+                "className": ClassName,
             }
     
-    className: MetaOapg.properties.className
+    className: MetaOapg.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> MetaOapg.properties.hasBaleen: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> MetaOapg.Properties.HasBaleen: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> MetaOapg.properties.hasTeeth: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> MetaOapg.Properties.HasTeeth: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -83,13 +83,13 @@ class Whale(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.properties.className: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["hasBaleen"]) -> typing.Union[MetaOapg.properties.hasBaleen, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["hasBaleen"]) -> typing.Union[MetaOapg.Properties.HasBaleen, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[MetaOapg.properties.hasTeeth, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[MetaOapg.Properties.HasTeeth, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -108,9 +108,9 @@ class Whale(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.properties.className, str, ],
-        hasBaleen: typing.Union[MetaOapg.properties.hasBaleen, bool, schemas.Unset] = schemas.unset,
-        hasTeeth: typing.Union[MetaOapg.properties.hasTeeth, bool, schemas.Unset] = schemas.unset,
+        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
+        hasBaleen: typing.Union[MetaOapg.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
+        hasTeeth: typing.Union[MetaOapg.Properties.HasTeeth, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Whale':

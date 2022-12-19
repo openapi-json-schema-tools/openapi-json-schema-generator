@@ -36,20 +36,20 @@ class FruitReq(
     class MetaOapg:
         # any type
         
-        class one_of:
-            oneOf_0 = schemas.NoneSchema
+        class OneOf:
+            OneOf0 = schemas.NoneSchema
         
             @staticmethod
-            def oneOf_1() -> typing.Type['apple_req.AppleReq']:
+            def one_of_1() -> typing.Type['apple_req.AppleReq']:
                 return apple_req.AppleReq
         
             @staticmethod
-            def oneOf_2() -> typing.Type['banana_req.BananaReq']:
+            def one_of_2() -> typing.Type['banana_req.BananaReq']:
                 return banana_req.BananaReq
             classes = [
-                oneOf_0,
-                oneOf_1,
-                oneOf_2,
+                OneOf0,
+                one_of_1,
+                one_of_2,
             ]
 
 

@@ -19,9 +19,7 @@ package org.openapitools.codegen.languages;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import io.swagger.v3.oas.models.media.ArraySchema;
-import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.Schema;
-import io.swagger.v3.oas.models.media.StringSchema;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
@@ -34,10 +32,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Function;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.openapitools.codegen.utils.StringUtils.*;
 
@@ -361,33 +356,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         return toModelName(type);
     }
 
-    /**
-     * Output the type declaration of the property
-     *
-     * @param p OpenAPI Property object
-     * @return a string presentation of the property type
-     */
-    @Override
-    public String getTypeDeclaration(Schema p) {
-        Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = schema;
-        if (ModelUtils.isArraySchema(target)) {
-            Schema<?> items = getSchemaItems((ArraySchema) schema);
-            return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";
-        } else if (ModelUtils.isMapSchema(target)) {
-            // Note: ModelUtils.isMapSchema(p) returns true when p is a composed schema that also defines
-            // additionalproperties: true
-            Schema<?> inner = getAdditionalProperties(target);
-            if (inner == null) {
-                LOGGER.error("`{}` (map property) does not have a proper inner type defined. Default to type:string", p.getName());
-                inner = new StringSchema().description("TODO default missing map inner type to string");
-                p.setAdditionalProperties(inner);
-            }
-            return getSchemaType(target) + "<kotlin.String, " + getTypeDeclaration(inner) + ">";
-        }
-        return super.getTypeDeclaration(target);
-    }
-
     @Override
     public String modelDocFileFolder() {
         return (outputFolder + "/" + modelDocPath).replace('/', File.separatorChar);
@@ -402,13 +370,13 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     public ModelsMap postProcessModels(ModelsMap objs) {
         objs = super.postProcessModelsEnum(objs);
         for (ModelMap mo : objs.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenSchema cm = mo.getModel();
             if (cm.getDiscriminator() != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
                 break;
             }
 
-            for (CodegenProperty var : cm.vars) {
+            for (CodegenSchema var : cm.getProperties().values()) {
                 if (var.isEnum || isSerializableModel()) {
                     cm.vendorExtensions.put("x-has-data-class-body", true);
                     break;
@@ -590,11 +558,11 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
      * Return the sanitized variable name for enum
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop property
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, String datatype) {
+    public String toEnumVarName(String value, CodegenSchema prop) {
         String modified;
         if (value.length() == 0) {
             modified = "EMPTY";
@@ -634,7 +602,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumName(CodegenProperty property) {
+    public String toEnumName(CodegenSchema property) {
         return property.name.getCamelCaseName();
     }
 
@@ -850,25 +818,20 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumValue(String value, String datatype) {
-        if ("kotlin.Int".equals(datatype) || "kotlin.Long".equals(datatype)) {
+    public String toEnumValue(String value, CodegenSchema prop) {
+        if (prop.isInteger) {
             return value;
-        } else if ("kotlin.Double".equals(datatype)) {
+        } else if (prop.isDouble) {
             if (value.contains(".")) {
                 return value;
             } else {
                 return value + ".0"; // Float and double must have .0
             }
-        } else if ("kotlin.Float".equals(datatype)) {
+        } else if (prop.isFloat) {
             return value + "f";
         } else {
             return "\"" + escapeText(value) + "\"";
         }
-    }
-
-    @Override
-    public boolean isDataTypeString(final String dataType) {
-        return "String".equals(dataType) || "kotlin.String".equals(dataType);
     }
 
     @Override
@@ -1055,21 +1018,5 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     @Override
     public GeneratorLanguage generatorLanguage() {
         return GeneratorLanguage.KOTLIN;
-    }
-
-    @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
-        /**
-         * we have a custom version of this function so we only set isMap to true if
-         * ModelUtils.isMapSchema
-         * In other generators, isMap is true for all type object schemas
-         */
-        if (schema.getProperties() != null || schema.getRequired() != null && !(schema instanceof ComposedSchema)) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
     }
 }

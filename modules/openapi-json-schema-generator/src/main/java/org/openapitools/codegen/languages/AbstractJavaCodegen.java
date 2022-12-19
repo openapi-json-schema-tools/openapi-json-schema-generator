@@ -17,8 +17,6 @@
 
 package org.openapitools.codegen.languages;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -51,9 +49,7 @@ import java.time.ZoneId;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 import static org.openapitools.codegen.utils.StringUtils.*;
 
@@ -884,27 +880,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String getTypeDeclaration(Schema p) {
-        Schema<?> schema = unaliasSchema(p);
-        Schema<?> target = schema;
-        if (ModelUtils.isArraySchema(target)) {
-            Schema<?> items = getSchemaItems((ArraySchema) schema);
-            return getSchemaType(target) + "<" + getTypeDeclaration(items) + ">";
-        } else if (ModelUtils.isMapSchema(target)) {
-            // Note: ModelUtils.isMapSchema(p) returns true when p is a composed schema that also defines
-            // additionalproperties: true
-            Schema<?> inner = getAdditionalProperties(target);
-            if (inner == null) {
-                LOGGER.error("`{}` (map property) does not have a proper inner type defined. Default to type:string", p.getName());
-                inner = new StringSchema().description("TODO default missing map inner type to string");
-                p.setAdditionalProperties(inner);
-            }
-            return getSchemaType(target) + "<String, " + getTypeDeclaration(inner) + ">";
-        }
-        return super.getTypeDeclaration(target);
-    }
-
-    @Override
     public String getAlias(String name) {
         if (typeAliases != null && typeAliases.containsKey(name)) {
             return typeAliases.get(name);
@@ -1059,7 +1034,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        CodegenProperty cp = codegenParameter.getSchema();
+        CodegenSchema cp = codegenParameter.getSchema();
 
         Content content = requestBody.getContent();
 
@@ -1088,7 +1063,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     public void setParameterExampleValue(CodegenParameter param) {
         String example;
-        CodegenProperty p = getParameterSchema(param);
+        CodegenSchema p = getParameterSchema(param);
 
         boolean hasAllowableValues = p.allowableValues != null && !p.allowableValues.isEmpty();
         if (hasAllowableValues) {
@@ -1100,86 +1075,70 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else {
             example = p.defaultValue;
         }
-
-        String type = p.baseType;
-        if (type == null) {
-            Schema varSchema = new Schema();
-            if (p.baseType != null)
-                varSchema.setType(p.baseType);
-            if (p.getFormat() != null) {
-                varSchema.setFormat(p.getFormat());
-            }
-            if (p.getRef() != null) {
-                varSchema.set$ref(p.getRef());
-            }
-            type = getTypeDeclaration(varSchema);
+        CodegenSchema schema = param.getSchema();
+        if (schema == null) {
+            String contentType = (String) param.getContent().keySet().toArray()[0];
+            schema = param.getContent().get(contentType).getSchema();
         }
 
-        if ("String".equals(type)) {
-            if (example == null) {
-                example = param.paramName + "_example";
+        if (schema.isString) {
+            if (schema.isUuid) {
+                if (example == null) {
+                    example = "UUID.randomUUID()";
+                } else {
+                    example = "UUID.fromString(\"" + example + "\")";
+                }
+            } else {
+                if (example == null) {
+                    example = param.paramName + "_example";
+                }
+                example = "\"" + escapeText(example) + "\"";
             }
-            example = "\"" + escapeText(example) + "\"";
-        } else if ("Integer".equals(type) || "Short".equals(type)) {
+        } else if (schema.isInteger || schema.isShort) {
             if (example == null) {
                 example = "56";
             }
-        } else if ("Long".equals(type)) {
+        } else if (schema.isLong) {
             if (example == null) {
                 example = "56";
             }
             example = StringUtils.appendIfMissingIgnoreCase(example, "L");
-        } else if ("Float".equals(type)) {
+        } else if (schema.isFloat) {
             if (example == null) {
                 example = "3.4";
             }
             example = StringUtils.appendIfMissingIgnoreCase(example, "F");
-        } else if ("Double".equals(type)) {
+        } else if (schema.isDouble) {
             if (example == null) {
                 example = "3.4";
             }
             example = StringUtils.appendIfMissingIgnoreCase(example, "D");
-        } else if ("Boolean".equals(type)) {
+        } else if (schema.isBoolean) {
             if (example == null) {
                 example = "true";
             }
-        } else if ("File".equals(type)) {
+        } else if (schema.isFile) {
             if (example == null) {
                 example = "/path/to/file";
             }
             example = "new File(\"" + escapeText(example) + "\")";
-        } else if ("Date".equals(type)) {
+        } else if (schema.isDate) {
             example = "new Date()";
-        } else if ("LocalDate".equals(type)) {
+        } else if (schema.isDateTime) {
             if (example == null) {
                 example = "LocalDate.now()";
             } else {
                 example = "LocalDate.parse(\"" + example + "\")";
             }
-        } else if ("OffsetDateTime".equals(type)) {
-            if (example == null) {
-                example = "OffsetDateTime.now()";
-            } else {
-                example = "OffsetDateTime.parse(\"" + example + "\")";
-            }
-        } else if ("BigDecimal".equals(type)) {
+        } else if (schema.isDecimal) {
             if (example == null) {
                 example = "new BigDecimal(78)";
             } else {
                 example = "new BigDecimal(\"" + example + "\")";
             }
-        } else if ("UUID".equals(type)) {
-            if (example == null) {
-                example = "UUID.randomUUID()";
-            } else {
-                example = "UUID.fromString(\"" + example + "\")";
-            }
         } else if (hasAllowableValues) {
             //parameter is enum defined as a schema component
-            example = type + ".fromValue(\"" + example + "\")";
-        } else if (!languageSpecificPrimitives.contains(type)) {
-            // type is a model class, e.g. User
-            example = "new " + type + "()";
+            example = ".fromValue(\"" + example + "\")";
         }
 
         if (example == null) {
@@ -1188,22 +1147,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
             if (p.items.defaultValue != null) {
 
-                String itemsType = p.items.baseType;
-                if (type == null) {
-                    Schema varSchema = new Schema();
-                    if (p.items.baseType != null)
-                        varSchema.setType(p.items.baseType);
-                    if (p.items.getFormat() != null) {
-                        varSchema.setFormat(p.items.getFormat());
-                    }
-                    if (p.items.getRef() != null) {
-                        varSchema.set$ref(p.items.getRef());
-                    }
-                    itemsType = getTypeDeclaration(varSchema);
-                }
-
                 String innerExample;
-                if ("String".equals(itemsType)) {
+                if (schema.items.isString) {
                     innerExample = "\"" + p.items.defaultValue + "\"";
                 } else {
                     innerExample = p.items.defaultValue;
@@ -1269,36 +1214,13 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public CodegenModel fromModel(String name, Schema model) {
-        Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
-        CodegenModel codegenModel = super.fromModel(name, model);
-        if (codegenModel.description != null) {
-            codegenModel.imports.add("ApiModel");
-        }
-        if (codegenModel.discriminator != null && additionalProperties.containsKey(JACKSON)) {
-            codegenModel.imports.add("JsonSubTypes");
-            codegenModel.imports.add("JsonTypeInfo");
-            codegenModel.imports.add("JsonIgnoreProperties");
-        }
-        if (allDefinitions != null && codegenModel.parentSchema != null && codegenModel.hasEnums) {
-            final Schema parentModel = allDefinitions.get(codegenModel.parentSchema);
-            final CodegenModel parentCodegenModel = super.fromModel(codegenModel.parent, parentModel);
-            codegenModel = AbstractJavaCodegen.reconcileInlineEnums(codegenModel, parentCodegenModel);
-        }
-        if ("BigDecimal".equals(codegenModel.dataType)) {
-            codegenModel.imports.add("BigDecimal");
-        }
-        return codegenModel;
-    }
-
-    @Override
-    public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
-        if (model.getIsClassnameSanitized() && additionalProperties.containsKey(JACKSON)) {
+    public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
+        if (additionalProperties.containsKey(JACKSON)) {
             model.imports.add("JsonTypeName");
         }
 
         if (serializeBigDecimalAsString) {
-            if ("decimal".equals(property.baseType)) {
+            if (property.isDecimal) {
                 // we serialize BigDecimal as `string` to avoid precision loss
                 property.vendorExtensions.put("x-extra-annotation", "@JsonSerialize(using = ToStringSerializer.class)");
 
@@ -1362,7 +1284,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         // add x-implements for serializable to all models
         for (ModelMap mo : objs.getModels()) {
-            CodegenModel cm = mo.getModel();
+            CodegenSchema cm = mo.getModel();
             if (this.serializableModel) {
                 cm.getVendorExtensions().putIfAbsent("x-implements", new ArrayList<String>());
                 ((ArrayList<String>) cm.getVendorExtensions().get("x-implements")).add("Serializable");
@@ -1390,7 +1312,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         for (CodegenOperation op : operationList) {
             Collection<String> operationImports = new ConcurrentSkipListSet<>();
             for (CodegenParameter p : op.allParams) {
-                CodegenProperty cp = getParameterSchema(p);
+                CodegenSchema cp = getParameterSchema(p);
             }
             op.vendorExtensions.put("x-java-import", operationImports);
 
@@ -1505,12 +1427,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumName(CodegenProperty property) {
+    public String toEnumName(CodegenSchema property) {
         return sanitizeName(property.name.getCamelCaseName()) + "Enum";
     }
 
     @Override
-    public String toEnumVarName(String value, String datatype) {
+    public String toEnumVarName(String value, CodegenSchema prop) {
         if (value.length() == 0) {
             return "EMPTY";
         }
@@ -1525,8 +1447,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         // number
-        if ("Integer".equals(datatype) || "Long".equals(datatype) ||
-                "Float".equals(datatype) || "Double".equals(datatype) || "BigDecimal".equals(datatype)) {
+        if (prop.isInteger || prop.isLong|| prop.isFloat || prop.isDouble || prop.isDecimal) {
             String varName = "NUMBER_" + value;
             varName = varName.replaceAll("-", "MINUS_");
             varName = varName.replaceAll("\\+", "PLUS_");
@@ -1544,16 +1465,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumValue(String value, String datatype) {
-        if ("Integer".equals(datatype) || "Double".equals(datatype)) {
+    public String toEnumValue(String value, CodegenSchema prop) {
+        if (prop.isInteger || prop.isDouble) {
             return value;
-        } else if ("Long".equals(datatype)) {
+        } else if (prop.isLong) {
             // add l to number, e.g. 2048 => 2048l
             return value + "l";
-        } else if ("Float".equals(datatype)) {
+        } else if (prop.isFloat) {
             // add f to number, e.g. 3.14 => 3.14f
             return value + "f";
-        } else if ("BigDecimal".equals(datatype)) {
+        } else if (prop.isDecimal) {
             // use BigDecimal String constructor
             return "new BigDecimal(\"" + value + "\")";
         } else {
@@ -1566,48 +1487,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         CodegenOperation op = super.fromOperation(path, httpMethod, operation, servers);
         op.path = sanitizePath(op.path);
         return op;
-    }
-
-    private static CodegenModel reconcileInlineEnums(CodegenModel codegenModel, CodegenModel parentCodegenModel) {
-        // This generator uses inline classes to define enums, which breaks when
-        // dealing with models that have subTypes. To clean this up, we will analyze
-        // the parent and child models, look for enums that match, and remove
-        // them from the child models and leave them in the parent.
-        // Because the child models extend the parents, the enums will be available via the parent.
-
-        // Only bother with reconciliation if the parent model has enums.
-        if (!parentCodegenModel.hasEnums) {
-            return codegenModel;
-        }
-
-        // Get the properties for the parent and child models
-        final List<CodegenProperty> parentModelCodegenProperties = parentCodegenModel.vars;
-        List<CodegenProperty> codegenProperties = codegenModel.vars;
-
-        // Iterate over all of the parent model properties
-        boolean removedChildEnum = false;
-        for (CodegenProperty parentModelCodegenProperty : parentModelCodegenProperties) {
-            // Look for enums
-            if (parentModelCodegenProperty.isEnum) {
-                // Now that we have found an enum in the parent class,
-                // and search the child class for the same enum.
-                Iterator<CodegenProperty> iterator = codegenProperties.iterator();
-                while (iterator.hasNext()) {
-                    CodegenProperty codegenProperty = iterator.next();
-                    if (codegenProperty.isEnum && codegenProperty.equals(parentModelCodegenProperty)) {
-                        // We found an enum in the child class that is
-                        // a duplicate of the one in the parent, so remove it.
-                        iterator.remove();
-                        removedChildEnum = true;
-                    }
-                }
-            }
-        }
-
-        if (removedChildEnum) {
-            codegenModel.vars = codegenProperties;
-        }
-        return codegenModel;
     }
 
     private static String sanitizePackageName(String packageName) {
@@ -1935,31 +1814,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         return tag;
     }
 
-    /**
-     * Camelize the method name of the getter and setter
-     *
-     * @param name string to be camelized
-     * @return Camelized string
-     */
-    @Override
-    public String getterAndSetterCapitalize(String name) {
-        boolean lowercaseFirstLetter = false;
-        if (name == null || name.length() == 0) {
-            return name;
-        }
-        name = toVarName(name);
-        //
-        // Let the property name capitalized
-        // except when the first letter of the property name is lowercase and the second letter is uppercase
-        // Refer to section 8.8: Capitalization of inferred names of the JavaBeans API specification
-        // http://download.oracle.com/otn-pub/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/beans.101.pdf)
-        //
-        if (name.length() > 1 && Character.isLowerCase(name.charAt(0)) && Character.isUpperCase(name.charAt(1))) {
-            lowercaseFirstLetter = true;
-        }
-        return camelize(name, lowercaseFirstLetter);
-    }
-
     @Override
     public void postProcessFile(File file, String fileType) {
         if (file == null) {
@@ -2020,7 +1874,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
+    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {
         if (!supportsAdditionalPropertiesWithComposedSchema) {
             // The additional (undeclared) properties are modeled in Java as a HashMap.
             //
@@ -2032,23 +1886,15 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             //    The HashMap is a field.
             super.addAdditionPropertiesToCodeGenModel(codegenModel, schema);
         }
-
-        // See https://github.com/OpenAPITools/openapi-generator/pull/1729#issuecomment-449937728
-        Schema s = getAdditionalProperties(schema);
-        // 's' may be null if 'additionalProperties: false' in the OpenAPI schema.
-        if (s != null) {
-            codegenModel.additionalPropertiesType = getSchemaType(s);
-            addImport(codegenModel, codegenModel.additionalPropertiesType);
-        }
     }
 
     /**
-     * Search for property by {@link CodegenProperty#name}
+     * Search for property by {@link CodegenSchema#name}
      * @param name - name to search for
      * @param properties - list of properties
      * @return either found property or {@link Optional#empty()} if nothing has been found
      */
-    protected Optional<CodegenProperty> findByName(String name, List<CodegenProperty> properties) {
+    protected Optional<CodegenSchema> findByName(String name, List<CodegenSchema> properties) {
         if (properties == null || properties.isEmpty()) {
             return Optional.empty();
         }

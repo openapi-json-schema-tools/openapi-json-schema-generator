@@ -99,10 +99,10 @@ class TestValidateResults(unittest.TestCase):
         path_to_schemas = Animal._validate_oapg(
             frozendict.frozendict(className="Dog", color="black"), validation_metadata=vm
         )
-        for path, schema_classes in path_to_schemas.items():
+        for schema_classes in path_to_schemas.values():
             Animal._process_schema_classes_oapg(schema_classes)
         assert path_to_schemas == {
-            ("args[0]",): {Animal, Dog, Dog.MetaOapg.all_of.classes[1], frozendict.frozendict},
+            ("args[0]",): {Animal, Dog, Dog.MetaOapg.AllOf.classes[1], frozendict.frozendict},
             ("args[0]", "className"): {StrSchema, str},
             ("args[0]", "color"): {StrSchema, str},
         }
@@ -117,11 +117,11 @@ class TestValidateResults(unittest.TestCase):
         path_to_schemas = Pig._validate_oapg(
             frozendict.frozendict(className="DanishPig"), validation_metadata=vm
         )
-        for path, schema_classes in path_to_schemas.items():
+        for schema_classes in path_to_schemas.values():
             Pig._process_schema_classes_oapg(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {Pig, DanishPig, frozendict.frozendict},
-            ("args[0]", "className"): {DanishPig.MetaOapg.properties.className, str},
+            ("args[0]", "className"): {DanishPig.MetaOapg.Properties.ClassName, str},
         }
 
     def test_anyof_composition_gm_fruit_validate(self):
@@ -130,11 +130,11 @@ class TestValidateResults(unittest.TestCase):
             frozendict.frozendict(cultivar="GoldenDelicious", lengthCm=Decimal(10)),
             validation_metadata=vm,
         )
-        for path, schema_classes in path_to_schemas.items():
+        for schema_classes in path_to_schemas.values():
             GmFruit._process_schema_classes_oapg(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {GmFruit, Apple, Banana, frozendict.frozendict},
-            ("args[0]", "cultivar"): {Apple.MetaOapg.properties.cultivar, str},
+            ("args[0]", "cultivar"): {Apple.MetaOapg.Properties.Cultivar, str},
             ("args[0]", "lengthCm"): {NumberSchema, Decimal},
         }
 
@@ -175,9 +175,9 @@ class TestValidateCalls(unittest.TestCase):
             side_effect=ArrayWithValidationsInItems._validate_oapg,
         ) as mock_outer_validate:
             with patch.object(
-                ArrayWithValidationsInItems.MetaOapg.items,
+                ArrayWithValidationsInItems.MetaOapg.Items,
                 "_validate_oapg",
-                side_effect=ArrayWithValidationsInItems.MetaOapg.items._validate_oapg,
+                side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
                 configuration = Configuration()
                 ArrayWithValidationsInItems([7], _configuration=configuration)
@@ -192,16 +192,16 @@ class TestValidateCalls(unittest.TestCase):
 
     def test_list_validate_direct_instantiation_cast_item(self):
         # item validation is skipped if items are of the correct type
-        item = ArrayWithValidationsInItems.MetaOapg.items(7)
+        item = ArrayWithValidationsInItems.MetaOapg.Items(7)
         with patch.object(
             ArrayWithValidationsInItems,
             "_validate_oapg",
             side_effect=ArrayWithValidationsInItems._validate_oapg,
         ) as mock_outer_validate:
             with patch.object(
-                ArrayWithValidationsInItems.MetaOapg.items,
+                ArrayWithValidationsInItems.MetaOapg.Items,
                 "_validate_oapg",
-                side_effect=ArrayWithValidationsInItems.MetaOapg.items._validate_oapg,
+                side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
                 configuration = Configuration()
                 ArrayWithValidationsInItems([item], _configuration=configuration)
@@ -210,7 +210,7 @@ class TestValidateCalls(unittest.TestCase):
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
                         configuration=configuration,
-                        validated_path_to_schemas={('args[0]', 0): {ArrayWithValidationsInItems.MetaOapg.items, Decimal}}
+                        validated_path_to_schemas={('args[0]', 0): {ArrayWithValidationsInItems.MetaOapg.Items, Decimal}}
                     )
                 )
                 mock_inner_validate.assert_not_called
@@ -222,9 +222,9 @@ class TestValidateCalls(unittest.TestCase):
             side_effect=ArrayWithValidationsInItems._validate_oapg,
         ) as mock_outer_validate:
             with patch.object(
-                ArrayWithValidationsInItems.MetaOapg.items,
+                ArrayWithValidationsInItems.MetaOapg.Items,
                 "_validate_oapg",
-                side_effect=ArrayWithValidationsInItems.MetaOapg.items._validate_oapg,
+                side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
                 configuration = Configuration()
                 ArrayWithValidationsInItems.from_openapi_data_oapg([7], _configuration=configuration)

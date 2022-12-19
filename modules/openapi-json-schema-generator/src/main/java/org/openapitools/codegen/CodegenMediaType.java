@@ -5,11 +5,11 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class CodegenMediaType {
-    private CodegenProperty schema;
+    private CodegenSchema schema;
     private LinkedHashMap<String, CodegenEncoding> encoding;
     private HashMap<String, SchemaTestCase> testCases = new HashMap<>();
 
-    public CodegenMediaType(CodegenProperty schema, LinkedHashMap<String, CodegenEncoding> encoding, HashMap<String, SchemaTestCase> testCases) {
+    public CodegenMediaType(CodegenSchema schema, LinkedHashMap<String, CodegenEncoding> encoding, HashMap<String, SchemaTestCase> testCases) {
         this.schema = schema;
         this.encoding = encoding;
         if (testCases != null) {
@@ -17,7 +17,7 @@ public class CodegenMediaType {
         }
     }
 
-    public CodegenProperty getSchema() {
+    public CodegenSchema getSchema() {
         return schema;
     }
 

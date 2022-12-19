@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import maxproperties_validation
 
 
-application_json = maxproperties_validation.MaxpropertiesValidation
+ApplicationJson = maxproperties_validation.MaxpropertiesValidation
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

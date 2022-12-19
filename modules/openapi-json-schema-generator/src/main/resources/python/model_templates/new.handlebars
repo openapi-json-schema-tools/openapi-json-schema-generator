@@ -4,7 +4,7 @@ def __new__(
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    _arg: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{refClass}}'{{else}}typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *_args: typing.Union[{{> model_templates/schema_python_types }}],
 {{/if}}
@@ -17,17 +17,15 @@ def __new__(
 {{#if refClass}}
     {{@key.getName}}: '{{refClass}}',
 {{else}}
-    {{#and name name.getNameIsValid}}
+    {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-    {{@key.getName}}: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
         {{else}}
-            {{#if name.getNameIsValid}}
-    {{@key.getName}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}],
-            {{/if}}
+    {{@key.getName}}: typing.Union[MetaOapg.Properties.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
         {{/if}}
     {{else}}
     {{@key.getName}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
-    {{/and}}
+    {{/if}}
 {{/if}}
 {{/with}}
 {{/if}}
@@ -39,7 +37,7 @@ def __new__(
 {{#if refClass}}
     {{@key.getName}}: typing.Union['{{refClass}}', schemas.Unset] = schemas.unset,
 {{else}}
-    {{@key.getName}}: typing.Union[MetaOapg.properties.{{name.getName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union[MetaOapg.Properties.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
 {{/if}}
 {{/each}}
@@ -49,7 +47,7 @@ def __new__(
 {{#if refClass}}
     **kwargs: '{{refClass}}',
 {{else}}
-    **kwargs: typing.Union[MetaOapg.{{name.getName}}, {{> model_templates/schema_python_types }}],
+    **kwargs: typing.Union[MetaOapg.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
 {{/if}}
 {{/unless}}
 {{else}}
@@ -57,7 +55,7 @@ def __new__(
     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
 {{/or}}
 {{/with}}
-) -> '{{> model_templates/classname }}':
+) -> '{{name.getCamelCaseName}}':
     return super().__new__(
         cls,
 {{#if getHasMultipleTypes}}

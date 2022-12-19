@@ -745,7 +745,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 continue;
             }
             for (ModelMap model : objModel.getModels()) {
-                CodegenModel cm = model.getModel();
+                CodegenSchema cm = model.getModel();
                 if (cm.testCases != null && !cm.testCases.isEmpty()) {
                     anyModelContainsTestCases = true;
                 }
@@ -809,9 +809,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return Codegen Property object
      */
     @Override
-    public CodegenProperty fromProperty(Schema p, String sourceJsonPath) {
+    public CodegenSchema fromSchema(Schema p, String sourceJsonPath) {
         // fix needed for values with /n /t etc in them
-        CodegenProperty cp = super.fromProperty(p, sourceJsonPath);
+        CodegenSchema cp = super.fromSchema(p, sourceJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -835,19 +835,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return cp;
     }
 
-    /**
-     * checks if the data should be classified as "string" in enum
-     * e.g. double in C# needs to be double-quoted (e.g. "2.8") by treating it as a string
-     * In the future, we may rename this function to "isEnumString"
-     *
-     * @param dataType data type
-     * @return true if it's a enum string
-     */
-    @Override
-    public boolean isDataTypeString(String dataType) {
-        return "str".equals(dataType);
-    }
-
     public String getItemsName(Schema containingSchema, String containingSchemaName) {
         return "items";
     }
@@ -855,10 +842,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     /**
      * Update codegen property's enum by adding "enumVars" (with name and value)
      *
-     * @param var list of CodegenProperty
+     * @param var list of CodegenSchema
      */
     @Override
-    public void updateCodegenPropertyEnum(CodegenProperty var) {
+    public void updateCodegenPropertyEnum(CodegenSchema var) {
         // we have a custom version of this method to omit overwriting the defaultValue
         Map<String, Object> allowableValues = var.allowableValues;
 
@@ -871,21 +858,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return;
         }
 
-        Schema varSchema = new Schema();
-        if (var.baseType != null)
-            varSchema.setType(var.baseType);
-        if (var.getFormat() != null) {
-            varSchema.setFormat(var.getFormat());
-        }
-        if (var.getRef() != null) {
-            varSchema.set$ref(var.getRef());
-        }
-        String varDataType = getTypeDeclaration(varSchema);
-        Schema referencedSchema = getModelNameToSchemaCache().get(varDataType);
-        String dataType = (referencedSchema != null) ? getTypeDeclaration(referencedSchema) : varDataType;
-
         // put "enumVars" map into `allowableValues", including `name` and `value`
-        List<Map<String, Object>> enumVars = buildEnumVars(values, dataType);
+        List<Map<String, Object>> enumVars = buildEnumVars(values, var);
 
         allowableValues.put("enumVars", enumVars);
         // overwriting defaultValue omitted from here
@@ -936,30 +910,30 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
         }
 
-        CodegenModel codegenModel = null;
+        CodegenSchema codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
-            codegenModel = fromModel(name, schema);
+            codegenModel = fromSchema(schema, "#/components/schemas/" + name);
         }
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
             if (StringUtils.isEmpty(bodyParameterName)) {
-                codegenParameter.baseName = codegenModel.classname;
+                codegenParameter.baseName = codegenModel.name.getCamelCaseName();
             } else {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenProperty codegenProperty = fromProperty(schema, sourceJsonPath);
+            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
-            } else if (codegenProperty != null) {
+            } else if (codegenSchema != null) {
                 String codegenModelName, codegenModelDescription;
 
                 if (codegenModel != null) {
-                    codegenModelName = codegenModel.classname;
+                    codegenModelName = codegenModel.name.getCamelCaseName();
                     codegenModelDescription = codegenModel.description;
                 } else {
                     codegenModelName = "anyType";
@@ -984,10 +958,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * Return the sanitized variable name for enum
      *
      * @param value    enum variable name
-     * @param datatype data type
+     * @param prop property
      * @return the sanitized variable name for enum
      */
-    public String toEnumVarName(String value, String datatype) {
+    @Override
+    public String toEnumVarName(String value, CodegenSchema prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
@@ -1067,7 +1042,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, String dataType) {
+    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenSchema prop) {
         List<Map<String, Object>> enumVars = new ArrayList<>();
         int truncateIdx = 0;
 
@@ -1088,7 +1063,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
             }
 
-            enumVar.put("name", toEnumVarName(enumName, dataType));
+            enumVar.put("name", toEnumVarName(enumName, prop));
             if (value instanceof Integer) {
                 enumVar.put("value", value);
             } else if (value instanceof Double) {
@@ -1111,7 +1086,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String fixedValue = (String) processTestExampleData(value);
                 enumVar.put("value", ensureQuotes(fixedValue));
             }
-            enumVar.put("isString", isDataTypeString(dataType));
+            enumVar.put("isString", prop.isString);
             enumVars.add(enumVar);
         }
 
@@ -1122,7 +1097,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             String enumName = enumUnknownDefaultCaseName;
 
             String enumValue;
-            if (isDataTypeString(dataType)) {
+            if (prop.isString) {
                 enumValue = enumUnknownDefaultCaseName;
             } else {
                 // This is a dummy value that attempts to avoid collisions with previously specified cases.
@@ -1134,25 +1109,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 enumValue = String.valueOf(11184809);
             }
 
-            enumVar.put("name", toEnumVarName(enumName, dataType));
-            enumVar.put("value", toEnumValue(enumValue, dataType));
-            enumVar.put("isString", isDataTypeString(dataType));
+            enumVar.put("name", toEnumVarName(enumName, prop));
+            enumVar.put("value", toEnumValue(enumValue, prop));
+            enumVar.put("isString", prop.isString);
             enumVars.add(enumVar);
         }
 
         return enumVars;
-    }
-
-    /**
-     * Sets the value of the 'model.parent' property in CodegenModel
-     * We have a custom version of this function so we can add the dataType on the ArrayModel
-     */
-    @Override
-    protected void addParentContainer(CodegenModel model, String name, Schema schema) {
-        super.addParentContainer(model, name, schema);
-
-        List<String> referencedModelNames = new ArrayList<String>();
-        model.dataType = getTypeString(schema, "", "", referencedModelNames);
     }
 
     protected String toTestCaseName(String specTestCaseName) {
@@ -1219,46 +1182,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return value;
         }
         return value;
-    }
-
-    /**
-     * Convert OAS Model object to Codegen Model object
-     * We have a custom version of this method so we can:
-     * - set the correct regex values for requiredVars + optionalVars
-     * - set model.defaultValue and model.hasRequired per the three use cases defined in this method
-     *
-     * @param name the name of the model
-     * @param sc   OAS Model object
-     * @return Codegen Model object
-     */
-    @Override
-    public CodegenModel fromModel(String name, Schema sc) {
-        CodegenModel cm = super.fromModel(name, sc);
-        if (sc.getPattern() != null) {
-            postProcessPattern(sc.getPattern(), cm.vendorExtensions);
-            String pattern = (String) cm.vendorExtensions.get("x-regex");
-            cm.setPattern(pattern);
-        }
-        if (cm.isInteger && cm.getFormat() == null) {
-            // this generator treats integers as type number
-            // this is done so type int + float has the same base class (decimal.Decimal)
-            // so integer validation info must be set using formatting
-            cm.setFormat("int");
-        }
-        if (cm.isNullable) {
-            cm.setIsNull(true);
-            cm.isNullable = false;
-            cm.setHasMultipleTypes(true);
-        }
-        Boolean isNotPythonModelSimpleModel = (ModelUtils.isComposedSchema(sc) || ModelUtils.isObjectSchema(sc) || ModelUtils.isMapSchema(sc));
-        if (isNotPythonModelSimpleModel) {
-            return cm;
-        }
-        String defaultValue = toDefaultValue(sc);
-        if (sc.getDefault() != null) {
-            cm.defaultValue = defaultValue;
-        }
-        return cm;
     }
 
     /**
@@ -1372,21 +1295,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return prefix + baseType + fullSuffix;
     }
 
-    /**
-     * Output the type declaration of a given name
-     *
-     * @param p property schema
-     * @return a string presentation of the type
-     */
-    @Override
-    public String getTypeDeclaration(Schema p) {
-        // this is used to set dataType, which defines a python tuple of classes
-        // in Python we will wrap this in () to make it a tuple but here we
-        // will omit the parens so the generated documentation will not include
-        // them
-        return getTypeString(p, "", "", null);
-    }
-
     @Override
     public String toInstantiationType(Schema property) {
         if (ModelUtils.isArraySchema(property) || ModelUtils.isMapSchema(property) || property.getAdditionalProperties() != null) {
@@ -1396,7 +1304,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
+    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {
     }
 
     /**
@@ -1608,7 +1516,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String discPropNameValue = mm.getMappingName();
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
-                CodegenProperty cp = new CodegenProperty();
+                CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.getPropertyName());
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
@@ -1779,7 +1687,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String discPropNameValue = mm.getMappingName();
                 String schemaName = getSchemaName(mm.getModelName());
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
-                CodegenProperty cp = new CodegenProperty();
+                CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.getPropertyName());
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
@@ -1822,7 +1730,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null != schema.get$ref() || ModelUtils.isArraySchema(schema) || ModelUtils.isMapSchema(schema) || ModelUtils.isObjectSchema(schema) || ModelUtils.isComposedSchema(schema);
     }
 
-    private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenProperty discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
+    private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenSchema discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
 
         if (schema == null) {
             String A = "a";
@@ -1985,38 +1893,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return modelNameToSchemaCache;
     }
 
-    /**
-     * Sets the booleans that define the model's type
-     *
-     * @param model the model to update
-     * @param schema the model's schema
-     */
-    protected void updateModelForString(CodegenModel model, Schema schema) {
-        if (ModelUtils.isDateTimeSchema(schema)) {
-            // isString stays true, format stores that this is a date-time
-        } else if (ModelUtils.isDateSchema(schema)) {
-            // isString stays true, format stores that this is a date
-        } else if (ModelUtils.isUUIDSchema(schema)) {
-            // isString stays true, format stores that this is a uuid
-        } else if (ModelUtils.isDecimalSchema(schema)) {
-            // isString stays true, format stores that this is a uuid
-        } else if (ModelUtils.isBinarySchema(schema)) {
-            // format stores that this is binary
-            model.isString = true;
-        }
-    }
-
-    protected void updateModelForNumber(CodegenModel model, Schema schema) {
-        model.setIsNumber(true);
-        // float vs double info is stored in format
-    }
-
-    protected void updateModelForInteger(CodegenModel model, Schema schema) {
-        model.isInteger = true;
-        // int32 int64 info is stored in format
-    }
-
-    protected void updatePropertyForString(CodegenProperty property, Schema p) {
+    protected void updatePropertyForString(CodegenSchema property, Schema p) {
         if (ModelUtils.isByteArraySchema(p)) {
             // isString stays true, format stores that this is a byte
         } else if (ModelUtils.isBinarySchema(p)) {
@@ -2048,81 +1925,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return extractedPattern;
     }
 
-    protected void updatePropertyForNumber(CodegenProperty property, Schema p) {
+    protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
         property.setIsNumber(true);
         // float and double differentiation is determined with format info
     }
 
-    protected void updatePropertyForInteger(CodegenProperty property, Schema p) {
+    protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
         property.isInteger = true;
         // int32 and int64 differentiation is determined with format info
-    }
-
-    @Override
-    protected void updateModelForObject(CodegenModel m, Schema schema, String sourceJsonPath) {
-        // custom version of this method so properties are always added with addVars
-        if (schema.getProperties() != null || schema.getRequired() != null) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        // an object or anyType composed schema that has additionalProperties set
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-        addRequiredProperties(schema, m, sourceJsonPath);
-    }
-
-    @Override
-    protected void updateModelForAnyType(CodegenModel m, Schema schema, String sourceJsonPath) {
-        // The 'null' value is allowed when the OAS schema is 'any type'.
-        // See https://github.com/OAI/OpenAPI-Specification/issues/1389
-        if (Boolean.FALSE.equals(schema.getNullable())) {
-            LOGGER.error("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", m.name);
-        }
-        // todo add items support here in the future
-        if (schema.getProperties() != null || schema.getRequired() != null) {
-            // passing null to allProperties and allRequired as there's no parent
-            addVars(m, unaliasPropertySchema(schema.getProperties()), schema.getRequired(), null, null, sourceJsonPath);
-        }
-        addAdditionPropertiesToCodeGenModel(m, schema);
-        // process 'additionalProperties'
-        setAddProps(schema, m, sourceJsonPath);
-        addRequiredProperties(schema, m, sourceJsonPath);
-    }
-
-    @Override
-    protected void updateModelForComposedSchema(CodegenModel m, Schema schema, Map<String, Schema> allDefinitions, String sourceJsonPath) {
-        final ComposedSchema composed = (ComposedSchema) schema;
-
-        // TODO revise the logic below to set discriminator, xml attributes
-        if (composed.getAllOf() != null) {
-            int modelImplCnt = 0; // only one inline object allowed in a ComposedModel
-            int modelDiscriminators = 0; // only one discriminator allowed in a ComposedModel
-            for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
-                if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
-                    LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.setDiscriminator(createDiscriminator(m.name, innerSchema, this.openAPI, sourceJsonPath));
-                    if (!this.getLegacyDiscriminatorBehavior()) {
-                        m.addDiscriminatorMappedModelsImports();
-                    }
-                    modelDiscriminators++;
-                }
-
-                if (innerSchema.getXml() != null) {
-                    m.xmlPrefix = innerSchema.getXml().getPrefix();
-                    m.xmlNamespace = innerSchema.getXml().getNamespace();
-                    m.xmlName = innerSchema.getXml().getName();
-                }
-                if (modelDiscriminators > 1) {
-                    LOGGER.error("Allof composed schema is inheriting >1 discriminator. Only use one discriminator: {}", composed);
-                }
-
-                if (modelImplCnt++ > 1) {
-                    LOGGER.warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
-                    break; // only one schema with discriminator allowed in allOf
-                }
-            }
-        }
     }
 
     @Override

@@ -18,14 +18,14 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import anyof
 
 # body schemas
-application_json = anyof.Anyof
+ApplicationJson = anyof.Anyof
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json,
+        ApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -34,7 +34,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
 )

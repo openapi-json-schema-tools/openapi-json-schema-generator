@@ -24,7 +24,7 @@ class TestObjectWithInlineCompositionProperty(unittest.TestCase):
         self.assertTrue(
             isinstance(
                 model["someProp"],
-                ObjectWithInlineCompositionProperty.MetaOapg.properties.someProp
+                ObjectWithInlineCompositionProperty.MetaOapg.Properties.SomeProp
             )
         )
         self.assertTrue(isinstance(model["someProp"], schemas.StrSchema))

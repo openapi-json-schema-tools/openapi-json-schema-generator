@@ -36,11 +36,11 @@ class Anyof(
     class MetaOapg:
         # any type
         
-        class any_of:
-            anyOf_0 = schemas.IntSchema
+        class AnyOf:
+            AnyOf0 = schemas.IntSchema
             
             
-            class anyOf_1(
+            class AnyOf1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -55,7 +55,7 @@ class Anyof(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'anyOf_1':
+                ) -> 'AnyOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -63,8 +63,8 @@ class Anyof(
                         **kwargs,
                     )
             classes = [
-                anyOf_0,
-                anyOf_1,
+                AnyOf0,
+                AnyOf1,
             ]
 
 

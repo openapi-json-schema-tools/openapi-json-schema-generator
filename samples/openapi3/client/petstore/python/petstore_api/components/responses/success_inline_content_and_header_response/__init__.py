@@ -26,7 +26,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[parameter_some_header.schema, str, ],
+            'someHeader': typing.Union[parameter_some_header.Schema, str, ],
         },
         total=False
     )
@@ -42,28 +42,28 @@ class Header:
 # body schemas
 
 
-class application_json(
+class ApplicationJson(
     schemas.DictSchema
 ):
 
 
     class MetaOapg:
         types = {frozendict.frozendict}
-        additionalProperties = schemas.Int32Schema
+        AdditionalProperties = schemas.Int32Schema
     
-    def __getitem__(self, name: str) -> MetaOapg.additionalProperties:
+    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: str) -> MetaOapg.additionalProperties:
+    def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
         return super().get_item_oapg(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.additionalProperties, decimal.Decimal, int, ],
-    ) -> 'application_json':
+        **kwargs: typing.Union[MetaOapg.AdditionalProperties, decimal.Decimal, int, ],
+    ) -> 'ApplicationJson':
         return super().__new__(
             cls,
             *_args,
@@ -76,7 +76,7 @@ class application_json(
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json,
+        ApplicationJson,
     ]
     headers: Header.Params
 
@@ -85,7 +85,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=application_json,
+            schema=ApplicationJson,
         ),
     },
     headers=Header.parameters

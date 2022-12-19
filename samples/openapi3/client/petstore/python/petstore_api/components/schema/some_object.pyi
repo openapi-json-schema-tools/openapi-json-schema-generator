@@ -36,13 +36,13 @@ class SomeObject(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
         
             @staticmethod
-            def allOf_0() -> typing.Type['object_interface.ObjectInterface']:
+            def all_of_0() -> typing.Type['object_interface.ObjectInterface']:
                 return object_interface.ObjectInterface
             classes = [
-                allOf_0,
+                all_of_0,
             ]
 
 

@@ -36,29 +36,29 @@ class GmFruit(
     class MetaOapg:
         # any type
         
-        class properties:
-            color = schemas.StrSchema
+        class Properties:
+            Color = schemas.StrSchema
             __annotations__ = {
-                "color": color,
+                "color": Color,
             }
         
-        class any_of:
+        class AnyOf:
         
             @staticmethod
-            def anyOf_0() -> typing.Type['apple.Apple']:
+            def any_of_0() -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def anyOf_1() -> typing.Type['banana.Banana']:
+            def any_of_1() -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                anyOf_0,
-                anyOf_1,
+                any_of_0,
+                any_of_1,
             ]
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.properties.color: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.Properties.Color: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -74,7 +74,7 @@ class GmFruit(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.properties.color, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.Properties.Color, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -91,7 +91,7 @@ class GmFruit(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        color: typing.Union[MetaOapg.properties.color, str, schemas.Unset] = schemas.unset,
+        color: typing.Union[MetaOapg.Properties.Color, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'GmFruit':

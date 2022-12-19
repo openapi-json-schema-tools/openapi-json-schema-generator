@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 
 
-application_json = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself
+ApplicationJson = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

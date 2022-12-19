@@ -39,7 +39,7 @@ public class CodegenHeader implements OpenapiComponent {
     public String jsonSchema;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean isDeprecated;
-    protected CodegenProperty schema;
+    protected CodegenSchema schema;
     /**
      * Determines whether this parameter is mandatory. If the parameter is in "path",
      * this property is required and its value MUST be true. Otherwise, the property
@@ -156,11 +156,11 @@ public class CodegenHeader implements OpenapiComponent {
         return sb.toString();
     }
 
-    public CodegenProperty getSchema() {
+    public CodegenSchema getSchema() {
         return schema;
     }
 
-    public void setSchema(CodegenProperty schema) {
+    public void setSchema(CodegenSchema schema) {
         this.schema = schema;
     }
 

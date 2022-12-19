@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import object_properties_validation
 
 
-application_json = object_properties_validation.ObjectPropertiesValidation
+ApplicationJson = object_properties_validation.ObjectPropertiesValidation
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

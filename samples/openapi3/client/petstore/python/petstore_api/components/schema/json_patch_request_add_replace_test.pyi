@@ -40,12 +40,12 @@ class JSONPatchRequestAddReplaceTest(
             "value",
         }
         
-        class properties:
-            path = schemas.StrSchema
-            value = schemas.AnyTypeSchema
+        class Properties:
+            Path = schemas.StrSchema
+            Value = schemas.AnyTypeSchema
             
             
-            class op(
+            class Op(
                 schemas.StrSchema
             ):
                 
@@ -61,24 +61,24 @@ class JSONPatchRequestAddReplaceTest(
                 def TEST(cls):
                     return cls("test")
             __annotations__ = {
-                "path": path,
-                "value": value,
-                "op": op,
+                "path": Path,
+                "value": Value,
+                "op": Op,
             }
-        additionalProperties = schemas.NotAnyTypeSchema
+        AdditionalProperties = schemas.NotAnyTypeSchema
     
-    op: MetaOapg.properties.op
-    path: MetaOapg.properties.path
-    value: MetaOapg.properties.value
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
+    op: MetaOapg.Properties.Op
+    path: MetaOapg.Properties.Path
+    value: MetaOapg.Properties.Value
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
+    def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["value"]) -> MetaOapg.properties.value: ...
+    def __getitem__(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["value"]) -> MetaOapg.Properties.Value: ...
     
     def __getitem__(
         self,
@@ -92,13 +92,13 @@ class JSONPatchRequestAddReplaceTest(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.properties.op: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.properties.path: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["value"]) -> MetaOapg.properties.value: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["value"]) -> MetaOapg.Properties.Value: ...
     
     def get_item_oapg(
         self,
@@ -113,9 +113,9 @@ class JSONPatchRequestAddReplaceTest(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        op: typing.Union[MetaOapg.properties.op, str, ],
-        path: typing.Union[MetaOapg.properties.path, str, ],
-        value: typing.Union[MetaOapg.properties.value, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        op: typing.Union[MetaOapg.Properties.Op, str, ],
+        path: typing.Union[MetaOapg.Properties.Path, str, ],
+        value: typing.Union[MetaOapg.Properties.Value, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'JSONPatchRequestAddReplaceTest':
         return super().__new__(

@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 
 
 
-class application_x_www_form_urlencoded(
+class ApplicationXWwwFormUrlencoded(
     schemas.DictSchema
 ):
 
@@ -41,10 +41,10 @@ class application_x_www_form_urlencoded(
             "pattern_without_delimiter",
         }
         
-        class properties:
+        class Properties:
             
             
-            class integer(
+            class Integer(
                 schemas.IntSchema
             ):
             
@@ -58,7 +58,7 @@ class application_x_www_form_urlencoded(
                     inclusive_minimum = 10
             
             
-            class int32(
+            class Int32(
                 schemas.Int32Schema
             ):
             
@@ -70,10 +70,10 @@ class application_x_www_form_urlencoded(
                     format = 'int32'
                     inclusive_maximum = 200
                     inclusive_minimum = 20
-            int64 = schemas.Int64Schema
+            Int64 = schemas.Int64Schema
             
             
-            class number(
+            class Number(
                 schemas.NumberSchema
             ):
             
@@ -86,7 +86,7 @@ class application_x_www_form_urlencoded(
                     inclusive_minimum = 32.1
             
             
-            class _float(
+            class ModelFloat(
                 schemas.Float32Schema
             ):
             
@@ -99,7 +99,7 @@ class application_x_www_form_urlencoded(
                     inclusive_maximum = 987.6
             
             
-            class double(
+            class Double(
                 schemas.Float64Schema
             ):
             
@@ -113,7 +113,7 @@ class application_x_www_form_urlencoded(
                     inclusive_minimum = 67.8
             
             
-            class string(
+            class String(
                 schemas.StrSchema
             ):
             
@@ -130,7 +130,7 @@ class application_x_www_form_urlencoded(
                     }
             
             
-            class pattern_without_delimiter(
+            class PatternWithoutDelimiter(
                 schemas.StrSchema
             ):
             
@@ -142,13 +142,13 @@ class application_x_www_form_urlencoded(
                     regex={
                         'pattern': r'^[A-Z].*',  # noqa: E501
                     }
-            byte = schemas.StrSchema
-            binary = schemas.BinarySchema
-            date = schemas.DateSchema
-            dateTime = schemas.DateTimeSchema
+            Byte = schemas.StrSchema
+            Binary = schemas.BinarySchema
+            Date = schemas.DateSchema
+            DateTime = schemas.DateTimeSchema
             
             
-            class password(
+            class Password(
                 schemas.StrSchema
             ):
             
@@ -160,70 +160,70 @@ class application_x_www_form_urlencoded(
                     format = 'password'
                     max_length = 64
                     min_length = 10
-            callback = schemas.StrSchema
+            Callback = schemas.StrSchema
             __annotations__ = {
-                "integer": integer,
-                "int32": int32,
-                "int64": int64,
-                "number": number,
-                "float": _float,
-                "double": double,
-                "string": string,
-                "pattern_without_delimiter": pattern_without_delimiter,
-                "byte": byte,
-                "binary": binary,
-                "date": date,
-                "dateTime": dateTime,
-                "password": password,
-                "callback": callback,
+                "integer": Integer,
+                "int32": Int32,
+                "int64": Int64,
+                "number": Number,
+                "float": ModelFloat,
+                "double": Double,
+                "string": String,
+                "pattern_without_delimiter": PatternWithoutDelimiter,
+                "byte": Byte,
+                "binary": Binary,
+                "date": Date,
+                "dateTime": DateTime,
+                "password": Password,
+                "callback": Callback,
             }
     
-    byte: MetaOapg.properties.byte
-    double: MetaOapg.properties.double
-    number: MetaOapg.properties.number
-    pattern_without_delimiter: MetaOapg.properties.pattern_without_delimiter
+    byte: MetaOapg.Properties.Byte
+    double: MetaOapg.Properties.Double
+    number: MetaOapg.Properties.Number
+    pattern_without_delimiter: MetaOapg.Properties.PatternWithoutDelimiter
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
+    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.Byte: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
+    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.Properties.PatternWithoutDelimiter: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.properties.integer: ...
+    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.Properties.Integer: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.properties.int32: ...
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.Properties.Int32: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.properties.int64: ...
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.Int64: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.properties._float: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.properties.string: ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.Properties.String: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.properties.binary: ...
+    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.Properties.Binary: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.properties.date: ...
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.Properties.Date: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.properties.dateTime: ...
+    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.Properties.DateTime: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.properties.password: ...
+    def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.Properties.Password: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> MetaOapg.properties.callback: ...
+    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> MetaOapg.Properties.Callback: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -252,46 +252,46 @@ class application_x_www_form_urlencoded(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.properties.byte: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.Byte: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.properties.double: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.properties.number: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.properties.pattern_without_delimiter: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.Properties.PatternWithoutDelimiter: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.properties.integer, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.Properties.Integer, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.properties.int32, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.Properties.Int32, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.properties.int64, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.Int64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.properties._float, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.properties.string, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.Properties.String, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.properties.binary, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.Properties.Binary, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.properties.date, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.Properties.Date, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.properties.dateTime, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.Properties.DateTime, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> typing.Union[MetaOapg.properties.password, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> typing.Union[MetaOapg.Properties.Password, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union[MetaOapg.properties.callback, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union[MetaOapg.Properties.Callback, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -321,22 +321,22 @@ class application_x_www_form_urlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        byte: typing.Union[MetaOapg.properties.byte, str, ],
-        double: typing.Union[MetaOapg.properties.double, decimal.Decimal, int, float, ],
-        number: typing.Union[MetaOapg.properties.number, decimal.Decimal, int, float, ],
-        pattern_without_delimiter: typing.Union[MetaOapg.properties.pattern_without_delimiter, str, ],
-        integer: typing.Union[MetaOapg.properties.integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[MetaOapg.properties.int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[MetaOapg.properties.int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        string: typing.Union[MetaOapg.properties.string, str, schemas.Unset] = schemas.unset,
-        binary: typing.Union[MetaOapg.properties.binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        date: typing.Union[MetaOapg.properties.date, str, date, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[MetaOapg.properties.dateTime, str, datetime, schemas.Unset] = schemas.unset,
-        password: typing.Union[MetaOapg.properties.password, str, schemas.Unset] = schemas.unset,
-        callback: typing.Union[MetaOapg.properties.callback, str, schemas.Unset] = schemas.unset,
+        byte: typing.Union[MetaOapg.Properties.Byte, str, ],
+        double: typing.Union[MetaOapg.Properties.Double, decimal.Decimal, int, float, ],
+        number: typing.Union[MetaOapg.Properties.Number, decimal.Decimal, int, float, ],
+        pattern_without_delimiter: typing.Union[MetaOapg.Properties.PatternWithoutDelimiter, str, ],
+        integer: typing.Union[MetaOapg.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int32: typing.Union[MetaOapg.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int64: typing.Union[MetaOapg.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        string: typing.Union[MetaOapg.Properties.String, str, schemas.Unset] = schemas.unset,
+        binary: typing.Union[MetaOapg.Properties.Binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        date: typing.Union[MetaOapg.Properties.Date, str, date, schemas.Unset] = schemas.unset,
+        dateTime: typing.Union[MetaOapg.Properties.DateTime, str, datetime, schemas.Unset] = schemas.unset,
+        password: typing.Union[MetaOapg.Properties.Password, str, schemas.Unset] = schemas.unset,
+        callback: typing.Union[MetaOapg.Properties.Callback, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'application_x_www_form_urlencoded':
+    ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
             *_args,
@@ -360,7 +360,7 @@ class application_x_www_form_urlencoded(
 parameter_oapg = api_client.RequestBody(
     content={
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded
+            schema=ApplicationXWwwFormUrlencoded
         ),
     },
 )

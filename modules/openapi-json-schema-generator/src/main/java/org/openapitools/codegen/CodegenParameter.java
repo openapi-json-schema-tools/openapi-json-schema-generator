@@ -52,7 +52,7 @@ public class CodegenParameter extends CodegenHeader {
             output.setSchema(this.schema);
         }
         if (this.vendorExtensions != null) {
-            output.vendorExtensions = new HashMap<String, Object>(this.vendorExtensions);
+            output.vendorExtensions = new HashMap<>(this.vendorExtensions);
         }
         if (this.ref != null) {
             output.setRef(this.ref);
@@ -84,6 +84,7 @@ public class CodegenParameter extends CodegenHeader {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CodegenParameter)) return false;
+        if (! super.equals(o)) return false;
         CodegenParameter that = (CodegenParameter) o;
         return isFormParam == that.isFormParam &&
                 isQueryParam == that.isQueryParam &&
@@ -91,25 +92,8 @@ public class CodegenParameter extends CodegenHeader {
                 isHeaderParam == that.isHeaderParam &&
                 isCookieParam == that.isCookieParam &&
                 isBodyParam == that.isBodyParam &&
-                isExplode == that.isExplode &&
-                isDeprecated == that.isDeprecated &&
-                required == that.required &&
-                Objects.equals(modulePath, that.modulePath) &&
-                Objects.equals(ref, that.getRef()) &&
-                Objects.equals(imports, that.imports) &&
-                Objects.equals(refModule, that.getRefModule()) &&
-                Objects.equals(content, that.getContent()) &&
-                Objects.equals(schema, that.getSchema()) &&
                 Objects.equals(baseName, that.baseName) &&
-                Objects.equals(paramName, that.paramName) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(unescapedDescription, that.unescapedDescription) &&
-                Objects.equals(style, that.style) &&
-                Objects.equals(isDeepObject, that.isDeepObject) &&
-                Objects.equals(isAllowEmptyValue, that.isAllowEmptyValue) &&
-                Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
-                Objects.equals(vendorExtensions, that.vendorExtensions);
+                Objects.equals(isDeepObject, that.isDeepObject);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {

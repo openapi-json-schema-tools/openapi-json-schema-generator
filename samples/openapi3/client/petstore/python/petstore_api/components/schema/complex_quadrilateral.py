@@ -36,14 +36,14 @@ class ComplexQuadrilateral(
     class MetaOapg:
         # any type
         
-        class all_of:
+        class AllOf:
         
             @staticmethod
-            def allOf_0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
+            def all_of_0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
                 return quadrilateral_interface.QuadrilateralInterface
             
             
-            class allOf_1(
+            class AllOf1(
                 schemas.DictSchema
             ):
             
@@ -51,10 +51,10 @@ class ComplexQuadrilateral(
                 class MetaOapg:
                     types = {frozendict.frozendict}
                     
-                    class properties:
+                    class Properties:
                         
                         
-                        class quadrilateralType(
+                        class QuadrilateralType(
                             schemas.StrSchema
                         ):
                         
@@ -71,11 +71,11 @@ class ComplexQuadrilateral(
                             def COMPLEX_QUADRILATERAL(cls):
                                 return cls("ComplexQuadrilateral")
                         __annotations__ = {
-                            "quadrilateralType": quadrilateralType,
+                            "quadrilateralType": QuadrilateralType,
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.properties.quadrilateralType: ...
+                def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> MetaOapg.Properties.QuadrilateralType: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -91,7 +91,7 @@ class ComplexQuadrilateral(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing.Union[MetaOapg.properties.quadrilateralType, schemas.Unset]: ...
+                def get_item_oapg(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing.Union[MetaOapg.Properties.QuadrilateralType, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -108,10 +108,10 @@ class ComplexQuadrilateral(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    quadrilateralType: typing.Union[MetaOapg.properties.quadrilateralType, str, schemas.Unset] = schemas.unset,
+                    quadrilateralType: typing.Union[MetaOapg.Properties.QuadrilateralType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'allOf_1':
+                ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
@@ -120,8 +120,8 @@ class ComplexQuadrilateral(
                         **kwargs,
                     )
             classes = [
-                allOf_0,
-                allOf_1,
+                all_of_0,
+                AllOf1,
             ]
 
 

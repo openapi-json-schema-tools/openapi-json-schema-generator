@@ -38,20 +38,20 @@ class ComposedOneOfDifferentTypes(
     class MetaOapg:
         # any type
         
-        class one_of:
+        class OneOf:
         
             @staticmethod
-            def oneOf_0() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def one_of_0() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def oneOf_1() -> typing.Type['animal.Animal']:
+            def one_of_1() -> typing.Type['animal.Animal']:
                 return animal.Animal
-            oneOf_2 = schemas.NoneSchema
-            oneOf_3 = schemas.DateSchema
+            OneOf2 = schemas.NoneSchema
+            OneOf3 = schemas.DateSchema
             
             
-            class oneOf_4(
+            class OneOf4(
                 schemas.DictSchema
             ):
             
@@ -66,7 +66,7 @@ class ComposedOneOfDifferentTypes(
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'oneOf_4':
+                ) -> 'OneOf4':
                     return super().__new__(
                         cls,
                         *_args,
@@ -75,7 +75,7 @@ class ComposedOneOfDifferentTypes(
                     )
             
             
-            class oneOf_5(
+            class OneOf5(
                 schemas.ListSchema
             ):
             
@@ -84,24 +84,24 @@ class ComposedOneOfDifferentTypes(
                     types = {tuple}
                     max_items = 4
                     min_items = 4
-                    items = schemas.AnyTypeSchema
+                    Items = schemas.AnyTypeSchema
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.Configuration] = None,
-                ) -> 'oneOf_5':
+                ) -> 'OneOf5':
                     return super().__new__(
                         cls,
                         _arg,
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.items:
+                def __getitem__(self, i: int) -> MetaOapg.Items:
                     return super().__getitem__(i)
             
             
-            class oneOf_6(
+            class OneOf6(
                 schemas.DateTimeSchema
             ):
             
@@ -115,13 +115,13 @@ class ComposedOneOfDifferentTypes(
                         'pattern': r'^2020.*',  # noqa: E501
                     }
             classes = [
-                oneOf_0,
-                oneOf_1,
-                oneOf_2,
-                oneOf_3,
-                oneOf_4,
-                oneOf_5,
-                oneOf_6,
+                one_of_0,
+                one_of_1,
+                OneOf2,
+                OneOf3,
+                OneOf4,
+                OneOf5,
+                OneOf6,
             ]
 
 

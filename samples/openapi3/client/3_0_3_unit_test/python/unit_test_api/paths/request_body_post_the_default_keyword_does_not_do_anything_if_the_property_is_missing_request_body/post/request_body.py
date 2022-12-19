@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import the_default_keyword_does_not_do_anything_if_the_property_is_missing
 
 
-application_json = the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+ApplicationJson = the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

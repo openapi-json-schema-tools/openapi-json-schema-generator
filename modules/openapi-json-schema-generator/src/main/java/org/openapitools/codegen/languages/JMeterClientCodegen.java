@@ -196,25 +196,6 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
     }
 
     /**
-     * Optional - type declaration.  This is a String which is used by the templates to instantiate your
-     * types.  There is typically special handling for different property types
-     *
-     * @return a string value used as the `dataType` field for model templates, `returnType` for api templates
-     */
-    @Override
-    public String getTypeDeclaration(Schema p) {
-        if (ModelUtils.isArraySchema(p)) {
-            ArraySchema ap = (ArraySchema) p;
-            Schema inner = ap.getItems();
-            return getSchemaType(p) + "[" + getTypeDeclaration(inner) + "]";
-        } else if (ModelUtils.isMapSchema(p)) {
-            Schema inner = getAdditionalProperties(p);
-            return getSchemaType(p) + "[String, " + getTypeDeclaration(inner) + "]";
-        }
-        return super.getTypeDeclaration(p);
-    }
-
-    /**
      * Optional - OpenAPI type conversion.  This is used to map OpenAPI types in a `Schema` into
      * either language specific types via `typeMapping` or into complex models if there is not a mapping.
      *

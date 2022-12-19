@@ -121,20 +121,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
         return "_" + name;
     }
 
-    @Override
-    public String getTypeDeclaration(Schema p) {
-        if (ModelUtils.isArraySchema(p)) {
-            ArraySchema ap = (ArraySchema) p;
-            Schema inner = ap.getItems();
-            return getSchemaType(p) + "[" + getTypeDeclaration(inner) + "]";
-        } else if (ModelUtils.isMapSchema(p)) {
-            Schema inner = getAdditionalProperties(p);
-
-            return getSchemaType(p) + "(str, " + getTypeDeclaration(inner) + ")";
-        }
-        return super.getTypeDeclaration(p);
-    }
-
     /**
      * Return the default value of the property
      *

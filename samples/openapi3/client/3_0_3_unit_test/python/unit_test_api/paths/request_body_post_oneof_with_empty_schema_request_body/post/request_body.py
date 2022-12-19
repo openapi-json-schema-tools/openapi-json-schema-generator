@@ -27,12 +27,12 @@ from unit_test_api import schemas  # noqa: F401
 from unit_test_api.components.schema import oneof_with_empty_schema
 
 
-application_json = oneof_with_empty_schema.OneofWithEmptySchema
+ApplicationJson = oneof_with_empty_schema.OneofWithEmptySchema
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json
+            schema=ApplicationJson
         ),
     },
     required=True,

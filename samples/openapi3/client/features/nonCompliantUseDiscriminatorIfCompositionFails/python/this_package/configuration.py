@@ -21,32 +21,33 @@ import urllib3
 from this_package.exceptions import ApiValueError
 
 
-JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD = {
-    'types': 'types',
-    'type': 'types',
-    'enum': 'enum_value_to_name',
-    'uniqueItems': 'unique_items',
-    'minItems': 'min_items',
-    'maxItems': 'max_items',
-    'minProperties': 'min_properties',
-    'maxProperties': 'max_properties',
-    'minLength': 'min_length',
-    'maxLength': 'max_length',
-    'minimum': 'inclusive_minimum',
-    'exclusiveMinimum': 'exclusive_minimum',
-    'maximum': 'inclusive_maximum',
-    'exclusiveMaximum': 'exclusive_maximum',
-    'multipleOf': 'multiple_of',
-    'pattern': 'regex',
+PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
+    'types': 'type',
+    'enum_value_to_name': 'enum',
+    'unique_items': 'uniqueItems',
+    'min_items': 'minItems',
+    'max_items': 'maxItems',
+    'min_properties': 'minProperties',
+    'max_properties': 'maxProperties',
+    'min_length': 'minLength',
+    'max_length': 'maxLength',
+    'inclusive_minimum': 'minimum',
+    'exclusive_minimum': 'exclusiveMinimum',
+    'inclusive_maximum': 'maximum',
+    'exclusive_maximum': 'exclusiveMaximum',
+    'multiple_of': 'multipleOf',
+    'regex': 'pattern',
     'format': 'format',
     'required': 'required',
     'items': 'items',
-    'properties': 'properties',
+    'Items': 'items',
+    'Properties': 'properties',
+    'additional_properties': 'additionalProperties',
     'additionalProperties': 'additionalProperties',
-    'oneOf': 'one_of',
-    'anyOf': 'any_of',
-    'allOf': 'all_of',
-    'not': '_not',
+    'OneOf': 'oneOf',
+    'AnyOf': 'anyOf',
+    'AllOf': 'allOf',
+    '_not': 'not',
     'discriminator': 'discriminator'
 }
 
@@ -212,11 +213,12 @@ class Configuration(object):
         disabled_json_schema_keywords = set()
         disabled_json_schema_python_keywords = set()
         for k in json_keywords:
-            if k not in JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD:
+            python_keywords = {key for key, val in PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD.items() if val == k}
+            if not python_keywords:
                 raise ApiValueError(
                     "Invalid keyword: '{0}''".format(k))
             disabled_json_schema_keywords.add(k)
-            disabled_json_schema_python_keywords.add(JSON_SCHEMA_KEYWORD_TO_PYTHON_KEYWORD[k])
+            disabled_json_schema_python_keywords.update(python_keywords)
         self.__disabled_json_schema_keywords = disabled_json_schema_keywords
         self.__disabled_json_schema_python_keywords = disabled_json_schema_python_keywords
 

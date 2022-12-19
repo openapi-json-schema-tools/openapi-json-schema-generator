@@ -35,17 +35,17 @@ class SelfReferencingObjectModel(
 
     class MetaOapg:
         
-        class properties:
+        class Properties:
         
             @staticmethod
-            def selfRef() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
+            def self_ref() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
                 return self_referencing_object_model.SelfReferencingObjectModel
             __annotations__ = {
-                "selfRef": selfRef,
+                "selfRef": self_ref,
             }
         
         @staticmethod
-        def additionalProperties() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
+        def additional_properties() -> typing.Type['self_referencing_object_model.SelfReferencingObjectModel']:
             return self_referencing_object_model.SelfReferencingObjectModel
     
     @typing.overload
