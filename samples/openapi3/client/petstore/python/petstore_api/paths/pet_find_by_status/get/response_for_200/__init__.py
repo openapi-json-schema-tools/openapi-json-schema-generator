@@ -15,8 +15,6 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema import pet
-
 # body schemas
 
 
@@ -29,12 +27,12 @@ class ApplicationXml(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['pet.Pet']:
+        def application_xml() -> typing.Type['pet.Pet']:
             return pet.Pet
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
+        _arg: typing.Union[typing.Tuple['Pet'], typing.List['Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ApplicationXml':
         return super().__new__(
@@ -43,7 +41,7 @@ class ApplicationXml(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'pet.Pet':
+    def __getitem__(self, i: int) -> 'Pet':
         return super().__getitem__(i)
 
 
@@ -56,12 +54,12 @@ class ApplicationJson(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['pet.Pet']:
+        def application_json() -> typing.Type['pet.Pet']:
             return pet.Pet
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
+        _arg: typing.Union[typing.Tuple['Pet'], typing.List['Pet']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ApplicationJson':
         return super().__new__(
@@ -70,7 +68,7 @@ class ApplicationJson(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'pet.Pet':
+    def __getitem__(self, i: int) -> 'Pet':
         return super().__getitem__(i)
 
 

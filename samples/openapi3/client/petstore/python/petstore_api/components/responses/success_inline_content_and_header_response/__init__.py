@@ -49,20 +49,20 @@ class ApplicationJson(
 
     class MetaOapg:
         types = {frozendict.frozendict}
-        AdditionalProperties = schemas.Int32Schema
+        ApplicationJson = schemas.Int32Schema
     
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+    def __getitem__(self, name: str) -> MetaOapg.ApplicationJson:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
+    def get_item_oapg(self, name: str) -> MetaOapg.ApplicationJson:
         return super().get_item_oapg(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, decimal.Decimal, int, ],
+        **kwargs: typing.Union[MetaOapg.ApplicationJson, decimal.Decimal, int, ],
     ) -> 'ApplicationJson':
         return super().__new__(
             cls,

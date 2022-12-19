@@ -39,20 +39,20 @@ class MultipartFormData(
         }
         
         class Properties:
-            AdditionalMetadata = schemas.StrSchema
-            RequiredFile = schemas.BinarySchema
+            MultipartFormData = schemas.StrSchema
+            MultipartFormData = schemas.BinarySchema
             __annotations__ = {
-                "additionalMetadata": AdditionalMetadata,
-                "requiredFile": RequiredFile,
+                "additionalMetadata": MultipartFormData,
+                "requiredFile": MultipartFormData,
             }
     
-    requiredFile: MetaOapg.Properties.RequiredFile
+    requiredFile: MetaOapg.Properties.MultipartFormData
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.Properties.RequiredFile: ...
+    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.Properties.MultipartFormData: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.Properties.AdditionalMetadata: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> MetaOapg.Properties.MultipartFormData: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -69,10 +69,10 @@ class MultipartFormData(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.Properties.RequiredFile: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["requiredFile"]) -> MetaOapg.Properties.MultipartFormData: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.Properties.AdditionalMetadata, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[MetaOapg.Properties.MultipartFormData, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,8 +90,8 @@ class MultipartFormData(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        requiredFile: typing.Union[MetaOapg.Properties.RequiredFile, bytes, io.FileIO, io.BufferedReader, ],
-        additionalMetadata: typing.Union[MetaOapg.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
+        requiredFile: typing.Union[MetaOapg.Properties.MultipartFormData, bytes, io.FileIO, io.BufferedReader, ],
+        additionalMetadata: typing.Union[MetaOapg.Properties.MultipartFormData, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'MultipartFormData':

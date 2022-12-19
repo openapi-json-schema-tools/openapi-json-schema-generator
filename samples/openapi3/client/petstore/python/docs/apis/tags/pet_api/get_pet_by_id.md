@@ -90,13 +90,13 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**pet.Pet**](../../../components/schema/pet.Pet.md) |  | 
+[**Pet**](../../../components/schema/Pet.md) |  | 
 
 
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**pet.Pet**](../../../components/schema/pet.Pet.md) |  | 
+[**Pet**](../../../components/schema/Pet.md) |  | 
 
 
 #### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>

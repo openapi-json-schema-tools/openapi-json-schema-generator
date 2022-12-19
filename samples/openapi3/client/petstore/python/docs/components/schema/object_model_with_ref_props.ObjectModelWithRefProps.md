@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_model_with_ref_props
+## object_model_with_ref_props
 # ObjectModelWithRefProps
 
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
@@ -12,9 +12,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | a model that includes 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**myNumber** | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  | [optional]
-**myString** | [**string.String**](string.String.md) | [**string.String**](string.String.md) |  | [optional]
-**myBoolean** | [**boolean.Boolean**](boolean.Boolean.md) | [**boolean.Boolean**](boolean.Boolean.md) |  | [optional]
+**myNumber** | [**NumberWithValidations**](NumberWithValidations.md) | [**NumberWithValidations**](NumberWithValidations.md) |  | [optional]
+**myString** | [**String**](String.md) | [**String**](String.md) |  | [optional]
+**myBoolean** | [**Boolean**](Boolean.md) | [**Boolean**](Boolean.md) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

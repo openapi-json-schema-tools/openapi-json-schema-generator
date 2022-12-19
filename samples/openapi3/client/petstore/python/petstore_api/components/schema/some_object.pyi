@@ -39,10 +39,10 @@ class SomeObject(
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['object_interface.ObjectInterface']:
+            def some_object() -> typing.Type['object_interface.ObjectInterface']:
                 return object_interface.ObjectInterface
             classes = [
-                all_of_0,
+                some_object,
             ]
 
 
@@ -58,5 +58,3 @@ class SomeObject(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import object_interface

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.shape_or_null
+## shape_or_null
 # ShapeOrNull
 
 The value may be a shape or the 'null' value. This is introduced in OAS schema >= 3.1.
@@ -13,11 +13,11 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[oneOf_0](#oneOf_0) | None,  | NoneClass,  |  |
-[**triangle.Triangle**](triangle.Triangle.md) | [**triangle.Triangle**](triangle.Triangle.md) | [**triangle.Triangle**](triangle.Triangle.md) |  |
-[**quadrilateral.Quadrilateral**](quadrilateral.Quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.Quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
+[ShapeOrNull](#ShapeOrNull) | None,  | NoneClass,  |  |
+[**Triangle**](Triangle.md) | [**Triangle**](Triangle.md) | [**Triangle**](Triangle.md) |  |
+[**Quadrilateral**](Quadrilateral.md) | [**Quadrilateral**](Quadrilateral.md) | [**Quadrilateral**](Quadrilateral.md) |  |
 
-# oneOf_0
+# ShapeOrNull
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

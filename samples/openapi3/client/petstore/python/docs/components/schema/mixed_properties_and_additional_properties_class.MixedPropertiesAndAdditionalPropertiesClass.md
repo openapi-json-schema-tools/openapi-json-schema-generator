@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.mixed_properties_and_additional_properties_class
+## mixed_properties_and_additional_properties_class
 # MixedPropertiesAndAdditionalPropertiesClass
 
 ## Model Type Info
@@ -25,6 +25,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [**Animal**](Animal.md) | [**Animal**](Animal.md) | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

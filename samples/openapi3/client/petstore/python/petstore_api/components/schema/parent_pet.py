@@ -42,17 +42,17 @@ class ParentPet(
         def discriminator():
             return {
                 'pet_type': {
-                    'ChildCat': child_cat.ChildCat,
+                    'ChildCat': ChildCat,
                 }
             }
         
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['grandparent_animal.GrandparentAnimal']:
+            def parent_pet() -> typing.Type['grandparent_animal.GrandparentAnimal']:
                 return grandparent_animal.GrandparentAnimal
             classes = [
-                all_of_0,
+                parent_pet,
             ]
 
 
@@ -68,6 +68,3 @@ class ParentPet(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import child_cat
-from petstore_api.components.schema import grandparent_animal

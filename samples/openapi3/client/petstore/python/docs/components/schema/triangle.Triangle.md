@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.triangle
+## triangle
 # Triangle
 
 ## Model Type Info
@@ -11,8 +11,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) | [**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.EquilateralTriangle.md) |  |
-[**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) | [**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.IsoscelesTriangle.md) |  |
-[**scalene_triangle.ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**scalene_triangle.ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) | [**scalene_triangle.ScaleneTriangle**](scalene_triangle.ScaleneTriangle.md) |  |
+[**EquilateralTriangle**](EquilateralTriangle.md) | [**EquilateralTriangle**](EquilateralTriangle.md) | [**EquilateralTriangle**](EquilateralTriangle.md) |  |
+[**IsoscelesTriangle**](IsoscelesTriangle.md) | [**IsoscelesTriangle**](IsoscelesTriangle.md) | [**IsoscelesTriangle**](IsoscelesTriangle.md) |  |
+[**ScaleneTriangle**](ScaleneTriangle.md) | [**ScaleneTriangle**](ScaleneTriangle.md) | [**ScaleneTriangle**](ScaleneTriangle.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

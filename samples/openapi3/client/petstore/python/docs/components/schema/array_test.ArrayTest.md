@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.array_test
+## array_test
 # ArrayTest
 
 ## Model Type Info
@@ -25,7 +25,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+ArrayTest | str,  | str,  |  |
 
 # array_array_of_integer
 
@@ -37,9 +37,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | list, tuple,  | tuple,  |  |
+[ArrayTest](#ArrayTest) | list, tuple,  | tuple,  |  |
 
-# items
+# ArrayTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -49,7 +49,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+ArrayTest | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 # array_array_of_model
 
@@ -61,9 +61,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | list, tuple,  | tuple,  |  |
+[ArrayTest](#ArrayTest) | list, tuple,  | tuple,  |  |
 
-# items
+# ArrayTest
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -73,6 +73,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**read_only_first.ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**read_only_first.ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**read_only_first.ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) |  |
+[**ReadOnlyFirst**](ReadOnlyFirst.md) | [**ReadOnlyFirst**](ReadOnlyFirst.md) | [**ReadOnlyFirst**](ReadOnlyFirst.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

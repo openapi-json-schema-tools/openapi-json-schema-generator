@@ -23,8 +23,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = animal_farm.AnimalFarm([
-        animal.Animal()
+    body = AnimalFarm([
+        Animal()
     ])
     try:
         api_response = api_instance.array_model(
@@ -49,7 +49,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**animal_farm.AnimalFarm**](../../../components/schema/animal_farm.AnimalFarm.md) |  | 
+[**AnimalFarm**](../../../components/schema/AnimalFarm.md) |  | 
 
 
 ### Return Types, Responses
@@ -69,7 +69,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**animal_farm.AnimalFarm**](../../../components/schema/animal_farm.AnimalFarm.md) |  | 
+[**AnimalFarm**](../../../components/schema/AnimalFarm.md) |  | 
 
 
 ### Authorization

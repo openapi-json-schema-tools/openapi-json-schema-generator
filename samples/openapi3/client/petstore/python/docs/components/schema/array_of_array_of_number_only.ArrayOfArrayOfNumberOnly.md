@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.array_of_array_of_number_only
+## array_of_array_of_number_only
 # ArrayOfArrayOfNumberOnly
 
 ## Model Type Info
@@ -23,9 +23,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | list, tuple,  | tuple,  |  |
+[ArrayOfArrayOfNumberOnly](#ArrayOfArrayOfNumberOnly) | list, tuple,  | tuple,  |  |
 
-# items
+# ArrayOfArrayOfNumberOnly
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -35,6 +35,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
+ArrayOfArrayOfNumberOnly | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

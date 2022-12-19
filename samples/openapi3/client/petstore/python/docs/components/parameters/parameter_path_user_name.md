@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.headers.parameter_path_user_name
+## parameter_path_user_name
 # schema
 
 ## Model Type Info

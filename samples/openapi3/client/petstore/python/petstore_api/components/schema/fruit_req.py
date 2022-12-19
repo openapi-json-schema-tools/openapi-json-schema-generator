@@ -37,19 +37,19 @@ class FruitReq(
         # any type
         
         class OneOf:
-            OneOf0 = schemas.NoneSchema
+            FruitReq = schemas.NoneSchema
         
             @staticmethod
-            def one_of_1() -> typing.Type['apple_req.AppleReq']:
+            def fruit_req() -> typing.Type['apple_req.AppleReq']:
                 return apple_req.AppleReq
         
             @staticmethod
-            def one_of_2() -> typing.Type['banana_req.BananaReq']:
+            def fruit_req() -> typing.Type['banana_req.BananaReq']:
                 return banana_req.BananaReq
             classes = [
-                OneOf0,
-                one_of_1,
-                one_of_2,
+                FruitReq,
+                fruit_req,
+                fruit_req,
             ]
 
 
@@ -65,6 +65,3 @@ class FruitReq(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import apple_req
-from petstore_api.components.schema import banana_req

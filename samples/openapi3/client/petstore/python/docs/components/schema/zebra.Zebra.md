@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.zebra
+## zebra
 # Zebra
 
 ## Model Type Info

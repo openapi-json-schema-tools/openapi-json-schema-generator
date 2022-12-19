@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = string.String("parameter_body_example")
+    body = String("parameter_body_example")
     try:
         api_response = api_instance.string(
             body=body,
@@ -47,7 +47,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**string.String**](../../../components/schema/string.String.md) |  | 
+[**String**](../../../components/schema/String.md) |  | 
 
 
 ### Return Types, Responses
@@ -67,7 +67,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**string.String**](../../../components/schema/string.String.md) |  | 
+[**String**](../../../components/schema/String.md) |  | 
 
 
 ### Authorization

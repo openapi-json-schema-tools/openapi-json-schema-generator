@@ -37,12 +37,12 @@ class AnimalFarm(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['animal.Animal']:
+        def animal_farm() -> typing.Type['animal.Animal']:
             return animal.Animal
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
+        _arg: typing.Union[typing.Tuple['Animal'], typing.List['Animal']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AnimalFarm':
         return super().__new__(
@@ -51,7 +51,5 @@ class AnimalFarm(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'animal.Animal':
+    def __getitem__(self, i: int) -> 'Animal':
         return super().__getitem__(i)
-
-from petstore_api.components.schema import animal

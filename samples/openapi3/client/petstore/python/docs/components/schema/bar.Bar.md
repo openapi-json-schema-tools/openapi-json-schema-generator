@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.bar
+## bar
 # Bar
 
 ## Model Type Info

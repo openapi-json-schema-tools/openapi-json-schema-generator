@@ -44,7 +44,7 @@ class ApplicationXWwwFormUrlencoded(
         class Properties:
             
             
-            class Integer(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.IntSchema
             ):
             
@@ -58,7 +58,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_minimum = 10
             
             
-            class Int32(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.Int32Schema
             ):
             
@@ -70,10 +70,10 @@ class ApplicationXWwwFormUrlencoded(
                     format = 'int32'
                     inclusive_maximum = 200
                     inclusive_minimum = 20
-            Int64 = schemas.Int64Schema
+            ApplicationXWwwFormUrlencoded = schemas.Int64Schema
             
             
-            class Number(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.NumberSchema
             ):
             
@@ -86,7 +86,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_minimum = 32.1
             
             
-            class ModelFloat(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.Float32Schema
             ):
             
@@ -99,7 +99,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_maximum = 987.6
             
             
-            class Double(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.Float64Schema
             ):
             
@@ -113,7 +113,7 @@ class ApplicationXWwwFormUrlencoded(
                     inclusive_minimum = 67.8
             
             
-            class String(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.StrSchema
             ):
             
@@ -130,7 +130,7 @@ class ApplicationXWwwFormUrlencoded(
                     }
             
             
-            class PatternWithoutDelimiter(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.StrSchema
             ):
             
@@ -142,13 +142,13 @@ class ApplicationXWwwFormUrlencoded(
                     regex={
                         'pattern': r'^[A-Z].*',  # noqa: E501
                     }
-            Byte = schemas.StrSchema
-            Binary = schemas.BinarySchema
-            Date = schemas.DateSchema
-            DateTime = schemas.DateTimeSchema
+            ApplicationXWwwFormUrlencoded = schemas.StrSchema
+            ApplicationXWwwFormUrlencoded = schemas.BinarySchema
+            ApplicationXWwwFormUrlencoded = schemas.DateSchema
+            ApplicationXWwwFormUrlencoded = schemas.DateTimeSchema
             
             
-            class Password(
+            class ApplicationXWwwFormUrlencoded(
                 schemas.StrSchema
             ):
             
@@ -160,70 +160,70 @@ class ApplicationXWwwFormUrlencoded(
                     format = 'password'
                     max_length = 64
                     min_length = 10
-            Callback = schemas.StrSchema
+            ApplicationXWwwFormUrlencoded = schemas.StrSchema
             __annotations__ = {
-                "integer": Integer,
-                "int32": Int32,
-                "int64": Int64,
-                "number": Number,
-                "float": ModelFloat,
-                "double": Double,
-                "string": String,
-                "pattern_without_delimiter": PatternWithoutDelimiter,
-                "byte": Byte,
-                "binary": Binary,
-                "date": Date,
-                "dateTime": DateTime,
-                "password": Password,
-                "callback": Callback,
+                "integer": ApplicationXWwwFormUrlencoded,
+                "int32": ApplicationXWwwFormUrlencoded,
+                "int64": ApplicationXWwwFormUrlencoded,
+                "number": ApplicationXWwwFormUrlencoded,
+                "float": ApplicationXWwwFormUrlencoded,
+                "double": ApplicationXWwwFormUrlencoded,
+                "string": ApplicationXWwwFormUrlencoded,
+                "pattern_without_delimiter": ApplicationXWwwFormUrlencoded,
+                "byte": ApplicationXWwwFormUrlencoded,
+                "binary": ApplicationXWwwFormUrlencoded,
+                "date": ApplicationXWwwFormUrlencoded,
+                "dateTime": ApplicationXWwwFormUrlencoded,
+                "password": ApplicationXWwwFormUrlencoded,
+                "callback": ApplicationXWwwFormUrlencoded,
             }
     
-    byte: MetaOapg.Properties.Byte
-    double: MetaOapg.Properties.Double
-    number: MetaOapg.Properties.Number
-    pattern_without_delimiter: MetaOapg.Properties.PatternWithoutDelimiter
+    byte: MetaOapg.Properties.ApplicationXWwwFormUrlencoded
+    double: MetaOapg.Properties.ApplicationXWwwFormUrlencoded
+    number: MetaOapg.Properties.ApplicationXWwwFormUrlencoded
+    pattern_without_delimiter: MetaOapg.Properties.ApplicationXWwwFormUrlencoded
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.Byte: ...
+    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.Properties.PatternWithoutDelimiter: ...
+    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.Properties.Integer: ...
+    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.Properties.Int32: ...
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.Int64: ...
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.Properties.String: ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.Properties.Binary: ...
+    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.Properties.Date: ...
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.Properties.DateTime: ...
+    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.Properties.Password: ...
+    def __getitem__(self, name: typing_extensions.Literal["password"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> MetaOapg.Properties.Callback: ...
+    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -252,46 +252,46 @@ class ApplicationXWwwFormUrlencoded(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.Byte: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["byte"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.Number: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["number"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.Properties.PatternWithoutDelimiter: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> MetaOapg.Properties.ApplicationXWwwFormUrlencoded: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.Properties.Integer, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["integer"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.Properties.Int32, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int32"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.Int64, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.Properties.String, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.Properties.Binary, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["binary"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.Properties.Date, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["date"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.Properties.DateTime, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> typing.Union[MetaOapg.Properties.Password, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["password"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union[MetaOapg.Properties.Callback, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -321,19 +321,19 @@ class ApplicationXWwwFormUrlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        byte: typing.Union[MetaOapg.Properties.Byte, str, ],
-        double: typing.Union[MetaOapg.Properties.Double, decimal.Decimal, int, float, ],
-        number: typing.Union[MetaOapg.Properties.Number, decimal.Decimal, int, float, ],
-        pattern_without_delimiter: typing.Union[MetaOapg.Properties.PatternWithoutDelimiter, str, ],
-        integer: typing.Union[MetaOapg.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[MetaOapg.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[MetaOapg.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        string: typing.Union[MetaOapg.Properties.String, str, schemas.Unset] = schemas.unset,
-        binary: typing.Union[MetaOapg.Properties.Binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        date: typing.Union[MetaOapg.Properties.Date, str, date, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[MetaOapg.Properties.DateTime, str, datetime, schemas.Unset] = schemas.unset,
-        password: typing.Union[MetaOapg.Properties.Password, str, schemas.Unset] = schemas.unset,
-        callback: typing.Union[MetaOapg.Properties.Callback, str, schemas.Unset] = schemas.unset,
+        byte: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, ],
+        double: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, decimal.Decimal, int, float, ],
+        number: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, decimal.Decimal, int, float, ],
+        pattern_without_delimiter: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, ],
+        integer: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int32: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        int64: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        string: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, schemas.Unset] = schemas.unset,
+        binary: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        date: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, date, schemas.Unset] = schemas.unset,
+        dateTime: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, datetime, schemas.Unset] = schemas.unset,
+        password: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, schemas.Unset] = schemas.unset,
+        callback: typing.Union[MetaOapg.Properties.ApplicationXWwwFormUrlencoded, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ApplicationXWwwFormUrlencoded':

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.apple_req
+## apple_req
 # AppleReq
 
 ## Model Type Info

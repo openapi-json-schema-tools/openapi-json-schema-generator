@@ -24,10 +24,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema import json_patch_request
 
-
-ApplicationJsonPatchjson = json_patch_request.JSONPatchRequest
+ApplicationJsonPatchjson = JSONPatchRequest
 
 parameter_oapg = api_client.RequestBody(
     content={

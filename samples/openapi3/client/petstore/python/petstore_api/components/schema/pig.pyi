@@ -40,23 +40,23 @@ class Pig(
         def discriminator():
             return {
                 'className': {
-                    'BasquePig': basque_pig.BasquePig,
-                    'DanishPig': danish_pig.DanishPig,
+                    'BasquePig': BasquePig,
+                    'DanishPig': DanishPig,
                 }
             }
         
         class OneOf:
         
             @staticmethod
-            def one_of_0() -> typing.Type['basque_pig.BasquePig']:
+            def pig() -> typing.Type['basque_pig.BasquePig']:
                 return basque_pig.BasquePig
         
             @staticmethod
-            def one_of_1() -> typing.Type['danish_pig.DanishPig']:
+            def pig() -> typing.Type['danish_pig.DanishPig']:
                 return danish_pig.DanishPig
             classes = [
-                one_of_0,
-                one_of_1,
+                pig,
+                pig,
             ]
 
 
@@ -72,6 +72,3 @@ class Pig(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import basque_pig
-from petstore_api.components.schema import danish_pig

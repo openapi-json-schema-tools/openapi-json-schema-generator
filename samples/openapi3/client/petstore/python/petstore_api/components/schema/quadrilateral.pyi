@@ -40,23 +40,23 @@ class Quadrilateral(
         def discriminator():
             return {
                 'quadrilateralType': {
-                    'ComplexQuadrilateral': complex_quadrilateral.ComplexQuadrilateral,
-                    'SimpleQuadrilateral': simple_quadrilateral.SimpleQuadrilateral,
+                    'ComplexQuadrilateral': ComplexQuadrilateral,
+                    'SimpleQuadrilateral': SimpleQuadrilateral,
                 }
             }
         
         class OneOf:
         
             @staticmethod
-            def one_of_0() -> typing.Type['simple_quadrilateral.SimpleQuadrilateral']:
+            def quadrilateral() -> typing.Type['simple_quadrilateral.SimpleQuadrilateral']:
                 return simple_quadrilateral.SimpleQuadrilateral
         
             @staticmethod
-            def one_of_1() -> typing.Type['complex_quadrilateral.ComplexQuadrilateral']:
+            def quadrilateral() -> typing.Type['complex_quadrilateral.ComplexQuadrilateral']:
                 return complex_quadrilateral.ComplexQuadrilateral
             classes = [
-                one_of_0,
-                one_of_1,
+                quadrilateral,
+                quadrilateral,
             ]
 
 
@@ -72,6 +72,3 @@ class Quadrilateral(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import complex_quadrilateral
-from petstore_api.components.schema import simple_quadrilateral

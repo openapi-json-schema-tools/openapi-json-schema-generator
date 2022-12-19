@@ -24,7 +24,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = client.Client(
+    body = Client(
         client="client_example",
     )
     try:
@@ -64,7 +64,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**client.Client**](../../../components/schema/client.Client.md) |  | 
+[**Client**](../../../components/schema/Client.md) |  | 
 
 
 ### Authorization

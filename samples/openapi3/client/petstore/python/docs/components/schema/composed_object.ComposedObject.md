@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.composed_object
+## composed_object
 # ComposedObject
 
 ## Model Type Info
@@ -11,9 +11,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
+[ComposedObject](#ComposedObject) | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
-# allOf_0
+# ComposedObject
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

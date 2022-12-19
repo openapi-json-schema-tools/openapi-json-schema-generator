@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.basque_pig
+## basque_pig
 # BasquePig
 
 ## Model Type Info

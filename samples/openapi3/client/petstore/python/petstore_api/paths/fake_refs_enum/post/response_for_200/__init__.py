@@ -15,10 +15,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema import string_enum
-
 # body schemas
-ApplicationJson = string_enum.StringEnum
+ApplicationJson = StringEnum
 
 
 @dataclasses.dataclass

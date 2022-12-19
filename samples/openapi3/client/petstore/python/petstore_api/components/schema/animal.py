@@ -43,26 +43,26 @@ class Animal(
         def discriminator():
             return {
                 'className': {
-                    'Cat': cat.Cat,
-                    'Dog': dog.Dog,
+                    'Cat': Cat,
+                    'Dog': Dog,
                 }
             }
         
         class Properties:
-            ClassName = schemas.StrSchema
-            Color = schemas.StrSchema
+            Animal = schemas.StrSchema
+            Animal = schemas.StrSchema
             __annotations__ = {
-                "className": ClassName,
-                "color": Color,
+                "className": Animal,
+                "color": Animal,
             }
     
-    className: MetaOapg.Properties.ClassName
+    className: MetaOapg.Properties.Animal
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.Animal: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.Properties.Color: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.Properties.Animal: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -79,10 +79,10 @@ class Animal(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.Animal: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.Properties.Color, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.Properties.Animal, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -100,8 +100,8 @@ class Animal(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
-        color: typing.Union[MetaOapg.Properties.Color, str, schemas.Unset] = schemas.unset,
+        className: typing.Union[MetaOapg.Properties.Animal, str, ],
+        color: typing.Union[MetaOapg.Properties.Animal, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Animal':
@@ -113,6 +113,3 @@ class Animal(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import cat
-from petstore_api.components.schema import dog

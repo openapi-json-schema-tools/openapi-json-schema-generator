@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = number_with_validations.NumberWithValidations(10)
+    body = NumberWithValidations(10)
     try:
         api_response = api_instance.number_with_validations(
             body=body,
@@ -47,7 +47,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**number_with_validations.NumberWithValidations**](../../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../../components/schema/NumberWithValidations.md) |  | 
 
 
 ### Return Types, Responses
@@ -67,7 +67,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**number_with_validations.NumberWithValidations**](../../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
+[**NumberWithValidations**](../../../components/schema/NumberWithValidations.md) |  | 
 
 
 ### Authorization

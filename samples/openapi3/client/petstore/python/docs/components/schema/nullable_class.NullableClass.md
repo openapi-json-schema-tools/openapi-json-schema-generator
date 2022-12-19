@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.nullable_class
+## nullable_class
 # NullableClass
 
 ## Model Type Info
@@ -34,9 +34,9 @@ list, tuple, None,  | tuple, NoneClass,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[NullableClass](#NullableClass) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# items
+# NullableClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -53,9 +53,9 @@ list, tuple, None,  | tuple, NoneClass,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+[NullableClass](#NullableClass) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
-# items
+# NullableClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -72,9 +72,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+[NullableClass](#NullableClass) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
-# items
+# NullableClass
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

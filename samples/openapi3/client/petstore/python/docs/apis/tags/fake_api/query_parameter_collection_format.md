@@ -39,7 +39,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         'context': [
         "context_example"
     ],
-        'refParam': string_with_validation.StringWithValidation("refParam_example"),
+        'refParam': StringWithValidation("refParam_example"),
     }
     try:
         api_response = api_instance.query_parameter_collection_format(
@@ -81,7 +81,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+schema | str,  | str,  |  |
 
 # parameter_1.schema
 
@@ -93,7 +93,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+schema | str,  | str,  |  |
 
 # parameter_2.schema
 
@@ -105,7 +105,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+schema | str,  | str,  |  |
 
 # parameter_3.schema
 
@@ -117,7 +117,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+schema | str,  | str,  |  |
 
 # parameter_4.schema
 
@@ -129,12 +129,12 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+schema | str,  | str,  |  |
 
 # parameter_5.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**string_with_validation.StringWithValidation**](../../../components/schema/string_with_validation.StringWithValidation.md) |  | 
+[**StringWithValidation**](../../../components/schema/StringWithValidation.md) |  | 
 
 
 ### Return Types, Responses

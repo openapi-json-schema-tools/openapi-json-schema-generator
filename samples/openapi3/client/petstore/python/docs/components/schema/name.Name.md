@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.name
+## name
 # Name
 
 Model for testing model name same as property name

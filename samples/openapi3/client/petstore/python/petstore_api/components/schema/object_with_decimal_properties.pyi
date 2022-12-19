@@ -38,27 +38,27 @@ class ObjectWithDecimalProperties(
         class Properties:
         
             @staticmethod
-            def length() -> typing.Type['decimal_payload.DecimalPayload']:
+            def object_with_decimal_properties() -> typing.Type['decimal_payload.DecimalPayload']:
                 return decimal_payload.DecimalPayload
-            Width = schemas.DecimalSchema
+            ObjectWithDecimalProperties = schemas.DecimalSchema
         
             @staticmethod
-            def cost() -> typing.Type['money.Money']:
+            def object_with_decimal_properties() -> typing.Type['money.Money']:
                 return money.Money
             __annotations__ = {
-                "length": length,
-                "width": Width,
-                "cost": cost,
+                "length": object_with_decimal_properties,
+                "width": ObjectWithDecimalProperties,
+                "cost": object_with_decimal_properties,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["length"]) -> 'decimal_payload.DecimalPayload': ...
+    def __getitem__(self, name: typing_extensions.Literal["length"]) -> 'DecimalPayload': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["width"]) -> MetaOapg.Properties.Width: ...
+    def __getitem__(self, name: typing_extensions.Literal["width"]) -> MetaOapg.Properties.ObjectWithDecimalProperties: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cost"]) -> 'money.Money': ...
+    def __getitem__(self, name: typing_extensions.Literal["cost"]) -> 'Money': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -76,13 +76,13 @@ class ObjectWithDecimalProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["length"]) -> typing.Union['decimal_payload.DecimalPayload', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["length"]) -> typing.Union['DecimalPayload', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["width"]) -> typing.Union[MetaOapg.Properties.Width, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["width"]) -> typing.Union[MetaOapg.Properties.ObjectWithDecimalProperties, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["cost"]) -> typing.Union['money.Money', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["cost"]) -> typing.Union['Money', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -101,9 +101,9 @@ class ObjectWithDecimalProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        length: typing.Union['decimal_payload.DecimalPayload', schemas.Unset] = schemas.unset,
-        width: typing.Union[MetaOapg.Properties.Width, str, schemas.Unset] = schemas.unset,
-        cost: typing.Union['money.Money', schemas.Unset] = schemas.unset,
+        length: typing.Union['DecimalPayload', schemas.Unset] = schemas.unset,
+        width: typing.Union[MetaOapg.Properties.ObjectWithDecimalProperties, str, schemas.Unset] = schemas.unset,
+        cost: typing.Union['Money', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectWithDecimalProperties':
@@ -116,6 +116,3 @@ class ObjectWithDecimalProperties(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import decimal_payload
-from petstore_api.components.schema import money

@@ -23,12 +23,12 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = file_schema_test_class.FileSchemaTestClass(
-        file=file.File(
+    body = FileSchemaTestClass(
+        file=File(
             source_uri="source_uri_example",
         ),
         files=[
-            file.File()
+            File()
         ],
     )
     try:
@@ -53,7 +53,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**file_schema_test_class.FileSchemaTestClass**](../../../components/schema/file_schema_test_class.FileSchemaTestClass.md) |  | 
+[**FileSchemaTestClass**](../../../components/schema/FileSchemaTestClass.md) |  | 
 
 
 ### Return Types, Responses

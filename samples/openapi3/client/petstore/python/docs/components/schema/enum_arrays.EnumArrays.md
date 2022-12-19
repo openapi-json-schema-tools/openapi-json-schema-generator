@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.enum_arrays
+## enum_arrays
 # EnumArrays
 
 ## Model Type Info
@@ -24,6 +24,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | must be one of ["fish", "crab", ]
+EnumArrays | str,  | str,  |  | must be one of ["fish", "crab", ]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -40,29 +40,29 @@ class Triangle(
         def discriminator():
             return {
                 'triangleType': {
-                    'EquilateralTriangle': equilateral_triangle.EquilateralTriangle,
-                    'IsoscelesTriangle': isosceles_triangle.IsoscelesTriangle,
-                    'ScaleneTriangle': scalene_triangle.ScaleneTriangle,
+                    'EquilateralTriangle': EquilateralTriangle,
+                    'IsoscelesTriangle': IsoscelesTriangle,
+                    'ScaleneTriangle': ScaleneTriangle,
                 }
             }
         
         class OneOf:
         
             @staticmethod
-            def one_of_0() -> typing.Type['equilateral_triangle.EquilateralTriangle']:
+            def triangle() -> typing.Type['equilateral_triangle.EquilateralTriangle']:
                 return equilateral_triangle.EquilateralTriangle
         
             @staticmethod
-            def one_of_1() -> typing.Type['isosceles_triangle.IsoscelesTriangle']:
+            def triangle() -> typing.Type['isosceles_triangle.IsoscelesTriangle']:
                 return isosceles_triangle.IsoscelesTriangle
         
             @staticmethod
-            def one_of_2() -> typing.Type['scalene_triangle.ScaleneTriangle']:
+            def triangle() -> typing.Type['scalene_triangle.ScaleneTriangle']:
                 return scalene_triangle.ScaleneTriangle
             classes = [
-                one_of_0,
-                one_of_1,
-                one_of_2,
+                triangle,
+                triangle,
+                triangle,
             ]
 
 
@@ -78,7 +78,3 @@ class Triangle(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import equilateral_triangle
-from petstore_api.components.schema import isosceles_triangle
-from petstore_api.components.schema import scalene_triangle

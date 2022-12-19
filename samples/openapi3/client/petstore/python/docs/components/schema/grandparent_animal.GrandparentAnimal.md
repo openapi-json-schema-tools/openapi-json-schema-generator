@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.grandparent_animal
+## grandparent_animal
 # GrandparentAnimal
 
 ## Model Type Info

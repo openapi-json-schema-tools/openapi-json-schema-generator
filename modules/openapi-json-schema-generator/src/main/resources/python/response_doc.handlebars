@@ -1,7 +1,7 @@
 {{#with response}}
-{{#if modulePath}}
+{{#if componentModule}}
 <a name="top"></a>
-## {{modulePath}}
+## {{componentModule}}
 # ApiResponse
 {{else}}
 #### <a id="response_for_{{@key}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
@@ -9,7 +9,7 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-{{#if modulePath}}
+{{#if componentModule}}
 body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
 {{#each content}}
@@ -29,7 +29,7 @@ headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#respo
 {{/each}}
 {{/if}}
 {{#if headers}}
-{{#if modulePath}}
+{{#if componentModule}}
 ## Headers
 {{else}}
 #### <a id="response_for_{{@key}}.Headers" >response_for_{{@key}}.Headers</a>
@@ -37,7 +37,7 @@ headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#respo
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-{{#if modulePath}}
+{{#if componentModule}}
     {{#each headers}}
         {{#with this}}
             {{#if schema}}
@@ -93,7 +93,7 @@ Key | Accessed Type | Description  | Notes
 {{> header_doc }}
 {{/if}}
 {{/if}}
-{{#if modulePath}}
+{{#if componentModule}}
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" responsesLink=true}}
 {{/if}}

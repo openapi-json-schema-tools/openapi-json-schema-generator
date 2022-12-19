@@ -1,17 +1,17 @@
 {{#with requestBody}}
-{{#if modulePath}}
-# {{modulePath}}
+{{#if componentModule}}
+# {{componentModule}}
 {{/if}}
     {{#each content}}
     {{#with this.schema}}
-    {{#if ../modulePath}}
+    {{#if ../componentModule}}
 {{> api_doc_schema_type_hint complexTypePrefix="../../components/schema/" }}
     {{else}}
 {{> api_doc_schema_type_hint anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}
-{{#if modulePath}}
+{{#if componentModule}}
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" requestBodiesLink=true}}
 {{/if}}

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.uuid_string
+## uuid_string
 # UUIDString
 
 ## Model Type Info

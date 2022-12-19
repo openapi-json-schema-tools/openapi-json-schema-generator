@@ -63,9 +63,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[application_json](#application_json) | str,  | str,  |  |
 
-# allOf_0
+# application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -95,9 +95,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[multipart_form_data](#multipart_form_data) | str,  | str,  |  |
 
-# allOf_0
+# multipart_form_data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -124,9 +124,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[schema](#schema) | str,  | str,  |  |
 
-# allOf_0
+# schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -157,9 +157,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[schema](#schema) | str,  | str,  |  |
 
-# allOf_0
+# schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -191,9 +191,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[application_json](#application_json) | str,  | str,  |  |
 
-# allOf_0
+# application_json
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -224,9 +224,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[multipart_form_data](#multipart_form_data) | str,  | str,  |  |
 
-# allOf_0
+# multipart_form_data
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.pig
+## pig
 # Pig
 
 ## Model Type Info
@@ -11,7 +11,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**basque_pig.BasquePig**](basque_pig.BasquePig.md) | [**basque_pig.BasquePig**](basque_pig.BasquePig.md) | [**basque_pig.BasquePig**](basque_pig.BasquePig.md) |  |
-[**danish_pig.DanishPig**](danish_pig.DanishPig.md) | [**danish_pig.DanishPig**](danish_pig.DanishPig.md) | [**danish_pig.DanishPig**](danish_pig.DanishPig.md) |  |
+[**BasquePig**](BasquePig.md) | [**BasquePig**](BasquePig.md) | [**BasquePig**](BasquePig.md) |  |
+[**DanishPig**](DanishPig.md) | [**DanishPig**](DanishPig.md) | [**DanishPig**](DanishPig.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

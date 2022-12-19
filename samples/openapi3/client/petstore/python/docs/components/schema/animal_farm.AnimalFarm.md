@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.animal_farm
+## animal_farm
 # AnimalFarm
 
 ## Model Type Info
@@ -10,6 +10,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  |
+[**Animal**](Animal.md) | [**Animal**](Animal.md) | [**Animal**](Animal.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

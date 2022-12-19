@@ -37,12 +37,12 @@ class SelfReferencingArrayModel(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['self_referencing_array_model.SelfReferencingArrayModel']:
-            return self_referencing_array_model.SelfReferencingArrayModel
+        def self_referencing_array_model() -> typing.Type['SelfReferencingArrayModel']:
+            return SelfReferencingArrayModel
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['self_referencing_array_model.SelfReferencingArrayModel'], typing.List['self_referencing_array_model.SelfReferencingArrayModel']],
+        _arg: typing.Union[typing.Tuple['SelfReferencingArrayModel'], typing.List['SelfReferencingArrayModel']],
         _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'SelfReferencingArrayModel':
         return super().__new__(
@@ -51,7 +51,5 @@ class SelfReferencingArrayModel(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> 'self_referencing_array_model.SelfReferencingArrayModel':
+    def __getitem__(self, i: int) -> 'SelfReferencingArrayModel':
         return super().__getitem__(i)
-
-from petstore_api.components.schema import self_referencing_array_model

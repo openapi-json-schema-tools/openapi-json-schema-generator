@@ -22,7 +22,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = store_api.StoreApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = order.Order(
+    body = Order(
         id=1,
         pet_id=1,
         quantity=1,
@@ -54,7 +54,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**order.Order**](../../../components/schema/order.Order.md) |  | 
+[**Order**](../../../components/schema/Order.md) |  | 
 
 
 ### Return Types, Responses
@@ -75,13 +75,13 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**order.Order**](../../../components/schema/order.Order.md) |  | 
+[**Order**](../../../components/schema/Order.md) |  | 
 
 
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**order.Order**](../../../components/schema/order.Order.md) |  | 
+[**Order**](../../../components/schema/Order.md) |  | 
 
 
 #### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>

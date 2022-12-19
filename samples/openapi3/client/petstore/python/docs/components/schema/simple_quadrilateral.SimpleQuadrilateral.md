@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.simple_quadrilateral
+## simple_quadrilateral
 # SimpleQuadrilateral
 
 ## Model Type Info
@@ -11,10 +11,10 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) |  |
-[allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[**QuadrilateralInterface**](QuadrilateralInterface.md) | [**QuadrilateralInterface**](QuadrilateralInterface.md) | [**QuadrilateralInterface**](QuadrilateralInterface.md) |  |
+[SimpleQuadrilateral](#SimpleQuadrilateral) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# allOf_1
+# SimpleQuadrilateral
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

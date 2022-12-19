@@ -24,10 +24,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema import string_with_validation
 
-
-ApplicationJson = string_with_validation.StringWithValidation
+ApplicationJson = StringWithValidation
 
 
 parameter_oapg = api_client.HeaderParameterWithoutName(

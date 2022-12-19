@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.any_type_not_string
+## any_type_not_string
 # AnyTypeNotString
 
 ## Model Type Info
@@ -11,9 +11,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#_not) | str,  | str,  |  |
+[AnyTypeNotString](#AnyTypeNotString) | str,  | str,  |  |
 
-# _not
+# AnyTypeNotString
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

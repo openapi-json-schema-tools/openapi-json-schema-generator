@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.mammal
+## mammal
 # Mammal
 
 ## Model Type Info
@@ -11,8 +11,8 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**whale.Whale**](whale.Whale.md) | [**whale.Whale**](whale.Whale.md) | [**whale.Whale**](whale.Whale.md) |  |
-[**zebra.Zebra**](zebra.Zebra.md) | [**zebra.Zebra**](zebra.Zebra.md) | [**zebra.Zebra**](zebra.Zebra.md) |  |
-[**pig.Pig**](pig.Pig.md) | [**pig.Pig**](pig.Pig.md) | [**pig.Pig**](pig.Pig.md) |  |
+[**Whale**](Whale.md) | [**Whale**](Whale.md) | [**Whale**](Whale.md) |  |
+[**Zebra**](Zebra.md) | [**Zebra**](Zebra.md) | [**Zebra**](Zebra.md) |  |
+[**Pig**](Pig.md) | [**Pig**](Pig.md) | [**Pig**](Pig.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

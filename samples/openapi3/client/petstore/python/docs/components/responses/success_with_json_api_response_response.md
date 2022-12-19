@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.responses.success_with_json_api_response_response
+## success_with_json_api_response_response
 # ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ headers | [Headers](#Headers) |  |
 # application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**api_response.ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
+[**ApiResponse**](../../components/schema/ApiResponse.md) |  | 
 
 ## Headers
 

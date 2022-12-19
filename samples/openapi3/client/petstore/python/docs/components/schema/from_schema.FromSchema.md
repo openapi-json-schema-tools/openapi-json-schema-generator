@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.from_schema
+## from_schema
 # FromSchema
 
 ## Model Type Info

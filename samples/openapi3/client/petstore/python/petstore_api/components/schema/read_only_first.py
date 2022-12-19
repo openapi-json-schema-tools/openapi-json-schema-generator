@@ -37,18 +37,18 @@ class ReadOnlyFirst(
         types = {frozendict.frozendict}
         
         class Properties:
-            Bar = schemas.StrSchema
-            Baz = schemas.StrSchema
+            ReadOnlyFirst = schemas.StrSchema
+            ReadOnlyFirst = schemas.StrSchema
             __annotations__ = {
-                "bar": Bar,
-                "baz": Baz,
+                "bar": ReadOnlyFirst,
+                "baz": ReadOnlyFirst,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.ReadOnlyFirst: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.Properties.Baz: ...
+    def __getitem__(self, name: typing_extensions.Literal["baz"]) -> MetaOapg.Properties.ReadOnlyFirst: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -65,10 +65,10 @@ class ReadOnlyFirst(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.Properties.Bar, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.Properties.ReadOnlyFirst, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> typing.Union[MetaOapg.Properties.Baz, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["baz"]) -> typing.Union[MetaOapg.Properties.ReadOnlyFirst, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -86,8 +86,8 @@ class ReadOnlyFirst(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        bar: typing.Union[MetaOapg.Properties.Bar, str, schemas.Unset] = schemas.unset,
-        baz: typing.Union[MetaOapg.Properties.Baz, str, schemas.Unset] = schemas.unset,
+        bar: typing.Union[MetaOapg.Properties.ReadOnlyFirst, str, schemas.Unset] = schemas.unset,
+        baz: typing.Union[MetaOapg.Properties.ReadOnlyFirst, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ReadOnlyFirst':

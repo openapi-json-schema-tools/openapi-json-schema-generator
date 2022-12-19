@@ -39,14 +39,14 @@ class Foo(
         class Properties:
         
             @staticmethod
-            def bar() -> typing.Type['bar.Bar']:
+            def foo() -> typing.Type['bar.Bar']:
                 return bar.Bar
             __annotations__ = {
-                "bar": bar,
+                "bar": foo,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> 'bar.Bar': ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> 'Bar': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -62,7 +62,7 @@ class Foo(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union['bar.Bar', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["bar"]) -> typing.Union['Bar', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -79,7 +79,7 @@ class Foo(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        bar: typing.Union['bar.Bar', schemas.Unset] = schemas.unset,
+        bar: typing.Union['Bar', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Foo':
@@ -90,5 +90,3 @@ class Foo(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import bar

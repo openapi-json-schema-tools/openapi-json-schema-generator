@@ -24,7 +24,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = json_patch_request.JSONPatchRequest([
+    body = JSONPatchRequest([
         None
     ])
     try:
@@ -50,7 +50,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json_patchjson" >request_body.application_json_patchjson</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**json_patch_request.JSONPatchRequest**](../../../components/schema/json_patch_request.JSONPatchRequest.md) |  | 
+[**JSONPatchRequest**](../../../components/schema/JSONPatchRequest.md) |  | 
 
 
 ### Return Types, Responses

@@ -137,7 +137,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+schema | str,  | str,  |  |
 
 ### Return Types, Responses
 
@@ -164,7 +164,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) |  |
+[**Pet**](../../../components/schema/Pet.md) | [**Pet**](../../../components/schema/Pet.md) | [**Pet**](../../../components/schema/Pet.md) |  |
 
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 
@@ -176,7 +176,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) | [**pet.Pet**](../../../components/schema/pet.Pet.md) |  |
+[**Pet**](../../../components/schema/Pet.md) | [**Pet**](../../../components/schema/Pet.md) | [**Pet**](../../../components/schema/Pet.md) |  |
 
 #### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes

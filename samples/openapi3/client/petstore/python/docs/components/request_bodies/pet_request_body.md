@@ -1,13 +1,13 @@
-# petstore_api.components.request_bodies.pet_request_body
+# pet_request_body
 # application_json
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**pet.Pet**](../../components/schema/pet.Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 # application_xml
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**pet.Pet**](../../components/schema/pet.Pet.md) |  | 
+[**Pet**](../../components/schema/Pet.md) |  | 
 
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

@@ -95,9 +95,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = pet.Pet(
+    body = Pet(
         id=1,
-        category=category.Category(
+        category=Category(
             id=1,
             name="default-name",
         ),
@@ -106,7 +106,7 @@ with petstore_api.ApiClient(configuration) as api_client:
             "photo_urls_example"
         ],
         tags=[
-            tag.Tag(
+            Tag(
                 id=1,
                 name="name_example",
             )

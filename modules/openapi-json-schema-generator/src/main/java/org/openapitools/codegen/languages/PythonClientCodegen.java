@@ -540,8 +540,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     they are not.
      */
     @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath){
-        setAddProps(schema, property, sourceJsonPath);
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath, String currentJsonPath){
+        setAddProps(schema, property, sourceJsonPath, currentJsonPath);
         if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
             // if anyType schema has properties then add them
             if (schema.getProperties() != null && !schema.getProperties().isEmpty()) {
@@ -556,18 +556,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (schema.getRequired() != null) {
                     requiredVars.addAll(schema.getRequired());
                 }
-                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
+                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
             }
-            addRequiredProperties(schema, property, sourceJsonPath);
+            addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
             return;
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             HashSet<String> requiredVars = new HashSet<>();
             if (schema.getRequired() != null) {
                 requiredVars.addAll(schema.getRequired());
             }
-            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath);
+            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
         }
-        addRequiredProperties(schema, property, sourceJsonPath);
+        addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
         return;
     }
 
@@ -809,9 +809,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return Codegen Property object
      */
     @Override
-    public CodegenSchema fromSchema(Schema p, String sourceJsonPath) {
+    public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
         // fix needed for values with /n /t etc in them
-        CodegenSchema cp = super.fromSchema(p, sourceJsonPath);
+        CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
         if (cp.isInteger && cp.getFormat() == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
@@ -913,7 +913,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         CodegenSchema codegenModel = null;
         if (StringUtils.isNotBlank(name)) {
             schema.setName(name);
-            codegenModel = fromSchema(schema, "#/components/schemas/" + name);
+            String path = "#/components/schemas/" + name;
+            codegenModel = fromSchema(schema, path, path);
         }
 
         if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
@@ -925,7 +926,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
             codegenParameter.description = codegenModel.description;
         } else {
-            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath);
+            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath, sourceJsonPath);
 
             if (ModelUtils.isMapSchema(schema)) {// http body is map
                 // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
@@ -2264,19 +2265,19 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toParameterFilename(basename);
     }
 
-    protected String toModulePath(String componentName, String priorJsonPathSegment) {
-        String prefix = packageName + ".components.";
+    @Override
+    protected String toComponentModule(String componentName, String priorJsonPathSegment) {
         switch (priorJsonPathSegment) {
             case "schemas":
-                return prefix + "schema." + toModelFilename(componentName);
+                return toModelFilename(componentName);
             case "requestBodies":
-                return prefix + "request_bodies." + toRequestBodyFilename(componentName);
+                return toRequestBodyFilename(componentName);
             case "responses":
-                return prefix + "responses." + toResponseModuleName(componentName);
+                return toResponseModuleName(componentName);
             case "headers":
-                return prefix + "headers." + toHeaderFilename(componentName);
+                return toHeaderFilename(componentName);
             case "parameters":
-                return prefix + "headers." + toParameterFilename(componentName);
+                return toParameterFilename(componentName);
         }
         return null;
     }
@@ -2310,9 +2311,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return null;
         }
         // reference is external, import needed
+        // module info is stored in refModule
         if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
             String schemaName = refPieces[3];
-            String refClass = toModelFilename(schemaName) + "." + toModelName(schemaName);
+            String refClass = toModelName(schemaName);
             return refClass;
         }
         return null;

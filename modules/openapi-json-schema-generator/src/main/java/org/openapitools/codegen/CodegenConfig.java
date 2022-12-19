@@ -143,7 +143,7 @@ public interface CodegenConfig {
 
     void setOutputDir(String dir);
 
-    CodegenSchema fromSchema(Schema schema, String sourceJsonPath);
+    CodegenSchema fromSchema(Schema schema, String sourceJsonPath, String currentJsonPath);
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 

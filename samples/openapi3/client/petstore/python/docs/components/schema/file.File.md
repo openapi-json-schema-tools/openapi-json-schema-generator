@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.file
+## file
 # File
 
 Must be named `File` for test.

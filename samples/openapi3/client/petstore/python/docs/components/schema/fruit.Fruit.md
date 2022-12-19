@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.fruit
+## fruit
 # Fruit
 
 ## Model Type Info
@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**apple.Apple**](apple.Apple.md) | [**apple.Apple**](apple.Apple.md) | [**apple.Apple**](apple.Apple.md) |  |
-[**banana.Banana**](banana.Banana.md) | [**banana.Banana**](banana.Banana.md) | [**banana.Banana**](banana.Banana.md) |  |
+[**Apple**](Apple.md) | [**Apple**](Apple.md) | [**Apple**](Apple.md) |  |
+[**Banana**](Banana.md) | [**Banana**](Banana.md) | [**Banana**](Banana.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

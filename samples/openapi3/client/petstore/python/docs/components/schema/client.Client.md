@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.client
+## client
 # Client
 
 ## Model Type Info

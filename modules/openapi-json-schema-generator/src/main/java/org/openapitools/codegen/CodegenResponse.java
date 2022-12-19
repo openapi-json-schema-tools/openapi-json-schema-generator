@@ -30,14 +30,14 @@ public class CodegenResponse implements OpenapiComponent {
     private String ref;
     public Set<String> imports = new TreeSet<>();
     private String refModule;
-    private String modulePath;
+    private String componentModule;
 
     @Override
     public int hashCode() {
         return Objects.hash(message, examples, hasHeaders,
                 jsonSchema, vendorExtensions,
                 headers, content,
-                ref, imports, refModule, modulePath);
+                ref, imports, refModule, componentModule);
     }
 
     @Override
@@ -55,15 +55,15 @@ public class CodegenResponse implements OpenapiComponent {
                 Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(refModule, that.getRefModule()) &&
-                Objects.equals(modulePath, that.modulePath);
+                Objects.equals(componentModule, that.componentModule);
     }
 
-    public String getModulePath() {
-        return modulePath;
+    public String getComponentModule() {
+        return componentModule;
     }
 
-    public void setModulePath(String modulePath) {
-        this.modulePath = modulePath;
+    public void setComponentModule(String componentModule) {
+        this.componentModule = componentModule;
     }
 
     public LinkedHashMap<String, CodegenMediaType> getContent() {
@@ -95,7 +95,7 @@ public class CodegenResponse implements OpenapiComponent {
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
         sb.append(", imports=").append(imports);
-        sb.append(", modulePath=").append(modulePath);
+        sb.append(", componentModule=").append(componentModule);
         sb.append('}');
         return sb.toString();
     }

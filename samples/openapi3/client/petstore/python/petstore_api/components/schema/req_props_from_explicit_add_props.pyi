@@ -38,18 +38,18 @@ class ReqPropsFromExplicitAddProps(
             "invalid-name",
             "validName",
         }
-        AdditionalProperties = schemas.StrSchema
+        ReqPropsFromExplicitAddProps = schemas.StrSchema
     
-    validName: MetaOapg.AdditionalProperties
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.AdditionalProperties: ...
+    validName: MetaOapg.Properties.ReqPropsFromExplicitAddProps
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.Properties.ReqPropsFromExplicitAddProps: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.Properties.ReqPropsFromExplicitAddProps: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> MetaOapg.ReqPropsFromExplicitAddProps: ...
     
     def __getitem__(
         self,
@@ -63,13 +63,13 @@ class ReqPropsFromExplicitAddProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.AdditionalProperties: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.Properties.ReqPropsFromExplicitAddProps: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.AdditionalProperties: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.Properties.ReqPropsFromExplicitAddProps: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
+    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.ReqPropsFromExplicitAddProps, schemas.Unset]: ...
     
     def get_item_oapg(
         self,
@@ -84,9 +84,9 @@ class ReqPropsFromExplicitAddProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        validName: typing.Union[MetaOapg.AdditionalProperties, str, ],
+        validName: typing.Union[MetaOapg.Properties.ReqPropsFromExplicitAddProps, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
+        **kwargs: typing.Union[MetaOapg.ReqPropsFromExplicitAddProps, str, ],
     ) -> 'ReqPropsFromExplicitAddProps':
         return super().__new__(
             cls,

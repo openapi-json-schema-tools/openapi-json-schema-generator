@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.user
+## user
 # User
 
 ## Model Type Info
@@ -56,9 +56,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#_not) | None,  | NoneClass,  |  |
+[User](#User) | None,  | NoneClass,  |  |
 
-# _not
+# User
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

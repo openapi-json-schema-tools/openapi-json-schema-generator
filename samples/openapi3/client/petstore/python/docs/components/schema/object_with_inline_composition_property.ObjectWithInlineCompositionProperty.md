@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_with_inline_composition_property
+## object_with_inline_composition_property
 # ObjectWithInlineCompositionProperty
 
 ## Model Type Info
@@ -24,9 +24,9 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[ObjectWithInlineCompositionProperty](#ObjectWithInlineCompositionProperty) | str,  | str,  |  |
 
-# allOf_0
+# ObjectWithInlineCompositionProperty
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

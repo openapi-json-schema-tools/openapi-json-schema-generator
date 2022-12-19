@@ -71,7 +71,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
+multipart/form-data | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
 
 ### Return Types, Responses
 
@@ -90,7 +90,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**api_response.ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 
+[**ApiResponse**](../../../components/schema/ApiResponse.md) |  | 
 
 
 ### Authorization

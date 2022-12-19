@@ -37,38 +37,38 @@ class Capitalization(
         types = {frozendict.frozendict}
         
         class Properties:
-            SmallCamel = schemas.StrSchema
-            CapitalCamel = schemas.StrSchema
-            SmallSnake = schemas.StrSchema
-            CapitalSnake = schemas.StrSchema
-            SCAETHFlowPoints = schemas.StrSchema
-            ATTNAME = schemas.StrSchema
+            Capitalization = schemas.StrSchema
+            Capitalization = schemas.StrSchema
+            Capitalization = schemas.StrSchema
+            Capitalization = schemas.StrSchema
+            Capitalization = schemas.StrSchema
+            Capitalization = schemas.StrSchema
             __annotations__ = {
-                "smallCamel": SmallCamel,
-                "CapitalCamel": CapitalCamel,
-                "small_Snake": SmallSnake,
-                "Capital_Snake": CapitalSnake,
-                "SCA_ETH_Flow_Points": SCAETHFlowPoints,
-                "ATT_NAME": ATTNAME,
+                "smallCamel": Capitalization,
+                "CapitalCamel": Capitalization,
+                "small_Snake": Capitalization,
+                "Capital_Snake": Capitalization,
+                "SCA_ETH_Flow_Points": Capitalization,
+                "ATT_NAME": Capitalization,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> MetaOapg.Properties.SmallCamel: ...
+    def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> MetaOapg.Properties.Capitalization: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["CapitalCamel"]) -> MetaOapg.Properties.CapitalCamel: ...
+    def __getitem__(self, name: typing_extensions.Literal["CapitalCamel"]) -> MetaOapg.Properties.Capitalization: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["small_Snake"]) -> MetaOapg.Properties.SmallSnake: ...
+    def __getitem__(self, name: typing_extensions.Literal["small_Snake"]) -> MetaOapg.Properties.Capitalization: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["Capital_Snake"]) -> MetaOapg.Properties.CapitalSnake: ...
+    def __getitem__(self, name: typing_extensions.Literal["Capital_Snake"]) -> MetaOapg.Properties.Capitalization: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> MetaOapg.Properties.SCAETHFlowPoints: ...
+    def __getitem__(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> MetaOapg.Properties.Capitalization: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ATT_NAME"]) -> MetaOapg.Properties.ATTNAME: ...
+    def __getitem__(self, name: typing_extensions.Literal["ATT_NAME"]) -> MetaOapg.Properties.Capitalization: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -89,22 +89,22 @@ class Capitalization(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["smallCamel"]) -> typing.Union[MetaOapg.Properties.SmallCamel, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["smallCamel"]) -> typing.Union[MetaOapg.Properties.Capitalization, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["CapitalCamel"]) -> typing.Union[MetaOapg.Properties.CapitalCamel, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["CapitalCamel"]) -> typing.Union[MetaOapg.Properties.Capitalization, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["small_Snake"]) -> typing.Union[MetaOapg.Properties.SmallSnake, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["small_Snake"]) -> typing.Union[MetaOapg.Properties.Capitalization, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["Capital_Snake"]) -> typing.Union[MetaOapg.Properties.CapitalSnake, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["Capital_Snake"]) -> typing.Union[MetaOapg.Properties.Capitalization, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> typing.Union[MetaOapg.Properties.SCAETHFlowPoints, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> typing.Union[MetaOapg.Properties.Capitalization, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["ATT_NAME"]) -> typing.Union[MetaOapg.Properties.ATTNAME, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["ATT_NAME"]) -> typing.Union[MetaOapg.Properties.Capitalization, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -126,12 +126,12 @@ class Capitalization(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        smallCamel: typing.Union[MetaOapg.Properties.SmallCamel, str, schemas.Unset] = schemas.unset,
-        CapitalCamel: typing.Union[MetaOapg.Properties.CapitalCamel, str, schemas.Unset] = schemas.unset,
-        small_Snake: typing.Union[MetaOapg.Properties.SmallSnake, str, schemas.Unset] = schemas.unset,
-        Capital_Snake: typing.Union[MetaOapg.Properties.CapitalSnake, str, schemas.Unset] = schemas.unset,
-        SCA_ETH_Flow_Points: typing.Union[MetaOapg.Properties.SCAETHFlowPoints, str, schemas.Unset] = schemas.unset,
-        ATT_NAME: typing.Union[MetaOapg.Properties.ATTNAME, str, schemas.Unset] = schemas.unset,
+        smallCamel: typing.Union[MetaOapg.Properties.Capitalization, str, schemas.Unset] = schemas.unset,
+        CapitalCamel: typing.Union[MetaOapg.Properties.Capitalization, str, schemas.Unset] = schemas.unset,
+        small_Snake: typing.Union[MetaOapg.Properties.Capitalization, str, schemas.Unset] = schemas.unset,
+        Capital_Snake: typing.Union[MetaOapg.Properties.Capitalization, str, schemas.Unset] = schemas.unset,
+        SCA_ETH_Flow_Points: typing.Union[MetaOapg.Properties.Capitalization, str, schemas.Unset] = schemas.unset,
+        ATT_NAME: typing.Union[MetaOapg.Properties.Capitalization, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Capitalization':

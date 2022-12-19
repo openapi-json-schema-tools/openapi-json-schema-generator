@@ -38,7 +38,7 @@ class Schema(
         class Properties:
             
             
-            class SomeProp(
+            class Schema(
                 schemas.AnyTypeSchema,
             ):
             
@@ -49,7 +49,7 @@ class Schema(
                     class AllOf:
                         
                         
-                        class AllOf0(
+                        class Schema(
                             schemas.StrSchema
                         ):
                         
@@ -60,7 +60,7 @@ class Schema(
                                 }
                                 min_length = 1
                         classes = [
-                            AllOf0,
+                            Schema,
                         ]
             
             
@@ -69,7 +69,7 @@ class Schema(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'SomeProp':
+                ) -> 'Schema':
                     return super().__new__(
                         cls,
                         *_args,
@@ -77,11 +77,11 @@ class Schema(
                         **kwargs,
                     )
             __annotations__ = {
-                "someProp": SomeProp,
+                "someProp": Schema,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.Properties.SomeProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> MetaOapg.Properties.Schema: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -97,7 +97,7 @@ class Schema(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.Properties.SomeProp, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[MetaOapg.Properties.Schema, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -114,7 +114,7 @@ class Schema(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        someProp: typing.Union[MetaOapg.Properties.SomeProp, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        someProp: typing.Union[MetaOapg.Properties.Schema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'Schema':

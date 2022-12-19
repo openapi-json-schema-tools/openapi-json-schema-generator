@@ -15,11 +15,9 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from petstore_api.components.schema import user
-
 # body schemas
-ApplicationXml = user.User
-ApplicationJson = user.User
+ApplicationXml = User
+ApplicationJson = User
 
 
 @dataclasses.dataclass

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.nullable_string
+## nullable_string
 # NullableString
 
 ## Model Type Info

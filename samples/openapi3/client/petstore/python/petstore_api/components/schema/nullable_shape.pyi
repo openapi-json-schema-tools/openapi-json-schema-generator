@@ -41,17 +41,17 @@ class NullableShape(
         class OneOf:
         
             @staticmethod
-            def one_of_0() -> typing.Type['triangle.Triangle']:
+            def nullable_shape() -> typing.Type['triangle.Triangle']:
                 return triangle.Triangle
         
             @staticmethod
-            def one_of_1() -> typing.Type['quadrilateral.Quadrilateral']:
+            def nullable_shape() -> typing.Type['quadrilateral.Quadrilateral']:
                 return quadrilateral.Quadrilateral
-            OneOf2 = schemas.NoneSchema
+            NullableShape = schemas.NoneSchema
             classes = [
-                one_of_0,
-                one_of_1,
-                OneOf2,
+                nullable_shape,
+                nullable_shape,
+                NullableShape,
             ]
 
 
@@ -67,6 +67,3 @@ class NullableShape(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import quadrilateral
-from petstore_api.components.schema import triangle

@@ -1,4 +1,4 @@
-# petstore_api.components.headers.string_header_header
+# string_header_header
 # schema
 
 ## Model Type Info

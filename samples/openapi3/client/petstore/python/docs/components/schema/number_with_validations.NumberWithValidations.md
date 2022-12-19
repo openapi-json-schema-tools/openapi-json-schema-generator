@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.number_with_validations
+## number_with_validations
 # NumberWithValidations
 
 ## Model Type Info

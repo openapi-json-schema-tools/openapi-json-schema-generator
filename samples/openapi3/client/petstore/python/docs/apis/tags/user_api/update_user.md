@@ -27,7 +27,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     path_params = {
         'username': "username_example",
     }
-    body = user.User(
+    body = User(
         id=1,
         username="username_example",
         first_name="first_name_example",
@@ -67,7 +67,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**user.User**](../../../components/schema/user.User.md) |  | 
+[**User**](../../../components/schema/User.md) |  | 
 
 
 ### <a id="RequestPathParameters" >path_params</a>

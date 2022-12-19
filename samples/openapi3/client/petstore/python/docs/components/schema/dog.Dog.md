@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.dog
+## dog
 # Dog
 
 ## Model Type Info
@@ -11,10 +11,10 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  |
-[allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[**Animal**](Animal.md) | [**Animal**](Animal.md) | [**Animal**](Animal.md) |  |
+[Dog](#Dog) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# allOf_1
+# Dog
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

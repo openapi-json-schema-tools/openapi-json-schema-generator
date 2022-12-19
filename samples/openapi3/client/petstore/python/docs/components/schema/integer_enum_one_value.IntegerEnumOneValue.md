@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.integer_enum_one_value
+## integer_enum_one_value
 # IntegerEnumOneValue
 
 ## Model Type Info

@@ -22,9 +22,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums(
+    body = AdditionalPropertiesWithArrayOfEnums(
         key=[
-            enum_class.EnumClass("-efg")
+            EnumClass("-efg")
         ],
     )
     try:
@@ -51,7 +51,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums**](../../../components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Return Types, Responses
@@ -71,7 +71,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums**](../../../components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums**](../../../components/schema/AdditionalPropertiesWithArrayOfEnums.md) |  | 
 
 
 ### Authorization

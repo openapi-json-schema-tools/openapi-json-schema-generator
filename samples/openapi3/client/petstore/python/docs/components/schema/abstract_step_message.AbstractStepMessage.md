@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.abstract_step_message
+## abstract_step_message
 # AbstractStepMessage
 
 Abstract Step
@@ -21,6 +21,6 @@ Key | Input Type | Accessed Type | Description | Notes
 #### anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**abstract_step_message.AbstractStepMessage**](abstract_step_message.AbstractStepMessage.md) | [**abstract_step_message.AbstractStepMessage**](abstract_step_message.AbstractStepMessage.md) | [**abstract_step_message.AbstractStepMessage**](abstract_step_message.AbstractStepMessage.md) |  |
+[**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) | [**AbstractStepMessage**](#AbstractStepMessage) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

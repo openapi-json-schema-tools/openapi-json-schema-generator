@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
+## object_with_all_of_with_req_test_prop_from_unset_add_prop
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 ## Model Type Info
@@ -11,10 +11,10 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
-[allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[**ObjectWithOptionalTestProp**](ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](ObjectWithOptionalTestProp.md) |  |
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp](#ObjectWithAllOfWithReqTestPropFromUnsetAddProp) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# allOf_1
+# ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

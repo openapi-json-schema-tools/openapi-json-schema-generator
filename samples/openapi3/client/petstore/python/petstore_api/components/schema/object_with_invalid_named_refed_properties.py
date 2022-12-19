@@ -43,23 +43,23 @@ class ObjectWithInvalidNamedRefedProperties(
         class Properties:
         
             @staticmethod
-            def _from() -> typing.Type['from_schema.FromSchema']:
+            def object_with_invalid_named_refed_properties() -> typing.Type['from_schema.FromSchema']:
                 return from_schema.FromSchema
         
             @staticmethod
-            def reference() -> typing.Type['array_with_validations_in_items.ArrayWithValidationsInItems']:
+            def object_with_invalid_named_refed_properties() -> typing.Type['array_with_validations_in_items.ArrayWithValidationsInItems']:
                 return array_with_validations_in_items.ArrayWithValidationsInItems
             __annotations__ = {
-                "from": _from,
-                "!reference": reference,
+                "from": object_with_invalid_named_refed_properties,
+                "!reference": object_with_invalid_named_refed_properties,
             }
     
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
+    def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> 'ArrayWithValidationsInItems': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
+    def __getitem__(self, name: typing_extensions.Literal["from"]) -> 'FromSchema': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -76,10 +76,10 @@ class ObjectWithInvalidNamedRefedProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
+    def get_item_oapg(self, name: typing_extensions.Literal["!reference"]) -> 'ArrayWithValidationsInItems': ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
+    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> 'FromSchema': ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -106,6 +106,3 @@ class ObjectWithInvalidNamedRefedProperties(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import array_with_validations_in_items
-from petstore_api.components.schema import from_schema

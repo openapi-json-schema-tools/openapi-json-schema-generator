@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.scalene_triangle
+## scalene_triangle
 # ScaleneTriangle
 
 ## Model Type Info
@@ -11,10 +11,10 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
-[allOf_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[**TriangleInterface**](TriangleInterface.md) | [**TriangleInterface**](TriangleInterface.md) | [**TriangleInterface**](TriangleInterface.md) |  |
+[ScaleneTriangle](#ScaleneTriangle) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# allOf_1
+# ScaleneTriangle
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

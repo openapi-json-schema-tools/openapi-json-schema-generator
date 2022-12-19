@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.composed_one_of_different_types
+## composed_one_of_different_types
 # ComposedOneOfDifferentTypes
 
 this is a model that allows payloads of type object or number
@@ -13,36 +13,36 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  |
-[**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) | [**animal.Animal**](animal.Animal.md) |  |
-[oneOf_2](#oneOf_2) | None,  | NoneClass,  |  |
-[oneOf_3](#oneOf_3) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[oneOf_4](#oneOf_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-[oneOf_5](#oneOf_5) | list, tuple,  | tuple,  |  |
-[oneOf_6](#oneOf_6) | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
+[**NumberWithValidations**](NumberWithValidations.md) | [**NumberWithValidations**](NumberWithValidations.md) | [**NumberWithValidations**](NumberWithValidations.md) |  |
+[**Animal**](Animal.md) | [**Animal**](Animal.md) | [**Animal**](Animal.md) |  |
+[ComposedOneOfDifferentTypes](#ComposedOneOfDifferentTypes) | None,  | NoneClass,  |  |
+[ComposedOneOfDifferentTypes](#ComposedOneOfDifferentTypes) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[ComposedOneOfDifferentTypes](#ComposedOneOfDifferentTypes) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[ComposedOneOfDifferentTypes](#ComposedOneOfDifferentTypes) | list, tuple,  | tuple,  |  |
+[ComposedOneOfDifferentTypes](#ComposedOneOfDifferentTypes) | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# oneOf_2
+# ComposedOneOfDifferentTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-# oneOf_3
+# ComposedOneOfDifferentTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# oneOf_4
+# ComposedOneOfDifferentTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# oneOf_5
+# ComposedOneOfDifferentTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -52,9 +52,9 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
+ComposedOneOfDifferentTypes | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
-# oneOf_6
+# ComposedOneOfDifferentTypes
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

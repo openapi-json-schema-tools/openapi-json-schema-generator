@@ -41,21 +41,21 @@ class ObjectModelWithArgAndArgsProperties(
         }
         
         class Properties:
-            Arg = schemas.StrSchema
-            Args = schemas.StrSchema
+            ObjectModelWithArgAndArgsProperties = schemas.StrSchema
+            ObjectModelWithArgAndArgsProperties = schemas.StrSchema
             __annotations__ = {
-                "arg": Arg,
-                "args": Args,
+                "arg": ObjectModelWithArgAndArgsProperties,
+                "args": ObjectModelWithArgAndArgsProperties,
             }
     
-    arg: MetaOapg.Properties.Arg
-    args: MetaOapg.Properties.Args
+    arg: MetaOapg.Properties.ObjectModelWithArgAndArgsProperties
+    args: MetaOapg.Properties.ObjectModelWithArgAndArgsProperties
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.Arg: ...
+    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.ObjectModelWithArgAndArgsProperties: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.Args: ...
+    def __getitem__(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.ObjectModelWithArgAndArgsProperties: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -72,10 +72,10 @@ class ObjectModelWithArgAndArgsProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.Arg: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.ObjectModelWithArgAndArgsProperties: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.Args: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.ObjectModelWithArgAndArgsProperties: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -93,8 +93,8 @@ class ObjectModelWithArgAndArgsProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        arg: typing.Union[MetaOapg.Properties.Arg, str, ],
-        args: typing.Union[MetaOapg.Properties.Args, str, ],
+        arg: typing.Union[MetaOapg.Properties.ObjectModelWithArgAndArgsProperties, str, ],
+        args: typing.Union[MetaOapg.Properties.ObjectModelWithArgAndArgsProperties, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectModelWithArgAndArgsProperties':

@@ -43,21 +43,21 @@ class GrandparentAnimal(
         def discriminator():
             return {
                 'pet_type': {
-                    'ChildCat': child_cat.ChildCat,
-                    'ParentPet': parent_pet.ParentPet,
+                    'ChildCat': ChildCat,
+                    'ParentPet': ParentPet,
                 }
             }
         
         class Properties:
-            PetType = schemas.StrSchema
+            GrandparentAnimal = schemas.StrSchema
             __annotations__ = {
-                "pet_type": PetType,
+                "pet_type": GrandparentAnimal,
             }
     
-    pet_type: MetaOapg.Properties.PetType
+    pet_type: MetaOapg.Properties.GrandparentAnimal
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.Properties.PetType: ...
+    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.Properties.GrandparentAnimal: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -73,7 +73,7 @@ class GrandparentAnimal(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.Properties.PetType: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["pet_type"]) -> MetaOapg.Properties.GrandparentAnimal: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,7 +90,7 @@ class GrandparentAnimal(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        pet_type: typing.Union[MetaOapg.Properties.PetType, str, ],
+        pet_type: typing.Union[MetaOapg.Properties.GrandparentAnimal, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'GrandparentAnimal':
@@ -101,6 +101,3 @@ class GrandparentAnimal(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import child_cat
-from petstore_api.components.schema import parent_pet

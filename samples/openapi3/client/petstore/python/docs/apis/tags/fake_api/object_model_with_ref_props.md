@@ -23,10 +23,10 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = object_model_with_ref_props.ObjectModelWithRefProps(
-        my_number=number_with_validations.NumberWithValidations(10),
-        my_string=string.String("my_string_example"),
-        my_boolean=boolean.Boolean(True),
+    body = ObjectModelWithRefProps(
+        my_number=NumberWithValidations(10),
+        my_string=String("my_string_example"),
+        my_boolean=Boolean(True),
     )
     try:
         api_response = api_instance.object_model_with_ref_props(
@@ -51,7 +51,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**object_model_with_ref_props.ObjectModelWithRefProps**](../../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../../components/schema/ObjectModelWithRefProps.md) |  | 
 
 
 ### Return Types, Responses
@@ -71,7 +71,7 @@ headers | Unset | headers were not defined |
 # <a id="response_for_200.application_json" >response_for_200.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**object_model_with_ref_props.ObjectModelWithRefProps**](../../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps**](../../../components/schema/ObjectModelWithRefProps.md) |  | 
 
 
 ### Authorization

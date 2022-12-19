@@ -41,30 +41,30 @@ class ObjectModelWithRefProps(
         class Properties:
         
             @staticmethod
-            def my_number() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def object_model_with_ref_props() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def my_string() -> typing.Type['string.String']:
+            def object_model_with_ref_props() -> typing.Type['string.String']:
                 return string.String
         
             @staticmethod
-            def my_boolean() -> typing.Type['boolean.Boolean']:
+            def object_model_with_ref_props() -> typing.Type['boolean.Boolean']:
                 return boolean.Boolean
             __annotations__ = {
-                "myNumber": my_number,
-                "myString": my_string,
-                "myBoolean": my_boolean,
+                "myNumber": object_model_with_ref_props,
+                "myString": object_model_with_ref_props,
+                "myBoolean": object_model_with_ref_props,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'number_with_validations.NumberWithValidations': ...
+    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> 'NumberWithValidations': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'string.String': ...
+    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> 'String': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'boolean.Boolean': ...
+    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> 'Boolean': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -82,13 +82,13 @@ class ObjectModelWithRefProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['number_with_validations.NumberWithValidations', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['NumberWithValidations', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union['string.String', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myString"]) -> typing.Union['String', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['boolean.Boolean', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['Boolean', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -107,9 +107,9 @@ class ObjectModelWithRefProps(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        myNumber: typing.Union['number_with_validations.NumberWithValidations', schemas.Unset] = schemas.unset,
-        myString: typing.Union['string.String', schemas.Unset] = schemas.unset,
-        myBoolean: typing.Union['boolean.Boolean', schemas.Unset] = schemas.unset,
+        myNumber: typing.Union['NumberWithValidations', schemas.Unset] = schemas.unset,
+        myString: typing.Union['String', schemas.Unset] = schemas.unset,
+        myBoolean: typing.Union['Boolean', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ObjectModelWithRefProps':
@@ -122,7 +122,3 @@ class ObjectModelWithRefProps(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import boolean
-from petstore_api.components.schema import number_with_validations
-from petstore_api.components.schema import string

@@ -40,23 +40,23 @@ class Shape(
         def discriminator():
             return {
                 'shapeType': {
-                    'Quadrilateral': quadrilateral.Quadrilateral,
-                    'Triangle': triangle.Triangle,
+                    'Quadrilateral': Quadrilateral,
+                    'Triangle': Triangle,
                 }
             }
         
         class OneOf:
         
             @staticmethod
-            def one_of_0() -> typing.Type['triangle.Triangle']:
+            def shape() -> typing.Type['triangle.Triangle']:
                 return triangle.Triangle
         
             @staticmethod
-            def one_of_1() -> typing.Type['quadrilateral.Quadrilateral']:
+            def shape() -> typing.Type['quadrilateral.Quadrilateral']:
                 return quadrilateral.Quadrilateral
             classes = [
-                one_of_0,
-                one_of_1,
+                shape,
+                shape,
             ]
 
 
@@ -72,6 +72,3 @@ class Shape(
             _configuration=_configuration,
             **kwargs,
         )
-
-from petstore_api.components.schema import quadrilateral
-from petstore_api.components.schema import triangle

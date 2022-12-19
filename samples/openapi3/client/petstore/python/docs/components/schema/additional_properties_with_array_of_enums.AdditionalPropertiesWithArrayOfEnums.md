@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.additional_properties_with_array_of_enums
+## additional_properties_with_array_of_enums
 # AdditionalPropertiesWithArrayOfEnums
 
 ## Model Type Info
@@ -22,6 +22,6 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**enum_class.EnumClass**](enum_class.EnumClass.md) | [**enum_class.EnumClass**](enum_class.EnumClass.md) | [**enum_class.EnumClass**](enum_class.EnumClass.md) |  |
+[**EnumClass**](EnumClass.md) | [**EnumClass**](EnumClass.md) | [**EnumClass**](EnumClass.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
