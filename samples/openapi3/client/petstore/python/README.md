@@ -186,7 +186,6 @@ Class | Method | HTTP request | Description
 *FakeApi* | [**endpoint_parameters**](docs/apis/tags/FakeApi.md#endpoint_parameters) | **post** /fake | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
 *FakeApi* | [**enum_parameters**](docs/apis/tags/FakeApi.md#enum_parameters) | **get** /fake | To test enum parameters
 *FakeApi* | [**fake_health_get**](docs/apis/tags/FakeApi.md#fake_health_get) | **get** /fake/health | Health check endpoint
-*FakeApi* | [**get_response_use_cases**](docs/apis/tags/FakeApi.md#get_response_use_cases) | **get** /fake/responseUseCases | 
 *FakeApi* | [**group_parameters**](docs/apis/tags/FakeApi.md#group_parameters) | **delete** /fake | Fake endpoint to test group parameters (optional)
 *FakeApi* | [**inline_additional_properties**](docs/apis/tags/FakeApi.md#inline_additional_properties) | **post** /fake/inline-additionalProperties | test inline additionalProperties
 *FakeApi* | [**inline_composition**](docs/apis/tags/FakeApi.md#inline_composition) | **post** /fake/inlineComposition/ | testing composed schemas at inline locations

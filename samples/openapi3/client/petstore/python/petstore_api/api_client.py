@@ -801,7 +801,20 @@ class MediaType:
 class ApiResponse:
     response: urllib3.HTTPResponse
     body: typing.Union[Unset, Schema] = unset
-    headers: typing.Union[Unset, typing.Dict[str, typing.Type[Schema]]] = unset
+    headers: typing.Union[Unset, typing.Dict[str, Schema]] = unset
+
+    def __init__(
+        self,
+        response: urllib3.HTTPResponse,
+        body: typing.Union[Unset, Schema] = unset,
+        headers: typing.Union[Unset, typing.Dict[str, Schema]] = unset
+    ):
+        """
+        pycharm needs this to prevent 'Unexpected argument' warnings
+        """
+        self.response = response
+        self.body = body
+        self.headers = headers
 
 
 @dataclass

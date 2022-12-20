@@ -22,7 +22,6 @@ from petstore_api.paths.fake_delete_coffee_id.delete import DeleteCoffee
 from petstore_api.paths.fake.post import EndpointParameters
 from petstore_api.paths.fake.get import EnumParameters
 from petstore_api.paths.fake_health.get import FakeHealthGet
-from petstore_api.paths.fake_response_use_cases.get import GetResponseUseCases
 from petstore_api.paths.fake.delete import GroupParameters
 from petstore_api.paths.fake_inline_additional_properties.post import InlineAdditionalProperties
 from petstore_api.paths.fake_inline_composition_.post import InlineComposition
@@ -59,7 +58,6 @@ class FakeApi(
     EndpointParameters,
     EnumParameters,
     FakeHealthGet,
-    GetResponseUseCases,
     GroupParameters,
     InlineAdditionalProperties,
     InlineComposition,
