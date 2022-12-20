@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**endpoint_parameters**](#endpoint_parameters) | **post** /fake | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
 [**enum_parameters**](#enum_parameters) | **get** /fake | To test enum parameters
 [**fake_health_get**](#fake_health_get) | **get** /fake/health | Health check endpoint
+[**get_response_use_cases**](#get_response_use_cases) | **get** /fake/responseUseCases | 
 [**group_parameters**](#group_parameters) | **delete** /fake | Fake endpoint to test group parameters (optional)
 [**inline_additional_properties**](#inline_additional_properties) | **post** /fake/inline-additionalProperties | test inline additionalProperties
 [**inline_composition**](#inline_composition) | **post** /fake/inlineComposition/ | testing composed schemas at inline locations
@@ -1291,6 +1292,104 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**HealthCheckResult**](../../models/HealthCheckResult.md) |  | 
+
+
+### Authorization
+
+No authorization required
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_response_use_cases**
+<a name="get_response_use_cases"></a>
+> get_response_use_cases()
+
+
+
+### Example
+
+```python
+import petstore_api
+from petstore_api.apis.tags import fake_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fake_api.FakeApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        api_response = api_instance.get_response_use_cases()
+    except petstore_api.ApiException as e:
+        print("Exception when calling FakeApi->get_response_use_cases: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_response_use_cases.ApiResponseFor200) | no body, no headers
+201 | [ApiResponseFor201](#get_response_use_cases.ApiResponseFor201) | body, content with no schema
+202 | [ApiResponseFor202](#get_response_use_cases.ApiResponseFor202) | body, content with schema
+203 | [ApiResponseFor203](#get_response_use_cases.ApiResponseFor203) | header
+
+#### get_response_use_cases.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### get_response_use_cases.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[Unset, ] |  |
+headers | Unset | headers were not defined |
+
+#### get_response_use_cases.ApiResponseFor202
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor202ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor202ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
+
+#### get_response_use_cases.ApiResponseFor203
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | ResponseHeadersFor203 |  |
+#### ResponseHeadersFor203
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Rate-Limit | XRateLimitSchema | | optional
+
+# XRateLimitSchema
+
+calls per hour allowed by the user
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | calls per hour allowed by the user | value must be numeric and storable in decimal.Decimal
 
 
 ### Authorization
