@@ -1341,6 +1341,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 201 | [ApiResponseFor201](#get_response_use_cases.ApiResponseFor201) | body, content with no schema
 202 | [ApiResponseFor202](#get_response_use_cases.ApiResponseFor202) | body, content with schema
 203 | [ApiResponseFor203](#get_response_use_cases.ApiResponseFor203) | header
+205 | [ApiResponseFor205](#get_response_use_cases.ApiResponseFor205) | header + body content with schema
 
 #### get_response_use_cases.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1377,6 +1378,35 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | ResponseHeadersFor203 |  |
 #### ResponseHeadersFor203
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Rate-Limit | XRateLimitSchema | | optional
+
+# XRateLimitSchema
+
+calls per hour allowed by the user
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | calls per hour allowed by the user | value must be numeric and storable in decimal.Decimal
+
+
+#### get_response_use_cases.ApiResponseFor205
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor205ResponseBodyApplicationJson, ] |  |
+headers | ResponseHeadersFor205 |  |
+
+# SchemaFor205ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
+#### ResponseHeadersFor205
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

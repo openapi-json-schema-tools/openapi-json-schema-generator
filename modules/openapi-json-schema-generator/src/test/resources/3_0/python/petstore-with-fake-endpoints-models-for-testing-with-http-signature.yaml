@@ -1647,6 +1647,17 @@ paths:
               schema:
                 type: string
                 format: number
+        205:
+          description: header + body content with schema
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: string
+                format: number
+          content:
+            application/json:
+              schema: {}
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

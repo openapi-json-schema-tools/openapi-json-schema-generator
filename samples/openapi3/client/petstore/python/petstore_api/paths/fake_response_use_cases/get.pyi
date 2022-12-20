@@ -95,6 +95,35 @@ _response_for_203 = api_client.OpenApiResponse(
         x_rate_limit_parameter,
     ]
 )
+XRateLimitSchema = schemas.DecimalSchema
+SchemaFor205ResponseBodyApplicationJson = schemas.AnyTypeSchema
+ResponseHeadersFor205 = typing_extensions.TypedDict(
+    'ResponseHeadersFor205',
+    {
+        'X-Rate-Limit': XRateLimitSchema,
+    }
+)
+
+
+@dataclass
+class ApiResponseFor205(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor205ResponseBodyApplicationJson,
+    ]
+    headers: ResponseHeadersFor205
+
+
+_response_for_205 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor205,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor205ResponseBodyApplicationJson),
+    },
+    headers=[
+        x_rate_limit_parameter,
+    ]
+)
 _all_accept_content_types = (
     'application/json',
 )
@@ -113,6 +142,7 @@ class BaseApi(api_client.Api):
         ApiResponseFor201,
         ApiResponseFor202,
         ApiResponseFor203,
+        ApiResponseFor205,
     ]: ...
 
     @typing.overload
@@ -136,6 +166,7 @@ class BaseApi(api_client.Api):
         ApiResponseFor201,
         ApiResponseFor202,
         ApiResponseFor203,
+        ApiResponseFor205,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -201,6 +232,7 @@ class GetResponseUseCases(BaseApi):
         ApiResponseFor201,
         ApiResponseFor202,
         ApiResponseFor203,
+        ApiResponseFor205,
     ]: ...
 
     @typing.overload
@@ -224,6 +256,7 @@ class GetResponseUseCases(BaseApi):
         ApiResponseFor201,
         ApiResponseFor202,
         ApiResponseFor203,
+        ApiResponseFor205,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -257,6 +290,7 @@ class ApiForget(BaseApi):
         ApiResponseFor201,
         ApiResponseFor202,
         ApiResponseFor203,
+        ApiResponseFor205,
     ]: ...
 
     @typing.overload
@@ -280,6 +314,7 @@ class ApiForget(BaseApi):
         ApiResponseFor201,
         ApiResponseFor202,
         ApiResponseFor203,
+        ApiResponseFor205,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
