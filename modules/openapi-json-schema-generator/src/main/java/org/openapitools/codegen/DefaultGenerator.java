@@ -988,20 +988,19 @@ public class DefaultGenerator implements Generator {
     }
 
     private TreeMap<String, CodegenSchema> generateSchemas(List<File> files) {
-        TreeMap<String, CodegenSchema> schemas = null;
         if (!generateModels) {
             // TODO: Process these anyway and add to dryRun info
             LOGGER.info("Skipping generation of models.");
-            return schemas;
+            return null;
         }
 
         final Map<String, Schema> specSchemas = ModelUtils.getSchemas(this.openAPI);
-        if (schemas == null || schemas.isEmpty()) {
+        if (specSchemas == null || specSchemas.isEmpty()) {
             LOGGER.warn("Skipping generation of component schemas because the specification document lacks them.");
-            return schemas;
+            return null;
         }
 
-        schemas = new TreeMap<>();
+        TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
         String modelNames = GlobalSettings.getProperty("models");
         Set<String> modelsToGenerate = null;
         if (modelNames != null && !modelNames.isEmpty()) {
@@ -1009,19 +1008,19 @@ public class DefaultGenerator implements Generator {
         }
 
         // limit to only the specified models
-        Set<String> modelKeys = schemas.keySet();
+        Set<String> componentNames = specSchemas.keySet();
         if (modelsToGenerate != null && !modelsToGenerate.isEmpty()) {
             Set<String> updatedKeys = new HashSet<>();
-            for (String m : modelKeys) {
-                if (modelsToGenerate.contains(m)) {
-                    updatedKeys.add(m);
+            for (String componentName: componentNames) {
+                if (modelsToGenerate.contains(componentName)) {
+                    updatedKeys.add(componentName);
                 }
             }
-            modelKeys = updatedKeys;
+            componentNames = updatedKeys;
         }
 
         // create model instances
-        for (String componentName : modelKeys) {
+        for (String componentName : componentNames) {
             try {
                 Schema specSchema = specSchemas.get(componentName);
 
