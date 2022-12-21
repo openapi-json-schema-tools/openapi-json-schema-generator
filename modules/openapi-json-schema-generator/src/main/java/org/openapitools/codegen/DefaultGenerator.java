@@ -395,9 +395,9 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateModel(List<File> files, Map<String, Object> modelData, String modelName) throws IOException {
+    private void generateSchema(List<File> files, Map<String, Object> modelData, String jsonPath) throws IOException {
         for (String templateName : config.modelTemplateFiles().keySet()) {
-            String filename = config.modelFilename(templateName, modelName);
+            String filename = config.schemaFilename(templateName, jsonPath);
             File written = processTemplateToFile(modelData, templateName, filename, generateModels, CodegenConstants.MODELS);
             if (written != null) {
                 files.add(written);
@@ -505,7 +505,6 @@ public class DefaultGenerator implements Generator {
                     outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
                     Map<String, Object> endpointMap = new HashMap<>();
                     endpointMap.put("operation", co);
-                    endpointMap.put("imports", co.imports);
                     endpointMap.put("packageName", packageName);
                     pathsFiles.add(Arrays.asList(endpointMap, templateFile, outputFilename));
                 }
@@ -517,7 +516,6 @@ public class DefaultGenerator implements Generator {
                     if (co.requestBody != null && co.requestBody.getRefModule() == null) {
                         Map<String, Object> paramMap = new HashMap<>();
                         paramMap.put("requestBody", co.requestBody);
-                        paramMap.put("imports", co.requestBody.imports);
                         paramMap.put("packageName", packageName);
                         outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
                         pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
@@ -534,7 +532,6 @@ public class DefaultGenerator implements Generator {
                         }
                         Map<String, Object> paramMap = new HashMap<>();
                         paramMap.put("parameter", cp);
-                        paramMap.put("imports", cp.imports);
                         paramMap.put("packageName", packageName);
                         outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFilename(i.toString()) + ".py"));
                         pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
@@ -566,7 +563,6 @@ public class DefaultGenerator implements Generator {
                                         for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
                                             Map<String, Object> headerMap = new HashMap<>();
                                             headerMap.put("header", header);
-                                            headerMap.put("imports", header.imports);
                                             headerMap.put("packageName", packageName);
                                             String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFilename(headerName) + ".py"));
                                             pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
@@ -712,7 +708,6 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("response", response);
-                templateData.put("imports", response.imports);
                 try {
                     File written = processTemplateToFile(templateData, templateName, responseFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
                     if (written != null) {
@@ -732,7 +727,6 @@ public class DefaultGenerator implements Generator {
                             for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
                                 Map<String, Object> headerMap = new HashMap<>();
                                 headerMap.put("header", header);
-                                headerMap.put("imports", header.imports);
                                 headerMap.put("packageName", config.packageName());
                                 String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFilename(headerName) + ".py";
                                 try {
@@ -796,7 +790,6 @@ public class DefaultGenerator implements Generator {
             Map<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", config.packageName());
             templateData.put("requestBody", requestBody);
-            templateData.put("imports", requestBody.imports);
             Boolean generateRequestBodies = Boolean.TRUE;
             for (String templateName : config.requestBodyTemplateFiles().keySet()) {
                 String docExtension = config.getDocExtension();
@@ -864,7 +857,6 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
-                templateData.put("imports", parameter.imports);
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateParameters, CodegenConstants.PARAMETERS, fileFolder);
@@ -888,7 +880,6 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
                 templateData.put("complexTypePrefix", "../../components/schema/");
-                templateData.put("imports", parameter.imports);
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateParameterDocs, CodegenConstants.PARAMETER_DOCS, fileFolder);
@@ -928,7 +919,6 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> headertTemplateData = new HashMap<>();
                 headertTemplateData.put("packageName", config.packageName());
                 headertTemplateData.put("header", header);
-                headertTemplateData.put("imports", header.imports);
 
                 // header
                 try {
@@ -952,8 +942,7 @@ public class DefaultGenerator implements Generator {
                 if (schema != null) {
                     Map<String, Object> schemaTemplateData = new HashMap<>();
                     schemaTemplateData.put("packageName", config.packageName());
-                    schemaTemplateData.put("models", header);
-                    schemaTemplateData.put("imports", header.imports);
+                    schemaTemplateData.put("schema", schema);
                 }
 
             }
@@ -967,7 +956,6 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("headers", Collections.singletonMap("unsetHeaderName", header));
                 templateData.put("complexTypePrefix", "../../components/schema/");
-                templateData.put("imports", header.imports);
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);
@@ -1042,12 +1030,12 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> modelData = new HashMap<>();
                 modelData.put("packageName", config.packageName());
                 modelData.put("model", schema);
-                modelData.put("complexTypePrefix", "../../components/schema/");
-                modelData.put("imports", schema.imports);
                 modelData.putAll(config.additionalProperties());
+                String jsonPath = "#/components/schemas/" + componentName;
 
-                generateModel(files, modelData, componentName);
+                generateSchema(files, modelData, jsonPath);
 
+                modelData.put("complexTypePrefix", "../../components/schema/");
                 // to generate model test files
                 generateModelTests(files, modelData, componentName);
 

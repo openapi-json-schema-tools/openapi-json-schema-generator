@@ -4192,9 +4192,13 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String modelFilename(String templateName, String modelName) {
+    public String schemaFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
         String suffix = modelTemplateFiles().get(templateName);
-        return modelFileFolder() + File.separator + toModelFilename(modelName) + suffix;
+        if (jsonPath.startsWith("#/components/schemas/") && pathPieces.length == 4) {
+            return modelFileFolder() + File.separator + toModelFilename(pathPieces[3]) + suffix;
+        }
+        return null;
     }
 
     /**

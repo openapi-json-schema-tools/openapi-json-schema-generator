@@ -278,7 +278,7 @@ public interface CodegenConfig {
 
     void postProcessParameter(CodegenParameter parameter);
 
-    String modelFilename(String templateName, String modelName);
+    String schemaFilename(String templateName, String jsonPath);
 
     String apiFilename(String templateName, String tag);
 
