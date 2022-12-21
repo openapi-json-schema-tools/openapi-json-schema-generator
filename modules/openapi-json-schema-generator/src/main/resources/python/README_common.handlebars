@@ -27,7 +27,7 @@ HTTP request | Method | Description
 ## Component Schemas
 
 {{#each models}}
-{{#with model}}
+{{#with this}}
  - [{{name.getCamelCaseName}}]({{modelDocPath}}{{getComponentModule}}.{{name.getCamelCaseName}}.md)
 {{/with}}
 {{/each}}

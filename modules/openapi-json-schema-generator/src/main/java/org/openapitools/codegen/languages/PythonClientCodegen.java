@@ -30,8 +30,6 @@ import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.api.TemplatePathLocator;
 import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.templating.*;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.media.*;
@@ -699,23 +697,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the updated objs
      */
     @Override
-    public Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs) {
+    public TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> objs) {
         super.postProcessAllModels(objs);
 
         boolean anyModelContainsTestCases = false;
         Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
-        for (String schemaName : allDefinitions.keySet()) {
-            String modelName = toModelName(schemaName);
-            ModelsMap objModel = objs.get(modelName);
-            if (objModel == null) {
-                // to avoid form parameter's models that are not generated (skipFormModel=true)
-                continue;
-            }
-            for (ModelMap model : objModel.getModels()) {
-                CodegenSchema cm = model.getModel();
-                if (cm.testCases != null && !cm.testCases.isEmpty()) {
-                    anyModelContainsTestCases = true;
-                }
+        for (CodegenSchema cm : objs.values()) {
+            if (cm.testCases != null && !cm.testCases.isEmpty()) {
+                anyModelContainsTestCases = true;
             }
         }
         boolean testFolderSet = testFolder != null;
@@ -1780,7 +1769,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public ModelsMap postProcessModels(ModelsMap objs) {
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
         // process enum in models
         return postProcessModelsEnum(objs);
     }

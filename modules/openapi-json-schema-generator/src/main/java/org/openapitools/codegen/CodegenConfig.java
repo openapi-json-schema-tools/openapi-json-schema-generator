@@ -31,14 +31,13 @@ import io.swagger.v3.oas.models.servers.ServerVariable;
 import org.openapitools.codegen.api.TemplatingEngineAdapter;
 import org.openapitools.codegen.meta.FeatureSet;
 import org.openapitools.codegen.meta.GeneratorMetadata;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.model.OperationsMap;
 
 import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public interface CodegenConfig {
     String getFilesMetadataFilename();
@@ -263,15 +262,15 @@ public interface CodegenConfig {
 
     void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations);
 
-    Map<String, ModelsMap> updateAllModels(Map<String, ModelsMap> objs);
+    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> objs);
 
     void postProcess();
 
-    Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs);
+    TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
 
-    ModelsMap postProcessModels(ModelsMap objs);
+    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> schemas);
 
-    OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels);
+    OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> schemas);
 
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
 

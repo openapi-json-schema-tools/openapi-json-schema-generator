@@ -26,8 +26,6 @@ import org.openapitools.codegen.languages.features.GzipFeatures;
 import org.openapitools.codegen.languages.features.PerformBeanValidationFeatures;
 import org.openapitools.codegen.meta.features.DocumentationFeature;
 import org.openapitools.codegen.meta.features.GlobalFeature;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.model.OperationMap;
 import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.templating.mustache.CaseFormatLambda;
@@ -688,7 +686,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
+    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
         super.postProcessOperationsWithModels(objs, allModels);
 
         if (useSingleRequestParameter && (JERSEY2.equals(getLibrary()) || JERSEY3.equals(getLibrary()) || OKHTTP_GSON.equals(getLibrary()))) {
@@ -876,19 +874,14 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public ModelsMap postProcessModelsEnum(ModelsMap objs) {
+    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
         objs = super.postProcessModelsEnum(objs);
         //Needed import for Gson based libraries
         if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
-            List<Map<String, String>> imports = objs.getImports();
-            for (ModelMap mo : objs.getModels()) {
-                CodegenSchema cm = mo.getModel();
+            for (CodegenSchema cm : objs.values()) {
                 // for enum model
                 if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
                     cm.imports.add(importMapping.get("SerializedName"));
-                    Map<String, String> item = new HashMap<String, String>();
-                    item.put("import", importMapping.get("SerializedName"));
-                    imports.add(item);
                 }
             }
         }

@@ -37,8 +37,6 @@ import org.openapitools.codegen.meta.FeatureSet;
 import org.openapitools.codegen.meta.GeneratorMetadata;
 import org.openapitools.codegen.meta.Stability;
 import org.openapitools.codegen.meta.features.*;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.serializer.SerializerUtils;
 import org.openapitools.codegen.templating.MustacheEngineAdapter;
@@ -467,8 +465,8 @@ public class DefaultCodegen implements CodegenConfig {
     // override with any special post-processing for all models
     @Override
     @SuppressWarnings("static-method")
-    public Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs) {
-        return objs;
+    public TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas) {
+        return schemas;
     }
 
     /**
@@ -501,17 +499,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param objs Map of models
      * @return map of all models indexed by names
      */
-    public Map<String, CodegenSchema> getAllModels(Map<String, ModelsMap> objs) {
-        Map<String, CodegenSchema> allModels = new LinkedHashMap<>();
-        for (Entry<String, ModelsMap> entry : objs.entrySet()) {
-            String modelName = toModelName(entry.getKey());
-            List<ModelMap> models = entry.getValue().getModels();
-            for (ModelMap mo : models) {
-                CodegenSchema cm = mo.getModel();
-                allModels.put(modelName, cm);
-            }
-        }
-        return allModels;
+    public TreeMap<String, CodegenSchema> getAllModels(TreeMap<String, CodegenSchema> objs) {
+        return objs;
     }
 
     /**
@@ -521,14 +510,14 @@ public class DefaultCodegen implements CodegenConfig {
      * @return maps of models with various updates
      */
     @Override
-    public Map<String, ModelsMap> updateAllModels(Map<String, ModelsMap> objs) {
+    public TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> objs) {
         return objs;
     }
 
     // override with any special post-processing
     @Override
     @SuppressWarnings("static-method")
-    public ModelsMap postProcessModels(ModelsMap objs) {
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
         return objs;
     }
 
@@ -538,9 +527,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param objs Map of models
      * @return maps of models with better enum support
      */
-    public ModelsMap postProcessModelsEnum(ModelsMap objs) {
-        for (ModelMap mo : objs.getModels()) {
-            CodegenSchema cm = mo.getModel();
+    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
+        for (CodegenSchema cm : objs.values()) {
 
             // for enum model
             if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
@@ -681,7 +669,7 @@ public class DefaultCodegen implements CodegenConfig {
     // override with any special post-processing
     @Override
     @SuppressWarnings("static-method")
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
+    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> schemas) {
         return objs;
     }
 

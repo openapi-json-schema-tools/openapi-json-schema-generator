@@ -5,7 +5,6 @@
 import unittest
 
 import {{packageName}}
-{{#each models}}
 {{#with model}}
 from {{packageName}}.{{modelPackage}}.{{componentModule}} import {{name.getCamelCaseName}}
 from {{packageName}} import configuration
@@ -39,7 +38,6 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
 
 {{/each}}
 {{/with}}
-{{/each}}
 
 if __name__ == '__main__':
     unittest.main()
