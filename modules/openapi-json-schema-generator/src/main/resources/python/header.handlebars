@@ -8,10 +8,10 @@ import urllib3
 
 from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schema_types }}
+{{#with header}}
 {{> model_templates/imports }}
 
 
-{{#with header}}
 {{#if schema}}
     {{#with schema}}
 {{> model_templates/schema }}

@@ -331,13 +331,13 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     }
 
     @Override
-    public String modelFilename(String templateName, String modelName) {
+    public String schemaFilename(String templateName, String jsonPath) {
         String suffix = modelTemplateFiles().get(templateName);
         // If this was a proper template method, i wouldn't have to make myself throw up by doing this....
         if (getGenerateRoomModels() && suffix.startsWith("RoomModel")) {
-            return roomModelFileFolder() + File.separator + toModelFilename(modelName) + suffix;
+            return roomModelFileFolder() + File.separator + toModelFilename(jsonPath) + suffix;
         } else {
-            return modelFileFolder() + File.separator + toModelFilename(modelName) + suffix;
+            return modelFileFolder() + File.separator + toModelFilename(jsonPath) + suffix;
         }
     }
 
