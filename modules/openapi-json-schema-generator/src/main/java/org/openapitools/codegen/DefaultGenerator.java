@@ -988,20 +988,20 @@ public class DefaultGenerator implements Generator {
     }
 
     private TreeMap<String, CodegenSchema> generateSchemas(List<File> files) {
-        TreeMap<String, CodegenSchema> models = null;
+        TreeMap<String, CodegenSchema> schemas = null;
         if (!generateModels) {
             // TODO: Process these anyway and add to dryRun info
             LOGGER.info("Skipping generation of models.");
-            return models;
+            return schemas;
         }
 
-        final Map<String, Schema> schemas = ModelUtils.getSchemas(this.openAPI);
+        final Map<String, Schema> specSchemas = ModelUtils.getSchemas(this.openAPI);
         if (schemas == null || schemas.isEmpty()) {
             LOGGER.warn("Skipping generation of component schemas because the specification document lacks them.");
-            return models;
+            return schemas;
         }
 
-        models = new TreeMap<>();
+        schemas = new TreeMap<>();
         String modelNames = GlobalSettings.getProperty("models");
         Set<String> modelsToGenerate = null;
         if (modelNames != null && !modelNames.isEmpty()) {
@@ -1023,11 +1023,11 @@ public class DefaultGenerator implements Generator {
         // create model instances
         for (String componentName : modelKeys) {
             try {
-                Schema schema = schemas.get(componentName);
+                Schema specSchema = specSchemas.get(componentName);
 
                 String sourceJsonPath = "#/components/schemas/" + componentName;
-                CodegenSchema codegenSchema = config.fromSchema(schema, sourceJsonPath, sourceJsonPath);
-                models.put(componentName, codegenSchema);
+                CodegenSchema codegenSchema = config.fromSchema(specSchema, sourceJsonPath, sourceJsonPath);
+                schemas.put(componentName, codegenSchema);
 
             } catch (Exception e) {
                 throw new RuntimeException("Could not process model '" + componentName + "'" + ".Please make sure that your schema is correct!", e);
@@ -1035,16 +1035,16 @@ public class DefaultGenerator implements Generator {
         }
 
         // generate files based on processed models
-        for (Map.Entry<String, CodegenSchema> entry: models.entrySet()) {
+        for (Map.Entry<String, CodegenSchema> entry: schemas.entrySet()) {
             String componentName = entry.getKey();
-            CodegenSchema model = entry.getValue();
+            CodegenSchema schema = entry.getValue();
             try {
                 // to generate model files
                 Map<String, Object> modelData = new HashMap<>();
                 modelData.put("packageName", config.packageName());
-                modelData.put("model", model);
+                modelData.put("model", schema);
                 modelData.put("complexTypePrefix", "../../components/schema/");
-                modelData.put("imports", model.imports);
+                modelData.put("imports", schema.imports);
                 modelData.putAll(config.additionalProperties());
 
                 generateModel(files, modelData, componentName);
@@ -1061,9 +1061,11 @@ public class DefaultGenerator implements Generator {
         }
         if (GlobalSettings.getProperty("debugModels") != null) {
             LOGGER.info("############ Model info ############");
-            Json.prettyPrint(models);
+            Json.prettyPrint(schemas);
         }
-        return models;
+        // sort them
+        schemas = new TreeMap<>(schemas);
+        return schemas;
     }
 
     @SuppressWarnings("unchecked")
