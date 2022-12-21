@@ -1101,7 +1101,7 @@ public class DefaultCodegen implements CodegenConfig {
     public String headerDocFileFolder() { return outputFolder; }
 
     @Override
-    public String parameterFileFolder() { return outputFolder; }
+    public String parameterFileFolder(String componentName) { return outputFolder; }
 
     @Override
     public String parameterDocFileFolder() { return outputFolder; }
@@ -4200,6 +4200,15 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (jsonPath.startsWith("#/components/headers/")) {
             // #/components/headers/someHeader/schema -> length 5
             // #/components/headers/someHeader/content/application-json/schema -> length 7
+            String componentName = pathPieces[3];
+            if (pathPieces.length == 5) {
+                return headerFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;
+            }
+            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+            return headerFileFolder(componentName) + File.separator + toModelFilename(contentType) + suffix;
+        } else if (jsonPath.startsWith("#/components/parameters/")) {
+            // #/components/parameters/someParam/schema -> length 5
+            // #/components/parameters/someParam/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
                 return headerFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;

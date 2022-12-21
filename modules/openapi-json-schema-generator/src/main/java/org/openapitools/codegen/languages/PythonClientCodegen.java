@@ -323,7 +323,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
         headerTemplateFiles.put("header.handlebars", "__init__.py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
-        parameterTemplateFiles.put("parameter.handlebars", ".py");
+        parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
@@ -504,8 +504,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String parameterFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters";
+    public String parameterFileFolder(String componentName) {
+        String parameterFilename = toParameterFilename(componentName);
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters" + File.separatorChar + parameterFilename;
     }
 
     public String headerDocFileFolder() {

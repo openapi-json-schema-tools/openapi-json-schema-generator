@@ -11,12 +11,14 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
-from . import schema
+
+from petstore_api.components.schema import string_with_validation
 
 
 parameter_oapg = api_client.PathParameter(
-    name="self",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=schema.Schema,
+    name="CRSstringWithValidation",
+    content={
+        "application/json": string_with_validation.StringWithValidation,
+    },
     required=True,
 )

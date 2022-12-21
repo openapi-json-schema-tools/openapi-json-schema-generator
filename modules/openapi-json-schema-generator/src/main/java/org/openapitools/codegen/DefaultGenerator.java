@@ -851,9 +851,9 @@ public class DefaultGenerator implements Generator {
             Boolean generateParameters = Boolean.TRUE;
             for (Map.Entry<String, String> entryInfo : config.parameterTemplateFiles().entrySet()) {
                 String templateName = entryInfo.getKey();
-                String suffix = entryInfo.getValue();
-                String fileFolder = config.parameterFileFolder();
-                String filename = fileFolder + File.separatorChar + config.toParameterFilename(componentName) + suffix;
+                String writtenFilename = entryInfo.getValue();
+                String fileFolder = config.parameterFileFolder(componentName);
+                String filename = fileFolder + File.separatorChar + writtenFilename;
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
@@ -868,6 +868,26 @@ public class DefaultGenerator implements Generator {
                     }
                 } catch (Exception e) {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+                // schema
+                CodegenSchema schema = parameter.getSchema();
+                String jsonPath = sourceJsonPath + "/schema";
+                if (schema == null && parameter.getContent() != null && !parameter.getContent().isEmpty()) {
+                    String contentType = parameter.getContent().keySet().stream().collect(Collectors.toList()).get(0);
+                    CodegenMediaType mt = parameter.getContent().get(contentType);
+                    schema = mt.getSchema();
+                    jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                }
+                if (schema != null && schema.getRefModule() != null) {
+                    Map<String, Object> schemaData = new HashMap<>();
+                    schemaData.put("packageName", config.packageName());
+                    schemaData.put("schema", schema);
+                    schemaData.putAll(config.additionalProperties());
+                    try {
+                        generateSchema(files, schemaData, jsonPath);
+                    } catch (Exception e) {
+                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                    }
                 }
             }
             Boolean generateParameterDocs = Boolean.TRUE;
@@ -952,7 +972,6 @@ public class DefaultGenerator implements Generator {
                         throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                     }
                 }
-
             }
             Boolean generateHeaderDocs = Boolean.TRUE;
             for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
