@@ -321,7 +321,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
         responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-        headerTemplateFiles.put("header.handlebars", ".py");
+        headerTemplateFiles.put("header.handlebars", "__init__.py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
         parameterTemplateFiles.put("parameter.handlebars", ".py");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
@@ -498,8 +498,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String headerFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers";
+    public String headerFileFolder(String componentName) {
+        String headerFilename = toHeaderFilename(componentName);
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers" + File.separator + headerFilename;
     }
 
     @Override

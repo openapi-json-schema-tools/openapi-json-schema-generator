@@ -395,10 +395,10 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateSchema(List<File> files, Map<String, Object> modelData, String jsonPath) throws IOException {
+    private void generateSchema(List<File> files, Map<String, Object> schemaData, String jsonPath) throws IOException {
         for (String templateName : config.modelTemplateFiles().keySet()) {
             String filename = config.schemaFilename(templateName, jsonPath);
-            File written = processTemplateToFile(modelData, templateName, filename, generateModels, CodegenConstants.MODELS);
+            File written = processTemplateToFile(schemaData, templateName, filename, generateModels, CodegenConstants.MODELS);
             if (written != null) {
                 files.add(written);
                 if (config.isEnablePostProcessFile() && !dryRun) {
@@ -913,9 +913,9 @@ public class DefaultGenerator implements Generator {
             Boolean generateHeaders = Boolean.TRUE;
             for (Map.Entry<String, String> headerInfo : config.headerTemplateFiles().entrySet()) {
                 String templateName = headerInfo.getKey();
-                String suffix = headerInfo.getValue();
-                String fileFolder = config.headerFileFolder();
-                String filename = fileFolder + File.separatorChar + config.toHeaderFilename(componentName) + suffix;
+                String writtenFilename = headerInfo.getValue();
+                String fileFolder = config.headerFileFolder(componentName);
+                String filename = fileFolder + File.separatorChar + writtenFilename;
                 Map<String, Object> headertTemplateData = new HashMap<>();
                 headertTemplateData.put("packageName", config.packageName());
                 headertTemplateData.put("header", header);
@@ -934,15 +934,23 @@ public class DefaultGenerator implements Generator {
                 }
                 // schema
                 CodegenSchema schema = header.getSchema();
+                String jsonPath = sourceJsonPath + "/schema";
                 if (schema == null && header.getContent() != null && !header.getContent().isEmpty()) {
                     String contentType = header.getContent().keySet().stream().collect(Collectors.toList()).get(0);
                     CodegenMediaType mt = header.getContent().get(contentType);
                     schema = mt.getSchema();
+                    jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
                 if (schema != null) {
-                    Map<String, Object> schemaTemplateData = new HashMap<>();
-                    schemaTemplateData.put("packageName", config.packageName());
-                    schemaTemplateData.put("schema", schema);
+                    Map<String, Object> schemaData = new HashMap<>();
+                    schemaData.put("packageName", config.packageName());
+                    schemaData.put("schema", schema);
+                    schemaData.putAll(config.additionalProperties());
+                    try {
+                        generateSchema(files, schemaData, jsonPath);
+                    } catch (Exception e) {
+                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                    }
                 }
 
             }
@@ -977,8 +985,7 @@ public class DefaultGenerator implements Generator {
 
     private TreeMap<String, CodegenSchema> generateSchemas(List<File> files) {
         if (!generateModels) {
-            // TODO: Process these anyway and add to dryRun info
-            LOGGER.info("Skipping generation of models.");
+            LOGGER.info("Skipping generation of component schemas.");
             return null;
         }
 
@@ -1027,20 +1034,20 @@ public class DefaultGenerator implements Generator {
             CodegenSchema schema = entry.getValue();
             try {
                 // to generate model files
-                Map<String, Object> modelData = new HashMap<>();
-                modelData.put("packageName", config.packageName());
-                modelData.put("model", schema);
-                modelData.putAll(config.additionalProperties());
+                Map<String, Object> schemaData = new HashMap<>();
+                schemaData.put("packageName", config.packageName());
+                schemaData.put("schema", schema);
+                schemaData.putAll(config.additionalProperties());
                 String jsonPath = "#/components/schemas/" + componentName;
 
-                generateSchema(files, modelData, jsonPath);
+                generateSchema(files, schemaData, jsonPath);
 
-                modelData.put("complexTypePrefix", "../../components/schema/");
                 // to generate model test files
-                generateModelTests(files, modelData, componentName);
+                schemaData.put("complexTypePrefix", "../../components/schema/");
+                generateModelTests(files, schemaData, componentName);
 
                 // to generate model documentation files
-                generateModelDocumentation(files, modelData, componentName);
+                generateModelDocumentation(files, schemaData, componentName);
 
             } catch (Exception e) {
                 throw new RuntimeException("Could not generate model '" + componentName + "'", e);

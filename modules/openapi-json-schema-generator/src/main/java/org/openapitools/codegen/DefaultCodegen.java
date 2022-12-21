@@ -1095,7 +1095,7 @@ public class DefaultCodegen implements CodegenConfig {
     public String responseDocFileFolder() { return outputFolder; }
 
     @Override
-    public String headerFileFolder() { return outputFolder; }
+    public String headerFileFolder(String componentName) { return outputFolder; }
 
     @Override
     public String headerDocFileFolder() { return outputFolder; }
@@ -3179,7 +3179,7 @@ public class DefaultCodegen implements CodegenConfig {
             ));
             property.setRefModule(toRefModule(ref, "schemas", sourceJsonPath));
         }
-        if (addSchemaImportsFromV3SpecLocations && isComponentSchema) {
+        if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             property.imports = new TreeSet<>();
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }
@@ -4197,6 +4197,15 @@ public class DefaultCodegen implements CodegenConfig {
         String suffix = modelTemplateFiles().get(templateName);
         if (jsonPath.startsWith("#/components/schemas/") && pathPieces.length == 4) {
             return modelFileFolder() + File.separator + toModelFilename(pathPieces[3]) + suffix;
+        } else if (jsonPath.startsWith("#/components/headers/")) {
+            // #/components/headers/someHeader/schema -> length 5
+            // #/components/headers/someHeader/content/application-json/schema -> length 7
+            String componentName = pathPieces[3];
+            if (pathPieces.length == 5) {
+                return headerFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;
+            }
+            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+            return headerFileFolder(componentName) + File.separator + toModelFilename(contentType) + suffix;
         }
         return null;
     }

@@ -84,7 +84,7 @@ public interface CodegenConfig {
 
     String requestBodyDocFileFolder();
 
-    String headerFileFolder();
+    String headerFileFolder(String componentName);
 
     String headerDocFileFolder();
 
