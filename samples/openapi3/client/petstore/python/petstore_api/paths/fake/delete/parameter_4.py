@@ -53,5 +53,5 @@ class Schema(
 parameter_oapg = api_client.HeaderParameter(
     name="boolean_group",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=Schema,
+    schema=schema.Schema,
 )

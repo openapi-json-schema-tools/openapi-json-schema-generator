@@ -31,6 +31,6 @@ Schema = schemas.StrSchema
 parameter_oapg = api_client.CookieParameter(
     name="1",
     style=api_client.ParameterStyle.FORM,
-    schema=Schema,
+    schema=schema.Schema,
     explode=True,
 )

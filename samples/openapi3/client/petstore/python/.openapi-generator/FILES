@@ -273,11 +273,7 @@ petstore_api/apis/tags/store_api.py
 petstore_api/apis/tags/user_api.py
 petstore_api/components/__init__.py
 petstore_api/components/headers/int32_json_content_type_header_header/__init__.py
-petstore_api/components/headers/int32_json_content_type_header_header/application_json.py
-petstore_api/components/headers/int32_json_content_type_header_header/application_json.pyi
 petstore_api/components/headers/number_header_header/__init__.py
-petstore_api/components/headers/number_header_header/schema.py
-petstore_api/components/headers/number_header_header/schema.pyi
 petstore_api/components/headers/ref_content_schema_header_header/__init__.py
 petstore_api/components/headers/ref_content_schema_header_header/application_json.py
 petstore_api/components/headers/ref_content_schema_header_header/application_json.pyi
@@ -285,8 +281,6 @@ petstore_api/components/headers/ref_schema_header_header/__init__.py
 petstore_api/components/headers/ref_schema_header_header/schema.py
 petstore_api/components/headers/ref_schema_header_header/schema.pyi
 petstore_api/components/headers/string_header_header/__init__.py
-petstore_api/components/headers/string_header_header/schema.py
-petstore_api/components/headers/string_header_header/schema.pyi
 petstore_api/components/parameters/parameter_component_ref_schema_string_with_validation.py
 petstore_api/components/parameters/parameter_path_user_name.py
 petstore_api/components/parameters/parameter_ref_schema_string_with_validation.py

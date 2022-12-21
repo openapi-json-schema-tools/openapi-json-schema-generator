@@ -44,6 +44,6 @@ class Schema(
 parameter_oapg = api_client.PathParameter(
     name="order_id",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=Schema,
+    schema=schema.Schema,
     required=True,
 )

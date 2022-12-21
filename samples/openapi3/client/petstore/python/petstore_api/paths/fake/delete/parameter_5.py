@@ -31,6 +31,6 @@ Schema = schemas.Int64Schema
 parameter_oapg = api_client.QueryParameter(
     name="int64_group",
     style=api_client.ParameterStyle.FORM,
-    schema=Schema,
+    schema=schema.Schema,
     explode=True,
 )

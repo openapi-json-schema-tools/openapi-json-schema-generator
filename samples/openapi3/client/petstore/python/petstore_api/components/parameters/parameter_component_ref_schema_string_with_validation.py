@@ -33,7 +33,7 @@ ApplicationJson = string_with_validation.StringWithValidation
 parameter_oapg = api_client.PathParameter(
     name="CRSstringWithValidation",
     content={
-        "application/json": ApplicationJson,
+        "application/json": string_with_validation.StringWithValidation,
     },
     required=True,
 )

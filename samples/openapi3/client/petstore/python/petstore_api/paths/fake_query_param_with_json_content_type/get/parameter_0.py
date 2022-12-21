@@ -31,7 +31,7 @@ ApplicationJson = schemas.AnyTypeSchema
 parameter_oapg = api_client.QueryParameter(
     name="someParam",
     content={
-        "application/json": ApplicationJson,
+        "application/json": application_json.ApplicationJson,
     },
     required=True,
 )

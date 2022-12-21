@@ -76,6 +76,6 @@ class Schema(
 parameter_oapg = api_client.QueryParameter(
     name="enum_query_string_array",
     style=api_client.ParameterStyle.FORM,
-    schema=Schema,
+    schema=schema.Schema,
     explode=True,
 )

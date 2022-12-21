@@ -53,6 +53,6 @@ class Schema(
 parameter_oapg = api_client.HeaderParameter(
     name="required_boolean_group",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=Schema,
+    schema=schema.Schema,
     required=True,
 )

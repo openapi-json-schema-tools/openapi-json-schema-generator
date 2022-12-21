@@ -31,6 +31,6 @@ Schema = schemas.Int64Schema
 parameter_oapg = api_client.PathParameter(
     name="petId",
     style=api_client.ParameterStyle.SIMPLE,
-    schema=Schema,
+    schema=schema.Schema,
     required=True,
 )

@@ -54,6 +54,6 @@ class Schema(
 parameter_oapg = api_client.QueryParameter(
     name="http",
     style=api_client.ParameterStyle.SPACE_DELIMITED,
-    schema=Schema,
+    schema=schema.Schema,
     required=True,
 )

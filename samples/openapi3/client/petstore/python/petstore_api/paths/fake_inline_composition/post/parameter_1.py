@@ -130,6 +130,6 @@ class Schema(
 parameter_oapg = api_client.QueryParameter(
     name="compositionInProperty",
     style=api_client.ParameterStyle.FORM,
-    schema=Schema,
+    schema=schema.Schema,
     explode=True,
 )

@@ -941,7 +941,7 @@ public class DefaultGenerator implements Generator {
                     schema = mt.getSchema();
                     jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
-                if (schema != null) {
+                if (schema != null && schema.getRefModule() != null) {
                     Map<String, Object> schemaData = new HashMap<>();
                     schemaData.put("packageName", config.packageName());
                     schemaData.put("schema", schema);
