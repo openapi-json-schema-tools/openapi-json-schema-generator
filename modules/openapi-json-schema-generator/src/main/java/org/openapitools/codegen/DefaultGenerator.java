@@ -1045,6 +1045,7 @@ public class DefaultGenerator implements Generator {
                 modelData.put("model", model);
                 modelData.put("complexTypePrefix", "../../components/schema/");
                 modelData.put("imports", model.imports);
+                modelData.putAll(config.additionalProperties());
 
                 generateModel(files, modelData, componentName);
 
