@@ -4211,10 +4211,10 @@ public class DefaultCodegen implements CodegenConfig {
             // #/components/parameters/someParam/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
-                return headerFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;
+                return parameterFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;
             }
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-            return headerFileFolder(componentName) + File.separator + toModelFilename(contentType) + suffix;
+            return parameterFileFolder(componentName) + File.separator + toModelFilename(contentType) + suffix;
         }
         return null;
     }

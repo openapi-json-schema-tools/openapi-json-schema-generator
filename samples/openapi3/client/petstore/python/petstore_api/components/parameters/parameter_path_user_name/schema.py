@@ -21,6 +21,4 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-Schema = string_with_validation.StringWithValidation
-
-from petstore_api.components.schema import string_with_validation
+Schema = schemas.StrSchema
