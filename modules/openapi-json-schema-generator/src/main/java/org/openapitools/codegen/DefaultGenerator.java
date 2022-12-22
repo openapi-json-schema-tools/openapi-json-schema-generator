@@ -733,15 +733,9 @@ public class DefaultGenerator implements Generator {
                         if (header.refModule == null) {
                             generateHeader(files, header, headerJsonPath);
                             // schema
-                            CodegenSchema schema = header.getSchema();
-                            String jsonPath = headerJsonPath + "/schema";
-                            if (schema == null && header.getContent() != null && !header.getContent().isEmpty()) {
-                                String contentType = header.getContent().keySet().stream().collect(Collectors.toList()).get(0);
-                                CodegenMediaType mt = header.getContent().get(contentType);
-                                schema = mt.getSchema();
-                                jsonPath = headerJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                            }
+                            CodegenSchema schema = header.getSetSchema();
                             if (schema != null && schema.getRefModule() == null) {
+                                String jsonPath = header.getSetSchemaJsonPath(headerJsonPath);
                                 try {
                                     generateSchema(files, schema, jsonPath);
                                 } catch (Exception e) {
@@ -894,15 +888,9 @@ public class DefaultGenerator implements Generator {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
                 // schema
-                CodegenSchema schema = parameter.getSchema();
-                String jsonPath = sourceJsonPath + "/schema";
-                if (schema == null && parameter.getContent() != null && !parameter.getContent().isEmpty()) {
-                    String contentType = parameter.getContent().keySet().stream().collect(Collectors.toList()).get(0);
-                    CodegenMediaType mt = parameter.getContent().get(contentType);
-                    schema = mt.getSchema();
-                    jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                }
+                CodegenSchema schema = parameter.getSetSchema();
                 if (schema != null && schema.getRefModule() == null) {
+                    String jsonPath = parameter.getSetSchemaJsonPath(sourceJsonPath);
                     try {
                         generateSchema(files, schema, jsonPath);
                     } catch (Exception e) {
@@ -977,15 +965,9 @@ public class DefaultGenerator implements Generator {
             generateHeader(files, header, sourceJsonPath);
 
             // schema
-            CodegenSchema schema = header.getSchema();
-            String jsonPath = sourceJsonPath + "/schema";
-            if (schema == null && header.getContent() != null && !header.getContent().isEmpty()) {
-                String contentType = header.getContent().keySet().stream().collect(Collectors.toList()).get(0);
-                CodegenMediaType mt = header.getContent().get(contentType);
-                schema = mt.getSchema();
-                jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-            }
+            CodegenSchema schema = header.getSetSchema();
             if (schema != null && schema.getRefModule() == null) {
+                String jsonPath = header.getSetSchemaJsonPath(sourceJsonPath);
                 try {
                     generateSchema(files, schema, jsonPath);
                 } catch (Exception e) {

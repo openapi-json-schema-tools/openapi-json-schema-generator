@@ -17,6 +17,8 @@
 
 package org.openapitools.codegen;
 
+import org.openapitools.codegen.utils.ModelUtils;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -92,6 +94,32 @@ public class CodegenHeader implements OpenapiComponent {
         return output;
     }
 
+    public CodegenSchema getSetSchema() {
+        if (schema != null) {
+            return schema;
+        }
+        if (content != null) {
+            for (CodegenMediaType codegenMediaType: content.values()) {
+                return codegenMediaType.getSchema();
+            }
+        }
+        return null;
+    }
+
+    public String getSetSchemaJsonPath(String jsonPath) {
+        if (schema != null) {
+            return jsonPath + "/schema";
+        }
+        if (content != null) {
+            for (Map.Entry<String, CodegenMediaType> entry: content.entrySet()) {
+                if (entry.getValue().getSchema() != null) {
+                    String contentType = entry.getKey();
+                    return jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                }
+            }
+        }
+        return null;
+    }
     public String getComponentModule() {
         return componentModule;
     }
