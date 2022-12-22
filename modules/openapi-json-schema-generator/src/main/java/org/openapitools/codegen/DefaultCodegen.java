@@ -4192,6 +4192,22 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public String headerFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        String writtenFilename = headerTemplateFiles().get(templateName);
+        if (jsonPath.startsWith("#/components/headers/")) {
+            // #/components/headers/someHeader -> length 4
+            String componentName = pathPieces[3];
+            return headerFileFolder(componentName) + File.separatorChar + writtenFilename;
+        } else if (jsonPath.startsWith("#/components/responses/")) {
+            // #/components/responses/someResponse/headers/SomeHeader-> length 6
+            String componentName = pathPieces[3];
+            return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
+        }
+        return null;
+    }
+
+    @Override
     public String schemaFilename(String templateName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String suffix = modelTemplateFiles().get(templateName);

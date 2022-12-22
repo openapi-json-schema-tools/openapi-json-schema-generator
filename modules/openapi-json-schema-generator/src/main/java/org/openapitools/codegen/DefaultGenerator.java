@@ -731,25 +731,7 @@ public class DefaultGenerator implements Generator {
                         CodegenHeader header = headerInfo.getValue();
                         String headerJsonPath = sourceJsonPath + "/headers/" + headerName;
                         if (header.refModule == null) {
-                            for (Map.Entry<String, String> responseHeaderInfo: config.pathEndpointResponseHeaderTemplateFiles().entrySet()) {
-                                String headerTemplateName = responseHeaderInfo.getKey();
-                                String writtenFilename = responseHeaderInfo.getValue();
-                                Map<String, Object> headerMap = new HashMap<>();
-                                headerMap.put("header", header);
-                                headerMap.put("packageName", config.packageName());
-                                String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFilename(headerName) + File.separatorChar + writtenFilename;
-                                try {
-                                    File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
-                                    if (written != null) {
-                                        files.add(written);
-                                        if (config.isEnablePostProcessFile() && !dryRun) {
-                                            config.postProcessFile(written, "response-header");
-                                        }
-                                    }
-                                } catch (Exception e) {
-                                    throw new RuntimeException("Could not generate file '" + headerFilename + "'", e);
-                                }
-                            }
+                            generateHeader(files, header, headerJsonPath);
                             // schema
                             CodegenSchema schema = header.getSchema();
                             String jsonPath = headerJsonPath + "/schema";
@@ -955,6 +937,29 @@ public class DefaultGenerator implements Generator {
         return parameters;
     }
 
+    private void generateHeader(List<File> files, CodegenHeader header, String jsonPath) {
+        Map<String, Object> headertTemplateData = new HashMap<>();
+        headertTemplateData.put("packageName", config.packageName());
+        headertTemplateData.put("header", header);
+
+        // header
+        Boolean generateHeaders = Boolean.TRUE;
+        for (String templateName: config.headerTemplateFiles().keySet()) {
+            String filename = config.headerFilename(templateName, jsonPath);
+            try {
+                File written = processTemplateToFile(headertTemplateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "header");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
+
     private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
         final Map<String, Header> specHeaders = this.openAPI.getComponents().getHeaders();
         if (specHeaders == null || specHeaders.isEmpty()) {
@@ -968,45 +973,26 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/headers/" + componentName;
             CodegenHeader header = config.fromHeader(specHeader, sourceJsonPath);
             headers.put(componentName, header);
-            Boolean generateHeaders = Boolean.TRUE;
-            for (Map.Entry<String, String> headerInfo : config.headerTemplateFiles().entrySet()) {
-                String templateName = headerInfo.getKey();
-                String writtenFilename = headerInfo.getValue();
-                String fileFolder = config.headerFileFolder(componentName);
-                String filename = fileFolder + File.separatorChar + writtenFilename;
-                Map<String, Object> headertTemplateData = new HashMap<>();
-                headertTemplateData.put("packageName", config.packageName());
-                headertTemplateData.put("header", header);
 
-                // header
+            generateHeader(files, header, sourceJsonPath);
+
+            // schema
+            CodegenSchema schema = header.getSchema();
+            String jsonPath = sourceJsonPath + "/schema";
+            if (schema == null && header.getContent() != null && !header.getContent().isEmpty()) {
+                String contentType = header.getContent().keySet().stream().collect(Collectors.toList()).get(0);
+                CodegenMediaType mt = header.getContent().get(contentType);
+                schema = mt.getSchema();
+                jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+            }
+            if (schema != null && schema.getRefModule() == null) {
                 try {
-                    File written = processTemplateToFile(headertTemplateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS, fileFolder);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "header");
-                        }
-                    }
+                    generateSchema(files, schema, jsonPath);
                 } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-                // schema
-                CodegenSchema schema = header.getSchema();
-                String jsonPath = sourceJsonPath + "/schema";
-                if (schema == null && header.getContent() != null && !header.getContent().isEmpty()) {
-                    String contentType = header.getContent().keySet().stream().collect(Collectors.toList()).get(0);
-                    CodegenMediaType mt = header.getContent().get(contentType);
-                    schema = mt.getSchema();
-                    jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                }
-                if (schema != null && schema.getRefModule() == null) {
-                    try {
-                        generateSchema(files, schema, jsonPath);
-                    } catch (Exception e) {
-                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-                    }
+                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                 }
             }
+
             Boolean generateHeaderDocs = Boolean.TRUE;
             for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
                 String templateName = headerDocInfo.getKey();

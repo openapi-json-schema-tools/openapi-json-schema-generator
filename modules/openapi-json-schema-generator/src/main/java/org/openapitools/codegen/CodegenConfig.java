@@ -280,6 +280,8 @@ public interface CodegenConfig {
 
     String schemaFilename(String templateName, String jsonPath);
 
+    String headerFilename(String templateName, String jsonPath);
+
     String apiFilename(String templateName, String tag);
 
     String apiTestFilename(String templateName, String tag);
