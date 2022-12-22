@@ -395,7 +395,11 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateSchema(List<File> files, Map<String, Object> schemaData, String jsonPath) throws IOException {
+    private void generateSchema(List<File> files, CodegenSchema schema, String jsonPath) throws IOException {
+        Map<String, Object> schemaData = new HashMap<>();
+        schemaData.put("packageName", config.packageName());
+        schemaData.put("schema", schema);
+        schemaData.putAll(config.additionalProperties());
         for (String templateName : config.modelTemplateFiles().keySet()) {
             String filename = config.schemaFilename(templateName, jsonPath);
             File written = processTemplateToFile(schemaData, templateName, filename, generateModels, CodegenConstants.MODELS);
@@ -756,12 +760,8 @@ public class DefaultGenerator implements Generator {
                                 jsonPath = headerJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                             }
                             if (schema != null && schema.getRefModule() == null) {
-                                Map<String, Object> schemaData = new HashMap<>();
-                                schemaData.put("packageName", config.packageName());
-                                schemaData.put("schema", schema);
-                                schemaData.putAll(config.additionalProperties());
                                 try {
-                                    generateSchema(files, schemaData, jsonPath);
+                                    generateSchema(files, schema, jsonPath);
                                 } catch (Exception e) {
                                     throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                                 }
@@ -842,12 +842,8 @@ public class DefaultGenerator implements Generator {
                     CodegenSchema schema = mt.getSchema();
                     String jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                     if (schema != null && schema.getRefModule() == null) {
-                        Map<String, Object> schemaData = new HashMap<>();
-                        schemaData.put("packageName", config.packageName());
-                        schemaData.put("schema", schema);
-                        schemaData.putAll(config.additionalProperties());
                         try {
-                            generateSchema(files, schemaData, jsonPath);
+                            generateSchema(files, schema, jsonPath);
                         } catch (Exception e) {
                             throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                         }
@@ -925,12 +921,8 @@ public class DefaultGenerator implements Generator {
                     jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
                 if (schema != null && schema.getRefModule() == null) {
-                    Map<String, Object> schemaData = new HashMap<>();
-                    schemaData.put("packageName", config.packageName());
-                    schemaData.put("schema", schema);
-                    schemaData.putAll(config.additionalProperties());
                     try {
-                        generateSchema(files, schemaData, jsonPath);
+                        generateSchema(files, schema, jsonPath);
                     } catch (Exception e) {
                         throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                     }
@@ -1008,12 +1000,8 @@ public class DefaultGenerator implements Generator {
                     jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
                 if (schema != null && schema.getRefModule() == null) {
-                    Map<String, Object> schemaData = new HashMap<>();
-                    schemaData.put("packageName", config.packageName());
-                    schemaData.put("schema", schema);
-                    schemaData.putAll(config.additionalProperties());
                     try {
-                        generateSchema(files, schemaData, jsonPath);
+                        generateSchema(files, schema, jsonPath);
                     } catch (Exception e) {
                         throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                     }
@@ -1099,15 +1087,14 @@ public class DefaultGenerator implements Generator {
             CodegenSchema schema = entry.getValue();
             try {
                 // to generate model files
+                String jsonPath = "#/components/schemas/" + componentName;
+                generateSchema(files, schema, jsonPath);
+
+                // to generate model test files
                 Map<String, Object> schemaData = new HashMap<>();
                 schemaData.put("packageName", config.packageName());
                 schemaData.put("schema", schema);
                 schemaData.putAll(config.additionalProperties());
-                String jsonPath = "#/components/schemas/" + componentName;
-
-                generateSchema(files, schemaData, jsonPath);
-
-                // to generate model test files
                 schemaData.put("complexTypePrefix", "../../components/schema/");
                 generateModelTests(files, schemaData, componentName);
 
