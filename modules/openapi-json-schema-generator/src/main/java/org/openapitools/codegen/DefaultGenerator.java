@@ -499,6 +499,7 @@ public class DefaultGenerator implements Generator {
                     }
                 }
                 String path = co.path;
+                String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod;
                 String pathModuleName = co.nickname;
                 if (!pathToPathModule.containsKey(path)) {
                     pathToPathModule.put(path, pathModuleName);
@@ -527,20 +528,15 @@ public class DefaultGenerator implements Generator {
                 }
 
                 // paths.some_path.post.parameter_0.py
-                for (String templateFile: config.pathEndpointParameterTemplateFiles()) {
-                    Integer i = 0;
-                    for (CodegenParameter cp: co.allParams) {
-                        if (cp.refModule != null) {
-                            // skip generation of parameter if it refs another location
-                            continue;
-                        }
-                        Map<String, Object> paramMap = new HashMap<>();
-                        paramMap.put("parameter", cp);
-                        paramMap.put("packageName", packageName);
-                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  config.toParameterFilename(i.toString()) + ".py"));
-                        pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
-                        i++;
+                Integer i = 0;
+                for (CodegenParameter cp: co.allParams) {
+                    if (cp.refModule != null) {
+                        // skip generation of parameter if it refs another location
+                        continue;
                     }
+                    String parameterJsonPath = operationJsonPath + "/parameters/" + i.toString();
+                    generateParameter(files, cp, parameterJsonPath);
+                    i++;
                 }
 
                 for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
@@ -853,6 +849,38 @@ public class DefaultGenerator implements Generator {
         return requestBodies;
     }
 
+    private void generateParameter(List<File> files, CodegenParameter parameter, String jsonPath) {
+        Boolean generateParameters = Boolean.TRUE;
+        for (String templateName : config.parameterTemplateFiles().keySet()) {
+            String filename = config.parameterFilename(templateName, jsonPath);
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("parameter", parameter);
+
+            try {
+                File written = processTemplateToFile(templateData, templateName, filename, generateParameters, CodegenConstants.PARAMETERS);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "parameter");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+            // schema
+            CodegenSchema schema = parameter.getSetSchema();
+            if (schema != null && schema.getRefModule() == null) {
+                String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
+                try {
+                    generateSchema(files, schema, schemaJsonPath);
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                }
+            }
+        }
+    }
+
     private TreeMap<String, CodegenParameter> generateParameters(List<File> files) {
         final Map<String, Parameter> specParameters = this.openAPI.getComponents().getParameters();
         if (specParameters == null || specParameters.isEmpty()) {
@@ -866,38 +894,8 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/parameters/" + componentName;
             CodegenParameter parameter = config.fromParameter(specParameter, sourceJsonPath);
             parameters.put(componentName, parameter);
-            Boolean generateParameters = Boolean.TRUE;
-            for (Map.Entry<String, String> entryInfo : config.parameterTemplateFiles().entrySet()) {
-                String templateName = entryInfo.getKey();
-                String writtenFilename = entryInfo.getValue();
-                String fileFolder = config.parameterFileFolder(componentName);
-                String filename = fileFolder + File.separatorChar + writtenFilename;
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("parameter", parameter);
+            generateParameter(files, parameter, sourceJsonPath);
 
-                try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateParameters, CodegenConstants.PARAMETERS, fileFolder);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "parameter");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-                // schema
-                CodegenSchema schema = parameter.getSetSchema();
-                if (schema != null && schema.getRefModule() == null) {
-                    String jsonPath = parameter.getSetSchemaJsonPath(sourceJsonPath);
-                    try {
-                        generateSchema(files, schema, jsonPath);
-                    } catch (Exception e) {
-                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-                    }
-                }
-            }
             Boolean generateParameterDocs = Boolean.TRUE;
             for (Map.Entry<String, String> entryInfo : config.parameterDocTemplateFiles().entrySet()) {
                 String templateName = entryInfo.getKey();

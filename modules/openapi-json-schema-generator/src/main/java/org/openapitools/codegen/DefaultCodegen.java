@@ -4188,7 +4188,25 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String apiFilename(String templateName, String tag) {
         String suffix = apiTemplateFiles().get(templateName);
-        return apiFileFolder() + File.separator + toApiFilename(tag) + suffix;
+        return apiFileFolder() + File.separatorChar + toApiFilename(tag) + suffix;
+    }
+
+    @Override
+    public String parameterFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        String writtenFilename = parameterTemplateFiles.get(templateName);
+        if (jsonPath.startsWith("#/components/parameters/")) {
+            // #/components/parameters/someParam -> length 4
+            String componentName = pathPieces[3];
+            return parameterFileFolder(componentName) + File.separatorChar + writtenFilename;
+        } else if (jsonPath.startsWith("#/paths/")) {
+            // #/paths/somePath/get/parameters/0 -> length 6
+            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            String httpVerb = pathPieces[3];
+            String i = pathPieces[5];
+            return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + writtenFilename;
+        }
+        return null;
     }
 
     @Override
@@ -4245,6 +4263,17 @@ public class DefaultCodegen implements CodegenConfig {
             }
             String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
             return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + toModelFilename(contentType) + suffix;
+        } else if (jsonPath.startsWith("#/paths/")) {
+            // #/paths/somePath/get/parameters/1/schema -> length 7
+            // #/paths/somePath/get/parameters/1/content/application-json/schema -> length 9
+            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            String httpVerb = pathPieces[3];
+            String i = pathPieces[5];
+            if (pathPieces.length == 7) {
+                return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + toModelFilename(pathPieces[6]) + suffix;
+            }
+            String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+            return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + toModelFilename(contentType) + suffix;
         }
         return null;
     }
