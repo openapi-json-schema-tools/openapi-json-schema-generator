@@ -188,7 +188,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> pathEndpointRequestBodyTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointParameterTemplateFiles = new HashSet<>();
     protected Map<String, String> pathEndpointResponseTemplateFiles = new HashMap<>();
-    protected Set<String> pathEndpointResponseHeaderTemplateFiles = new HashSet<>();
+    protected Map<String, String> pathEndpointResponseHeaderTemplateFiles = new HashMap<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
@@ -1042,7 +1042,7 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> pathEndpointResponseTemplateFiles() { return pathEndpointResponseTemplateFiles; }
 
     @Override
-    public Set<String> pathEndpointResponseHeaderTemplateFiles() { return pathEndpointResponseHeaderTemplateFiles; }
+    public Map<String, String> pathEndpointResponseHeaderTemplateFiles() { return pathEndpointResponseHeaderTemplateFiles; }
 
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename(componentName);
@@ -4196,25 +4196,39 @@ public class DefaultCodegen implements CodegenConfig {
         String[] pathPieces = jsonPath.split("/");
         String suffix = modelTemplateFiles().get(templateName);
         if (jsonPath.startsWith("#/components/schemas/") && pathPieces.length == 4) {
-            return modelFileFolder() + File.separator + toModelFilename(pathPieces[3]) + suffix;
+            return modelFileFolder() + File.separatorChar + toModelFilename(pathPieces[3]) + suffix;
         } else if (jsonPath.startsWith("#/components/headers/")) {
             // #/components/headers/someHeader/schema -> length 5
             // #/components/headers/someHeader/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
-                return headerFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;
+                return headerFileFolder(componentName) + File.separatorChar + toModelFilename(pathPieces[4]) + suffix;
             }
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-            return headerFileFolder(componentName) + File.separator + toModelFilename(contentType) + suffix;
+            return headerFileFolder(componentName) + File.separatorChar + toModelFilename(contentType) + suffix;
         } else if (jsonPath.startsWith("#/components/parameters/")) {
             // #/components/parameters/someParam/schema -> length 5
             // #/components/parameters/someParam/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
-                return parameterFileFolder(componentName) + File.separator + toModelFilename(pathPieces[4]) + suffix;
+                return parameterFileFolder(componentName) + File.separatorChar + toModelFilename(pathPieces[4]) + suffix;
             }
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-            return parameterFileFolder(componentName) + File.separator + toModelFilename(contentType) + suffix;
+            return parameterFileFolder(componentName) + File.separatorChar + toModelFilename(contentType) + suffix;
+        } else if (jsonPath.startsWith("#/components/requestBodies/")) {
+            // #/components/requestBodies/someBody/content/application-json/schema -> length 7
+            String componentName = pathPieces[3];
+            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+            return requestBodyFileFolder(componentName) + File.separatorChar + toModelFilename(contentType) + suffix;
+        } else if (jsonPath.startsWith("#/components/responses/")) {
+            // #/components/responses/someResponse/headers/SomeHeader/schema -> length 7
+            // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema -> length 9
+            String componentName = pathPieces[3];
+            if (pathPieces.length == 7) {
+                return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + toModelFilename(pathPieces[6]) + suffix;
+            }
+            String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+            return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + toModelFilename(contentType) + suffix;
         }
         return null;
     }
@@ -5755,7 +5769,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String requestBodyFileFolder() {
+    public String requestBodyFileFolder(String componentName) {
         return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
     }
 

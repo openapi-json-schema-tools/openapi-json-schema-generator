@@ -305,7 +305,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         modelTestTemplateFiles.put("model_test.handlebars", ".py");
         modelDocTemplateFiles.put("model_doc.handlebars", ".md");
         apiDocTemplateFiles.put("api_doc.handlebars", ".md");
-        requestBodyTemplateFiles.put("request_body.handlebars", ".py");
+        requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
         requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
         pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
         /*
@@ -317,7 +317,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointRequestBodyTemplateFiles.put("request_body.handlebars", "request_body.py");
         pathEndpointParameterTemplateFiles.add("parameter.handlebars");
         pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
-        pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
+        pathEndpointResponseHeaderTemplateFiles.put("header.handlebars", "__init__.py");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
         responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
@@ -493,14 +493,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String requestBodyFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+    public String requestBodyFileFolder(String componentName) {
+        String requestBodyFilename = toRequestBodyFilename(componentName);
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + File.separatorChar + requestBodyFilename;
     }
 
     @Override
     public String headerFileFolder(String componentName) {
         String headerFilename = toHeaderFilename(componentName);
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers" + File.separator + headerFilename;
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers" + File.separatorChar + headerFilename;
     }
 
     @Override

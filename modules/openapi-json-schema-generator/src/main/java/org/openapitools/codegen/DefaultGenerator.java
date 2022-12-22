@@ -560,11 +560,13 @@ public class DefaultGenerator implements Generator {
                                     String headerName = headerInfo.getKey();
                                     CodegenHeader header = headerInfo.getValue();
                                     if (header.refModule == null) {
-                                        for (String headerTemplateFile: config.pathEndpointResponseHeaderTemplateFiles()) {
+                                        for (Map.Entry<String, String> responseHeaderInfo: config.pathEndpointResponseHeaderTemplateFiles().entrySet()) {
+                                            String headerTemplateFile = responseHeaderInfo.getKey();
+                                            String writtenFilename = responseHeaderInfo.getValue();
                                             Map<String, Object> headerMap = new HashMap<>();
                                             headerMap.put("header", header);
                                             headerMap.put("packageName", packageName);
-                                            String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFilename(headerName) + ".py"));
+                                            String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFilename(headerName), writtenFilename));
                                             pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
                                         }
                                     }
@@ -723,12 +725,15 @@ public class DefaultGenerator implements Generator {
                     for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
                         String headerName = headerInfo.getKey();
                         CodegenHeader header = headerInfo.getValue();
+                        String headerJsonPath = sourceJsonPath + "/headers/" + headerName;
                         if (header.refModule == null) {
-                            for (String headerTemplateName: config.pathEndpointResponseHeaderTemplateFiles()) {
+                            for (Map.Entry<String, String> responseHeaderInfo: config.pathEndpointResponseHeaderTemplateFiles().entrySet()) {
+                                String headerTemplateName = responseHeaderInfo.getKey();
+                                String writtenFilename = responseHeaderInfo.getValue();
                                 Map<String, Object> headerMap = new HashMap<>();
                                 headerMap.put("header", header);
                                 headerMap.put("packageName", config.packageName());
-                                String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFilename(headerName) + ".py";
+                                String headerFilename = responseFileFolder + File.separatorChar + config.toParameterFilename(headerName) + File.separatorChar + writtenFilename;
                                 try {
                                     File written = processTemplateToFile(headerMap, headerTemplateName, headerFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
                                     if (written != null) {
@@ -739,6 +744,26 @@ public class DefaultGenerator implements Generator {
                                     }
                                 } catch (Exception e) {
                                     throw new RuntimeException("Could not generate file '" + headerFilename + "'", e);
+                                }
+                            }
+                            // schema
+                            CodegenSchema schema = header.getSchema();
+                            String jsonPath = headerJsonPath + "/schema";
+                            if (schema == null && header.getContent() != null && !header.getContent().isEmpty()) {
+                                String contentType = header.getContent().keySet().stream().collect(Collectors.toList()).get(0);
+                                CodegenMediaType mt = header.getContent().get(contentType);
+                                schema = mt.getSchema();
+                                jsonPath = headerJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                            }
+                            if (schema != null && schema.getRefModule() == null) {
+                                Map<String, Object> schemaData = new HashMap<>();
+                                schemaData.put("packageName", config.packageName());
+                                schemaData.put("schema", schema);
+                                schemaData.putAll(config.additionalProperties());
+                                try {
+                                    generateSchema(files, schemaData, jsonPath);
+                                } catch (Exception e) {
+                                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                                 }
                             }
                         }
@@ -791,11 +816,11 @@ public class DefaultGenerator implements Generator {
             templateData.put("packageName", config.packageName());
             templateData.put("requestBody", requestBody);
             Boolean generateRequestBodies = Boolean.TRUE;
-            for (String templateName : config.requestBodyTemplateFiles().keySet()) {
-                String docExtension = config.getDocExtension();
-                String suffix = docExtension != null ? docExtension : config.requestBodyTemplateFiles().get(templateName);
-                String fileFolder = config.requestBodyFileFolder();
-                String filename = fileFolder + File.separatorChar + config.toRequestBodyFilename(componentName) + suffix;
+            for (Map.Entry<String, String> reqBodyTemplateInfo : config.requestBodyTemplateFiles().entrySet()) {
+                String templateName = reqBodyTemplateInfo.getKey();
+                String writtenFilename = reqBodyTemplateInfo.getValue();
+                String fileFolder = config.requestBodyFileFolder(componentName);
+                String filename = fileFolder + File.separatorChar + writtenFilename;
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES, fileFolder);
@@ -809,6 +834,27 @@ public class DefaultGenerator implements Generator {
                     throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
             }
+            // schema
+            if (requestBody.getContent()!= null && !requestBody.getContent().isEmpty()) {
+                for (Map.Entry<String, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
+                    String contentType = contentInfo.getKey();
+                    CodegenMediaType mt = contentInfo.getValue();
+                    CodegenSchema schema = mt.getSchema();
+                    String jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                    if (schema != null && schema.getRefModule() == null) {
+                        Map<String, Object> schemaData = new HashMap<>();
+                        schemaData.put("packageName", config.packageName());
+                        schemaData.put("schema", schema);
+                        schemaData.putAll(config.additionalProperties());
+                        try {
+                            generateSchema(files, schemaData, jsonPath);
+                        } catch (Exception e) {
+                            throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                        }
+                    }
+                }
+            }
+
             // TODO make this a property that can be turned off and on
             Boolean generateRequestBodyDocumentation = Boolean.TRUE;
             for (String templateName : config.requestBodyDocTemplateFiles().keySet()) {

@@ -96,7 +96,7 @@ public interface CodegenConfig {
 
     String packageName();
 
-    String requestBodyFileFolder();
+    String requestBodyFileFolder(String componentName);
 
     String responseFileFolder(String componentName);
 
@@ -196,7 +196,7 @@ public interface CodegenConfig {
 
     Map<String, String> pathEndpointResponseTemplateFiles();
 
-    Set<String> pathEndpointResponseHeaderTemplateFiles();
+    Map<String, String> pathEndpointResponseHeaderTemplateFiles();
 
     Map<String, String> responseTemplateFiles();
 
