@@ -728,16 +728,6 @@ public class DefaultGenerator implements Generator {
                         String headerJsonPath = sourceJsonPath + "/headers/" + headerName;
                         if (header.refModule == null) {
                             generateHeader(files, header, headerJsonPath);
-                            // schema
-                            CodegenSchema schema = header.getSetSchema();
-                            if (schema != null && schema.getRefModule() == null) {
-                                String jsonPath = header.getSetSchemaJsonPath(headerJsonPath);
-                                try {
-                                    generateSchema(files, schema, jsonPath);
-                                } catch (Exception e) {
-                                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-                                }
-                            }
                         }
                     }
                 }
@@ -868,15 +858,15 @@ public class DefaultGenerator implements Generator {
             } catch (Exception e) {
                 throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
-            // schema
-            CodegenSchema schema = parameter.getSetSchema();
-            if (schema != null && schema.getRefModule() == null) {
-                String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
-                try {
-                    generateSchema(files, schema, schemaJsonPath);
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-                }
+        }
+        // schema
+        CodegenSchema schema = parameter.getSetSchema();
+        if (schema != null && schema.getRefModule() == null) {
+            String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
+            try {
+                generateSchema(files, schema, schemaJsonPath);
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
             }
         }
     }
@@ -944,6 +934,16 @@ public class DefaultGenerator implements Generator {
                 throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
+        // schema
+        CodegenSchema schema = header.getSetSchema();
+        if (schema != null && schema.getRefModule() == null) {
+            String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
+            try {
+                generateSchema(files, schema, schemaJsonPath);
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+            }
+        }
     }
 
     private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
@@ -961,17 +961,6 @@ public class DefaultGenerator implements Generator {
             headers.put(componentName, header);
 
             generateHeader(files, header, sourceJsonPath);
-
-            // schema
-            CodegenSchema schema = header.getSetSchema();
-            if (schema != null && schema.getRefModule() == null) {
-                String jsonPath = header.getSetSchemaJsonPath(sourceJsonPath);
-                try {
-                    generateSchema(files, schema, jsonPath);
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-                }
-            }
 
             Boolean generateHeaderDocs = Boolean.TRUE;
             for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
