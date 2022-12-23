@@ -4296,12 +4296,19 @@ public class DefaultCodegen implements CodegenConfig {
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
             return requestBodyFileFolder(componentName) + File.separatorChar + toModelFilename(contentType) + suffix;
         } else if (jsonPath.startsWith("#/components/responses/")) {
-            // #/components/responses/someResponse/headers/SomeHeader/schema -> length 7
-            // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema -> length 9
+
             String componentName = pathPieces[3];
             if (pathPieces.length == 7) {
-                return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + toModelFilename(pathPieces[6]) + suffix;
+                String contentOrHeaders = pathPieces[4];
+                if (contentOrHeaders.equals("headers")) {
+                    // #/components/responses/someResponse/headers/SomeHeader/schema -> length 7
+                    return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + toModelFilename(pathPieces[6]) + suffix;
+                }
+                // #/components/responses/someResponse/content/application-json/schema -> length 7
+                String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                return responseFileFolder(componentName) + File.separatorChar  + toModelFilename(contentType) + suffix;
             }
+            // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema -> length 9
             String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
             return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + toModelFilename(contentType) + suffix;
         } else if (jsonPath.startsWith("#/paths/")) {
@@ -4323,10 +4330,16 @@ public class DefaultCodegen implements CodegenConfig {
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                     return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + toModelFilename(contentType) + suffix;
                 } else if (parametersOrResponses.equals("responses")) {
-                    // #/paths/somePath/get/responses/200/headers/someHeader/schema -> length 9
+                    String contentOrHeaders = pathPieces[6];
                     String code = pathPieces[5];
-                    String headerModule = toHeaderFilename(pathPieces[7]);
-                    return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for" + code + File.separatorChar + headerModule + File.separatorChar + toModelFilename(pathPieces[8]) + suffix;
+                    if (contentOrHeaders.equals("headers")) {
+                        // #/paths/somePath/get/responses/200/headers/someHeader/schema -> length 9
+                        String headerModule = toHeaderFilename(pathPieces[7]);
+                        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for" + code + File.separatorChar + headerModule + File.separatorChar + toModelFilename(pathPieces[8]) + suffix;
+                    }
+                    // #/paths/somePath/get/responses/200/content/application-json/schema -> length 9
+                    String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                    return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for" + code + File.separatorChar + toModelFilename(contentType) + suffix;
                 }
             } else if (pathPieces.length == 11) {
                 // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json/schema -> length 11
