@@ -35,7 +35,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'query': typing.Union[parameter_0.Schema, str, ],
+            'query': typing.Union[parameter_0.schema.Schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -85,7 +85,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -96,7 +96,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -109,7 +109,7 @@ class BaseApi(api_client.Api):
 
     def _body_with_query_params_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -187,7 +187,7 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -200,7 +200,7 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -214,7 +214,7 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -225,7 +225,7 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -238,7 +238,7 @@ class BodyWithQueryParams(BaseApi):
 
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -261,7 +261,7 @@ class ApiForput(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -274,7 +274,7 @@ class ApiForput(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -288,7 +288,7 @@ class ApiForput(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -299,7 +299,7 @@ class ApiForput(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -312,7 +312,7 @@ class ApiForput(BaseApi):
 
     def put(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.user.User,],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,

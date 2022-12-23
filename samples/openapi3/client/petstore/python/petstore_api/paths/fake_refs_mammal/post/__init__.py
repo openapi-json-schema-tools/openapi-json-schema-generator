@@ -49,7 +49,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _mammal_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _mammal_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _mammal_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _mammal_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -100,7 +100,7 @@ class BaseApi(api_client.Api):
 
     def _mammal_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -169,7 +169,7 @@ class Mammal(BaseApi):
     @typing.overload
     def mammal(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -182,7 +182,7 @@ class Mammal(BaseApi):
     @typing.overload
     def mammal(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -196,7 +196,7 @@ class Mammal(BaseApi):
     @typing.overload
     def mammal(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -207,7 +207,7 @@ class Mammal(BaseApi):
     @typing.overload
     def mammal(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -220,7 +220,7 @@ class Mammal(BaseApi):
 
     def mammal(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -243,7 +243,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -256,7 +256,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -270,7 +270,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -281,7 +281,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -294,7 +294,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

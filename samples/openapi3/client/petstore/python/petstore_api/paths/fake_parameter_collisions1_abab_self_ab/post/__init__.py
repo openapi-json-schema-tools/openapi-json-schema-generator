@@ -59,11 +59,11 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_0.Schema, str, ],
-            'aB': typing.Union[parameter_1.Schema, str, ],
-            'Ab': typing.Union[parameter_2.Schema, str, ],
-            'self': typing.Union[parameter_3.Schema, str, ],
-            'A-B': typing.Union[parameter_4.Schema, str, ],
+            '1': typing.Union[parameter_0.schema.Schema, str, ],
+            'aB': typing.Union[parameter_1.schema.Schema, str, ],
+            'Ab': typing.Union[parameter_2.schema.Schema, str, ],
+            'self': typing.Union[parameter_3.schema.Schema, str, ],
+            'A-B': typing.Union[parameter_4.schema.Schema, str, ],
         },
         total=False
     )
@@ -90,10 +90,10 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_5.Schema, str, ],
-            'aB': typing.Union[parameter_6.Schema, str, ],
-            'self': typing.Union[parameter_7.Schema, str, ],
-            'A-B': typing.Union[parameter_8.Schema, str, ],
+            '1': typing.Union[parameter_5.schema.Schema, str, ],
+            'aB': typing.Union[parameter_6.schema.Schema, str, ],
+            'self': typing.Union[parameter_7.schema.Schema, str, ],
+            'A-B': typing.Union[parameter_8.schema.Schema, str, ],
         },
         total=False
     )
@@ -114,11 +114,11 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            '1': typing.Union[parameter_9.Schema, str, ],
-            'aB': typing.Union[parameter_10.Schema, str, ],
-            'Ab': typing.Union[parameter_11.Schema, str, ],
-            'self': typing.Union[parameter_12.Schema, str, ],
-            'A-B': typing.Union[parameter_13.Schema, str, ],
+            '1': typing.Union[parameter_9.schema.Schema, str, ],
+            'aB': typing.Union[parameter_10.schema.Schema, str, ],
+            'Ab': typing.Union[parameter_11.schema.Schema, str, ],
+            'self': typing.Union[parameter_12.schema.Schema, str, ],
+            'A-B': typing.Union[parameter_13.schema.Schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -150,11 +150,11 @@ class RequestCookieParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_14.Schema, str, ],
-            'aB': typing.Union[parameter_15.Schema, str, ],
-            'Ab': typing.Union[parameter_16.Schema, str, ],
-            'self': typing.Union[parameter_17.Schema, str, ],
-            'A-B': typing.Union[parameter_18.Schema, str, ],
+            '1': typing.Union[parameter_14.schema.Schema, str, ],
+            'aB': typing.Union[parameter_15.schema.Schema, str, ],
+            'Ab': typing.Union[parameter_16.schema.Schema, str, ],
+            'self': typing.Union[parameter_17.schema.Schema, str, ],
+            'A-B': typing.Union[parameter_18.schema.Schema, str, ],
         },
         total=False
     )
@@ -191,7 +191,7 @@ class BaseApi(api_client.Api):
     def _parameter_collisions_oapg(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -208,7 +208,7 @@ class BaseApi(api_client.Api):
     def _parameter_collisions_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -227,7 +227,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -241,7 +241,7 @@ class BaseApi(api_client.Api):
     def _parameter_collisions_oapg(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -258,7 +258,7 @@ class BaseApi(api_client.Api):
     def _parameter_collisions_oapg(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -362,7 +362,7 @@ class ParameterCollisions(BaseApi):
     def parameter_collisions(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -379,7 +379,7 @@ class ParameterCollisions(BaseApi):
     def parameter_collisions(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -398,7 +398,7 @@ class ParameterCollisions(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -412,7 +412,7 @@ class ParameterCollisions(BaseApi):
     def parameter_collisions(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -429,7 +429,7 @@ class ParameterCollisions(BaseApi):
     def parameter_collisions(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -460,7 +460,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -477,7 +477,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -496,7 +496,7 @@ class ApiForpost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -510,7 +510,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -527,7 +527,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),

@@ -53,7 +53,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -66,7 +66,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -80,7 +80,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -104,7 +104,7 @@ class BaseApi(api_client.Api):
 
     def _place_order_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -175,7 +175,7 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -188,7 +188,7 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -202,7 +202,7 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -213,7 +213,7 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -226,7 +226,7 @@ class PlaceOrder(BaseApi):
 
     def place_order(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -249,7 +249,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -262,7 +262,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -276,7 +276,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -287,7 +287,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -300,7 +300,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.order.Order,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
