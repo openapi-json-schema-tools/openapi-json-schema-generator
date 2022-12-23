@@ -2,9 +2,17 @@ import dataclasses
 import urllib3
 
 from {{packageName}} import api_client
-{{> model_templates/imports_schema_types }}
 {{#with response}}
 {{> model_templates/imports }}
+{{#if getContent}}
+{{#each content}}
+    {{#with this.schema}}
+        {{#unless refModule}}
+from . import {{name.getSnakeCaseName}}
+        {{/unless}}
+    {{/with}}
+{{/each}}
+{{/if}}
 {{#each headers}}
 {{#if refModule}}
 from {{packageName}}.components.headers import {{refModule}} as {{paramName}}
@@ -14,15 +22,6 @@ from . import {{paramName}}
 {{/each}}
 {{#if headers}}
 {{> response_header_schema_and_def xParams=headers xParamsName="Header" }}
-{{/if}}
-{{#if getContent}}
-
-# body schemas
-{{#each content}}
-    {{#with this.schema}}
-{{> model_templates/schema }}
-    {{/with}}
-{{/each}}
 {{/if}}
 
 
@@ -34,7 +33,11 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        {{name.getCamelCaseName}},
+        {{#if refModule}}
+        {{refModule}}.{{refClass}},
+        {{else}}
+        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{/if}}
     {{/with}}
 {{else}}
         schemas.Unset,
@@ -52,7 +55,11 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        {{name.getCamelCaseName}},
+        {{#if refModule}}
+        {{refModule}}.{{refClass}},
+        {{else}}
+        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{/if}}
     {{/with}}
 {{else}}
         schemas.Unset,
@@ -80,7 +87,11 @@ response = api_client.OpenApiResponse(
         '{{{@key}}}': api_client.MediaType(
         {{#if this.schema}}
             {{#with this.schema}}
-            schema={{name.getCamelCaseName}},
+                {{#if refModule}}
+            {{refModule}}.{{refClass}},
+                {{else}}
+            {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+                {{/if}}
             {{/with}}
         {{/if}}
         ),

@@ -2,18 +2,8 @@ import dataclasses
 import urllib3
 
 from petstore_api import api_client
-from datetime import date, datetime  # noqa: F401
-import decimal  # noqa: F401
-import functools  # noqa: F401
-import io  # noqa: F401
-import re  # noqa: F401
-import typing  # noqa: F401
-import typing_extensions  # noqa: F401
-import uuid  # noqa: F401
-
-import frozendict  # noqa: F401
-
-from petstore_api import schemas  # noqa: F401
+from . import application_xml
+from . import application_json
 from petstore_api.components.headers import ref_schema_header_header as parameter_ref_schema_header
 from . import parameter_x_rate_limit
 from petstore_api.components.headers import int32_json_content_type_header_header as parameter_int32_json_content_type_header
@@ -57,17 +47,13 @@ class Header:
         parameter_string_header.parameter_oapg,
         parameter_number_header.parameter_oapg,
     ]
-# body schemas
-ApplicationXml = schemas.StrSchema
-ApplicationJson = schemas.StrSchema
-
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        ApplicationXml,
-        ApplicationJson,
+        application_xml.ApplicationXml,
+        application_json.ApplicationJson,
     ]
     headers: Header.Params
 
@@ -76,10 +62,10 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/xml': api_client.MediaType(
-            schema=ApplicationXml,
+            application_xml.ApplicationXml,
         ),
         'application/json': api_client.MediaType(
-            schema=ApplicationJson,
+            application_json.ApplicationJson,
         ),
     },
     headers=Header.parameters
