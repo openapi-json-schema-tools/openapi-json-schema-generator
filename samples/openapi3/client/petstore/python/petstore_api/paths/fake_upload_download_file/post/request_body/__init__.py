@@ -7,14 +7,12 @@
 """
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import user
-from . import application_json
+from . import application_octet_stream
 
 parameter_oapg = api_client.RequestBody(
     content={
-        'application/json': api_client.MediaType(
-            schema=application_json.ApplicationJson,
+        'application/octet-stream': api_client.MediaType(
+            schema=application_octet_stream.ApplicationOctetStream,
         ),
     },
     required=True,

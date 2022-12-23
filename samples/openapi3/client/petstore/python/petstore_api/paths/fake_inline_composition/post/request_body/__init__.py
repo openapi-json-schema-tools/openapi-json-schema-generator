@@ -7,15 +7,16 @@
 """
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import user
 from . import application_json
+from . import multipart_form_data
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
             schema=application_json.ApplicationJson,
         ),
+        'multipart/form-data': api_client.MediaType(
+            schema=multipart_form_data.MultipartFormData,
+        ),
     },
-    required=True,
 )

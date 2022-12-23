@@ -8,14 +8,12 @@
 
 from petstore_api import api_client, exceptions
 
-from petstore_api.components.schema import user
-from . import application_json
+from petstore_api.components.schema import object_model_with_ref_props
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json.ApplicationJson,
+            schema=object_model_with_ref_props.ObjectModelWithRefProps,
         ),
     },
-    required=True,
 )

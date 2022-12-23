@@ -515,16 +515,9 @@ public class DefaultGenerator implements Generator {
                 }
 
                 // paths.some_path.post.request_body.py, only written if there is no refModule
-                for (Map.Entry<String, String> entry: config.pathEndpointRequestBodyTemplateFiles().entrySet()) {
-                    String templateFile = entry.getKey();
-                    String renderedOutputFilename = entry.getValue();
-                    if (co.requestBody != null && co.requestBody.getRefModule() == null) {
-                        Map<String, Object> paramMap = new HashMap<>();
-                        paramMap.put("requestBody", co.requestBody);
-                        paramMap.put("packageName", packageName);
-                        outputFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod, renderedOutputFilename));
-                        pathsFiles.add(Arrays.asList(paramMap, templateFile, outputFilename));
-                    }
+                if (co.requestBody != null && co.requestBody.getRefModule() == null) {
+                    String requestBodyJsonPath = operationJsonPath + "/requestBody";
+                    generateRequestBody(files, co.requestBody, requestBodyJsonPath);
                 }
 
                 // paths.some_path.post.parameter_0.py

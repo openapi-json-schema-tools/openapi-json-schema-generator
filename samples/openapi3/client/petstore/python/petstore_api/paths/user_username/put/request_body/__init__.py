@@ -9,12 +9,11 @@
 from petstore_api import api_client, exceptions
 
 from petstore_api.components.schema import user
-from . import application_json
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json.ApplicationJson,
+            schema=user.User,
         ),
     },
     required=True,

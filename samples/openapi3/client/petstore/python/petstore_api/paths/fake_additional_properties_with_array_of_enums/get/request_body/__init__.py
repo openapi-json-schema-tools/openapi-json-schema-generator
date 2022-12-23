@@ -8,14 +8,12 @@
 
 from petstore_api import api_client, exceptions
 
-from petstore_api.components.schema import user
-from . import application_json
+from petstore_api.components.schema import additional_properties_with_array_of_enums
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=application_json.ApplicationJson,
+            schema=additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums,
         ),
     },
-    required=True,
 )

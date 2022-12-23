@@ -7,14 +7,12 @@
 """
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import client
+from . import application_x_www_form_urlencoded
 
 parameter_oapg = api_client.RequestBody(
     content={
-        'application/json': api_client.MediaType(
-            schema=client.Client,
+        'application/x-www-form-urlencoded': api_client.MediaType(
+            schema=application_x_www_form_urlencoded.ApplicationXWwwFormUrlencoded,
         ),
     },
-    required=True,
 )
