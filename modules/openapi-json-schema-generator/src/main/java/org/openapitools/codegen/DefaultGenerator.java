@@ -760,6 +760,44 @@ public class DefaultGenerator implements Generator {
         return responses;
     }
 
+    private void generateRequestBody(List<File> files, CodegenParameter requestBody, String jsonPath) {
+        Map<String, Object> templateData = new HashMap<>();
+        templateData.put("packageName", config.packageName());
+        templateData.put("requestBody", requestBody);
+        Boolean generateRequestBodies = Boolean.TRUE;
+        for (String templateName : config.requestBodyTemplateFiles().keySet()) {
+            String filename = config.requestBodyFilename(templateName, jsonPath);
+
+            try {
+                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "requestBody");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+        // schemas
+        if (requestBody.getContent()!= null && !requestBody.getContent().isEmpty()) {
+            for (Map.Entry<String, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
+                String contentType = contentInfo.getKey();
+                CodegenMediaType mt = contentInfo.getValue();
+                CodegenSchema schema = mt.getSchema();
+                String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                if (schema != null && schema.getRefModule() == null) {
+                    try {
+                        generateSchema(files, schema, schemaJsonPath);
+                    } catch (Exception e) {
+                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                    }
+                }
+            }
+        }
+    }
+
     private TreeMap<String, CodegenParameter> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (specRequestBodies == null) {
@@ -774,65 +812,8 @@ public class DefaultGenerator implements Generator {
             String bodyParameterName = config.getBodyParameterName(null);
             CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
             requestBodies.put(componentName, requestBody);
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", config.packageName());
-            templateData.put("requestBody", requestBody);
-            Boolean generateRequestBodies = Boolean.TRUE;
-            for (Map.Entry<String, String> reqBodyTemplateInfo : config.requestBodyTemplateFiles().entrySet()) {
-                String templateName = reqBodyTemplateInfo.getKey();
-                String writtenFilename = reqBodyTemplateInfo.getValue();
-                String fileFolder = config.requestBodyFileFolder(componentName);
-                String filename = fileFolder + File.separatorChar + writtenFilename;
 
-                try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES, fileFolder);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "requestBody");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-            }
-            // schema
-            if (requestBody.getContent()!= null && !requestBody.getContent().isEmpty()) {
-                for (Map.Entry<String, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
-                    String contentType = contentInfo.getKey();
-                    CodegenMediaType mt = contentInfo.getValue();
-                    CodegenSchema schema = mt.getSchema();
-                    String jsonPath = sourceJsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                    if (schema != null && schema.getRefModule() == null) {
-                        try {
-                            generateSchema(files, schema, jsonPath);
-                        } catch (Exception e) {
-                            throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-                        }
-                    }
-                }
-            }
-
-            // TODO make this a property that can be turned off and on
-            Boolean generateRequestBodyDocumentation = Boolean.TRUE;
-            for (String templateName : config.requestBodyDocTemplateFiles().keySet()) {
-                String docExtension = config.getDocExtension();
-                String suffix = docExtension != null ? docExtension : config.requestBodyDocTemplateFiles().get(templateName);
-                String docFilename = config.toRequestBodyDocFilename(componentName);
-                String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
-
-                try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "requestBody-doc");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-            }
+            generateRequestBody(files, requestBody, sourceJsonPath);
         }
         // sort them
         requestBodies = new TreeMap<>(requestBodies);

@@ -11,26 +11,12 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
-from datetime import date, datetime  # noqa: F401
-import decimal  # noqa: F401
-import functools  # noqa: F401
-import io  # noqa: F401
-import re  # noqa: F401
-import typing  # noqa: F401
-import typing_extensions  # noqa: F401
-import uuid  # noqa: F401
-
-import frozendict  # noqa: F401
-
-from petstore_api import schemas  # noqa: F401
-
-
-ApplicationJsonCharsetutf8 = schemas.AnyTypeSchema
+from . import application_json_charsetutf_8
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json; charset=utf-8': api_client.MediaType(
-            schema=ApplicationJsonCharsetutf8
+            schema=application_json_charsetutf_8.ApplicationJsonCharsetutf8,
         ),
     },
 )

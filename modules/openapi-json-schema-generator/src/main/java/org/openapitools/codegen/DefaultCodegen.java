@@ -4192,6 +4192,18 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public String requestBodyFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        String writtenFilename = requestBodyTemplateFiles.get(templateName);
+        if (jsonPath.startsWith("#/components/requestBodies/")) {
+            // #/components/parameters/someParam -> length 4
+            String componentName = pathPieces[3];
+            return requestBodyFileFolder(componentName) + File.separatorChar + writtenFilename;
+        }
+        return null;
+    }
+
+    @Override
     public String parameterFilename(String templateName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String writtenFilename = parameterTemplateFiles.get(templateName);
@@ -5815,7 +5827,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String requestBodyFileFolder(String componentName) {
-        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + toRequestBodyFileName(componentName);
     }
 
     @Override
