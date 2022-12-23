@@ -291,40 +291,36 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             this.ignoreProcessor = new CodegenIgnoreProcessor(this.getOutputDir());
         }
 
-        modelTemplateFiles.put("model.handlebars", ".py");
         /*
-        This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
+        The pyi stub files exists to allow pycharm to read and use typing.overload decorators for it to see that
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
         apiTemplateFiles.put("api.handlebars", ".py");
+        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
         apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
+
+        pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
         pathEndpointDocTemplateFiles.add("endpoint_doc.handlebars");
-        modelTestTemplateFiles.put("model_test.handlebars", ".py");
+        pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
+        pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
+
+        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
         modelDocTemplateFiles.put("model_doc.handlebars", ".md");
-        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
+        modelTestTemplateFiles.put("model_test.handlebars", ".py");
+
         requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
         requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
-        pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
-        /*
-        This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
-        dict_instance["someProp"] is of type SomeClass.properties.someProp
-        See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
-         */
-        pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
-        pathEndpointRequestBodyTemplateFiles.put("request_body.handlebars", "request_body.py");
-        pathEndpointParameterTemplateFiles.add("parameter.handlebars");
-        pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
-        pathEndpointResponseHeaderTemplateFiles.put("header.handlebars", "__init__.py");
-        pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
-        responseTemplateFiles.put("response.handlebars", "__init__.py");
-        responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-        headerTemplateFiles.put("header.handlebars", "__init__.py");
-        headerDocTemplateFiles.put("header_doc.handlebars", ".md");
+
         parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
+
+        responseTemplateFiles.put("response.handlebars", "__init__.py");
+        responseDocTemplateFiles.put("response_doc.handlebars", ".md");
+
+        headerTemplateFiles.put("header.handlebars", "__init__.py");
+        headerDocTemplateFiles.put("header_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -449,6 +445,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             if (components.getResponses() != null) {
                 supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "responses", "__init__.py"));
+            }
+            if (components.getHeaders() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "headers", "__init__.py"));
+            }
+            if (components.getParameters() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "parameters", "__init__.py"));
             }
         }
 

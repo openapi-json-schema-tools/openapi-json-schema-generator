@@ -190,14 +190,6 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointDocTemplateFiles();
 
-    Map<String, String> pathEndpointRequestBodyTemplateFiles();
-
-    Set<String> pathEndpointParameterTemplateFiles();
-
-    Map<String, String> pathEndpointResponseTemplateFiles();
-
-    Map<String, String> pathEndpointResponseHeaderTemplateFiles();
-
     Map<String, String> responseTemplateFiles();
 
     Map<String, String> responseDocTemplateFiles();
