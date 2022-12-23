@@ -27,11 +27,11 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[parameter_ref_schema_header.Schema, ],
-            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.ApplicationJson, decimal.Decimal, int, ],
-            'int32': typing.Union[parameter_int32_json_content_type_header.ApplicationJson, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.ApplicationJson, ],
-            'stringHeader': typing.Union[parameter_string_header.Schema, str, ],
+            'ref-schema-header': typing.Union[parameter_ref_schema_header.string_with_validation.StringWithValidation, ],
+            'X-Rate-Limit': typing.Union[parameter_x_rate_limit.application_json.ApplicationJson, decimal.Decimal, int, ],
+            'int32': typing.Union[parameter_int32_json_content_type_header.application_json.ApplicationJson, decimal.Decimal, int, ],
+            'ref-content-schema-header': typing.Union[parameter_ref_content_schema_header.string_with_validation.StringWithValidation, ],
+            'stringHeader': typing.Union[parameter_string_header.schema.Schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

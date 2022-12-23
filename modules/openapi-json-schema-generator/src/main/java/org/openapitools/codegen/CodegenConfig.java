@@ -286,6 +286,8 @@ public interface CodegenConfig {
 
     String requestBodyFilename(String templateName, String jsonPath);
 
+    String responseFilename(String templateName, String jsonPath);
+
     String apiFilename(String templateName, String tag);
 
     String apiTestFilename(String templateName, String tag);

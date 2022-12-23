@@ -539,33 +539,8 @@ public class DefaultGenerator implements Generator {
                     String code = responseEntry.getKey();
                     CodegenResponse response = responseEntry.getValue();
                     if (response.getRefModule() == null) {
-                        for (Map.Entry<String, String> entry: config.pathEndpointResponseTemplateFiles().entrySet()) {
-                            String templateFile = entry.getKey();
-                            String renderedOutputFilename = entry.getValue();
-                            Map<String, Object> responseMap = new HashMap<>();
-                            responseMap.put("response", response);
-                            responseMap.put("packageName", packageName);
-                            String responseModuleName = (code.equals("default"))? "response_for_default" : "response_for_"+code;
-                            String responseFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName,  renderedOutputFilename));
-                            pathsFiles.add(Arrays.asList(responseMap, templateFile, responseFilename));
-                            if (response.getHeaders() != null) {
-                                for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
-                                    String headerName = headerInfo.getKey();
-                                    CodegenHeader header = headerInfo.getValue();
-                                    if (header.refModule == null) {
-                                        for (Map.Entry<String, String> responseHeaderInfo: config.pathEndpointResponseHeaderTemplateFiles().entrySet()) {
-                                            String headerTemplateFile = responseHeaderInfo.getKey();
-                                            String writtenFilename = responseHeaderInfo.getValue();
-                                            Map<String, Object> headerMap = new HashMap<>();
-                                            headerMap.put("header", header);
-                                            headerMap.put("packageName", packageName);
-                                            String headerFilename = packageFilename(Arrays.asList("paths", pathModuleName, co.httpMethod,  responseModuleName, config.toParameterFilename(headerName), writtenFilename));
-                                            pathsFiles.add(Arrays.asList(headerMap, headerTemplateFile, headerFilename));
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        String responseJsonPath = operationJsonPath + "/responses/" + code;
+                        generateResponse(files, response, responseJsonPath);
                     }
                 }
                 for (String templateFile: config.pathEndpointTestTemplateFiles()) {
@@ -680,6 +655,38 @@ public class DefaultGenerator implements Generator {
         generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
     }
 
+    private void generateResponse(List<File> files, CodegenResponse response, String jsonPath) {
+        Boolean generateResponses = Boolean.TRUE;
+        Map<String, Object> templateData = new HashMap<>();
+        templateData.put("packageName", config.packageName());
+        templateData.put("response", response);
+        for (String templateName: config.responseTemplateFiles().keySet()) {
+            String responseFilename = config.responseFilename(templateName, jsonPath);
+
+            try {
+                File written = processTemplateToFile(templateData, templateName, responseFilename, generateResponses, CodegenConstants.RESPONSES);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "response");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
+            }
+            if (response.getHeaders() != null) {
+                for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
+                    String headerName = headerInfo.getKey();
+                    CodegenHeader header = headerInfo.getValue();
+                    if (header.refModule == null) {
+                        String headerJsonPath = jsonPath + "/headers/" + headerName;
+                        generateHeader(files, header, headerJsonPath);
+                    }
+                }
+            }
+        }
+    }
+
     private TreeMap<String, CodegenResponse> generateResponses(List<File> files) {
         final Map<String, ApiResponse> specResponses = this.openAPI.getComponents().getResponses();
         if (specResponses == null) {
@@ -693,38 +700,8 @@ public class DefaultGenerator implements Generator {
             String sourceJsonPath = "#/components/responses/" + componentName;
             CodegenResponse response = config.fromResponse(apiResponse, sourceJsonPath);
             responses.put(componentName, response);
-            Boolean generateResponses = Boolean.TRUE;
-            for (Map.Entry<String, String> entry : config.responseTemplateFiles().entrySet()) {
-                String templateName = entry.getKey();
-                String fileName = entry.getValue();
-                String responseFileFolder = config.responseFileFolder(componentName);
-                String responseFilename = responseFileFolder + File.separatorChar + fileName;
+            generateResponse(files, response, sourceJsonPath);
 
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("response", response);
-                try {
-                    File written = processTemplateToFile(templateData, templateName, responseFilename, generateResponses, CodegenConstants.RESPONSES, responseFileFolder);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "response");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
-                }
-                if (response.getHeaders() != null) {
-                    for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
-                        String headerName = headerInfo.getKey();
-                        CodegenHeader header = headerInfo.getValue();
-                        String headerJsonPath = sourceJsonPath + "/headers/" + headerName;
-                        if (header.refModule == null) {
-                            generateHeader(files, header, headerJsonPath);
-                        }
-                    }
-                }
-            }
             // TODO make this a property that can be turned off and on
             Boolean generateResponseDocumentation = Boolean.TRUE;
             for (String templateName : config.responseDocTemplateFiles().keySet()) {
@@ -915,7 +892,7 @@ public class DefaultGenerator implements Generator {
             try {
                 generateSchema(files, schema, schemaJsonPath);
             } catch (Exception e) {
-                throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                throw new RuntimeException("Could not generate schema for jsonPath '" + schemaJsonPath + "'", e);
             }
         }
     }

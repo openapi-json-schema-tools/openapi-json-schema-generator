@@ -990,9 +990,13 @@ petstore_api/paths/user_login/get/parameter_0/schema.pyi
 petstore_api/paths/user_login/get/parameter_1/__init__.py
 petstore_api/paths/user_login/get/parameter_1/schema.py
 petstore_api/paths/user_login/get/parameter_1/schema.pyi
+petstore_api/paths/user_login/get/response_for200/x_expires_after_header/__init__.py
+petstore_api/paths/user_login/get/response_for200/x_expires_after_header/schema.py
+petstore_api/paths/user_login/get/response_for200/x_expires_after_header/schema.pyi
+petstore_api/paths/user_login/get/response_for200/x_rate_limit_header/__init__.py
+petstore_api/paths/user_login/get/response_for200/x_rate_limit_header/application_json.py
+petstore_api/paths/user_login/get/response_for200/x_rate_limit_header/application_json.pyi
 petstore_api/paths/user_login/get/response_for_200/__init__.py
-petstore_api/paths/user_login/get/response_for_200/parameter_x_expires_after/__init__.py
-petstore_api/paths/user_login/get/response_for_200/parameter_x_rate_limit/__init__.py
 petstore_api/paths/user_login/get/response_for_400/__init__.py
 petstore_api/paths/user_logout/__init__.py
 petstore_api/paths/user_logout/get/__init__.py

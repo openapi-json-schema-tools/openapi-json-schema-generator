@@ -4192,6 +4192,23 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public String responseFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        String writtenFilename = responseTemplateFiles.get(templateName);
+        if (jsonPath.startsWith("#/components/responses/")) {
+            // #/components/responses/someResponse -> length 4
+            String componentName = pathPieces[3];
+            return responseFileFolder(componentName) + File.separatorChar + writtenFilename;
+        } else if (jsonPath.startsWith("#/paths/")) {
+            // #/paths/somePath/get/responses/200 -> length 6
+            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            String httpVerb = pathPieces[3];
+            return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for_" + pathPieces[5]  + File.separatorChar + writtenFilename;
+        }
+        return null;
+    }
+
+    @Override
     public String requestBodyFilename(String templateName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String writtenFilename = requestBodyTemplateFiles.get(templateName);
@@ -4238,6 +4255,13 @@ public class DefaultCodegen implements CodegenConfig {
             // #/components/responses/someResponse/headers/SomeHeader-> length 6
             String componentName = pathPieces[3];
             return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
+        } else if (jsonPath.startsWith("#/paths/")) {
+            // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
+            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            String httpVerb = pathPieces[3];
+            String code = pathPieces[5];
+            String headerModule = toHeaderFilename(pathPieces[7]);
+            return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for" + code + File.separatorChar + headerModule + File.separatorChar + writtenFilename;
         }
         return null;
     }
@@ -4283,18 +4307,33 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (jsonPath.startsWith("#/paths/")) {
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
             String httpVerb = pathPieces[3];
-            String i = pathPieces[5];
             if (pathPieces.length == 7) {
                 // #/paths/somePath/get/parameters/1/schema -> length 7
+                String i = pathPieces[5];
                 return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + toModelFilename(pathPieces[6]) + suffix;
             } else if (pathPieces.length == 8) {
                 // #/paths/somePath/get/requestBody/content/application-json/schema -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
                 return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "request_body" + File.separatorChar + toModelFilename(contentType) + suffix;
             } else if (pathPieces.length == 9) {
-                // #/paths/somePath/get/parameters/1/content/application-json/schema -> length 9
-                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + toModelFilename(contentType) + suffix;
+                String parametersOrResponses = pathPieces[4];
+                if (parametersOrResponses.equals("parameters")) {
+                    // #/paths/somePath/get/parameters/1/content/application-json/schema -> length 9
+                    String i = pathPieces[5];
+                    String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                    return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + toModelFilename(contentType) + suffix;
+                } else if (parametersOrResponses.equals("responses")) {
+                    // #/paths/somePath/get/responses/200/headers/someHeader/schema -> length 9
+                    String code = pathPieces[5];
+                    String headerModule = toHeaderFilename(pathPieces[7]);
+                    return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for" + code + File.separatorChar + headerModule + File.separatorChar + toModelFilename(pathPieces[8]) + suffix;
+                }
+            } else if (pathPieces.length == 11) {
+                // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json/schema -> length 11
+                String code = pathPieces[5];
+                String headerModule = toHeaderFilename(pathPieces[7]);
+                String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
+                return outputFolder + File.separatorChar + packageName() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for" + code + File.separatorChar + headerModule + File.separatorChar + toModelFilename(contentType) + suffix;
             }
         }
         return null;
