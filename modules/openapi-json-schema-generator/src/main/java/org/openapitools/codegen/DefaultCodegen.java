@@ -3677,8 +3677,8 @@ public class DefaultCodegen implements CodegenConfig {
                     usedSourceJsonPath
             );
             codegenHeader.setSchema(prop);
-            if (addSchemaImportsFromV3SpecLocations) {
-                addImports(codegenHeader.imports, getImports(prop, generatorMetadata.getFeatureSet()));
+            if (prop.getRefModule() != null) {
+                codegenHeader.imports.add(getImport(null, prop));
             }
         } else if (header.getContent() != null) {
             Content content = header.getContent();
@@ -5315,10 +5315,8 @@ public class DefaultCodegen implements CodegenConfig {
 
             CodegenMediaType codegenMt = new CodegenMediaType(schemaProp, ceMap, schemaTestCases);
             cmtContent.put(contentType, codegenMt);
-            if (schemaProp != null) {
-                if (addSchemaImportsFromV3SpecLocations) {
-                    addImports(imports, getImports(schemaProp, generatorMetadata.getFeatureSet()));
-                }
+            if (schemaProp != null && schemaProp.getRefModule() != null) {
+                imports.add(getImport(null, schemaProp));
             }
         }
         return cmtContent;

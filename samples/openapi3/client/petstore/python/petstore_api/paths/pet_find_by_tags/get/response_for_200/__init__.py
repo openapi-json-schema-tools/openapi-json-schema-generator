@@ -2,8 +2,6 @@ import dataclasses
 import urllib3
 
 from petstore_api import api_client
-
-from petstore_api.components.schema import pet
 from . import application_xml
 from . import application_json
 
