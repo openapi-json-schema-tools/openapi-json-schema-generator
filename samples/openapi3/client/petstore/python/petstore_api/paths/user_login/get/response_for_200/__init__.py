@@ -1,7 +1,10 @@
 import dataclasses
+import typing
+
 import urllib3
 
 from petstore_api import api_client
+from petstore_api import schemas
 from . import application_xml
 from . import application_json
 from petstore_api.components.headers import ref_schema_header_header as parameter_ref_schema_header

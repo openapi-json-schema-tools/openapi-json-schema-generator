@@ -1,7 +1,10 @@
 import dataclasses
+import typing
+
 import urllib3
 
 from petstore_api import api_client
+from petstore_api import schemas
 
 from petstore_api.components.schema import array_of_enums
 

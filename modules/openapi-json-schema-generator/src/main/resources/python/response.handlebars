@@ -1,7 +1,10 @@
 import dataclasses
+import typing
+
 import urllib3
 
 from {{packageName}} import api_client
+from {{packageName}} import schemas
 {{#with response}}
 {{> model_templates/imports }}
 {{#if getContent}}
