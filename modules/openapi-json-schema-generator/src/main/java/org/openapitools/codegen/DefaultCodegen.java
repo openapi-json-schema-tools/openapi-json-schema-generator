@@ -3654,6 +3654,9 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath, "Header");
+        String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
+        codegenHeader.paramName = toHeaderFilename(priorJsonPathFragment);
+
         if (usedHeader.getStyle() != null) {
             codegenHeader.style = usedHeader.getStyle().toString();
         }
@@ -3711,16 +3714,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (header.getRequired() != null) {
             codegenHeader.required = header.getRequired().booleanValue();
         }
-
-
-        String priorJsonPathFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
-        codegenHeader.paramName = toParamName(priorJsonPathFragment);
-
-        // default to UNKNOWN_PARAMETER_NAME if paramName is null
-        if (codegenHeader.paramName == null) {
-            codegenHeader.paramName = "UNKNOWN_" + type.toUpperCase(Locale.ROOT) + "_NAME";
-            LOGGER.warn(type + " name not defined properly. Default to " + codegenHeader.paramName);
-        }
     }
 
     /**
@@ -3753,6 +3746,9 @@ public class DefaultCodegen implements CodegenConfig {
         prameterHeader.setExtensions(usedParameter.getExtensions());
         prameterHeader.setRequired(usedParameter.getRequired());
         setHeaderInfo(prameterHeader, codegenParameter, usedSourceJsonPath, "Parameter");
+
+        String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
+        codegenParameter.paramName = toParamName(priorJsonPathFragment);
 
         if (usedParameter.getStyle() != null) {
             codegenParameter.style = usedParameter.getStyle().toString();

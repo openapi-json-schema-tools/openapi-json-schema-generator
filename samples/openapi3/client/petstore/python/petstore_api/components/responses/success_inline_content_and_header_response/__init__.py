@@ -11,7 +11,7 @@ import urllib3
 from petstore_api import api_client
 from petstore_api import schemas
 from . import application_json
-from . import parameter_some_header
+from . import some_header_header
 
 
 class Header:
@@ -23,7 +23,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[parameter_some_header.schema.Schema, str, ],
+            'someHeader': typing.Union[some_header_header.schema.Schema, str, ],
         },
         total=False
     )
@@ -34,7 +34,7 @@ class Header:
 
 
     parameters = [
-        parameter_some_header.parameter_oapg,
+        some_header_header.parameter_oapg,
     ]
 
 @dataclasses.dataclass
