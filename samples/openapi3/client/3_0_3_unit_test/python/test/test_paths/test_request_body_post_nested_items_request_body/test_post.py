@@ -70,7 +70,7 @@ class TestRequestBodyPostNestedItemsRequestBody(ApiTestMixin, unittest.TestCase)
                     ],
                 ]
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.nested_items.NestedItems.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

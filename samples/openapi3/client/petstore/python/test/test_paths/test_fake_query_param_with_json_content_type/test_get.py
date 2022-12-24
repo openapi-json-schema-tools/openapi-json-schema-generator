@@ -33,7 +33,7 @@ class TestFakeQueryParamWithJsonContentType(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = get.response_for_200.ApplicationJson
+    response_body_schema = get.response_for_200.application_json.ApplicationJson
 
 if __name__ == '__main__':
     unittest.main()

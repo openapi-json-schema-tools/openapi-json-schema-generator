@@ -44,7 +44,7 @@ class TestRequestBodyPostRefInAllofRequestBody(ApiTestMixin, unittest.TestCase):
                         "a",
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.ref_in_allof.RefInAllof.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

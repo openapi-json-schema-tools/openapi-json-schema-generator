@@ -44,7 +44,7 @@ class TestRequestBodyPostPropertyNamedRefThatIsNotAReferenceRequestBody(ApiTestM
                         "a",
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

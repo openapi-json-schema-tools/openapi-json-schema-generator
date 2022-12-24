@@ -1,6 +1,7 @@
 import dataclasses
 import typing
 
+import typing_extensions
 import urllib3
 
 from this_package import api_client

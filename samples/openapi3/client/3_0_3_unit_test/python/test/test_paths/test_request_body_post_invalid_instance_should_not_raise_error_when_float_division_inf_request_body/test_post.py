@@ -55,7 +55,7 @@ class TestRequestBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfR
             payload = (
                 123456789
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

@@ -55,7 +55,7 @@ class TestRequestBodyPostByIntRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 10
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.by_int.ByInt.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -85,7 +85,7 @@ class TestRequestBodyPostByIntRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 "foo"
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.by_int.ByInt.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

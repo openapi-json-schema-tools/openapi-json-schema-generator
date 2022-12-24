@@ -41,7 +41,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
             payload = (
                 "foo\rbar"
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.enum_with_escaped_characters.EnumWithEscapedCharacters.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -71,7 +71,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
             payload = (
                 "foo\nbar"
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.enum_with_escaped_characters.EnumWithEscapedCharacters.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

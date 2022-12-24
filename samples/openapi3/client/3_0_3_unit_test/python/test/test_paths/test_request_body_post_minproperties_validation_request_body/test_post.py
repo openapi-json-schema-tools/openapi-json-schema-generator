@@ -42,7 +42,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                 [
                 ]
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             payload = (
                 12
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -117,7 +117,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             payload = (
                 ""
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -152,7 +152,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                         2,
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -185,7 +185,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                         1,
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

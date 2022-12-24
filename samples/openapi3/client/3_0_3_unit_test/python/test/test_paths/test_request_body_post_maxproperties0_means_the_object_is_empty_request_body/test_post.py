@@ -42,7 +42,7 @@ class TestRequestBodyPostMaxproperties0MeansTheObjectIsEmptyRequestBody(ApiTestM
                 {
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

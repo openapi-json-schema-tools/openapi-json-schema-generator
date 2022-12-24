@@ -85,7 +85,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 {
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.object_type_matches_objects.ObjectTypeMatchesObjects.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

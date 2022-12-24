@@ -41,7 +41,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             payload = (
                 299.97
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -85,7 +85,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             payload = (
                 300
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             payload = (
                 300.0
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

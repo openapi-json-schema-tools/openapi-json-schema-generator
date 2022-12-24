@@ -32,7 +32,7 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.allof.Allof
 
     def test_allof_passes(self):
         # allOf

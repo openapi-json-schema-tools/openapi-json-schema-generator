@@ -32,7 +32,7 @@ class TestResponseBodyPostAdditionalpropertiesAreAllowedByDefaultResponseBodyFor
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault
 
     def test_additional_properties_are_allowed_passes(self):
         # additional properties are allowed

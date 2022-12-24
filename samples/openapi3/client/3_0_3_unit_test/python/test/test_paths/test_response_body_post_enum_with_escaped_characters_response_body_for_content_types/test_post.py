@@ -32,7 +32,7 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.enum_with_escaped_characters.EnumWithEscapedCharacters
 
     def test_member2_is_valid_passes(self):
         # member 2 is valid

@@ -32,7 +32,7 @@ class TestResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes(A
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1
 
     def test_float_one_is_invalid_fails(self):
         # float one is invalid

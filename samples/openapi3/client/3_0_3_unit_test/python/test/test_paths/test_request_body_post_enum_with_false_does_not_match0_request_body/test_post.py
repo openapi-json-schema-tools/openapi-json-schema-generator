@@ -41,7 +41,7 @@ class TestRequestBodyPostEnumWithFalseDoesNotMatch0RequestBody(ApiTestMixin, uni
             payload = (
                 False
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

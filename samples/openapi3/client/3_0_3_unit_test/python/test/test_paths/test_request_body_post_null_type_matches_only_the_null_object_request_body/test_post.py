@@ -140,7 +140,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
             payload = (
                 None
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

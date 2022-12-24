@@ -41,7 +41,7 @@ class TestRequestBodyPostAllofSimpleTypesRequestBody(ApiTestMixin, unittest.Test
             payload = (
                 25
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.allof_simple_types.AllofSimpleTypes.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

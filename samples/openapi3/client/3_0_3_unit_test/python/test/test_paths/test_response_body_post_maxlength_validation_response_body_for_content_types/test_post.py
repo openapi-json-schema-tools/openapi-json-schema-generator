@@ -32,7 +32,7 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.maxlength_validation.MaxlengthValidation
 
     def test_too_long_is_invalid_fails(self):
         # too long is invalid

@@ -1,6 +1,7 @@
 import dataclasses
 import typing
 
+import typing_extensions
 import urllib3
 
 from unit_test_api import api_client

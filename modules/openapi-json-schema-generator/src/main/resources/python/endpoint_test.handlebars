@@ -37,7 +37,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     {{#if content}}
     {{#each content}}
         {{#if schema}}
-    response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#with schema}}{{name.getCamelCaseName}}{{/with}}
+    response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#with schema}}{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}
         {{/if}}
     {{#if this.testCases}}
     {{#each testCases}}
@@ -107,7 +107,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{/with}}
             )
 {{#if valid}}
-            body = {{httpMethod}}.request_body.{{#with schema}}{{name.getCamelCaseName}}{{/with}}.from_openapi_data_oapg(
+            body = {{httpMethod}}.request_body.{{#with schema}}{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

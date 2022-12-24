@@ -55,7 +55,7 @@ class TestRequestBodyPostNestedOneofToCheckValidationSemanticsRequestBody(ApiTes
             payload = (
                 None
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

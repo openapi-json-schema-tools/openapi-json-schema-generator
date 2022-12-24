@@ -55,7 +55,7 @@ class TestRequestBodyPostAllofWithTheFirstEmptySchemaRequestBody(ApiTestMixin, u
             payload = (
                 1
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.allof_with_the_first_empty_schema.AllofWithTheFirstEmptySchema.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

@@ -47,7 +47,7 @@ class TestRequestBodyPostRefInAdditionalpropertiesRequestBody(ApiTestMixin, unit
                         },
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.ref_in_additionalproperties.RefInAdditionalproperties.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

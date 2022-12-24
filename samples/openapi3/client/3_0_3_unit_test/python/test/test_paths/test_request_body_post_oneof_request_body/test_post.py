@@ -41,7 +41,7 @@ class TestRequestBodyPostOneofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 2.5
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.oneof.Oneof.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -85,7 +85,7 @@ class TestRequestBodyPostOneofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 1
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.oneof.Oneof.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

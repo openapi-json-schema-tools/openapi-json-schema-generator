@@ -32,7 +32,7 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.object_properties_validation.ObjectPropertiesValidation
 
     def test_ignores_arrays_passes(self):
         # ignores arrays

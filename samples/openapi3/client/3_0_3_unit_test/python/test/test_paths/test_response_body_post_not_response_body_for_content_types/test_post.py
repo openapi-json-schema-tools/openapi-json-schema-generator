@@ -32,7 +32,7 @@ class TestResponseBodyPostNotResponseBodyForContentTypes(ApiTestMixin, unittest.
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.model_not.ModelNot
 
     def test_allowed_passes(self):
         # allowed
