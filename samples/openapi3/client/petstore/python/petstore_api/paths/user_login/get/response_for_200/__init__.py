@@ -1,6 +1,10 @@
 import dataclasses
+import decimal
+import io
 import typing
+import uuid
 
+import frozendict
 import typing_extensions
 import urllib3
 
@@ -31,8 +35,8 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Expires-After': typing.Union[parameter_x_expires_after.Schema, str, datetime, ],
-            'numberHeader': typing.Union[parameter_number_header.Schema, str, ],
+            'X-Expires-After': typing.Union[parameter_x_expires_after.schema.Schema, str, datetime, ],
+            'numberHeader': typing.Union[parameter_number_header.schema.Schema, str, ],
         },
         total=False
     )

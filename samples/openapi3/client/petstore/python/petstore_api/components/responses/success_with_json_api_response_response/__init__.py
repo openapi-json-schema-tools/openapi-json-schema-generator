@@ -1,6 +1,10 @@
 import dataclasses
+import decimal
+import io
 import typing
+import uuid
 
+import frozendict
 import typing_extensions
 import urllib3
 
@@ -28,7 +32,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'numberHeader': typing.Union[parameter_number_header.Schema, str, ],
+            'numberHeader': typing.Union[parameter_number_header.schema.Schema, str, ],
         },
         total=False
     )

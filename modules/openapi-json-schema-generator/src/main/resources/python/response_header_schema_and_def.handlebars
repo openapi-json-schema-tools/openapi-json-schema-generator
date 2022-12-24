@@ -25,9 +25,9 @@ class {{xParamsName}}:
 {{#each xParams}}
 {{#unless required}}
 {{#if schema}}
-            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/unless}}
 {{/each}}
