@@ -78,7 +78,7 @@ class TestRequestBodyPostPropertyNamedRefThatIsNotAReferenceRequestBody(ApiTestM
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )

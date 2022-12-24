@@ -42,7 +42,7 @@ class TestRequestBodyPostAllofWithTheLastEmptySchemaRequestBody(ApiTestMixin, un
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )

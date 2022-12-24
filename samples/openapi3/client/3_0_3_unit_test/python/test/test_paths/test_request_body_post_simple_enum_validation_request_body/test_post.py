@@ -42,7 +42,7 @@ class TestRequestBodyPostSimpleEnumValidationRequestBody(ApiTestMixin, unittest.
                 4
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.simple_enum_validation.SimpleEnumValidation.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )

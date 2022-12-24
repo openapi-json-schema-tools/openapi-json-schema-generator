@@ -72,7 +72,7 @@ class TestRequestBodyPostByNumberRequestBody(ApiTestMixin, unittest.TestCase):
                 35
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.by_number.ByNumber.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )

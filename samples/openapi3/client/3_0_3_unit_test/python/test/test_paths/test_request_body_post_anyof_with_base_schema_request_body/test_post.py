@@ -72,7 +72,7 @@ class TestRequestBodyPostAnyofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.anyof_with_base_schema.AnyofWithBaseSchema.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )
@@ -86,7 +86,7 @@ class TestRequestBodyPostAnyofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 3
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.anyof_with_base_schema.AnyofWithBaseSchema.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )
