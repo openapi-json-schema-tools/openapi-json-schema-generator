@@ -396,7 +396,7 @@ HTTP request | Method | Description
  - [NestedAnyofToCheckValidationSemantics](docs/components/schema/nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics.md)
  - [NestedItems](docs/components/schema/nested_items.NestedItems.md)
  - [NestedOneofToCheckValidationSemantics](docs/components/schema/nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics.md)
- - [ModelNot](docs/components/schema/model_not.ModelNot.md)
+ - [ModelNot](docs/components/schema/_not.ModelNot.md)
  - [NotMoreComplexSchema](docs/components/schema/not_more_complex_schema.NotMoreComplexSchema.md)
  - [NulCharactersInStrings](docs/components/schema/nul_characters_in_strings.NulCharactersInStrings.md)
  - [NullTypeMatchesOnlyTheNullObject](docs/components/schema/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md)
