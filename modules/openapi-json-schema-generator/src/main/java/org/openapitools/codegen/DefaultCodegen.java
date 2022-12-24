@@ -5371,7 +5371,7 @@ public class DefaultCodegen implements CodegenConfig {
                     // property is of type self
                     return null;
                 }
-                return toModelFilename(refPieces[3]);
+                return getKey(refPieces[3]).getSnakeCaseName();
         }
         return null;
     }
