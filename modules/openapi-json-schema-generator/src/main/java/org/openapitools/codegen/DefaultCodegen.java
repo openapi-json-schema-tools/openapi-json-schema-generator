@@ -4253,7 +4253,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (jsonPath.startsWith("#/components/responses/")) {
             // #/components/responses/someResponse/headers/SomeHeader-> length 6
             String componentName = pathPieces[3];
-            return responseFileFolder(componentName) + File.separatorChar + toParameterFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
+            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
         } else if (jsonPath.startsWith("#/paths/")) {
             // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
