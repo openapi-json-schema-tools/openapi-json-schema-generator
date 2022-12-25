@@ -230,7 +230,7 @@ HTTP request | Method | Description
 
 ## Component Schemas
 
- - [Model200Response](docs/components/schema/model200_response.Model200Response.md)
+ - [_200Response](docs/components/schema/_200_response._200Response.md)
  - [AbstractStepMessage](docs/components/schema/abstract_step_message.AbstractStepMessage.md)
  - [AdditionalPropertiesClass](docs/components/schema/additional_properties_class.AdditionalPropertiesClass.md)
  - [AdditionalPropertiesValidator](docs/components/schema/additional_properties_validator.AdditionalPropertiesValidator.md)
@@ -328,7 +328,7 @@ HTTP request | Method | Description
  - [ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md)
  - [ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md)
  - [ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md)
- - [ModelReturn](docs/components/schema/model_return.ModelReturn.md)
+ - [_Return](docs/components/schema/_return._Return.md)
  - [ScaleneTriangle](docs/components/schema/scalene_triangle.ScaleneTriangle.md)
  - [SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model.SelfReferencingArrayModel.md)
  - [SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model.SelfReferencingObjectModel.md)

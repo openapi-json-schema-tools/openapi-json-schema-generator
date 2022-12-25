@@ -58,7 +58,7 @@ class ApplicationXWwwFormUrlencoded(
                 pass
             
             
-            class ModelFloat(
+            class _Float(
                 schemas.Float32Schema
             ):
                 pass
@@ -96,7 +96,7 @@ class ApplicationXWwwFormUrlencoded(
                 "int32": Int32,
                 "int64": Int64,
                 "number": Number,
-                "float": ModelFloat,
+                "float": _Float,
                 "double": Double,
                 "string": String,
                 "pattern_without_delimiter": PatternWithoutDelimiter,
@@ -135,7 +135,7 @@ class ApplicationXWwwFormUrlencoded(
     def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.Int64: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties._Float: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string"]) -> MetaOapg.Properties.String: ...
@@ -203,7 +203,7 @@ class ApplicationXWwwFormUrlencoded(
     def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.Int64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties._Float, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["string"]) -> typing.Union[MetaOapg.Properties.String, schemas.Unset]: ...

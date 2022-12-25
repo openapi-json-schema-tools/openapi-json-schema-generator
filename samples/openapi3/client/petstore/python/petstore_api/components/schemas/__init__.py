@@ -11,7 +11,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from petstore_api.components.schema.model200_response import Model200Response
+from petstore_api.components.schema._200_response import _200Response
 from petstore_api.components.schema.abstract_step_message import AbstractStepMessage
 from petstore_api.components.schema.additional_properties_class import AdditionalPropertiesClass
 from petstore_api.components.schema.additional_properties_validator import AdditionalPropertiesValidator
@@ -109,7 +109,7 @@ from petstore_api.components.schema.read_only_first import ReadOnlyFirst
 from petstore_api.components.schema.req_props_from_explicit_add_props import ReqPropsFromExplicitAddProps
 from petstore_api.components.schema.req_props_from_true_add_props import ReqPropsFromTrueAddProps
 from petstore_api.components.schema.req_props_from_unset_add_props import ReqPropsFromUnsetAddProps
-from petstore_api.components.schema.model_return import ModelReturn
+from petstore_api.components.schema._return import _Return
 from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
 from petstore_api.components.schema.self_referencing_array_model import SelfReferencingArrayModel
 from petstore_api.components.schema.self_referencing_object_model import SelfReferencingObjectModel

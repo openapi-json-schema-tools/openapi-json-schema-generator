@@ -1,6 +1,6 @@
 <a name="top"></a>
-## unit_test_api.components.schema.not_more_complex_schema
-# NotMoreComplexSchema
+## unit_test_api.components.schema._not
+# _Not
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -11,19 +11,13 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#_not) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_not](#_not) | decimal.Decimal, int,  | decimal.Decimal,  |  |
 
 # _not
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**foo** | str,  | str,  |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+decimal.Decimal, int,  | decimal.Decimal,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -1,13 +1,13 @@
 <a name="top"></a>
-# **post_not_request_body**
-<a name="post_not_request_body"></a>
+# **post_forbidden_property_request_body**
+<a name="post_forbidden_property_request_body"></a>
 
 
 ### Example
 
 ```python
 import unit_test_api
-from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.apis.tags import _not_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -18,17 +18,17 @@ configuration = unit_test_api.Configuration(
 # Enter a context with an instance of the API client
 with unit_test_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
+    api_instance = _not_api._NotApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = _not._Not(None)
+    body = forbidden_property.ForbiddenProperty(None)
     try:
-        api_response = api_instance.post_not_request_body(
+        api_response = api_instance.post_forbidden_property_request_body(
             body=body,
         )
         pprint(api_response)
     except unit_test_api.ApiException as e:
-        print("Exception when calling OperationRequestBodyApi->post_not_request_body: %s\n" % e)
+        print("Exception when calling _NotApi->post_forbidden_property_request_body: %s\n" % e)
 ```
 ### Parameters
 
@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**_Not**](../../../components/schema/_not._Not.md) |  | 
+[**ForbiddenProperty**](../../../components/schema/forbidden_property.ForbiddenProperty.md) |  | 
 
 
 ### Return Types, Responses
@@ -65,4 +65,4 @@ headers | Unset | headers were not defined |
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../OperationRequestBodyApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../_NotApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

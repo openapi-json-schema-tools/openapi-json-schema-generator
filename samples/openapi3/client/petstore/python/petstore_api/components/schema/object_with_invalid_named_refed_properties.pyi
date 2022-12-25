@@ -42,14 +42,14 @@ class ObjectWithInvalidNamedRefedProperties(
         class Properties:
         
             @staticmethod
-            def model_from() -> typing.Type['from_schema.FromSchema']:
+            def _from() -> typing.Type['from_schema.FromSchema']:
                 return from_schema.FromSchema
         
             @staticmethod
             def reference() -> typing.Type['array_with_validations_in_items.ArrayWithValidationsInItems']:
                 return array_with_validations_in_items.ArrayWithValidationsInItems
             __annotations__ = {
-                "from": model_from,
+                "from": _from,
                 "!reference": reference,
             }
     

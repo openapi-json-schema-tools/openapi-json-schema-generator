@@ -41,7 +41,7 @@ class JSONPatchRequestMoveCopy(
         }
         
         class Properties:
-            ModelFrom = schemas.StrSchema
+            _From = schemas.StrSchema
             Path = schemas.StrSchema
             
             
@@ -57,7 +57,7 @@ class JSONPatchRequestMoveCopy(
                 def COPY(cls):
                     return cls("copy")
             __annotations__ = {
-                "from": ModelFrom,
+                "from": _From,
                 "path": Path,
                 "op": Op,
             }
@@ -67,7 +67,7 @@ class JSONPatchRequestMoveCopy(
     path: MetaOapg.Properties.Path
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties.ModelFrom: ...
+    def __getitem__(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties._From: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
@@ -87,7 +87,7 @@ class JSONPatchRequestMoveCopy(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties.ModelFrom: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties._From: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...

@@ -7,7 +7,7 @@
 
 ```python
 import unit_test_api
-from unit_test_api.apis.tags import content_type_json_api
+from unit_test_api.apis.tags import _not_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -18,14 +18,14 @@ configuration = unit_test_api.Configuration(
 # Enter a context with an instance of the API client
 with unit_test_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = content_type_json_api.ContentTypeJsonApi(api_client)
+    api_instance = _not_api._NotApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
         api_response = api_instance.post_not_response_body_for_content_types()
         pprint(api_response)
     except unit_test_api.ApiException as e:
-        print("Exception when calling ContentTypeJsonApi->post_not_response_body_for_content_types: %s\n" % e)
+        print("Exception when calling _NotApi->post_not_response_body_for_content_types: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -54,4 +54,4 @@ Type | Description  | Notes
 
 No authorization required
 
-[[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../_NotApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
