@@ -577,14 +577,14 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
 
         // model name cannot use reserved keyword, e.g. return
         if (isReservedWord(camelizedName)) {
-            String modelName = "Model" + camelizedName; // e.g. return => ModelReturn (after camelize)
+            String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
             LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
             return modelName;
         }
 
         // model name starts with number
         if (camelizedName.matches("^\\d.*")) {
-            String modelName = "Model" + camelizedName; // e.g. return => ModelReturn (after camelize)
+            String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
             LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", camelizedName, modelName);
             return modelName;
         }

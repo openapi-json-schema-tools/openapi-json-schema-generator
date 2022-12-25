@@ -30,8 +30,6 @@ import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.api.TemplatePathLocator;
 import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.templating.*;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.media.*;
@@ -293,40 +291,37 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             this.ignoreProcessor = new CodegenIgnoreProcessor(this.getOutputDir());
         }
 
-        modelTemplateFiles.put("model.handlebars", ".py");
         /*
-        This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
+        The pyi stub files exists to allow pycharm to read and use typing.overload decorators for it to see that
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
         apiTemplateFiles.put("api.handlebars", ".py");
+        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
         apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
-        pathEndpointDocTemplateFiles.add("endpoint_doc.handlebars");
-        modelTestTemplateFiles.put("model_test.handlebars", ".py");
-        modelDocTemplateFiles.put("model_doc.handlebars", ".md");
-        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
-        requestBodyTemplateFiles.put("request_body.handlebars", ".py");
-        requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
+
         pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
-        /*
-        This stub file exists to allow pycharm to read and use typing.overload decorators for it to see that
-        dict_instance["someProp"] is of type SomeClass.properties.someProp
-        See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
-         */
+        pathEndpointDocTemplateFiles.add("endpoint_doc.handlebars");
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
-        pathEndpointRequestBodyTemplateFiles.put("request_body.handlebars", "request_body.py");
-        pathEndpointParameterTemplateFiles.add("parameter.handlebars");
-        pathEndpointResponseTemplateFiles.put("response.handlebars", "__init__.py");
-        pathEndpointResponseHeaderTemplateFiles.add("header.handlebars");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
+
+        modelTemplateFiles.put("model.handlebars", ".py");
+        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
+        modelDocTemplateFiles.put("model_doc.handlebars", ".md");
+        modelTestTemplateFiles.put("model_test.handlebars", ".py");
+
+        requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
+        requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
+
+        parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
+        parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
+
         responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-        headerTemplateFiles.put("header.handlebars", ".py");
+
+        headerTemplateFiles.put("header.handlebars", "__init__.py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
-        parameterTemplateFiles.put("parameter.handlebars", ".py");
-        parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -452,6 +447,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             if (components.getResponses() != null) {
                 supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "responses", "__init__.py"));
             }
+            if (components.getHeaders() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "headers", "__init__.py"));
+            }
+            if (components.getParameters() != null) {
+                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "parameters", "__init__.py"));
+            }
         }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
@@ -495,18 +496,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String requestBodyFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies";
+    public String requestBodyFileFolder(String componentName) {
+        String requestBodyFilename = toRequestBodyFilename(componentName);
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + File.separatorChar + requestBodyFilename;
     }
 
     @Override
-    public String headerFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers";
+    public String headerFileFolder(String componentName) {
+        String headerFilename = toHeaderFilename(componentName);
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers" + File.separatorChar + headerFilename;
     }
 
     @Override
-    public String parameterFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters";
+    public String parameterFileFolder(String componentName) {
+        String parameterFilename = toParameterFilename(componentName);
+        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters" + File.separatorChar + parameterFilename;
     }
 
     public String headerDocFileFolder() {
@@ -699,23 +703,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the updated objs
      */
     @Override
-    public Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs) {
+    public TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> objs) {
         super.postProcessAllModels(objs);
 
         boolean anyModelContainsTestCases = false;
         Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
-        for (String schemaName : allDefinitions.keySet()) {
-            String modelName = toModelName(schemaName);
-            ModelsMap objModel = objs.get(modelName);
-            if (objModel == null) {
-                // to avoid form parameter's models that are not generated (skipFormModel=true)
-                continue;
-            }
-            for (ModelMap model : objModel.getModels()) {
-                CodegenSchema cm = model.getModel();
-                if (cm.testCases != null && !cm.testCases.isEmpty()) {
-                    anyModelContainsTestCases = true;
-                }
+        for (CodegenSchema cm : objs.values()) {
+            if (cm.testCases != null && !cm.testCases.isEmpty()) {
+                anyModelContainsTestCases = true;
             }
         }
         boolean testFolderSet = testFolder != null;
@@ -1780,7 +1775,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public ModelsMap postProcessModels(ModelsMap objs) {
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
         // process enum in models
         return postProcessModelsEnum(objs);
     }
@@ -2131,7 +2126,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String toComponentModule(String componentName, String priorJsonPathSegment) {
         switch (priorJsonPathSegment) {
             case "schemas":
-                return toModelFilename(componentName);
+                return getKey(componentName).getSnakeCaseName();
             case "requestBodies":
                 return toRequestBodyFilename(componentName);
             case "responses":

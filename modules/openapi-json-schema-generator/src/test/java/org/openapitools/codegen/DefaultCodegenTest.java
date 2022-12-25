@@ -38,8 +38,6 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.parser.core.models.ParseOptions;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapitools.codegen.templating.mustache.IndentedLambda;
 import org.openapitools.codegen.templating.mustache.LowercaseLambda;
@@ -61,6 +59,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
@@ -590,10 +589,10 @@ public class DefaultCodegenTest {
     @Test
     public void postProcessModelsEnumWithPrefixRemoved() {
         final DefaultCodegen codegen = new DefaultCodegen();
-        ModelsMap objs = codegenModel(Arrays.asList("animal_dog", "animal_cat"));
-        CodegenSchema cm = objs.getModels().get(0).getModel();
+        TreeMap<String, CodegenSchema> schemas = codegenModel(Arrays.asList("animal_dog", "animal_cat"));
+        CodegenSchema cm = schemas.get("model");
 
-        codegen.postProcessModelsEnum(objs);
+        codegen.postProcessModelsEnum(schemas);
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.getAllowableValues().get("enumVars");
         Assert.assertNotNull(enumVars);
@@ -609,8 +608,8 @@ public class DefaultCodegenTest {
     public void postProcessModelsEnumWithoutPrefixRemoved() {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setRemoveEnumValuePrefix(false);
-        ModelsMap objs = codegenModel(Arrays.asList("animal_dog", "animal_cat"));
-        CodegenSchema cm = objs.getModels().get(0).getModel();
+        TreeMap<String, CodegenSchema> objs = codegenModel(Arrays.asList("animal_dog", "animal_cat"));
+        CodegenSchema cm = objs.get("model");
 
         codegen.postProcessModelsEnum(objs);
 
@@ -627,8 +626,8 @@ public class DefaultCodegenTest {
     @Test
     public void postProcessModelsEnumWithExtension() {
         final DefaultCodegen codegen = new DefaultCodegen();
-        ModelsMap objs = codegenModelWithXEnumVarName();
-        CodegenSchema cm = objs.getModels().get(0).getModel();
+        TreeMap<String, CodegenSchema> objs = codegenModelWithXEnumVarName();
+        CodegenSchema cm = objs.get("model");
 
         codegen.postProcessModelsEnum(objs);
 
@@ -1389,16 +1388,6 @@ public class DefaultCodegenTest {
         assertEquals(discriminator, test);
     }
 
-    public CodegenSchema getModel(List<ModelMap> allModels, String modelName) {
-        for (ModelMap obj : allModels) {
-            CodegenSchema cm = obj.getModel();
-            if (modelName.equals(cm.name)) {
-                return cm;
-            }
-        }
-        return null;
-    }
-
     @Test
     public void verifyXDiscriminatorValue() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/x-discriminator-value.yaml");
@@ -1943,17 +1932,19 @@ public class DefaultCodegenTest {
         return var;
     }
 
-    private ModelsMap codegenModel(List<String> values) {
+    private TreeMap<String, CodegenSchema> codegenModel(List<String> values) {
         final CodegenSchema cm = new CodegenSchema();
         cm.isEnum = true;
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", values);
         cm.setAllowableValues(allowableValues);
         cm.isString = true;
-        return TestUtils.createCodegenModelWrapper(cm);
+        TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
+        schemas.put("model", cm);
+        return schemas;
     }
 
-    private ModelsMap codegenModelWithXEnumVarName() {
+    private TreeMap<String, CodegenSchema> codegenModelWithXEnumVarName() {
         final CodegenSchema cm = new CodegenSchema();
         cm.isEnum = true;
         final HashMap<String, Object> allowableValues = new HashMap<>();
@@ -1967,7 +1958,9 @@ public class DefaultCodegenTest {
         extensions.put("x-enum-descriptions", descriptions);
         cm.setVendorExtensions(extensions);
         cm.setProperties(new LinkedHashMap<>());
-        return TestUtils.createCodegenModelWrapper(cm);
+        TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
+        schemas.put("model", cm);
+        return schemas;
     }
 
     @Test

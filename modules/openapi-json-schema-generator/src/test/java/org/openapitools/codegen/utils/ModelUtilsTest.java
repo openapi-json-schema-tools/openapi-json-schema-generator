@@ -104,33 +104,6 @@ public class ModelUtilsTest {
     }
 
     @Test
-    public void testSchemasUsedOnlyInFormParam() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/unusedSchemas.yaml");
-        List<String> unusedSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
-        Assert.assertEquals(unusedSchemas.size(), 3);
-        //SomeObj2 is only used in an 'application/x-www-form-urlencoded' request
-        Assert.assertTrue(unusedSchemas.contains("SomeObj2"), "contains 'SomeObj2'");
-        //SomeObj3 is only used in a 'multipart/form-data' request
-        Assert.assertTrue(unusedSchemas.contains("SomeObj3"), "contains 'SomeObj3'");
-        //SomeObj7 is only used in an 'application/x-www-form-urlencoded' request (with referenced request body)
-        Assert.assertTrue(unusedSchemas.contains("SomeObj7"), "contains 'SomeObj7'");
-    }
-
-    @Test
-    public void testNoComponentsSection() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/ping.yaml");
-        List<String> unusedSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
-        Assert.assertEquals(unusedSchemas.size(), 0);
-    }
-
-    @Test
-    public void testGlobalProducesConsumes() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/globalProducesConsumesTest.yaml");
-        List<String> unusedSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
-        Assert.assertEquals(unusedSchemas.size(), 0);
-    }
-
-    @Test
     public void testIsModelAllowsEmptyBaseModel() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/emptyBaseModel.yaml");
         Schema commandSchema = ModelUtils.getSchema(openAPI, "Command");

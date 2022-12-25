@@ -32,7 +32,7 @@ class TestResponseBodyPostUriReferenceFormatResponseBodyForContentTypes(ApiTestM
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.uri_reference_format.UriReferenceFormat
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects

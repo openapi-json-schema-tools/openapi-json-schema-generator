@@ -7,21 +7,22 @@ import typing_extensions
 import urllib3
 
 from {{packageName}} import api_client, exceptions
-{{> model_templates/imports_schema_types }}
-{{> model_templates/imports_schemas }}
-
-
 {{#with header}}
+{{> model_templates/imports }}
 {{#if schema}}
     {{#with schema}}
-{{> model_templates/schema }}
+        {{#unless getRefModule}}
+from . import {{name.getSnakeCaseName}}
+        {{/unless}}
     {{/with}}
 {{else}}
     {{#if getContent}}
         {{#each getContent}}
             {{#with this}}
                 {{#with schema}}
-{{> model_templates/schema }}
+                    {{#unless getRefModule}}
+from . import {{name.getSnakeCaseName}}
+                    {{/unless}}
                 {{/with}}
             {{/with}}
         {{/each}}

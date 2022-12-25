@@ -39,7 +39,7 @@ class EquilateralTriangle(
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['triangle_interface.TriangleInterface']:
+            def all_of0() -> typing.Type['triangle_interface.TriangleInterface']:
                 return triangle_interface.TriangleInterface
             
             
@@ -110,7 +110,7 @@ class EquilateralTriangle(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                all_of0,
                 AllOf1,
             ]
 

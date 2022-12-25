@@ -45,15 +45,15 @@ class GmFruit(
         class AnyOf:
         
             @staticmethod
-            def any_of_0() -> typing.Type['apple.Apple']:
+            def any_of0() -> typing.Type['apple.Apple']:
                 return apple.Apple
         
             @staticmethod
-            def any_of_1() -> typing.Type['banana.Banana']:
+            def any_of1() -> typing.Type['banana.Banana']:
                 return banana.Banana
             classes = [
-                any_of_0,
-                any_of_1,
+                any_of0,
+                any_of1,
             ]
 
     

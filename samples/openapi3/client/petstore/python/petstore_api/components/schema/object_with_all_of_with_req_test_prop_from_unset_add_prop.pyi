@@ -39,7 +39,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['object_with_optional_test_prop.ObjectWithOptionalTestProp']:
+            def all_of0() -> typing.Type['object_with_optional_test_prop.ObjectWithOptionalTestProp']:
                 return object_with_optional_test_prop.ObjectWithOptionalTestProp
             
             
@@ -117,7 +117,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                all_of0,
                 AllOf1,
             ]
 

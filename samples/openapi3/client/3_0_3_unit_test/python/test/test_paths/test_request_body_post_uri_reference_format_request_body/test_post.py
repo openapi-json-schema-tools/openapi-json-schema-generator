@@ -42,7 +42,7 @@ class TestRequestBodyPostUriReferenceFormatRequestBody(ApiTestMixin, unittest.Te
                 {
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.uri_reference_format.UriReferenceFormat.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostUriReferenceFormatRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 False
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.uri_reference_format.UriReferenceFormat.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -102,7 +102,7 @@ class TestRequestBodyPostUriReferenceFormatRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 12
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.uri_reference_format.UriReferenceFormat.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -132,7 +132,7 @@ class TestRequestBodyPostUriReferenceFormatRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 13.7
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.uri_reference_format.UriReferenceFormat.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -163,7 +163,7 @@ class TestRequestBodyPostUriReferenceFormatRequestBody(ApiTestMixin, unittest.Te
                 [
                 ]
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.uri_reference_format.UriReferenceFormat.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -193,7 +193,7 @@ class TestRequestBodyPostUriReferenceFormatRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 None
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.uri_reference_format.UriReferenceFormat.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

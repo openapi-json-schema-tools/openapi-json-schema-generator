@@ -33,7 +33,7 @@ class TestFakeHealth(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = get.response_for_200.ApplicationJson
+    response_body_schema = get.response_for_200.health_check_result.HealthCheckResult
 
 if __name__ == '__main__':
     unittest.main()

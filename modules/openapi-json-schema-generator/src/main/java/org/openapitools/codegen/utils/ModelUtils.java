@@ -37,8 +37,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.CodegenSchema;
 import org.openapitools.codegen.JsonSchema;
 import org.openapitools.codegen.config.GlobalSettings;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.commons.io.FileUtils;
@@ -82,29 +80,6 @@ public class ModelUtils {
 
     public static boolean isDisallowAdditionalPropertiesIfNotPresent() {
         return Boolean.parseBoolean(GlobalSettings.getProperty(disallowAdditionalPropertiesIfNotPresent, "true"));
-    }
-
-    /**
-     * Searches for the model by name in the map of models and returns it
-     *
-     * @param name   Name of the model
-     * @param models Map of models
-     * @return model
-     */
-    public static CodegenSchema getModelByName(final String name, final Map<String, ModelsMap> models) {
-        final ModelsMap data = models.get(name);
-        if (data != null) {
-            final List<ModelMap> dataModelsList = data.getModels();
-            if (dataModelsList != null) {
-                for (final ModelMap entryMap : dataModelsList) {
-                    final CodegenSchema model = entryMap.getModel();
-                    if (model != null) {
-                        return model;
-                    }
-                }
-            }
-        }
-        return null;
     }
 
     /**
@@ -173,33 +148,8 @@ public class ModelUtils {
     }
 
     /**
-     * Return the list of schemas in the 'components/schemas' used only in a 'application/x-www-form-urlencoded' or 'multipart/form-data' mime time
-     *
-     * @param openAPI specification
-     * @return schemas a list of schemas
-     */
-    public static List<String> getSchemasUsedOnlyInFormParam(OpenAPI openAPI) {
-        List<String> schemasUsedInFormParam = new ArrayList<String>();
-        List<String> schemasUsedInOtherCases = new ArrayList<String>();
-
-        visitOpenAPI(openAPI, (s, t) -> {
-            if (s.get$ref() != null) {
-                String ref = getSimpleRef(s.get$ref());
-                if ("application/x-www-form-urlencoded".equalsIgnoreCase(t) ||
-                        "multipart/form-data".equalsIgnoreCase(t)) {
-                    schemasUsedInFormParam.add(ref);
-                } else {
-                    schemasUsedInOtherCases.add(ref);
-                }
-            }
-        });
-        return schemasUsedInFormParam.stream().filter(n -> !schemasUsedInOtherCases.contains(n)).collect(Collectors.toList());
-    }
-
-    /**
      * Private method used by several methods ({@link #getAllUsedSchemas(OpenAPI)},
      * {@link #getUnusedSchemas(OpenAPI)},
-     * {@link #getSchemasUsedOnlyInFormParam(OpenAPI)}, ...) to traverse all paths of an
      * OpenAPI instance and call the visitor functional interface when a schema is found.
      *
      * @param openAPI specification

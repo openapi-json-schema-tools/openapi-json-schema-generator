@@ -35,7 +35,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'tags': typing.Union[parameter_0.Schema, list, tuple, ],
+            'tags': typing.Union[parameter_0.schema.Schema, list, tuple, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

@@ -41,7 +41,7 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
             payload = (
                 0
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -71,7 +71,7 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
             payload = (
                 0.0
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -102,7 +102,7 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
                 False
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )

@@ -32,7 +32,7 @@ class TestResponseBodyPostPatternIsNotAnchoredResponseBodyForContentTypes(ApiTes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.pattern_is_not_anchored.PatternIsNotAnchored
 
     def test_matches_a_substring_passes(self):
         # matches a substring

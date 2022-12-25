@@ -21,6 +21,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -40,8 +41,6 @@ import org.openapitools.codegen.meta.features.ParameterFeature;
 import org.openapitools.codegen.meta.features.SchemaSupportFeature;
 import org.openapitools.codegen.meta.features.SecurityFeature;
 import org.openapitools.codegen.meta.features.WireFormatFeature;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.model.OperationMap;
 import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.utils.ProcessUtils;
@@ -332,13 +331,13 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     }
 
     @Override
-    public String modelFilename(String templateName, String modelName) {
+    public String schemaFilename(String templateName, String jsonPath) {
         String suffix = modelTemplateFiles().get(templateName);
         // If this was a proper template method, i wouldn't have to make myself throw up by doing this....
         if (getGenerateRoomModels() && suffix.startsWith("RoomModel")) {
-            return roomModelFileFolder() + File.separator + toModelFilename(modelName) + suffix;
+            return roomModelFileFolder() + File.separator + toModelFilename(jsonPath) + suffix;
         } else {
-            return modelFileFolder() + File.separator + toModelFilename(modelName) + suffix;
+            return modelFileFolder() + File.separator + toModelFilename(jsonPath) + suffix;
         }
     }
 
@@ -770,11 +769,10 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     }
 
     @Override
-    public ModelsMap postProcessModels(ModelsMap objs) {
-        ModelsMap objects = super.postProcessModels(objs);
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
+        TreeMap<String, CodegenSchema> objects = super.postProcessModels(objs);
 
-        for (ModelMap mo : objects.getModels()) {
-            CodegenSchema cm = mo.getModel();
+        for (CodegenSchema cm: objects.values()) {
             if (getGenerateRoomModels()) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
             }
@@ -802,7 +800,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     }
 
     @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
+    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
         super.postProcessOperationsWithModels(objs, allModels);
         OperationMap operations = objs.getOperations();
         if (operations != null) {

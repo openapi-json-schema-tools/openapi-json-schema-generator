@@ -32,7 +32,7 @@ class TestResponseBodyPostOneofComplexTypesResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.oneof_complex_types.OneofComplexTypes
 
     def test_first_oneof_valid_complex_passes(self):
         # first oneOf valid (complex)

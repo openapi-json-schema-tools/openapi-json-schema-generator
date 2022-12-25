@@ -32,7 +32,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.string_type_matches_strings.StringTypeMatchesStrings
 
     def test_1_is_not_a_string_fails(self):
         # 1 is not a string

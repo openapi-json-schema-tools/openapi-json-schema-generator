@@ -31,14 +31,13 @@ import io.swagger.v3.oas.models.servers.ServerVariable;
 import org.openapitools.codegen.api.TemplatingEngineAdapter;
 import org.openapitools.codegen.meta.FeatureSet;
 import org.openapitools.codegen.meta.GeneratorMetadata;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.model.OperationsMap;
 
 import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public interface CodegenConfig {
     String getFilesMetadataFilename();
@@ -85,11 +84,11 @@ public interface CodegenConfig {
 
     String requestBodyDocFileFolder();
 
-    String headerFileFolder();
+    String headerFileFolder(String componentName);
 
     String headerDocFileFolder();
 
-    String parameterFileFolder();
+    String parameterFileFolder(String componentName);
 
     String parameterDocFileFolder();
 
@@ -97,7 +96,7 @@ public interface CodegenConfig {
 
     String packageName();
 
-    String requestBodyFileFolder();
+    String requestBodyFileFolder(String componentName);
 
     String responseFileFolder(String componentName);
 
@@ -191,14 +190,6 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointDocTemplateFiles();
 
-    Map<String, String> pathEndpointRequestBodyTemplateFiles();
-
-    Set<String> pathEndpointParameterTemplateFiles();
-
-    Map<String, String> pathEndpointResponseTemplateFiles();
-
-    Set<String> pathEndpointResponseHeaderTemplateFiles();
-
     Map<String, String> responseTemplateFiles();
 
     Map<String, String> responseDocTemplateFiles();
@@ -263,15 +254,15 @@ public interface CodegenConfig {
 
     void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations);
 
-    Map<String, ModelsMap> updateAllModels(Map<String, ModelsMap> objs);
+    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> objs);
 
     void postProcess();
 
-    Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs);
+    TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
 
-    ModelsMap postProcessModels(ModelsMap objs);
+    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> schemas);
 
-    OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels);
+    OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> schemas);
 
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
 
@@ -279,7 +270,15 @@ public interface CodegenConfig {
 
     void postProcessParameter(CodegenParameter parameter);
 
-    String modelFilename(String templateName, String modelName);
+    String schemaFilename(String templateName, String jsonPath);
+
+    String headerFilename(String templateName, String jsonPath);
+
+    String parameterFilename(String templateName, String jsonPath);
+
+    String requestBodyFilename(String templateName, String jsonPath);
+
+    String responseFilename(String templateName, String jsonPath);
 
     String apiFilename(String templateName, String tag);
 

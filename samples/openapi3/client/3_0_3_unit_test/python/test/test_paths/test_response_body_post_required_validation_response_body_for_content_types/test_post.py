@@ -32,7 +32,7 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.required_validation.RequiredValidation
 
     def test_ignores_arrays_passes(self):
         # ignores arrays

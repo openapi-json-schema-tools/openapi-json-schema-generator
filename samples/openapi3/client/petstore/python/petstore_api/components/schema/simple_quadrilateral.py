@@ -39,7 +39,7 @@ class SimpleQuadrilateral(
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
+            def all_of0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
                 return quadrilateral_interface.QuadrilateralInterface
             
             
@@ -120,7 +120,7 @@ class SimpleQuadrilateral(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                all_of0,
                 AllOf1,
             ]
 

@@ -32,7 +32,7 @@ class TestResponseBodyPostAdditionalpropertiesShouldNotLookInApplicatorsResponse
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators
 
     def test_properties_defined_in_allof_are_not_examined_fails(self):
         # properties defined in allOf are not examined

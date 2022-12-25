@@ -49,7 +49,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _client_model_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _client_model_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _client_model_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _client_model_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -100,7 +100,7 @@ class BaseApi(api_client.Api):
 
     def _client_model_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -170,7 +170,7 @@ class ClientModel(BaseApi):
     @typing.overload
     def client_model(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -183,7 +183,7 @@ class ClientModel(BaseApi):
     @typing.overload
     def client_model(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -197,7 +197,7 @@ class ClientModel(BaseApi):
     @typing.overload
     def client_model(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -208,7 +208,7 @@ class ClientModel(BaseApi):
     @typing.overload
     def client_model(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -221,7 +221,7 @@ class ClientModel(BaseApi):
 
     def client_model(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -244,7 +244,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -257,7 +257,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -271,7 +271,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -282,7 +282,7 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -295,7 +295,7 @@ class ApiForpatch(BaseApi):
 
     def patch(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.client.Client,],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

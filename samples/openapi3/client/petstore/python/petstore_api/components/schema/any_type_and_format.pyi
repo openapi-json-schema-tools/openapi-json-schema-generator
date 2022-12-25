@@ -234,7 +234,7 @@ class AnyTypeAndFormat(
                     )
             
             
-            class ModelFloat(
+            class _Float(
                 schemas.AnyTypeSchema,
             ):
             
@@ -249,7 +249,7 @@ class AnyTypeAndFormat(
                     *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'ModelFloat':
+                ) -> '_Float':
                     return super().__new__(
                         cls,
                         *_args,
@@ -265,7 +265,7 @@ class AnyTypeAndFormat(
                 "int32": Int32,
                 "int64": Int64,
                 "double": Double,
-                "float": ModelFloat,
+                "float": _Float,
             }
     
     @typing.overload
@@ -293,7 +293,7 @@ class AnyTypeAndFormat(
     def __getitem__(self, name: typing_extensions.Literal["double"]) -> MetaOapg.Properties.Double: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties._Float: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -341,7 +341,7 @@ class AnyTypeAndFormat(
     def get_item_oapg(self, name: typing_extensions.Literal["double"]) -> typing.Union[MetaOapg.Properties.Double, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties._Float, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
