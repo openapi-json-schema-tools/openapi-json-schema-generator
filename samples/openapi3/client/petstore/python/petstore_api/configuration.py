@@ -48,6 +48,7 @@ PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
     'AnyOf': 'anyOf',
     'AllOf': 'allOf',
     '_not': 'not',
+    '_Not': 'not',
     'discriminator': 'discriminator'
 }
 

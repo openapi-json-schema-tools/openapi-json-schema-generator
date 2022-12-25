@@ -2909,7 +2909,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test__not.py
 test/test_paths/__init__.py
 test/test_paths/test_request_body_post_additionalproperties_allows_a_schema_which_should_validate_request_body/__init__.py
 test/test_paths/test_request_body_post_additionalproperties_allows_a_schema_which_should_validate_request_body/__init__.py
