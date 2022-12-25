@@ -32,7 +32,7 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof
 
     def test_allof_true_anyof_false_oneof_false_fails(self):
         # allOf: true, anyOf: false, oneOf: false

@@ -42,7 +42,7 @@ this_package/paths/__init__.py
 this_package/paths/operators/__init__.py
 this_package/paths/operators/post/__init__.py
 this_package/paths/operators/post/__init__.pyi
-this_package/paths/operators/post/request_body.py
+this_package/paths/operators/post/request_body/__init__.py
 this_package/paths/operators/post/response_for_200/__init__.py
 this_package/rest.py
 this_package/schemas.py

@@ -13,7 +13,6 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.openapitools.codegen.config.CodegenConfigurator;
 import org.openapitools.codegen.config.GlobalSettings;
-import org.openapitools.codegen.model.ModelMap;
 import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.utils.ModelUtils;
 import org.testng.Assert;
@@ -66,7 +65,7 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 44);
+            Assert.assertEquals(files.size(), 61);
 
             // Check expected generated files
             // api sanity check
@@ -151,7 +150,7 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 16);
+            Assert.assertEquals(files.size(), 35);
 
             // Check API is written and Test is not
             TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/PetApi.java");
@@ -653,15 +652,13 @@ public class DefaultGeneratorTest {
         generator.configureGeneratorProperties();
 
         List<File> files = new ArrayList<>();
-        List<String> filteredSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
-        List<ModelMap> allModels = new ArrayList<>();
-        generator.generateModels(files, allModels, filteredSchemas);
+        TreeMap<String, CodegenSchema> schemas = generator.generateSchemas(files);
         List<OperationsMap> allOperations = new ArrayList<>();
         Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
-        generator.generateApis(files, allOperations, allModels, paths);
+        generator.generateApis(files, allOperations, schemas, paths);
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, allModels, null, null, null, null);
+                allOperations, schemas, null, null, null, null);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(servers.get(0).url, "");
         Assert.assertEquals(servers.get(1).url, "http://trailingshlash.io:80/v1");
@@ -681,15 +678,13 @@ public class DefaultGeneratorTest {
         generator.configureGeneratorProperties();
 
         List<File> files = new ArrayList<>();
-        List<String> filteredSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
-        List<ModelMap> allModels = new ArrayList<>();
-        generator.generateModels(files, allModels, filteredSchemas);
+        TreeMap<String, CodegenSchema> schemas = generator.generateSchemas(files);
         List<OperationsMap> allOperations = new ArrayList<>();
         Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
-        generator.generateApis(files, allOperations, allModels, paths);
+        generator.generateApis(files, allOperations, schemas, paths);
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, allModels, null, null, null, null);
+                allOperations, schemas, null, null, null, null);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(servers.get(0).url, "/relative/url");
     }
@@ -765,10 +760,8 @@ public class DefaultGeneratorTest {
         generator.configureGeneratorProperties();
 
         List<File> files = new ArrayList<>();
-        List<String> filteredSchemas = ModelUtils.getSchemasUsedOnlyInFormParam(openAPI);
-        List<ModelMap> allModels = new ArrayList<>();
         // The bug causes a StackOverflowError when calling generateModels
-        generator.generateModels(files, allModels, filteredSchemas);
+        generator.generateSchemas(files);
         // all fine, we have passed
     }
 }

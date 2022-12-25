@@ -44,7 +44,7 @@ class TestRequestBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateReq
                         1,
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )
@@ -82,7 +82,7 @@ class TestRequestBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateReq
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+                body = post.request_body.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_oapg(
                     payload,
                     _configuration=self._configuration
                 )
@@ -102,7 +102,7 @@ class TestRequestBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateReq
                         True,
                 }
             )
-            body = post.request_body.ApplicationJson.from_openapi_data_oapg(
+            body = post.request_body.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_oapg(
                 payload,
                 _configuration=self._configuration
             )

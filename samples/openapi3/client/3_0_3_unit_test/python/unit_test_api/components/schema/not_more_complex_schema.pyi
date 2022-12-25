@@ -37,7 +37,7 @@ class NotMoreComplexSchema(
         # any type
         
         
-        class ModelNot(
+        class _Not(
             schemas.DictSchema
         ):
         
@@ -87,7 +87,7 @@ class NotMoreComplexSchema(
                 foo: typing.Union[MetaOapg.Properties.Foo, str, schemas.Unset] = schemas.unset,
                 _configuration: typing.Optional[schemas.Configuration] = None,
                 **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-            ) -> 'ModelNot':
+            ) -> '_Not':
                 return super().__new__(
                     cls,
                     *_args,

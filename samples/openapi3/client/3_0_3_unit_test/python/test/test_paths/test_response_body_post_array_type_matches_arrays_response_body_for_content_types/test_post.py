@@ -32,7 +32,7 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.array_type_matches_arrays.ArrayTypeMatchesArrays
 
     def test_a_float_is_not_an_array_fails(self):
         # a float is not an array

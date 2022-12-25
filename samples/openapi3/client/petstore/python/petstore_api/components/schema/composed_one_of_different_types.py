@@ -41,11 +41,11 @@ class ComposedOneOfDifferentTypes(
         class OneOf:
         
             @staticmethod
-            def one_of_0() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def one_of0() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def one_of_1() -> typing.Type['animal.Animal']:
+            def one_of1() -> typing.Type['animal.Animal']:
                 return animal.Animal
             OneOf2 = schemas.NoneSchema
             OneOf3 = schemas.DateSchema
@@ -115,8 +115,8 @@ class ComposedOneOfDifferentTypes(
                         'pattern': r'^2020.*',  # noqa: E501
                     }
             classes = [
-                one_of_0,
-                one_of_1,
+                one_of0,
+                one_of1,
                 OneOf2,
                 OneOf3,
                 OneOf4,

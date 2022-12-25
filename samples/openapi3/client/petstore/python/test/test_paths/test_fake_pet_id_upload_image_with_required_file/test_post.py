@@ -33,7 +33,7 @@ class TestFakePetIdUploadImageWithRequiredFile(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.api_response.ApiResponse
 
 if __name__ == '__main__':
     unittest.main()

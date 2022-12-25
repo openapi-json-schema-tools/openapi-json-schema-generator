@@ -21,7 +21,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = model_not.ModelNot(None)
+    body = _not._Not(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
@@ -44,7 +44,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 # <a id="request_body.application_json" >request_body.application_json</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ModelNot**](../../../components/schema/model_not.ModelNot.md) |  | 
+[**_Not**](../../../components/schema/_not._Not.md) |  | 
 
 
 ### Return Types, Responses

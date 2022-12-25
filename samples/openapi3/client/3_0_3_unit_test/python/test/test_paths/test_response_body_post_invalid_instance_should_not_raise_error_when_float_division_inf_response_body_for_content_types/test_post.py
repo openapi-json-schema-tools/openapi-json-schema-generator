@@ -32,7 +32,7 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 
     def test_always_invalid_but_naive_implementations_may_raise_an_overflow_error_fails(self):
         # always invalid, but naive implementations may raise an overflow error

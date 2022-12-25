@@ -22,9 +22,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [parameter_some_header.schema](#parameter_some_header.schema) | | optional
+someHeader | [some_header_header.schema](#some_header_header.schema) | | optional
 
-# <a id="parameter_some_header.schema" >parameter_some_header.schema</a>
+# <a id="some_header_header.schema" >some_header_header.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

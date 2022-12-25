@@ -32,7 +32,7 @@ class TestFakeRefsString(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.string.String
 
 if __name__ == '__main__':
     unittest.main()

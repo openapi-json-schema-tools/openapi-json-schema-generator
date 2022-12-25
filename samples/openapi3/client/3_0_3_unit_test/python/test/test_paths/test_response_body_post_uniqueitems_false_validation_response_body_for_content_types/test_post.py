@@ -32,7 +32,7 @@ class TestResponseBodyPostUniqueitemsFalseValidationResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.uniqueitems_false_validation.UniqueitemsFalseValidation
 
     def test_non_unique_array_of_integers_is_valid_passes(self):
         # non-unique array of integers is valid

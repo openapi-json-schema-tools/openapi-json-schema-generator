@@ -1,20 +1,18 @@
 import dataclasses
+from datetime import date, datetime
+import decimal
+import io
+import typing
+import uuid
+
+import frozendict
+import typing_extensions
 import urllib3
 
 from petstore_api import api_client
-from datetime import date, datetime  # noqa: F401
-import decimal  # noqa: F401
-import functools  # noqa: F401
-import io  # noqa: F401
-import re  # noqa: F401
-import typing  # noqa: F401
-import typing_extensions  # noqa: F401
-import uuid  # noqa: F401
-
-import frozendict  # noqa: F401
-
-from petstore_api import schemas  # noqa: F401
-from . import parameter_some_header
+from petstore_api import schemas
+from . import application_json
+from . import some_header_header
 
 
 class Header:
@@ -26,7 +24,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[parameter_some_header.Schema, str, ],
+            'someHeader': typing.Union[some_header_header.schema.Schema, str, ],
         },
         total=False
     )
@@ -37,46 +35,14 @@ class Header:
 
 
     parameters = [
-        parameter_some_header.parameter_oapg,
+        some_header_header.parameter_oapg,
     ]
-# body schemas
-
-
-class ApplicationJson(
-    schemas.DictSchema
-):
-
-
-    class MetaOapg:
-        types = {frozendict.frozendict}
-        AdditionalProperties = schemas.Int32Schema
-    
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-    
-    def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-        return super().get_item_oapg(name)
-
-    def __new__(
-        cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, decimal.Decimal, int, ],
-    ) -> 'ApplicationJson':
-        return super().__new__(
-            cls,
-            *_args,
-            _configuration=_configuration,
-            **kwargs,
-        )
-
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        ApplicationJson,
+        application_json.ApplicationJson,
     ]
     headers: Header.Params
 
@@ -85,7 +51,7 @@ response = api_client.OpenApiResponse(
     response_cls=ApiResponse,
     content={
         'application/json': api_client.MediaType(
-            schema=ApplicationJson,
+            application_json.ApplicationJson,
         ),
     },
     headers=Header.parameters

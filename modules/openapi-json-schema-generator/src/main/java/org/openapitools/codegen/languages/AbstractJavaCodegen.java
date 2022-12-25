@@ -34,8 +34,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
 import org.openapitools.codegen.languages.features.DocumentationProviderFeatures;
 import org.openapitools.codegen.meta.features.*;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.model.OperationMap;
 import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.utils.ModelUtils;
@@ -650,7 +648,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public Map<String, ModelsMap> postProcessAllModels(Map<String, ModelsMap> objs) {
+    public TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> objs) {
         objs = super.postProcessAllModels(objs);
         objs = super.updateAllModels(objs);
 
@@ -1264,38 +1262,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public ModelsMap postProcessModels(ModelsMap objs) {
-        // recursively add import for mapping one type to multiple imports
-        List<Map<String, String>> recursiveImports = objs.getImports();
-        if (recursiveImports == null)
-            return objs;
-
-        ListIterator<Map<String, String>> listIterator = recursiveImports.listIterator();
-        while (listIterator.hasNext()) {
-            String _import = listIterator.next().get("import");
-            // if the import package happens to be found in the importMapping (key)
-            // add the corresponding import package to the list
-            if (importMapping.containsKey(_import)) {
-                Map<String, String> newImportMap = new HashMap<>();
-                newImportMap.put("import", importMapping.get(_import));
-                listIterator.add(newImportMap);
-            }
-        }
-
-        // add x-implements for serializable to all models
-        for (ModelMap mo : objs.getModels()) {
-            CodegenSchema cm = mo.getModel();
-            if (this.serializableModel) {
-                cm.getVendorExtensions().putIfAbsent("x-implements", new ArrayList<String>());
-                ((ArrayList<String>) cm.getVendorExtensions().get("x-implements")).add("Serializable");
-            }
-        }
-
-        return postProcessModelsEnum(objs);
-    }
-
-    @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
+    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
         // Remove imports of List, ArrayList, Map and HashMap as they are
         // imported in the template already.
         List<Map<String, String>> imports = objs.getImports();

@@ -20,7 +20,7 @@ from unit_test_api.apis.tags.min_items_api import MinItemsApi
 from unit_test_api.apis.tags.min_length_api import MinLengthApi
 from unit_test_api.apis.tags.min_properties_api import MinPropertiesApi
 from unit_test_api.apis.tags.multiple_of_api import MultipleOfApi
-from unit_test_api.apis.tags.model_not_api import ModelNotApi
+from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.one_of_api import OneOfApi
 from unit_test_api.apis.tags.pattern_api import PatternApi
 from unit_test_api.apis.tags.properties_api import PropertiesApi
@@ -52,7 +52,7 @@ TagToApi = typing_extensions.TypedDict(
         "minLength": MinLengthApi,
         "minProperties": MinPropertiesApi,
         "multipleOf": MultipleOfApi,
-        "not": ModelNotApi,
+        "not": _NotApi,
         "oneOf": OneOfApi,
         "pattern": PatternApi,
         "properties": PropertiesApi,
@@ -85,7 +85,7 @@ tag_to_api = TagToApi(
         "minLength": MinLengthApi,
         "minProperties": MinPropertiesApi,
         "multipleOf": MultipleOfApi,
-        "not": ModelNotApi,
+        "not": _NotApi,
         "oneOf": OneOfApi,
         "pattern": PatternApi,
         "properties": PropertiesApi,

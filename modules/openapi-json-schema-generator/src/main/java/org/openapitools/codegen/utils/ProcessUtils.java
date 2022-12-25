@@ -4,11 +4,11 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.openapitools.codegen.CodegenSchema;
 import org.openapitools.codegen.CodegenSecurity;
-import org.openapitools.codegen.model.ModelMap;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ProcessUtils {
     /**
@@ -17,10 +17,8 @@ public class ProcessUtils {
      * @param models       List of models
      * @param initialIndex starting index to use
      */
-    public static void addIndexToProperties(List<ModelMap> models, int initialIndex) {
-        for (ModelMap mo : models) {
-            CodegenSchema cm = mo.getModel();
-
+    public static void addIndexToProperties(TreeMap<String, CodegenSchema> models, int initialIndex) {
+        for (CodegenSchema cm : models.values()) {
             int i = initialIndex;
             for (CodegenSchema var : cm.getProperties().values()) {
                 var.vendorExtensions.put("x-index", i);
@@ -34,7 +32,7 @@ public class ProcessUtils {
      *
      * @param models List of models
      */
-    public static void addIndexToProperties(List<ModelMap> models) {
+    public static void addIndexToProperties(TreeMap<String, CodegenSchema> models) {
         addIndexToProperties(models, 0);
     }
 

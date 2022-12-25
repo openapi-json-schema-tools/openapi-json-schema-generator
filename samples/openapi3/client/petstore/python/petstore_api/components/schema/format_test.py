@@ -90,7 +90,7 @@ class FormatTest(
                     multiple_of = 32.5
             
             
-            class ModelFloat(
+            class _Float(
                 schemas.Float32Schema
             ):
             
@@ -218,7 +218,7 @@ class FormatTest(
                 "int32withValidations": Int32withValidations,
                 "int64": Int64,
                 "number": Number,
-                "float": ModelFloat,
+                "float": _Float,
                 "float32": Float32,
                 "double": Double,
                 "float64": Float64,
@@ -266,7 +266,7 @@ class FormatTest(
     def __getitem__(self, name: typing_extensions.Literal["int64"]) -> MetaOapg.Properties.Int64: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties.ModelFloat: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> MetaOapg.Properties._Float: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["float32"]) -> MetaOapg.Properties.Float32: ...
@@ -362,7 +362,7 @@ class FormatTest(
     def get_item_oapg(self, name: typing_extensions.Literal["int64"]) -> typing.Union[MetaOapg.Properties.Int64, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties.ModelFloat, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["float"]) -> typing.Union[MetaOapg.Properties._Float, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["float32"]) -> typing.Union[MetaOapg.Properties.Float32, schemas.Unset]: ...

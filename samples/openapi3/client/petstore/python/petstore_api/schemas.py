@@ -1105,6 +1105,7 @@ json_schema_keyword_to_validator = {
     'AnyOf': validate_any_of,
     'AllOf': validate_all_of,
     '_not': validate_not,
+    '_Not': validate_not,
     'ModelNot': validate_not,
     'discriminator': validate_discriminator
 }

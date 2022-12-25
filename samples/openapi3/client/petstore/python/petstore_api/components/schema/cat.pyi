@@ -39,7 +39,7 @@ class Cat(
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['animal.Animal']:
+            def all_of0() -> typing.Type['animal.Animal']:
                 return animal.Animal
             
             
@@ -102,7 +102,7 @@ class Cat(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                all_of0,
                 AllOf1,
             ]
 

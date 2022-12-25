@@ -32,7 +32,7 @@ class TestResponseBodyPostNestedOneofToCheckValidationSemanticsResponseBodyForCo
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics
 
     def test_anything_non_null_is_invalid_fails(self):
         # anything non-null is invalid

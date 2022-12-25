@@ -39,12 +39,12 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'pipe': typing.Union[parameter_0.Schema, list, tuple, ],
-            'ioutil': typing.Union[parameter_1.Schema, list, tuple, ],
-            'http': typing.Union[parameter_2.Schema, list, tuple, ],
-            'url': typing.Union[parameter_3.Schema, list, tuple, ],
-            'context': typing.Union[parameter_4.Schema, list, tuple, ],
-            'refParam': typing.Union[parameter_5.Schema, ],
+            'pipe': typing.Union[parameter_0.schema.Schema, list, tuple, ],
+            'ioutil': typing.Union[parameter_1.schema.Schema, list, tuple, ],
+            'http': typing.Union[parameter_2.schema.Schema, list, tuple, ],
+            'url': typing.Union[parameter_3.schema.Schema, list, tuple, ],
+            'context': typing.Union[parameter_4.schema.Schema, list, tuple, ],
+            'refParam': typing.Union[parameter_5.string_with_validation.StringWithValidation, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

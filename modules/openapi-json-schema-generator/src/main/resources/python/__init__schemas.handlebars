@@ -11,8 +11,8 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-{{#each models}}
-{{#with model}}
+{{#each schemas}}
+{{#with this}}
 from {{packageName}}.{{modelPackage}}.{{getComponentModule}} import {{name.getCamelCaseName}}
 {{/with}}
 {{/each}}

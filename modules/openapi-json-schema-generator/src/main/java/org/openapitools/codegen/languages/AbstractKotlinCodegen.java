@@ -23,8 +23,6 @@ import io.swagger.v3.oas.models.media.Schema;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -367,10 +365,9 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public ModelsMap postProcessModels(ModelsMap objs) {
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
         objs = super.postProcessModelsEnum(objs);
-        for (ModelMap mo : objs.getModels()) {
-            CodegenSchema cm = mo.getModel();
+        for (CodegenSchema cm : objs.values()) {
             if (cm.getDiscriminator() != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
                 break;

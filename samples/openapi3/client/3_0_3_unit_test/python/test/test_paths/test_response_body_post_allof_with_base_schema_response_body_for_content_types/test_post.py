@@ -32,7 +32,7 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.allof_with_base_schema.AllofWithBaseSchema
 
     def test_valid_passes(self):
         # valid

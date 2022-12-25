@@ -32,7 +32,7 @@ class TestResponseBodyPostOneofWithEmptySchemaResponseBodyForContentTypes(ApiTes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.oneof_with_empty_schema.OneofWithEmptySchema
 
     def test_both_valid_invalid_fails(self):
         # both valid - invalid

@@ -46,7 +46,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_minitems_validation_request_body_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_minitems_validation_request_body_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_minitems_validation_request_body_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -81,7 +81,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_minitems_validation_request_body_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -93,7 +93,7 @@ class BaseApi(api_client.Api):
 
     def _post_minitems_validation_request_body_oapg(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -158,7 +158,7 @@ class PostMinitemsValidationRequestBody(BaseApi):
     @typing.overload
     def post_minitems_validation_request_body(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -170,7 +170,7 @@ class PostMinitemsValidationRequestBody(BaseApi):
     @typing.overload
     def post_minitems_validation_request_body(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -183,7 +183,7 @@ class PostMinitemsValidationRequestBody(BaseApi):
     @typing.overload
     def post_minitems_validation_request_body(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -193,7 +193,7 @@ class PostMinitemsValidationRequestBody(BaseApi):
     @typing.overload
     def post_minitems_validation_request_body(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -205,7 +205,7 @@ class PostMinitemsValidationRequestBody(BaseApi):
 
     def post_minitems_validation_request_body(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -226,7 +226,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -238,7 +238,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -251,7 +251,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -261,7 +261,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -273,7 +273,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.ApplicationJson,],
+        body: typing.Union[request_body.minitems_validation.MinitemsValidation,],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

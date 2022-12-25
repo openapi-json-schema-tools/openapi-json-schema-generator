@@ -32,7 +32,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ApplicationJson
+    response_body_schema = post.response_for_200.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject
 
     def test_a_float_is_not_null_fails(self):
         # a float is not null
