@@ -488,6 +488,7 @@ public class DefaultGenerator implements Generator {
         String packageName = config.packageName();
         Map<String, Object> initOperationMap = new HashMap<>();
         initOperationMap.put("packageName", packageName);
+        boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
         // paths.some_path.post.__init__.py (single endpoint definition)
         // responses are adjacent to the init file
         for (List<CodegenOperation> coList: operationsMap.values()) {
@@ -518,44 +519,46 @@ public class DefaultGenerator implements Generator {
                     pathsFiles.add(Arrays.asList(endpointMap, templateFile, outputFilename));
                 }
 
-                // paths.some_path.post.request_body.py, only written if there is no refModule
-                if (co.requestBody != null && co.requestBody.getRefModule() == null) {
-                    String requestBodyJsonPath = operationJsonPath + "/requestBody";
-                    generateRequestBody(files, co.requestBody, requestBodyJsonPath);
-                }
-
-                // paths.some_path.post.parameter_0.py
-                Integer i = 0;
-                for (CodegenParameter cp: co.allParams) {
-                    if (cp.refModule != null) {
-                        // skip generation of parameter if it refs another location
-                        continue;
+                if (shouldGenerateApis) {
+                    // paths.some_path.post.request_body.py, only written if there is no refModule
+                    if (co.requestBody != null && co.requestBody.getRefModule() == null) {
+                        String requestBodyJsonPath = operationJsonPath + "/requestBody";
+                        generateRequestBody(files, co.requestBody, requestBodyJsonPath);
                     }
-                    String parameterJsonPath = operationJsonPath + "/parameters/" + i.toString();
-                    generateParameter(files, cp, parameterJsonPath);
-                    i++;
-                }
 
-                for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
-                    // paths.some_path.post.response_for_200.__init__.py (file per response)
-                    // response is a package because responses have Headers which can be refed
-                    // so each inline header should be a module in the response package
-                    String code = responseEntry.getKey();
-                    CodegenResponse response = responseEntry.getValue();
-                    if (response.getRefModule() == null) {
-                        String responseJsonPath = operationJsonPath + "/responses/" + code;
-                        generateResponse(files, response, responseJsonPath);
+                    // paths.some_path.post.parameter_0.py
+                    Integer i = 0;
+                    for (CodegenParameter cp: co.allParams) {
+                        if (cp.refModule != null) {
+                            // skip generation of parameter if it refs another location
+                            continue;
+                        }
+                        String parameterJsonPath = operationJsonPath + "/parameters/" + i.toString();
+                        generateParameter(files, cp, parameterJsonPath);
+                        i++;
                     }
-                }
-                for (String templateFile: config.pathEndpointTestTemplateFiles()) {
-                    Map<String, Object> endpointTestMap = new HashMap<>();
-                    endpointTestMap.put("operation", co);
-                    endpointTestMap.put("packageName", packageName);
-                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
-                    testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
-                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
-                    testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
 
+                    for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
+                        // paths.some_path.post.response_for_200.__init__.py (file per response)
+                        // response is a package because responses have Headers which can be refed
+                        // so each inline header should be a module in the response package
+                        String code = responseEntry.getKey();
+                        CodegenResponse response = responseEntry.getValue();
+                        if (response.getRefModule() == null) {
+                            String responseJsonPath = operationJsonPath + "/responses/" + code;
+                            generateResponse(files, response, responseJsonPath);
+                        }
+                    }
+                    for (String templateFile: config.pathEndpointTestTemplateFiles()) {
+                        Map<String, Object> endpointTestMap = new HashMap<>();
+                        endpointTestMap.put("operation", co);
+                        endpointTestMap.put("packageName", packageName);
+                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
+                        testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
+                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
+                        testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
+
+                    }
                 }
                 for (String templateFile: config.pathEndpointDocTemplateFiles()) {
                     for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
@@ -650,7 +653,6 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
         boolean shouldGenerateApiTests = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
         boolean shouldGenerateApiDocs = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_DOCS);
         generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS, files);

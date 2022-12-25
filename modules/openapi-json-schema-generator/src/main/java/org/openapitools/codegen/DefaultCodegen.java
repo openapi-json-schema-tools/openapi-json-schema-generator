@@ -5481,7 +5481,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenKey ck = new CodegenKey(
                 usedKey,
                 isValid,
-                toVarName(usedKey),
+                toModelFilename(usedKey),
                 toModelName(usedKey)
         );
         return ck;
