@@ -946,7 +946,7 @@ public class DefaultGenerator implements Generator {
         return headers;
     }
 
-    private TreeMap<String, CodegenSchema> generateSchemas(List<File> files) {
+    protected TreeMap<String, CodegenSchema> generateSchemas(List<File> files) {
         if (!generateModels) {
             LOGGER.info("Skipping generation of component schemas.");
             return null;

@@ -23,8 +23,6 @@ import io.swagger.v3.oas.models.media.*;
 import org.openapitools.codegen.*;
 import org.openapitools.codegen.config.CodegenConfigurator;
 import org.openapitools.codegen.languages.PythonClientCodegen;
-import org.openapitools.codegen.model.ModelMap;
-import org.openapitools.codegen.model.ModelsMap;
 import org.openapitools.codegen.utils.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -39,6 +37,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 @SuppressWarnings("static-method")
 public class PythonClientTest {
@@ -224,12 +223,10 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
 
-        ModelMap modelMap = new ModelMap();
-        modelMap.setModel(cm);
+        TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
+        schemas.put("StringEnum", cm);
 
-        ModelsMap modelsMap = new ModelsMap();
-        modelsMap.setModels(Collections.singletonList(modelMap));
-        codegen.postProcessModels(modelsMap);
+        codegen.postProcessModels(schemas);
 
         ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.getAllowableValues().get("enumVars");
         Assert.assertEquals(enumVars.size(), 2);
