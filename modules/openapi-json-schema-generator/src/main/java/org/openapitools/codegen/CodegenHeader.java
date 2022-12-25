@@ -31,31 +31,14 @@ import java.util.Set;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenHeader implements OpenapiComponent {
+public class CodegenHeader extends CodegenRequestBody {
     public boolean isExplode;
-    public String paramName,
-            description, unescapedDescription, style;
+    public String paramName, style;
 
     public String nameInLowerCase; // property name in lower case
-    public String example; // example value (x-example)
-    public String jsonSchema;
-    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public boolean isDeprecated;
     protected CodegenSchema schema;
-    /**
-     * Determines whether this parameter is mandatory. If the parameter is in "path",
-     * this property is required and its value MUST be true. Otherwise, the property
-     * MAY be included and its default value is false.
-     */
-    public boolean required;
     protected boolean hasMultipleTypes = false;
-    protected LinkedHashMap<String, CodegenMediaType> content;
-    protected String ref;
-    protected String refModule;
-
-    public Set<String> imports = new HashSet<String>();
-
-    protected String componentModule;
 
     public CodegenHeader copy() {
         CodegenHeader output = new CodegenHeader();
@@ -66,6 +49,9 @@ public class CodegenHeader implements OpenapiComponent {
         output.jsonSchema = this.jsonSchema;
         output.example = this.example;
 
+        if (this.name != null) {
+            output.setName(this.name);
+        }
         if (this.content != null) {
             output.setContent(this.content);
         }
@@ -120,17 +106,9 @@ public class CodegenHeader implements OpenapiComponent {
         }
         return null;
     }
-    public String getComponentModule() {
-        return componentModule;
-    }
-
-    public void setComponentModule(String componentModule) {
-        this.componentModule = componentModule;
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hash(isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override
@@ -141,6 +119,7 @@ public class CodegenHeader implements OpenapiComponent {
         return isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 required == that.required &&
+                Objects.equals(name, that.name) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(imports, that.imports) &&
@@ -159,26 +138,16 @@ public class CodegenHeader implements OpenapiComponent {
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append(", isExplode=").append(isExplode);
         sb.append(", paramName='").append(paramName).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", style='").append(style).append('\'');
-        sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
-        sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", isDeprecated=").append(isDeprecated);
-        sb.append(", required=").append(required);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", schema=").append(schema);
-        sb.append(", content=").append(content);
-        sb.append(", ref=").append(ref);
-        sb.append(", refModule=").append(refModule);
-        sb.append(", imports=").append(imports);
-        sb.append(", componentModule=").append(componentModule);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenHeader{");
+        // todo add super call
         addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
@@ -191,22 +160,5 @@ public class CodegenHeader implements OpenapiComponent {
     public void setSchema(CodegenSchema schema) {
         this.schema = schema;
     }
-
-    public LinkedHashMap<String, CodegenMediaType> getContent() {
-        return content;
-    }
-
-    public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
-        this.content = content;
-    }
-
-
-    public String getRef() { return ref; }
-
-    public void setRef(String ref) { this.ref=ref; }
-
-    public String getRefModule() { return refModule; }
-
-    public void setRefModule(String refModule) { this.refModule=refModule; }
 }
 

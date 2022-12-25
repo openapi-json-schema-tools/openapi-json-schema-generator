@@ -1,0 +1,128 @@
+/*
+ * Copyright 2018 OpenAPI-Generator Contributors (https://openapi-generator.tech)
+ * Copyright 2018 SmartBear Software
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.openapitools.codegen;
+
+import org.openapitools.codegen.utils.ModelUtils;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+/**
+ * Describes a single operation parameter in the OAS specification.
+ * A unique parameter is defined by a combination of a name and location.
+ * Parameters may be located in a path, query, header or cookie.
+ */
+public class CodegenRequestBody implements OpenapiComponent {
+    protected String description, unescapedDescription;
+
+    protected CodegenKey name;
+    protected String example; // example value (x-example)
+    protected String jsonSchema;
+    protected Map<String, Object> vendorExtensions = new HashMap<String, Object>();
+    /**
+     * Determines whether this parameter is mandatory. If the parameter is in "path",
+     * this property is required and its value MUST be true. Otherwise, the property
+     * MAY be included and its default value is false.
+     */
+    protected boolean required;
+    protected LinkedHashMap<String, CodegenMediaType> content;
+    protected String ref;
+    protected String refModule;
+    protected Set<String> imports = new HashSet<String>();
+    protected String componentModule;
+
+    public String getComponentModule() {
+        return componentModule;
+    }
+
+    public void setComponentModule(String componentModule) {
+        this.componentModule = componentModule;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, ref, refModule, imports, componentModule);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CodegenRequestBody)) return false;
+        CodegenRequestBody that = (CodegenRequestBody) o;
+        return required == that.required &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(componentModule, that.componentModule) &&
+                Objects.equals(ref, that.getRef()) &&
+                Objects.equals(imports, that.imports) &&
+                Objects.equals(refModule, that.getRefModule()) &&
+                Objects.equals(content, that.getContent()) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(unescapedDescription, that.unescapedDescription) &&
+                Objects.equals(example, that.example) &&
+                Objects.equals(jsonSchema, that.jsonSchema) &&
+                Objects.equals(vendorExtensions, that.vendorExtensions);
+    }
+
+    protected void addInstanceInfo(StringBuilder sb) {
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", example='").append(example).append('\'');
+        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
+        sb.append(", vendorExtensions=").append(vendorExtensions);
+        sb.append(", required=").append(required);
+        sb.append(", content=").append(content);
+        sb.append(", ref=").append(ref);
+        sb.append(", refModule=").append(refModule);
+        sb.append(", imports=").append(imports);
+        sb.append(", componentModule=").append(componentModule);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenRequestBody{");
+        addInstanceInfo(sb);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public LinkedHashMap<String, CodegenMediaType> getContent() {
+        return content;
+    }
+
+    public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
+        this.content = content;
+    }
+
+    public CodegenKey getName() { return name; }
+
+    public void setName(CodegenKey name) { this.name=name; }
+
+    public String getRef() { return ref; }
+
+    public void setRef(String ref) { this.ref=ref; }
+
+    public String getRefModule() { return refModule; }
+
+    public void setRefModule(String refModule) { this.refModule=refModule; }
+}
+
