@@ -39,7 +39,7 @@ class ChildCat(
         class AllOf:
         
             @staticmethod
-            def all_of_0() -> typing.Type['parent_pet.ParentPet']:
+            def all_of0() -> typing.Type['parent_pet.ParentPet']:
                 return parent_pet.ParentPet
             
             
@@ -103,7 +103,7 @@ class ChildCat(
                         **kwargs,
                     )
             classes = [
-                all_of_0,
+                all_of0,
                 AllOf1,
             ]
 

@@ -8,12 +8,12 @@
 
 from unit_test_api import api_client, exceptions
 
-from unit_test_api.components.schema import _not
+from unit_test_api.components.schema import model_not
 
 parameter_oapg = api_client.RequestBody(
     content={
         'application/json': api_client.MediaType(
-            schema=_not.ModelNot,
+            schema=model_not.ModelNot,
         ),
     },
     required=True,

@@ -37,7 +37,7 @@ class RefInNot(
         # any type
         
         @staticmethod
-        def _not() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
+        def model_not() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:
             return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
 
 

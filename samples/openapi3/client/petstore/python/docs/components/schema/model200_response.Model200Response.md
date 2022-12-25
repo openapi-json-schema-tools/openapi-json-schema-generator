@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema._200_response
+## petstore_api.components.schema.model200_response
 # Model200Response
 
 model with an invalid class name for python, starts with a number
