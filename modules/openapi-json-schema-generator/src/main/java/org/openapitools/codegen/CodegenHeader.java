@@ -134,7 +134,6 @@ public class CodegenHeader extends CodegenRequestBody {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenHeader{");
-        // todo add super call
         addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
