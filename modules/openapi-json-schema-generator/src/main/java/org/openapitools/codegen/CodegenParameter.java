@@ -45,6 +45,9 @@ public class CodegenParameter extends CodegenHeader {
         output.jsonSchema = this.jsonSchema;
         output.example = this.example;
 
+        if (this.name != null) {
+            output.name = this.name;
+        }
         if (this.content != null) {
             output.setContent(this.content);
         }
@@ -77,7 +80,7 @@ public class CodegenParameter extends CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override

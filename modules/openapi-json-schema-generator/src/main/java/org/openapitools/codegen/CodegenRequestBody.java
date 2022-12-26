@@ -124,5 +124,17 @@ public class CodegenRequestBody implements OpenapiComponent {
     public String getRefModule() { return refModule; }
 
     public void setRefModule(String refModule) { this.refModule=refModule; }
+
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description=description; }
+
+    public String getExample() { return example; }
+
+    public void setExample(String example) { this.example=example; }
+
+    public Map<String, Object> getVendorExtensions() { return vendorExtensions; }
+
+    public void setVendorExtensions(Map<String, Object> vendorExtensions) { this.vendorExtensions = vendorExtensions; }
 }
 

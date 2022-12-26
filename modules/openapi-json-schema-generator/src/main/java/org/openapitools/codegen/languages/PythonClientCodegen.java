@@ -848,7 +848,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 codegenParameter.baseName = bodyParameterName;
             }
             codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
-            codegenParameter.description = codegenModel.description;
+            codegenParameter.setDescription(codegenModel.description);
         } else {
             CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath, sourceJsonPath);
 
@@ -872,7 +872,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
 
                 codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
-                codegenParameter.description = codegenModelDescription;
+                codegenParameter.setDescription(codegenModelDescription);
             }
         }
 
@@ -1663,8 +1663,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
 
         Object example = null;
-        if (codegenParameter.vendorExtensions != null && codegenParameter.vendorExtensions.containsKey("x-example")) {
-            example = codegenParameter.vendorExtensions.get("x-example");
+        if (codegenParameter.getVendorExtensions() != null && codegenParameter.getVendorExtensions().containsKey("x-example")) {
+            example = codegenParameter.getVendorExtensions().get("x-example");
         } else if (parameter.getExample() != null) {
             example = parameter.getExample();
         } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty() && parameter.getExamples().values().iterator().next().getValue() != null) {
@@ -1674,7 +1674,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         example = exampleFromStringOrArraySchema(schema, example, parameter.getName());
         String finalExample = toExampleValue(schema, example);
-        codegenParameter.example = finalExample;
+        codegenParameter.setExample(finalExample);
     }
 
     /**
@@ -1685,8 +1685,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        if (codegenParameter.vendorExtensions != null && codegenParameter.vendorExtensions.containsKey("x-example")) {
-            codegenParameter.example = Json.pretty(codegenParameter.vendorExtensions.get("x-example"));
+        if (codegenParameter.getVendorExtensions() != null && codegenParameter.getVendorExtensions().containsKey("x-example")) {
+            codegenParameter.setExample(Json.pretty(codegenParameter.getVendorExtensions().get("x-example")));
         }
 
         Content content = requestBody.getContent();
@@ -1712,7 +1712,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             example = getObjectExample(schema);
         }
         example = exampleFromStringOrArraySchema(schema, example, codegenParameter.paramName);
-        codegenParameter.example = toExampleValue(schema, example);
+        codegenParameter.setExample(toExampleValue(schema, example));
     }
 
     /**

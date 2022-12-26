@@ -35,10 +35,8 @@ public class CodegenHeader extends CodegenRequestBody {
     public boolean isExplode;
     public String paramName, style;
 
-    public String nameInLowerCase; // property name in lower case
     public boolean isDeprecated;
     protected CodegenSchema schema;
-    protected boolean hasMultipleTypes = false;
 
     public CodegenHeader copy() {
         CodegenHeader output = new CodegenHeader();
@@ -108,39 +106,28 @@ public class CodegenHeader extends CodegenRequestBody {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(name, isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CodegenHeader)) return false;
+        if (! super.equals(o)) return false;
         CodegenHeader that = (CodegenHeader) o;
         return isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
-                required == that.required &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(componentModule, that.componentModule) &&
-                Objects.equals(ref, that.getRef()) &&
-                Objects.equals(imports, that.imports) &&
-                Objects.equals(refModule, that.getRefModule()) &&
-                Objects.equals(content, that.getContent()) &&
                 Objects.equals(schema, that.getSchema()) &&
                 Objects.equals(paramName, that.paramName) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(unescapedDescription, that.unescapedDescription) &&
-                Objects.equals(style, that.style) &&
-                Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
-                Objects.equals(vendorExtensions, that.vendorExtensions);
+                Objects.equals(style, that.style);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
+        super.addInstanceInfo(sb);
         sb.append(", isExplode=").append(isExplode);
         sb.append(", paramName='").append(paramName).append('\'');
         sb.append(", style='").append(style).append('\'');
         sb.append(", isDeprecated=").append(isDeprecated);
-        sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", schema=").append(schema);
     }
 
