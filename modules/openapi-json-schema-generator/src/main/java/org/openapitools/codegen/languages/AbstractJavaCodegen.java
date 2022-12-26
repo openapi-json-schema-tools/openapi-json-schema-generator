@@ -1005,19 +1005,19 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, Parameter parameter) {
         if (parameter.getExample() != null) {
-            codegenParameter.example = parameter.getExample().toString();
+            codegenParameter.setExample(parameter.getExample().toString());
         }
 
         if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {
             Example example = parameter.getExamples().values().iterator().next();
             if (example.getValue() != null) {
-                codegenParameter.example = example.getValue().toString();
+                codegenParameter.setExample(example.getValue().toString());
             }
         }
 
         Schema schema = parameter.getSchema();
         if (schema != null && schema.getExample() != null) {
-            codegenParameter.example = schema.getExample().toString();
+            codegenParameter.setExample(schema.getExample().toString());
         }
 
         setParameterExampleValue(codegenParameter);
@@ -1043,14 +1043,14 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         MediaType mediaType = content.values().iterator().next();
         if (mediaType.getExample() != null) {
-            codegenParameter.example = mediaType.getExample().toString();
+            codegenParameter.setExample(mediaType.getExample().toString());
             return;
         }
 
         if (mediaType.getExamples() != null && !mediaType.getExamples().isEmpty()) {
             Example example = mediaType.getExamples().values().iterator().next();
             if (example.getValue() != null) {
-                codegenParameter.example = example.getValue().toString();
+                codegenParameter.setExample(example.getValue().toString());
                 return;
             }
         }
@@ -1159,7 +1159,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             example = "new HashMap()";
         }
 
-        param.example = example;
+        param.setExample(example);
     }
 
     @Override
