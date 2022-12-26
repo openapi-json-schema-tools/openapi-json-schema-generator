@@ -1990,14 +1990,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // smuggle path Api class name ins operationIdSnakeCase
         co.operationIdSnakeCase = toModelName(path);
 
-        if (co.requestBody == null) {
-            for (CodegenParameter cp: co.allParams) {
-                if (cp.isBodyParam) {
-                    co.requestBody = cp;
-                    co.bodyParams.add(cp);
-                }
-            }
-        }
         return co;
     }
 

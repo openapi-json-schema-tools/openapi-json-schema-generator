@@ -23,7 +23,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class CodegenOperation {
-    public boolean hasAuthMethods, hasConsumes, hasProduces, hasParams, hasOptionalParams, hasRequiredParams,
+    public boolean hasAuthMethods, hasConsumes, hasProduces, hasParams,
             subresourceOperation, isMultipart,
             isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
             isRestful, isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
@@ -32,16 +32,15 @@ public class CodegenOperation {
             summary, unescapedNotes, notes, baseName;
     public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
-    public CodegenParameter requestBody;
+    public CodegenRequestBody requestBody;
     public List<CodegenParameter> allParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> bodyParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> pathParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> queryParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> requiredParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> optionalParams = new ArrayList<CodegenParameter>();
+    public List<CodegenRequestBody> requiredParams = new ArrayList<CodegenRequestBody>();
+    public List<CodegenRequestBody> optionalParams = new ArrayList<CodegenRequestBody>();
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
     public TreeMap<String, CodegenResponse> responses = null;
@@ -73,15 +72,6 @@ public class CodegenOperation {
 
     private static boolean nonEmpty(Map<?, ?> params) {
         return params != null && !params.isEmpty();
-    }
-
-    /**
-     * Check if there's at least one body parameter
-     *
-     * @return true if body parameter exists, false otherwise
-     */
-    public boolean getHasBodyParam() {
-        return nonEmpty(bodyParams);
     }
 
     /**
@@ -118,15 +108,6 @@ public class CodegenOperation {
      */
     public boolean getHasPathParams() {
         return nonEmpty(pathParams);
-    }
-
-    /**
-     * Check if there's at least one body parameter or at least one form parameter
-     *
-     * @return true if body or form parameter exists, false otherwise
-     */
-    public boolean getHasBodyOrFormParams() {
-        return getHasBodyParam();
     }
 
     /**
@@ -299,8 +280,6 @@ public class CodegenOperation {
         sb.append(", hasConsumes=").append(hasConsumes);
         sb.append(", hasProduces=").append(hasProduces);
         sb.append(", hasParams=").append(hasParams);
-        sb.append(", hasOptionalParams=").append(hasOptionalParams);
-        sb.append(", hasRequiredParams=").append(hasRequiredParams);
         sb.append(", subresourceOperation=").append(subresourceOperation);
         sb.append(", isMultipart=").append(isMultipart);
         sb.append(", hasDefaultResponse=").append(hasDefaultResponse);
@@ -327,7 +306,6 @@ public class CodegenOperation {
         sb.append(", servers=").append(servers);
         sb.append(", requestBody=").append(requestBody);
         sb.append(", allParams=").append(allParams);
-        sb.append(", bodyParams=").append(bodyParams);
         sb.append(", pathParams=").append(pathParams);
         sb.append(", queryParams=").append(queryParams);
         sb.append(", headerParams=").append(headerParams);
@@ -364,8 +342,6 @@ public class CodegenOperation {
                 hasConsumes == that.hasConsumes &&
                 hasProduces == that.hasProduces &&
                 hasParams == that.hasParams &&
-                hasOptionalParams == that.hasOptionalParams &&
-                hasRequiredParams == that.hasRequiredParams &&
                 subresourceOperation == that.subresourceOperation &&
                 isMultipart == that.isMultipart &&
                 hasDefaultResponse == that.hasDefaultResponse &&
@@ -392,7 +368,6 @@ public class CodegenOperation {
                 Objects.equals(servers, that.servers) &&
                 Objects.equals(requestBody, that.requestBody) &&
                 Objects.equals(allParams, that.allParams) &&
-                Objects.equals(bodyParams, that.bodyParams) &&
                 Objects.equals(pathParams, that.pathParams) &&
                 Objects.equals(queryParams, that.queryParams) &&
                 Objects.equals(headerParams, that.headerParams) &&
@@ -421,13 +396,13 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(hasAuthMethods, hasConsumes, hasProduces, hasParams, hasOptionalParams,
-                hasRequiredParams, subresourceOperation,
+        return Objects.hash(hasAuthMethods, hasConsumes, hasProduces, hasParams,
+                subresourceOperation,
                 isMultipart,
                 hasDefaultResponse, isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
                 isRestful, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
-                consumes, produces, prioritizedContentTypes, servers, requestBody, allParams, bodyParams,
+                consumes, produces, prioritizedContentTypes, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
                 vendorExtensions, nickname, operationIdOriginal, operationIdLowerCase, operationIdCamelCase,
