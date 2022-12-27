@@ -59,7 +59,6 @@ import java.util.stream.Stream;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.callbacks.Callback;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.headers.Header;
@@ -3445,17 +3444,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         CodegenResponse r = new CodegenResponse();
-        if (responseRef != null) {
-            r.setRef(responseRef);
-            r.setRefModule(toRefModule(responseRef, "responses", sourceJsonPath));
-        }
-        if (sourceJsonPath != null) {
-            String[] refPieces = sourceJsonPath.split("/");
-            if (sourceJsonPath.startsWith("#/components/responses/") && refPieces.length == 4) {
-                String componentName = refPieces[3];
-                r.setComponentModule(toComponentModule(componentName, "responses"));
-            }
-        }
+        setLocationInfo(responseRef, r, sourceJsonPath, "responses");
         r.message = escapeText(usedResponse.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment
@@ -3556,7 +3545,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath);
-        setRefAndComponentModuleInfo(header.get$ref(), codegenHeader, sourceJsonPath, "headers");
+        setLocationInfo(header.get$ref(), codegenHeader, sourceJsonPath, "headers");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenHeader.paramName = toHeaderFilename(priorJsonPathFragment);
@@ -3570,14 +3559,6 @@ public class DefaultCodegen implements CodegenConfig {
     private void setRequestBodyInfo(RequestBody requestBody, CodegenRequestBody codegenRequestBody, String sourceJsonPath) {
         codegenRequestBody.description = escapeText(requestBody.getDescription());
         codegenRequestBody.unescapedDescription = requestBody.getDescription();
-        // last fragment info
-        // requestBody -> requestBody
-        // headers -> headerName
-        // parameters/i -> i
-        String lastFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
-        CodegenKey name = getKey(lastFragment);
-        codegenRequestBody.setName(name);
-        // todo add example setting here in the future
         codegenRequestBody.jsonSchema = Json.pretty(requestBody);
         if (requestBody.getExtensions() != null && !requestBody.getExtensions().isEmpty()) {
             codegenRequestBody.vendorExtensions.putAll(requestBody.getExtensions());
@@ -3664,7 +3645,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         Header header = toHeader(usedParameter);
         setHeaderInfo(header, codegenParameter, usedSourceJsonPath);
-        setRefAndComponentModuleInfo(parameter.get$ref(), codegenParameter, sourceJsonPath, "parameters");
+        setLocationInfo(parameter.get$ref(), codegenParameter, sourceJsonPath, "parameters");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenParameter.paramName = toParamName(priorJsonPathFragment);
@@ -5106,7 +5087,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private void setRefAndComponentModuleInfo(String ref, OpenapiComponent instance, String sourceJsonPath, String expectedComponentType) {
+    private void setLocationInfo(String ref, OpenapiComponent instance, String sourceJsonPath, String expectedComponentType) {
         if (ref != null) {
             instance.setRef(ref);
             String refModule = toRefModule(ref, expectedComponentType, sourceJsonPath);
@@ -5123,8 +5104,8 @@ public class DefaultCodegen implements CodegenConfig {
         // parameters/i -> i
         // components/parameters/someParam -> someParam
         String lastFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
-        //CodegenKey name = getKey(lastFragment);
-        // TODO add name setting here
+        CodegenKey name = getKey(lastFragment, expectedComponentType);
+        instance.setName(name);
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
@@ -5143,13 +5124,49 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenRequestBody codegenRequestBody = new CodegenRequestBody();
         setRequestBodyInfo(usedRequestBody, codegenRequestBody, usedSourceJsonPath);
-        setRefAndComponentModuleInfo(requestBody.get$ref(), codegenRequestBody, sourceJsonPath, "requestBodies");
+        setLocationInfo(requestBody.get$ref(), codegenRequestBody, sourceJsonPath, "requestBodies");
 
         // set the parameter's example value
         // should be overridden by lang codegen
         setRequestBodyExampleValue(codegenRequestBody, usedRequestBody);
 
         return codegenRequestBody;
+    }
+
+    public CodegenKey getKey(String key, String expectedComponentType) {
+        String usedKey = handleSpecialCharacters(key);
+        boolean isValid = isValid(usedKey);
+        String snakeCaseName = null;
+        String camelCaseName = null;
+        switch (expectedComponentType) {
+            case "schemas":
+                snakeCaseName = toModelFilename(usedKey);
+                camelCaseName = toModelName(usedKey);
+                break;
+            case "parameters":
+                snakeCaseName = toParameterFilename(usedKey);
+                camelCaseName = toModelName(usedKey);
+                break;
+            case "requestBodies":
+                snakeCaseName = toRequestBodyFileName(usedKey);
+                camelCaseName = toModelName(usedKey);
+                break;
+            case "headers":
+                snakeCaseName = toHeaderFilename(usedKey);
+                camelCaseName = toModelName(usedKey);
+                break;
+            case "responses":
+                snakeCaseName = toResponseModuleName(usedKey);
+                camelCaseName = toModelName(usedKey);
+                break;
+        }
+        CodegenKey ck = new CodegenKey(
+                usedKey,
+                isValid,
+                snakeCaseName,
+                camelCaseName
+        );
+        return ck;
     }
 
     public CodegenKey getKey(String key) {
