@@ -19,4 +19,7 @@ public interface OpenapiComponent {
 
     void setComponentModule(String componentModule);
 
+    CodegenKey getName();
+
+    void setName(CodegenKey name);
 }

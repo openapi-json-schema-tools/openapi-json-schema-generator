@@ -20,10 +20,10 @@ package org.openapitools.codegen;
 import java.util.*;
 
 public class CodegenResponse implements OpenapiComponent {
+    private CodegenKey name;
     private Map<String, CodegenHeader> headers;
     public String message;
     public List<Map<String, Object>> examples;
-    public boolean hasHeaders;
     public String jsonSchema;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     private LinkedHashMap<String, CodegenMediaType> content;
@@ -34,7 +34,7 @@ public class CodegenResponse implements OpenapiComponent {
 
     @Override
     public int hashCode() {
-        return Objects.hash(message, examples, hasHeaders,
+        return Objects.hash(name, message, examples,
                 jsonSchema, vendorExtensions,
                 headers, content,
                 ref, imports, refModule, componentModule);
@@ -45,7 +45,7 @@ public class CodegenResponse implements OpenapiComponent {
         if (this == o) return true;
         if (!(o instanceof CodegenResponse)) return false;
         CodegenResponse that = (CodegenResponse) o;
-        return hasHeaders == that.hasHeaders &&
+        return Objects.equals(name, that.name) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(content, that.getContent()) &&
@@ -85,9 +85,9 @@ public class CodegenResponse implements OpenapiComponent {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenResponse{");
+        sb.append(", name='").append(name).append('\'');
         sb.append(", message='").append(message).append('\'');
         sb.append(", examples=").append(examples);
-        sb.append(", hasHeaders=").append(hasHeaders);
         sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", headers=").append(headers);
@@ -108,4 +108,7 @@ public class CodegenResponse implements OpenapiComponent {
 
     public void setRefModule(String refModule) { this.refModule=refModule; }
 
+    public CodegenKey getName() { return name; }
+
+    public void setName(CodegenKey name) { this.name=name; }
 }

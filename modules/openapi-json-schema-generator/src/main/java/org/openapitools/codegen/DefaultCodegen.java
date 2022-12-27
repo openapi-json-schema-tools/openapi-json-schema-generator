@@ -3466,9 +3466,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         Map<String, Header> headers = usedResponse.getHeaders();
         if (headers != null && !headers.isEmpty()) {
-            if (!usedResponse.getHeaders().isEmpty()) {
-                r.hasHeaders = true;
-            }
             Map<String, CodegenHeader> responseHeaders = new HashMap<>();
             for (Entry<String, Header> entry : headers.entrySet()) {
                 String headerName = entry.getKey();
@@ -3569,6 +3566,16 @@ public class DefaultCodegen implements CodegenConfig {
             codegenHeader.style = usedHeader.getStyle().toString();
         }
         return codegenHeader;
+    }
+
+    private void setNameInfo(String sourceJsonPath) {
+        // last fragment info
+        // requestBody -> requestBody
+        // headers -> headerName
+        // parameters/i -> i
+        // components/parameters/someParam -> someParam
+        String lastFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
+        CodegenKey name = getKey(lastFragment);
     }
 
     private void setRequestBodyInfo(RequestBody requestBody, CodegenRequestBody codegenRequestBody, String sourceJsonPath) {
