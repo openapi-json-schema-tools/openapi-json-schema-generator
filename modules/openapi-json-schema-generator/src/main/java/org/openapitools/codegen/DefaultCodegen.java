@@ -3238,38 +3238,38 @@ public class DefaultCodegen implements CodegenConfig {
                 op.responses.put(key, r);
                 if ("default".equals(key)) {
                     op.defaultResponse = r;
-                } else {
-                    if (op.nonDefaultResponses == null) {
-                        op.nonDefaultResponses = new TreeMap<>();
+                    continue;
+                }
+                if (op.nonDefaultResponses == null) {
+                    op.nonDefaultResponses = new TreeMap<>();
+                }
+                op.nonDefaultResponses.put(key, r);
+                if (key.endsWith("XX") && key.length() == 3) {
+                    if (op.wildcardCodeResponses == null) {
+                        op.wildcardCodeResponses = new TreeMap<>();
                     }
-                    op.nonDefaultResponses.put(key, r);
-                    if (key.endsWith("XX") && key.length() == 3) {
-                        if (op.wildcardCodeResponses == null) {
-                            op.wildcardCodeResponses = new TreeMap<>();
-                        }
-                        Integer firstNumber = Integer.parseInt(key.substring(0, 1));
-                        op.wildcardCodeResponses.put(firstNumber, r);
-                        if (firstNumber > 3 && r.getContent() != null) {
-                            for (CodegenMediaType cm: r.getContent().values()) {
-                                if (cm.getSchema() != null) {
-                                    op.hasErrorResponseObject = true;
-                                    break;
-                                }
+                    Integer firstNumber = Integer.parseInt(key.substring(0, 1));
+                    op.wildcardCodeResponses.put(firstNumber, r);
+                    if (firstNumber > 3 && r.getContent() != null) {
+                        for (CodegenMediaType cm: r.getContent().values()) {
+                            if (cm.getSchema() != null) {
+                                op.hasErrorResponseObject = true;
+                                break;
                             }
                         }
-                    } else {
-                        if (op.statusCodeResponses == null) {
-                            op.statusCodeResponses = new TreeMap<>();
-                        }
-                        Integer statusCode = Integer.parseInt(key);
-                        op.statusCodeResponses.put(statusCode, r);
-                        if (statusCode > 299 && r.getContent() != null) {
-                            for (CodegenMediaType cm: r.getContent().values()) {
-                                if (cm.getSchema() != null) {
-                                    op.hasErrorResponseObject = true;
-                                    break;
-                                }
-                            }
+                    }
+                    continue;
+                }
+                if (op.statusCodeResponses == null) {
+                    op.statusCodeResponses = new TreeMap<>();
+                }
+                Integer statusCode = Integer.parseInt(key);
+                op.statusCodeResponses.put(statusCode, r);
+                if (statusCode > 299 && r.getContent() != null) {
+                    for (CodegenMediaType cm: r.getContent().values()) {
+                        if (cm.getSchema() != null) {
+                            op.hasErrorResponseObject = true;
+                            break;
                         }
                     }
                 }
