@@ -257,11 +257,6 @@ public class DefaultCodegen implements CodegenConfig {
     // flag to indicate whether to use environment variable to post process file
     protected boolean enablePostProcessFile = false;
     private TemplatingEngineAdapter templatingEngine = new MustacheEngineAdapter();
-    // flag to indicate whether to use the utils.OneOfImplementorAdditionalData related logic
-    protected boolean useOneOfInterfaces = false;
-    // whether or not the oneOf imports machinery should add oneOf interfaces as imports in implementing classes
-    protected boolean addOneOfInterfaceImports = false;
-    protected List<CodegenSchema> addOneOfInterfaces = new ArrayList<>();
 
     // flag to indicate whether to only update files whose contents have changed
     protected boolean enableMinimalUpdate = false;
@@ -490,16 +485,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Index all CodegenModels by model name.
-     *
-     * @param objs Map of models
-     * @return map of all models indexed by names
-     */
-    public TreeMap<String, CodegenSchema> getAllModels(TreeMap<String, CodegenSchema> objs) {
-        return objs;
-    }
-
-    /**
      * Loop through all models to update different flags (e.g. isSelfReference), children models, etc
      *
      * @param objs Map of models
@@ -692,84 +677,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     @SuppressWarnings("unused")
     public void preprocessOpenAPI(OpenAPI openAPI) {
-        if (useOneOfInterfaces && openAPI.getComponents() != null) {
-            // we process the openapi schema here to find oneOf schemas and create interface models for them
-            Map<String, Schema> schemas = new HashMap<>(openAPI.getComponents().getSchemas());
-            if (schemas == null) {
-                schemas = new HashMap<>();
-            }
-            Map<String, PathItem> pathItems = openAPI.getPaths();
-
-            // we need to add all request and response bodies to processed schemas
-            if (pathItems != null) {
-                for (Map.Entry<String, PathItem> e : pathItems.entrySet()) {
-                    for (Map.Entry<PathItem.HttpMethod, Operation> op : e.getValue().readOperationsMap().entrySet()) {
-                        String opId = getOrGenerateOperationId(op.getValue(), e.getKey(), op.getKey().toString());
-                        // process request body
-                        RequestBody b = ModelUtils.getReferencedRequestBody(openAPI, op.getValue().getRequestBody());
-                        Schema requestSchema = null;
-                        if (b != null) {
-                            requestSchema = ModelUtils.getSchemaFromRequestBody(b);
-                        }
-                        if (requestSchema != null) {
-                            schemas.put(opId, requestSchema);
-                        }
-                        // process all response bodies
-                        if (op.getValue().getResponses() != null) {
-                            for (Map.Entry<String, ApiResponse> ar : op.getValue().getResponses().entrySet()) {
-                                ApiResponse a = ModelUtils.getReferencedApiResponse(openAPI, ar.getValue());
-                                Schema responseSchema = ModelUtils.getSchemaFromResponse(a);
-                                if (responseSchema != null) {
-                                    schemas.put(opId + ar.getKey(), responseSchema);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            // also add all properties of all schemas to be checked for oneOf
-            Map<String, Schema> propertySchemas = new HashMap<>();
-            for (Map.Entry<String, Schema> e : schemas.entrySet()) {
-                Schema s = e.getValue();
-                Map<String, Schema> props = s.getProperties();
-                if (props == null) {
-                    props = new HashMap<>();
-                }
-                for (Map.Entry<String, Schema> p : props.entrySet()) {
-                    propertySchemas.put(e.getKey() + "/" + p.getKey(), p.getValue());
-                }
-            }
-            schemas.putAll(propertySchemas);
-
-            // go through all gathered schemas and add them as interfaces to be created
-            for (Map.Entry<String, Schema> e : schemas.entrySet()) {
-                String schemaName = e.getKey();
-                String sourceJsonPath = "#/components/schemas/" + schemaName;
-                String n = toModelName(e.getKey());
-                Schema s = e.getValue();
-                String nOneOf = toModelName(n + "OneOf");
-                if (ModelUtils.isComposedSchema(s)) {
-                    if (e.getKey().contains("/")) {
-                        // if this is property schema, we also need to generate the oneOf interface model
-                        addOneOfNameExtension((ComposedSchema) s, nOneOf);
-                    } else {
-                        // else this is a component schema, so we will just use that as the oneOf interface model
-                        addOneOfNameExtension((ComposedSchema) s, n);
-                    }
-                } else if (ModelUtils.isArraySchema(s)) {
-                    Schema items = ((ArraySchema) s).getItems();
-                    if (ModelUtils.isComposedSchema(items)) {
-                        addOneOfNameExtension((ComposedSchema) items, nOneOf);
-                    }
-                } else if (ModelUtils.isMapSchema(s)) {
-                    Schema addProps = getAdditionalProperties(s);
-                    if (addProps != null && ModelUtils.isComposedSchema(addProps)) {
-                        addOneOfNameExtension((ComposedSchema) addProps, nOneOf);
-                    }
-                }
-            }
-        }
     }
 
     // override with any special handling of the entire OpenAPI spec document
@@ -1250,14 +1157,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
         this.allowUnicodeIdentifiers = allowUnicodeIdentifiers;
-    }
-
-    public Boolean getUseOneOfInterfaces() {
-        return useOneOfInterfaces;
-    }
-
-    public void setUseOneOfInterfaces(Boolean useOneOfInterfaces) {
-        this.useOneOfInterfaces = useOneOfInterfaces;
     }
 
     /**
@@ -3231,14 +3130,6 @@ public class DefaultCodegen implements CodegenConfig {
         return currentProperty;
     }
 
-    public String getBodyParameterName(CodegenOperation co) {
-        String bodyParameterName = "body";
-        if (co != null && co.vendorExtensions != null && co.vendorExtensions.containsKey("x-codegen-request-body-name")) {
-            bodyParameterName = (String) co.vendorExtensions.get("x-codegen-request-body-name");
-        }
-        return bodyParameterName;
-    }
-
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -5133,74 +5024,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String getHelp() {
         return null;
-    }
-
-    protected void addBodyModelSchema(CodegenParameter codegenParameter, String name, Schema schema, Set<String> imports, String bodyParameterName, boolean forceSimpleRef, String sourceJsonPath) {
-        CodegenSchema codegenModel = null;
-        if (StringUtils.isNotBlank(name)) {
-            schema.setName(name);
-            String path = "#/components/schemas/" + name;
-            codegenModel = fromSchema(schema, path, path);
-        }
-
-        if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
-            if (StringUtils.isEmpty(bodyParameterName)) {
-                codegenParameter.baseName = codegenModel.name.getCamelCaseName();
-            } else {
-                codegenParameter.baseName = bodyParameterName;
-            }
-            codegenParameter.paramName = toParamName(codegenParameter.baseName);
-            codegenParameter.description = codegenModel.description;
-        } else {
-            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath, sourceJsonPath);
-
-            if (codegenSchema != null && codegenSchema.getRefClass() != null && codegenSchema.getRefClass().contains(" | ")) {
-                if (!addSchemaImportsFromV3SpecLocations) {
-                    // TODO move this splitting logic to the generator that needs it only
-                    List<String> parts = Arrays.asList(codegenSchema.getRefClass().split(" \\| "));
-                    imports.addAll(parts);
-                }
-                String codegenModelName = codegenSchema.getRefClass();
-                codegenParameter.baseName = codegenModelName;
-                codegenParameter.paramName = toParamName(codegenParameter.baseName);
-                codegenParameter.description = codegenSchema.getDescription();
-            } else {
-                if (ModelUtils.isMapSchema(schema)) {// http body is map
-                    LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
-                } else if (codegenSchema != null) {
-                    String codegenModelName, codegenModelDescription;
-
-                    if (codegenModel != null) {
-                        codegenModelName = codegenModel.name.getCamelCaseName();
-                        codegenModelDescription = codegenModel.description;
-                    } else {
-                        LOGGER.warn("The following schema has undefined (null) baseType. " +
-                                "It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. " +
-                                "A correct 'consumes' for form parameters should be " +
-                                "'application/x-www-form-urlencoded' or 'multipart/?'");
-                        LOGGER.warn("schema: {}", schema);
-                        LOGGER.warn("codegenModel is null. Default to UNKNOWN_BASE_TYPE");
-                        codegenModelName = "UNKNOWN_BASE_TYPE";
-                        codegenModelDescription = "UNKNOWN_DESCRIPTION";
-                    }
-
-                    if (StringUtils.isEmpty(bodyParameterName)) {
-                        codegenParameter.baseName = codegenModelName;
-                    } else {
-                        codegenParameter.baseName = bodyParameterName;
-                    }
-
-                    codegenParameter.paramName = toParamName(codegenParameter.baseName);
-                    codegenParameter.description = codegenModelDescription;
-                    if (!addSchemaImportsFromV3SpecLocations) {
-                        if (codegenSchema.refClass != null) {
-                            imports.add(codegenSchema.refClass);
-                        }
-                    }
-                }
-            }
-
-        }
     }
 
     protected LinkedHashMap<String, CodegenMediaType> getContent(Content content, Set<String> imports, String sourceJsonPath) {

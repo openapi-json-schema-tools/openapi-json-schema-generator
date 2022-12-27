@@ -398,8 +398,6 @@ public interface CodegenConfig {
 
     CodegenRequestBody fromRequestBody(RequestBody body, String sourceJsonPath);
 
-    String getBodyParameterName(CodegenOperation co);
-
     CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
 
     CodegenHeader fromHeader(Header parameter, String sourceJsonPath);
