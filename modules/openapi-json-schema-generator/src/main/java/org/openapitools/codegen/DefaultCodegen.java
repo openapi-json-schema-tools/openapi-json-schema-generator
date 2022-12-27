@@ -3556,8 +3556,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath);
-        RequestBody requestBody = toRequestBody(header);
-        setRefAndComponentModuleInfo(requestBody, codegenHeader, sourceJsonPath, "headers");
+        setRefAndComponentModuleInfo(header.get$ref(), codegenHeader, sourceJsonPath, "headers");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenHeader.paramName = toHeaderFilename(priorJsonPathFragment);
@@ -3566,16 +3565,6 @@ public class DefaultCodegen implements CodegenConfig {
             codegenHeader.style = usedHeader.getStyle().toString();
         }
         return codegenHeader;
-    }
-
-    private void setNameInfo(String sourceJsonPath) {
-        // last fragment info
-        // requestBody -> requestBody
-        // headers -> headerName
-        // parameters/i -> i
-        // components/parameters/someParam -> someParam
-        String lastFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
-        CodegenKey name = getKey(lastFragment);
     }
 
     private void setRequestBodyInfo(RequestBody requestBody, CodegenRequestBody codegenRequestBody, String sourceJsonPath) {
@@ -3675,8 +3664,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         Header header = toHeader(usedParameter);
         setHeaderInfo(header, codegenParameter, usedSourceJsonPath);
-        RequestBody requestBody = toRequestBody(toHeader(parameter));
-        setRefAndComponentModuleInfo(requestBody, codegenParameter, sourceJsonPath, "parameters");
+        setRefAndComponentModuleInfo(parameter.get$ref(), codegenParameter, sourceJsonPath, "parameters");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenParameter.paramName = toParamName(priorJsonPathFragment);
@@ -5118,18 +5106,25 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private void setRefAndComponentModuleInfo(RequestBody requestBody, CodegenRequestBody codegenRequestBody, String sourceJsonPath, String expectedComponentType) {
-        String ref = requestBody.get$ref();
+    private void setRefAndComponentModuleInfo(String ref, OpenapiComponent instance, String sourceJsonPath, String expectedComponentType) {
         if (ref != null) {
-            codegenRequestBody.setRef(ref);
+            instance.setRef(ref);
             String refModule = toRefModule(ref, expectedComponentType, sourceJsonPath);
-            codegenRequestBody.setRefModule(refModule);
+            instance.setRefModule(refModule);
         }
         String[] refPieces = sourceJsonPath.split("/");
         if (sourceJsonPath.startsWith("#/components/") && refPieces.length == 4) {
             String componentName = refPieces[3];
-            codegenRequestBody.setComponentModule(toComponentModule(componentName, expectedComponentType));
+            instance.setComponentModule(toComponentModule(componentName, expectedComponentType));
         }
+        // last fragment info
+        // requestBody -> requestBody
+        // headers -> headerName
+        // parameters/i -> i
+        // components/parameters/someParam -> someParam
+        String lastFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
+        //CodegenKey name = getKey(lastFragment);
+        // TODO add name setting here
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
@@ -5148,7 +5143,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenRequestBody codegenRequestBody = new CodegenRequestBody();
         setRequestBodyInfo(usedRequestBody, codegenRequestBody, usedSourceJsonPath);
-        setRefAndComponentModuleInfo(requestBody, codegenRequestBody, sourceJsonPath, "requestBodies");
+        setRefAndComponentModuleInfo(requestBody.get$ref(), codegenRequestBody, sourceJsonPath, "requestBodies");
 
         // set the parameter's example value
         // should be overridden by lang codegen
