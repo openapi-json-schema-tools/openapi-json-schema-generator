@@ -3666,8 +3666,10 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenParameter codegenParameter = new CodegenParameter();
 
-        Header prameterHeader = toHeader(usedParameter);
-        setHeaderInfo(prameterHeader, codegenParameter, usedSourceJsonPath);
+        Header header = toHeader(usedParameter);
+        setHeaderInfo(header, codegenParameter, usedSourceJsonPath);
+        RequestBody requestBody = toRequestBody(toHeader(parameter));
+        setRefAndComponentModuleInfo(requestBody, codegenParameter, sourceJsonPath, "parameters");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenParameter.paramName = toParamName(priorJsonPathFragment);
@@ -3676,18 +3678,6 @@ public class DefaultCodegen implements CodegenConfig {
             codegenParameter.style = usedParameter.getStyle().toString();
         }
         codegenParameter.baseName = usedParameter.getName();
-
-        if (parameterRef != null) {
-            String refModule = toRefModule(parameterRef, "parameters", sourceJsonPath);
-            codegenParameter.setRefModule(refModule);
-        }
-        if (sourceJsonPath != null) {
-            String[] refPieces = sourceJsonPath.split("/");
-            if (sourceJsonPath.startsWith("#/components/parameters/") && refPieces.length == 4) {
-                String componentName = refPieces[3];
-                codegenParameter.setComponentModule(toComponentModule(componentName, "parameters"));
-            }
-        }
 
         if (GlobalSettings.getProperty("debugParser") != null) {
             LOGGER.info("working on Parameter {}", parameter.getName());
