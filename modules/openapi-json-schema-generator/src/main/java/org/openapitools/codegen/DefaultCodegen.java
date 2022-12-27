@@ -3558,7 +3558,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         CodegenHeader codegenHeader = new CodegenHeader();
-        setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath, "Header");
+        setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath);
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenHeader.paramName = toHeaderFilename(priorJsonPathFragment);
 
@@ -3603,20 +3603,23 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    private void setHeaderInfo(Header header, CodegenHeader codegenHeader, String sourceJsonPath, String type) {
-        codegenHeader.description = escapeText(header.getDescription());
-        codegenHeader.unescapedDescription = header.getDescription();
-        if (header.getRequired() != null) {
-            codegenHeader.required = header.getRequired();
-        }
+    private RequestBody toRequestBody(Header header) {
+        RequestBody body = new RequestBody();
+        body.setDescription(header.getDescription());
+        body.setContent(header.getContent());
+        body.setRequired(header.getRequired());
+        body.setExtensions(header.getExtensions());
+        body.set$ref(header.get$ref());
+        return body;
+    }
+
+    private void setHeaderInfo(Header header, CodegenHeader codegenHeader, String sourceJsonPath) {
+        RequestBody requestBody = toRequestBody(header);
+        setRequestBodyInfo(requestBody, codegenHeader, sourceJsonPath);
         if (header.getDeprecated() != null) {
             codegenHeader.isDeprecated = header.getDeprecated();
         }
         codegenHeader.jsonSchema = Json.pretty(header);
-
-        if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
-            codegenHeader.vendorExtensions.putAll(header.getExtensions());
-        }
 
         // the parameter model name is obtained from the schema $ref
         // e.g. #/components/schemas/list_pageQuery_parameter => toModelName(list_pageQuery_parameter)
@@ -3631,18 +3634,26 @@ public class DefaultCodegen implements CodegenConfig {
             if (prop.getRefModule() != null) {
                 codegenHeader.imports.add(getImport(null, prop));
             }
-        } else if (header.getContent() != null) {
-            Content content = header.getContent();
-            codegenHeader.setContent(getContent(content, codegenHeader.imports, sourceJsonPath + "/content"));
         }
 
         // the default value is false
         // https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#user-content-parameterexplode
         codegenHeader.isExplode = header.getExplode() == null ? false : header.getExplode();
+    }
 
-        if (header.getRequired() != null) {
-            codegenHeader.required = header.getRequired().booleanValue();
-        }
+    private Header toHeader(Parameter parameter) {
+        Header header = new Header();
+        header.setContent(parameter.getContent());
+        header.setDescription(parameter.getDescription());
+        header.setDeprecated(parameter.getDeprecated());
+        header.setSchema(parameter.getSchema());
+        header.set$ref(parameter.get$ref());
+        header.setExamples(parameter.getExamples());
+        header.setExample(parameter.getExample());
+        header.setExplode(parameter.getExplode());
+        header.setExtensions(parameter.getExtensions());
+        header.setRequired(parameter.getRequired());
+        return header;
     }
 
     /**
@@ -3663,18 +3674,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenParameter codegenParameter = new CodegenParameter();
 
-        Header prameterHeader = new Header();
-        prameterHeader.setContent(usedParameter.getContent());
-        prameterHeader.setDescription(usedParameter.getDescription());
-        prameterHeader.setDeprecated(usedParameter.getDeprecated());
-        prameterHeader.setSchema(usedParameter.getSchema());
-        prameterHeader.set$ref(usedParameter.get$ref());
-        prameterHeader.setExamples(usedParameter.getExamples());
-        prameterHeader.setExample(usedParameter.getExample());
-        prameterHeader.setExplode(usedParameter.getExplode());
-        prameterHeader.setExtensions(usedParameter.getExtensions());
-        prameterHeader.setRequired(usedParameter.getRequired());
-        setHeaderInfo(prameterHeader, codegenParameter, usedSourceJsonPath, "Parameter");
+        Header prameterHeader = toHeader(usedParameter);
+        setHeaderInfo(prameterHeader, codegenParameter, usedSourceJsonPath);
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenParameter.paramName = toParamName(priorJsonPathFragment);
