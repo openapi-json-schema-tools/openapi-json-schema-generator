@@ -3559,22 +3559,14 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = new CodegenHeader();
         setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath);
+        RequestBody requestBody = toRequestBody(header);
+        setRefAndComponentModuleInfo(requestBody, codegenHeader, sourceJsonPath, "headers");
+
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
         codegenHeader.paramName = toHeaderFilename(priorJsonPathFragment);
 
         if (usedHeader.getStyle() != null) {
             codegenHeader.style = usedHeader.getStyle().toString();
-        }
-        if (headerRef != null) {
-            String refModule = toRefModule(headerRef, "headers", sourceJsonPath);
-            codegenHeader.setRefModule(refModule);
-        }
-        if (sourceJsonPath != null) {
-            String[] refPieces = sourceJsonPath.split("/");
-            if (sourceJsonPath.startsWith("#/components/headers/") && refPieces.length == 4) {
-                String componentName = refPieces[3];
-                codegenHeader.setComponentModule(toComponentModule(componentName, "headers"));
-            }
         }
         return codegenHeader;
     }
