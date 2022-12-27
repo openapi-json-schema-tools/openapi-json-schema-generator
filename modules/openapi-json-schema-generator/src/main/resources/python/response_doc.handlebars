@@ -45,7 +45,7 @@ Key | Accessed Type | Description  | Notes
                 {{#if ../refModule}}
 {{../@key}} | [{{../refModule}}.schema](../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
                 {{else}}
-{{../@key}} | [{{../paramName}}.schema](#{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../name.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
                 {{/if}}
                 {{/with}}
             {{else}}
@@ -55,7 +55,7 @@ Key | Accessed Type | Description  | Notes
                         {{#if ../refModule}}
 {{../../@key}} | [{{../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../components/headers/{{../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{else}}
-{{../../@key}} | [{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/if}}
                         {{/with}}
                     {{/with}}
@@ -72,7 +72,7 @@ Key | Accessed Type | Description  | Notes
                 {{#if ../refModule}}
 {{../@key}} | [{{../refModule}}.schema](../../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
                 {{else}}
-{{../@key}} | [response_for_{{../../@key}}.{{../paramName}}.schema](#response_for_{{../../@key}}.{{../paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [response_for_{{../../@key}}.{{../name.getSnakeCaseName}}.schema](#response_for_{{../../@key}}.{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
                 {{/if}}
                 {{/with}}
             {{else}}
@@ -82,7 +82,7 @@ Key | Accessed Type | Description  | Notes
                         {{#if ../refModule}}
 {{../../@key}} | [{{../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/headers/{{../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{else}}
-{{../../@key}} | [response_for_{{../../../@key}}.{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#response_for_{{../../../@key}}.{{../paramName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [response_for_{{../../../@key}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#response_for_{{../../../@key}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/if}}
                         {{/with}}
                     {{/with}}
