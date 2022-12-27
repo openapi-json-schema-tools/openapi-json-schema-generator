@@ -13,11 +13,11 @@ from petstore_api import api_client
 from petstore_api import schemas
 
 from petstore_api.components.schema import api_response
-from petstore_api.components.headers import ref_schema_header_header as ref_schema_header_header
-from petstore_api.components.headers import int32_json_content_type_header_header as int32_json_content_type_header_header
-from petstore_api.components.headers import ref_content_schema_header_header as ref_content_schema_header_header
-from petstore_api.components.headers import string_header_header as string_header_header
-from petstore_api.components.headers import number_header_header as number_header_header
+from petstore_api.components.headers import ref_schema_header_header
+from petstore_api.components.headers import int32_json_content_type_header_header
+from petstore_api.components.headers import ref_content_schema_header_header
+from petstore_api.components.headers import string_header_header
+from petstore_api.components.headers import number_header_header
 
 
 class Header:

@@ -24,9 +24,9 @@ from . import {{name.getSnakeCaseName}}
 {{/if}}
 {{#each headers}}
 {{#if refModule}}
-from {{packageName}}.components.headers import {{refModule}} as {{paramName}}
+from {{packageName}}.components.headers import {{refModule}}
 {{else}}
-from . import {{paramName}}
+from . import {{name.getSnakeCaseName}}
 {{/if}}
 {{/each}}
 {{#if headers}}
