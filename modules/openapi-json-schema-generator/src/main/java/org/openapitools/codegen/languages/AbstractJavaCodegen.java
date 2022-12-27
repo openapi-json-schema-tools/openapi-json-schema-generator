@@ -1058,7 +1058,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         setParameterExampleValue(codegenParameter);
     }
 
-    @Override
     public void setParameterExampleValue(CodegenParameter param) {
         String example;
         CodegenSchema p = getParameterSchema(param);

@@ -1195,6 +1195,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
+    @Override
     public String toExampleValue(Schema schema, Object objExample) {
         String modelName = getSchemaRefClass(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
