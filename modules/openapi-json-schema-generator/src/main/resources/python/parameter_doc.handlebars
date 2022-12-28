@@ -4,13 +4,13 @@
 {{/if}}
 {{#if parameter.schema}}
     {{#with parameter.schema}}
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
     {{/with}}
 {{else}}
     {{#each parameter.getContent}}
         {{#with this}}
             {{#with schema}}
-{{> api_doc_schema_type_hint schemaNamePrefix1=../paramName }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
             {{/with}}
         {{/with}}
     {{/each}}
