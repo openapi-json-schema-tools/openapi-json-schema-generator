@@ -934,10 +934,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }
 
-    public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename(componentName);
-    }
-
     public String toResponseModuleName(String componentName) { return toModuleFilename(componentName); }
 
     public String toHeaderFilename(String componentName) { return toModuleFilename(componentName); }
@@ -5011,8 +5007,8 @@ public class DefaultCodegen implements CodegenConfig {
         return cmtContent;
     }
 
-    private String toRequestBodyFileName(String name) {
-        return toModuleFilename(name) + "_request_body";
+    public String toRequestBodyFilename(String componentName) {
+        return toModuleFilename(componentName);
     }
 
     protected String toRefModule(String ref, String expectedComponentType, String sourceJsonPath) {
@@ -5033,7 +5029,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         switch (expectedComponentType) {
             case "requestBodies":
-                return toRequestBodyFileName(refPieces[3]);
+                return toRequestBodyFilename(refPieces[3]);
             case "responses":
                 return toResponseModuleName(refPieces[3]);
             case "headers":
@@ -5111,7 +5107,7 @@ public class DefaultCodegen implements CodegenConfig {
                 camelCaseName = toModelName(usedKey);
                 break;
             case "requestBodies":
-                snakeCaseName = toRequestBodyFileName(usedKey);
+                snakeCaseName = toRequestBodyFilename(usedKey);
                 camelCaseName = toModelName(usedKey);
                 break;
             case "headers":
@@ -5543,7 +5539,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String requestBodyFileFolder(String componentName) {
-        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + toRequestBodyFileName(componentName);
+        return outputFolder + File.separatorChar + packageName() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + toRequestBodyFilename(componentName);
     }
 
     @Override

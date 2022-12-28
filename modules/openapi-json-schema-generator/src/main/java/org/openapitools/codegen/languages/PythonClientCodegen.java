@@ -1798,6 +1798,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return outputFolder + File.separator + responseDocPath;
     }
 
+    @Override
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename("request_body_" + componentName);
     }
