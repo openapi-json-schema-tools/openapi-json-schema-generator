@@ -9,11 +9,10 @@
 from petstore_api import api_client, exceptions
 from . import application_octet_stream
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/octet-stream': api_client.MediaType(
             schema=application_octet_stream.ApplicationOctetStream,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

@@ -288,8 +288,9 @@ class StyleFormSerializer(ParameterSerializerBase):
             return True
         return super()._get_default_explode(style)
 
+    @classmethod
     def _serialize_form(
-        self,
+        cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
         name: str,
         explode: bool,
@@ -298,7 +299,7 @@ class StyleFormSerializer(ParameterSerializerBase):
     ) -> str:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = PrefixSeparatorIterator('', '&')
-        return self._ref6570_expansion(
+        return cls._ref6570_expansion(
             variable_name=name,
             in_data=in_data,
             explode=explode,
@@ -1445,22 +1446,15 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     content: content_type to MediaType Schema info
     """
     __json_encoder = JSONEncoder()
+    content: typing.Dict[str, MediaType]
+    required: bool = False
 
-    def __init__(
-        self,
-        content: typing.Dict[str, MediaType],
-        required: bool = False,
-    ):
-        self.required = required
-        if len(content) == 0:
-            raise ValueError('Invalid value for content, the content dict must have >= 1 entry')
-        self.content = content
-
+    @classmethod
     def __serialize_json(
-        self,
+        cls,
         in_data: typing.Any
     ) -> typing.Dict[str, bytes]:
-        in_data = self.__json_encoder.default(in_data)
+        in_data = cls.__json_encoder.default(in_data)
         json_str = json.dumps(in_data, separators=(",", ":"), ensure_ascii=False).encode(
             "utf-8"
         )
@@ -1478,13 +1472,15 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             raise ValueError('Unable to serialize type BoolClass to text/plain')
         return dict(body=str(in_data))
 
-    def __multipart_json_item(self, key: str, value: Schema) -> RequestField:
-        json_value = self.__json_encoder.default(value)
+    @classmethod
+    def __multipart_json_item(cls, key: str, value: Schema) -> RequestField:
+        json_value = cls.__json_encoder.default(value)
         request_field = RequestField(name=key, data=json.dumps(json_value))
         request_field.make_multipart(content_type='application/json')
         return request_field
 
-    def __multipart_form_item(self, key: str, value: Schema) -> RequestField:
+    @classmethod
+    def __multipart_form_item(cls, key: str, value: Schema) -> RequestField:
         if isinstance(value, str):
             request_field = RequestField(name=key, data=str(value))
             request_field.make_multipart(content_type='text/plain')
@@ -1496,11 +1492,12 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             request_field = RequestField.from_tuples(key, (os.path.basename(value.name), value.read()))
             value.close()
         else:
-            request_field = self.__multipart_json_item(key=key, value=value)
+            request_field = cls.__multipart_json_item(key=key, value=value)
         return request_field
 
+    @classmethod
     def __serialize_multipart_form_data(
-        self, in_data: Schema
+        cls, in_data: Schema
     ) -> typing.Dict[str, typing.Tuple[RequestField, ...]]:
         if not isinstance(in_data, frozendict.frozendict):
             raise ValueError(f'Unable to serialize {in_data} to multipart/form-data because it is not a dict of data')
@@ -1523,19 +1520,20 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                 if value:
                     # values use explode = True, so the code makes a RequestField for each item with name=key
                     for item in value:
-                        request_field = self.__multipart_form_item(key=key, value=item)
+                        request_field = cls.__multipart_form_item(key=key, value=item)
                         fields.append(request_field)
                 else:
                     # send an empty array as json because exploding will not send it
-                    request_field = self.__multipart_json_item(key=key, value=value)
+                    request_field = cls.__multipart_json_item(key=key, value=value)
                     fields.append(request_field)
             else:
-                request_field = self.__multipart_form_item(key=key, value=value)
+                request_field = cls.__multipart_form_item(key=key, value=value)
                 fields.append(request_field)
 
         return dict(fields=tuple(fields))
 
-    def __serialize_application_octet_stream(self, in_data: BinarySchema) -> typing.Dict[str, bytes]:
+    @staticmethod
+    def __serialize_application_octet_stream(in_data: BinarySchema) -> typing.Dict[str, bytes]:
         if isinstance(in_data, bytes):
             return dict(body=in_data)
         # FileIO type
@@ -1543,8 +1541,9 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         in_data.close()
         return result
 
+    @classmethod
     def __serialize_application_x_www_form_data(
-        self, in_data: typing.Any
+        cls, in_data: typing.Any
     ) -> SerializedRequestBody:
         """
         POST submission of form data in body
@@ -1552,12 +1551,13 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         if not isinstance(in_data, frozendict.frozendict):
             raise ValueError(
                 f'Unable to serialize {in_data} to application/x-www-form-urlencoded because it is not a dict of data')
-        cast_in_data = self.__json_encoder.default(in_data)
-        value = self._serialize_form(cast_in_data, name='', explode=True, percent_encode=True)
+        cast_in_data = cls.__json_encoder.default(in_data)
+        value = cls._serialize_form(cast_in_data, name='', explode=True, percent_encode=True)
         return dict(body=value)
 
+    @classmethod
     def serialize(
-        self, in_data: typing.Any, content_type: str
+        cls, in_data: typing.Any, content_type: str
     ) -> SerializedRequestBody:
         """
         If a str is returned then the result will be assigned to data when making the request
@@ -1568,7 +1568,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         - body for application/json
         - encode_multipart and fields for multipart/form-data
         """
-        media_type = self.content[content_type]
+        media_type = cls.content[content_type]
         if isinstance(in_data, media_type.schema):
             cast_in_data = in_data
         elif isinstance(in_data, (dict, frozendict.frozendict)) and in_data:
@@ -1577,14 +1577,14 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             cast_in_data = media_type.schema(in_data)
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
-        if self._content_type_is_json(content_type):
-            return self.__serialize_json(cast_in_data)
+        if cls._content_type_is_json(content_type):
+            return cls.__serialize_json(cast_in_data)
         elif content_type == 'text/plain':
-            return self.__serialize_text_plain(cast_in_data)
+            return cls.__serialize_text_plain(cast_in_data)
         elif content_type == 'multipart/form-data':
-            return self.__serialize_multipart_form_data(cast_in_data)
+            return cls.__serialize_multipart_form_data(cast_in_data)
         elif content_type == 'application/x-www-form-urlencoded':
-            return self.__serialize_application_x_www_form_data(cast_in_data)
+            return cls.__serialize_application_x_www_form_data(cast_in_data)
         elif content_type == 'application/octet-stream':
-            return self.__serialize_application_octet_stream(cast_in_data)
+            return cls.__serialize_application_octet_stream(cast_in_data)
         raise NotImplementedError('Serialization has not yet been implemented for {}'.format(content_type))
