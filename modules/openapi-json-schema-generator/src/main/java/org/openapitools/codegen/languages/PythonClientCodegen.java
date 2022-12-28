@@ -1637,7 +1637,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         } else {
             example = getObjectExample(schema);
         }
-        example = exampleFromStringOrArraySchema(schema, example, codegenParameter.paramName);
+        example = exampleFromStringOrArraySchema(schema, example, codegenParameter.baseName);
         codegenParameter.setExample(toExampleValue(schema, example));
     }
 

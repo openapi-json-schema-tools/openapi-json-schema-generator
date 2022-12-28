@@ -33,14 +33,13 @@ import java.util.Set;
  */
 public class CodegenHeader extends CodegenRequestBody {
     public boolean isExplode;
-    public String paramName, style;
+    public String style;
 
     public boolean isDeprecated;
     protected CodegenSchema schema;
 
     public CodegenHeader copy() {
         CodegenHeader output = new CodegenHeader();
-        output.paramName = this.paramName;
         output.description = this.description;
         output.unescapedDescription = this.unescapedDescription;
         output.required = this.required;
@@ -106,7 +105,7 @@ public class CodegenHeader extends CodegenRequestBody {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(name, isExplode, paramName, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override
@@ -118,14 +117,12 @@ public class CodegenHeader extends CodegenRequestBody {
         return isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
                 Objects.equals(schema, that.getSchema()) &&
-                Objects.equals(paramName, that.paramName) &&
                 Objects.equals(style, that.style);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
         sb.append(", isExplode=").append(isExplode);
-        sb.append(", paramName='").append(paramName).append('\'');
         sb.append(", style='").append(style).append('\'');
         sb.append(", isDeprecated=").append(isDeprecated);
         sb.append(", schema=").append(schema);

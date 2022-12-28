@@ -1087,7 +1087,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 }
             } else {
                 if (example == null) {
-                    example = param.paramName + "_example";
+                    example = param.baseName + "_example";
                 }
                 example = "\"" + escapeText(example) + "\"";
             }
@@ -1390,11 +1390,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     @Override
     protected boolean needToImport(String type) {
         return super.needToImport(type) && !type.contains(".");
-    }
-
-    @Override
-    public String toEnumName(CodegenSchema property) {
-        return sanitizeName(property.name.getCamelCaseName()) + "Enum";
     }
 
     @Override

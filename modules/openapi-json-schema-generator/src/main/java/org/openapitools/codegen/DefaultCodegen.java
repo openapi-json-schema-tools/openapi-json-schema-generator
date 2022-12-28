@@ -1324,27 +1324,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Return the parameter name of array of model
-     *
-     * @param name name of the array model
-     * @return the sanitized parameter name
-     */
-    public String toArrayModelParamName(String name) {
-        return toParamName(name);
-    }
-
-    /**
-     * Return the Enum name (e.g. StatusEnum given 'status')
-     *
-     * @param property Codegen property
-     * @return the Enum name
-     */
-    @SuppressWarnings("static-method")
-    public String toEnumName(CodegenSchema property) {
-        return StringUtils.capitalize(property.name.getName()) + "Enum";
-    }
-
-    /**
      * Return the escaped name of the reserved word
      *
      * @param name the name to be escaped
@@ -3409,20 +3388,6 @@ public class DefaultCodegen implements CodegenConfig {
         return op;
     }
 
-    public boolean isParameterNameUnique(CodegenParameter p, List<CodegenParameter> parameters) {
-        for (CodegenParameter parameter : parameters) {
-            if (System.identityHashCode(p) == System.identityHashCode(parameter)) {
-                continue; // skip itself
-            }
-
-            if (p.paramName.equals(parameter.paramName)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     /**
      * Convert OAS Response object to Codegen Response object
      *
@@ -3548,7 +3513,6 @@ public class DefaultCodegen implements CodegenConfig {
         setLocationInfo(header.get$ref(), codegenHeader, sourceJsonPath, "headers");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
-        codegenHeader.paramName = toHeaderFilename(priorJsonPathFragment);
 
         if (usedHeader.getStyle() != null) {
             codegenHeader.style = usedHeader.getStyle().toString();
@@ -3648,7 +3612,6 @@ public class DefaultCodegen implements CodegenConfig {
         setLocationInfo(parameter.get$ref(), codegenParameter, sourceJsonPath, "parameters");
 
         String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
-        codegenParameter.paramName = toParamName(priorJsonPathFragment);
 
         if (usedParameter.getStyle() != null) {
             codegenParameter.style = usedParameter.getStyle().toString();
