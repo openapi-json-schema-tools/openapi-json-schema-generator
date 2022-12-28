@@ -126,7 +126,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/pet_request_body.md) | typing.Union[[request_body.application_json](../../../components/request_bodies/pet_request_body.md#petstore_api.components.request_bodies.application_json), [request_body.application_xml](../../../components/request_bodies/pet_request_body.md#petstore_api.components.request_bodies.application_xml)] | required |
+[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[request_body.application_json](../../../components/request_bodies/request_body_pet.md#petstore_api.components.request_bodies.application_json), [request_body.application_xml](../../../components/request_bodies/request_body_pet.md#petstore_api.components.request_bodies.application_xml)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -138,7 +138,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [success_description_only_response.ApiResponse](../../../components/responses/success_description_only_response.md) | Success
+200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
 405 | [response_for_405.ApiResponse](#response_for_405.ApiResponse) | Invalid input
 
 #### <a id="response_for_405.ApiResponse" >response_for_405.ApiResponse</a>

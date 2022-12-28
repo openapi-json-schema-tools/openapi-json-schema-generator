@@ -1,4 +1,4 @@
-# petstore_api.components.headers.ref_schema_header_header
+# petstore_api.components.headers.header_ref_schema_header
 # schema
 Type | Description  | Notes
 ------------- | ------------- | -------------

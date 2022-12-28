@@ -47,7 +47,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "\"first\"");
+        Assert.assertEquals(p.getExample(), "\"first\"");
     }
 
     @Test
@@ -67,7 +67,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "Arrays.asList()");
+        Assert.assertEquals(p.getExample(), "Arrays.asList()");
     }
 
     @Test
@@ -83,7 +83,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "new Date()");
+        Assert.assertEquals(p.getExample(), "new Date()");
     }
 
     @Test
@@ -100,7 +100,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "new Date()");
+        Assert.assertEquals(p.getExample(), "new Date()");
     }
 
     @Test
@@ -116,7 +116,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "LocalDate.now()");
+        Assert.assertEquals(p.getExample(), "LocalDate.now()");
     }
 
     @Test
@@ -133,7 +133,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
+        Assert.assertEquals(p.getExample(), "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
     }
 
     @Test
@@ -149,7 +149,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "UUID.randomUUID()");
+        Assert.assertEquals(p.getExample(), "UUID.randomUUID()");
     }
 
     @Test
@@ -166,7 +166,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.example, "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
+        Assert.assertEquals(p.getExample(), "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
     }
 
     private static class P_AbstractJavaCodegen extends AbstractJavaCodegen {

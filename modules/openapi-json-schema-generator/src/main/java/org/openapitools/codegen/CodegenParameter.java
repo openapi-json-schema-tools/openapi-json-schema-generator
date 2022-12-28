@@ -27,12 +27,12 @@ import java.util.*;
 public class CodegenParameter extends CodegenHeader {
     public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
             isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
+    // stores the openapi name property
     public String baseName;
 
     public CodegenParameter copy() {
         CodegenParameter output = new CodegenParameter();
         output.baseName = this.baseName;
-        output.paramName = this.paramName;
         output.description = this.description;
         output.unescapedDescription = this.unescapedDescription;
         output.isFormParam = this.isFormParam;
@@ -45,6 +45,9 @@ public class CodegenParameter extends CodegenHeader {
         output.jsonSchema = this.jsonSchema;
         output.example = this.example;
 
+        if (this.name != null) {
+            output.name = this.name;
+        }
         if (this.content != null) {
             output.setContent(this.content);
         }
@@ -77,7 +80,7 @@ public class CodegenParameter extends CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, paramName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, hasMultipleTypes, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override

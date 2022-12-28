@@ -212,7 +212,7 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
 
                 for (CodegenParameter parameter : operation.allParams) {
                     if (isMultipartPost) {
-                        parameter.vendorExtensions.put("x-multipart", "true");
+                        parameter.getVendorExtensions().put("x-multipart", "true");
                     }
                 }
 

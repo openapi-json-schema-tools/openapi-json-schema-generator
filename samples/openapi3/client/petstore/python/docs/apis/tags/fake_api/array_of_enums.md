@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     body = array_of_enums.ArrayOfEnums([
-        string_enum.StringEnum("placed")
+        string_enum.StringEnum("string_example")
     ])
     try:
         # Array of Enums

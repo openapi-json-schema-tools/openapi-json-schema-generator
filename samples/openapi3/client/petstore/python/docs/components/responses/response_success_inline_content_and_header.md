@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.responses.success_inline_content_and_header_response
+## petstore_api.components.responses.response_success_inline_content_and_header
 # ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -22,9 +22,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [some_header_header.schema](#some_header_header.schema) | | optional
+someHeader | [header_some_header.schema](#header_some_header.schema) | | optional
 
-# <a id="some_header_header.schema" >some_header_header.schema</a>
+# <a id="header_some_header.schema" >header_some_header.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

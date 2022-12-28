@@ -396,9 +396,7 @@ public interface CodegenConfig {
 
     String toRefClass(String ref, String sourceJsonPath);
 
-    CodegenParameter fromRequestBody(RequestBody body, String bodyParameterName, String sourceJsonPath);
-
-    String getBodyParameterName(CodegenOperation co);
+    CodegenRequestBody fromRequestBody(RequestBody body, String sourceJsonPath);
 
     CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
 

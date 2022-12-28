@@ -8,11 +8,11 @@ class {{xParamsName}}:
 {{#if required}}
 {{#if schema}}
     {{#with schema}}
-            '{{../@key}}': typing.Union[{{paramName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],
+            '{{../@key}}': typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],
     {{/with}}
 {{else}}
     {{#each getContent}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}
     {{/each}}
 {{/if}}
 {{/if}}
@@ -25,9 +25,9 @@ class {{xParamsName}}:
 {{#each xParams}}
 {{#unless required}}
 {{#if schema}}
-            '{{@key}}': {{#with schema}}typing.Union[{{paramName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{@key}}': {{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
 {{else}}
-            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{paramName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{@key}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
 {{/if}}
 {{/unless}}
 {{/each}}
@@ -42,6 +42,6 @@ class {{xParamsName}}:
 
     parameters = [
     {{#each xParams}}
-        {{paramName}}.parameter_oapg,
+        {{#if refModule}}{{refModule}}{{else}}{{name.getSnakeCaseName}}{{/if}}.parameter_oapg,
     {{/each}}
     ]

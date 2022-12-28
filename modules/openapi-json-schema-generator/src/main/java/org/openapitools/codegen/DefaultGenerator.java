@@ -748,7 +748,7 @@ public class DefaultGenerator implements Generator {
         return responses;
     }
 
-    private void generateRequestBody(List<File> files, CodegenParameter requestBody, String jsonPath) {
+    private void generateRequestBody(List<File> files, CodegenRequestBody requestBody, String jsonPath) {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", config.packageName());
         templateData.put("requestBody", requestBody);
@@ -780,21 +780,45 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        if (requestBody.getComponentModule() == null) {
+            return;
+        }
+        // doc generation
+        Boolean generateRequestBodyDocumentaion = Boolean.TRUE;
+        String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
+        for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
+            String templateName = entry.getKey();
+            String suffix = entry.getValue();
+            String docFilename = config.toRequestBodyDocFilename(componentName);
+            String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
+
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            try {
+                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentaion, CodegenConstants.REQUEST_BODY_DOCS);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "request-body-doc");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
     }
 
-    private TreeMap<String, CodegenParameter> generateRequestBodies(List<File> files) {
+    private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (specRequestBodies == null) {
             LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
             return null;
         }
-        TreeMap<String, CodegenParameter> requestBodies = new TreeMap<>();
+        TreeMap<String, CodegenRequestBody> requestBodies = new TreeMap<>();
         for (Map.Entry<String, RequestBody> entry: specRequestBodies.entrySet()) {
             String componentName = entry.getKey();
             RequestBody specRequestBody = entry.getValue();
             String sourceJsonPath = "#/components/requestBodies/" + componentName;
-            String bodyParameterName = config.getBodyParameterName(null);
-            CodegenParameter requestBody = config.fromRequestBody(specRequestBody, bodyParameterName, sourceJsonPath);
+            CodegenRequestBody requestBody = config.fromRequestBody(specRequestBody, sourceJsonPath);
             requestBodies.put(componentName, requestBody);
 
             generateRequestBody(files, requestBody, sourceJsonPath);
@@ -1235,7 +1259,7 @@ public class DefaultGenerator implements Generator {
     Map<String, Object> buildSupportFileBundle(
             List<OperationsMap> allOperations,
             TreeMap<String, CodegenSchema> schemas,
-            TreeMap<String, CodegenParameter> requestBodies,
+            TreeMap<String, CodegenRequestBody> requestBodies,
             TreeMap<String, CodegenResponse> responses,
             TreeMap<String, CodegenHeader> headers,
             TreeMap<String, CodegenParameter> parameters) {
@@ -1384,7 +1408,7 @@ public class DefaultGenerator implements Generator {
         // components.schemas / models
         TreeMap<String, CodegenSchema> schemas = generateSchemas(files);
         // components.requestBodies
-        TreeMap<String, CodegenParameter> requestBodies = generateRequestBodies(files);
+        TreeMap<String, CodegenRequestBody> requestBodies = generateRequestBodies(files);
         // components.responses
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
         // components.headers
