@@ -2058,8 +2058,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null;
     }
 
-    @Override
-    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+    private String toSchemaRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed
@@ -2093,6 +2092,26 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             String schemaName = refPieces[3];
             String refClass = toModelName(schemaName);
             return refClass;
+        }
+        return null;
+    }
+
+    private String toRequestBodyRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/requestBodies/") && refPieces.length == 4) {
+            String refClass = toModelName(refPieces[3]);
+            return refClass;
+        }
+        return null;
+    }
+
+    @Override
+    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+        switch (expectedComponentType) {
+            case "schemas":
+                return toSchemaRefClass(ref, sourceJsonPath);
+            case "requestBodies":
+                return toRequestBodyRefClass(ref, sourceJsonPath);
         }
         return null;
     }
