@@ -361,23 +361,23 @@ HTTP request | Method | Description
 
 ## Component RequestBodies
 
-- [client_request_body](docs/components/request_bodies/client_request_body.md)
-- [pet_request_body](docs/components/request_bodies/pet_request_body.md)
-- [user_array_request_body](docs/components/request_bodies/user_array_request_body.md)
+- [request_body_client](docs/components/request_bodies/request_body_client.md)
+- [request_body_pet](docs/components/request_bodies/request_body_pet.md)
+- [request_body_user_array](docs/components/request_bodies/request_body_user_array.md)
 
 ## Component Responses
 
-- [success_description_only_response](docs/components/responses/success_description_only_response.md)
-- [success_inline_content_and_header_response](docs/components/responses/success_inline_content_and_header_response.md)
-- [success_with_json_api_response_response](docs/components/responses/success_with_json_api_response_response.md)
+- [response_success_description_only](docs/components/responses/response_success_description_only.md)
+- [response_success_inline_content_and_header](docs/components/responses/response_success_inline_content_and_header.md)
+- [response_success_with_json_api_response](docs/components/responses/response_success_with_json_api_response.md)
 
 ## Component Headers
 
-- [int32_json_content_type_header_header](docs/components/headers/int32_json_content_type_header_header.md)
-- [number_header_header](docs/components/headers/number_header_header.md)
-- [ref_content_schema_header_header](docs/components/headers/ref_content_schema_header_header.md)
-- [ref_schema_header_header](docs/components/headers/ref_schema_header_header.md)
-- [string_header_header](docs/components/headers/string_header_header.md)
+- [header_int32_json_content_type_header](docs/components/headers/header_int32_json_content_type_header.md)
+- [header_number_header](docs/components/headers/header_number_header.md)
+- [header_ref_content_schema_header](docs/components/headers/header_ref_content_schema_header.md)
+- [header_ref_schema_header](docs/components/headers/header_ref_schema_header.md)
+- [header_string_header](docs/components/headers/header_string_header.md)
 
 ## Component Parameters
 

@@ -1789,7 +1789,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String toResponseModuleName(String componentName) {
-        return toModuleFilename(componentName) + "_response";
+        return toModuleFilename("response_" + componentName);
     }
 
     public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }
@@ -1799,7 +1799,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename(componentName) + "_request_body";
+        return toModuleFilename("request_body_" + componentName);
     }
 
     public String toRequestBodyDocFilename(String componentName) {
@@ -1810,7 +1810,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return outputFolder + File.separator + requestBodyDocPath;
     }
 
-    public String toHeaderFilename(String componentName) { return toModuleFilename(componentName) + "_header"; }
+    public String toHeaderFilename(String componentName) { return toModuleFilename("header_" + componentName); }
 
     public String toHeaderDocFilename(String componentName) { return toHeaderFilename(componentName); }
 

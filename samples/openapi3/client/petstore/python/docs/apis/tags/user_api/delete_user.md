@@ -57,7 +57,7 @@ username | [parameter_path_user_name.schema](../../../components/parameters/para
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [success_description_only_response.ApiResponse](../../../components/responses/success_description_only_response.md) | Success
+200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
 404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | User not found
 
 #### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
