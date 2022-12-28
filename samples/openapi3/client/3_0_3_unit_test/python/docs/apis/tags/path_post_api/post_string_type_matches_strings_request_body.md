@@ -21,7 +21,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = path_post_api.PathPostApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = string_type_matches_strings.StringTypeMatchesStrings("parameter_body_example")
+    body = string_type_matches_strings.StringTypeMatchesStrings("string_example")
     try:
         api_response = api_instance.post_string_type_matches_strings_request_body(
             body=body,

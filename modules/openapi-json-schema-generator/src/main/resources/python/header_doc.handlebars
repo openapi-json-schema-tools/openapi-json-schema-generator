@@ -5,14 +5,14 @@
             {{#if schema}}
                 {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../paramName schemaNamePrefix2="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name.getSnakeCaseName schemaNamePrefix2="." }}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../paramName schemaNamePrefix2="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name.getSnakeCaseName schemaNamePrefix2="." }}
                         {{/with}}
                     {{/with}}
                 {{/each}}
@@ -46,14 +46,14 @@
                 {{#if schema}}
                     {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../name.getSnakeCaseName schemaNamePrefix5="." }}
                     {{/with}}
                 {{else}}
                     {{#each getContent}}
                         {{#with this}}
                             {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../paramName schemaNamePrefix5="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../name.getSnakeCaseName schemaNamePrefix5="." }}
                             {{/with}}
                         {{/with}}
                     {{/each}}

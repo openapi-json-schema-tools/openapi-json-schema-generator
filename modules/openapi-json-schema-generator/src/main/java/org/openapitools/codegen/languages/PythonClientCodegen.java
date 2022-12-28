@@ -804,81 +804,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // overwriting defaultValue omitted from here
     }
 
-    public String getBodyParameterName(CodegenOperation co) {
-        return "body";
-    }
-
-    /***
-     * Adds the body model schema to the body parameter
-     * We have a custom version of this method so we can flip forceSimpleRef
-     * to True based upon the results of unaliasSchema
-     * With this customization, we ensure that when schemas are passed to getSchemaType
-     * - if they have ref in them they are a model
-     * - if they do not have ref in them they are not a model
-     * and code is also customized to allow anyType request body schemas
-     *
-     * @param codegenParameter the body parameter
-     * @param name model schema ref key in components
-     * @param schema the model schema (not refed)
-     * @param imports collection of imports
-     * @param bodyParameterName body parameter name
-     * @param forceSimpleRef if true use a model reference
-     */
-    @Override
-    protected void addBodyModelSchema(CodegenParameter codegenParameter, String name, Schema schema, Set<String> imports, String bodyParameterName, boolean forceSimpleRef, String sourceJsonPath) {
-        if (name != null) {
-            Schema bodySchema = new Schema().$ref("#/components/schemas/" + name);
-            Schema unaliased = unaliasSchema(bodySchema);
-            if (unaliased.get$ref() != null) {
-                forceSimpleRef = true;
-            }
-        }
-
-        CodegenSchema codegenModel = null;
-        if (StringUtils.isNotBlank(name)) {
-            schema.setName(name);
-            String path = "#/components/schemas/" + name;
-            codegenModel = fromSchema(schema, path, path);
-        }
-
-        if (codegenModel != null && (codegenModel.getProperties() != null || forceSimpleRef)) {
-            if (StringUtils.isEmpty(bodyParameterName)) {
-                codegenParameter.baseName = codegenModel.name.getCamelCaseName();
-            } else {
-                codegenParameter.baseName = bodyParameterName;
-            }
-            codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
-            codegenParameter.description = codegenModel.description;
-        } else {
-            CodegenSchema codegenSchema = fromSchema(schema, sourceJsonPath, sourceJsonPath);
-
-            if (ModelUtils.isMapSchema(schema)) {// http body is map
-                // LOGGER.error("Map should be supported. Please report to openapi-generator github repo about the issue.");
-            } else if (codegenSchema != null) {
-                String codegenModelName, codegenModelDescription;
-
-                if (codegenModel != null) {
-                    codegenModelName = codegenModel.name.getCamelCaseName();
-                    codegenModelDescription = codegenModel.description;
-                } else {
-                    codegenModelName = "anyType";
-                    codegenModelDescription = "";
-                }
-
-                if (StringUtils.isEmpty(bodyParameterName)) {
-                    codegenParameter.baseName = codegenModelName;
-                } else {
-                    codegenParameter.baseName = bodyParameterName;
-                }
-
-                codegenParameter.paramName = toParameterFilename(codegenParameter.baseName);
-                codegenParameter.description = codegenModelDescription;
-            }
-        }
-
-    }
-
-
     /**
      * Return the sanitized variable name for enum
      *
@@ -1195,6 +1120,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
+    @Override
     public String toExampleValue(Schema schema, Object objExample) {
         String modelName = getSchemaRefClass(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
@@ -1663,8 +1589,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
 
         Object example = null;
-        if (codegenParameter.vendorExtensions != null && codegenParameter.vendorExtensions.containsKey("x-example")) {
-            example = codegenParameter.vendorExtensions.get("x-example");
+        if (codegenParameter.getVendorExtensions() != null && codegenParameter.getVendorExtensions().containsKey("x-example")) {
+            example = codegenParameter.getVendorExtensions().get("x-example");
         } else if (parameter.getExample() != null) {
             example = parameter.getExample();
         } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty() && parameter.getExamples().values().iterator().next().getValue() != null) {
@@ -1674,7 +1600,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         example = exampleFromStringOrArraySchema(schema, example, parameter.getName());
         String finalExample = toExampleValue(schema, example);
-        codegenParameter.example = finalExample;
+        codegenParameter.setExample(finalExample);
     }
 
     /**
@@ -1685,8 +1611,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      */
     @Override
     public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        if (codegenParameter.vendorExtensions != null && codegenParameter.vendorExtensions.containsKey("x-example")) {
-            codegenParameter.example = Json.pretty(codegenParameter.vendorExtensions.get("x-example"));
+        if (codegenParameter.getVendorExtensions() != null && codegenParameter.getVendorExtensions().containsKey("x-example")) {
+            codegenParameter.setExample(Json.pretty(codegenParameter.getVendorExtensions().get("x-example")));
         }
 
         Content content = requestBody.getContent();
@@ -1711,8 +1637,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         } else {
             example = getObjectExample(schema);
         }
-        example = exampleFromStringOrArraySchema(schema, example, codegenParameter.paramName);
-        codegenParameter.example = toExampleValue(schema, example);
+        example = exampleFromStringOrArraySchema(schema, example, codegenParameter.baseName);
+        codegenParameter.setExample(toExampleValue(schema, example));
     }
 
     /**
@@ -1863,7 +1789,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String toResponseModuleName(String componentName) {
-        return toModuleFilename(componentName) + "_response";
+        return toModuleFilename("response_" + componentName);
     }
 
     public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }
@@ -1872,8 +1798,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return outputFolder + File.separator + responseDocPath;
     }
 
+    @Override
     public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename(componentName) + "_request_body";
+        return toModuleFilename("request_body_" + componentName);
     }
 
     public String toRequestBodyDocFilename(String componentName) {
@@ -1884,7 +1811,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return outputFolder + File.separator + requestBodyDocPath;
     }
 
-    public String toHeaderFilename(String componentName) { return toModuleFilename(componentName) + "_header"; }
+    public String toHeaderFilename(String componentName) { return toModuleFilename("header_" + componentName); }
 
     public String toHeaderDocFilename(String componentName) { return toHeaderFilename(componentName); }
 
@@ -1990,14 +1917,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // smuggle path Api class name ins operationIdSnakeCase
         co.operationIdSnakeCase = toModelName(path);
 
-        if (co.requestBody == null) {
-            for (CodegenParameter cp: co.allParams) {
-                if (cp.isBodyParam) {
-                    co.requestBody = cp;
-                    co.bodyParams.add(cp);
-                }
-            }
-        }
         return co;
     }
 

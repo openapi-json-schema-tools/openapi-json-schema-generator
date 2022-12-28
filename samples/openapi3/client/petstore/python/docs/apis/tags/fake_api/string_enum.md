@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = string_enum.StringEnum("placed")
+    body = string_enum.StringEnum("string_example")
     try:
         api_response = api_instance.string_enum(
             body=body,

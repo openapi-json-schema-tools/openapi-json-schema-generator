@@ -122,7 +122,7 @@ public class DefaultCodegenTest {
     public void testParameterEmptyDescription() {
         DefaultCodegen codegen = new DefaultCodegen();
 
-        codegen.fromRequestBody(null, null, null);
+        codegen.fromRequestBody(null, null);
     }
 
     @Test
@@ -257,7 +257,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
-        CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "visitDate", "#/paths/~1thingy~1{date}/post/requestBody");
+        CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
         Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRef(), "#/components/schemas/updatePetWithForm_request");
 
@@ -688,11 +688,11 @@ public class DefaultCodegenTest {
 
         PathItem path = openAPI.getPaths().get("/example4/singular");
         CodegenOperation op = codegen.fromOperation("/example4/singular", "post", path.getPost(), path.getServers());
-        Assert.assertEquals(op.requestBody.example, "example4 value");
+        Assert.assertEquals(op.requestBody.getExample(), "example4 value");
 
         path = openAPI.getPaths().get("/example4/plural");
         op = codegen.fromOperation("/example4/plural", "post", path.getPost(), path.getServers());
-        Assert.assertEquals(op.requestBody.example, "An example4 value");
+        Assert.assertEquals(op.requestBody.getExample(), "An example4 value");
     }
 
     @Test
@@ -1584,7 +1584,7 @@ public class DefaultCodegenTest {
 
         CodegenResponse cr = codegen.fromResponse(response2XX, "");
         Assert.assertNotNull(cr);
-        Assert.assertTrue(cr.hasHeaders);
+        Assert.assertNotNull(cr.getHeaders());
     }
 
     @Test
@@ -2065,7 +2065,7 @@ public class DefaultCodegenTest {
 
         RequestBody body = openAPI.getPaths().get("/examples").getPost().getRequestBody();
 
-        CodegenParameter codegenParameter = codegen.fromRequestBody(body, "", "#/paths/~1examples/post/requestBody");
+        CodegenRequestBody codegenParameter = codegen.fromRequestBody(body, "#/paths/~1examples/post/requestBody");
 
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().isArray);
         Assert.assertTrue(codegenParameter.getContent().get("application/json").getSchema().items.refClass != null);
@@ -2106,46 +2106,6 @@ public class DefaultCodegenTest {
         codegen.setApiNameSuffix("Test");
         assertEquals(codegen.toApiName("Fake"), "FakeTest");
         assertEquals(codegen.toApiName(""), "DefaultApi");
-    }
-
-    @Test
-    public void testUseOneOfInterfaces() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-oneof.yaml");
-        final DefaultCodegen cg = new DefaultCodegen();
-        cg.setUseOneOfInterfaces(true);
-        cg.preprocessOpenAPI(openAPI);
-
-        // assert names of the response/request schema oneOf interfaces are as expected
-        Schema s = ModelUtils.getReferencedSchema(openAPI, openAPI.getPaths()
-                .get("/state")
-                .getPost()
-                .getRequestBody()
-                .getContent()
-                .get("application/json")
-                .getSchema());
-        Assert.assertEquals(s.getExtensions().get("x-one-of-name"), "CreateStateRequest");
-
-        Assert.assertEquals(
-                openAPI.getPaths()
-                        .get("/state")
-                        .getGet()
-                        .getResponses()
-                        .get("200")
-                        .getContent()
-                        .get("application/json")
-                        .getSchema().get$ref(),
-                "#/components/schemas/getState_200_response"
-        );
-        Schema getState200 = openAPI.getComponents().getSchemas().get("getState_200_response");
-        //Assert.assertEquals(getState200, "");
-        Assert.assertEquals(getState200.getExtensions().get("x-one-of-name"), "GetState200Response");
-
-        // for the array schema, assert that a oneOf interface was added to schema map
-        Schema items = ((ArraySchema) openAPI.getComponents().getSchemas().get("CustomOneOfArraySchema")).getItems();
-        Assert.assertEquals(items.get$ref(), "#/components/schemas/CustomOneOfArraySchema_inner");
-        //Assert.assertEquals(items.get$ref(), "#/components/schemas/createState_request");
-        Schema innerItem = ModelUtils.getReferencedSchema(openAPI, openAPI.getComponents().getSchemas().get("CustomOneOfArraySchema_inner"));
-        Assert.assertEquals(innerItem.getExtensions().get("x-one-of-name"), "CustomOneOfArraySchemaInner");
     }
 
     @Test
@@ -2197,7 +2157,6 @@ public class DefaultCodegenTest {
 
         final DefaultCodegen cg = new DefaultCodegen();
         cg.setOpenAPI(openAPI);
-        cg.setUseOneOfInterfaces(true);
         cg.preprocessOpenAPI(openAPI);
 
         final PathItem path = openAPI.getPaths().get("/users/me");
@@ -3464,11 +3423,11 @@ public class DefaultCodegenTest {
         assertTrue(cpa.getSchema().isInteger);
         assertFalse(cpa.getSchema().isShort);
         assertFalse(cpa.getSchema().isLong);
-        cpa = co.requestBody;
-        assertTrue(cpa.getContent().get("application/json").getSchema().isUnboundedInteger);
-        assertTrue(cpa.getContent().get("application/json").getSchema().isInteger);
-        assertFalse(cpa.getContent().get("application/json").getSchema().isShort);
-        assertFalse(cpa.getContent().get("application/json").getSchema().isLong);
+        CodegenRequestBody crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().isUnboundedInteger);
+        assertTrue(crb.getContent().get("application/json").getSchema().isInteger);
+        assertFalse(crb.getContent().get("application/json").getSchema().isShort);
+        assertFalse(crb.getContent().get("application/json").getSchema().isLong);
         cr = co.responses.get("200");
         assertTrue(cr.getContent().get("application/json").getSchema().isUnboundedInteger);
         assertTrue(cr.getContent().get("application/json").getSchema().isInteger);
@@ -3483,11 +3442,11 @@ public class DefaultCodegenTest {
         assertTrue(cpa.getSchema().isInteger);
         assertTrue(cpa.getSchema().isShort);
         assertFalse(cpa.getSchema().isLong);
-        cpa = co.requestBody;
-        assertFalse(cpa.getContent().get("application/json").getSchema().isUnboundedInteger);
-        assertTrue(cpa.getContent().get("application/json").getSchema().isInteger);
-        assertTrue(cpa.getContent().get("application/json").getSchema().isShort);
-        assertFalse(cpa.getContent().get("application/json").getSchema().isLong);
+        crb = co.requestBody;
+        assertFalse(crb.getContent().get("application/json").getSchema().isUnboundedInteger);
+        assertTrue(crb.getContent().get("application/json").getSchema().isInteger);
+        assertTrue(crb.getContent().get("application/json").getSchema().isShort);
+        assertFalse(crb.getContent().get("application/json").getSchema().isLong);
         cr = co.responses.get("200");
         assertFalse(cr.getContent().get("application/json").getSchema().isUnboundedInteger);
         assertTrue(cr.getContent().get("application/json").getSchema().isInteger);
@@ -3502,11 +3461,11 @@ public class DefaultCodegenTest {
         assertFalse(cpa.getSchema().isInteger);
         assertFalse(cpa.getSchema().isShort);
         assertTrue(cpa.getSchema().isLong);
-        cpa = co.requestBody;
-        assertFalse(cpa.getContent().get("application/json").getSchema().isUnboundedInteger);
-        assertFalse(cpa.getContent().get("application/json").getSchema().isInteger);
-        assertFalse(cpa.getContent().get("application/json").getSchema().isShort);
-        assertTrue(cpa.getContent().get("application/json").getSchema().isLong);
+        crb = co.requestBody;
+        assertFalse(crb.getContent().get("application/json").getSchema().isUnboundedInteger);
+        assertFalse(crb.getContent().get("application/json").getSchema().isInteger);
+        assertFalse(crb.getContent().get("application/json").getSchema().isShort);
+        assertTrue(crb.getContent().get("application/json").getSchema().isLong);
         cr = co.responses.get("200");
         assertFalse(cr.getContent().get("application/json").getSchema().isUnboundedInteger);
         assertFalse(cr.getContent().get("application/json").getSchema().isInteger);
@@ -3736,47 +3695,47 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
         String path;
         CodegenOperation co;
-        CodegenParameter cp;
+        CodegenRequestBody crb;
 
         path = "/ComposedObject";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsMap());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsMap());
 
         path = "/ComposedNumber";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsNumber());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsNumber());
 
         path = "/ComposedInteger";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsUnboundedInteger());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsUnboundedInteger());
 
         path = "/ComposedString";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsString());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsString());
 
         path = "/ComposedBool";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsBoolean());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsBoolean());
 
         path = "/ComposedArray";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsArray());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsArray());
 
         path = "/ComposedNone";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsNull());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsNull());
 
         path = "/ComposedAnyType";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().getIsAnyType());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().getIsAnyType());
     }
 
     @Test
@@ -3836,13 +3795,13 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
         String path;
         CodegenOperation co;
-        CodegenParameter cp;
+        CodegenRequestBody crb;
 
         path = "/TxRxByteArray";
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
-        cp = co.requestBody;
-        assertTrue(cp.getContent().get("application/json").getSchema().isByteArray);
-        assertFalse(cp.getContent().get("application/json").getSchema().getIsString());
+        crb = co.requestBody;
+        assertTrue(crb.getContent().get("application/json").getSchema().isByteArray);
+        assertFalse(crb.getContent().get("application/json").getSchema().getIsString());
         CodegenResponse cr = co.responses.get("200");
         assertTrue(cr.getContent().get("application/json").getSchema().isByteArray);
         assertFalse(cr.getContent().get("application/json").getSchema().getIsString());
@@ -3940,7 +3899,7 @@ public class DefaultCodegenTest {
 
         path = "/inlineRequestBodySchemasDifferingByContentType";
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
-        CodegenParameter bodyParameter = co.requestBody;
+        CodegenRequestBody bodyParameter = co.requestBody;
         LinkedHashMap<String, CodegenMediaType> content = bodyParameter.getContent();
         assertNotNull(content);
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json", "text/plain")));
@@ -4073,7 +4032,7 @@ public class DefaultCodegenTest {
         Assert.assertEquals(requestBodySchema2.get$ref(), "#/components/schemas/updatePetWithForm_request");
 
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
-        CodegenParameter codegenParameter = codegen.fromRequestBody(reqBody, "visitDate", "#/paths/~1thingy~1{date}/post/requestBody");
+        CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
         Assert.assertEquals(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRef(), "#/components/schemas/updatePetWithForm_request");
     }

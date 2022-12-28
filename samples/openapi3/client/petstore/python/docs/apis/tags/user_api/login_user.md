@@ -100,22 +100,22 @@ str,  | str,  |  |
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [ref_schema_header_header.schema](../../../components/headers/ref_schema_header_header.md#schema) | | 
-X-Rate-Limit | [response_for_200.x_rate_limit_header.application_json](#response_for_200.x_rate_limit_header.application_json) | | 
-int32 | [int32_json_content_type_header_header.application_json](../../../components/headers/int32_json_content_type_header_header.md#application_json) | | 
-X-Expires-After | [response_for_200.x_expires_after_header.schema](#response_for_200.x_expires_after_header.schema) | | optional
-ref-content-schema-header | [ref_content_schema_header_header.application_json](../../../components/headers/ref_content_schema_header_header.md#application_json) | | 
-stringHeader | [string_header_header.schema](../../../components/headers/string_header_header.md#schema) | | 
-numberHeader | [number_header_header.schema](../../../components/headers/number_header_header.md#schema) | | optional
+ref-schema-header | [header_ref_schema_header.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
+X-Rate-Limit | [response_for_200.header_x_rate_limit.application_json](#response_for_200.header_x_rate_limit.application_json) | | 
+int32 | [header_int32_json_content_type_header.application_json](../../../components/headers/header_int32_json_content_type_header.md#application_json) | | 
+X-Expires-After | [response_for_200.header_x_expires_after.schema](#response_for_200.header_x_expires_after.schema) | | optional
+ref-content-schema-header | [header_ref_content_schema_header.application_json](../../../components/headers/header_ref_content_schema_header.md#application_json) | | 
+stringHeader | [header_string_header.schema](../../../components/headers/header_string_header.md#schema) | | 
+numberHeader | [header_number_header.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
-# <a id="response_for_200.x_rate_limit_header.application_json" >response_for_200.x_rate_limit_header.application_json</a>
+# <a id="response_for_200.header_x_rate_limit.application_json" >response_for_200.header_x_rate_limit.application_json</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# <a id="response_for_200.x_expires_after_header.schema" >response_for_200.x_expires_after_header.schema</a>
+# <a id="response_for_200.header_x_expires_after.schema" >response_for_200.header_x_expires_after.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

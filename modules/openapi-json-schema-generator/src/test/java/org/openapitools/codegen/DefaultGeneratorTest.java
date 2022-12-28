@@ -424,8 +424,8 @@ public class DefaultGeneratorTest {
         // Validate when converting to parameter
         Operation operation = openAPI.getPaths().get("/fake/StringRegex").getPost();
         RequestBody body = operation.getRequestBody();
-        CodegenParameter codegenParameter = config.fromRequestBody(
-                body, "body", "#/paths/~1fake~1StringRegex/post/requestBody");
+        CodegenRequestBody codegenParameter = config.fromRequestBody(
+                body, "#/paths/~1fake~1StringRegex/post/requestBody");
 
         Assert.assertEquals(codegenParameter.getContent().get("*/*").getSchema().pattern, escapedPattern);
 

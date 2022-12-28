@@ -21,7 +21,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = content_type_json_api.ContentTypeJsonApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = oneof_with_base_schema.OneofWithBaseSchema("parameter_body_example")
+    body = oneof_with_base_schema.OneofWithBaseSchema("string_example")
     try:
         api_response = api_instance.post_oneof_with_base_schema_request_body(
             body=body,

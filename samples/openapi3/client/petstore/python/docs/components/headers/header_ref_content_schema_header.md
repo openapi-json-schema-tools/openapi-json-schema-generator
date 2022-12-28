@@ -1,4 +1,4 @@
-# petstore_api.components.headers.ref_content_schema_header_header
+# petstore_api.components.headers.header_ref_content_schema_header
 
 # application_json
 Type | Description  | Notes
