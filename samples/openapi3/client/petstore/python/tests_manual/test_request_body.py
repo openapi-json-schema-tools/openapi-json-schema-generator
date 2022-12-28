@@ -19,13 +19,6 @@ ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serial
 
 
 class TestParameter(unittest.TestCase):
-
-    def test_throws_exception_when_content_is_invalid_size(self):
-        with self.assertRaises(ValueError):
-            api_client.RequestBody(
-                content={}
-            )
-
     def test_content_json_serialization(self):
         payloads = [
             None,
@@ -42,10 +35,12 @@ class TestParameter(unittest.TestCase):
             dict(R=100, G=200, B=150),
         ]
         for payload in payloads:
-            request_body = api_client.RequestBody(
-                content={'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema)}
-            )
-            serialization = request_body.serialize(payload, 'application/json')
+            class RequestBody(api_client.RequestBody):
+                content = {
+                    'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema)
+                }
+
+            serialization = RequestBody.serialize(payload, 'application/json')
             self.assertEqual(
                 serialization,
                 dict(body=json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode('utf-8'))
@@ -62,10 +57,10 @@ class TestParameter(unittest.TestCase):
             some_dict={},
             some_bytes=b'abc'
         )
-        request_body = api_client.RequestBody(
+        class RequestBody(api_client.RequestBody):
             content={'multipart/form-data': api_client.MediaType(schema=schemas.AnyTypeSchema)}
-        )
-        serialization = request_body.serialize(payload, 'multipart/form-data')
+
+        serialization = RequestBody.serialize(payload, 'multipart/form-data')
         self.assertEqual(
             serialization,
             dict(
@@ -123,21 +118,21 @@ class TestParameter(unittest.TestCase):
         )
 
     def test_throws_error_for_nonexistant_content_type(self):
-        request_body = api_client.RequestBody(
+        class RequestBody(api_client.RequestBody):
             content={'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema)}
-        )
+
         with self.assertRaises(KeyError):
-            request_body.serialize(None, 'abc/def')
+            RequestBody.serialize(None, 'abc/def')
 
     def test_throws_error_for_not_implemented_content_type(self):
-        request_body = api_client.RequestBody(
+        class RequestBody(api_client.RequestBody):
             content={
                 'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema),
                 'text/css': api_client.MediaType(schema=schemas.AnyTypeSchema)
             }
-        )
+
         with self.assertRaises(NotImplementedError):
-            request_body.serialize(None, 'text/css')
+            RequestBody.serialize(None, 'text/css')
 
     def test_application_x_www_form_urlencoded_serialization(self):
         payload = dict(
@@ -149,16 +144,16 @@ class TestParameter(unittest.TestCase):
             some_dict={},
         )
         content_type = 'application/x-www-form-urlencoded'
-        request_body = api_client.RequestBody(
+        class RequestBody(api_client.RequestBody):
             content={content_type: api_client.MediaType(schema=schemas.AnyTypeSchema)}
-        )
-        serialization = request_body.serialize(payload, content_type)
+
+        serialization = RequestBody.serialize(payload, content_type)
         self.assertEqual(
             serialization,
             dict(body='some_str=hi%20there&some_int=1&some_float=3.14')
         )
 
-        serialization = request_body.serialize({}, content_type)
+        serialization = RequestBody.serialize({}, content_type)
         self.assertEqual(
             serialization,
             dict(body='')
@@ -172,7 +167,7 @@ class TestParameter(unittest.TestCase):
         ]
         for invalid_payload in invalid_payloads:
             with self.assertRaises(exceptions.ApiValueError):
-                request_body.serialize(invalid_payload, content_type)
+                RequestBody.serialize(invalid_payload, content_type)
 
 
 if __name__ == '__main__':
