@@ -2458,7 +2458,7 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn("'{}' defines discriminator '{}', but the referenced schema '{}' is incorrect. {}",
                             composedSchemaName, discPropName, modelName, msgSuffix);
                 }
-                MappedModel mm = new MappedModel(modelName, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath));
+                MappedModel mm = new MappedModel(modelName, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath, "schemas"));
                 descendentSchemas.add(mm);
                 Schema cs = ModelUtils.getSchema(openAPI, modelName);
                 if (cs == null) { // cannot lookup the model based on the name
@@ -2467,7 +2467,7 @@ public class DefaultCodegen implements CodegenConfig {
                     Map<String, Object> vendorExtensions = cs.getExtensions();
                     if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                         String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                        mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath));
+                        mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath, "schemas"));
                         descendentSchemas.add(mm);
                     }
                 }
@@ -2520,21 +2520,21 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             }
             currentSchemaName = queue.remove(0);
-            MappedModel mm = new MappedModel(currentSchemaName, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath));
+            MappedModel mm = new MappedModel(currentSchemaName, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath, "schemas"));
             descendentSchemas.add(mm);
             Schema cs = schemas.get(currentSchemaName);
             Map<String, Object> vendorExtensions = cs.getExtensions();
             if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                 String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath));
+                mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath, "schemas"));
                 descendentSchemas.add(mm);
             }
         }
         return descendentSchemas;
     }
 
-    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
-        String refClass = toRefClass(ref, sourceJsonPath);
+    protected String getRefClassWithModule(String ref, String sourceJsonPath, String expectedComponentType) {
+        String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
         return refClass;
     }
 
@@ -2572,11 +2572,11 @@ public class DefaultCodegen implements CodegenConfig {
                     if (ModelUtils.getSchema(openAPI, name) == null) {
                         LOGGER.error("Failed to lookup the schema '{}' when processing the discriminator mapping of oneOf/anyOf. Please check to ensure it's defined properly.", name);
                     } else {
-                        modelName = getRefClassWithModule(e.getValue(), sourceJsonPath);
+                        modelName = getRefClassWithModule(e.getValue(), sourceJsonPath, "schemas");
                     }
                 } else {
                     String ref = "#/components/schemas/" + value;
-                    modelName = getRefClassWithModule(ref, sourceJsonPath);
+                    modelName = getRefClassWithModule(ref, sourceJsonPath, "schemas");
                 }
                 if (modelName != null) {
                     uniqueDescendants.add(new MappedModel(e.getKey(), modelName));
@@ -3087,9 +3087,10 @@ public class DefaultCodegen implements CodegenConfig {
             property.setRef(ref);
             property.setRefClass(toRefClass(
                     ref,
-                    sourceJsonPath
+                    sourceJsonPath,
+                    "schemas"
             ));
-            property.setRefModule(toRefModule(ref, "schemas", sourceJsonPath));
+            property.setRefModule(toRefModule(ref, sourceJsonPath, "schemas"));
         }
         String example = toExampleValue(p);
         property.setExample(example);
@@ -3103,7 +3104,7 @@ public class DefaultCodegen implements CodegenConfig {
         return property;
     }
 
-    public String toRefClass(String ref, String sourceJsonPath) {
+    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
         String[] refPieces = ref.split("/");
         return toModelName(refPieces[refPieces.length-1]);
     }
@@ -5024,7 +5025,7 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(componentName);
     }
 
-    protected String toRefModule(String ref, String expectedComponentType, String sourceJsonPath) {
+    protected String toRefModule(String ref, String sourceJsonPath, String expectedComponentType) {
         // ref #/components/schemas/SomeModel -> some_model
         // ref #/components/requestBodies/SomeBody -> some_body
         // ref #/components/parameters/SomeParam -> some_param
@@ -5062,8 +5063,10 @@ public class DefaultCodegen implements CodegenConfig {
     private void setLocationInfo(String ref, OpenapiComponent instance, String sourceJsonPath, String expectedComponentType) {
         if (ref != null) {
             instance.setRef(ref);
-            String refModule = toRefModule(ref, expectedComponentType, sourceJsonPath);
+            String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             instance.setRefModule(refModule);
+            String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
+            instance.setRefClass(refClass);
         }
         String[] refPieces = sourceJsonPath.split("/");
         if (sourceJsonPath.startsWith("#/components/") && refPieces.length == 4) {

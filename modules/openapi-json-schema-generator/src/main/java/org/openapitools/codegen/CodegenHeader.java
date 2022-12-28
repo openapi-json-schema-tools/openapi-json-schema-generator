@@ -70,6 +70,9 @@ public class CodegenHeader extends CodegenRequestBody {
         if (this.componentModule != null) {
             output.componentModule = componentModule;
         }
+        if (this.refClass != null) {
+            output.refClass = refClass;
+        }
         output.isDeprecated = this.isDeprecated;
         output.isExplode = this.isExplode;
         output.style = this.style;
@@ -105,7 +108,7 @@ public class CodegenHeader extends CodegenRequestBody {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(refClass, name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override

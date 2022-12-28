@@ -1051,10 +1051,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toModelName(openAPIType);
     }
 
-    public String getSchemaRefClass(Schema sc) {
+    public String getRefClassWithRefModule(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
-            return  toRefModule(ref, "schemas", null) + "." + toRefClass(ref, null);
+            return  toRefModule(ref, null, "schemas") + "." + toRefClass(ref, null, "schemas");
         }
         return null;
     }
@@ -1115,14 +1115,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toExampleValue(Schema schema) {
-        String modelName = getSchemaRefClass(schema);
+        String modelName = getRefClassWithRefModule(schema);
         Object objExample = getObjectExample(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
     @Override
     public String toExampleValue(Schema schema, Object objExample) {
-        String modelName = getSchemaRefClass(schema);
+        String modelName = getRefClassWithRefModule(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
@@ -1220,7 +1220,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 LOGGER.warn("Unable to find referenced schema " + schema.get$ref() + "\n");
                 return fullPrefix + "None" + closeChars;
             }
-            String refModelName = getSchemaRefClass(schema);
+            String refModelName = getRefClassWithRefModule(schema);
             return toExampleValueRecursive(refModelName, refSchema, objExample, indentationLevel, prefix, exampleLine, includedSchemas);
         } else if (ModelUtils.isNullType(schema)) {
             // The 'null' type is allowed in OAS 3.1 and above. It is not supported by OAS 3.0.x,
@@ -1393,7 +1393,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             ArraySchema arrayschema = (ArraySchema) schema;
             Schema itemSchema = arrayschema.getItems();
-            String itemModelName = getSchemaRefClass(itemSchema);
+            String itemModelName = getRefClassWithRefModule(itemSchema);
             if(includedSchemas.contains(schema)) {
                 return "";
             }
@@ -1474,7 +1474,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (modelName == null) {
                     addPropPrefix = ensureQuotes(key) + ": ";
                 }
-                String addPropsModelName = getSchemaRefClass(addPropsSchema);
+                String addPropsModelName = getRefClassWithRefModule(addPropsSchema);
                 if(includedSchemas.contains(schema)) {
                     return "";
                 }
@@ -1522,7 +1522,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 propModelName = null;
                 propExample = discProp.example;
             } else {
-                propModelName = getSchemaRefClass(propSchema);
+                propModelName = getRefClassWithRefModule(propSchema);
                 propExample = exampleFromStringOrArraySchema(
                         propSchema,
                         null,
@@ -2012,9 +2012,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
-        String refModule = toRefModule(ref, "schemas", sourceJsonPath);
-        String refClass = toRefClass(ref, sourceJsonPath);
+    protected String getRefClassWithModule(String ref, String sourceJsonPath, String expectedComponentType) {
+        String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
+        String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
         if (refModule == null) {
             return refClass;
         }
@@ -2058,7 +2058,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null;
     }
 
-    public String toRefClass(String ref, String sourceJsonPath) {
+    @Override
+    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed

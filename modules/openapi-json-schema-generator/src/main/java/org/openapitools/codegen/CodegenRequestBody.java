@@ -49,6 +49,7 @@ public class CodegenRequestBody implements OpenapiComponent {
     protected String refModule;
     protected Set<String> imports = new HashSet<String>();
     protected String componentModule;
+    protected String refClass;
 
     public String getComponentModule() {
         return componentModule;
@@ -58,9 +59,17 @@ public class CodegenRequestBody implements OpenapiComponent {
         this.componentModule = componentModule;
     }
 
+    public String getRefClass() {
+        return refClass;
+    }
+
+    public void setRefClass(String refClass) {
+        this.refClass = refClass;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, ref, refModule, imports, componentModule);
+        return Objects.hash(refClass, description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, ref, refModule, imports, componentModule);
     }
 
     @Override
@@ -69,6 +78,7 @@ public class CodegenRequestBody implements OpenapiComponent {
         if (!(o instanceof CodegenRequestBody)) return false;
         CodegenRequestBody that = (CodegenRequestBody) o;
         return required == that.required &&
+                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(ref, that.getRef()) &&
@@ -93,6 +103,7 @@ public class CodegenRequestBody implements OpenapiComponent {
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
+        sb.append(", refClass=").append(refClass);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
     }
