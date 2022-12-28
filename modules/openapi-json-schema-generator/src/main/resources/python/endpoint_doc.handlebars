@@ -90,7 +90,7 @@ Key | Input Type | Description  | Notes
         {{#if refModule}}
 {{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
 
@@ -112,7 +112,7 @@ Key | Input Type | Description  | Notes
         {{#if refModule}}
 {{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each headerParams as | parameter |}}
@@ -133,7 +133,7 @@ Key | Input Type | Description  | Notes
         {{#if refModule}}
 {{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each pathParams as | parameter |}}
@@ -154,7 +154,7 @@ Key | Input Type | Description  | Notes
         {{#if refModule}}
 {{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{paramName}}.schema](#{{paramName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each cookieParams as | parameter |}}
