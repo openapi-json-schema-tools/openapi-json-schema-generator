@@ -780,6 +780,31 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        if (requestBody.getComponentModule() == null) {
+            return;
+        }
+        // doc generation
+        Boolean generateRequestBodyDocumentaion = Boolean.TRUE;
+        String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
+        for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
+            String templateName = entry.getKey();
+            String suffix = entry.getValue();
+            String docFilename = config.toRequestBodyDocFilename(componentName);
+            String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
+
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            try {
+                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentaion, CodegenConstants.REQUEST_BODY_DOCS);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "request-body-doc");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
     }
 
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {

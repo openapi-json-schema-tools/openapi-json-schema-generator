@@ -5124,7 +5124,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenRequestBody codegenRequestBody = new CodegenRequestBody();
         setRequestBodyInfo(usedRequestBody, codegenRequestBody, usedSourceJsonPath);
-        setLocationInfo(requestBody.get$ref(), codegenRequestBody, sourceJsonPath, "requestBodies");
+        setLocationInfo(bodyRef, codegenRequestBody, sourceJsonPath, "requestBodies");
 
         // set the parameter's example value
         // should be overridden by lang codegen
