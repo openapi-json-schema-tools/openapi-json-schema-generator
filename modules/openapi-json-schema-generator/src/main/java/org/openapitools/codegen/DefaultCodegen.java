@@ -1666,6 +1666,17 @@ public class DefaultCodegen implements CodegenConfig {
         for (Entry<String, MediaType> entry: content.entrySet()) {
             MediaType mediaType = entry.getValue();
             if (mediaType != null) {
+                if (mediaType.getExample() != null) {
+                    codegenRequestBody.setExample((String) mediaType.getExample());
+                    return;
+                }
+                if (mediaType.getExamples() != null) {
+                    for (Entry<String, Example> exampleInfo: mediaType.getExamples().entrySet()) {
+                        Example ex = exampleInfo.getValue();
+                        codegenRequestBody.setExample((String) ex.getValue());
+                        return;
+                    }
+                }
                 Schema schema = mediaType.getSchema();
                 if (schema != null) {
                     codegenRequestBody.setExample(toExampleValue(schema, null));
@@ -3080,6 +3091,8 @@ public class DefaultCodegen implements CodegenConfig {
             ));
             property.setRefModule(toRefModule(ref, "schemas", sourceJsonPath));
         }
+        String example = toExampleValue(p);
+        property.setExample(example);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             property.imports = new TreeSet<>();
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
