@@ -1,8 +1,9 @@
 # coding: utf-8
 {{>partial_header}}
 
+import datetime
 import dataclasses
-from decimal import Decimal
+import decimal
 import enum
 import email
 import json
@@ -33,8 +34,6 @@ from {{packageName}}.schemas import (
     Schema,
     FileIO,
     BinarySchema,
-    date,
-    datetime,
     none_type,
     Unset,
     unset,
@@ -58,7 +57,7 @@ class JSONEncoder(json.JSONEncoder):
             return float(obj)
         elif isinstance(obj, int):
             return int(obj)
-        elif isinstance(obj, Decimal):
+        elif isinstance(obj, decimal.Decimal):
             if obj.as_tuple().exponent >= 0:
                 return int(obj)
             return float(obj)
@@ -431,7 +430,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
     def serialize(
         cls,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+            Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict]
     ) -> typing.Dict[str, str]:
         if cls.schema:
             cast_in_data = cls.schema(in_data)
@@ -536,7 +535,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     def serialize(
         cls,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict],
+            Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict],
         prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator] = None
     ) -> typing.Dict[str, str]:
         if cls.schema:
@@ -592,7 +591,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
     def serialize(
         cls,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+            Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict]
     ) -> typing.Dict[str, str]:
         if cls.schema:
             cast_in_data = cls.schema(in_data)
@@ -646,7 +645,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
     def serialize(
         cls,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict],
+            Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict],
         name: str
     ) -> HTTPHeaderDict:
         if cls.schema:
@@ -699,7 +698,7 @@ class HeaderParameter(HeaderParameterWithoutName):
     def serialize(
         cls,
         in_data: typing.Union[
-            Schema, Decimal, int, float, str, date, datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+            Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict]
     ) -> HTTPHeaderDict:
         return super().serialize(
             in_data,
