@@ -14,8 +14,7 @@ from petstore_api import api_client, exceptions
 from . import schema
 
 
-parameter_oapg = api_client.HeaderParameter(
-    name="1",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=schema.Schema,
-)
+class _5(api_client.HeaderParameter):
+    name = "1"
+    style = api_client.ParameterStyle.SIMPLE
+    schema = schema.Schema

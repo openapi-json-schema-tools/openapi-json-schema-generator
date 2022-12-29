@@ -14,10 +14,9 @@ from petstore_api import api_client, exceptions
 from . import application_json
 
 
-parameter_oapg = api_client.HeaderParameterWithoutName(
-    style=api_client.ParameterStyle.SIMPLE,
-    content={
+class XRateLimit(api_client.HeaderParameterWithoutName):
+    style = api_client.ParameterStyle.SIMPLE
+    content = {
         "application/json": application_json.ApplicationJson,
-    },
-    required=True,
-)
+    }
+    required = True

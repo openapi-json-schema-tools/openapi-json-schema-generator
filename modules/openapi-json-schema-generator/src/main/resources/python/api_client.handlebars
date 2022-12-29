@@ -525,7 +525,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._ref6570_expansion(
-            variable_name=self.name,
+            variable_name=cls.name,
             in_data=in_data,
             explode=cls.explode,
             percent_encode=True,
@@ -542,13 +542,13 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._ref6570_expansion(
-            variable_name=self.name,
+            variable_name=cls.name,
             in_data=in_data,
             explode=cls.explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
-        return cls._to_dict(self.name, value)
+        return cls._to_dict(cls.name, value)
 
     @classmethod
     def __serialize_form(
@@ -701,7 +701,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
                 headers: PoolManager needs a mapping, tuple is close
                     returns headers: dict
             """
-            if self.style:
+            if cls.style:
                 value = cls._serialize_simple(cast_in_data, name, cls.explode, False)
                 return cls.__to_headers(((name, value),))
         # cls.content will be length one

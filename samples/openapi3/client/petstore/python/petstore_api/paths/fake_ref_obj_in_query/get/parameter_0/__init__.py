@@ -15,9 +15,8 @@ from petstore_api import api_client, exceptions
 from petstore_api.components.schema import foo
 
 
-parameter_oapg = api_client.QueryParameter(
-    name="mapBean",
-    style=api_client.ParameterStyle.DEEP_OBJECT,
-    schema=foo.Foo,
-    explode=True,
-)
+class _0(api_client.QueryParameter):
+    name = "mapBean"
+    style=api_client.ParameterStyle.DEEP_OBJECT
+    schema = foo.Foo
+    explode = True

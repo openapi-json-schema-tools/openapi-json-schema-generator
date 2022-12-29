@@ -14,9 +14,8 @@ from petstore_api import api_client, exceptions
 from . import schema
 
 
-parameter_oapg = api_client.QueryParameter(
-    name="enum_query_double",
-    style=api_client.ParameterStyle.FORM,
-    schema=schema.Schema,
-    explode=True,
-)
+class _5(api_client.QueryParameter):
+    name = "enum_query_double"
+    style = api_client.ParameterStyle.FORM,
+    schema = schema.Schema
+    explode = True
