@@ -21,4 +21,4 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class Default(api_client.OpenApiResponse[ApiResponse]):
-    response_cls=ApiResponse
+    response_cls = ApiResponse

@@ -24,8 +24,8 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
-    response_cls=ApiResponse
-    content={
+    response_cls = ApiResponse
+    content = {
         'application/octet-stream': api_client.MediaType(
             application_octet_stream.ApplicationOctetStream,
         ),

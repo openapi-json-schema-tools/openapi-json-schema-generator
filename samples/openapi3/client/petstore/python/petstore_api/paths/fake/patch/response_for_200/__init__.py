@@ -25,8 +25,8 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
-    response_cls=ApiResponse
-    content={
+    response_cls = ApiResponse
+    content = {
         'application/json': api_client.MediaType(
             client.Client,
         ),

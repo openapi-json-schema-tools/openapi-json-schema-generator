@@ -88,10 +88,10 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
-    response_cls=ApiResponse
+    response_cls = ApiResponse
 {{#each content}}
 {{#if @first}}
-    content={
+    content = {
 {{/if}}
         '{{{@key}}}': api_client.MediaType(
         {{#if this.schema}}

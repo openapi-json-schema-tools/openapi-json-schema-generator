@@ -61,8 +61,8 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):
-    response_cls=ApiResponse
-    content={
+    response_cls = ApiResponse
+    content = {
         'application/json': api_client.MediaType(
             api_response.ApiResponse,
         ),
