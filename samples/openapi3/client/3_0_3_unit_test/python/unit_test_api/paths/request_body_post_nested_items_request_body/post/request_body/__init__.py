@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import nested_items
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=nested_items.NestedItems,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

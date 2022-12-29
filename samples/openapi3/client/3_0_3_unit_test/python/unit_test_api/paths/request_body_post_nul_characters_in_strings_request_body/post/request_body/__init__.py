@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import nul_characters_in_strings
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=nul_characters_in_strings.NulCharactersInStrings,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import by_int
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=by_int.ByInt,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

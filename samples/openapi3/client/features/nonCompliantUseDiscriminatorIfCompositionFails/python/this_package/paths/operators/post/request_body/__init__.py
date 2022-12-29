@@ -10,10 +10,9 @@ from this_package import api_client, exceptions
 
 from this_package.components.schema import operator
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=operator.Operator,
         ),
-    },
-)
+    }

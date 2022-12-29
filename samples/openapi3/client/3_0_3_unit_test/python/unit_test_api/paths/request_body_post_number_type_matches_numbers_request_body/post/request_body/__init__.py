@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import number_type_matches_numbers
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=number_type_matches_numbers.NumberTypeMatchesNumbers,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

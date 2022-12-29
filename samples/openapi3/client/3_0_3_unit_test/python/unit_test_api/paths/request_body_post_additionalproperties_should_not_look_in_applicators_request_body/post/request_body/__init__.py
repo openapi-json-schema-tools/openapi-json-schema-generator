@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import additionalproperties_should_not_look_in_applicators
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators,
         ),
-    },
-    required=True,
-)
+    }
+    required = True
