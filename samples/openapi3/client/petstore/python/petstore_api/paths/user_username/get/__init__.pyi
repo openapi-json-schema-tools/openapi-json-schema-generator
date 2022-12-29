@@ -52,7 +52,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_path_user_name._0,
+        parameter_path_user_name.PathUserName,
     ]_all_accept_content_types = (
     'application/xml',
     'application/json',

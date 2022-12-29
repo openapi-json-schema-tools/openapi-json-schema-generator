@@ -45,7 +45,7 @@ class Header:
 
     parameters = [
         header_ref_schema_header.RefSchemaHeader,
-        header_int32_json_content_type_header.Int32,
+        header_int32_json_content_type_header.Int32JsonContentTypeHeader,
         header_ref_content_schema_header.RefContentSchemaHeader,
         header_string_header.StringHeader,
         header_number_header.NumberHeader,

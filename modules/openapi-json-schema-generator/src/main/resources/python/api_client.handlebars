@@ -364,48 +364,7 @@ class ParameterBase(JSONDetector):
     schema: typing.Optional[typing.Type[Schema]]
     content: typing.Optional[typing.Dict[str, typing.Type[Schema]]]
 
-    __style_to_in_type = {
-        ParameterStyle.MATRIX: {ParameterInType.PATH},
-        ParameterStyle.LABEL: {ParameterInType.PATH},
-        ParameterStyle.FORM: {ParameterInType.QUERY, ParameterInType.COOKIE},
-        ParameterStyle.SIMPLE: {ParameterInType.PATH, ParameterInType.HEADER},
-        ParameterStyle.SPACE_DELIMITED: {ParameterInType.QUERY},
-        ParameterStyle.PIPE_DELIMITED: {ParameterInType.QUERY},
-        ParameterStyle.DEEP_OBJECT: {ParameterInType.QUERY},
-    }
-    __in_type_to_default_style = {
-        ParameterInType.QUERY: ParameterStyle.FORM,
-        ParameterInType.PATH: ParameterStyle.SIMPLE,
-        ParameterInType.HEADER: ParameterStyle.SIMPLE,
-        ParameterInType.COOKIE: ParameterStyle.FORM,
-    }
     _json_encoder = JSONEncoder()
-
-    @classmethod
-    def __verify_style_to_in_type(cls, style: typing.Optional[ParameterStyle], in_type: ParameterInType):
-        if style is None:
-            return
-        in_type_set = cls.__style_to_in_type[style]
-        if in_type not in in_type_set:
-            raise ValueError(
-                'Invalid style and in_type combination. For style={} only in_type={} are allowed'.format(
-                    style, in_type_set
-                )
-            )
-
-    def __init_subclass__(
-        cls,
-        **kwargs
-    ):
-        if cls.schema is None and cls.content is None:
-            raise ValueError('Value missing; Pass in either schema or content')
-        if cls.schema and cls.content:
-            raise ValueError('Too many values provided. Both schema and content were provided. Only one may be input')
-        cls.__verify_style_to_in_type(cls.style, cls.in_type)
-        if cls.content is None and cls.style is None:
-            style = cls.__in_type_to_default_style[cls.in_type]
-        if cls.content is not None and cls.in_type in cls.__in_type_to_default_style and len(cls.content) != 1:
-            raise ValueError('Invalid content length, content length must equal 1')
 
     @classmethod
     def _serialize_json(
@@ -422,7 +381,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
     name: str
     required: bool = False
     in_type: ParameterInType = ParameterInType.PATH
-    style: typing.Optional[ParameterStyle] = None
+    style: ParameterStyle = ParameterStyle.SIMPLE
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[Schema]] = None
@@ -625,7 +584,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
 class CookieParameter(ParameterBase, StyleFormSerializer):
     name: str
     required: bool = False
-    style: typing.Optional[ParameterStyle] = None
+    style: ParameterStyle = ParameterStyle.FORM
     in_type: ParameterInType = ParameterInType.COOKIE
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
@@ -670,8 +629,8 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
 
 class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
     required: bool = False
-    style: typing.Optional[ParameterStyle] = None
-    in_type: ParameterInType =ParameterInType.HEADER
+    style: ParameterStyle = ParameterStyle.SIMPLE
+    in_type: ParameterInType = ParameterInType.HEADER
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[Schema]] = None

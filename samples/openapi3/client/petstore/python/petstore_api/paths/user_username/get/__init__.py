@@ -53,7 +53,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_path_user_name._0,
+        parameter_path_user_name.PathUserName,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
