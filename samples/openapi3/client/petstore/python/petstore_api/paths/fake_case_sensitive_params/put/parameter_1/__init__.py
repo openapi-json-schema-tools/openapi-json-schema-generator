@@ -14,10 +14,9 @@ from petstore_api import api_client, exceptions
 from . import schema
 
 
-parameter_oapg = api_client.QueryParameter(
-    name="SomeVar",
-    style=api_client.ParameterStyle.FORM,
-    schema=schema.Schema,
-    required=True,
-    explode=True,
-)
+class _1(api_client.QueryParameter):
+    name = "SomeVar"
+    style = api_client.ParameterStyle.FORM
+    schema = schema.Schema
+    required = True
+    explode = True

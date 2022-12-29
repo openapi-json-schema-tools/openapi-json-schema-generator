@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import enum_with0_does_not_match_false
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

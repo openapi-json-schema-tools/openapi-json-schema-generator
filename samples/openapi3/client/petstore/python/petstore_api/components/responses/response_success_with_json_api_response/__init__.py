@@ -44,11 +44,11 @@ class Header:
 
 
     parameters = [
-        header_ref_schema_header.parameter_oapg,
-        header_int32_json_content_type_header.parameter_oapg,
-        header_ref_content_schema_header.parameter_oapg,
-        header_string_header.parameter_oapg,
-        header_number_header.parameter_oapg,
+        header_ref_schema_header.RefSchemaHeader,
+        header_int32_json_content_type_header.Int32JsonContentTypeHeader,
+        header_ref_content_schema_header.RefContentSchemaHeader,
+        header_string_header.StringHeader,
+        header_number_header.NumberHeader,
     ]
 
 @dataclasses.dataclass
@@ -60,12 +60,11 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
-    content={
+class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
+    content = {
         'application/json': api_client.MediaType(
             api_response.ApiResponse,
         ),
-    },
+    }
     headers=Header.parameters
-)

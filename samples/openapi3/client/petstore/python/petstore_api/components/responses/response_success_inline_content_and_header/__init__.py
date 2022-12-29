@@ -35,7 +35,7 @@ class Header:
 
 
     parameters = [
-        header_some_header.parameter_oapg,
+        header_some_header.SomeHeader,
     ]
 
 @dataclasses.dataclass
@@ -47,12 +47,11 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
-    content={
+class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
+    content = {
         'application/json': api_client.MediaType(
             application_json.ApplicationJson,
         ),
-    },
+    }
     headers=Header.parameters
-)

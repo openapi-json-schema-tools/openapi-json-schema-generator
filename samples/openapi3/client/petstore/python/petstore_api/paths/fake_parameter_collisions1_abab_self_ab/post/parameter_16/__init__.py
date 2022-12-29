@@ -14,9 +14,8 @@ from petstore_api import api_client, exceptions
 from . import schema
 
 
-parameter_oapg = api_client.CookieParameter(
-    name="Ab",
-    style=api_client.ParameterStyle.FORM,
-    schema=schema.Schema,
-    explode=True,
-)
+class _16(api_client.CookieParameter):
+    name = "Ab"
+    style = api_client.ParameterStyle.FORM
+    schema = schema.Schema
+    explode = True

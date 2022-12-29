@@ -52,7 +52,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_0._0,
     ]
 _auth = [
     'petstore_auth',
@@ -62,11 +62,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '405': api_client.OpenApiResponse[response_for_405.ApiResponse],
+        '405': response_for_405._405,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '405': response_for_405.response,
+    '405': response_for_405._405,
 })
 
 
@@ -151,7 +151,7 @@ class BaseApi(api_client.Api):
         _fields = None
         _body = None
         if body is not schemas.unset:
-            serialized_data = request_body.parameter_oapg.serialize(body, content_type)
+            serialized_data = request_body.RequestBody.serialize(body, content_type)
             _headers.add('Content-Type', content_type)
             if 'fields' in serialized_data:
                 _fields = serialized_data['fields']

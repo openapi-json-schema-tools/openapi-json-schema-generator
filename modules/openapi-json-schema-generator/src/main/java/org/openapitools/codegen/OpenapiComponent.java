@@ -37,5 +37,7 @@ public interface OpenapiComponent {
 
     void setRefModule(String refModule);
 
-    // TODO add refClass here when all components use classes in their python definition
+    String getRefClass();
+
+    void setRefClass(String refClass);
 }

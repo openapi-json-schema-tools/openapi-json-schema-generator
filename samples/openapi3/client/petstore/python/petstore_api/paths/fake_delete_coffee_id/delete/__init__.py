@@ -51,18 +51,18 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_0._0,
     ]
 
-default_response = response_for_default.response
+default_response = response_for_default.Default
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': api_client.OpenApiResponse[response_for_200.ApiResponse],
+        '200': response_for_200.SuccessDescriptionOnly,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.response,
+    '200': response_for_200.SuccessDescriptionOnly,
 })
 
 

@@ -50,7 +50,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_path_user_name.parameter_oapg,
+        parameter_path_user_name.PathUserName,
     ]
 
 class BaseApi(api_client.Api):

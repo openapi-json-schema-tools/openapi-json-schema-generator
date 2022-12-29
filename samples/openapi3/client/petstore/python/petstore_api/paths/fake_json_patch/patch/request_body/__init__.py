@@ -10,10 +10,9 @@ from petstore_api import api_client, exceptions
 
 from petstore_api.components.schema import json_patch_request
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json-patch+json': api_client.MediaType(
             schema=json_patch_request.JSONPatchRequest,
         ),
-    },
-)
+    }

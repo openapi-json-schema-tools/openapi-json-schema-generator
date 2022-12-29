@@ -116,20 +116,22 @@ _servers = (
 
 
 {{#if defaultResponse}}
-default_response = response_for_default.response
+{{#with defaultResponse}}
+default_response = response_for_default.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}
+{{/with}}
 {{/if}}
 {{#if nonDefaultResponses}}
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': api_client.OpenApiResponse[response_for_{{@key}}.ApiResponse],
+        '{{@key}}': response_for_{{@key}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
 {{/each}}
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
 {{#each nonDefaultResponses}}
-    '{{@key}}': response_for_{{@key}}.response,
+    '{{@key}}': response_for_{{@key}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
 {{/each}}
 })
 {{/if}}

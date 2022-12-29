@@ -1,50 +1,49 @@
-parameter_oapg = api_client.{{#if noName}}Header{{/if}}{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}(
+class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}):
 {{#unless noName}}
-    name="{{baseName}}",
+    name = "{{baseName}}"
 {{/unless}}
 {{#if style}}
 {{#eq style "matrix"}}
-    style=api_client.ParameterStyle.MATRIX,
+    style = api_client.ParameterStyle.MATRIX
 {{/eq}}
 {{#eq style "label"}}
-    style=api_client.ParameterStyle.LABEL,
+    style = api_client.ParameterStyle.LABEL
 {{/eq}}
 {{#eq style "form"}}
-    style=api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
 {{/eq}}
 {{#eq style "simple"}}
-    style=api_client.ParameterStyle.SIMPLE,
+    style = api_client.ParameterStyle.SIMPLE
 {{/eq}}
 {{#eq style "spaceDelimited"}}
-    style=api_client.ParameterStyle.SPACE_DELIMITED,
+    style = api_client.ParameterStyle.SPACE_DELIMITED
 {{/eq}}
 {{#eq style "pipeDelimited"}}
-    style=api_client.ParameterStyle.PIPE_DELIMITED,
+    style=api_client.ParameterStyle.PIPE_DELIMITED
 {{/eq}}
 {{#eq style "deepObject"}}
-    style=api_client.ParameterStyle.DEEP_OBJECT,
+    style=api_client.ParameterStyle.DEEP_OBJECT
 {{/eq}}
 {{/if}}
 {{#if schema}}
     {{#with schema}}
         {{#if getRefModule}}
-    schema={{getRefModule}}.{{getRefClass}},
+    schema = {{getRefModule}}.{{getRefClass}}
         {{else}}
-    schema={{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+    schema = {{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
         {{/if}}
     {{/with}}
 {{/if}}
 {{#if getContent}}
-    content={
+    content = {
 {{#each getContent}}
         "{{@key}}": {{#with this}}{{#with schema}}{{#if getRefModule}}{{getRefModule}}.{{getRefClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}{{/with}},
 {{/each}}
-    },
+    }
 {{/if}}
 {{#if required}}
-    required=True,
+    required = True
 {{/if}}
 {{#if isExplode}}
-    explode=True,
+    explode = True
 {{/if}}
-)

@@ -30,57 +30,9 @@ public class CodegenParameter extends CodegenHeader {
     // stores the openapi name property
     public String baseName;
 
-    public CodegenParameter copy() {
-        CodegenParameter output = new CodegenParameter();
-        output.baseName = this.baseName;
-        output.description = this.description;
-        output.unescapedDescription = this.unescapedDescription;
-        output.isFormParam = this.isFormParam;
-        output.isQueryParam = this.isQueryParam;
-        output.isPathParam = this.isPathParam;
-        output.isHeaderParam = this.isHeaderParam;
-        output.isCookieParam = this.isCookieParam;
-        output.isBodyParam = this.isBodyParam;
-        output.required = this.required;
-        output.jsonSchema = this.jsonSchema;
-        output.example = this.example;
-
-        if (this.name != null) {
-            output.name = this.name;
-        }
-        if (this.content != null) {
-            output.setContent(this.content);
-        }
-        if (this.schema != null) {
-            output.setSchema(this.schema);
-        }
-        if (this.vendorExtensions != null) {
-            output.vendorExtensions = new HashMap<>(this.vendorExtensions);
-        }
-        if (this.ref != null) {
-            output.setRef(this.ref);
-        }
-        if (this.refModule != null) {
-            output.setRefModule(this.refModule);
-        }
-        if (this.imports != null) {
-            output.imports = imports;
-        }
-        if (this.componentModule != null) {
-            output.componentModule = componentModule;
-        }
-        output.isDeprecated = this.isDeprecated;
-        output.isExplode = this.isExplode;
-        output.style = this.style;
-        output.isDeepObject = this.isDeepObject;
-        output.isAllowEmptyValue = this.isAllowEmptyValue;
-
-        return output;
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hash(name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(refClass, name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
     }
 
     @Override

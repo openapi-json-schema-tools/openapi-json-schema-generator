@@ -52,7 +52,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_0._0,
     ]
 _auth = [
     'http_signature_test',
@@ -63,13 +63,13 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': api_client.OpenApiResponse[response_for_200.ApiResponse],
-        '400': api_client.OpenApiResponse[response_for_400.ApiResponse],
+        '200': response_for_200._200,
+        '400': response_for_400._400,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.response,
-    '400': response_for_400.response,
+    '200': response_for_200._200,
+    '400': response_for_400._400,
 })
 _all_accept_content_types = (
     'application/xml',
