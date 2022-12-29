@@ -97,11 +97,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': api_client.OpenApiResponse[response_for_200.ApiResponse],
+        '200': response_for_200.SuccessDescriptionOnly,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.response,
+    '200': response_for_200.SuccessDescriptionOnly,
 })
 
 

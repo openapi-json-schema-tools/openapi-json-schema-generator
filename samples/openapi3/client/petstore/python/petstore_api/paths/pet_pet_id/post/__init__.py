@@ -62,11 +62,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '405': api_client.OpenApiResponse[response_for_405.ApiResponse],
+        '405': response_for_405._405,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '405': response_for_405.response,
+    '405': response_for_405._405,
 })
 
 

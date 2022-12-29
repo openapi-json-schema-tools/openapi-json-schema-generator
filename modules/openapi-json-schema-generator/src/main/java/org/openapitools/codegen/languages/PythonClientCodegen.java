@@ -2105,6 +2105,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null;
     }
 
+    private String toResponseRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/responses/") && refPieces.length == 4) {
+            String refClass = toModelName(refPieces[3]);
+            return refClass;
+        }
+        return null;
+    }
+
+
     @Override
     public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
         switch (expectedComponentType) {
@@ -2112,6 +2122,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return toSchemaRefClass(ref, sourceJsonPath);
             case "requestBodies":
                 return toRequestBodyRefClass(ref, sourceJsonPath);
+            case "responses":
+                return toResponseRefClass(ref, sourceJsonPath);
         }
         return null;
     }

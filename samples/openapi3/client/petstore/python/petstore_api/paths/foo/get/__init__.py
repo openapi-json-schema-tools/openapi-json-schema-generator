@@ -30,7 +30,7 @@ from . import response_for_default
 
 
 
-default_response = response_for_default.response
+default_response = response_for_default.Default
 _all_accept_content_types = (
     'application/json',
 )

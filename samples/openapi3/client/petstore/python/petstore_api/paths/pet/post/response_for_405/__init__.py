@@ -20,6 +20,5 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
-)
+class _405(api_client.OpenApiResponse):
+    response_cls=ApiResponse

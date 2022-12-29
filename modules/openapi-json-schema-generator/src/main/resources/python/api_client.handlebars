@@ -940,20 +940,8 @@ T = typing.TypeVar("T")
 class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
     response_cls: typing.Type[T]
-    content: typing.Optional[typing.Dict[str, MediaType]]
-    headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]]
-
-    def __init__(
-        self,
-        response_cls: typing.Type[T],
-        content: typing.Optional[typing.Dict[str, MediaType]] = None,
-        headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]] = None,
-    ):
-        self.headers = headers
-        if content is not None and len(content) == 0:
-            raise ValueError('Invalid value for content, the content dict must have >= 1 entry')
-        self.content = content
-        self.response_cls = response_cls
+    content: typing.Optional[typing.Dict[str, MediaType]] = None
+    headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]] = None
 
     @staticmethod
     def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
@@ -982,8 +970,9 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
             return None
         return match.group(1)
 
+    @classmethod
     def __deserialize_application_octet_stream(
-        self, response: urllib3.HTTPResponse
+        cls, response: urllib3.HTTPResponse
     ) -> typing.Union[bytes, io.BufferedReader]:
         """
         urllib3 use cases:
@@ -993,8 +982,8 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         """
         if response.supports_chunked_reads():
             file_name = (
-                self.__file_name_from_content_disposition(response.headers.get('content-disposition'))
-                or self.__file_name_from_response_url(response.geturl())
+                cls.__file_name_from_content_disposition(response.headers.get('content-disposition'))
+                or cls.__file_name_from_response_url(response.geturl())
             )
 
             if file_name is None:
@@ -1030,14 +1019,15 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
             for part in msg.get_payload()
         }
 
-    def deserialize(self, response: urllib3.HTTPResponse, configuration: Configuration) -> T:
+    @classmethod
+    def deserialize(cls, response: urllib3.HTTPResponse, configuration: Configuration) -> T:
         content_type = response.getheader('content-type')
         deserialized_body = unset
         streamed = response.supports_chunked_reads()
 
         deserialized_headers = unset
-        if self.headers is not None:
-            self._verify_typed_dict_inputs_oapg(self.response_cls.headers, response.headers)
+        if cls.headers is not None:
+            cls._verify_typed_dict_inputs_oapg(cls.response_cls.headers, response.headers)
             deserialized_headers = {}
             for header_name, header_param in self.headers.items():
                 header_value = response.getheader(header_name)
@@ -1046,27 +1036,27 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
                 header_value = header_param.deserialize(header_value, header_name)
                 deserialized_headers[header_name] = header_value
 
-        if self.content is not None:
-            if content_type not in self.content:
+        if cls.content is not None:
+            if content_type not in cls.content:
                 raise ApiValueError(
                     f"Invalid content_type returned. Content_type='{content_type}' was returned "
-                    f"when only {str(set(self.content))} are defined for status_code={str(response.status)}"
+                    f"when only {str(set(cls.content))} are defined for status_code={str(response.status)}"
                 )
-            body_schema = self.content[content_type].schema
+            body_schema = cls.content[content_type].schema
             if body_schema is None:
                 # some specs do not define response content media type schemas
-                return self.response_cls(
+                return cls.response_cls(
                     response=response,
                     headers=deserialized_headers,
                     body=unset
                 )
 
-            if self._content_type_is_json(content_type):
-                body_data = self.__deserialize_json(response)
+            if cls._content_type_is_json(content_type):
+                body_data = cls.__deserialize_json(response)
             elif content_type == 'application/octet-stream':
-                body_data = self.__deserialize_application_octet_stream(response)
+                body_data = cls.__deserialize_application_octet_stream(response)
             elif content_type.startswith('multipart/form-data'):
-                body_data = self.__deserialize_multipart_form_data(response)
+                body_data = cls.__deserialize_multipart_form_data(response)
                 content_type = 'multipart/form-data'
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
@@ -1075,7 +1065,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         elif streamed:
             response.release_conn()
 
-        return self.response_cls(
+        return cls.response_cls(
             response=response,
             headers=deserialized_headers,
             body=deserialized_body

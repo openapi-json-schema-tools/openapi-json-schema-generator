@@ -63,15 +63,15 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': api_client.OpenApiResponse[response_for_200.ApiResponse],
-        '400': api_client.OpenApiResponse[response_for_400.ApiResponse],
-        '404': api_client.OpenApiResponse[response_for_404.ApiResponse],
+        '200': response_for_200._200,
+        '400': response_for_400._400,
+        '404': response_for_404._404,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.response,
-    '400': response_for_400.response,
-    '404': response_for_404.response,
+    '200': response_for_200._200,
+    '400': response_for_400._400,
+    '404': response_for_404._404,
 })
 _all_accept_content_types = (
     'application/xml',

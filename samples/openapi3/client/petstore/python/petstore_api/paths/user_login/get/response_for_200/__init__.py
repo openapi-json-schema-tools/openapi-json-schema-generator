@@ -67,8 +67,8 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
+class _200(api_client.OpenApiResponse):
+    response_cls=ApiResponse
     content={
         'application/xml': api_client.MediaType(
             application_xml.ApplicationXml,
@@ -76,6 +76,5 @@ response = api_client.OpenApiResponse(
         'application/json': api_client.MediaType(
             application_json.ApplicationJson,
         ),
-    },
+    }
     headers=Header.parameters
-)

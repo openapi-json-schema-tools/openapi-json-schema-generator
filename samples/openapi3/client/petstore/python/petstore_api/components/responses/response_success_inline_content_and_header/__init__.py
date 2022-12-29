@@ -47,12 +47,11 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
+class SuccessInlineContentAndHeader(api_client.OpenApiResponse):
+    response_cls=ApiResponse
     content={
         'application/json': api_client.MediaType(
             application_json.ApplicationJson,
         ),
-    },
+    }
     headers=Header.parameters
-)
