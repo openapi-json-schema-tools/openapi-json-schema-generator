@@ -38,48 +38,6 @@ public class CodegenHeader extends CodegenRequestBody {
     public boolean isDeprecated;
     protected CodegenSchema schema;
 
-    public CodegenHeader copy() {
-        CodegenHeader output = new CodegenHeader();
-        output.description = this.description;
-        output.unescapedDescription = this.unescapedDescription;
-        output.required = this.required;
-        output.jsonSchema = this.jsonSchema;
-        output.example = this.example;
-
-        if (this.name != null) {
-            output.setName(this.name);
-        }
-        if (this.content != null) {
-            output.setContent(this.content);
-        }
-        if (this.schema != null) {
-            output.setSchema(this.schema);
-        }
-        if (this.vendorExtensions != null) {
-            output.vendorExtensions = new HashMap<String, Object>(this.vendorExtensions);
-        }
-        if (this.ref != null) {
-            output.setRef(this.ref);
-        }
-        if (this.refModule != null) {
-            output.setRefModule(this.refModule);
-        }
-        if (this.imports != null) {
-            output.imports = imports;
-        }
-        if (this.componentModule != null) {
-            output.componentModule = componentModule;
-        }
-        if (this.refClass != null) {
-            output.refClass = refClass;
-        }
-        output.isDeprecated = this.isDeprecated;
-        output.isExplode = this.isExplode;
-        output.style = this.style;
-
-        return output;
-    }
-
     public CodegenSchema getSetSchema() {
         if (schema != null) {
             return schema;
