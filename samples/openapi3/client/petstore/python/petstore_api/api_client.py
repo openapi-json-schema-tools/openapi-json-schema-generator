@@ -118,10 +118,6 @@ class PrefixSeparatorIterator:
 
 
 class ParameterSerializerBase:
-    @classmethod
-    def _get_default_explode(cls, style: ParameterStyle) -> bool:
-        return False
-
     @staticmethod
     def __ref6570_item_value(in_data: typing.Any, percent_encode: bool):
         """
@@ -283,12 +279,6 @@ class ParameterSerializerBase:
 
 class StyleFormSerializer(ParameterSerializerBase):
     @classmethod
-    def _get_default_explode(cls, style: ParameterStyle) -> bool:
-        if style is ParameterStyle.FORM:
-            return True
-        return super()._get_default_explode(style)
-
-    @classmethod
     def _serialize_form(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
@@ -369,6 +359,13 @@ class ParameterBase(JSONDetector):
     content: typing.Optional[typing.Dict[str, typing.Type[Schema]]]
 
     _json_encoder = JSONEncoder()
+
+    def __init_subclass__(cls, **kwargs):
+        if cls.explode is None:
+            if cls.style is ParameterStyle.FORM:
+                cls.explode = True
+            else:
+                cls.explode = False
 
     @classmethod
     def _serialize_json(
