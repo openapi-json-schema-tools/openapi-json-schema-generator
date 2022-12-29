@@ -10,14 +10,13 @@ from petstore_api import api_client, exceptions
 
 from petstore_api.components.schema import pet
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class Pet(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=pet.Pet,
         ),
         'application/xml': api_client.MediaType(
             schema=pet.Pet,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

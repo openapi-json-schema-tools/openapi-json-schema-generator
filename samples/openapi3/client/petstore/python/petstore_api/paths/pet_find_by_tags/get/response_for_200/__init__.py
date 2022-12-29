@@ -25,14 +25,13 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
-    content={
+class _200(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
+    content = {
         'application/xml': api_client.MediaType(
             application_xml.ApplicationXml,
         ),
         'application/json': api_client.MediaType(
             application_json.ApplicationJson,
         ),
-    },
-)
+    }

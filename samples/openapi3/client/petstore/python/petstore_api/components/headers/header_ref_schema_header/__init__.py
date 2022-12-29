@@ -15,8 +15,7 @@ from petstore_api import api_client, exceptions
 from petstore_api.components.schema import string_with_validation
 
 
-parameter_oapg = api_client.HeaderParameterWithoutName(
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=string_with_validation.StringWithValidation,
-    required=True,
-)
+class RefSchemaHeader(api_client.HeaderParameterWithoutName):
+    style = api_client.ParameterStyle.SIMPLE
+    schema = string_with_validation.StringWithValidation
+    required = True

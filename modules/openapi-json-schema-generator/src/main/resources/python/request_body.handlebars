@@ -15,8 +15,8 @@ from . import {{name.getSnakeCaseName}}
 {{/with}}
 {{/each}}
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class {{name.getCamelCaseName}}(api_client.RequestBody):
+    content = {
 {{#each content}}
         '{{{@key}}}': api_client.MediaType(
     {{#with this}}
@@ -30,9 +30,8 @@ parameter_oapg = api_client.RequestBody(
     {{/with}}
         ),
 {{/each}}
-    },
+    }
 {{#if required}}
-    required=True,
+    required = True
 {{/if}}
-)
 {{/with}}

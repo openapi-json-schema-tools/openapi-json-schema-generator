@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import required_with_empty_array
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=required_with_empty_array.RequiredWithEmptyArray,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

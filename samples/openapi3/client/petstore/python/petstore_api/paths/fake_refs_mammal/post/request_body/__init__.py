@@ -10,11 +10,10 @@ from petstore_api import api_client, exceptions
 
 from petstore_api.components.schema import mammal
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=mammal.Mammal,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

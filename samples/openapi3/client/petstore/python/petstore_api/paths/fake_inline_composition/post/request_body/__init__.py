@@ -10,13 +10,12 @@ from petstore_api import api_client, exceptions
 from . import application_json
 from . import multipart_form_data
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=application_json.ApplicationJson,
         ),
         'multipart/form-data': api_client.MediaType(
             schema=multipart_form_data.MultipartFormData,
         ),
-    },
-)
+    }

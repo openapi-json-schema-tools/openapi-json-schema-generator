@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import ref_in_anyof
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=ref_in_anyof.RefInAnyof,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

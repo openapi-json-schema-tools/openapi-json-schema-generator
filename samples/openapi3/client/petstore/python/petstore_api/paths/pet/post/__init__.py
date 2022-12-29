@@ -51,13 +51,13 @@ _servers = (
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': api_client.OpenApiResponse[response_for_200.ApiResponse],
-        '405': api_client.OpenApiResponse[response_for_405.ApiResponse],
+        '200': response_for_200.SuccessDescriptionOnly,
+        '405': response_for_405._405,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.response,
-    '405': response_for_405.response,
+    '200': response_for_200.SuccessDescriptionOnly,
+    '405': response_for_405._405,
 })
 
 
@@ -152,7 +152,7 @@ class BaseApi(api_client.Api):
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        serialized_data = request_body.parameter_oapg.serialize(body, content_type)
+        serialized_data = request_body.Pet.serialize(body, content_type)
         _headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             _fields = serialized_data['fields']

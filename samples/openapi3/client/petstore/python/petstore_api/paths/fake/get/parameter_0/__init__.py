@@ -14,8 +14,7 @@ from petstore_api import api_client, exceptions
 from . import schema
 
 
-parameter_oapg = api_client.HeaderParameter(
-    name="enum_header_string_array",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=schema.Schema,
-)
+class _0(api_client.HeaderParameter):
+    name = "enum_header_string_array"
+    style = api_client.ParameterStyle.SIMPLE
+    schema = schema.Schema

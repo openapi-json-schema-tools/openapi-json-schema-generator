@@ -30,11 +30,12 @@ public class CodegenResponse implements OpenapiComponent {
     private String ref;
     public Set<String> imports = new TreeSet<>();
     private String refModule;
+    private String refClass;
     private String componentModule;
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, message, examples,
+        return Objects.hash(refClass, name, message, examples,
                 jsonSchema, vendorExtensions,
                 headers, content,
                 ref, imports, refModule, componentModule);
@@ -46,6 +47,7 @@ public class CodegenResponse implements OpenapiComponent {
         if (!(o instanceof CodegenResponse)) return false;
         CodegenResponse that = (CodegenResponse) o;
         return Objects.equals(name, that.name) &&
+                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(ref, that.getRef()) &&
                 Objects.equals(content, that.getContent()) &&
@@ -94,6 +96,7 @@ public class CodegenResponse implements OpenapiComponent {
         sb.append(", content=").append(content);
         sb.append(", ref=").append(ref);
         sb.append(", refModule=").append(refModule);
+        sb.append(", refClass=").append(refClass);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
         sb.append('}');
@@ -107,6 +110,14 @@ public class CodegenResponse implements OpenapiComponent {
     public String getRefModule() { return refModule; }
 
     public void setRefModule(String refModule) { this.refModule=refModule; }
+
+    public String getRefClass() {
+        return refClass;
+    }
+
+    public void setRefClass(String refClass) {
+        this.refClass = refClass;
+    }
 
     public CodegenKey getName() { return name; }
 

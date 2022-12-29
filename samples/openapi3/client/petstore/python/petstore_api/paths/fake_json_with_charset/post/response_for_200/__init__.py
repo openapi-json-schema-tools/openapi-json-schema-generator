@@ -23,11 +23,10 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
-    content={
+class _200(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
+    content = {
         'application/json; charset=utf-8': api_client.MediaType(
             application_json_charsetutf8.ApplicationJsonCharsetutf8,
         ),
-    },
-)
+    }

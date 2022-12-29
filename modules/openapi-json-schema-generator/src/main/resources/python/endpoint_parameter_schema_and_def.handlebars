@@ -38,6 +38,6 @@ class {{xParamsName}}:
 
     parameters = [
     {{#each xParams}}
-        {{#if refModule}}{{refModule}}{{else}}{{name.getSnakeCaseName}}{{/if}}.parameter_oapg,
+        {{#if refModule}}{{refModule}}{{else}}{{name.getSnakeCaseName}}{{/if}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
     {{/each}}
     ]

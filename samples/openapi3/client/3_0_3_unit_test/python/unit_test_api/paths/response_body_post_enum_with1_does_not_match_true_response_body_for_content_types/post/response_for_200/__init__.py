@@ -24,11 +24,10 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-response = api_client.OpenApiResponse(
-    response_cls=ApiResponse,
-    content={
+class _200(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
+    content = {
         'application/json': api_client.MediaType(
             enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue,
         ),
-    },
-)
+    }

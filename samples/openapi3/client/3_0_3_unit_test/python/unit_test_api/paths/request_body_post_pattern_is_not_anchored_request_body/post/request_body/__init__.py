@@ -10,11 +10,10 @@ from unit_test_api import api_client, exceptions
 
 from unit_test_api.components.schema import pattern_is_not_anchored
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=pattern_is_not_anchored.PatternIsNotAnchored,
         ),
-    },
-    required=True,
-)
+    }
+    required = True

@@ -1051,10 +1051,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toModelName(openAPIType);
     }
 
-    public String getSchemaRefClass(Schema sc) {
+    public String getRefClassWithRefModule(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
-            return  toRefModule(ref, "schemas", null) + "." + toRefClass(ref, null);
+            return  toRefModule(ref, null, "schemas") + "." + toRefClass(ref, null, "schemas");
         }
         return null;
     }
@@ -1115,14 +1115,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toExampleValue(Schema schema) {
-        String modelName = getSchemaRefClass(schema);
+        String modelName = getRefClassWithRefModule(schema);
         Object objExample = getObjectExample(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
     @Override
     public String toExampleValue(Schema schema, Object objExample) {
-        String modelName = getSchemaRefClass(schema);
+        String modelName = getRefClassWithRefModule(schema);
         return toExampleValueRecursive(modelName, schema, objExample, 1, "", 0, new ArrayList<>());
     }
 
@@ -1220,7 +1220,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 LOGGER.warn("Unable to find referenced schema " + schema.get$ref() + "\n");
                 return fullPrefix + "None" + closeChars;
             }
-            String refModelName = getSchemaRefClass(schema);
+            String refModelName = getRefClassWithRefModule(schema);
             return toExampleValueRecursive(refModelName, refSchema, objExample, indentationLevel, prefix, exampleLine, includedSchemas);
         } else if (ModelUtils.isNullType(schema)) {
             // The 'null' type is allowed in OAS 3.1 and above. It is not supported by OAS 3.0.x,
@@ -1393,7 +1393,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             ArraySchema arrayschema = (ArraySchema) schema;
             Schema itemSchema = arrayschema.getItems();
-            String itemModelName = getSchemaRefClass(itemSchema);
+            String itemModelName = getRefClassWithRefModule(itemSchema);
             if(includedSchemas.contains(schema)) {
                 return "";
             }
@@ -1474,7 +1474,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (modelName == null) {
                     addPropPrefix = ensureQuotes(key) + ": ";
                 }
-                String addPropsModelName = getSchemaRefClass(addPropsSchema);
+                String addPropsModelName = getRefClassWithRefModule(addPropsSchema);
                 if(includedSchemas.contains(schema)) {
                     return "";
                 }
@@ -1522,7 +1522,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 propModelName = null;
                 propExample = discProp.example;
             } else {
-                propModelName = getSchemaRefClass(propSchema);
+                propModelName = getRefClassWithRefModule(propSchema);
                 propExample = exampleFromStringOrArraySchema(
                         propSchema,
                         null,
@@ -2012,9 +2012,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
-        String refModule = toRefModule(ref, "schemas", sourceJsonPath);
-        String refClass = toRefClass(ref, sourceJsonPath);
+    protected String getRefClassWithModule(String ref, String sourceJsonPath, String expectedComponentType) {
+        String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
+        String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
         if (refModule == null) {
             return refClass;
         }
@@ -2058,7 +2058,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null;
     }
 
-    public String toRefClass(String ref, String sourceJsonPath) {
+    private String toSchemaRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed
@@ -2092,6 +2092,59 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             String schemaName = refPieces[3];
             String refClass = toModelName(schemaName);
             return refClass;
+        }
+        return null;
+    }
+
+    private String toRequestBodyRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/requestBodies/") && refPieces.length == 4) {
+            String refClass = toModelName(refPieces[3]);
+            return refClass;
+        }
+        return null;
+    }
+
+    private String toResponseRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/responses/") && refPieces.length == 4) {
+            String refClass = toModelName(refPieces[3]);
+            return refClass;
+        }
+        return null;
+    }
+
+    private String toHeaderRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/headers/") && refPieces.length == 4) {
+            String refClass = toModelName(refPieces[3]);
+            return refClass;
+        }
+        return null;
+    }
+
+    private String toParameterRefClass(String ref, String sourceJsonPath) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/parameters/") && refPieces.length == 4) {
+            String refClass = toModelName(refPieces[3]);
+            return refClass;
+        }
+        return null;
+    }
+
+    @Override
+    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+        switch (expectedComponentType) {
+            case "schemas":
+                return toSchemaRefClass(ref, sourceJsonPath);
+            case "requestBodies":
+                return toRequestBodyRefClass(ref, sourceJsonPath);
+            case "responses":
+                return toResponseRefClass(ref, sourceJsonPath);
+            case "headers":
+                return toHeaderRefClass(ref, sourceJsonPath);
+            case "parameters":
+                return toParameterRefClass(ref, sourceJsonPath);
         }
         return null;
     }

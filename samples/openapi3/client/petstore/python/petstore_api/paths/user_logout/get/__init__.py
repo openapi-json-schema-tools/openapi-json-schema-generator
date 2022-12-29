@@ -29,7 +29,7 @@ from .. import path
 
 
 
-default_response = response_for_default.response
+default_response = response_for_default.SuccessDescriptionOnly
 
 
 class BaseApi(api_client.Api):

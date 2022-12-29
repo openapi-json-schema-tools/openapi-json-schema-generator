@@ -10,10 +10,9 @@ from petstore_api import api_client, exceptions
 
 from petstore_api.components.schema import additional_properties_with_array_of_enums
 
-parameter_oapg = api_client.RequestBody(
-    content={
+class RequestBody(api_client.RequestBody):
+    content = {
         'application/json': api_client.MediaType(
             schema=additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums,
         ),
-    },
-)
+    }
