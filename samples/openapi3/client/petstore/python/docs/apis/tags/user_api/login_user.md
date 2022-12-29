@@ -120,7 +120,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
+str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 #### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
