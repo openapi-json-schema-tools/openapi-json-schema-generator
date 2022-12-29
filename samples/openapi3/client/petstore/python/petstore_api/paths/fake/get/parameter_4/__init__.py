@@ -16,6 +16,6 @@ from . import schema
 
 class _4(api_client.QueryParameter):
     name = "enum_query_integer"
-    style = api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
     schema = schema.Schema
     explode = True

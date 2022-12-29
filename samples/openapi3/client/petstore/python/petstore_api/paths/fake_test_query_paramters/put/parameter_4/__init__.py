@@ -16,7 +16,7 @@ from . import schema
 
 class _4(api_client.QueryParameter):
     name = "context"
-    style = api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
     schema = schema.Schema
     required = True
     explode = True

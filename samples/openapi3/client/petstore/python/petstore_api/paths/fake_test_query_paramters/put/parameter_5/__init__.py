@@ -17,7 +17,7 @@ from petstore_api.components.schema import string_with_validation
 
 class _5(api_client.QueryParameter):
     name = "refParam"
-    style = api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
     schema = string_with_validation.StringWithValidation
     required = True
     explode = True

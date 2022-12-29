@@ -16,6 +16,6 @@ from . import schema
 
 class _18(api_client.CookieParameter):
     name = "A-B"
-    style = api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
     schema = schema.Schema
     explode = True

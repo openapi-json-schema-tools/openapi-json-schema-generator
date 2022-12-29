@@ -16,6 +16,6 @@ from . import schema
 
 class _1(api_client.QueryParameter):
     name = "ioutil"
-    style = api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
     schema = schema.Schema
     required = True

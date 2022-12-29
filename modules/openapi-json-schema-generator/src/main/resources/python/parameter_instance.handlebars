@@ -10,7 +10,7 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
     style = api_client.ParameterStyle.LABEL
 {{/eq}}
 {{#eq style "form"}}
-    style = api_client.ParameterStyle.FORM,
+    style = api_client.ParameterStyle.FORM
 {{/eq}}
 {{#eq style "simple"}}
     style = api_client.ParameterStyle.SIMPLE
