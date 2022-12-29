@@ -23,7 +23,7 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class _404(api_client.OpenApiResponse):
+class _404(api_client.OpenApiResponse[ApiResponse]):
     response_cls=ApiResponse
     content={
         'application/json': api_client.MediaType(

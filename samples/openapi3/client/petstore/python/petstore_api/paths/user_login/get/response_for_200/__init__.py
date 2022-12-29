@@ -67,7 +67,7 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-class _200(api_client.OpenApiResponse):
+class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls=ApiResponse
     content={
         'application/xml': api_client.MediaType(

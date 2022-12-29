@@ -20,5 +20,5 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class SuccessDescriptionOnly(api_client.OpenApiResponse):
+class SuccessDescriptionOnly(api_client.OpenApiResponse[ApiResponse]):
     response_cls=ApiResponse

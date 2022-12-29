@@ -60,7 +60,7 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-class SuccessWithJsonApiResponse(api_client.OpenApiResponse):
+class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):
     response_cls=ApiResponse
     content={
         'application/json': api_client.MediaType(
