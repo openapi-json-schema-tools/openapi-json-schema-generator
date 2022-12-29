@@ -74,11 +74,11 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
-        parameter_1.parameter_oapg,
-        parameter_2.parameter_oapg,
-        parameter_3.parameter_oapg,
-        parameter_4.parameter_oapg,
+        parameter_0._0,
+        parameter_1._1,
+        parameter_2._2,
+        parameter_3._3,
+        parameter_4._4,
     ]
 
 class RequestHeaderParameters:
@@ -104,10 +104,10 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        parameter_5.parameter_oapg,
-        parameter_6.parameter_oapg,
-        parameter_7.parameter_oapg,
-        parameter_8.parameter_oapg,
+        parameter_5._5,
+        parameter_6._6,
+        parameter_7._7,
+        parameter_8._8,
     ]
 
 class RequestPathParameters:
@@ -134,11 +134,11 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_9.parameter_oapg,
-        parameter_10.parameter_oapg,
-        parameter_11.parameter_oapg,
-        parameter_12.parameter_oapg,
-        parameter_13.parameter_oapg,
+        parameter_9._9,
+        parameter_10._10,
+        parameter_11._11,
+        parameter_12._12,
+        parameter_13._13,
     ]
 
 class RequestCookieParameters:
@@ -165,11 +165,11 @@ class RequestCookieParameters:
 
 
     parameters = [
-        parameter_14.parameter_oapg,
-        parameter_15.parameter_oapg,
-        parameter_16.parameter_oapg,
-        parameter_17.parameter_oapg,
-        parameter_18.parameter_oapg,
+        parameter_14._14,
+        parameter_15._15,
+        parameter_16._16,
+        parameter_17._17,
+        parameter_18._18,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(

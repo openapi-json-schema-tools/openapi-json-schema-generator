@@ -52,7 +52,7 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_0._0,
     ]
 
 class RequestPathParameters:
@@ -75,7 +75,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_1.parameter_oapg,
+        parameter_1._1,
     ]
 _auth = [
     'petstore_auth',

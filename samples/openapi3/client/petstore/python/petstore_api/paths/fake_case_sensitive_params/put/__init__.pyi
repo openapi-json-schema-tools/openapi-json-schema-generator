@@ -53,9 +53,9 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
-        parameter_1.parameter_oapg,
-        parameter_2.parameter_oapg,
+        parameter_0._0,
+        parameter_1._1,
+        parameter_2._2,
     ]
 
 class BaseApi(api_client.Api):

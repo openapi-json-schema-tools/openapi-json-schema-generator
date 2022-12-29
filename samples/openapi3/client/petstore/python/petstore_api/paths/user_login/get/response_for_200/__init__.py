@@ -48,13 +48,13 @@ class Header:
 
 
     parameters = [
-        header_ref_schema_header.parameter_oapg,
-        header_x_rate_limit.parameter_oapg,
-        header_int32_json_content_type_header.parameter_oapg,
-        header_x_expires_after.parameter_oapg,
-        header_ref_content_schema_header.parameter_oapg,
-        header_string_header.parameter_oapg,
-        header_number_header.parameter_oapg,
+        header_ref_schema_header.RefSchemaHeader,
+        header_x_rate_limit.XRateLimit,
+        header_int32_json_content_type_header.Int32,
+        header_x_expires_after.XExpiresAfter,
+        header_ref_content_schema_header.RefContentSchemaHeader,
+        header_string_header.StringHeader,
+        header_number_header.NumberHeader,
     ]
 
 @dataclasses.dataclass

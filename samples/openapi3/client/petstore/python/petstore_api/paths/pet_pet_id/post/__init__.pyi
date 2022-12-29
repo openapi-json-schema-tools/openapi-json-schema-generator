@@ -51,7 +51,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
+        parameter_0._0,
     ]
 
 class BaseApi(api_client.Api):

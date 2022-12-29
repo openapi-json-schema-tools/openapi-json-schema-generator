@@ -35,7 +35,7 @@ class Header:
 
 
     parameters = [
-        header_some_header.parameter_oapg,
+        header_some_header.SomeHeader,
     ]
 
 @dataclasses.dataclass

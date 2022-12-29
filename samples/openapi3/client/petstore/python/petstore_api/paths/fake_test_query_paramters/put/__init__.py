@@ -60,12 +60,12 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0.parameter_oapg,
-        parameter_1.parameter_oapg,
-        parameter_2.parameter_oapg,
-        parameter_3.parameter_oapg,
-        parameter_4.parameter_oapg,
-        parameter_5.parameter_oapg,
+        parameter_0._0,
+        parameter_1._1,
+        parameter_2._2,
+        parameter_3._3,
+        parameter_4._4,
+        parameter_5._5,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
