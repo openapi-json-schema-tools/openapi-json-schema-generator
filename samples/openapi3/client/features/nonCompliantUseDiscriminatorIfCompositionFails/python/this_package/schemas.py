@@ -1858,14 +1858,14 @@ class StrBase:
         raise Exception('not implemented')
 
     @property
-    def as_uuid_oapg(self) -> uuid.UUID:
+    def as_uuid_(self) -> uuid.UUID:
         raise Exception('not implemented')
 
 
 class UUIDBase:
     @property
     @functools.lru_cache()
-    def as_uuid_oapg(self) -> uuid.UUID:
+    def as_uuid_(self) -> uuid.UUID:
         return uuid.UUID(self)
 
 

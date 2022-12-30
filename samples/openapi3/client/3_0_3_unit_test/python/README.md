@@ -34,11 +34,11 @@ Python &gt;&#x3D;3.7
 6. String + Number types with formats
     - String type data is stored as a string and if you need to access types based on its format like date,
     date-time, uuid, number etc then you will need to use accessor functions on the instance
-    - type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_oapg
+    - type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_
     - type number + format: See .as_float_oapg, .as_int_oapg
     - this was done because openapi/json-schema defines constraints. string data may be type string with no format
     keyword in one schema, and include a format constraint in another schema
-    - So if you need to access a string format based type, use as_date_/as_datetime_/as_decimal_/as_uuid_oapg
+    - So if you need to access a string format based type, use as_date_/as_datetime_/as_decimal_/as_uuid_
     - So if you need to access a number format based type, use as_int_oapg/as_float_oapg
 7. Property access on AnyType(type unset) or object(dict) schemas
     - Only required keys with valid python names are properties like .someProp and have type hints
