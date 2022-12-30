@@ -28,21 +28,21 @@ class ApplicationJson(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         AdditionalProperties = schemas.Int32Schema
     
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+    def get_item_(self, name: str) -> Schema_.AdditionalProperties:
         return super().get_item_(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, decimal.Decimal, int, ],
+        **kwargs: typing.Union[Schema_.AdditionalProperties, decimal.Decimal, int, ],
     ) -> 'ApplicationJson':
         return super().__new__(
             cls,

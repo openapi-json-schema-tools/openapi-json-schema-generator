@@ -33,7 +33,7 @@ class RequiredWithEscapedCharacters(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         required = {
             "foo\tbar",

@@ -33,7 +33,7 @@ class AllofWithOneEmptySchema(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:

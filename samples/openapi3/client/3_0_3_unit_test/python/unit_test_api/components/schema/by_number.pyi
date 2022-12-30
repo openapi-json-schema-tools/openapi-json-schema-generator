@@ -33,7 +33,7 @@ class ByNumber(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

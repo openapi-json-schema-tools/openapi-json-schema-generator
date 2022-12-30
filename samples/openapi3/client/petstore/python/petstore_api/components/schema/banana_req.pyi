@@ -33,7 +33,7 @@ class BananaReq(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "lengthCm",
         }
@@ -47,13 +47,13 @@ class BananaReq(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    lengthCm: MetaOapg.Properties.LengthCm
+    lengthCm: Schema_.Properties.LengthCm
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.Properties.LengthCm: ...
+    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sweet"]) -> MetaOapg.Properties.Sweet: ...
+    def __getitem__(self, name: typing_extensions.Literal["sweet"]) -> Schema_.Properties.Sweet: ...
     
     def __getitem__(
         self,
@@ -66,10 +66,10 @@ class BananaReq(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["lengthCm"]) -> MetaOapg.Properties.LengthCm: ...
+    def get_item_(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["sweet"]) -> typing.Union[MetaOapg.Properties.Sweet, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["sweet"]) -> typing.Union[Schema_.Properties.Sweet, schemas.Unset]: ...
     
     def get_item_(
         self,
@@ -83,8 +83,8 @@ class BananaReq(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        lengthCm: typing.Union[MetaOapg.Properties.LengthCm, decimal.Decimal, int, float, ],
-        sweet: typing.Union[MetaOapg.Properties.Sweet, bool, schemas.Unset] = schemas.unset,
+        lengthCm: typing.Union[Schema_.Properties.LengthCm, decimal.Decimal, int, float, ],
+        sweet: typing.Union[Schema_.Properties.Sweet, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'BananaReq':
         return super().__new__(

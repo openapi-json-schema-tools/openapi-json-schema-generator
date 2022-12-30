@@ -35,7 +35,7 @@ class _Return(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class Properties:
@@ -46,7 +46,7 @@ class _Return(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["return"]) -> MetaOapg.Properties._Return: ...
+    def __getitem__(self, name: typing_extensions.Literal["return"]) -> Schema_.Properties._Return: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -62,7 +62,7 @@ class _Return(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["return"]) -> typing.Union[MetaOapg.Properties._Return, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["return"]) -> typing.Union[Schema_.Properties._Return, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...

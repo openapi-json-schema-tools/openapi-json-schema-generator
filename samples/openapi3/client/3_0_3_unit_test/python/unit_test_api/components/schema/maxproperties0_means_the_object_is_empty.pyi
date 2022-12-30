@@ -33,7 +33,7 @@ class Maxproperties0MeansTheObjectIsEmpty(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

@@ -33,7 +33,7 @@ class SomeObject(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:

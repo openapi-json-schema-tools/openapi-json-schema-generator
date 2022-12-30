@@ -33,7 +33,7 @@ class PatternIsNotAnchored(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

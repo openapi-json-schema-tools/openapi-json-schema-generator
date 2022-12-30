@@ -33,7 +33,7 @@ class MinimumValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         inclusive_minimum = 1.1
 

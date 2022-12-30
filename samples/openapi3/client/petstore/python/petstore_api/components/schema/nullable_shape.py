@@ -35,7 +35,7 @@ class NullableShape(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class OneOf:

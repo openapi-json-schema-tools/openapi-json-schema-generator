@@ -33,7 +33,7 @@ class ComposedNumber(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

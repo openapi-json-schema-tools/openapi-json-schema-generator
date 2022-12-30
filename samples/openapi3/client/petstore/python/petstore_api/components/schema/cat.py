@@ -33,7 +33,7 @@ class Cat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -48,7 +48,7 @@ class Cat(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {frozendict.frozendict}
                     
                     class Properties:
@@ -58,7 +58,7 @@ class Cat(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> MetaOapg.Properties.Declawed: ...
+                def __getitem__(self, name: typing_extensions.Literal["declawed"]) -> Schema_.Properties.Declawed: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -74,7 +74,7 @@ class Cat(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[MetaOapg.Properties.Declawed, schemas.Unset]: ...
+                def get_item_(self, name: typing_extensions.Literal["declawed"]) -> typing.Union[Schema_.Properties.Declawed, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -91,7 +91,7 @@ class Cat(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    declawed: typing.Union[MetaOapg.Properties.Declawed, bool, schemas.Unset] = schemas.unset,
+                    declawed: typing.Union[Schema_.Properties.Declawed, bool, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':

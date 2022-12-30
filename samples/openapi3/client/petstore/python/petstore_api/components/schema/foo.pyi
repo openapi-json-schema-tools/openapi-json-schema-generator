@@ -33,7 +33,7 @@ class Foo(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
         

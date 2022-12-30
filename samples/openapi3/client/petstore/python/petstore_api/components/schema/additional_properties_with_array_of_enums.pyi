@@ -33,7 +33,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         
         class AdditionalProperties(
@@ -41,7 +41,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         ):
         
         
-            class MetaOapg:
+            class Schema_:
                 types = {tuple}
                 
                 @staticmethod
@@ -62,18 +62,18 @@ class AdditionalPropertiesWithArrayOfEnums(
             def __getitem__(self, i: int) -> 'enum_class.EnumClass':
                 return super().__getitem__(i)
     
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+    def get_item_(self, name: str) -> Schema_.AdditionalProperties:
         return super().get_item_(name)
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, list, tuple, ],
+        **kwargs: typing.Union[Schema_.AdditionalProperties, list, tuple, ],
     ) -> 'AdditionalPropertiesWithArrayOfEnums':
         return super().__new__(
             cls,

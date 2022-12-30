@@ -33,7 +33,7 @@ class DanishPig(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "className",
         }
@@ -52,10 +52,10 @@ class DanishPig(
                 "className": ClassName,
             }
     
-    className: MetaOapg.Properties.ClassName
+    className: Schema_.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -71,7 +71,7 @@ class DanishPig(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def get_item_(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -88,7 +88,7 @@ class DanishPig(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
+        className: typing.Union[Schema_.Properties.ClassName, str, ],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'DanishPig':

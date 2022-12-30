@@ -33,7 +33,7 @@ class UriReferenceFormat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         format = 'uri-reference'
 

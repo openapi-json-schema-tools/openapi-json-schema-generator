@@ -33,7 +33,7 @@ class EnumTest(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "enum_string_required",
@@ -47,7 +47,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         str,
                     }
@@ -75,7 +75,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         str,
                     }
@@ -103,7 +103,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         decimal.Decimal,
                     }
@@ -127,7 +127,7 @@ class EnumTest(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         decimal.Decimal,
                     }
@@ -176,19 +176,19 @@ class EnumTest(
                 "IntegerEnumOneValue": integer_enum_one_value,
             }
     
-    enum_string_required: MetaOapg.Properties.EnumStringRequired
+    enum_string_required: Schema_.Properties.EnumStringRequired
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_string_required"]) -> MetaOapg.Properties.EnumStringRequired: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_string_required"]) -> Schema_.Properties.EnumStringRequired: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_string"]) -> MetaOapg.Properties.EnumString: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_string"]) -> Schema_.Properties.EnumString: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_integer"]) -> MetaOapg.Properties.EnumInteger: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_integer"]) -> Schema_.Properties.EnumInteger: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_number"]) -> MetaOapg.Properties.EnumNumber: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_number"]) -> Schema_.Properties.EnumNumber: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["stringEnum"]) -> 'string_enum.StringEnum': ...
@@ -227,16 +227,16 @@ class EnumTest(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_string_required"]) -> MetaOapg.Properties.EnumStringRequired: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_string_required"]) -> Schema_.Properties.EnumStringRequired: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_string"]) -> typing.Union[MetaOapg.Properties.EnumString, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_string"]) -> typing.Union[Schema_.Properties.EnumString, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_integer"]) -> typing.Union[MetaOapg.Properties.EnumInteger, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_integer"]) -> typing.Union[Schema_.Properties.EnumInteger, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[MetaOapg.Properties.EnumNumber, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[Schema_.Properties.EnumNumber, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union['string_enum.StringEnum', schemas.Unset]: ...
@@ -276,10 +276,10 @@ class EnumTest(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        enum_string_required: typing.Union[MetaOapg.Properties.EnumStringRequired, str, ],
-        enum_string: typing.Union[MetaOapg.Properties.EnumString, str, schemas.Unset] = schemas.unset,
-        enum_integer: typing.Union[MetaOapg.Properties.EnumInteger, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        enum_number: typing.Union[MetaOapg.Properties.EnumNumber, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        enum_string_required: typing.Union[Schema_.Properties.EnumStringRequired, str, ],
+        enum_string: typing.Union[Schema_.Properties.EnumString, str, schemas.Unset] = schemas.unset,
+        enum_integer: typing.Union[Schema_.Properties.EnumInteger, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        enum_number: typing.Union[Schema_.Properties.EnumNumber, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         stringEnum: typing.Union['string_enum.StringEnum', schemas.Unset] = schemas.unset,
         IntegerEnum: typing.Union['integer_enum.IntegerEnum', schemas.Unset] = schemas.unset,
         StringEnumWithDefaultValue: typing.Union['string_enum_with_default_value.StringEnumWithDefaultValue', schemas.Unset] = schemas.unset,

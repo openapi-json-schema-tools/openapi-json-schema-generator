@@ -33,7 +33,7 @@ class FruitReq(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class OneOf:

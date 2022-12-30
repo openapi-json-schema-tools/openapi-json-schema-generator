@@ -33,7 +33,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AnyOf:
@@ -53,13 +53,13 @@ class ComposedAnyOfDifferentTypesNoValidations(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     Items = schemas.AnyTypeSchema
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[Schema_.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'AnyOf9':
                     return super().__new__(
@@ -68,7 +68,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.Items:
+                def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
             AnyOf10 = schemas.NumberSchema
             AnyOf11 = schemas.Float32Schema

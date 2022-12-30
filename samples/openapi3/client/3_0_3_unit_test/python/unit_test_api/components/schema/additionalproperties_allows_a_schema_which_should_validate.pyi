@@ -33,7 +33,7 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             Foo = schemas.AnyTypeSchema
@@ -45,13 +45,13 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
         AdditionalProperties = schemas.BoolSchema
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.Properties.Foo: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -65,13 +65,13 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.Properties.Foo, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo"]) -> typing.Union[Schema_.Properties.Foo, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.Properties.Bar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["bar"]) -> typing.Union[Schema_.Properties.Bar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[Schema_.AdditionalProperties, schemas.Unset]: ...
     
     def get_item_(
         self,
@@ -86,10 +86,10 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        foo: typing.Union[MetaOapg.Properties.Foo, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        bar: typing.Union[MetaOapg.Properties.Bar, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        foo: typing.Union[Schema_.Properties.Foo, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        bar: typing.Union[Schema_.Properties.Bar, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, bool, ],
+        **kwargs: typing.Union[Schema_.AdditionalProperties, bool, ],
     ) -> 'AdditionalpropertiesAllowsASchemaWhichShouldValidate':
         return super().__new__(
             cls,

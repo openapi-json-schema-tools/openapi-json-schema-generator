@@ -8,9 +8,9 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> 
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> MetaOapg.{{name.getCamelCaseName}}: ...
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.{{name.getCamelCaseName}}: ...
         {{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> MetaOapg.Properties.{{name.getCamelCaseName}}: ...
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.Properties.{{name.getCamelCaseName}}: ...
         {{/if}}
     {{else}}
 def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> schemas.AnyTypeSchema: ...
@@ -26,7 +26,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> 
 {{#if refClass}}
 def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> '{{> refclass_with_module }}': ...
 {{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> MetaOapg.Properties.{{name.getCamelCaseName}}: ...
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.Properties.{{name.getCamelCaseName}}: ...
 {{/if}}
 {{/each}}
 {{/if}}
@@ -35,7 +35,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> 
         {{#unless getIsBooleanSchemaFalse}}
 
 @typing.overload
-def __getitem__(self, name: str) -> {{#if refClass}}'{{> refclass_with_module }}'{{else}}MetaOapg.{{name.getCamelCaseName}}{{/if}}: ...
+def __getitem__(self, name: str) -> {{#if refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}: ...
         {{/unless}}
     {{else}}
 
@@ -48,7 +48,7 @@ def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     {{#with additionalProperties}}
         {{#unless getIsBooleanSchemaFalse}}
 
-def __getitem__(self, name: str) -> {{#if refClass}}'{{> refclass_with_module }}'{{else}}MetaOapg.{{name.getCamelCaseName}}{{/if}}:
+def __getitem__(self, name: str) -> {{#if refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}:
     # dict_instance[name] accessor
     return super().__getitem__(name)
         {{/unless}}
@@ -64,9 +64,9 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> '{
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> MetaOapg.{{name.getCamelCaseName}}: ...
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.{{name.getCamelCaseName}}: ...
         {{else}}
-def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> MetaOapg.Properties.{{name.getCamelCaseName}}: ...
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.Properties.{{name.getCamelCaseName}}: ...
         {{/if}}
     {{else}}
 def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> schemas.AnyTypeSchema: ...
@@ -82,7 +82,7 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> sc
 {{#if refClass}}
 def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> typing.Union['{{> refclass_with_module }}', schemas.Unset]: ...
 {{else}}
-def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> typing.Union[MetaOapg.Properties.{{name.getCamelCaseName}}, schemas.Unset]: ...
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, schemas.Unset]: ...
 {{/if}}
 {{/each}}
 {{/if}}
@@ -91,7 +91,7 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> ty
         {{#unless getIsBooleanSchemaFalse}}
 
 @typing.overload
-def get_item_(self, name: str) -> typing.Union[{{#if refClass}}'{{> refclass_with_module }}'{{else}}MetaOapg.{{name.getCamelCaseName}}{{/if}}, schemas.Unset]: ...
+def get_item_(self, name: str) -> typing.Union[{{#if refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}, schemas.Unset]: ...
         {{/unless}}
     {{else}}
 
@@ -104,7 +104,7 @@ def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schem
     {{#with additionalProperties}}
         {{#unless getIsBooleanSchemaFalse}}
 
-def get_item_(self, name: str) -> {{#if refClass}}'{{> refclass_with_module }}'{{else}}MetaOapg.{{name.getCamelCaseName}}{{/if}}:
+def get_item_(self, name: str) -> {{#if refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}:
     return super().get_item_(name)
         {{/unless}}
     {{/with}}

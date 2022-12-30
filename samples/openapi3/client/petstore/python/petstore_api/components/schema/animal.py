@@ -33,7 +33,7 @@ class Animal(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "className",
@@ -56,13 +56,13 @@ class Animal(
                 "color": Color,
             }
     
-    className: MetaOapg.Properties.ClassName
+    className: Schema_.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> MetaOapg.Properties.Color: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Schema_.Properties.Color: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -79,10 +79,10 @@ class Animal(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def get_item_(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["color"]) -> typing.Union[MetaOapg.Properties.Color, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["color"]) -> typing.Union[Schema_.Properties.Color, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -100,8 +100,8 @@ class Animal(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
-        color: typing.Union[MetaOapg.Properties.Color, str, schemas.Unset] = schemas.unset,
+        className: typing.Union[Schema_.Properties.ClassName, str, ],
+        color: typing.Union[Schema_.Properties.Color, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Animal':

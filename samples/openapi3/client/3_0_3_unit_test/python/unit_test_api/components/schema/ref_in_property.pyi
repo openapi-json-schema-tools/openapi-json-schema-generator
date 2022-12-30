@@ -33,7 +33,7 @@ class RefInProperty(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class Properties:

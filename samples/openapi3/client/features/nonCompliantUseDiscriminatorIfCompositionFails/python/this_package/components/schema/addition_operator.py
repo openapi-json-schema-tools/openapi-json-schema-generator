@@ -33,7 +33,7 @@ class AdditionOperator(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "a",
@@ -52,18 +52,18 @@ class AdditionOperator(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    a: MetaOapg.Properties.A
-    b: MetaOapg.Properties.B
-    operator_id: MetaOapg.Properties.OperatorId
+    a: Schema_.Properties.A
+    b: Schema_.Properties.B
+    operator_id: Schema_.Properties.OperatorId
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
+    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> Schema_.Properties.OperatorId: ...
     
     def __getitem__(
         self,
@@ -77,13 +77,13 @@ class AdditionOperator(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
+    def get_item_(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
+    def get_item_(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
+    def get_item_(self, name: typing_extensions.Literal["operator_id"]) -> Schema_.Properties.OperatorId: ...
     
     def get_item_(
         self,
@@ -98,9 +98,9 @@ class AdditionOperator(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        a: typing.Union[MetaOapg.Properties.A, decimal.Decimal, int, float, ],
-        b: typing.Union[MetaOapg.Properties.B, decimal.Decimal, int, float, ],
-        operator_id: typing.Union[MetaOapg.Properties.OperatorId, str, ],
+        a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float, ],
+        b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float, ],
+        operator_id: typing.Union[Schema_.Properties.OperatorId, str, ],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'AdditionOperator':
         return super().__new__(

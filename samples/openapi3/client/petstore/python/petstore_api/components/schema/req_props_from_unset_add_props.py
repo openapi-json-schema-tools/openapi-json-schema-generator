@@ -33,7 +33,7 @@ class ReqPropsFromUnsetAddProps(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "invalid-name",

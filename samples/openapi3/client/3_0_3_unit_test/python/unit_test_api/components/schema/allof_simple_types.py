@@ -33,7 +33,7 @@ class AllofSimpleTypes(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -44,7 +44,7 @@ class AllofSimpleTypes(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     inclusive_maximum = 30
             
@@ -68,7 +68,7 @@ class AllofSimpleTypes(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     inclusive_minimum = 20
             

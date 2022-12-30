@@ -33,7 +33,7 @@ class StringWithValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }

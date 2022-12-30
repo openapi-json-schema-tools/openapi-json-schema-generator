@@ -33,7 +33,7 @@ class RefInAdditionalproperties(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         @staticmethod
         def additional_properties() -> typing.Type['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']:

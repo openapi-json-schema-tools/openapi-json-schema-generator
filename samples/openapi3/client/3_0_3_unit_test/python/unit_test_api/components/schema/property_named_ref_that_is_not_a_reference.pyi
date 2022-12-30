@@ -33,7 +33,7 @@ class PropertyNamedRefThatIsNotAReference(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class Properties:
@@ -44,7 +44,7 @@ class PropertyNamedRefThatIsNotAReference(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["$ref"]) -> MetaOapg.Properties.Ref: ...
+    def __getitem__(self, name: typing_extensions.Literal["$ref"]) -> Schema_.Properties.Ref: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -60,7 +60,7 @@ class PropertyNamedRefThatIsNotAReference(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["$ref"]) -> typing.Union[MetaOapg.Properties.Ref, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["$ref"]) -> typing.Union[Schema_.Properties.Ref, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...

@@ -33,7 +33,7 @@ class SelfReferencingObjectModel(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
         

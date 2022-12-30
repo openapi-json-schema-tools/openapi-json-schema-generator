@@ -33,7 +33,7 @@ class Shape(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         @staticmethod

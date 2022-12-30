@@ -36,7 +36,7 @@ class NullableString(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.NoneClass,
             str,

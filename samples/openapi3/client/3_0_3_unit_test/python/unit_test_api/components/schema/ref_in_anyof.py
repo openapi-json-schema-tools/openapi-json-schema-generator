@@ -33,7 +33,7 @@ class RefInAnyof(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AnyOf:

@@ -33,7 +33,7 @@ class NestedAnyofToCheckValidationSemantics(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AnyOf:
@@ -44,7 +44,7 @@ class NestedAnyofToCheckValidationSemantics(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     
                     class AnyOf:

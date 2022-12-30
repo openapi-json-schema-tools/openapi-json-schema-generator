@@ -35,7 +35,7 @@ class Name(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         required = {
             "name",
@@ -52,16 +52,16 @@ class Name(
             }
 
     
-    name: MetaOapg.Properties.Name
+    name: Schema_.Properties.Name
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> MetaOapg.Properties.SnakeCase: ...
+    def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> Schema_.Properties.SnakeCase: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["property"]) -> MetaOapg.Properties._Property: ...
+    def __getitem__(self, name: typing_extensions.Literal["property"]) -> Schema_.Properties._Property: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -79,13 +79,13 @@ class Name(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+    def get_item_(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["snake_case"]) -> typing.Union[MetaOapg.Properties.SnakeCase, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["snake_case"]) -> typing.Union[Schema_.Properties.SnakeCase, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["property"]) -> typing.Union[MetaOapg.Properties._Property, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["property"]) -> typing.Union[Schema_.Properties._Property, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -104,8 +104,8 @@ class Name(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        name: typing.Union[MetaOapg.Properties.Name, decimal.Decimal, int, ],
-        snake_case: typing.Union[MetaOapg.Properties.SnakeCase, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        name: typing.Union[Schema_.Properties.Name, decimal.Decimal, int, ],
+        snake_case: typing.Union[Schema_.Properties.SnakeCase, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Name':

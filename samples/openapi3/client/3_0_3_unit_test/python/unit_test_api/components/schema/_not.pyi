@@ -33,7 +33,7 @@ class _Not(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         _Not = schemas.IntSchema
 

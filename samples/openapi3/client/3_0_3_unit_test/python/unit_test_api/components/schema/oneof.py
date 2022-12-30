@@ -33,7 +33,7 @@ class Oneof(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class OneOf:
@@ -45,7 +45,7 @@ class Oneof(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     inclusive_minimum = 2
             

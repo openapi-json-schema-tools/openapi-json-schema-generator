@@ -33,7 +33,7 @@ class MaxlengthValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         max_length = 2
 

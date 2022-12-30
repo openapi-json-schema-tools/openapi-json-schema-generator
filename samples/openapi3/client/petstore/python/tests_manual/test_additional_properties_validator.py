@@ -30,8 +30,8 @@ class TestAdditionalPropertiesValidator(unittest.TestCase):
         assert add_prop == 'abc'
         assert isinstance(add_prop, str)
         assert isinstance(add_prop, schemas.AnyTypeSchema)
-        assert isinstance(add_prop, AdditionalPropertiesValidator.MetaOapg.AllOf.classes[1].MetaOapg.AdditionalProperties)
-        assert isinstance(add_prop, AdditionalPropertiesValidator.MetaOapg.AllOf.classes[2].MetaOapg.AdditionalProperties)
+        assert isinstance(add_prop, AdditionalPropertiesValidator.Schema_.AllOf.classes[1].Schema_.AdditionalProperties)
+        assert isinstance(add_prop, AdditionalPropertiesValidator.Schema_.AllOf.classes[2].Schema_.AdditionalProperties)
         assert not isinstance(add_prop, schemas.UnsetAnyTypeSchema)
 
 

@@ -33,7 +33,7 @@ class NestedAllofToCheckValidationSemantics(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -44,7 +44,7 @@ class NestedAllofToCheckValidationSemantics(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     
                     class AllOf:

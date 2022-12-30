@@ -33,7 +33,7 @@ class AllofWithTwoEmptySchemas(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:

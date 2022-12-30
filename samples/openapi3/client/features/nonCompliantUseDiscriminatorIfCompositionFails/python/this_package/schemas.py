@@ -218,7 +218,7 @@ class BoolClass(Singleton):
         raise ValueError('Unable to find the boolean value of this instance')
 
 
-class MetaOapgTyped:
+class SchemaTyped:
     types: typing.Optional[typing.Set[typing.Type]]
     exclusive_maximum: typing.Union[int, float]
     inclusive_maximum: typing.Union[int, float]
@@ -847,7 +847,7 @@ def validate_additional_properties(
         return None
     schema = _get_class(additional_properties_schema)
     path_to_schemas = {}
-    properties_annotations = cls.MetaOapg.Properties.__annotations__ if hasattr(cls.MetaOapg, 'Properties') else {}
+    properties_annotations = cls.Schema_.Properties.__annotations__ if hasattr(cls.Schema_, 'Properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
     for property_name, value in present_additional_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
@@ -1036,37 +1036,37 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
     """
     Used in schemas with discriminators
     """
-    if not hasattr(cls.MetaOapg, 'discriminator'):
+    if not hasattr(cls.Schema_, 'discriminator'):
         return None
-    disc = cls.MetaOapg.discriminator()
+    disc = cls.Schema_.discriminator()
     if disc_property_name not in disc:
         return None
     discriminated_cls = disc[disc_property_name].get(disc_payload_value)
     if discriminated_cls is not None:
         return discriminated_cls
     if not (
-        hasattr(cls.MetaOapg, 'AllOf') or
-        hasattr(cls.MetaOapg, 'OneOf') or
-        hasattr(cls.MetaOapg, 'AnyOf')
+        hasattr(cls.Schema_, 'AllOf') or
+        hasattr(cls.Schema_, 'OneOf') or
+        hasattr(cls.Schema_, 'AnyOf')
     ):
         return None
     # TODO stop traveling if a cycle is hit
-    if hasattr(cls.MetaOapg, 'AllOf'):
-        for allof_cls in cls.MetaOapg.AllOf.classes:
+    if hasattr(cls.Schema_, 'AllOf'):
+        for allof_cls in cls.Schema_.AllOf.classes:
             allof_cls = _get_class(allof_cls)
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.MetaOapg, 'OneOf'):
-        for oneof_cls in cls.MetaOapg.OneOf.classes:
+    if hasattr(cls.Schema_, 'OneOf'):
+        for oneof_cls in cls.Schema_.OneOf.classes:
             oneof_cls = _get_class(oneof_cls)
             discriminated_cls = __get_discriminated_class(
                 oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.MetaOapg, 'AnyOf'):
-        for anyof_cls in cls.MetaOapg.AnyOf.classes:
+    if hasattr(cls.Schema_, 'AnyOf'):
+        for anyof_cls in cls.Schema_.AnyOf.classes:
             anyof_cls = _get_class(anyof_cls)
             discriminated_cls = __get_discriminated_class(
                 anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
@@ -1081,7 +1081,7 @@ def _get_discriminated_class_and_exception(
 ) -> typing.Tuple[typing.Optional['Schema'], typing.Optional[Exception]]:
     if not isinstance(arg, frozendict.frozendict):
         return None, None
-    discriminator = cls.MetaOapg.discriminator()
+    discriminator = cls.Schema_.discriminator()
     disc_prop_name = list(discriminator.keys())[0]
     try:
         __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
@@ -1175,7 +1175,7 @@ class Schema:
     the base class of all swagger/openapi schemas/models
     """
     __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
-    MetaOapg: MetaOapgTyped
+    Schema_: SchemaTyped
     __excluded_cls_properties = {
         '__module__',
         '__dict__',
@@ -1196,7 +1196,7 @@ class Schema:
         """
         json_schema_data = {
             k: v
-            for k, v in vars(cls.MetaOapg).items()
+            for k, v in vars(cls.Schema_).items()
             if k not in cls.__excluded_cls_properties
             and k
             not in validation_metadata.configuration.disabled_json_schema_python_keywords
@@ -1313,7 +1313,7 @@ class Schema:
             """
             cls._process_schema_classes(schema_classes)
             enum_schema = any(
-                issubclass(this_cls, Schema) and hasattr(this_cls.MetaOapg, "enum_value_to_name")
+                issubclass(this_cls, Schema) and hasattr(this_cls.Schema_, "enum_value_to_name")
                 for this_cls in schema_classes
             )
             inheritable_primitive_type = schema_classes.intersection(cls.__inheritable_primitive_types_set)
@@ -1839,7 +1839,7 @@ class NoneBase:
 
 
 class StrBase:
-    MetaOapg: MetaOapgTyped
+    Schema_: SchemaTyped
 
     @property
     def as_str_(self) -> str:
@@ -1897,7 +1897,7 @@ class DecimalBase:
 
 
 class NumberBase:
-    MetaOapg: MetaOapgTyped
+    Schema_: SchemaTyped
 
     @property
     def as_int_(self) -> int:
@@ -1931,7 +1931,7 @@ class NumberBase:
 
 
 class ListBase:
-    MetaOapg: MetaOapgTyped
+    Schema_: SchemaTyped
 
     @classmethod
     def _get_items(
@@ -2161,7 +2161,7 @@ class ListSchema(
     Schema,
     TupleMixin
 ):
-    class MetaOapg:
+    class Schema_:
         types = {tuple}
 
     @classmethod
@@ -2177,7 +2177,7 @@ class NoneSchema(
     Schema,
     NoneMixin
 ):
-    class MetaOapg:
+    class Schema_:
         types = {NoneClass}
 
     @classmethod
@@ -2197,7 +2197,7 @@ class NumberSchema(
     This is used for type: number with no format
     Both integers AND floats are accepted
     """
-    class MetaOapg:
+    class Schema_:
         types = {decimal.Decimal}
 
     @classmethod
@@ -2219,7 +2219,7 @@ class IntBase:
 
 
 class IntSchema(IntBase, NumberSchema):
-    class MetaOapg:
+    class Schema_:
         types = {decimal.Decimal}
         format = 'int'
 
@@ -2234,7 +2234,7 @@ class IntSchema(IntBase, NumberSchema):
 class Int32Schema(
     IntSchema
 ):
-    class MetaOapg:
+    class Schema_:
         types = {decimal.Decimal}
         format = 'int32'
 
@@ -2242,7 +2242,7 @@ class Int32Schema(
 class Int64Schema(
     IntSchema
 ):
-    class MetaOapg:
+    class Schema_:
         types = {decimal.Decimal}
         format = 'int64'
 
@@ -2250,7 +2250,7 @@ class Int64Schema(
 class Float32Schema(
     NumberSchema
 ):
-    class MetaOapg:
+    class Schema_:
         types = {decimal.Decimal}
         format = 'float'
 
@@ -2262,7 +2262,7 @@ class Float32Schema(
 class Float64Schema(
     NumberSchema
 ):
-    class MetaOapg:
+    class Schema_:
         types = {decimal.Decimal}
         format = 'double'
 
@@ -2282,7 +2282,7 @@ class StrSchema(
     - type: string (format unset)
     - type: string, format: date
     """
-    class MetaOapg:
+    class Schema_:
         types = {str}
 
     @classmethod
@@ -2294,7 +2294,7 @@ class StrSchema(
 
 
 class UUIDSchema(UUIDBase, StrSchema):
-    class MetaOapg:
+    class Schema_:
         types = {str}
         format = 'uuid'
 
@@ -2303,7 +2303,7 @@ class UUIDSchema(UUIDBase, StrSchema):
 
 
 class DateSchema(DateBase, StrSchema):
-    class MetaOapg:
+    class Schema_:
         types = {str}
         format = 'date'
 
@@ -2312,7 +2312,7 @@ class DateSchema(DateBase, StrSchema):
 
 
 class DateTimeSchema(DateTimeBase, StrSchema):
-    class MetaOapg:
+    class Schema_:
         types = {str}
         format = 'date-time'
 
@@ -2321,7 +2321,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
 
 
 class DecimalSchema(DecimalBase, StrSchema):
-    class MetaOapg:
+    class Schema_:
         types = {str}
         format = 'number'
 
@@ -2344,7 +2344,7 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
-    class MetaOapg:
+    class Schema_:
         types = {bytes}
 
     def __new__(cls, _arg: bytes, **kwargs: configuration_module.Configuration):
@@ -2371,7 +2371,7 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
-    class MetaOapg:
+    class Schema_:
         types = {FileIO}
 
     def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: configuration_module.Configuration):
@@ -2382,7 +2382,7 @@ class BinarySchema(
     Schema,
     BinaryMixin
 ):
-    class MetaOapg:
+    class Schema_:
         types = {FileIO, bytes}
         format = 'binary'
 
@@ -2401,7 +2401,7 @@ class BoolSchema(
     Schema,
     BoolMixin
 ):
-    class MetaOapg:
+    class Schema_:
         types = {BoolClass}
 
     @classmethod
@@ -2423,7 +2423,7 @@ class AnyTypeSchema(
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):
     # Python representation of a schema defined as true or {}
-    class MetaOapg:
+    class Schema_:
         pass
 
 
@@ -2439,7 +2439,7 @@ class NotAnyTypeSchema(AnyTypeSchema):
     Note: validations on this class are never run because the code knows that no inputs will ever validate
     """
 
-    class MetaOapg:
+    class Schema_:
         _not = AnyTypeSchema
 
     def __new__(
@@ -2459,7 +2459,7 @@ class DictSchema(
     Schema,
     FrozenDictMixin
 ):
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
 
     @classmethod

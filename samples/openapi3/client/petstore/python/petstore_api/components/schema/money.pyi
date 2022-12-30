@@ -33,7 +33,7 @@ class Money(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "amount",
             "currency",
@@ -50,11 +50,11 @@ class Money(
                 "currency": currency,
             }
     
-    amount: MetaOapg.Properties.Amount
+    amount: Schema_.Properties.Amount
     currency: 'currency.Currency'
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.Properties.Amount: ...
+    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
@@ -74,7 +74,7 @@ class Money(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.Properties.Amount: ...
+    def get_item_(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount: ...
     
     @typing.overload
     def get_item_(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
@@ -95,7 +95,7 @@ class Money(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        amount: typing.Union[MetaOapg.Properties.Amount, str, ],
+        amount: typing.Union[Schema_.Properties.Amount, str, ],
         currency: 'currency.Currency',
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],

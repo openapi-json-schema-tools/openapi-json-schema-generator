@@ -33,7 +33,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -48,7 +48,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     required = {
                         "test",
                     }
@@ -65,7 +65,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                 def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema: ...
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+                def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -85,7 +85,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                 def get_item_(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema: ...
                 
                 @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
+                def get_item_(self, name: typing_extensions.Literal["name"]) -> typing.Union[Schema_.Properties.Name, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -104,7 +104,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     test: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    name: typing.Union[MetaOapg.Properties.Name, str, schemas.Unset] = schemas.unset,
+                    name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':

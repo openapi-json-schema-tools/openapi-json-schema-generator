@@ -33,7 +33,7 @@ class NoAdditionalProperties(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "id",
         }
@@ -47,13 +47,13 @@ class NoAdditionalProperties(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    id: MetaOapg.Properties.Id
+    id: Schema_.Properties.Id
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.PetId: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> Schema_.Properties.PetId: ...
     
     def __getitem__(
         self,
@@ -66,10 +66,10 @@ class NoAdditionalProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
+    def get_item_(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.PetId, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["petId"]) -> typing.Union[Schema_.Properties.PetId, schemas.Unset]: ...
     
     def get_item_(
         self,
@@ -83,8 +83,8 @@ class NoAdditionalProperties(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, ],
-        petId: typing.Union[MetaOapg.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, ],
+        petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'NoAdditionalProperties':
         return super().__new__(

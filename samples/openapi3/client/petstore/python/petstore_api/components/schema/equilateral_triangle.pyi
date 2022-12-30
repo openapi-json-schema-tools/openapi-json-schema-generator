@@ -33,7 +33,7 @@ class EquilateralTriangle(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -48,7 +48,7 @@ class EquilateralTriangle(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     
                     class Properties:
                         
@@ -65,7 +65,7 @@ class EquilateralTriangle(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> MetaOapg.Properties.TriangleType: ...
+                def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> Schema_.Properties.TriangleType: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -81,7 +81,7 @@ class EquilateralTriangle(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["triangleType"]) -> typing.Union[MetaOapg.Properties.TriangleType, schemas.Unset]: ...
+                def get_item_(self, name: typing_extensions.Literal["triangleType"]) -> typing.Union[Schema_.Properties.TriangleType, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -98,7 +98,7 @@ class EquilateralTriangle(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    triangleType: typing.Union[MetaOapg.Properties.TriangleType, str, schemas.Unset] = schemas.unset,
+                    triangleType: typing.Union[Schema_.Properties.TriangleType, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':

@@ -33,7 +33,7 @@ class ComposedNone(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.NoneClass,
         }

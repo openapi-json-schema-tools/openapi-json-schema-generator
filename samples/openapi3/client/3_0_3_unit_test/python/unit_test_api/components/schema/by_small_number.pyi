@@ -33,7 +33,7 @@ class BySmallNumber(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

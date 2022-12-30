@@ -35,7 +35,7 @@ class Pet(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "name",
             "photoUrls",
@@ -55,13 +55,13 @@ class Pet(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     Items = schemas.StrSchema
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, str, ]], typing.List[typing.Union[MetaOapg.Items, str, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'PhotoUrls':
                     return super().__new__(
@@ -70,7 +70,7 @@ class Pet(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.Items:
+                def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
             
             
@@ -79,7 +79,7 @@ class Pet(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     
                     @staticmethod
@@ -125,26 +125,26 @@ class Pet(
                 "status": Status,
             }
     
-    name: MetaOapg.Properties.Name
-    photoUrls: MetaOapg.Properties.PhotoUrls
+    name: Schema_.Properties.Name
+    photoUrls: Schema_.Properties.PhotoUrls
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> MetaOapg.Properties.PhotoUrls: ...
+    def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> Schema_.Properties.PhotoUrls: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["category"]) -> 'category.Category': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> MetaOapg.Properties.Tags: ...
+    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> Schema_.Properties.Tags: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.Properties.Status: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Schema_.Properties.Status: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -165,22 +165,22 @@ class Pet(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+    def get_item_(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["photoUrls"]) -> MetaOapg.Properties.PhotoUrls: ...
+    def get_item_(self, name: typing_extensions.Literal["photoUrls"]) -> Schema_.Properties.PhotoUrls: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.Properties.Id, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["id"]) -> typing.Union[Schema_.Properties.Id, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: typing_extensions.Literal["category"]) -> typing.Union['category.Category', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["tags"]) -> typing.Union[MetaOapg.Properties.Tags, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["tags"]) -> typing.Union[Schema_.Properties.Tags, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.Properties.Status, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["status"]) -> typing.Union[Schema_.Properties.Status, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -202,12 +202,12 @@ class Pet(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        name: typing.Union[MetaOapg.Properties.Name, str, ],
-        photoUrls: typing.Union[MetaOapg.Properties.PhotoUrls, list, tuple, ],
-        id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        name: typing.Union[Schema_.Properties.Name, str, ],
+        photoUrls: typing.Union[Schema_.Properties.PhotoUrls, list, tuple, ],
+        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
-        tags: typing.Union[MetaOapg.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.Properties.Status, str, schemas.Unset] = schemas.unset,
+        tags: typing.Union[Schema_.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
+        status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Pet':

@@ -36,7 +36,7 @@ class Apple(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.NoneClass,
             frozendict.frozendict,
@@ -64,13 +64,13 @@ class Apple(
             }
 
     
-    cultivar: MetaOapg.Properties.Cultivar
+    cultivar: Schema_.Properties.Cultivar
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> MetaOapg.Properties.Origin: ...
+    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> Schema_.Properties.Origin: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -87,10 +87,10 @@ class Apple(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
+    def get_item_(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["origin"]) -> typing.Union[MetaOapg.Properties.Origin, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["origin"]) -> typing.Union[Schema_.Properties.Origin, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -108,7 +108,7 @@ class Apple(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, None, ],
-        origin: typing.Union[MetaOapg.Properties.Origin, str, schemas.Unset] = schemas.unset,
+        origin: typing.Union[Schema_.Properties.Origin, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Apple':

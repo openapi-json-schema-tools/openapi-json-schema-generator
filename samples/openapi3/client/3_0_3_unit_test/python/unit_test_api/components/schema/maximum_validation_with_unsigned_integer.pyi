@@ -33,7 +33,7 @@ class MaximumValidationWithUnsignedInteger(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

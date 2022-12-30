@@ -33,7 +33,7 @@ class ReqPropsFromUnsetAddProps(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "invalid-name",
             "validName",

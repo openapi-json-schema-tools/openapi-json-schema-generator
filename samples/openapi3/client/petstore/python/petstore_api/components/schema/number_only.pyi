@@ -33,7 +33,7 @@ class NumberOnly(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             JustNumber = schemas.NumberSchema
@@ -42,7 +42,7 @@ class NumberOnly(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> MetaOapg.Properties.JustNumber: ...
+    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> Schema_.Properties.JustNumber: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -58,7 +58,7 @@ class NumberOnly(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["JustNumber"]) -> typing.Union[MetaOapg.Properties.JustNumber, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["JustNumber"]) -> typing.Union[Schema_.Properties.JustNumber, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -75,7 +75,7 @@ class NumberOnly(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        JustNumber: typing.Union[MetaOapg.Properties.JustNumber, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        JustNumber: typing.Union[Schema_.Properties.JustNumber, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'NumberOnly':

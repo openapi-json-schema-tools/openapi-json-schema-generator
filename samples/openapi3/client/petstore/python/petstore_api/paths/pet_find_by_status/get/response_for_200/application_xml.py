@@ -28,7 +28,7 @@ class ApplicationXml(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         types = {tuple}
         
         @staticmethod

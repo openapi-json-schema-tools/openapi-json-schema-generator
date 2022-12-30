@@ -33,7 +33,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:
@@ -46,7 +46,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {frozendict.frozendict}
                     
                     @staticmethod
@@ -79,13 +79,13 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> MetaOapg.Properties.Uuid: ...
+    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> Schema_.Properties.Uuid: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> MetaOapg.Properties.DateTime: ...
+    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> Schema_.Properties.DateTime: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map"]) -> MetaOapg.Properties.Map: ...
+    def __getitem__(self, name: typing_extensions.Literal["map"]) -> Schema_.Properties.Map: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -103,13 +103,13 @@ class MixedPropertiesAndAdditionalPropertiesClass(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[MetaOapg.Properties.Uuid, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[Schema_.Properties.Uuid, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[MetaOapg.Properties.DateTime, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[Schema_.Properties.DateTime, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["map"]) -> typing.Union[MetaOapg.Properties.Map, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["map"]) -> typing.Union[Schema_.Properties.Map, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -128,9 +128,9 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        uuid: typing.Union[MetaOapg.Properties.Uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[MetaOapg.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
-        map: typing.Union[MetaOapg.Properties.Map, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        uuid: typing.Union[Schema_.Properties.Uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
+        dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
+        map: typing.Union[Schema_.Properties.Map, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'MixedPropertiesAndAdditionalPropertiesClass':

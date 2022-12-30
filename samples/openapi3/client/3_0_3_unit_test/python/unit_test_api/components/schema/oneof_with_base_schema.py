@@ -33,7 +33,7 @@ class OneofWithBaseSchema(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }
@@ -46,7 +46,7 @@ class OneofWithBaseSchema(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     min_length = 2
             
@@ -70,7 +70,7 @@ class OneofWithBaseSchema(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     max_length = 4
             

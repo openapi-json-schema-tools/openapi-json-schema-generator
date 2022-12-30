@@ -33,7 +33,7 @@ class OneofWithRequired(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             frozendict.frozendict,
         }
@@ -46,7 +46,7 @@ class OneofWithRequired(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     required = {
                         "bar",
@@ -119,7 +119,7 @@ class OneofWithRequired(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     required = {
                         "baz",

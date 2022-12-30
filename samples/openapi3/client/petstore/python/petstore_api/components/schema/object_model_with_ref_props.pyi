@@ -35,7 +35,7 @@ class ObjectModelWithRefProps(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
         

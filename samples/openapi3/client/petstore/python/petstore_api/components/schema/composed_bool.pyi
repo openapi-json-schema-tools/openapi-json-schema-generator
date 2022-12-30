@@ -33,7 +33,7 @@ class ComposedBool(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.BoolClass,
         }

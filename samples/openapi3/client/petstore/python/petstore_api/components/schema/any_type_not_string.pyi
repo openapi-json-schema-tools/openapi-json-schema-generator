@@ -33,7 +33,7 @@ class AnyTypeNotString(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         _Not = schemas.StrSchema
 

@@ -33,7 +33,7 @@ class Ipv6Format(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         format = 'ipv6'
 

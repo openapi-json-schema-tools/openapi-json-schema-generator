@@ -33,7 +33,7 @@ class MinlengthValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

@@ -33,7 +33,7 @@ class EnumWith1DoesNotMatchTrue(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

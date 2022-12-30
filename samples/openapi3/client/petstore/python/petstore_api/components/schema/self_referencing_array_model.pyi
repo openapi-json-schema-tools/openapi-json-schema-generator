@@ -33,7 +33,7 @@ class SelfReferencingArrayModel(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {tuple}
         
         @staticmethod

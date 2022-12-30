@@ -33,7 +33,7 @@ class Anyof(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AnyOf:
@@ -45,7 +45,7 @@ class Anyof(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
             
             

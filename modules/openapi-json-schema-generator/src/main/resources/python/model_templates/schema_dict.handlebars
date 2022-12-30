@@ -18,14 +18,14 @@ class {{name.getCamelCaseName}}(
 {{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
 
 
-    class MetaOapg:
+    class Schema_:
         {{> model_templates/dict_partial }}
 {{/or}}
 {{else}}
 {{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties hasValidation}}
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         {{> model_templates/dict_partial }}
         {{> model_templates/validations }}

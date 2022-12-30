@@ -33,7 +33,7 @@ class UniqueitemsFalseValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         unique_items = False
 

@@ -28,7 +28,7 @@ class ApplicationJson(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:

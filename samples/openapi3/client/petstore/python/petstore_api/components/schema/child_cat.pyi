@@ -33,7 +33,7 @@ class ChildCat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -48,7 +48,7 @@ class ChildCat(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     
                     class Properties:
                         Name = schemas.StrSchema
@@ -57,7 +57,7 @@ class ChildCat(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+                def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -73,7 +73,7 @@ class ChildCat(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
+                def get_item_(self, name: typing_extensions.Literal["name"]) -> typing.Union[Schema_.Properties.Name, schemas.Unset]: ...
                 
                 @typing.overload
                 def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -90,7 +90,7 @@ class ChildCat(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    name: typing.Union[MetaOapg.Properties.Name, str, schemas.Unset] = schemas.unset,
+                    name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':

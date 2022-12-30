@@ -34,7 +34,7 @@ class DateTimeFormat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         format = 'date-time'
 

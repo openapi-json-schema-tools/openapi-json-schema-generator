@@ -33,7 +33,7 @@ class EmailFormat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         format = 'email'
 

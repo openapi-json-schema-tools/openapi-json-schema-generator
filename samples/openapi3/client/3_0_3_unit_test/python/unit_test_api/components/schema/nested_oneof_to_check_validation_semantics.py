@@ -33,7 +33,7 @@ class NestedOneofToCheckValidationSemantics(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class OneOf:
@@ -44,7 +44,7 @@ class NestedOneofToCheckValidationSemantics(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
                     
                     class OneOf:

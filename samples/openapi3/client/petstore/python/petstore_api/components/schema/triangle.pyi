@@ -33,7 +33,7 @@ class Triangle(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         @staticmethod

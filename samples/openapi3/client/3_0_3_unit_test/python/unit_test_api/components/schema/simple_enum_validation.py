@@ -33,7 +33,7 @@ class SimpleEnumValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

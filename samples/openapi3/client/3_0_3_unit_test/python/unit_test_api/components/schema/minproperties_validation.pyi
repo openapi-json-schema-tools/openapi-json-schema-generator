@@ -33,7 +33,7 @@ class MinpropertiesValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
 
 

@@ -28,7 +28,7 @@ class ApplicationXWwwFormUrlencoded(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "param",
@@ -43,14 +43,14 @@ class ApplicationXWwwFormUrlencoded(
                 "param2": Param2,
             }
     
-    param: MetaOapg.Properties.Param
-    param2: MetaOapg.Properties.Param2
+    param: Schema_.Properties.Param
+    param2: Schema_.Properties.Param2
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["param"]) -> MetaOapg.Properties.Param: ...
+    def __getitem__(self, name: typing_extensions.Literal["param"]) -> Schema_.Properties.Param: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.Properties.Param2: ...
+    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> Schema_.Properties.Param2: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -67,10 +67,10 @@ class ApplicationXWwwFormUrlencoded(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["param"]) -> MetaOapg.Properties.Param: ...
+    def get_item_(self, name: typing_extensions.Literal["param"]) -> Schema_.Properties.Param: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["param2"]) -> MetaOapg.Properties.Param2: ...
+    def get_item_(self, name: typing_extensions.Literal["param2"]) -> Schema_.Properties.Param2: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -88,8 +88,8 @@ class ApplicationXWwwFormUrlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        param: typing.Union[MetaOapg.Properties.Param, str, ],
-        param2: typing.Union[MetaOapg.Properties.Param2, str, ],
+        param: typing.Union[Schema_.Properties.Param, str, ],
+        param2: typing.Union[Schema_.Properties.Param2, str, ],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApplicationXWwwFormUrlencoded':

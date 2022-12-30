@@ -33,7 +33,7 @@ class NullableClass(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:
@@ -47,7 +47,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         decimal.Decimal,
@@ -75,7 +75,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         decimal.Decimal,
@@ -102,7 +102,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         schemas.BoolClass,
@@ -129,7 +129,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -157,7 +157,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -186,7 +186,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -214,7 +214,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         tuple,
@@ -242,7 +242,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         tuple,
@@ -257,7 +257,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg:
+                        class Schema_:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -295,7 +295,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     
                     
@@ -307,7 +307,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg:
+                        class Schema_:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -329,7 +329,7 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[MetaOapg.Items, dict, frozendict.frozendict, None, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[Schema_.Items, dict, frozendict.frozendict, None, ]]],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayItemsNullable':
                     return super().__new__(
@@ -338,7 +338,7 @@ class NullableClass(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.Items:
+                def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
             
             
@@ -350,7 +350,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         frozendict.frozendict,
@@ -358,18 +358,18 @@ class NullableClass(
                     AdditionalProperties = schemas.DictSchema
             
                 
-                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+                def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                def get_item_(self, name: str) -> Schema_.AdditionalProperties:
                     return super().get_item_(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, None, ],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, ],
                 ) -> 'ObjectNullableProp':
                     return super().__new__(
                         cls,
@@ -387,7 +387,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         frozendict.frozendict,
@@ -402,7 +402,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg:
+                        class Schema_:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -423,18 +423,18 @@ class NullableClass(
                             )
             
                 
-                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+                def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                def get_item_(self, name: str) -> Schema_.AdditionalProperties:
                     return super().get_item_(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, None, ],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, None, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, None, ],
                 ) -> 'ObjectAndItemsNullableProp':
                     return super().__new__(
                         cls,
@@ -449,7 +449,7 @@ class NullableClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {frozendict.frozendict}
                     
                     
@@ -461,7 +461,7 @@ class NullableClass(
                     ):
                     
                     
-                        class MetaOapg:
+                        class Schema_:
                             types = {
                                 schemas.NoneClass,
                                 frozendict.frozendict,
@@ -481,18 +481,18 @@ class NullableClass(
                                 **kwargs,
                             )
                 
-                def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+                def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                def get_item_(self, name: str) -> Schema_.AdditionalProperties:
                     return super().get_item_(name)
             
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-                    **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, None, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, None, ],
                 ) -> 'ObjectItemsNullable':
                     return super().__new__(
                         cls,
@@ -524,7 +524,7 @@ class NullableClass(
         ):
         
         
-            class MetaOapg:
+            class Schema_:
                 types = {
                     schemas.NoneClass,
                     frozendict.frozendict,
@@ -545,43 +545,43 @@ class NullableClass(
                 )
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> MetaOapg.Properties.IntegerProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> Schema_.Properties.IntegerProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> MetaOapg.Properties.NumberProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> Schema_.Properties.NumberProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> MetaOapg.Properties.BooleanProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> Schema_.Properties.BooleanProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> MetaOapg.Properties.StringProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> Schema_.Properties.StringProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> MetaOapg.Properties.DateProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> Schema_.Properties.DateProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> MetaOapg.Properties.DatetimeProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> Schema_.Properties.DatetimeProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> MetaOapg.Properties.ArrayNullableProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> Schema_.Properties.ArrayNullableProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> MetaOapg.Properties.ArrayAndItemsNullableProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> Schema_.Properties.ArrayAndItemsNullableProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> MetaOapg.Properties.ArrayItemsNullable: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> Schema_.Properties.ArrayItemsNullable: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> MetaOapg.Properties.ObjectNullableProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> Schema_.Properties.ObjectNullableProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> MetaOapg.Properties.ObjectAndItemsNullableProp: ...
+    def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> Schema_.Properties.ObjectAndItemsNullableProp: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> MetaOapg.Properties.ObjectItemsNullable: ...
+    def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> Schema_.Properties.ObjectItemsNullable: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -605,43 +605,43 @@ class NullableClass(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[MetaOapg.Properties.IntegerProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[Schema_.Properties.IntegerProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[MetaOapg.Properties.NumberProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[Schema_.Properties.NumberProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[MetaOapg.Properties.BooleanProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[Schema_.Properties.BooleanProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[MetaOapg.Properties.StringProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[Schema_.Properties.StringProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[MetaOapg.Properties.DateProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[Schema_.Properties.DateProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[MetaOapg.Properties.DatetimeProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[Schema_.Properties.DatetimeProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ArrayNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[Schema_.Properties.ArrayNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ArrayAndItemsNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[Schema_.Properties.ArrayAndItemsNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["array_items_nullable"]) -> typing.Union[MetaOapg.Properties.ArrayItemsNullable, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_items_nullable"]) -> typing.Union[Schema_.Properties.ArrayItemsNullable, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ObjectNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[Schema_.Properties.ObjectNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ObjectAndItemsNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[Schema_.Properties.ObjectAndItemsNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["object_items_nullable"]) -> typing.Union[MetaOapg.Properties.ObjectItemsNullable, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["object_items_nullable"]) -> typing.Union[Schema_.Properties.ObjectItemsNullable, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[Schema_.AdditionalProperties, schemas.Unset]: ...
     
     def get_item_(
         self,
@@ -666,20 +666,20 @@ class NullableClass(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        integer_prop: typing.Union[MetaOapg.Properties.IntegerProp, None, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        number_prop: typing.Union[MetaOapg.Properties.NumberProp, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        boolean_prop: typing.Union[MetaOapg.Properties.BooleanProp, None, bool, schemas.Unset] = schemas.unset,
-        string_prop: typing.Union[MetaOapg.Properties.StringProp, None, str, schemas.Unset] = schemas.unset,
-        date_prop: typing.Union[MetaOapg.Properties.DateProp, None, str, datetime.date, schemas.Unset] = schemas.unset,
-        datetime_prop: typing.Union[MetaOapg.Properties.DatetimeProp, None, str, datetime.datetime, schemas.Unset] = schemas.unset,
-        array_nullable_prop: typing.Union[MetaOapg.Properties.ArrayNullableProp, list, tuple, None, schemas.Unset] = schemas.unset,
-        array_and_items_nullable_prop: typing.Union[MetaOapg.Properties.ArrayAndItemsNullableProp, list, tuple, None, schemas.Unset] = schemas.unset,
-        array_items_nullable: typing.Union[MetaOapg.Properties.ArrayItemsNullable, list, tuple, schemas.Unset] = schemas.unset,
-        object_nullable_prop: typing.Union[MetaOapg.Properties.ObjectNullableProp, dict, frozendict.frozendict, None, schemas.Unset] = schemas.unset,
-        object_and_items_nullable_prop: typing.Union[MetaOapg.Properties.ObjectAndItemsNullableProp, dict, frozendict.frozendict, None, schemas.Unset] = schemas.unset,
-        object_items_nullable: typing.Union[MetaOapg.Properties.ObjectItemsNullable, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        integer_prop: typing.Union[Schema_.Properties.IntegerProp, None, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        number_prop: typing.Union[Schema_.Properties.NumberProp, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        boolean_prop: typing.Union[Schema_.Properties.BooleanProp, None, bool, schemas.Unset] = schemas.unset,
+        string_prop: typing.Union[Schema_.Properties.StringProp, None, str, schemas.Unset] = schemas.unset,
+        date_prop: typing.Union[Schema_.Properties.DateProp, None, str, datetime.date, schemas.Unset] = schemas.unset,
+        datetime_prop: typing.Union[Schema_.Properties.DatetimeProp, None, str, datetime.datetime, schemas.Unset] = schemas.unset,
+        array_nullable_prop: typing.Union[Schema_.Properties.ArrayNullableProp, list, tuple, None, schemas.Unset] = schemas.unset,
+        array_and_items_nullable_prop: typing.Union[Schema_.Properties.ArrayAndItemsNullableProp, list, tuple, None, schemas.Unset] = schemas.unset,
+        array_items_nullable: typing.Union[Schema_.Properties.ArrayItemsNullable, list, tuple, schemas.Unset] = schemas.unset,
+        object_nullable_prop: typing.Union[Schema_.Properties.ObjectNullableProp, dict, frozendict.frozendict, None, schemas.Unset] = schemas.unset,
+        object_and_items_nullable_prop: typing.Union[Schema_.Properties.ObjectAndItemsNullableProp, dict, frozendict.frozendict, None, schemas.Unset] = schemas.unset,
+        object_items_nullable: typing.Union[Schema_.Properties.ObjectItemsNullable, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, None, ],
+        **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, None, ],
     ) -> 'NullableClass':
         return super().__new__(
             cls,

@@ -33,7 +33,7 @@ class OneofWithEmptySchema(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class OneOf:

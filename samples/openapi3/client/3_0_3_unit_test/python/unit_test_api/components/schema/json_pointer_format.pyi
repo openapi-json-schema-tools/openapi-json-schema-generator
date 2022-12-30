@@ -33,7 +33,7 @@ class JsonPointerFormat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         format = 'json-pointer'
 

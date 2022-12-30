@@ -33,7 +33,7 @@ class Drawing(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:
@@ -56,7 +56,7 @@ class Drawing(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     
                     @staticmethod
@@ -97,7 +97,7 @@ class Drawing(
     def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> 'nullable_shape.NullableShape': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> MetaOapg.Properties.Shapes: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> Schema_.Properties.Shapes: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> 'fruit.Fruit': ...
@@ -125,7 +125,7 @@ class Drawing(
     def get_item_(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['nullable_shape.NullableShape', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[MetaOapg.Properties.Shapes, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[Schema_.Properties.Shapes, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
@@ -148,7 +148,7 @@ class Drawing(
         mainShape: typing.Union['shape.Shape', schemas.Unset] = schemas.unset,
         shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
-        shapes: typing.Union[MetaOapg.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
+        shapes: typing.Union[Schema_.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: 'fruit.Fruit',
     ) -> 'Drawing':

@@ -33,7 +33,7 @@ class HasOnlyReadOnly(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:
@@ -45,10 +45,10 @@ class HasOnlyReadOnly(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> MetaOapg.Properties.Bar: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> MetaOapg.Properties.Foo: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -65,10 +65,10 @@ class HasOnlyReadOnly(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["bar"]) -> typing.Union[MetaOapg.Properties.Bar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["bar"]) -> typing.Union[Schema_.Properties.Bar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo"]) -> typing.Union[MetaOapg.Properties.Foo, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo"]) -> typing.Union[Schema_.Properties.Foo, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -86,8 +86,8 @@ class HasOnlyReadOnly(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        bar: typing.Union[MetaOapg.Properties.Bar, str, schemas.Unset] = schemas.unset,
-        foo: typing.Union[MetaOapg.Properties.Foo, str, schemas.Unset] = schemas.unset,
+        bar: typing.Union[Schema_.Properties.Bar, str, schemas.Unset] = schemas.unset,
+        foo: typing.Union[Schema_.Properties.Foo, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'HasOnlyReadOnly':

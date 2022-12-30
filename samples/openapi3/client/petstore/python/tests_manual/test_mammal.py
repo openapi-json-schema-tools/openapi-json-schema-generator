@@ -43,7 +43,7 @@ class TestMammal(unittest.TestCase):
         assert isinstance(m, whale.Whale)
 
         # can use the enum value
-        m = Mammal(className=whale.Whale.MetaOapg.Properties.ClassName.WHALE)
+        m = Mammal(className=whale.Whale.Schema_.Properties.ClassName.WHALE)
         assert isinstance(m, whale.Whale)
 
         from petstore_api.components.schema import zebra

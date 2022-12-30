@@ -33,7 +33,7 @@ class HostnameFormat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         format = 'hostname'
 

@@ -33,7 +33,7 @@ class AllofCombinedWithAnyofOneof(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -44,7 +44,7 @@ class AllofCombinedWithAnyofOneof(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
             
             
@@ -72,7 +72,7 @@ class AllofCombinedWithAnyofOneof(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
             
             
@@ -100,7 +100,7 @@ class AllofCombinedWithAnyofOneof(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     # any type
             
             

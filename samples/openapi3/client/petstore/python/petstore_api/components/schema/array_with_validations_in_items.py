@@ -33,7 +33,7 @@ class ArrayWithValidationsInItems(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {tuple}
         max_items = 2
         
@@ -43,7 +43,7 @@ class ArrayWithValidationsInItems(
         ):
         
         
-            class MetaOapg:
+            class Schema_:
                 types = {
                     decimal.Decimal,
                 }
@@ -52,7 +52,7 @@ class ArrayWithValidationsInItems(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, ]]],
+        _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, ]]],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ArrayWithValidationsInItems':
         return super().__new__(
@@ -61,5 +61,5 @@ class ArrayWithValidationsInItems(
             _configuration=_configuration,
         )
 
-    def __getitem__(self, i: int) -> MetaOapg.Items:
+    def __getitem__(self, i: int) -> Schema_.Items:
         return super().__getitem__(i)

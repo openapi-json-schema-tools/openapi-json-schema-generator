@@ -33,7 +33,7 @@ class ObjectWithInvalidNamedRefedProperties(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "!reference",

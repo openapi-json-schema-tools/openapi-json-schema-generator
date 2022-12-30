@@ -33,7 +33,7 @@ class ComposedObject(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             frozendict.frozendict,
         }

@@ -36,7 +36,7 @@ class StringEnum(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.NoneClass,
             str,

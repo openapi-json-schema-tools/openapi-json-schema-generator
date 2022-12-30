@@ -33,7 +33,7 @@ class ByInt(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         multiple_of = 2
 

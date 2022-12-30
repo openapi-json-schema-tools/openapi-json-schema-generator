@@ -33,7 +33,7 @@ class ParentPet(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             frozendict.frozendict,
         }

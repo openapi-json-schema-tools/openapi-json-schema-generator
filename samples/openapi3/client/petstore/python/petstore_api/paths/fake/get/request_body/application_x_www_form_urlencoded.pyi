@@ -28,7 +28,7 @@ class ApplicationXWwwFormUrlencoded(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             
@@ -38,7 +38,7 @@ class ApplicationXWwwFormUrlencoded(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     
                     
@@ -56,7 +56,7 @@ class ApplicationXWwwFormUrlencoded(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, str, ]], typing.List[typing.Union[MetaOapg.Items, str, ]]],
+                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
                     _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'EnumFormStringArray':
                     return super().__new__(
@@ -65,7 +65,7 @@ class ApplicationXWwwFormUrlencoded(
                         _configuration=_configuration,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.Items:
+                def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
             
             
@@ -90,10 +90,10 @@ class ApplicationXWwwFormUrlencoded(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> MetaOapg.Properties.EnumFormStringArray: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> Schema_.Properties.EnumFormStringArray: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> MetaOapg.Properties.EnumFormString: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> Schema_.Properties.EnumFormString: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -110,10 +110,10 @@ class ApplicationXWwwFormUrlencoded(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_form_string_array"]) -> typing.Union[MetaOapg.Properties.EnumFormStringArray, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_form_string_array"]) -> typing.Union[Schema_.Properties.EnumFormStringArray, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_form_string"]) -> typing.Union[MetaOapg.Properties.EnumFormString, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_form_string"]) -> typing.Union[Schema_.Properties.EnumFormString, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -131,8 +131,8 @@ class ApplicationXWwwFormUrlencoded(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        enum_form_string_array: typing.Union[MetaOapg.Properties.EnumFormStringArray, list, tuple, schemas.Unset] = schemas.unset,
-        enum_form_string: typing.Union[MetaOapg.Properties.EnumFormString, str, schemas.Unset] = schemas.unset,
+        enum_form_string_array: typing.Union[Schema_.Properties.EnumFormStringArray, list, tuple, schemas.Unset] = schemas.unset,
+        enum_form_string: typing.Union[Schema_.Properties.EnumFormString, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApplicationXWwwFormUrlencoded':

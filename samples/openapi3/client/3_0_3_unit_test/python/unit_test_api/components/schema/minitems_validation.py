@@ -33,7 +33,7 @@ class MinitemsValidation(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         min_items = 1
 

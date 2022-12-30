@@ -33,7 +33,7 @@ class MinimumValidationWithSignedInteger(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         inclusive_minimum = -2
 

@@ -28,7 +28,7 @@ class ApplicationJson(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -39,7 +39,7 @@ class ApplicationJson(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         str,
                     }

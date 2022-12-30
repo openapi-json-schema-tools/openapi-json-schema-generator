@@ -33,7 +33,7 @@ class Quadrilateral(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         @staticmethod
