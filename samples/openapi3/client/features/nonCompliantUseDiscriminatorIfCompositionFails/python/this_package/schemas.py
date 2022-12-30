@@ -1900,7 +1900,7 @@ class NumberBase:
     MetaOapg: MetaOapgTyped
 
     @property
-    def as_int_oapg(self) -> int:
+    def as_int_(self) -> int:
         try:
             return self._as_int
         except AttributeError:
@@ -2210,7 +2210,7 @@ class NumberSchema(
 
 class IntBase:
     @property
-    def as_int_oapg(self) -> int:
+    def as_int_(self) -> int:
         try:
             return self._as_int
         except AttributeError:
