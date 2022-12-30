@@ -757,7 +757,7 @@ class ApiResponseWithoutDeserialization(ApiResponse):
 
 class TypedDictInputVerifier:
     @staticmethod
-    def _verify_typed_dict_inputs_oapg(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
+    def _verify_typed_dict_inputs(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
         """
         Ensures that:
         - required keys are present
@@ -894,7 +894,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
 
         deserialized_headers = schemas.unset
         if cls.headers is not None:
-            cls._verify_typed_dict_inputs_oapg(cls.response_cls.headers, response.headers)
+            cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
             deserialized_headers = {}
             for header_name, header_param in self.headers.items():
                 header_value = response.getheader(header_name)
