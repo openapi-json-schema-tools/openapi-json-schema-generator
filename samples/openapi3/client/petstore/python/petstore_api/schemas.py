@@ -1844,7 +1844,7 @@ class NumberBase:
             return self._as_int
 
     @property
-    def as_float_oapg(self) -> float:
+    def as_float_(self) -> float:
         try:
             return self._as_float
         except AttributeError:
