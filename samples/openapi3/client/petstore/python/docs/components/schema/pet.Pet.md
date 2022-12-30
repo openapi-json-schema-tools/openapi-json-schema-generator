@@ -18,7 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **category** | [**Category**](category.Category.md) | [**Category**](category.Category.md) |  | [optional]
 **tags** | [list, tuple, ](#tags) | [tuple, ](#tags) |  | [optional]
 **status** | str,  | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # photoUrls
 

@@ -261,7 +261,7 @@ class TestFakeApi(ApiTestMixin):
                 accept_content_type=None
             )
 
-            assert isinstance(api_response.body, api_client.Unset)
+            assert isinstance(api_response.body, schemas.Unset)
             assert api_response.response.status == 200
 
     def test_upload_download_file_tx_bytes_and_file(self):

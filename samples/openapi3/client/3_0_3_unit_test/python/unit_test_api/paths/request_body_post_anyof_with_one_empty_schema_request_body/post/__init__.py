@@ -12,7 +12,7 @@ import urllib3
 from urllib3._collections import HTTPHeaderDict
 
 from unit_test_api import api_client, exceptions
-from datetime import date, datetime  # noqa: F401
+import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401
 import io  # noqa: F401
