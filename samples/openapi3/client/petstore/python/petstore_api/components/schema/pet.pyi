@@ -61,12 +61,12 @@ class Pet(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
+                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'PhotoUrls':
                     return super().__new__(
                         cls,
-                        _arg,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -88,12 +88,12 @@ class Pet(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['tag.Tag'], typing.List['tag.Tag']],
+                    arg_: typing.Union[typing.Tuple['tag.Tag'], typing.List['tag.Tag']],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Tags':
                     return super().__new__(
                         cls,
-                        _arg,
+                        arg_,
                         configuration_=configuration_,
                     )
             

@@ -42,12 +42,12 @@ class SelfReferencingArrayModel(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['SelfReferencingArrayModel'], typing.List['SelfReferencingArrayModel']],
+        arg_: typing.Union[typing.Tuple['SelfReferencingArrayModel'], typing.List['SelfReferencingArrayModel']],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'SelfReferencingArrayModel':
         return super().__new__(
             cls,
-            _arg,
+            arg_,
             configuration_=configuration_,
         )
 

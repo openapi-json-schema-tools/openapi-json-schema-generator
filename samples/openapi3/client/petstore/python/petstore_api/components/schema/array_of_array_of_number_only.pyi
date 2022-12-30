@@ -58,12 +58,12 @@ class ArrayOfArrayOfNumberOnly(
                     
                         def __new__(
                             cls,
-                            _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]]],
+                            arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]]],
                             configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                         ) -> 'Items':
                             return super().__new__(
                                 cls,
-                                _arg,
+                                arg_,
                                 configuration_=configuration_,
                             )
                     
@@ -72,12 +72,12 @@ class ArrayOfArrayOfNumberOnly(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
+                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayArrayNumber':
                     return super().__new__(
                         cls,
-                        _arg,
+                        arg_,
                         configuration_=configuration_,
                     )
             

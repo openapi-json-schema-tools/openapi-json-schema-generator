@@ -46,17 +46,17 @@ class FileIO(io.FileIO):
     Note: this class is not immutable
     """
 
-    def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader]):
-        if isinstance(_arg, (io.FileIO, io.BufferedReader)):
-            if _arg.closed:
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader]):
+        if isinstance(arg_, (io.FileIO, io.BufferedReader)):
+            if arg_.closed:
                 raise exceptions.ApiValueError('Invalid file state; file is closed and must be open')
-            _arg.close()
-            inst = super(FileIO, cls).__new__(cls, _arg.name)
-            super(FileIO, inst).__init__(_arg.name)
+            arg_.close()
+            inst = super(FileIO, cls).__new__(cls, arg_.name)
+            super(FileIO, inst).__init__(arg_.name)
             return inst
-        raise exceptions.ApiValueError('FileIO must be passed _arg which contains the open file')
+        raise exceptions.ApiValueError('FileIO must be passed arg_ which contains the open file')
 
-    def __init__(self, _arg: typing.Union[io.FileIO, io.BufferedReader]):
+    def __init__(self, arg_: typing.Union[io.FileIO, io.BufferedReader]):
         pass
 
 
@@ -150,11 +150,11 @@ def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_t
 class Singleton:
     """
     Enums and singletons are the same
-    The same instance is returned for a given key of (cls, _arg)
+    The same instance is returned for a given key of (cls, arg_)
     """
     _instances = {}
 
-    def __new__(cls, _arg: typing.Any, **kwargs):
+    def __new__(cls, arg_: typing.Any, **kwargs):
         """
         cls base classes: BoolClass, NoneClass, str, decimal.Decimal
         The 3rd key is used in the tuple below for a corner case where an enum contains integer 1
@@ -162,15 +162,15 @@ class Singleton:
         Decimal('1.0') == Decimal('1')
         But if we omitted the 3rd value in the key, then Decimal('1.0') would be stored as Decimal('1')
         and json serializing that instance would be '1' rather than the expected '1.0'
-        Adding the 3rd value, the str of _arg ensures that 1.0 -> Decimal('1.0') which is serialized as 1.0
+        Adding the 3rd value, the str of arg_ ensures that 1.0 -> Decimal('1.0') which is serialized as 1.0
         """
-        key = (cls, _arg, str(_arg))
+        key = (cls, arg_, str(arg_))
         if key not in cls._instances:
-            if isinstance(_arg, (none_type, bool, BoolClass, NoneClass)):
+            if isinstance(arg_, (none_type, bool, BoolClass, NoneClass)):
                 inst = super().__new__(cls)
                 cls._instances[key] = inst
             else:
-                cls._instances[key] = super().__new__(cls, _arg)
+                cls._instances[key] = super().__new__(cls, arg_)
         return cls._instances[key]
 
     def __repr__(self):
@@ -2168,8 +2168,8 @@ class ListSchema(
     def from_openapi_data_(cls, arg: typing.List[typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, _arg: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class NoneSchema(
@@ -2184,8 +2184,8 @@ class NoneSchema(
     def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[configuration_module.Configuration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, _arg: None, **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: None, **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class NumberSchema(
@@ -2204,8 +2204,8 @@ class NumberSchema(
     def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[configuration_module.Configuration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, _arg: typing.Union[decimal.Decimal, int, float], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class IntBase:
@@ -2227,8 +2227,8 @@ class IntSchema(IntBase, NumberSchema):
     def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[configuration_module.Configuration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, _arg: typing.Union[decimal.Decimal, int], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class Int32Schema(
@@ -2289,8 +2289,8 @@ class StrSchema(
     def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, _arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class UUIDSchema(UUIDBase, StrSchema):
@@ -2298,8 +2298,8 @@ class UUIDSchema(UUIDBase, StrSchema):
         types = {str}
         format = 'uuid'
 
-    def __new__(cls, _arg: typing.Union[str, uuid.UUID], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class DateSchema(DateBase, StrSchema):
@@ -2307,8 +2307,8 @@ class DateSchema(DateBase, StrSchema):
         types = {str}
         format = 'date'
 
-    def __new__(cls, _arg: typing.Union[str, datetime.date], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class DateTimeSchema(DateTimeBase, StrSchema):
@@ -2316,8 +2316,8 @@ class DateTimeSchema(DateTimeBase, StrSchema):
         types = {str}
         format = 'date-time'
 
-    def __new__(cls, _arg: typing.Union[str, datetime.datetime], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class DecimalSchema(DecimalBase, StrSchema):
@@ -2325,7 +2325,7 @@ class DecimalSchema(DecimalBase, StrSchema):
         types = {str}
         format = 'number'
 
-    def __new__(cls, _arg: str, **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: str, **kwargs: configuration_module.Configuration):
         """
         Note: Decimals may not be passed in because cast_to_allowed_types is only invoked once for payloads
         which can be simple (str) or complex (dicts or lists with nested values)
@@ -2334,7 +2334,7 @@ class DecimalSchema(DecimalBase, StrSchema):
         if one was using it for a StrSchema (where it should be cast to str) or one is using it for NumberSchema
         where it should stay as Decimal.
         """
-        return super().__new__(cls, _arg, **kwargs)
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class BytesSchema(
@@ -2347,8 +2347,8 @@ class BytesSchema(
     class Schema_:
         types = {bytes}
 
-    def __new__(cls, _arg: bytes, **kwargs: configuration_module.Configuration):
-        return super(Schema, cls).__new__(cls, _arg)
+    def __new__(cls, arg_: bytes, **kwargs: configuration_module.Configuration):
+        return super(Schema, cls).__new__(cls, arg_)
 
 
 class FileSchema(
@@ -2374,8 +2374,8 @@ class FileSchema(
     class Schema_:
         types = {FileIO}
 
-    def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: configuration_module.Configuration):
-        return super(Schema, cls).__new__(cls, _arg)
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: configuration_module.Configuration):
+        return super(Schema, cls).__new__(cls, arg_)
 
 
 class BinarySchema(
@@ -2392,8 +2392,8 @@ class BinarySchema(
                 FileSchema,
             ]
 
-    def __new__(cls, _arg: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: configuration_module.Configuration):
-        return super().__new__(cls, _arg)
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_)
 
 
 class BoolSchema(
@@ -2408,8 +2408,8 @@ class BoolSchema(
     def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[configuration_module.Configuration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, _arg: bool, **kwargs: ValidationMetadata):
-        return super().__new__(cls, _arg, **kwargs)
+    def __new__(cls, arg_: bool, **kwargs: ValidationMetadata):
+        return super().__new__(cls, arg_, **kwargs)
 
 
 class AnyTypeSchema(

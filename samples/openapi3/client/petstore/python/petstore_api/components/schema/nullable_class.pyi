@@ -328,12 +328,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[Schema_.Items, dict, frozendict.frozendict, None, ]]],
+                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, dict, frozendict.frozendict, None, ]], typing.List[typing.Union[Schema_.Items, dict, frozendict.frozendict, None, ]]],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayItemsNullable':
                     return super().__new__(
                         cls,
-                        _arg,
+                        arg_,
                         configuration_=configuration_,
                     )
             

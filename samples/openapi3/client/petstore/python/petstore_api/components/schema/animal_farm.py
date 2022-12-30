@@ -42,12 +42,12 @@ class AnimalFarm(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
+        arg_: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'AnimalFarm':
         return super().__new__(
             cls,
-            _arg,
+            arg_,
             configuration_=configuration_,
         )
 

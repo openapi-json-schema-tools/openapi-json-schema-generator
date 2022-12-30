@@ -56,12 +56,12 @@ class FileSchemaTestClass(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
+                    arg_: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Files':
                     return super().__new__(
                         cls,
-                        _arg,
+                        arg_,
                         configuration_=configuration_,
                     )
             

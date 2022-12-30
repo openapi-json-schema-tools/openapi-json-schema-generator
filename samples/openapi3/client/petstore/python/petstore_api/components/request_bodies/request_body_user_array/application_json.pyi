@@ -37,12 +37,12 @@ class ApplicationJson(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['user.User'], typing.List['user.User']],
+        arg_: typing.Union[typing.Tuple['user.User'], typing.List['user.User']],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ApplicationJson':
         return super().__new__(
             cls,
-            _arg,
+            arg_,
             configuration_=configuration_,
         )
 

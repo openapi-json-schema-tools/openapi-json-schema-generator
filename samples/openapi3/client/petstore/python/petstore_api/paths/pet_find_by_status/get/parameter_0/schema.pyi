@@ -50,12 +50,12 @@ class Schema(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
+        arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'Schema':
         return super().__new__(
             cls,
-            _arg,
+            arg_,
             configuration_=configuration_,
         )
 
