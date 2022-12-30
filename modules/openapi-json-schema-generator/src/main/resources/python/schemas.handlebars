@@ -1352,7 +1352,7 @@ class Schema:
         2. value is an instance of the correct schema type
             the value is NOT validated by _validate, _validate only checks that the instance is of the correct schema type
             for this value, _validate does NOT return an entry for it in _path_to_schemas
-            and in list/dict _get_items_oapg,_get_properties_oapg the value will be directly assigned
+            and in list/dict _get_items,_get_properties_oapg the value will be directly assigned
             because value is of the correct type, and validation was run earlier when the instance was created
         """
         _path_to_schemas = {}
@@ -1414,7 +1414,7 @@ class Schema:
             properties = cls._get_properties_oapg(arg, path_to_item, path_to_schemas)
             return super(Schema, cls).__new__(cls, properties)
         elif issubclass(cls, tuple) and issubclass(cls, ListBase):
-            items = cls._get_items_oapg(arg, path_to_item, path_to_schemas)
+            items = cls._get_items(arg, path_to_item, path_to_schemas)
             return super(Schema, cls).__new__(cls, items)
         """
         str = openapi str, datetime.date, and datetime.datetime
@@ -1966,14 +1966,14 @@ class ListBase:
     MetaOapg: MetaOapgTyped
 
     @classmethod
-    def _get_items_oapg(
+    def _get_items(
         cls: 'Schema',
         arg: typing.List[typing.Any],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
     ):
         '''
-        ListBase _get_items_oapg
+        ListBase _get_items
         '''
         cast_items = []
 
