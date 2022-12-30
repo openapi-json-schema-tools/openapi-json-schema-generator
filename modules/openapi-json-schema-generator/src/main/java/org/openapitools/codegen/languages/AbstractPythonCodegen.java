@@ -61,7 +61,11 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
                         "assert", "else", "if", "pass", "yield", "break", "except", "import",
                         "print", "class", "exec", "in", "raise", "continue", "finally", "is",
                         "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
-                        "False", "async", "await"));
+                        "False", "async", "await",
+                        // imports, imports_schema_types.handlebars, include these to prevent name collision
+                        "datetime", "decimal", "functools", "io", "re",
+                        "typing", "typing_extensions", "uuid", "frozendict", "schemas"
+                ));
 
         languageSpecificPrimitives.clear();
         languageSpecificPrimitives.add("int");

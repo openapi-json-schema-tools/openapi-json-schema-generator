@@ -5,15 +5,15 @@
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
 ### Composed Schemas (allOf/anyOf/oneOf/not)
 #### anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [anyOf_0](#anyOf_0) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-[anyOf_1](#anyOf_1) | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[anyOf_2](#anyOf_2) | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
+[anyOf_1](#anyOf_1) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[anyOf_2](#anyOf_2) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 [anyOf_3](#anyOf_3) | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
 [anyOf_4](#anyOf_4) | str,  | str,  |  |
 [anyOf_5](#anyOf_5) | str,  | str,  |  |
@@ -40,14 +40,14 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # anyOf_2
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
+str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 # anyOf_3
 
@@ -101,7 +101,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
+items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
 # anyOf_10
 

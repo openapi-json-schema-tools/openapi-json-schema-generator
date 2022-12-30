@@ -11,7 +11,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **byte** | str,  | str,  |  |
-**date** | str, date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+**date** | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 **number** | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 **password** | str,  | str,  |  |
 **integer** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional]
@@ -25,13 +25,13 @@ Key | Input Type | Accessed Type | Description | Notes
 **arrayWithUniqueItems** | [list, tuple, ](#arrayWithUniqueItems) | [tuple, ](#arrayWithUniqueItems) |  | [optional]
 **string** | str,  | str,  |  | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  | [optional]
-**dateTime** | str, datetime,  | str,  |  | [optional] value must conform to RFC-3339 date-time
+**dateTime** | str, datetime.datetime,  | str,  |  | [optional] value must conform to RFC-3339 date-time
 **uuid** | str, uuid.UUID,  | str,  |  | [optional] value must be a uuid
 **uuidNoExample** | str, uuid.UUID,  | str,  |  | [optional] value must be a uuid
 **pattern_with_digits** | str,  | str,  | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | str,  | str,  | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
 **noneProp** | None,  | NoneClass,  |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # arrayWithUniqueItems
 

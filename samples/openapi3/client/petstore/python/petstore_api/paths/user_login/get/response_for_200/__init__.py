@@ -1,5 +1,5 @@
 import dataclasses
-from datetime import date, datetime
+import datetime
 import decimal
 import io
 import typing
@@ -36,7 +36,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Expires-After': typing.Union[header_x_expires_after.schema.Schema, str, datetime, ],
+            'X-Expires-After': typing.Union[header_x_expires_after.schema.Schema, str, datetime.datetime, ],
             'numberHeader': typing.Union[header_number_header.schema.Schema, str, ],
         },
         total=False
