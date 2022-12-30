@@ -111,15 +111,15 @@ class EnumArrays(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["just_symbol"]) -> typing.Union[MetaOapg.Properties.JustSymbol, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["just_symbol"]) -> typing.Union[MetaOapg.Properties.JustSymbol, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_enum"]) -> typing.Union[MetaOapg.Properties.ArrayEnum, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_enum"]) -> typing.Union[MetaOapg.Properties.ArrayEnum, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["just_symbol"],
@@ -127,7 +127,7 @@ class EnumArrays(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,

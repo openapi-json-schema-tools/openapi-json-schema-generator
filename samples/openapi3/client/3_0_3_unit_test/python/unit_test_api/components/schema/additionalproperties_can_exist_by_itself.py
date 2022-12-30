@@ -41,8 +41,8 @@ class AdditionalpropertiesCanExistByItself(
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-        return super().get_item_oapg(name)
+    def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+        return super().get_item_(name)
 
     def __new__(
         cls,

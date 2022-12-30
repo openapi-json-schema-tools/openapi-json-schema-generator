@@ -361,8 +361,8 @@ class NullableClass(
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                    return super().get_item_oapg(name)
+                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -426,8 +426,8 @@ class NullableClass(
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                    return super().get_item_oapg(name)
+                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -483,8 +483,8 @@ class NullableClass(
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                    return super().get_item_oapg(name)
+                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -603,45 +603,45 @@ class NullableClass(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[MetaOapg.Properties.IntegerProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[MetaOapg.Properties.IntegerProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[MetaOapg.Properties.NumberProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[MetaOapg.Properties.NumberProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[MetaOapg.Properties.BooleanProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[MetaOapg.Properties.BooleanProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[MetaOapg.Properties.StringProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[MetaOapg.Properties.StringProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[MetaOapg.Properties.DateProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[MetaOapg.Properties.DateProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[MetaOapg.Properties.DatetimeProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[MetaOapg.Properties.DatetimeProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ArrayNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ArrayNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ArrayAndItemsNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ArrayAndItemsNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_items_nullable"]) -> typing.Union[MetaOapg.Properties.ArrayItemsNullable, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_items_nullable"]) -> typing.Union[MetaOapg.Properties.ArrayItemsNullable, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ObjectNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ObjectNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ObjectAndItemsNullableProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[MetaOapg.Properties.ObjectAndItemsNullableProp, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["object_items_nullable"]) -> typing.Union[MetaOapg.Properties.ObjectItemsNullable, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["object_items_nullable"]) -> typing.Union[MetaOapg.Properties.ObjectItemsNullable, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["integer_prop"],
@@ -659,7 +659,7 @@ class NullableClass(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,

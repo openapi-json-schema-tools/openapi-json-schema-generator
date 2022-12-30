@@ -76,15 +76,15 @@ class SubtractionOperator(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
+    def get_item_(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
+    def get_item_(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
+    def get_item_(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["a"],
@@ -92,7 +92,7 @@ class SubtractionOperator(
             typing_extensions.Literal["operator_id"],
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,

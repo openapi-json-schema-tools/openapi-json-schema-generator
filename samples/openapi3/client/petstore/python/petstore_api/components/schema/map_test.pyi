@@ -58,8 +58,8 @@ class MapTest(
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
                         
-                        def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                            return super().get_item_oapg(name)
+                        def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                            return super().get_item_(name)
                     
                         def __new__(
                             cls,
@@ -78,8 +78,8 @@ class MapTest(
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                    return super().get_item_oapg(name)
+                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -119,8 +119,8 @@ class MapTest(
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                    return super().get_item_oapg(name)
+                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -148,8 +148,8 @@ class MapTest(
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
                 
-                def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-                    return super().get_item_oapg(name)
+                def get_item_(self, name: str) -> MetaOapg.AdditionalProperties:
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -203,21 +203,21 @@ class MapTest(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["map_map_of_string"]) -> typing.Union[MetaOapg.Properties.MapMapOfString, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["map_map_of_string"]) -> typing.Union[MetaOapg.Properties.MapMapOfString, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["map_of_enum_string"]) -> typing.Union[MetaOapg.Properties.MapOfEnumString, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["map_of_enum_string"]) -> typing.Union[MetaOapg.Properties.MapOfEnumString, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["direct_map"]) -> typing.Union[MetaOapg.Properties.DirectMap, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["direct_map"]) -> typing.Union[MetaOapg.Properties.DirectMap, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["indirect_map"]) -> typing.Union['string_boolean_map.StringBooleanMap', schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["indirect_map"]) -> typing.Union['string_boolean_map.StringBooleanMap', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["map_map_of_string"],
@@ -227,7 +227,7 @@ class MapTest(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,

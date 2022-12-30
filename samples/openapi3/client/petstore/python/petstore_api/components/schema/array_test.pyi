@@ -188,18 +188,18 @@ class ArrayTest(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_of_string"]) -> typing.Union[MetaOapg.Properties.ArrayOfString, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_of_string"]) -> typing.Union[MetaOapg.Properties.ArrayOfString, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_array_of_integer"]) -> typing.Union[MetaOapg.Properties.ArrayArrayOfInteger, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_array_of_integer"]) -> typing.Union[MetaOapg.Properties.ArrayArrayOfInteger, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["array_array_of_model"]) -> typing.Union[MetaOapg.Properties.ArrayArrayOfModel, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["array_array_of_model"]) -> typing.Union[MetaOapg.Properties.ArrayArrayOfModel, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["array_of_string"],
@@ -208,7 +208,7 @@ class ArrayTest(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,

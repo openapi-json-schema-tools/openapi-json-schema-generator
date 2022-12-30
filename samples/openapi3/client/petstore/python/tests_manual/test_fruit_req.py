@@ -60,7 +60,7 @@ class TestFruitReq(unittest.TestCase):
             fruit['cultivar']
         with self.assertRaises(AttributeError):
             fruit.cultivar
-        assert fruit.get_item_oapg('cultivar') is schemas.unset
+        assert fruit.get_item_('cultivar') is schemas.unset
 
         # with getattr
         self.assertEqual(getattr(fruit, 'cultivar', 'some value'), 'some value')

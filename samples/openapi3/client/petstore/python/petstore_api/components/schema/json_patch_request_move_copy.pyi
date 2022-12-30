@@ -87,15 +87,15 @@ class JSONPatchRequestMoveCopy(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties._From: ...
+    def get_item_(self, name: typing_extensions.Literal["from"]) -> MetaOapg.Properties._From: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
+    def get_item_(self, name: typing_extensions.Literal["op"]) -> MetaOapg.Properties.Op: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
+    def get_item_(self, name: typing_extensions.Literal["path"]) -> MetaOapg.Properties.Path: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["from"],
@@ -103,7 +103,7 @@ class JSONPatchRequestMoveCopy(
             typing_extensions.Literal["path"],
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,

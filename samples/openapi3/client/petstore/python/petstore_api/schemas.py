@@ -1928,7 +1928,7 @@ class DictBase:
         except KeyError as ex:
             raise AttributeError(str(ex))
 
-    def get_item_oapg(self, name: str) -> typing.Union['AnyTypeSchema', Unset]:
+    def get_item_(self, name: str) -> typing.Union['AnyTypeSchema', Unset]:
         # dict_instance[name] accessor
         if not isinstance(self, frozendict.frozendict):
             raise NotImplementedError()
