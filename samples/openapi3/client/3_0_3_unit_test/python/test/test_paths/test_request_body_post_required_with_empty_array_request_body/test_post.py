@@ -42,7 +42,7 @@ class TestRequestBodyPostRequiredWithEmptyArrayRequestBody(ApiTestMixin, unittes
                 {
                 }
             )
-            body = post.request_body.required_with_empty_array.RequiredWithEmptyArray.from_openapi_data_oapg(
+            body = post.request_body.required_with_empty_array.RequiredWithEmptyArray.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

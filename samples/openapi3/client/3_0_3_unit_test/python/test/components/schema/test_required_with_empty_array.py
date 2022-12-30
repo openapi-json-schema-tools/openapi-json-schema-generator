@@ -22,7 +22,7 @@ class TestRequiredWithEmptyArray(unittest.TestCase):
 
     def test_property_not_required_passes(self):
         # property not required
-        RequiredWithEmptyArray.from_openapi_data_oapg(
+        RequiredWithEmptyArray.from_openapi_data_(
             {
             },
             _configuration=self._configuration

@@ -22,7 +22,7 @@ class Test_Not(unittest.TestCase):
 
     def test_allowed_passes(self):
         # allowed
-        _Not.from_openapi_data_oapg(
+        _Not.from_openapi_data_(
             "foo",
             _configuration=self._configuration
         )
@@ -30,7 +30,7 @@ class Test_Not(unittest.TestCase):
     def test_disallowed_fails(self):
         # disallowed
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            _Not.from_openapi_data_oapg(
+            _Not.from_openapi_data_(
                 1,
                 _configuration=self._configuration
             )

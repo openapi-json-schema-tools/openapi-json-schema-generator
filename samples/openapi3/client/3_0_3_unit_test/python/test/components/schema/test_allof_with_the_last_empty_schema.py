@@ -23,14 +23,14 @@ class TestAllofWithTheLastEmptySchema(unittest.TestCase):
     def test_string_is_invalid_fails(self):
         # string is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofWithTheLastEmptySchema.from_openapi_data_oapg(
+            AllofWithTheLastEmptySchema.from_openapi_data_(
                 "foo",
                 _configuration=self._configuration
             )
 
     def test_number_is_valid_passes(self):
         # number is valid
-        AllofWithTheLastEmptySchema.from_openapi_data_oapg(
+        AllofWithTheLastEmptySchema.from_openapi_data_(
             1,
             _configuration=self._configuration
         )

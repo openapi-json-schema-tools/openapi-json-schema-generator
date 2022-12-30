@@ -42,7 +42,7 @@ class TestRequestBodyPostRequiredDefaultValidationRequestBody(ApiTestMixin, unit
                 {
                 }
             )
-            body = post.request_body.required_default_validation.RequiredDefaultValidation.from_openapi_data_oapg(
+            body = post.request_body.required_default_validation.RequiredDefaultValidation.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

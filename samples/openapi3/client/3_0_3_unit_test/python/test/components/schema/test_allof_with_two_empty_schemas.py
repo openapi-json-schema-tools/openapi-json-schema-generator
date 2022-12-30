@@ -22,7 +22,7 @@ class TestAllofWithTwoEmptySchemas(unittest.TestCase):
 
     def test_any_data_is_valid_passes(self):
         # any data is valid
-        AllofWithTwoEmptySchemas.from_openapi_data_oapg(
+        AllofWithTwoEmptySchemas.from_openapi_data_(
             1,
             _configuration=self._configuration
         )

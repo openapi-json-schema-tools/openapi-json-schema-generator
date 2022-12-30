@@ -1287,7 +1287,7 @@ class Schema:
         return super(Schema, cls).__new__(cls, arg)
 
     @classmethod
-    def from_openapi_data_oapg(
+    def from_openapi_data_(
         cls,
         arg: typing.Union[
             str,
@@ -1304,7 +1304,7 @@ class Schema:
         _configuration: typing.Optional[configuration_module.Configuration] = None
     ):
         """
-        Schema from_openapi_data_oapg
+        Schema from_openapi_data_
         """
         from_server = True
         validated_path_to_schemas = {}
@@ -2089,8 +2089,8 @@ class ListSchema(
         types = {tuple}
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, _arg: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2105,8 +2105,8 @@ class NoneSchema(
         types = {NoneClass}
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: None, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: None, _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, _arg: None, **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2125,8 +2125,8 @@ class NumberSchema(
         types = {decimal.Decimal}
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: typing.Union[int, float], _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: typing.Union[int, float], _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, _arg: typing.Union[decimal.Decimal, int, float], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2148,8 +2148,8 @@ class IntSchema(IntBase, NumberSchema):
         format = 'int'
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: int, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: int, _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, _arg: typing.Union[decimal.Decimal, int], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2179,8 +2179,8 @@ class Float32Schema(
         format = 'float'
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: float, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: float, _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
 
 class Float64Schema(
@@ -2191,8 +2191,8 @@ class Float64Schema(
         format = 'double'
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: float, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: float, _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
 
 class StrSchema(
@@ -2210,8 +2210,8 @@ class StrSchema(
         types = {str}
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: str, _configuration: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: str, _configuration: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, _arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2329,8 +2329,8 @@ class BoolSchema(
         types = {BoolClass}
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: bool, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: bool, _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, _arg: bool, **kwargs: ValidationMetadata):
         return super().__new__(cls, _arg, **kwargs)
@@ -2387,8 +2387,8 @@ class DictSchema(
         types = {frozendict.frozendict}
 
     @classmethod
-    def from_openapi_data_oapg(cls, arg: typing.Dict[str, typing.Any], _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_oapg(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], _configuration: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, _configuration=_configuration)
 
     def __new__(cls, *_args: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]):
         return super().__new__(cls, *_args, **kwargs)

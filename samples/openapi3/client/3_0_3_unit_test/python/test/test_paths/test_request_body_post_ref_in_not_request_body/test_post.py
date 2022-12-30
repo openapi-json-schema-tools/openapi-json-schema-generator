@@ -44,7 +44,7 @@ class TestRequestBodyPostRefInNotRequestBody(ApiTestMixin, unittest.TestCase):
                         2,
                 }
             )
-            body = post.request_body.ref_in_not.RefInNot.from_openapi_data_oapg(
+            body = post.request_body.ref_in_not.RefInNot.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )
@@ -78,7 +78,7 @@ class TestRequestBodyPostRefInNotRequestBody(ApiTestMixin, unittest.TestCase):
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ref_in_not.RefInNot.from_openapi_data_oapg(
+                body = post.request_body.ref_in_not.RefInNot.from_openapi_data_(
                     payload,
                     _configuration=self._configuration
                 )

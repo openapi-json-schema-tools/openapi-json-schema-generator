@@ -42,7 +42,7 @@ class TestRequestBodyPostJsonPointerFormatRequestBody(ApiTestMixin, unittest.Tes
                 {
                 }
             )
-            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_oapg(
+            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostJsonPointerFormatRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 False
             )
-            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_oapg(
+            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )
@@ -102,7 +102,7 @@ class TestRequestBodyPostJsonPointerFormatRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 12
             )
-            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_oapg(
+            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )
@@ -132,7 +132,7 @@ class TestRequestBodyPostJsonPointerFormatRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 13.7
             )
-            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_oapg(
+            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )
@@ -163,7 +163,7 @@ class TestRequestBodyPostJsonPointerFormatRequestBody(ApiTestMixin, unittest.Tes
                 [
                 ]
             )
-            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_oapg(
+            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )
@@ -193,7 +193,7 @@ class TestRequestBodyPostJsonPointerFormatRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 None
             )
-            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_oapg(
+            body = post.request_body.json_pointer_format.JsonPointerFormat.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

@@ -42,7 +42,7 @@ class TestRequestBodyPostNestedAllofToCheckValidationSemanticsRequestBody(ApiTes
                 123
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.from_openapi_data_oapg(
+                body = post.request_body.nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.from_openapi_data_(
                     payload,
                     _configuration=self._configuration
                 )
@@ -55,7 +55,7 @@ class TestRequestBodyPostNestedAllofToCheckValidationSemanticsRequestBody(ApiTes
             payload = (
                 None
             )
-            body = post.request_body.nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.from_openapi_data_oapg(
+            body = post.request_body.nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

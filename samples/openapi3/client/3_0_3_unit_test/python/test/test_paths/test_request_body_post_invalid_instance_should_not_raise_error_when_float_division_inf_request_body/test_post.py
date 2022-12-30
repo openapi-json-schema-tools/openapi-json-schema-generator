@@ -42,7 +42,7 @@ class TestRequestBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfR
                 1.0E308
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_oapg(
+                body = post.request_body.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_(
                     payload,
                     _configuration=self._configuration
                 )
@@ -55,7 +55,7 @@ class TestRequestBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfR
             payload = (
                 123456789
             )
-            body = post.request_body.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_oapg(
+            body = post.request_body.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

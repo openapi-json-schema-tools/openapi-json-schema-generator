@@ -22,7 +22,7 @@ class TestAllofSimpleTypes(unittest.TestCase):
 
     def test_valid_passes(self):
         # valid
-        AllofSimpleTypes.from_openapi_data_oapg(
+        AllofSimpleTypes.from_openapi_data_(
             25,
             _configuration=self._configuration
         )
@@ -30,7 +30,7 @@ class TestAllofSimpleTypes(unittest.TestCase):
     def test_mismatch_one_fails(self):
         # mismatch one
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofSimpleTypes.from_openapi_data_oapg(
+            AllofSimpleTypes.from_openapi_data_(
                 35,
                 _configuration=self._configuration
             )

@@ -22,7 +22,7 @@ class TestOneofComplexTypes(unittest.TestCase):
 
     def test_first_oneof_valid_complex_passes(self):
         # first oneOf valid (complex)
-        OneofComplexTypes.from_openapi_data_oapg(
+        OneofComplexTypes.from_openapi_data_(
             {
                 "bar":
                     2,
@@ -33,7 +33,7 @@ class TestOneofComplexTypes(unittest.TestCase):
     def test_neither_oneof_valid_complex_fails(self):
         # neither oneOf valid (complex)
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofComplexTypes.from_openapi_data_oapg(
+            OneofComplexTypes.from_openapi_data_(
                 {
                     "foo":
                         2,
@@ -46,7 +46,7 @@ class TestOneofComplexTypes(unittest.TestCase):
     def test_both_oneof_valid_complex_fails(self):
         # both oneOf valid (complex)
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofComplexTypes.from_openapi_data_oapg(
+            OneofComplexTypes.from_openapi_data_(
                 {
                     "foo":
                         "baz",
@@ -58,7 +58,7 @@ class TestOneofComplexTypes(unittest.TestCase):
 
     def test_second_oneof_valid_complex_passes(self):
         # second oneOf valid (complex)
-        OneofComplexTypes.from_openapi_data_oapg(
+        OneofComplexTypes.from_openapi_data_(
             {
                 "foo":
                     "baz",

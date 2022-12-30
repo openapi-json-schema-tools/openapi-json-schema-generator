@@ -48,7 +48,7 @@ class TestRequestBodyPostAdditionalpropertiesAreAllowedByDefaultRequestBody(ApiT
                         True,
                 }
             )
-            body = post.request_body.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.from_openapi_data_oapg(
+            body = post.request_body.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

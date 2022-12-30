@@ -22,7 +22,7 @@ class TestEmailFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
-        EmailFormat.from_openapi_data_oapg(
+        EmailFormat.from_openapi_data_(
             {
             },
             _configuration=self._configuration
@@ -30,28 +30,28 @@ class TestEmailFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
-        EmailFormat.from_openapi_data_oapg(
+        EmailFormat.from_openapi_data_(
             False,
             _configuration=self._configuration
         )
 
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
-        EmailFormat.from_openapi_data_oapg(
+        EmailFormat.from_openapi_data_(
             12,
             _configuration=self._configuration
         )
 
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
-        EmailFormat.from_openapi_data_oapg(
+        EmailFormat.from_openapi_data_(
             13.7,
             _configuration=self._configuration
         )
 
     def test_all_string_formats_ignore_arrays_passes(self):
         # all string formats ignore arrays
-        EmailFormat.from_openapi_data_oapg(
+        EmailFormat.from_openapi_data_(
             [
             ],
             _configuration=self._configuration
@@ -59,7 +59,7 @@ class TestEmailFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
-        EmailFormat.from_openapi_data_oapg(
+        EmailFormat.from_openapi_data_(
             None,
             _configuration=self._configuration
         )

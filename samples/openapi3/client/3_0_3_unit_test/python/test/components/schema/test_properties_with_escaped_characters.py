@@ -22,7 +22,7 @@ class TestPropertiesWithEscapedCharacters(unittest.TestCase):
 
     def test_object_with_all_numbers_is_valid_passes(self):
         # object with all numbers is valid
-        PropertiesWithEscapedCharacters.from_openapi_data_oapg(
+        PropertiesWithEscapedCharacters.from_openapi_data_(
             {
                 "foo\nbar":
                     1,
@@ -43,7 +43,7 @@ class TestPropertiesWithEscapedCharacters(unittest.TestCase):
     def test_object_with_strings_is_invalid_fails(self):
         # object with strings is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            PropertiesWithEscapedCharacters.from_openapi_data_oapg(
+            PropertiesWithEscapedCharacters.from_openapi_data_(
                 {
                     "foo\nbar":
                         "1",

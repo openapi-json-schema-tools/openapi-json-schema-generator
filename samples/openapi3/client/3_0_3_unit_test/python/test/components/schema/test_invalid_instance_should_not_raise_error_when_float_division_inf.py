@@ -23,14 +23,14 @@ class TestInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(unittest.TestCa
     def test_always_invalid_but_naive_implementations_may_raise_an_overflow_error_fails(self):
         # always invalid, but naive implementations may raise an overflow error
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_oapg(
+            InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_(
                 1.0E308,
                 _configuration=self._configuration
             )
 
     def test_valid_integer_with_multipleof_float_passes(self):
         # valid integer with multipleOf float
-        InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_oapg(
+        InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.from_openapi_data_(
             123456789,
             _configuration=self._configuration
         )

@@ -23,14 +23,14 @@ class TestOneofWithEmptySchema(unittest.TestCase):
     def test_both_valid_invalid_fails(self):
         # both valid - invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofWithEmptySchema.from_openapi_data_oapg(
+            OneofWithEmptySchema.from_openapi_data_(
                 123,
                 _configuration=self._configuration
             )
 
     def test_one_valid_valid_passes(self):
         # one valid - valid
-        OneofWithEmptySchema.from_openapi_data_oapg(
+        OneofWithEmptySchema.from_openapi_data_(
             "foo",
             _configuration=self._configuration
         )

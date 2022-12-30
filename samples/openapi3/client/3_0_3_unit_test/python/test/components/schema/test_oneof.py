@@ -22,7 +22,7 @@ class TestOneof(unittest.TestCase):
 
     def test_second_oneof_valid_passes(self):
         # second oneOf valid
-        Oneof.from_openapi_data_oapg(
+        Oneof.from_openapi_data_(
             2.5,
             _configuration=self._configuration
         )
@@ -30,14 +30,14 @@ class TestOneof(unittest.TestCase):
     def test_both_oneof_valid_fails(self):
         # both oneOf valid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Oneof.from_openapi_data_oapg(
+            Oneof.from_openapi_data_(
                 3,
                 _configuration=self._configuration
             )
 
     def test_first_oneof_valid_passes(self):
         # first oneOf valid
-        Oneof.from_openapi_data_oapg(
+        Oneof.from_openapi_data_(
             1,
             _configuration=self._configuration
         )
@@ -45,7 +45,7 @@ class TestOneof(unittest.TestCase):
     def test_neither_oneof_valid_fails(self):
         # neither oneOf valid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Oneof.from_openapi_data_oapg(
+            Oneof.from_openapi_data_(
                 1.5,
                 _configuration=self._configuration
             )

@@ -64,7 +64,7 @@ class TestResponseBodyPostRefInPropertyResponseBodyForContentTypes(ApiTestMixin,
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_oapg(
+            deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
                 _configuration=self._configuration
             )

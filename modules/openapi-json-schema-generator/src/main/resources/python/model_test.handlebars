@@ -19,7 +19,7 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
 {{#if valid}}
-        {{name.getCamelCaseName}}.from_openapi_data_oapg(
+        {{name.getCamelCaseName}}.from_openapi_data_(
 {{#with data}}
             {{> model_templates/payload_renderer endChar=',' }}
 {{/with}}
@@ -27,7 +27,7 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            {{name.getCamelCaseName}}.from_openapi_data_oapg(
+            {{name.getCamelCaseName}}.from_openapi_data_(
 {{#with data}}
                 {{> model_templates/payload_renderer endChar=','}}
 {{/with}}

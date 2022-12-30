@@ -38,8 +38,8 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
             '!reference': (4, 5)
         }
         assert inst == primitive_data
-        # from_openapi_data_oapg works
-        inst = ObjectWithInvalidNamedRefedProperties.from_openapi_data_oapg(primitive_data)
+        # from_openapi_data_ works
+        inst = ObjectWithInvalidNamedRefedProperties.from_openapi_data_(primitive_data)
         assert inst == primitive_data
 
     def test_omitting_required_properties_fails(self):
@@ -60,13 +60,13 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
                 }
             )
         with self.assertRaises(petstore_api.exceptions.ApiTypeError):
-            ObjectWithInvalidNamedRefedProperties.from_openapi_data_oapg(
+            ObjectWithInvalidNamedRefedProperties.from_openapi_data_(
                 {
                     'from': {'data': 'abc', 'id': 1},
                 }
             )
         with self.assertRaises(petstore_api.exceptions.ApiTypeError):
-            ObjectWithInvalidNamedRefedProperties.from_openapi_data_oapg(
+            ObjectWithInvalidNamedRefedProperties.from_openapi_data_(
                 {
                     '!reference': [4, 5]
                 }

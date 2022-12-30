@@ -670,12 +670,12 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return schema.from_openapi_data_oapg(extracted_data)
+                return schema.from_openapi_data_(extracted_data)
         # cls.content will be length one
         for content_type, schema in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data = json.loads(in_data)
-                return schema.from_openapi_data_oapg(cast_in_data)
+                return schema.from_openapi_data_(cast_in_data)
             raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
 
 
@@ -923,7 +923,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
                 content_type = 'multipart/form-data'
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
-            deserialized_body = body_schema.from_openapi_data_oapg(
+            deserialized_body = body_schema.from_openapi_data_(
                 body_data, _configuration=configuration)
         elif streamed:
             response.release_conn()

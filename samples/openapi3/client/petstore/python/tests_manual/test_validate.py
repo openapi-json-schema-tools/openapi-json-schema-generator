@@ -150,7 +150,7 @@ class TestValidateCalls(unittest.TestCase):
         with patch.object(
             Schema, "_validate_oapg", return_value=return_value
         ) as mock_validate:
-            ArrayHoldingAnyType.from_openapi_data_oapg([])
+            ArrayHoldingAnyType.from_openapi_data_([])
             assert mock_validate.call_count == 1
 
     def test_empty_dict_validate(self):
@@ -164,7 +164,7 @@ class TestValidateCalls(unittest.TestCase):
         with patch.object(
             Schema, "_validate_oapg", return_value=return_value
         ) as mock_validate:
-            Foo.from_openapi_data_oapg({})
+            Foo.from_openapi_data_({})
             assert mock_validate.call_count == 1
 
     def test_list_validate_direct_instantiation(self):
@@ -226,7 +226,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                ArrayWithValidationsInItems.from_openapi_data_oapg([7], _configuration=used_configuration)
+                ArrayWithValidationsInItems.from_openapi_data_([7], _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
                     validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
@@ -289,7 +289,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=Bar._validate_oapg,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                Foo.from_openapi_data_oapg({"bar": "a"}, _configuration=used_configuration)
+                Foo.from_openapi_data_({"bar": "a"}, _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
