@@ -739,7 +739,7 @@ public class DefaultGeneratorTest {
 
             // Generated file should contain our custom packageName
             TestUtils.assertFileContains(apiClient.toPath(),
-                    "from io.something import rest"
+                    "from io.something import exceptions, rest, schemas"
               );
         } finally {
             output.delete();
