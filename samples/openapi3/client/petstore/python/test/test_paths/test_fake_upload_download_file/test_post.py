@@ -23,10 +23,10 @@ class TestFakeUploadDownloadFile(ApiTestMixin, unittest.TestCase):
     FakeUploadDownloadFile unit test stubs
         uploads a file and downloads a file using application/octet-stream  # noqa: E501
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):

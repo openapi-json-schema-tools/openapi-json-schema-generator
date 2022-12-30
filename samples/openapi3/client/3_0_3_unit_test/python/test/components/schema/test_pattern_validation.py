@@ -18,65 +18,65 @@ from unit_test_api import configuration
 
 class TestPatternValidation(unittest.TestCase):
     """PatternValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             [
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_objects_passes(self):
         # ignores objects
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_null_passes(self):
         # ignores null
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             None,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_floats_passes(self):
         # ignores floats
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             1.0,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_a_non_matching_pattern_is_invalid_fails(self):
         # a non-matching pattern is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            PatternValidation.from_openapi_data_oapg(
+            PatternValidation.from_openapi_data_(
                 "abc",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_ignores_booleans_passes(self):
         # ignores booleans
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             True,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_a_matching_pattern_is_valid_passes(self):
         # a matching pattern is valid
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             "aaa",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_integers_passes(self):
         # ignores integers
-        PatternValidation.from_openapi_data_oapg(
+        PatternValidation.from_openapi_data_(
             123,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

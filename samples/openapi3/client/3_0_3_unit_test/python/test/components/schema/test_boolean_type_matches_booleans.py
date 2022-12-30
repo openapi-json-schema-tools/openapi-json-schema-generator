@@ -18,86 +18,86 @@ from unit_test_api import configuration
 
 class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     """BooleanTypeMatchesBooleans unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_an_empty_string_is_not_a_boolean_fails(self):
         # an empty string is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 "",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_a_float_is_not_a_boolean_fails(self):
         # a float is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 1.1,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_null_is_not_a_boolean_fails(self):
         # null is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 None,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_zero_is_not_a_boolean_fails(self):
         # zero is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 0,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_array_is_not_a_boolean_fails(self):
         # an array is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 [
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_a_string_is_not_a_boolean_fails(self):
         # a string is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 "foo",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_false_is_a_boolean_passes(self):
         # false is a boolean
-        BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+        BooleanTypeMatchesBooleans.from_openapi_data_(
             False,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_an_integer_is_not_a_boolean_fails(self):
         # an integer is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 1,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_true_is_a_boolean_passes(self):
         # true is a boolean
-        BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+        BooleanTypeMatchesBooleans.from_openapi_data_(
             True,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_an_object_is_not_a_boolean_fails(self):
         # an object is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans.from_openapi_data_oapg(
+            BooleanTypeMatchesBooleans.from_openapi_data_(
                 {
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

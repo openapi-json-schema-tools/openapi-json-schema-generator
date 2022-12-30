@@ -36,7 +36,7 @@ default_response = response_for_default.Default
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _create_user_oapg(
+    def _create_user(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _create_user_oapg(
+    def _create_user(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: str = ...,
@@ -61,7 +61,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _create_user_oapg(
+    def _create_user(
         self,
         body: typing.Union[request_body.user.User,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _create_user_oapg(
+    def _create_user(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: str = ...,
@@ -83,7 +83,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _create_user_oapg(
+    def _create_user(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: str = 'application/json',
@@ -197,7 +197,7 @@ class CreateUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._create_user_oapg(
+        return self._create_user(
             body=body,
             content_type=content_type,
             stream=stream,
@@ -265,7 +265,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._create_user_oapg(
+        return self._create_user(
             body=body,
             content_type=content_type,
             stream=stream,

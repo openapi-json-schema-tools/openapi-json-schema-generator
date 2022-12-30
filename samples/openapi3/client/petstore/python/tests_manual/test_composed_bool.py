@@ -33,11 +33,11 @@ class TestComposedBool(unittest.TestCase):
                 model = ComposedBool(value)
                 if value is True:
                     self.assertTrue(bool(model))
-                    self.assertTrue(model.is_true_oapg())
-                    self.assertFalse(model.is_false_oapg())
+                    self.assertTrue(model.is_true_())
+                    self.assertFalse(model.is_false_())
                 else:
-                    self.assertTrue(model.is_false_oapg())
-                    self.assertFalse(model.is_true_oapg())
+                    self.assertTrue(model.is_false_())
+                    self.assertFalse(model.is_true_())
                     self.assertFalse(bool(model))
                 continue
             with self.assertRaises(petstore_api.ApiTypeError):

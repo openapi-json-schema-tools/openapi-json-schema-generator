@@ -28,7 +28,7 @@ class Schema(
 ):
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }

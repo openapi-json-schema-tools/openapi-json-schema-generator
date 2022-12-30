@@ -18,12 +18,12 @@ from unit_test_api import configuration
 
 class TestMaxpropertiesValidation(unittest.TestCase):
     """MaxpropertiesValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_too_long_is_invalid_fails(self):
         # too long is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MaxpropertiesValidation.from_openapi_data_oapg(
+            MaxpropertiesValidation.from_openapi_data_(
                 {
                     "foo":
                         1,
@@ -32,54 +32,54 @@ class TestMaxpropertiesValidation(unittest.TestCase):
                     "baz":
                         3,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        MaxpropertiesValidation.from_openapi_data_oapg(
+        MaxpropertiesValidation.from_openapi_data_(
             [
                 1,
                 2,
                 3,
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
-        MaxpropertiesValidation.from_openapi_data_oapg(
+        MaxpropertiesValidation.from_openapi_data_(
             12,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_strings_passes(self):
         # ignores strings
-        MaxpropertiesValidation.from_openapi_data_oapg(
+        MaxpropertiesValidation.from_openapi_data_(
             "foobar",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_shorter_is_valid_passes(self):
         # shorter is valid
-        MaxpropertiesValidation.from_openapi_data_oapg(
+        MaxpropertiesValidation.from_openapi_data_(
             {
                 "foo":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        MaxpropertiesValidation.from_openapi_data_oapg(
+        MaxpropertiesValidation.from_openapi_data_(
             {
                 "foo":
                     1,
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

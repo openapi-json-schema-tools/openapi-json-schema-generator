@@ -35,7 +35,7 @@ class ObjectWithDifficultlyNamedProps(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "123-list",
@@ -53,13 +53,13 @@ class ObjectWithDifficultlyNamedProps(
     
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> MetaOapg.Properties._123List: ...
+    def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> Schema_.Properties._123List: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> MetaOapg.Properties.SpecialPropertyName: ...
+    def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> Schema_.Properties.SpecialPropertyName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> MetaOapg.Properties._123Number: ...
+    def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> Schema_.Properties._123Number: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -77,18 +77,18 @@ class ObjectWithDifficultlyNamedProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["123-list"]) -> MetaOapg.Properties._123List: ...
+    def get_item_(self, name: typing_extensions.Literal["123-list"]) -> Schema_.Properties._123List: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["$special[property.name]"]) -> typing.Union[MetaOapg.Properties.SpecialPropertyName, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["$special[property.name]"]) -> typing.Union[Schema_.Properties.SpecialPropertyName, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["123Number"]) -> typing.Union[MetaOapg.Properties._123Number, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["123Number"]) -> typing.Union[Schema_.Properties._123Number, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["123-list"],
@@ -97,17 +97,17 @@ class ObjectWithDifficultlyNamedProps(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ObjectWithDifficultlyNamedProps':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
             **kwargs,
         )

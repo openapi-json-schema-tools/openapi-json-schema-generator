@@ -33,7 +33,7 @@ class BooleanEnum(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.BoolClass,
         }

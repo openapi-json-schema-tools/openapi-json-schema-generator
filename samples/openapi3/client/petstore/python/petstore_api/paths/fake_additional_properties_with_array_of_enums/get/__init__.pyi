@@ -35,7 +35,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _additional_properties_with_array_of_enums_oapg(
+    def _additional_properties_with_array_of_enums(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
         body: typing.Union[request_body.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums, schemas.Unset] = schemas.unset,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _additional_properties_with_array_of_enums_oapg(
+    def _additional_properties_with_array_of_enums(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums, schemas.Unset] = schemas.unset,
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _additional_properties_with_array_of_enums_oapg(
+    def _additional_properties_with_array_of_enums(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -73,7 +73,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _additional_properties_with_array_of_enums_oapg(
+    def _additional_properties_with_array_of_enums(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums, schemas.Unset] = schemas.unset,
@@ -86,7 +86,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _additional_properties_with_array_of_enums_oapg(
+    def _additional_properties_with_array_of_enums(
         self,
         content_type: str = 'application/json',
         body: typing.Union[request_body.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums, schemas.Unset] = schemas.unset,
@@ -214,7 +214,7 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._additional_properties_with_array_of_enums_oapg(
+        return self._additional_properties_with_array_of_enums(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
@@ -288,7 +288,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._additional_properties_with_array_of_enums_oapg(
+        return self._additional_properties_with_array_of_enums(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,

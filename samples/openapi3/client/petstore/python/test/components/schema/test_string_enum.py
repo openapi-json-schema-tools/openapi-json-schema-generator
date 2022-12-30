@@ -18,7 +18,7 @@ from petstore_api import configuration
 
 class TestStringEnum(unittest.TestCase):
     """StringEnum unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
 
 if __name__ == '__main__':

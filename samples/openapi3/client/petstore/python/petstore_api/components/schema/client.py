@@ -33,7 +33,7 @@ class Client(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:
@@ -43,7 +43,7 @@ class Client(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["client"]) -> MetaOapg.Properties.Client: ...
+    def __getitem__(self, name: typing_extensions.Literal["client"]) -> Schema_.Properties.Client: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -59,31 +59,31 @@ class Client(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["client"]) -> typing.Union[MetaOapg.Properties.Client, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["client"]) -> typing.Union[Schema_.Properties.Client, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["client"],
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        client: typing.Union[MetaOapg.Properties.Client, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        client: typing.Union[Schema_.Properties.Client, str, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Client':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             client=client,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

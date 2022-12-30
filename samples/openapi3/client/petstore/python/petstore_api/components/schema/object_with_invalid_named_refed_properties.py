@@ -33,7 +33,7 @@ class ObjectWithInvalidNamedRefedProperties(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "!reference",
@@ -76,15 +76,15 @@ class ObjectWithInvalidNamedRefedProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
+    def get_item_(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
+    def get_item_(self, name: typing_extensions.Literal["from"]) -> 'from_schema.FromSchema': ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["!reference"],
@@ -92,18 +92,18 @@ class ObjectWithInvalidNamedRefedProperties(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ObjectWithInvalidNamedRefedProperties':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
             **kwargs,
         )
 

@@ -33,7 +33,7 @@ class RefInItems(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {tuple}
         
         @staticmethod
@@ -42,13 +42,13 @@ class RefInItems(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference'], typing.List['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        arg_: typing.Union[typing.Tuple['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference'], typing.List['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference']],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'RefInItems':
         return super().__new__(
             cls,
-            _arg,
-            _configuration=_configuration,
+            arg_,
+            configuration_=configuration_,
         )
 
     def __getitem__(self, i: int) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':

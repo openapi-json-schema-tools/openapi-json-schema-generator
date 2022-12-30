@@ -18,51 +18,51 @@ from unit_test_api import configuration
 
 class TestAnyofComplexTypes(unittest.TestCase):
     """AnyofComplexTypes unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_second_anyof_valid_complex_passes(self):
         # second anyOf valid (complex)
-        AnyofComplexTypes.from_openapi_data_oapg(
+        AnyofComplexTypes.from_openapi_data_(
             {
                 "foo":
                     "baz",
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_neither_anyof_valid_complex_fails(self):
         # neither anyOf valid (complex)
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AnyofComplexTypes.from_openapi_data_oapg(
+            AnyofComplexTypes.from_openapi_data_(
                 {
                     "foo":
                         2,
                     "bar":
                         "quux",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_both_anyof_valid_complex_passes(self):
         # both anyOf valid (complex)
-        AnyofComplexTypes.from_openapi_data_oapg(
+        AnyofComplexTypes.from_openapi_data_(
             {
                 "foo":
                     "baz",
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_first_anyof_valid_complex_passes(self):
         # first anyOf valid (complex)
-        AnyofComplexTypes.from_openapi_data_oapg(
+        AnyofComplexTypes.from_openapi_data_(
             {
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

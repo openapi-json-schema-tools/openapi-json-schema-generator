@@ -18,42 +18,42 @@ from unit_test_api import configuration
 
 class TestMaxlengthValidation(unittest.TestCase):
     """MaxlengthValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_too_long_is_invalid_fails(self):
         # too long is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MaxlengthValidation.from_openapi_data_oapg(
+            MaxlengthValidation.from_openapi_data_(
                 "foo",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_ignores_non_strings_passes(self):
         # ignores non-strings
-        MaxlengthValidation.from_openapi_data_oapg(
+        MaxlengthValidation.from_openapi_data_(
             100,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_shorter_is_valid_passes(self):
         # shorter is valid
-        MaxlengthValidation.from_openapi_data_oapg(
+        MaxlengthValidation.from_openapi_data_(
             "f",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_two_supplementary_unicode_code_points_is_long_enough_passes(self):
         # two supplementary Unicode code points is long enough
-        MaxlengthValidation.from_openapi_data_oapg(
+        MaxlengthValidation.from_openapi_data_(
             "💩💩",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        MaxlengthValidation.from_openapi_data_oapg(
+        MaxlengthValidation.from_openapi_data_(
             "fo",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

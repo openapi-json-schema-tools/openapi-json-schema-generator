@@ -18,11 +18,11 @@ from unit_test_api import configuration
 
 class TestRefInProperty(unittest.TestCase):
     """RefInProperty unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
-        RefInProperty.from_openapi_data_oapg(
+        RefInProperty.from_openapi_data_(
             {
                 "a":
                     {
@@ -30,13 +30,13 @@ class TestRefInProperty(unittest.TestCase):
                             "a",
                     },
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            RefInProperty.from_openapi_data_oapg(
+            RefInProperty.from_openapi_data_(
                 {
                     "a":
                         {
@@ -44,7 +44,7 @@ class TestRefInProperty(unittest.TestCase):
                                 2,
                         },
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

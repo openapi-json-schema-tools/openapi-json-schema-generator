@@ -34,7 +34,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _foo_get_oapg(
+    def _foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -45,7 +45,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _foo_get_oapg(
+    def _foo_get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -54,7 +54,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _foo_get_oapg(
+    def _foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _foo_get_oapg(
+    def _foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -150,7 +150,7 @@ class FooGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._foo_get_oapg(
+        return self._foo_get(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
@@ -200,7 +200,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._foo_get_oapg(
+        return self._foo_get(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,

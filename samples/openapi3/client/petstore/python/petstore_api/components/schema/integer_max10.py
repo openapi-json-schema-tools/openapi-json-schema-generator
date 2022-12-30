@@ -33,7 +33,7 @@ class IntegerMax10(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

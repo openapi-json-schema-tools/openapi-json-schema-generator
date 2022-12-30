@@ -33,7 +33,7 @@ class RequiredWithEscapedCharacters(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         required = {
             "foo\tbar",
@@ -83,27 +83,27 @@ class RequiredWithEscapedCharacters(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\nbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\nbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\fbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\fbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\rbar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\rbar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\"bar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\"bar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\bar"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\\bar"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["foo\tbar"],
@@ -115,17 +115,17 @@ class RequiredWithEscapedCharacters(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'RequiredWithEscapedCharacters':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
             **kwargs,
         )

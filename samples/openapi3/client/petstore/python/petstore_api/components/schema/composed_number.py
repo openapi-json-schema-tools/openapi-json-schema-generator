@@ -33,7 +33,7 @@ class ComposedNumber(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }
@@ -47,11 +47,11 @@ class ComposedNumber(
 
     def __new__(
         cls,
-        *_args: typing.Union[decimal.Decimal, int, float, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[decimal.Decimal, int, float, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedNumber':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
         )

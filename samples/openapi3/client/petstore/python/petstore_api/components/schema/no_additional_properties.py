@@ -33,7 +33,7 @@ class NoAdditionalProperties(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "id",
@@ -48,13 +48,13 @@ class NoAdditionalProperties(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    id: MetaOapg.Properties.Id
+    id: Schema_.Properties.Id
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> MetaOapg.Properties.PetId: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> Schema_.Properties.PetId: ...
     
     def __getitem__(
         self,
@@ -67,31 +67,31 @@ class NoAdditionalProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
+    def get_item_(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["petId"]) -> typing.Union[MetaOapg.Properties.PetId, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["petId"]) -> typing.Union[Schema_.Properties.PetId, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["id"],
             typing_extensions.Literal["petId"],
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, ],
-        petId: typing.Union[MetaOapg.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, ],
+        petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'NoAdditionalProperties':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             id=id,
             petId=petId,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )

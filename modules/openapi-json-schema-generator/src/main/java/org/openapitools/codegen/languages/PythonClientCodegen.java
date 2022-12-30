@@ -26,7 +26,7 @@ import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.servers.Server;
 
 import org.apache.commons.io.FileUtils;
-import org.openapitools.codegen.JsonSchema;
+import org.openapitools.codegen.OpenApiSchema;
 import org.openapitools.codegen.api.TemplatePathLocator;
 import org.openapitools.codegen.config.GlobalSettings;
 import org.openapitools.codegen.ignore.CodegenIgnoreProcessor;
@@ -540,7 +540,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     they are not.
      */
     @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath, String currentJsonPath){
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath){
         setAddProps(schema, property, sourceJsonPath, currentJsonPath);
         if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
             // if anyType schema has properties then add them

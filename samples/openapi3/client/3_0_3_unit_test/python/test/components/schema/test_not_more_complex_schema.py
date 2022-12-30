@@ -18,34 +18,34 @@ from unit_test_api import configuration
 
 class TestNotMoreComplexSchema(unittest.TestCase):
     """NotMoreComplexSchema unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_other_match_passes(self):
         # other match
-        NotMoreComplexSchema.from_openapi_data_oapg(
+        NotMoreComplexSchema.from_openapi_data_(
             {
                 "foo":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_mismatch_fails(self):
         # mismatch
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NotMoreComplexSchema.from_openapi_data_oapg(
+            NotMoreComplexSchema.from_openapi_data_(
                 {
                     "foo":
                         "bar",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_match_passes(self):
         # match
-        NotMoreComplexSchema.from_openapi_data_oapg(
+        NotMoreComplexSchema.from_openapi_data_(
             1,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

@@ -35,7 +35,7 @@ class HealthCheckResult(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             
@@ -48,7 +48,7 @@ class HealthCheckResult(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         schemas.NoneClass,
                         str,
@@ -57,20 +57,20 @@ class HealthCheckResult(
             
                 def __new__(
                     cls,
-                    *_args: typing.Union[None, str, ],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    *args_: typing.Union[None, str, ],
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'NullableMessage':
                     return super().__new__(
                         cls,
-                        *_args,
-                        _configuration=_configuration,
+                        *args_,
+                        configuration_=configuration_,
                     )
             __annotations__ = {
                 "NullableMessage": NullableMessage,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> MetaOapg.Properties.NullableMessage: ...
+    def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> Schema_.Properties.NullableMessage: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -86,31 +86,31 @@ class HealthCheckResult(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["NullableMessage"]) -> typing.Union[MetaOapg.Properties.NullableMessage, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["NullableMessage"]) -> typing.Union[Schema_.Properties.NullableMessage, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["NullableMessage"],
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        NullableMessage: typing.Union[MetaOapg.Properties.NullableMessage, None, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        NullableMessage: typing.Union[Schema_.Properties.NullableMessage, None, str, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'HealthCheckResult':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             NullableMessage=NullableMessage,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

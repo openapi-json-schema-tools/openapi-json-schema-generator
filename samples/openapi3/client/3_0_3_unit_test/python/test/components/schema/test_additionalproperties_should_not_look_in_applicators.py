@@ -18,31 +18,31 @@ from unit_test_api import configuration
 
 class TestAdditionalpropertiesShouldNotLookInApplicators(unittest.TestCase):
     """AdditionalpropertiesShouldNotLookInApplicators unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_properties_defined_in_allof_are_not_examined_fails(self):
         # properties defined in allOf are not examined
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AdditionalpropertiesShouldNotLookInApplicators.from_openapi_data_oapg(
+            AdditionalpropertiesShouldNotLookInApplicators.from_openapi_data_(
                 {
                     "foo":
                         1,
                     "bar":
                         True,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_valid_test_case_passes(self):
         # valid test case
-        AdditionalpropertiesShouldNotLookInApplicators.from_openapi_data_oapg(
+        AdditionalpropertiesShouldNotLookInApplicators.from_openapi_data_(
             {
                 "foo":
                     False,
                 "bar":
                     True,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

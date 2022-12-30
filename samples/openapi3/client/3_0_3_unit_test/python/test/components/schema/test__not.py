@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class Test_Not(unittest.TestCase):
     """_Not unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_allowed_passes(self):
         # allowed
-        _Not.from_openapi_data_oapg(
+        _Not.from_openapi_data_(
             "foo",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_disallowed_fails(self):
         # disallowed
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            _Not.from_openapi_data_oapg(
+            _Not.from_openapi_data_(
                 1,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

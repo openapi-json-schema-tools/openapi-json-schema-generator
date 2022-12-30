@@ -33,7 +33,7 @@ class IntegerEnumBig(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

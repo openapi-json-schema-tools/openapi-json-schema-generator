@@ -33,23 +33,23 @@ class ReqPropsFromTrueAddProps(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "invalid-name",
             "validName",
         }
         AdditionalProperties = schemas.AnyTypeSchema
     
-    validName: MetaOapg.AdditionalProperties
+    validName: Schema_.AdditionalProperties
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> Schema_.AdditionalProperties: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> Schema_.AdditionalProperties: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -63,15 +63,15 @@ class ReqPropsFromTrueAddProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> MetaOapg.AdditionalProperties: ...
+    def get_item_(self, name: typing_extensions.Literal["invalid-name"]) -> Schema_.AdditionalProperties: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["validName"]) -> MetaOapg.AdditionalProperties: ...
+    def get_item_(self, name: typing_extensions.Literal["validName"]) -> Schema_.AdditionalProperties: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[Schema_.AdditionalProperties, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["invalid-name"],
@@ -79,19 +79,19 @@ class ReqPropsFromTrueAddProps(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        validName: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        validName: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
     ) -> 'ReqPropsFromTrueAddProps':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             validName=validName,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

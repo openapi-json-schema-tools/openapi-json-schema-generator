@@ -33,7 +33,7 @@ class PropertiesWithEscapedCharacters(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class Properties:
@@ -54,22 +54,22 @@ class PropertiesWithEscapedCharacters(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> MetaOapg.Properties.FooNbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> Schema_.Properties.FooNbar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> MetaOapg.Properties.FooBar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> Schema_.Properties.FooBar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> MetaOapg.Properties.FooBar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> Schema_.Properties.FooBar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> MetaOapg.Properties.FooRbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> Schema_.Properties.FooRbar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> MetaOapg.Properties.FooTbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> Schema_.Properties.FooTbar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> MetaOapg.Properties.FooFbar: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> Schema_.Properties.FooFbar: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -90,27 +90,27 @@ class PropertiesWithEscapedCharacters(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\nbar"]) -> typing.Union[MetaOapg.Properties.FooNbar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\nbar"]) -> typing.Union[Schema_.Properties.FooNbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\"bar"]) -> typing.Union[MetaOapg.Properties.FooBar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\"bar"]) -> typing.Union[Schema_.Properties.FooBar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\\bar"]) -> typing.Union[MetaOapg.Properties.FooBar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\\bar"]) -> typing.Union[Schema_.Properties.FooBar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\rbar"]) -> typing.Union[MetaOapg.Properties.FooRbar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\rbar"]) -> typing.Union[Schema_.Properties.FooRbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\tbar"]) -> typing.Union[MetaOapg.Properties.FooTbar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\tbar"]) -> typing.Union[Schema_.Properties.FooTbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["foo\fbar"]) -> typing.Union[MetaOapg.Properties.FooFbar, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["foo\fbar"]) -> typing.Union[Schema_.Properties.FooFbar, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["foo\nbar"],
@@ -122,17 +122,17 @@ class PropertiesWithEscapedCharacters(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'PropertiesWithEscapedCharacters':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
             **kwargs,
         )

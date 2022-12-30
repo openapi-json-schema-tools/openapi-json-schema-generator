@@ -33,7 +33,7 @@ class ChildCat(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class AllOf:
@@ -48,7 +48,7 @@ class ChildCat(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {frozendict.frozendict}
                     
                     class Properties:
@@ -58,7 +58,7 @@ class ChildCat(
                         }
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+                def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
                 
                 @typing.overload
                 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -74,32 +74,32 @@ class ChildCat(
                     return super().__getitem__(name)
                 
                 @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
+                def get_item_(self, name: typing_extensions.Literal["name"]) -> typing.Union[Schema_.Properties.Name, schemas.Unset]: ...
                 
                 @typing.overload
-                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+                def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
                 
-                def get_item_oapg(
+                def get_item_(
                     self,
                     name: typing.Union[
                         typing_extensions.Literal["name"],
                         str
                     ]
                 ):
-                    return super().get_item_oapg(name)
+                    return super().get_item_(name)
             
                 def __new__(
                     cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, ],
-                    name: typing.Union[MetaOapg.Properties.Name, str, schemas.Unset] = schemas.unset,
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':
                     return super().__new__(
                         cls,
-                        *_args,
+                        *args_,
                         name=name,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                         **kwargs,
                     )
             classes = [
@@ -110,14 +110,14 @@ class ChildCat(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ChildCat':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
             **kwargs,
         )
 

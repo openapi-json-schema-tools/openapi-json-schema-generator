@@ -33,7 +33,7 @@ class StringEnumWithDefaultValue(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }

@@ -33,7 +33,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         
@@ -42,7 +42,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         ):
         
         
-            class MetaOapg:
+            class Schema_:
                 types = {tuple}
                 
                 @staticmethod
@@ -51,35 +51,35 @@ class AdditionalPropertiesWithArrayOfEnums(
         
             def __new__(
                 cls,
-                _arg: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
-                _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                arg_: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
+                configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
             ) -> 'AdditionalProperties':
                 return super().__new__(
                     cls,
-                    _arg,
-                    _configuration=_configuration,
+                    arg_,
+                    configuration_=configuration_,
                 )
         
             def __getitem__(self, i: int) -> 'enum_class.EnumClass':
                 return super().__getitem__(i)
     
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties:
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_oapg(self, name: str) -> MetaOapg.AdditionalProperties:
-        return super().get_item_oapg(name)
+    def get_item_(self, name: str) -> Schema_.AdditionalProperties:
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, list, tuple, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        **kwargs: typing.Union[Schema_.AdditionalProperties, list, tuple, ],
     ) -> 'AdditionalPropertiesWithArrayOfEnums':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
             **kwargs,
         )
 

@@ -35,7 +35,7 @@ class _200Response(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         
         class Properties:
@@ -48,10 +48,10 @@ class _200Response(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.Properties.Name: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["class"]) -> MetaOapg.Properties._Class: ...
+    def __getitem__(self, name: typing_extensions.Literal["class"]) -> Schema_.Properties._Class: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -68,15 +68,15 @@ class _200Response(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.Properties.Name, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["name"]) -> typing.Union[Schema_.Properties.Name, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["class"]) -> typing.Union[MetaOapg.Properties._Class, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["class"]) -> typing.Union[Schema_.Properties._Class, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["name"],
@@ -84,19 +84,19 @@ class _200Response(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        name: typing.Union[MetaOapg.Properties.Name, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        name: typing.Union[Schema_.Properties.Name, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> '_200Response':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             name=name,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

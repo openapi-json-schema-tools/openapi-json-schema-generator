@@ -18,53 +18,53 @@ from unit_test_api import configuration
 
 class TestAllof(unittest.TestCase):
     """Allof unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_allof_passes(self):
         # allOf
-        Allof.from_openapi_data_oapg(
+        Allof.from_openapi_data_(
             {
                 "foo":
                     "baz",
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_mismatch_first_fails(self):
         # mismatch first
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Allof.from_openapi_data_oapg(
+            Allof.from_openapi_data_(
                 {
                     "bar":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_second_fails(self):
         # mismatch second
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Allof.from_openapi_data_oapg(
+            Allof.from_openapi_data_(
                 {
                     "foo":
                         "baz",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_wrong_type_fails(self):
         # wrong type
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Allof.from_openapi_data_oapg(
+            Allof.from_openapi_data_(
                 {
                     "foo":
                         "baz",
                     "bar":
                         "quux",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

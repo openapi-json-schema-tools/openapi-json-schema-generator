@@ -18,28 +18,28 @@ from unit_test_api import configuration
 
 class TestByNumber(unittest.TestCase):
     """ByNumber unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5
-        ByNumber.from_openapi_data_oapg(
+        ByNumber.from_openapi_data_(
             4.5,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_35_is_not_multiple_of15_fails(self):
         # 35 is not multiple of 1.5
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ByNumber.from_openapi_data_oapg(
+            ByNumber.from_openapi_data_(
                 35,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_zero_is_multiple_of_anything_passes(self):
         # zero is multiple of anything
-        ByNumber.from_openapi_data_oapg(
+        ByNumber.from_openapi_data_(
             0,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

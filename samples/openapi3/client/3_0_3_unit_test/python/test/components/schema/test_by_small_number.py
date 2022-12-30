@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class TestBySmallNumber(unittest.TestCase):
     """BySmallNumber unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_000751_is_not_multiple_of00001_fails(self):
         # 0.00751 is not multiple of 0.0001
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BySmallNumber.from_openapi_data_oapg(
+            BySmallNumber.from_openapi_data_(
                 0.00751,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_00075_is_multiple_of00001_passes(self):
         # 0.0075 is multiple of 0.0001
-        BySmallNumber.from_openapi_data_oapg(
+        BySmallNumber.from_openapi_data_(
             0.0075,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

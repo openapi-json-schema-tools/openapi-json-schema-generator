@@ -33,7 +33,7 @@ class EnumWithEscapedCharacters(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }

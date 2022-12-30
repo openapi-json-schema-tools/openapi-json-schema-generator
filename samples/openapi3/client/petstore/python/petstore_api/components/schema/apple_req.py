@@ -33,7 +33,7 @@ class AppleReq(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "cultivar",
@@ -48,13 +48,13 @@ class AppleReq(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    cultivar: MetaOapg.Properties.Cultivar
+    cultivar: Schema_.Properties.Cultivar
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> MetaOapg.Properties.Mealy: ...
+    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> Schema_.Properties.Mealy: ...
     
     def __getitem__(
         self,
@@ -67,31 +67,31 @@ class AppleReq(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["cultivar"]) -> MetaOapg.Properties.Cultivar: ...
+    def get_item_(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["mealy"]) -> typing.Union[MetaOapg.Properties.Mealy, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["mealy"]) -> typing.Union[Schema_.Properties.Mealy, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["cultivar"],
             typing_extensions.Literal["mealy"],
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        cultivar: typing.Union[MetaOapg.Properties.Cultivar, str, ],
-        mealy: typing.Union[MetaOapg.Properties.Mealy, bool, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        cultivar: typing.Union[Schema_.Properties.Cultivar, str, ],
+        mealy: typing.Union[Schema_.Properties.Mealy, bool, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'AppleReq':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             cultivar=cultivar,
             mealy=mealy,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )

@@ -18,11 +18,11 @@ from unit_test_api import configuration
 
 class TestNestedItems(unittest.TestCase):
     """NestedItems unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_valid_nested_array_passes(self):
         # valid nested array
-        NestedItems.from_openapi_data_oapg(
+        NestedItems.from_openapi_data_(
             [
                 [
                     [
@@ -53,13 +53,13 @@ class TestNestedItems(unittest.TestCase):
                     ],
                 ],
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_nested_array_with_invalid_type_fails(self):
         # nested array with invalid type
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NestedItems.from_openapi_data_oapg(
+            NestedItems.from_openapi_data_(
                 [
                     [
                         [
@@ -90,13 +90,13 @@ class TestNestedItems(unittest.TestCase):
                         ],
                     ],
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_not_deep_enough_fails(self):
         # not deep enough
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NestedItems.from_openapi_data_oapg(
+            NestedItems.from_openapi_data_(
                 [
                     [
                         [
@@ -121,7 +121,7 @@ class TestNestedItems(unittest.TestCase):
                         ],
                     ],
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

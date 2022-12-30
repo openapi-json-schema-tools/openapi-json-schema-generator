@@ -33,7 +33,7 @@ class Drawing(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         
         class Properties:
@@ -56,7 +56,7 @@ class Drawing(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     
                     @staticmethod
@@ -65,13 +65,13 @@ class Drawing(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['shape.Shape'], typing.List['shape.Shape']],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    arg_: typing.Union[typing.Tuple['shape.Shape'], typing.List['shape.Shape']],
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Shapes':
                     return super().__new__(
                         cls,
-                        _arg,
-                        _configuration=_configuration,
+                        arg_,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> 'shape.Shape':
@@ -97,7 +97,7 @@ class Drawing(
     def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> 'nullable_shape.NullableShape': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> MetaOapg.Properties.Shapes: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> Schema_.Properties.Shapes: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> 'fruit.Fruit': ...
@@ -116,21 +116,21 @@ class Drawing(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["mainShape"]) -> typing.Union['shape.Shape', schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["mainShape"]) -> typing.Union['shape.Shape', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shapeOrNull"]) -> typing.Union['shape_or_null.ShapeOrNull', schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["shapeOrNull"]) -> typing.Union['shape_or_null.ShapeOrNull', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['nullable_shape.NullableShape', schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['nullable_shape.NullableShape', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[MetaOapg.Properties.Shapes, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[Schema_.Properties.Shapes, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["mainShape"],
@@ -140,26 +140,26 @@ class Drawing(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         mainShape: typing.Union['shape.Shape', schemas.Unset] = schemas.unset,
         shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
-        shapes: typing.Union[MetaOapg.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        shapes: typing.Union[Schema_.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: 'fruit.Fruit',
     ) -> 'Drawing':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             mainShape=mainShape,
             shapeOrNull=shapeOrNull,
             nullableShape=nullableShape,
             shapes=shapes,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

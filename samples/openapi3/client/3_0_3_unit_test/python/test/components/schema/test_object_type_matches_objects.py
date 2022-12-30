@@ -18,63 +18,63 @@ from unit_test_api import configuration
 
 class TestObjectTypeMatchesObjects(unittest.TestCase):
     """ObjectTypeMatchesObjects unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_a_float_is_not_an_object_fails(self):
         # a float is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects.from_openapi_data_oapg(
+            ObjectTypeMatchesObjects.from_openapi_data_(
                 1.1,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_null_is_not_an_object_fails(self):
         # null is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects.from_openapi_data_oapg(
+            ObjectTypeMatchesObjects.from_openapi_data_(
                 None,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_array_is_not_an_object_fails(self):
         # an array is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects.from_openapi_data_oapg(
+            ObjectTypeMatchesObjects.from_openapi_data_(
                 [
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_object_is_an_object_passes(self):
         # an object is an object
-        ObjectTypeMatchesObjects.from_openapi_data_oapg(
+        ObjectTypeMatchesObjects.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_a_string_is_not_an_object_fails(self):
         # a string is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects.from_openapi_data_oapg(
+            ObjectTypeMatchesObjects.from_openapi_data_(
                 "foo",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_integer_is_not_an_object_fails(self):
         # an integer is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects.from_openapi_data_oapg(
+            ObjectTypeMatchesObjects.from_openapi_data_(
                 1,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_a_boolean_is_not_an_object_fails(self):
         # a boolean is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects.from_openapi_data_oapg(
+            ObjectTypeMatchesObjects.from_openapi_data_(
                 True,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 
