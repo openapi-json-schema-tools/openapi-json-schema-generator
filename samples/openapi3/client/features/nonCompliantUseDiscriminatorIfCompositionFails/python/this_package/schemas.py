@@ -1290,7 +1290,7 @@ class Schema:
         2. value is an instance of the correct schema type
             the value is NOT validated by _validate, _validate only checks that the instance is of the correct schema type
             for this value, _validate does NOT return an entry for it in _path_to_schemas
-            and in list/dict _get_items,_get_properties_oapg the value will be directly assigned
+            and in list/dict _get_items,_get_properties the value will be directly assigned
             because value is of the correct type, and validation was run earlier when the instance was created
         """
         _path_to_schemas = {}
@@ -1349,7 +1349,7 @@ class Schema:
     ):
         # We have a Dynamic class and we are making an instance of it
         if issubclass(cls, frozendict.frozendict) and issubclass(cls, DictBase):
-            properties = cls._get_properties_oapg(arg, path_to_item, path_to_schemas)
+            properties = cls._get_properties(arg, path_to_item, path_to_schemas)
             return super(Schema, cls).__new__(cls, properties)
         elif issubclass(cls, tuple) and issubclass(cls, ListBase):
             items = cls._get_items(arg, path_to_item, path_to_schemas)
@@ -1960,14 +1960,14 @@ class ListBase:
 
 class DictBase:
     @classmethod
-    def _get_properties_oapg(
+    def _get_properties(
         cls,
         arg: typing.Dict[str, typing.Any],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
     ):
         """
-        DictBase _get_properties_oapg, this is how properties are set
+        DictBase _get_properties, this is how properties are set
         These values already passed validation
         """
         dict_items = {}
