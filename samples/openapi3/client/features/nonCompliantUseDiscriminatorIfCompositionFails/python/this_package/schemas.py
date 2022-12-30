@@ -326,7 +326,7 @@ def validate_enum(
     return None
 
 
-def _raise_validation_error_message_oapg(value, constraint_msg, constraint_value, path_to_item, additional_txt=""):
+def _raise_validation_error_message(value, constraint_msg, constraint_value, path_to_item, additional_txt=""):
     raise exceptions.ApiValueError(
         "Invalid value `{value}`, {constraint_msg} `{constraint_value}`{additional_txt} at {path_to_item}".format(
             value=value,
@@ -348,7 +348,7 @@ def validate_unique_items(
     if not unique_items_value or not isinstance(arg, tuple):
         return None
     if len(arg) > len(set(arg)):
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="duplicate items were found, and the tuple must not contain duplicates because",
             constraint_value='unique_items==True',
@@ -367,7 +367,7 @@ def validate_min_items(
     if not isinstance(arg, tuple):
         return None
     if len(arg) < min_items:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="number of items must be greater than or equal to",
             constraint_value=min_items,
@@ -386,7 +386,7 @@ def validate_max_items(
     if not isinstance(arg, tuple):
         return None
     if len(arg) > max_items:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="number of items must be less than or equal to",
             constraint_value=max_items,
@@ -405,7 +405,7 @@ def validate_min_properties(
     if not isinstance(arg, frozendict.frozendict):
         return None
     if len(arg) < min_properties:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="number of properties must be greater than or equal to",
             constraint_value=min_properties,
@@ -424,7 +424,7 @@ def validate_max_properties(
     if not isinstance(arg, frozendict.frozendict):
         return None
     if len(arg) > max_properties:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="number of properties must be less than or equal to",
             constraint_value=max_properties,
@@ -443,7 +443,7 @@ def validate_min_length(
     if not isinstance(arg, str):
         return None
     if len(arg) < min_length:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="length must be greater than or equal to",
             constraint_value=min_length,
@@ -462,7 +462,7 @@ def validate_max_length(
     if not isinstance(arg, str):
         return None
     if len(arg) > max_length:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="length must be less than or equal to",
             constraint_value=max_length,
@@ -481,7 +481,7 @@ def validate_inclusive_minimum(
     if not isinstance(arg, decimal.Decimal):
         return None
     if arg < inclusive_minimum:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="must be a value greater than or equal to",
             constraint_value=inclusive_minimum,
@@ -500,7 +500,7 @@ def validate_exclusive_minimum(
     if not isinstance(arg, decimal.Decimal):
         return None
     if arg <= exclusive_minimum:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="must be a value greater than",
             constraint_value=exclusive_minimum,
@@ -519,7 +519,7 @@ def validate_inclusive_maximum(
     if not isinstance(arg, decimal.Decimal):
         return None
     if arg > inclusive_maximum:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="must be a value less than or equal to",
             constraint_value=inclusive_maximum,
@@ -538,7 +538,7 @@ def validate_exclusive_maximum(
     if not isinstance(arg, decimal.Decimal):
         return None
     if arg >= exclusive_minimum:
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="must be a value less than",
             constraint_value=exclusive_maximum,
@@ -557,7 +557,7 @@ def validate_multiple_of(
         return None
     if (not (float(arg) / multiple_of).is_integer()):
         # Note 'multipleOf' will be as good as the floating point arithmetic.
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="value must be a multiple of",
             constraint_value=multiple_of,
@@ -580,14 +580,14 @@ def validate_regex(
         if flags != 0:
             # Don't print the regex flags if the flags are not
             # specified in the OAS document.
-            _raise_validation_error_message_oapg(
+            _raise_validation_error_message(
                 value=arg,
                 constraint_msg="must match regular expression",
                 constraint_value=regex_dict['pattern'],
                 path_to_item=validation_metadata.path_to_item,
                 additional_txt=" with flags=`{}`".format(flags)
             )
-        _raise_validation_error_message_oapg(
+        _raise_validation_error_message(
             value=arg,
             constraint_msg="must match regular expression",
             constraint_value=regex_dict['pattern'],
