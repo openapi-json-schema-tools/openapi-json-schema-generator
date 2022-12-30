@@ -33,7 +33,7 @@ class EnumWithFalseDoesNotMatch0(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.BoolClass,
         }

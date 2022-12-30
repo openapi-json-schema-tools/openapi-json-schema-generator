@@ -22,7 +22,7 @@ class TestAdditionalPropertiesClass(unittest.TestCase):
         inst = AdditionalPropertiesClass({})
         with self.assertRaises(KeyError):
             inst["map_property"]
-        assert inst.get_item_oapg("map_property") is schemas.unset
+        assert inst.get_item_("map_property") is schemas.unset
         with self.assertRaises(AttributeError):
             inst.map_property
 

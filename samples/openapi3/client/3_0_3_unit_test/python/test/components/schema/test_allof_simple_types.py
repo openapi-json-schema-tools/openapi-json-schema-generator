@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class TestAllofSimpleTypes(unittest.TestCase):
     """AllofSimpleTypes unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_valid_passes(self):
         # valid
-        AllofSimpleTypes.from_openapi_data_oapg(
+        AllofSimpleTypes.from_openapi_data_(
             25,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_mismatch_one_fails(self):
         # mismatch one
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofSimpleTypes.from_openapi_data_oapg(
+            AllofSimpleTypes.from_openapi_data_(
                 35,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

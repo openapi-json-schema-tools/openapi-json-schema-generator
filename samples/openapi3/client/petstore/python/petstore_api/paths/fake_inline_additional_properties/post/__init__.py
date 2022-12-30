@@ -44,7 +44,7 @@ _status_code_to_response = __StatusCodeToResponse({
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _inline_additional_properties_oapg(
+    def _inline_additional_properties(
         self,
         body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -56,7 +56,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _inline_additional_properties_oapg(
+    def _inline_additional_properties(
         self,
         body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -69,7 +69,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _inline_additional_properties_oapg(
+    def _inline_additional_properties(
         self,
         body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -79,7 +79,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _inline_additional_properties_oapg(
+    def _inline_additional_properties(
         self,
         body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _inline_additional_properties_oapg(
+    def _inline_additional_properties(
         self,
         body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
@@ -212,7 +212,7 @@ class InlineAdditionalProperties(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._inline_additional_properties_oapg(
+        return self._inline_additional_properties(
             body=body,
             content_type=content_type,
             stream=stream,
@@ -280,7 +280,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._inline_additional_properties_oapg(
+        return self._inline_additional_properties(
             body=body,
             content_type=content_type,
             stream=stream,

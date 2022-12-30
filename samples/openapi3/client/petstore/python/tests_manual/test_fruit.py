@@ -51,7 +51,7 @@ class TestFruit(unittest.TestCase):
         # with a key
         with self.assertRaises(KeyError):
             assert fruit['cultivar']
-        assert fruit.get_item_oapg('cultivar') is schemas.unset
+        assert fruit.get_item_('cultivar') is schemas.unset
 
         """
         including extra parameters does not raise an exception
@@ -64,7 +64,7 @@ class TestFruit(unittest.TestCase):
             additional_date='2021-01-02',
         )
 
-        fruit = Fruit.from_openapi_data_oapg(kwargs)
+        fruit = Fruit.from_openapi_data_(kwargs)
         self.assertEqual(
             fruit,
             kwargs
@@ -105,7 +105,7 @@ class TestFruit(unittest.TestCase):
         fruit = apple.Apple(None)
         assert isinstance(fruit, schemas.Singleton)
         assert isinstance(fruit, apple.Apple)
-        assert fruit.is_none_oapg() is True
+        assert fruit.is_none_() is True
 
         # 'banana' is not nullable.
         # TODO cast this into ApiTypeError?
@@ -118,7 +118,7 @@ class TestFruit(unittest.TestCase):
         assert isinstance(fruit, schemas.Singleton)
         assert isinstance(fruit, apple.Apple)
         assert isinstance(fruit, Fruit)
-        assert fruit.is_none_oapg() is True
+        assert fruit.is_none_() is True
 
 
 if __name__ == '__main__':

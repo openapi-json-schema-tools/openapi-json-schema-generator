@@ -46,7 +46,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _fake_health_get_oapg(
+    def _fake_health_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _fake_health_get_oapg(
+    def _fake_health_get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -66,7 +66,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _fake_health_get_oapg(
+    def _fake_health_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _fake_health_get_oapg(
+    def _fake_health_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -170,7 +170,7 @@ class FakeHealthGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._fake_health_get_oapg(
+        return self._fake_health_get(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
@@ -220,7 +220,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._fake_health_get_oapg(
+        return self._fake_health_get(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,

@@ -33,7 +33,7 @@ class ObjectWithOptionalTestProp(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             Test = schemas.StrSchema
@@ -42,7 +42,7 @@ class ObjectWithOptionalTestProp(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["test"]) -> MetaOapg.Properties.Test: ...
+    def __getitem__(self, name: typing_extensions.Literal["test"]) -> Schema_.Properties.Test: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -58,31 +58,31 @@ class ObjectWithOptionalTestProp(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["test"]) -> typing.Union[MetaOapg.Properties.Test, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["test"]) -> typing.Union[Schema_.Properties.Test, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["test"],
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        test: typing.Union[MetaOapg.Properties.Test, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        test: typing.Union[Schema_.Properties.Test, str, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ObjectWithOptionalTestProp':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             test=test,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

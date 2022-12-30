@@ -63,7 +63,7 @@ class RequestQueryParameters:
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _inline_composition_oapg(
+    def _inline_composition(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _inline_composition_oapg(
+    def _inline_composition(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"],
         body: typing.Union[request_body.multipart_form_data.MultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _inline_composition_oapg(
+    def _inline_composition(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.multipart_form_data.MultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -106,7 +106,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _inline_composition_oapg(
+    def _inline_composition(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -118,7 +118,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _inline_composition_oapg(
+    def _inline_composition(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.multipart_form_data.MultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -132,7 +132,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _inline_composition_oapg(
+    def _inline_composition(
         self,
         content_type: str = 'application/json',
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.multipart_form_data.MultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -148,7 +148,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
+        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
         used_path = path
 
         prefix_separator_iterator = None
@@ -292,7 +292,7 @@ class InlineComposition(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._inline_composition_oapg(
+        return self._inline_composition(
             body=body,
             query_params=query_params,
             content_type=content_type,
@@ -386,7 +386,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._inline_composition_oapg(
+        return self._inline_composition(
             body=body,
             query_params=query_params,
             content_type=content_type,

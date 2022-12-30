@@ -670,12 +670,12 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return schema.from_openapi_data_oapg(extracted_data)
+                return schema.from_openapi_data_(extracted_data)
         # cls.content will be length one
         for content_type, schema in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data = json.loads(in_data)
-                return schema.from_openapi_data_oapg(cast_in_data)
+                return schema.from_openapi_data_(cast_in_data)
             raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
 
 
@@ -753,7 +753,7 @@ class ApiResponseWithoutDeserialization(ApiResponse):
 
 class TypedDictInputVerifier:
     @staticmethod
-    def _verify_typed_dict_inputs_oapg(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
+    def _verify_typed_dict_inputs(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
         """
         Ensures that:
         - required keys are present
@@ -890,7 +890,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
 
         deserialized_headers = schemas.unset
         if cls.headers is not None:
-            cls._verify_typed_dict_inputs_oapg(cls.response_cls.headers, response.headers)
+            cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
             deserialized_headers = {}
             for header_name, header_param in self.headers.items():
                 header_value = response.getheader(header_name)
@@ -923,8 +923,8 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
                 content_type = 'multipart/form-data'
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
-            deserialized_body = body_schema.from_openapi_data_oapg(
-                body_data, _configuration=configuration)
+            deserialized_body = body_schema.from_openapi_data_(
+                body_data, configuration_=configuration)
         elif streamed:
             response.release_conn()
 
@@ -1259,7 +1259,7 @@ class Api(TypedDictInputVerifier):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def _get_host_oapg(
+    def _get_host(
         self,
         operation_id: str,
         servers: typing.Tuple[typing.Dict[str, str], ...] = tuple(),

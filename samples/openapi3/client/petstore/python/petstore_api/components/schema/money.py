@@ -33,7 +33,7 @@ class Money(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "amount",
@@ -51,11 +51,11 @@ class Money(
                 "currency": currency,
             }
     
-    amount: MetaOapg.Properties.Amount
+    amount: Schema_.Properties.Amount
     currency: 'currency.Currency'
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.Properties.Amount: ...
+    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
@@ -75,15 +75,15 @@ class Money(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["amount"]) -> MetaOapg.Properties.Amount: ...
+    def get_item_(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
+    def get_item_(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["amount"],
@@ -91,22 +91,22 @@ class Money(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        amount: typing.Union[MetaOapg.Properties.Amount, str, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        amount: typing.Union[Schema_.Properties.Amount, str, ],
         currency: 'currency.Currency',
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Money':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             amount=amount,
             currency=currency,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

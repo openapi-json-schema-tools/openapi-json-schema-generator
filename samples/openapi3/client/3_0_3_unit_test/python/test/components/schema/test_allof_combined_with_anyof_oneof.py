@@ -18,69 +18,69 @@ from unit_test_api import configuration
 
 class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     """AllofCombinedWithAnyofOneof unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_allof_true_anyof_false_oneof_false_fails(self):
         # allOf: true, anyOf: false, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 2,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_allof_false_anyof_false_oneof_true_fails(self):
         # allOf: false, anyOf: false, oneOf: true
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 5,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_allof_false_anyof_true_oneof_true_fails(self):
         # allOf: false, anyOf: true, oneOf: true
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 15,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_allof_true_anyof_true_oneof_false_fails(self):
         # allOf: true, anyOf: true, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 6,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_allof_true_anyof_true_oneof_true_passes(self):
         # allOf: true, anyOf: true, oneOf: true
-        AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+        AllofCombinedWithAnyofOneof.from_openapi_data_(
             30,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_allof_true_anyof_false_oneof_true_fails(self):
         # allOf: true, anyOf: false, oneOf: true
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 10,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_allof_false_anyof_true_oneof_false_fails(self):
         # allOf: false, anyOf: true, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 3,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_allof_false_anyof_false_oneof_false_fails(self):
         # allOf: false, anyOf: false, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof.from_openapi_data_oapg(
+            AllofCombinedWithAnyofOneof.from_openapi_data_(
                 1,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

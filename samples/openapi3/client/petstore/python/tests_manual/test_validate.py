@@ -39,36 +39,36 @@ from petstore_api.schemas import (
 class TestValidateResults(unittest.TestCase):
     def test_str_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = StringWithValidation._validate_oapg(
+        path_to_schemas = StringWithValidation._validate(
             "abcdefg", validation_metadata=vm
         )
         assert path_to_schemas == {("args[0]",): {StringWithValidation, str}}
 
     def test_number_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = NumberWithValidations._validate_oapg(
+        path_to_schemas = NumberWithValidations._validate(
             Decimal(11), validation_metadata=vm
         )
         assert path_to_schemas == {("args[0]",): {NumberWithValidations, Decimal}}
 
     def test_str_enum_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = StringEnum._validate_oapg("placed", validation_metadata=vm)
+        path_to_schemas = StringEnum._validate("placed", validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {str, StringEnum}}
 
     def test_nullable_enum_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = StringEnum._validate_oapg(NoneClass.NONE, validation_metadata=vm)
+        path_to_schemas = StringEnum._validate(NoneClass.NONE, validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {NoneClass, StringEnum}}
 
     def test_empty_list_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = ArrayHoldingAnyType._validate_oapg((), validation_metadata=vm)
+        path_to_schemas = ArrayHoldingAnyType._validate((), validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {ArrayHoldingAnyType, tuple}}
 
     def test_list_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = ArrayHoldingAnyType._validate_oapg(
+        path_to_schemas = ArrayHoldingAnyType._validate(
             (Decimal(1), "a"), validation_metadata=vm
         )
         assert path_to_schemas == {
@@ -79,12 +79,12 @@ class TestValidateResults(unittest.TestCase):
 
     def test_empty_dict_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = Foo._validate_oapg(frozendict.frozendict({}), validation_metadata=vm)
+        path_to_schemas = Foo._validate(frozendict.frozendict({}), validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {Foo, frozendict.frozendict}}
 
     def test_dict_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = Foo._validate_oapg(
+        path_to_schemas = Foo._validate(
             frozendict.frozendict({"bar": "a", "additional": Decimal(0)}),
             validation_metadata=vm,
         )
@@ -95,45 +95,45 @@ class TestValidateResults(unittest.TestCase):
 
     def test_discriminated_dict_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = Animal._validate_oapg(
+        path_to_schemas = Animal._validate(
             frozendict.frozendict(className="Dog", color="black"), validation_metadata=vm
         )
         for schema_classes in path_to_schemas.values():
-            Animal._process_schema_classes_oapg(schema_classes)
+            Animal._process_schema_classes(schema_classes)
         assert path_to_schemas == {
-            ("args[0]",): {Animal, Dog, Dog.MetaOapg.AllOf.classes[1], frozendict.frozendict},
+            ("args[0]",): {Animal, Dog, Dog.Schema_.AllOf.classes[1], frozendict.frozendict},
             ("args[0]", "className"): {StrSchema, str},
             ("args[0]", "color"): {StrSchema, str},
         }
 
     def test_bool_enum_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = BooleanEnum._validate_oapg(BoolClass.TRUE, validation_metadata=vm)
+        path_to_schemas = BooleanEnum._validate(BoolClass.TRUE, validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {BoolClass, BooleanEnum}}
 
     def test_oneof_composition_pig_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = Pig._validate_oapg(
+        path_to_schemas = Pig._validate(
             frozendict.frozendict(className="DanishPig"), validation_metadata=vm
         )
         for schema_classes in path_to_schemas.values():
-            Pig._process_schema_classes_oapg(schema_classes)
+            Pig._process_schema_classes(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {Pig, DanishPig, frozendict.frozendict},
-            ("args[0]", "className"): {DanishPig.MetaOapg.Properties.ClassName, str},
+            ("args[0]", "className"): {DanishPig.Schema_.Properties.ClassName, str},
         }
 
     def test_anyof_composition_gm_fruit_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
-        path_to_schemas = GmFruit._validate_oapg(
+        path_to_schemas = GmFruit._validate(
             frozendict.frozendict(cultivar="GoldenDelicious", lengthCm=Decimal(10)),
             validation_metadata=vm,
         )
         for schema_classes in path_to_schemas.values():
-            GmFruit._process_schema_classes_oapg(schema_classes)
+            GmFruit._process_schema_classes(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {GmFruit, Apple, Banana, frozendict.frozendict},
-            ("args[0]", "cultivar"): {Apple.MetaOapg.Properties.Cultivar, str},
+            ("args[0]", "cultivar"): {Apple.Schema_.Properties.Cultivar, str},
             ("args[0]", "lengthCm"): {NumberSchema, Decimal},
         }
 
@@ -142,44 +142,44 @@ class TestValidateCalls(unittest.TestCase):
     def test_empty_list_validate(self):
         return_value = {("args[0]",): {ArrayHoldingAnyType, tuple}}
         with patch.object(
-            Schema, "_validate_oapg", return_value=return_value
+            Schema, "_validate", return_value=return_value
         ) as mock_validate:
             ArrayHoldingAnyType([])
             assert mock_validate.call_count == 1
 
         with patch.object(
-            Schema, "_validate_oapg", return_value=return_value
+            Schema, "_validate", return_value=return_value
         ) as mock_validate:
-            ArrayHoldingAnyType.from_openapi_data_oapg([])
+            ArrayHoldingAnyType.from_openapi_data_([])
             assert mock_validate.call_count == 1
 
     def test_empty_dict_validate(self):
         return_value = {("args[0]",): {Foo, frozendict.frozendict}}
         with patch.object(
-            Schema, "_validate_oapg", return_value=return_value
+            Schema, "_validate", return_value=return_value
         ) as mock_validate:
             Foo({})
             assert mock_validate.call_count == 1
 
         with patch.object(
-            Schema, "_validate_oapg", return_value=return_value
+            Schema, "_validate", return_value=return_value
         ) as mock_validate:
-            Foo.from_openapi_data_oapg({})
+            Foo.from_openapi_data_({})
             assert mock_validate.call_count == 1
 
     def test_list_validate_direct_instantiation(self):
         with patch.object(
             ArrayWithValidationsInItems,
-            "_validate_oapg",
-            side_effect=ArrayWithValidationsInItems._validate_oapg,
+            "_validate",
+            side_effect=ArrayWithValidationsInItems._validate,
         ) as mock_outer_validate:
             with patch.object(
-                ArrayWithValidationsInItems.MetaOapg.Items,
-                "_validate_oapg",
-                side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
+                ArrayWithValidationsInItems.Schema_.Items,
+                "_validate",
+                side_effect=ArrayWithValidationsInItems.Schema_.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                ArrayWithValidationsInItems([7], _configuration=used_configuration)
+                ArrayWithValidationsInItems([7], configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
                     validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
@@ -191,25 +191,25 @@ class TestValidateCalls(unittest.TestCase):
 
     def test_list_validate_direct_instantiation_cast_item(self):
         # item validation is skipped if items are of the correct type
-        item = ArrayWithValidationsInItems.MetaOapg.Items(7)
+        item = ArrayWithValidationsInItems.Schema_.Items(7)
         with patch.object(
             ArrayWithValidationsInItems,
-            "_validate_oapg",
-            side_effect=ArrayWithValidationsInItems._validate_oapg,
+            "_validate",
+            side_effect=ArrayWithValidationsInItems._validate,
         ) as mock_outer_validate:
             with patch.object(
-                ArrayWithValidationsInItems.MetaOapg.Items,
-                "_validate_oapg",
-                side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
+                ArrayWithValidationsInItems.Schema_.Items,
+                "_validate",
+                side_effect=ArrayWithValidationsInItems.Schema_.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                ArrayWithValidationsInItems([item], _configuration=used_configuration)
+                ArrayWithValidationsInItems([item], configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     tuple([Decimal('7')]),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
                         configuration=used_configuration,
-                        validated_path_to_schemas={('args[0]', 0): {ArrayWithValidationsInItems.MetaOapg.Items, Decimal}}
+                        validated_path_to_schemas={('args[0]', 0): {ArrayWithValidationsInItems.Schema_.Items, Decimal}}
                     )
                 )
                 mock_inner_validate.assert_not_called
@@ -217,16 +217,16 @@ class TestValidateCalls(unittest.TestCase):
     def test_list_validate_from_openai_data_instantiation(self):
         with patch.object(
             ArrayWithValidationsInItems,
-            "_validate_oapg",
-            side_effect=ArrayWithValidationsInItems._validate_oapg,
+            "_validate",
+            side_effect=ArrayWithValidationsInItems._validate,
         ) as mock_outer_validate:
             with patch.object(
-                ArrayWithValidationsInItems.MetaOapg.Items,
-                "_validate_oapg",
-                side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
+                ArrayWithValidationsInItems.Schema_.Items,
+                "_validate",
+                side_effect=ArrayWithValidationsInItems.Schema_.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                ArrayWithValidationsInItems.from_openapi_data_oapg([7], _configuration=used_configuration)
+                ArrayWithValidationsInItems.from_openapi_data_([7], configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
                     validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
@@ -237,14 +237,14 @@ class TestValidateCalls(unittest.TestCase):
                 )
 
     def test_dict_validate_direct_instantiation(self):
-        with patch.object(Foo, "_validate_oapg", side_effect=Foo._validate_oapg) as mock_outer_validate:
+        with patch.object(Foo, "_validate", side_effect=Foo._validate) as mock_outer_validate:
             with patch.object(
                 Bar,
-                "_validate_oapg",
-                side_effect=Bar._validate_oapg,
+                "_validate",
+                side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                Foo(bar="a", _configuration=used_configuration)
+                Foo(bar="a", configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
@@ -263,14 +263,14 @@ class TestValidateCalls(unittest.TestCase):
     def test_dict_validate_direct_instantiation_cast_item(self):
         bar = StrSchema("a")
         # only the Foo dict is validated because the bar property value was already validated
-        with patch.object(Foo, "_validate_oapg", side_effect=Foo._validate_oapg) as mock_outer_validate:
+        with patch.object(Foo, "_validate", side_effect=Foo._validate) as mock_outer_validate:
             with patch.object(
                 Bar,
-                "_validate_oapg",
-                side_effect=Bar._validate_oapg,
+                "_validate",
+                side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                Foo(bar=bar, _configuration=used_configuration)
+                Foo(bar=bar, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(
@@ -282,14 +282,14 @@ class TestValidateCalls(unittest.TestCase):
                 mock_inner_validate.assert_not_called()
 
     def test_dict_validate_from_openapi_data_instantiation(self):
-        with patch.object(Foo, "_validate_oapg", side_effect=Foo._validate_oapg) as mock_outer_validate:
+        with patch.object(Foo, "_validate", side_effect=Foo._validate) as mock_outer_validate:
             with patch.object(
                 Bar,
-                "_validate_oapg",
-                side_effect=Bar._validate_oapg,
+                "_validate",
+                side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = configuration.Configuration()
-                Foo.from_openapi_data_oapg({"bar": "a"}, _configuration=used_configuration)
+                Foo.from_openapi_data_({"bar": "a"}, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(

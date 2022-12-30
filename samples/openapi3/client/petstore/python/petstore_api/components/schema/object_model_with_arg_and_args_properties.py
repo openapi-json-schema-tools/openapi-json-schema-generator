@@ -33,7 +33,7 @@ class ObjectModelWithArgAndArgsProperties(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "arg",
@@ -48,14 +48,14 @@ class ObjectModelWithArgAndArgsProperties(
                 "args": Args,
             }
     
-    arg: MetaOapg.Properties.Arg
-    args: MetaOapg.Properties.Args
+    arg: Schema_.Properties.Arg
+    args: Schema_.Properties.Args
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.Arg: ...
+    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> Schema_.Properties.Arg: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.Args: ...
+    def __getitem__(self, name: typing_extensions.Literal["args"]) -> Schema_.Properties.Args: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -72,15 +72,15 @@ class ObjectModelWithArgAndArgsProperties(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["arg"]) -> MetaOapg.Properties.Arg: ...
+    def get_item_(self, name: typing_extensions.Literal["arg"]) -> Schema_.Properties.Arg: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["args"]) -> MetaOapg.Properties.Args: ...
+    def get_item_(self, name: typing_extensions.Literal["args"]) -> Schema_.Properties.Args: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["arg"],
@@ -88,21 +88,21 @@ class ObjectModelWithArgAndArgsProperties(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        arg: typing.Union[MetaOapg.Properties.Arg, str, ],
-        args: typing.Union[MetaOapg.Properties.Args, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        arg: typing.Union[Schema_.Properties.Arg, str, ],
+        args: typing.Union[Schema_.Properties.Args, str, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ObjectModelWithArgAndArgsProperties':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             arg=arg,
             args=args,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

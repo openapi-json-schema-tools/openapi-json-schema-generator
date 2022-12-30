@@ -18,35 +18,35 @@ from unit_test_api import configuration
 
 class TestAnyof(unittest.TestCase):
     """Anyof unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_second_anyof_valid_passes(self):
         # second anyOf valid
-        Anyof.from_openapi_data_oapg(
+        Anyof.from_openapi_data_(
             2.5,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_neither_anyof_valid_fails(self):
         # neither anyOf valid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Anyof.from_openapi_data_oapg(
+            Anyof.from_openapi_data_(
                 1.5,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_both_anyof_valid_passes(self):
         # both anyOf valid
-        Anyof.from_openapi_data_oapg(
+        Anyof.from_openapi_data_(
             3,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_first_anyof_valid_passes(self):
         # first anyOf valid
-        Anyof.from_openapi_data_oapg(
+        Anyof.from_openapi_data_(
             1,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

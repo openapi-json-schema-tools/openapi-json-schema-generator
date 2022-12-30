@@ -22,10 +22,10 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
     """
     RequestBodyPostIntegerTypeMatchesIntegersRequestBody unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -43,9 +43,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -57,9 +57,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -71,9 +71,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 None
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -84,9 +84,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
             payload = (
                 1.0
             )
-            body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+            body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -98,7 +98,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postIntegerTypeMatchesIntegersRequestBody',
+                self.configuration_.host + '/requestBody/postIntegerTypeMatchesIntegersRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -115,9 +115,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 1.1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -129,9 +129,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 True
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -142,9 +142,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
             payload = (
                 1
             )
-            body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+            body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -156,7 +156,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postIntegerTypeMatchesIntegersRequestBody',
+                self.configuration_.host + '/requestBody/postIntegerTypeMatchesIntegersRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -173,9 +173,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 "1"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -188,9 +188,9 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_oapg(
+                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 

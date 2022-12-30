@@ -18,7 +18,7 @@ from petstore_api import configuration
 
 class TestMammal(unittest.TestCase):
     """Mammal unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
 
 if __name__ == '__main__':

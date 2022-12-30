@@ -32,7 +32,7 @@ from . import request_body
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _json_patch_oapg(
+    def _json_patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
         body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
@@ -44,7 +44,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _json_patch_oapg(
+    def _json_patch(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _json_patch_oapg(
+    def _json_patch(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -67,7 +67,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _json_patch_oapg(
+    def _json_patch(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
@@ -79,7 +79,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _json_patch_oapg(
+    def _json_patch(
         self,
         content_type: str = 'application/json-patch+json',
         body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
@@ -198,7 +198,7 @@ class JsonPatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._json_patch_oapg(
+        return self._json_patch(
             body=body,
             content_type=content_type,
             stream=stream,
@@ -266,7 +266,7 @@ class ApiForpatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._json_patch_oapg(
+        return self._json_patch(
             body=body,
             content_type=content_type,
             stream=stream,

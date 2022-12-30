@@ -81,7 +81,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _get_pet_by_id_oapg(
+    def _get_pet_by_id(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -93,7 +93,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _get_pet_by_id_oapg(
+    def _get_pet_by_id(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -103,7 +103,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _get_pet_by_id_oapg(
+    def _get_pet_by_id(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -115,7 +115,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _get_pet_by_id_oapg(
+    def _get_pet_by_id(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -129,7 +129,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestPathParameters.Params, path_params)
+        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
         used_path = path
 
         _path_params = {}
@@ -228,7 +228,7 @@ class GetPetById(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._get_pet_by_id_oapg(
+        return self._get_pet_by_id(
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -283,7 +283,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._get_pet_by_id_oapg(
+        return self._get_pet_by_id(
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,

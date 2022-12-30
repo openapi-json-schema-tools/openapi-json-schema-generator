@@ -30,7 +30,7 @@ from petstore_api.components.responses import response_success_description_only 
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _logout_user_oapg(
+    def _logout_user(
         self,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -40,7 +40,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _logout_user_oapg(
+    def _logout_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         stream: bool = False,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _logout_user_oapg(
+    def _logout_user(
         self,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _logout_user_oapg(
+    def _logout_user(
         self,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -133,7 +133,7 @@ class LogoutUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._logout_user_oapg(
+        return self._logout_user(
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -178,7 +178,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._logout_user_oapg(
+        return self._logout_user(
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

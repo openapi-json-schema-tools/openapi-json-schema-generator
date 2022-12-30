@@ -33,7 +33,7 @@ class Currency(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }

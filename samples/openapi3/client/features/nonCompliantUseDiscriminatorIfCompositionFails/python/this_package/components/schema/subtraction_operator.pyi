@@ -33,7 +33,7 @@ class SubtractionOperator(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         required = {
             "a",
             "b",
@@ -51,18 +51,18 @@ class SubtractionOperator(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    a: MetaOapg.Properties.A
-    b: MetaOapg.Properties.B
-    operator_id: MetaOapg.Properties.OperatorId
+    a: Schema_.Properties.A
+    b: Schema_.Properties.B
+    operator_id: Schema_.Properties.OperatorId
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
+    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> Schema_.Properties.OperatorId: ...
     
     def __getitem__(
         self,
@@ -76,15 +76,15 @@ class SubtractionOperator(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["a"]) -> MetaOapg.Properties.A: ...
+    def get_item_(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["b"]) -> MetaOapg.Properties.B: ...
+    def get_item_(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["operator_id"]) -> MetaOapg.Properties.OperatorId: ...
+    def get_item_(self, name: typing_extensions.Literal["operator_id"]) -> Schema_.Properties.OperatorId: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["a"],
@@ -92,21 +92,21 @@ class SubtractionOperator(
             typing_extensions.Literal["operator_id"],
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        a: typing.Union[MetaOapg.Properties.A, decimal.Decimal, int, float, ],
-        b: typing.Union[MetaOapg.Properties.B, decimal.Decimal, int, float, ],
-        operator_id: typing.Union[MetaOapg.Properties.OperatorId, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float, ],
+        b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float, ],
+        operator_id: typing.Union[Schema_.Properties.OperatorId, str, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'SubtractionOperator':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             a=a,
             b=b,
             operator_id=operator_id,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )

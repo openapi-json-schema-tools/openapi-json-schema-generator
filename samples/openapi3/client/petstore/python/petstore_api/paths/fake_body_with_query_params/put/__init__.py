@@ -68,7 +68,7 @@ _status_code_to_response = __StatusCodeToResponse({
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _body_with_query_params_oapg(
+    def _body_with_query_params(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -81,7 +81,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _body_with_query_params_oapg(
+    def _body_with_query_params(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: str = ...,
@@ -95,7 +95,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _body_with_query_params_oapg(
+    def _body_with_query_params(
         self,
         body: typing.Union[request_body.user.User,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -106,7 +106,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _body_with_query_params_oapg(
+    def _body_with_query_params(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: str = ...,
@@ -119,7 +119,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _body_with_query_params_oapg(
+    def _body_with_query_params(
         self,
         body: typing.Union[request_body.user.User,],
         content_type: str = 'application/json',
@@ -133,7 +133,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
+        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
         used_path = path
 
         prefix_separator_iterator = None
@@ -257,7 +257,7 @@ class BodyWithQueryParams(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._body_with_query_params_oapg(
+        return self._body_with_query_params(
             body=body,
             query_params=query_params,
             content_type=content_type,
@@ -331,7 +331,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._body_with_query_params_oapg(
+        return self._body_with_query_params(
             body=body,
             query_params=query_params,
             content_type=content_type,

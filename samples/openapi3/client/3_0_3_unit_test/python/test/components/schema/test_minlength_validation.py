@@ -18,43 +18,43 @@ from unit_test_api import configuration
 
 class TestMinlengthValidation(unittest.TestCase):
     """MinlengthValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_too_short_is_invalid_fails(self):
         # too short is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MinlengthValidation.from_openapi_data_oapg(
+            MinlengthValidation.from_openapi_data_(
                 "f",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_one_supplementary_unicode_code_point_is_not_long_enough_fails(self):
         # one supplementary Unicode code point is not long enough
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MinlengthValidation.from_openapi_data_oapg(
+            MinlengthValidation.from_openapi_data_(
                 "💩",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_longer_is_valid_passes(self):
         # longer is valid
-        MinlengthValidation.from_openapi_data_oapg(
+        MinlengthValidation.from_openapi_data_(
             "foo",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_non_strings_passes(self):
         # ignores non-strings
-        MinlengthValidation.from_openapi_data_oapg(
+        MinlengthValidation.from_openapi_data_(
             1,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        MinlengthValidation.from_openapi_data_oapg(
+        MinlengthValidation.from_openapi_data_(
             "fo",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

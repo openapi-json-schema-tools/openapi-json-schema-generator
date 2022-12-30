@@ -27,25 +27,25 @@ Python &gt;&#x3D;3.7
         - ingested None will subclass NoneClass
         - ingested True will subclass BoolClass
         - ingested False will subclass BoolClass
-        - So if you need to check is True/False/None, instead use instance.is_true_oapg()/.is_false_oapg()/.is_none_oapg()
+        - So if you need to check is True/False/None, instead use instance.is_true_()/.is_false_()/.is_none_()
 5. All validated class instances are immutable except for ones based on io.File
     - This is because if properties were changed after validation, that validation would no longer apply
     - So no changing values or property values after a class has been instantiated
 6. String + Number types with formats
     - String type data is stored as a string and if you need to access types based on its format like date,
     date-time, uuid, number etc then you will need to use accessor functions on the instance
-    - type string + format: See .as_date_oapg, .as_datetime_oapg, .as_decimal_oapg, .as_uuid_oapg
-    - type number + format: See .as_float_oapg, .as_int_oapg
+    - type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_
+    - type number + format: See .as_float_, .as_int_
     - this was done because openapi/json-schema defines constraints. string data may be type string with no format
     keyword in one schema, and include a format constraint in another schema
-    - So if you need to access a string format based type, use as_date_oapg/as_datetime_oapg/as_decimal_oapg/as_uuid_oapg
-    - So if you need to access a number format based type, use as_int_oapg/as_float_oapg
+    - So if you need to access a string format based type, use as_date_/as_datetime_/as_decimal_/as_uuid_
+    - So if you need to access a number format based type, use as_int_/as_float_
 7. Property access on AnyType(type unset) or object(dict) schemas
     - Only required keys with valid python names are properties like .someProp and have type hints
     - All optional keys may not exist, so properties are not defined for them
     - One can access optional values with dict_instance['optionalProp'] and KeyError will be raised if it does not exist
-    - Use get_item_oapg if you need a way to always get a value whether or not the key exists
-        - If the key does not exist, schemas.unset is returned from calling dict_instance.get_item_oapg('optionalProp')
+    - Use get_item_ if you need a way to always get a value whether or not the key exists
+        - If the key does not exist, schemas.unset is returned from calling dict_instance.get_item_('optionalProp')
         - All required and optional keys have type hints for this method, and @typing.overload is used
         - A type hint is also generated for additionalProperties accessed using this method
     - So you will need to update you code to use some_instance['optionalProp'] to access optional property
@@ -61,19 +61,18 @@ Python &gt;&#x3D;3.7
     - Those apis will only load their needed models, which is less to load than all of the resources needed in a tag api
     - So you will need to update your import paths to the api classes
 
-### Why are Oapg and _oapg used in class and method names?
+### Why are Leading and Trailing Underscores in class and method names?
 Classes can have arbitrarily named properties set on them
 Endpoints can have arbitrary operationId method names set
-For those reasons, I use the prefix Oapg and _oapg to greatly reduce the likelihood of collisions
+For those reasons, I use the prefix and suffix _ to greatly reduce the likelihood of collisions
 on protected + public classes/methods.
-oapg stands for OpenApi Python Generator.
 
 ### Object property spec case
 This was done because when payloads are ingested, they can be validated against N number of schemas.
 If the input signature used a different property name then that has mutated the payload.
 So SchemaA and SchemaB must both see the camelCase spec named variable.
 Also it is possible to send in two properties, named camelCase and camel_case in the same payload.
-That use case should be support so spec case is used.
+That use case should work, so spec case is used.
 
 ### Parameter spec case
 Parameters can be included in different locations including:

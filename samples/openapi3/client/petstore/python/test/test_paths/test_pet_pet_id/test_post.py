@@ -23,10 +23,10 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
     PetPetId unit test stubs
         Updates a pet in the store with form data  # noqa: E501
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):

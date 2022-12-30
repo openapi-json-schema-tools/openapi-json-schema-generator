@@ -18,22 +18,22 @@ from unit_test_api import configuration
 
 class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase):
     """AdditionalpropertiesAllowsASchemaWhichShouldValidate unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_no_additional_properties_is_valid_passes(self):
         # no additional properties is valid
-        AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_oapg(
+        AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_(
             {
                 "foo":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_oapg(
+            AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_(
                 {
                     "foo":
                         1,
@@ -42,12 +42,12 @@ class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase
                     "quux":
                         12,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
-        AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_oapg(
+        AdditionalpropertiesAllowsASchemaWhichShouldValidate.from_openapi_data_(
             {
                 "foo":
                     1,
@@ -56,7 +56,7 @@ class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase
                 "quux":
                     True,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

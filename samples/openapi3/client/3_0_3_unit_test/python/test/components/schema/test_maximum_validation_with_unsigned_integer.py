@@ -18,35 +18,35 @@ from unit_test_api import configuration
 
 class TestMaximumValidationWithUnsignedInteger(unittest.TestCase):
     """MaximumValidationWithUnsignedInteger unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_below_the_maximum_is_invalid_passes(self):
         # below the maximum is invalid
-        MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
+        MaximumValidationWithUnsignedInteger.from_openapi_data_(
             299.97,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_above_the_maximum_is_invalid_fails(self):
         # above the maximum is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
+            MaximumValidationWithUnsignedInteger.from_openapi_data_(
                 300.5,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_boundary_point_integer_is_valid_passes(self):
         # boundary point integer is valid
-        MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
+        MaximumValidationWithUnsignedInteger.from_openapi_data_(
             300,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_boundary_point_float_is_valid_passes(self):
         # boundary point float is valid
-        MaximumValidationWithUnsignedInteger.from_openapi_data_oapg(
+        MaximumValidationWithUnsignedInteger.from_openapi_data_(
             300.0,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

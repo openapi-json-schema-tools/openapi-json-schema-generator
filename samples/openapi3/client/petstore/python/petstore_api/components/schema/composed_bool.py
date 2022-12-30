@@ -33,7 +33,7 @@ class ComposedBool(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.BoolClass,
         }
@@ -47,11 +47,11 @@ class ComposedBool(
 
     def __new__(
         cls,
-        *_args: typing.Union[bool, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[bool, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedBool':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
         )

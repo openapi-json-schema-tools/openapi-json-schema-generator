@@ -22,10 +22,10 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
     """
     RequestBodyPostAnyofRequestBody unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -41,9 +41,9 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 2.5
             )
-            body = post.request_body.anyof.Anyof.from_openapi_data_oapg(
+            body = post.request_body.anyof.Anyof.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -55,7 +55,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postAnyofRequestBody',
+                self.configuration_.host + '/requestBody/postAnyofRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -72,9 +72,9 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
                 1.5
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.anyof.Anyof.from_openapi_data_oapg(
+                body = post.request_body.anyof.Anyof.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -85,9 +85,9 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 3
             )
-            body = post.request_body.anyof.Anyof.from_openapi_data_oapg(
+            body = post.request_body.anyof.Anyof.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -99,7 +99,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postAnyofRequestBody',
+                self.configuration_.host + '/requestBody/postAnyofRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -115,9 +115,9 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 1
             )
-            body = post.request_body.anyof.Anyof.from_openapi_data_oapg(
+            body = post.request_body.anyof.Anyof.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -129,7 +129,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postAnyofRequestBody',
+                self.configuration_.host + '/requestBody/postAnyofRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,

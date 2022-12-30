@@ -33,7 +33,7 @@ class FromSchema(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             Data = schemas.StrSchema
@@ -44,10 +44,10 @@ class FromSchema(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["data"]) -> MetaOapg.Properties.Data: ...
+    def __getitem__(self, name: typing_extensions.Literal["data"]) -> Schema_.Properties.Data: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.Properties.Id: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -64,15 +64,15 @@ class FromSchema(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["data"]) -> typing.Union[MetaOapg.Properties.Data, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["data"]) -> typing.Union[Schema_.Properties.Data, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.Properties.Id, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["id"]) -> typing.Union[Schema_.Properties.Id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["data"],
@@ -80,21 +80,21 @@ class FromSchema(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        data: typing.Union[MetaOapg.Properties.Data, str, schemas.Unset] = schemas.unset,
-        id: typing.Union[MetaOapg.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        data: typing.Union[Schema_.Properties.Data, str, schemas.Unset] = schemas.unset,
+        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'FromSchema':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             data=data,
             id=id,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

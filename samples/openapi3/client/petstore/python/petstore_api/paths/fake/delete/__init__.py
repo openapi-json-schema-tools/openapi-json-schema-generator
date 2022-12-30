@@ -107,7 +107,7 @@ _status_code_to_response = __StatusCodeToResponse({
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _group_parameters_oapg(
+    def _group_parameters(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -119,7 +119,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _group_parameters_oapg(
+    def _group_parameters(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -129,7 +129,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _group_parameters_oapg(
+    def _group_parameters(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _group_parameters_oapg(
+    def _group_parameters(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -155,8 +155,8 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
-        self._verify_typed_dict_inputs_oapg(RequestHeaderParameters.Params, header_params)
+        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
+        self._verify_typed_dict_inputs(RequestHeaderParameters.Params, header_params)
         used_path = path
 
         prefix_separator_iterator = None
@@ -256,7 +256,7 @@ class GroupParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._group_parameters_oapg(
+        return self._group_parameters(
             query_params=query_params,
             header_params=header_params,
             stream=stream,
@@ -311,7 +311,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._group_parameters_oapg(
+        return self._group_parameters(
             query_params=query_params,
             header_params=header_params,
             stream=stream,

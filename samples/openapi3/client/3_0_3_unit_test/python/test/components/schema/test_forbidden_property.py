@@ -18,31 +18,31 @@ from unit_test_api import configuration
 
 class TestForbiddenProperty(unittest.TestCase):
     """ForbiddenProperty unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_property_present_fails(self):
         # property present
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ForbiddenProperty.from_openapi_data_oapg(
+            ForbiddenProperty.from_openapi_data_(
                 {
                     "foo":
                         1,
                     "bar":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_property_absent_passes(self):
         # property absent
-        ForbiddenProperty.from_openapi_data_oapg(
+        ForbiddenProperty.from_openapi_data_(
             {
                 "bar":
                     1,
                 "baz":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

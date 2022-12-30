@@ -18,24 +18,24 @@ from unit_test_api import configuration
 
 class TestRequiredWithEscapedCharacters(unittest.TestCase):
     """RequiredWithEscapedCharacters unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_object_with_some_properties_missing_is_invalid_fails(self):
         # object with some properties missing is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            RequiredWithEscapedCharacters.from_openapi_data_oapg(
+            RequiredWithEscapedCharacters.from_openapi_data_(
                 {
                     "foo\nbar":
                         "1",
                     "foo\"bar":
                         "1",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_object_with_all_properties_present_is_valid_passes(self):
         # object with all properties present is valid
-        RequiredWithEscapedCharacters.from_openapi_data_oapg(
+        RequiredWithEscapedCharacters.from_openapi_data_(
             {
                 "foo\nbar":
                     1,
@@ -50,7 +50,7 @@ class TestRequiredWithEscapedCharacters(unittest.TestCase):
                 "foo\fbar":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

@@ -33,7 +33,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             
@@ -47,7 +47,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["alpha"]) -> MetaOapg.Properties.Alpha: ...
+    def __getitem__(self, name: typing_extensions.Literal["alpha"]) -> Schema_.Properties.Alpha: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -63,31 +63,31 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["alpha"]) -> typing.Union[MetaOapg.Properties.Alpha, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["alpha"]) -> typing.Union[Schema_.Properties.Alpha, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["alpha"],
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        alpha: typing.Union[MetaOapg.Properties.Alpha, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        alpha: typing.Union[Schema_.Properties.Alpha, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             alpha=alpha,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

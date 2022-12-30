@@ -2211,7 +2211,7 @@ public class DefaultCodegen implements CodegenConfig {
         return packageName + "." + priorJsonPathSegment + "." + componentName;
     }
 
-    protected void setAddProps(Schema schema, JsonSchema property, String sourceJsonPath, String currentJsonPath) {
+    protected void setAddProps(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath) {
         if (schema.getAdditionalProperties() == null) {
             return;
         }
@@ -3905,11 +3905,11 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Add variables (properties) to codegen model (list of properties, various flags, etc)
      *
-     * @param m          Must be an instance of JsonSchema, may be model or property...
+     * @param m          Must be an instance of OpenApiSchema, may be model or property...
      * @param properties a map of properties (schema)
      * @param mandatory  a set of required properties' name
      */
-    protected void addProperties(JsonSchema m, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath, String currentJsonPath) {
+    protected void addProperties(OpenApiSchema m, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath, String currentJsonPath) {
         if (properties == null) {
             return;
         }
@@ -5060,7 +5060,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private void setLocationInfo(String ref, OpenapiComponent instance, String sourceJsonPath, String expectedComponentType) {
+    private void setLocationInfo(String ref, OpenApiComponent instance, String sourceJsonPath, String expectedComponentType) {
         if (ref != null) {
             instance.setRef(ref);
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
@@ -5156,7 +5156,7 @@ public class DefaultCodegen implements CodegenConfig {
         return ck;
     }
 
-    protected void addRequiredProperties(Schema schema, JsonSchema property, String sourceJsonPath, String currentJsonPath) {
+    protected void addRequiredProperties(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath) {
         /*
         this should be called after vars and additionalProperties are set
         Features added by storing codegenProperty values:
@@ -5211,7 +5211,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, JsonSchema property, String sourceJsonPath, String currentJsonPath) {
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath) {
         setAddProps(schema, property, sourceJsonPath, currentJsonPath);
         Set<String> mandatory = schema.getRequired() == null ? Collections.emptySet()
                 : new TreeSet<>(schema.getRequired());
@@ -5609,7 +5609,7 @@ public class DefaultCodegen implements CodegenConfig {
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null
      * This will be used in openapi 3.1.0 spec processing to ensure that Booleans become Schemas
      * Because our generators only understand Schemas
-     * Note: use getIsBooleanSchemaTrue or getIsBooleanSchemaFalse on the JsonSchema
+     * Note: use getIsBooleanSchemaTrue or getIsBooleanSchemaFalse on the OpenApiSchema
      * if you need to be able to detect if the original schema's value was true or false
      *
      * @param schema the input Boolean or Schema data to convert to a Schema

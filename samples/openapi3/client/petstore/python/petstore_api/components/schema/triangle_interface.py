@@ -33,7 +33,7 @@ class TriangleInterface(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         # any type
         required = {
             "shapeType",
@@ -48,7 +48,7 @@ class TriangleInterface(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         str,
                     }
@@ -66,14 +66,14 @@ class TriangleInterface(
             }
 
     
-    shapeType: MetaOapg.Properties.ShapeType
-    triangleType: MetaOapg.Properties.TriangleType
+    shapeType: Schema_.Properties.ShapeType
+    triangleType: Schema_.Properties.TriangleType
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.Properties.ShapeType: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> Schema_.Properties.ShapeType: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> MetaOapg.Properties.TriangleType: ...
+    def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> Schema_.Properties.TriangleType: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -90,15 +90,15 @@ class TriangleInterface(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["shapeType"]) -> MetaOapg.Properties.ShapeType: ...
+    def get_item_(self, name: typing_extensions.Literal["shapeType"]) -> Schema_.Properties.ShapeType: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["triangleType"]) -> MetaOapg.Properties.TriangleType: ...
+    def get_item_(self, name: typing_extensions.Literal["triangleType"]) -> Schema_.Properties.TriangleType: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["shapeType"],
@@ -106,21 +106,21 @@ class TriangleInterface(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        shapeType: typing.Union[MetaOapg.Properties.ShapeType, str, ],
-        triangleType: typing.Union[MetaOapg.Properties.TriangleType, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        shapeType: typing.Union[Schema_.Properties.ShapeType, str, ],
+        triangleType: typing.Union[Schema_.Properties.TriangleType, str, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'TriangleInterface':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             shapeType=shapeType,
             triangleType=triangleType,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

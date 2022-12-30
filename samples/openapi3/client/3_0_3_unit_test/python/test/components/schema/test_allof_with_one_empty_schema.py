@@ -18,13 +18,13 @@ from unit_test_api import configuration
 
 class TestAllofWithOneEmptySchema(unittest.TestCase):
     """AllofWithOneEmptySchema unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_any_data_is_valid_passes(self):
         # any data is valid
-        AllofWithOneEmptySchema.from_openapi_data_oapg(
+        AllofWithOneEmptySchema.from_openapi_data_(
             1,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

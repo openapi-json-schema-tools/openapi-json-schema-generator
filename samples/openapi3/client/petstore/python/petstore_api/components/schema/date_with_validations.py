@@ -33,7 +33,7 @@ class DateWithValidations(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }

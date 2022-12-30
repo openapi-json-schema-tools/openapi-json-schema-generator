@@ -33,7 +33,7 @@ class ComposedString(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             str,
         }
@@ -47,11 +47,11 @@ class ComposedString(
 
     def __new__(
         cls,
-        *_args: typing.Union[str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[str, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedString':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
         )

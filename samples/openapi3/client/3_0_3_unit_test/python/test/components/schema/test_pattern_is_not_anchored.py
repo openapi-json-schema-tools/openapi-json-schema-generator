@@ -18,13 +18,13 @@ from unit_test_api import configuration
 
 class TestPatternIsNotAnchored(unittest.TestCase):
     """PatternIsNotAnchored unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_matches_a_substring_passes(self):
         # matches a substring
-        PatternIsNotAnchored.from_openapi_data_oapg(
+        PatternIsNotAnchored.from_openapi_data_(
             "xxaayy",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

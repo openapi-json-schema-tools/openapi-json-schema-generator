@@ -69,7 +69,7 @@ _status_code_to_response = __StatusCodeToResponse({
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _delete_order_oapg(
+    def _delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def _delete_order_oapg(
+    def _delete_order(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -86,7 +86,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _delete_order_oapg(
+    def _delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -96,7 +96,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _delete_order_oapg(
+    def _delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -109,7 +109,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestPathParameters.Params, path_params)
+        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
         used_path = path
 
         _path_params = {}
@@ -192,7 +192,7 @@ class DeleteOrder(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._delete_order_oapg(
+        return self._delete_order(
             path_params=path_params,
             stream=stream,
             timeout=timeout,
@@ -238,7 +238,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._delete_order_oapg(
+        return self._delete_order(
             path_params=path_params,
             stream=stream,
             timeout=timeout,

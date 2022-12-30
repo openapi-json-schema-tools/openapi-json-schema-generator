@@ -33,7 +33,7 @@ class AnimalFarm(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {tuple}
         
         @staticmethod
@@ -42,13 +42,13 @@ class AnimalFarm(
 
     def __new__(
         cls,
-        _arg: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        arg_: typing.Union[typing.Tuple['animal.Animal'], typing.List['animal.Animal']],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'AnimalFarm':
         return super().__new__(
             cls,
-            _arg,
-            _configuration=_configuration,
+            arg_,
+            configuration_=configuration_,
         )
 
     def __getitem__(self, i: int) -> 'animal.Animal':

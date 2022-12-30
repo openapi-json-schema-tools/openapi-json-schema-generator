@@ -33,7 +33,7 @@ class FileSchemaTestClass(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
         
@@ -47,7 +47,7 @@ class FileSchemaTestClass(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     
                     @staticmethod
@@ -56,13 +56,13 @@ class FileSchemaTestClass(
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    arg_: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Files':
                     return super().__new__(
                         cls,
-                        _arg,
-                        _configuration=_configuration,
+                        arg_,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> 'file.File':
@@ -76,7 +76,7 @@ class FileSchemaTestClass(
     def __getitem__(self, name: typing_extensions.Literal["file"]) -> 'file.File': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["files"]) -> MetaOapg.Properties.Files: ...
+    def __getitem__(self, name: typing_extensions.Literal["files"]) -> Schema_.Properties.Files: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -93,15 +93,15 @@ class FileSchemaTestClass(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["file"]) -> typing.Union['file.File', schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["file"]) -> typing.Union['file.File', schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["files"]) -> typing.Union[MetaOapg.Properties.Files, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["files"]) -> typing.Union[Schema_.Properties.Files, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["file"],
@@ -109,22 +109,22 @@ class FileSchemaTestClass(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         file: typing.Union['file.File', schemas.Unset] = schemas.unset,
-        files: typing.Union[MetaOapg.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        files: typing.Union[Schema_.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'FileSchemaTestClass':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             file=file,
             files=files,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

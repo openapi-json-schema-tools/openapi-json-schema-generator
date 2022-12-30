@@ -22,10 +22,10 @@ class TestRequestBodyPostRefInOneofRequestBody(ApiTestMixin, unittest.TestCase):
     """
     RequestBodyPostRefInOneofRequestBody unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -44,9 +44,9 @@ class TestRequestBodyPostRefInOneofRequestBody(ApiTestMixin, unittest.TestCase):
                         "a",
                 }
             )
-            body = post.request_body.ref_in_oneof.RefInOneof.from_openapi_data_oapg(
+            body = post.request_body.ref_in_oneof.RefInOneof.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -58,7 +58,7 @@ class TestRequestBodyPostRefInOneofRequestBody(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postRefInOneofRequestBody',
+                self.configuration_.host + '/requestBody/postRefInOneofRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -78,9 +78,9 @@ class TestRequestBodyPostRefInOneofRequestBody(ApiTestMixin, unittest.TestCase):
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.ref_in_oneof.RefInOneof.from_openapi_data_oapg(
+                body = post.request_body.ref_in_oneof.RefInOneof.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 

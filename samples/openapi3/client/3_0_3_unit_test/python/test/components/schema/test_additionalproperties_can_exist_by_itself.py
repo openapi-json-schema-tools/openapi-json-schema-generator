@@ -18,27 +18,27 @@ from unit_test_api import configuration
 
 class TestAdditionalpropertiesCanExistByItself(unittest.TestCase):
     """AdditionalpropertiesCanExistByItself unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AdditionalpropertiesCanExistByItself.from_openapi_data_oapg(
+            AdditionalpropertiesCanExistByItself.from_openapi_data_(
                 {
                     "foo":
                         1,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
-        AdditionalpropertiesCanExistByItself.from_openapi_data_oapg(
+        AdditionalpropertiesCanExistByItself.from_openapi_data_(
             {
                 "foo":
                     True,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

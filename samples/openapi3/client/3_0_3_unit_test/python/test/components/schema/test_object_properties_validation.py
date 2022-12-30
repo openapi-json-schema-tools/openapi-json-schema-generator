@@ -18,27 +18,27 @@ from unit_test_api import configuration
 
 class TestObjectPropertiesValidation(unittest.TestCase):
     """ObjectPropertiesValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        ObjectPropertiesValidation.from_openapi_data_oapg(
+        ObjectPropertiesValidation.from_openapi_data_(
             [
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
-        ObjectPropertiesValidation.from_openapi_data_oapg(
+        ObjectPropertiesValidation.from_openapi_data_(
             12,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_one_property_invalid_is_invalid_fails(self):
         # one property invalid is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectPropertiesValidation.from_openapi_data_oapg(
+            ObjectPropertiesValidation.from_openapi_data_(
                 {
                     "foo":
                         1,
@@ -46,36 +46,36 @@ class TestObjectPropertiesValidation(unittest.TestCase):
                         {
                         },
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_both_properties_present_and_valid_is_valid_passes(self):
         # both properties present and valid is valid
-        ObjectPropertiesValidation.from_openapi_data_oapg(
+        ObjectPropertiesValidation.from_openapi_data_(
             {
                 "foo":
                     1,
                 "bar":
                     "baz",
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_doesn_t_invalidate_other_properties_passes(self):
         # doesn&#x27;t invalidate other properties
-        ObjectPropertiesValidation.from_openapi_data_oapg(
+        ObjectPropertiesValidation.from_openapi_data_(
             {
                 "quux":
                     [
                     ],
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_both_properties_invalid_is_invalid_fails(self):
         # both properties invalid is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectPropertiesValidation.from_openapi_data_oapg(
+            ObjectPropertiesValidation.from_openapi_data_(
                 {
                     "foo":
                         [
@@ -84,7 +84,7 @@ class TestObjectPropertiesValidation(unittest.TestCase):
                         {
                         },
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

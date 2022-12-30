@@ -69,7 +69,7 @@ class RequestQueryParameters:
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _query_parameter_collection_format_oapg(
+    def _query_parameter_collection_format(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -80,7 +80,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _query_parameter_collection_format_oapg(
+    def _query_parameter_collection_format(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -89,7 +89,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _query_parameter_collection_format_oapg(
+    def _query_parameter_collection_format(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -100,7 +100,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _query_parameter_collection_format_oapg(
+    def _query_parameter_collection_format(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -112,7 +112,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
+        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
         used_path = path
 
         prefix_separator_iterator = None
@@ -198,7 +198,7 @@ class QueryParameterCollectionFormat(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._query_parameter_collection_format_oapg(
+        return self._query_parameter_collection_format(
             query_params=query_params,
             stream=stream,
             timeout=timeout,
@@ -248,7 +248,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._query_parameter_collection_format_oapg(
+        return self._query_parameter_collection_format(
             query_params=query_params,
             stream=stream,
             timeout=timeout,

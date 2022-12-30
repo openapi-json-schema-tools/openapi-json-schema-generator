@@ -33,7 +33,7 @@ class IntegerEnumWithDefaultValue(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

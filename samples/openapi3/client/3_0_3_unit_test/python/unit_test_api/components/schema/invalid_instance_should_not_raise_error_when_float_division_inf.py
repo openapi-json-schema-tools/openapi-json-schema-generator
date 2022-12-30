@@ -33,7 +33,7 @@ class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             decimal.Decimal,
         }

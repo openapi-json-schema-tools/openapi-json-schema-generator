@@ -18,7 +18,7 @@ from petstore_api import configuration
 
 class TestIntegerEnumBig(unittest.TestCase):
     """IntegerEnumBig unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
 
 if __name__ == '__main__':

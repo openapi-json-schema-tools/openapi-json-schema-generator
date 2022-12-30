@@ -33,7 +33,7 @@ class ArrayOfNumberOnly(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         
         class Properties:
             
@@ -43,29 +43,29 @@ class ArrayOfNumberOnly(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {tuple}
                     Items = schemas.NumberSchema
             
                 def __new__(
                     cls,
-                    _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]]],
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayNumber':
                     return super().__new__(
                         cls,
-                        _arg,
-                        _configuration=_configuration,
+                        arg_,
+                        configuration_=configuration_,
                     )
             
-                def __getitem__(self, i: int) -> MetaOapg.Items:
+                def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
             __annotations__ = {
                 "ArrayNumber": ArrayNumber,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> MetaOapg.Properties.ArrayNumber: ...
+    def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> Schema_.Properties.ArrayNumber: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -81,31 +81,31 @@ class ArrayOfNumberOnly(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["ArrayNumber"]) -> typing.Union[MetaOapg.Properties.ArrayNumber, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["ArrayNumber"]) -> typing.Union[Schema_.Properties.ArrayNumber, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["ArrayNumber"],
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        ArrayNumber: typing.Union[MetaOapg.Properties.ArrayNumber, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        ArrayNumber: typing.Union[Schema_.Properties.ArrayNumber, list, tuple, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ArrayOfNumberOnly':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             ArrayNumber=ArrayNumber,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

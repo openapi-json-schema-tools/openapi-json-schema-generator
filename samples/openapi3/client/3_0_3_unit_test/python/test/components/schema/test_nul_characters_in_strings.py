@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class TestNulCharactersInStrings(unittest.TestCase):
     """NulCharactersInStrings unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_match_string_with_nul_passes(self):
         # match string with nul
-        NulCharactersInStrings.from_openapi_data_oapg(
+        NulCharactersInStrings.from_openapi_data_(
             "hello\x00there",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_do_not_match_string_lacking_nul_fails(self):
         # do not match string lacking nul
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NulCharactersInStrings.from_openapi_data_oapg(
+            NulCharactersInStrings.from_openapi_data_(
                 "hellothere",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

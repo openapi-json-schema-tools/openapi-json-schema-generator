@@ -33,7 +33,7 @@ class Zebra(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "className",
@@ -47,7 +47,7 @@ class Zebra(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         str,
                     }
@@ -75,7 +75,7 @@ class Zebra(
             ):
             
             
-                class MetaOapg:
+                class Schema_:
                     types = {
                         str,
                     }
@@ -92,16 +92,16 @@ class Zebra(
             }
         AdditionalProperties = schemas.AnyTypeSchema
     
-    className: MetaOapg.Properties.ClassName
+    className: Schema_.Properties.ClassName
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.Properties.Type: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Schema_.Properties.Type: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> MetaOapg.AdditionalProperties: ...
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties: ...
     
     def __getitem__(
         self,
@@ -115,15 +115,15 @@ class Zebra(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["className"]) -> MetaOapg.Properties.ClassName: ...
+    def get_item_(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.Properties.Type, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["type"]) -> typing.Union[Schema_.Properties.Type, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[MetaOapg.AdditionalProperties, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[Schema_.AdditionalProperties, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["className"],
@@ -131,21 +131,21 @@ class Zebra(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[MetaOapg.Properties.ClassName, str, ],
-        type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
+        className: typing.Union[Schema_.Properties.ClassName, str, ],
+        type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
     ) -> 'Zebra':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             className=className,
             type=type,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

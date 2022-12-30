@@ -18,27 +18,27 @@ from unit_test_api import configuration
 
 class TestPropertyNamedRefThatIsNotAReference(unittest.TestCase):
     """PropertyNamedRefThatIsNotAReference unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
-        PropertyNamedRefThatIsNotAReference.from_openapi_data_oapg(
+        PropertyNamedRefThatIsNotAReference.from_openapi_data_(
             {
                 "$ref":
                     "a",
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            PropertyNamedRefThatIsNotAReference.from_openapi_data_oapg(
+            PropertyNamedRefThatIsNotAReference.from_openapi_data_(
                 {
                     "$ref":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

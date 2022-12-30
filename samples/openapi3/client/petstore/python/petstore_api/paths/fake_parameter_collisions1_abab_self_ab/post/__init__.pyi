@@ -176,7 +176,7 @@ class RequestCookieParameters:
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _parameter_collisions_oapg(
+    def _parameter_collisions(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
@@ -193,7 +193,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _parameter_collisions_oapg(
+    def _parameter_collisions(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
@@ -211,7 +211,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _parameter_collisions_oapg(
+    def _parameter_collisions(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -226,7 +226,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _parameter_collisions_oapg(
+    def _parameter_collisions(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
@@ -243,7 +243,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _parameter_collisions_oapg(
+    def _parameter_collisions(
         self,
         content_type: str = 'application/json',
         body: typing.Union[request_body.application_json.ApplicationJson, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
@@ -262,10 +262,10 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestQueryParameters.Params, query_params)
-        self._verify_typed_dict_inputs_oapg(RequestHeaderParameters.Params, header_params)
-        self._verify_typed_dict_inputs_oapg(RequestPathParameters.Params, path_params)
-        self._verify_typed_dict_inputs_oapg(RequestCookieParameters.Params, cookie_params)
+        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
+        self._verify_typed_dict_inputs(RequestHeaderParameters.Params, header_params)
+        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
+        self._verify_typed_dict_inputs(RequestCookieParameters.Params, cookie_params)
         used_path = path
 
         _path_params = {}
@@ -427,7 +427,7 @@ class ParameterCollisions(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._parameter_collisions_oapg(
+        return self._parameter_collisions(
             body=body,
             query_params=query_params,
             header_params=header_params,
@@ -525,7 +525,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._parameter_collisions_oapg(
+        return self._parameter_collisions(
             body=body,
             query_params=query_params,
             header_params=header_params,

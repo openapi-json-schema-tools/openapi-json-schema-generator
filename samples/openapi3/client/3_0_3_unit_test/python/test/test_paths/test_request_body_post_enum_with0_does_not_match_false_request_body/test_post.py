@@ -22,10 +22,10 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
     """
     RequestBodyPostEnumWith0DoesNotMatchFalseRequestBody unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -41,9 +41,9 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
             payload = (
                 0
             )
-            body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_oapg(
+            body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -55,7 +55,7 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postEnumWith0DoesNotMatchFalseRequestBody',
+                self.configuration_.host + '/requestBody/postEnumWith0DoesNotMatchFalseRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -71,9 +71,9 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
             payload = (
                 0.0
             )
-            body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_oapg(
+            body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -85,7 +85,7 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postEnumWith0DoesNotMatchFalseRequestBody',
+                self.configuration_.host + '/requestBody/postEnumWith0DoesNotMatchFalseRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -102,9 +102,9 @@ class TestRequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(ApiTestMixin, uni
                 False
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_oapg(
+                body = post.request_body.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 

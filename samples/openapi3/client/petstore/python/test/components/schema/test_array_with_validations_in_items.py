@@ -18,7 +18,7 @@ from petstore_api import configuration
 
 class TestArrayWithValidationsInItems(unittest.TestCase):
     """ArrayWithValidationsInItems unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
 
 if __name__ == '__main__':

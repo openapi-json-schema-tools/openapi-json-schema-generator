@@ -36,7 +36,7 @@ class NullableString(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {
             schemas.NoneClass,
             str,
@@ -45,11 +45,11 @@ class NullableString(
 
     def __new__(
         cls,
-        *_args: typing.Union[None, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        *args_: typing.Union[None, str, ],
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'NullableString':
         return super().__new__(
             cls,
-            *_args,
-            _configuration=_configuration,
+            *args_,
+            configuration_=configuration_,
         )

@@ -37,7 +37,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDictSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -54,7 +54,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testListSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -71,7 +71,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testStrSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -88,7 +88,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNumberSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -112,7 +112,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testIntSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -133,7 +133,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testBoolSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -157,7 +157,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNoneSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -166,7 +166,7 @@ class TestAnyTypeSchema(unittest.TestCase):
                     ]
 
         m = Model(None)
-        self.assertTrue(m.is_none_oapg())
+        self.assertTrue(m.is_none_())
         assert isinstance(m, Model)
         assert isinstance(m, AnyTypeSchema)
         assert isinstance(m, NoneSchema)
@@ -174,7 +174,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -191,7 +191,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateTimeSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -208,7 +208,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDecimalSchema(self):
         class Model(AnyTypeSchema):
-            class MetaOapg:
+            class Schema_:
 
                 class AllOf:
                     classes = [
@@ -218,7 +218,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
         m = Model('12.34')
         assert m == '12.34'
-        assert m.as_decimal_oapg == Decimal('12.34')
+        assert m.as_decimal_ == Decimal('12.34')
         assert isinstance(m, Model)
         assert isinstance(m, AnyTypeSchema)
         assert isinstance(m, DecimalSchema)

@@ -33,7 +33,7 @@ class ReqPropsFromUnsetAddProps(
     """
 
 
-    class MetaOapg:
+    class Schema_:
         types = {frozendict.frozendict}
         required = {
             "invalid-name",
@@ -63,15 +63,15 @@ class ReqPropsFromUnsetAddProps(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["validName"]) -> schemas.AnyTypeSchema: ...
+    def get_item_(self, name: typing_extensions.Literal["validName"]) -> schemas.AnyTypeSchema: ...
     
     @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(
+    def get_item_(
         self,
         name: typing.Union[
             typing_extensions.Literal["invalid-name"],
@@ -79,19 +79,19 @@ class ReqPropsFromUnsetAddProps(
             str
         ]
     ):
-        return super().get_item_oapg(name)
+        return super().get_item_(name)
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         validName: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ReqPropsFromUnsetAddProps':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             validName=validName,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

@@ -46,7 +46,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _post_maximum_validation_response_body_for_content_types_oapg(
+    def _post_maximum_validation_response_body_for_content_types(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _post_maximum_validation_response_body_for_content_types_oapg(
+    def _post_maximum_validation_response_body_for_content_types(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -66,7 +66,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _post_maximum_validation_response_body_for_content_types_oapg(
+    def _post_maximum_validation_response_body_for_content_types(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _post_maximum_validation_response_body_for_content_types_oapg(
+    def _post_maximum_validation_response_body_for_content_types(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -169,7 +169,7 @@ class PostMaximumValidationResponseBodyForContentTypes(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._post_maximum_validation_response_body_for_content_types_oapg(
+        return self._post_maximum_validation_response_body_for_content_types(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
@@ -219,7 +219,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._post_maximum_validation_response_body_for_content_types_oapg(
+        return self._post_maximum_validation_response_body_for_content_types(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,

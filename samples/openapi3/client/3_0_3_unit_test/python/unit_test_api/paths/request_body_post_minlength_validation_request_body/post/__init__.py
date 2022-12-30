@@ -44,7 +44,7 @@ _status_code_to_response = __StatusCodeToResponse({
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _post_minlength_validation_request_body_oapg(
+    def _post_minlength_validation_request_body(
         self,
         body: typing.Union[request_body.minlength_validation.MinlengthValidation,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -56,7 +56,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _post_minlength_validation_request_body_oapg(
+    def _post_minlength_validation_request_body(
         self,
         body: typing.Union[request_body.minlength_validation.MinlengthValidation,],
         content_type: str = ...,
@@ -69,7 +69,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _post_minlength_validation_request_body_oapg(
+    def _post_minlength_validation_request_body(
         self,
         body: typing.Union[request_body.minlength_validation.MinlengthValidation,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -79,7 +79,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _post_minlength_validation_request_body_oapg(
+    def _post_minlength_validation_request_body(
         self,
         body: typing.Union[request_body.minlength_validation.MinlengthValidation,],
         content_type: str = ...,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _post_minlength_validation_request_body_oapg(
+    def _post_minlength_validation_request_body(
         self,
         body: typing.Union[request_body.minlength_validation.MinlengthValidation,],
         content_type: str = 'application/json',
@@ -211,7 +211,7 @@ class PostMinlengthValidationRequestBody(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._post_minlength_validation_request_body_oapg(
+        return self._post_minlength_validation_request_body(
             body=body,
             content_type=content_type,
             stream=stream,
@@ -279,7 +279,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._post_minlength_validation_request_body_oapg(
+        return self._post_minlength_validation_request_body(
             body=body,
             content_type=content_type,
             stream=stream,

@@ -47,7 +47,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _response_without_schema_oapg(
+    def _response_without_schema(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _response_without_schema_oapg(
+    def _response_without_schema(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -67,7 +67,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _response_without_schema_oapg(
+    def _response_without_schema(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -78,7 +78,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _response_without_schema_oapg(
+    def _response_without_schema(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -171,7 +171,7 @@ class ResponseWithoutSchema(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._response_without_schema_oapg(
+        return self._response_without_schema(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
@@ -221,7 +221,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._response_without_schema_oapg(
+        return self._response_without_schema(
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,

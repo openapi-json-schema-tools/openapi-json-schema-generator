@@ -35,7 +35,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _mammal_oapg(
+    def _mammal(
         self,
         body: typing.Union[request_body.mammal.Mammal,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _mammal_oapg(
+    def _mammal(
         self,
         body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _mammal_oapg(
+    def _mammal(
         self,
         body: typing.Union[request_body.mammal.Mammal,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -73,7 +73,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _mammal_oapg(
+    def _mammal(
         self,
         body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = ...,
@@ -86,7 +86,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _mammal_oapg(
+    def _mammal(
         self,
         body: typing.Union[request_body.mammal.Mammal,],
         content_type: str = 'application/json',
@@ -215,7 +215,7 @@ class Mammal(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._mammal_oapg(
+        return self._mammal(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
@@ -289,7 +289,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._mammal_oapg(
+        return self._mammal(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
