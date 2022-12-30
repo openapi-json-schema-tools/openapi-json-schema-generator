@@ -213,7 +213,7 @@ class ArrayTest(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         array_of_string: typing.Union[Schema_.Properties.ArrayOfString, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_integer: typing.Union[Schema_.Properties.ArrayArrayOfInteger, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_model: typing.Union[Schema_.Properties.ArrayArrayOfModel, list, tuple, schemas.Unset] = schemas.unset,
@@ -222,7 +222,7 @@ class ArrayTest(
     ) -> 'ArrayTest':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             array_of_string=array_of_string,
             array_array_of_integer=array_array_of_integer,
             array_array_of_model=array_array_of_model,

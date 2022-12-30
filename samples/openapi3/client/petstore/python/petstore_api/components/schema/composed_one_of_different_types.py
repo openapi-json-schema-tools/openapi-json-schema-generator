@@ -63,13 +63,13 @@ class ComposedOneOfDifferentTypes(
             
                 def __new__(
                     cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'OneOf4':
                     return super().__new__(
                         cls,
-                        *_args,
+                        *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
@@ -127,13 +127,13 @@ class ComposedOneOfDifferentTypes(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ComposedOneOfDifferentTypes':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             configuration_=configuration_,
             **kwargs,
         )

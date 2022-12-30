@@ -152,7 +152,7 @@ class EnumArrays(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         just_symbol: typing.Union[Schema_.Properties.JustSymbol, str, schemas.Unset] = schemas.unset,
         array_enum: typing.Union[Schema_.Properties.ArrayEnum, list, tuple, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -160,7 +160,7 @@ class EnumArrays(
     ) -> 'EnumArrays':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             just_symbol=just_symbol,
             array_enum=array_enum,
             configuration_=configuration_,

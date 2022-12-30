@@ -201,7 +201,7 @@ class Pet(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[Schema_.Properties.Name, str, ],
         photoUrls: typing.Union[Schema_.Properties.PhotoUrls, list, tuple, ],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
@@ -213,7 +213,7 @@ class Pet(
     ) -> 'Pet':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             name=name,
             photoUrls=photoUrls,
             id=id,

@@ -87,7 +87,7 @@ class ApplicationXWwwFormUrlencoded(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         param: typing.Union[Schema_.Properties.Param, str, ],
         param2: typing.Union[Schema_.Properties.Param2, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -95,7 +95,7 @@ class ApplicationXWwwFormUrlencoded(
     ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             param=param,
             param2=param2,
             configuration_=configuration_,

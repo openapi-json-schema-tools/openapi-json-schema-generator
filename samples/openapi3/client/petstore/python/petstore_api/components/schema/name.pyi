@@ -103,7 +103,7 @@ class Name(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         name: typing.Union[Schema_.Properties.Name, decimal.Decimal, int, ],
         snake_case: typing.Union[Schema_.Properties.SnakeCase, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -111,7 +111,7 @@ class Name(
     ) -> 'Name':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             name=name,
             snake_case=snake_case,
             configuration_=configuration_,

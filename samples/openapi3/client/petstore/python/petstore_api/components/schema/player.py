@@ -90,7 +90,7 @@ class Player(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
         enemyPlayer: typing.Union['Player', schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -98,7 +98,7 @@ class Player(
     ) -> 'Player':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             name=name,
             enemyPlayer=enemyPlayer,
             configuration_=configuration_,

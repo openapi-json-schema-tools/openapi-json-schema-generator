@@ -47,11 +47,11 @@ class ComposedNone(
 
     def __new__(
         cls,
-        *_args: typing.Union[None, ],
+        *args_: typing.Union[None, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedNone':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             configuration_=configuration_,
         )

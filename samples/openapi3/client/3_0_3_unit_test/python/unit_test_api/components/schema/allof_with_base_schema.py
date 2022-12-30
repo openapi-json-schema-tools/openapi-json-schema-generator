@@ -101,14 +101,14 @@ class AllofWithBaseSchema(
             
                 def __new__(
                     cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     foo: typing.Union[Schema_.Properties.Foo, str, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf0':
                     return super().__new__(
                         cls,
-                        *_args,
+                        *args_,
                         foo=foo,
                         configuration_=configuration_,
                         **kwargs,
@@ -168,14 +168,14 @@ class AllofWithBaseSchema(
             
                 def __new__(
                     cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     baz: typing.Union[Schema_.Properties.Baz, None, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':
                     return super().__new__(
                         cls,
-                        *_args,
+                        *args_,
                         baz=baz,
                         configuration_=configuration_,
                         **kwargs,
@@ -221,14 +221,14 @@ class AllofWithBaseSchema(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         bar: typing.Union[Schema_.Properties.Bar, decimal.Decimal, int, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'AllofWithBaseSchema':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             bar=bar,
             configuration_=configuration_,
             **kwargs,

@@ -89,7 +89,7 @@ class Category(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[Schema_.Properties.Name, str, ],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -97,7 +97,7 @@ class Category(
     ) -> 'Category':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             name=name,
             id=id,
             configuration_=configuration_,

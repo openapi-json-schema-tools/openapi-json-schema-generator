@@ -316,7 +316,7 @@ class ApplicationXWwwFormUrlencoded(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         byte: typing.Union[Schema_.Properties.Byte, str, ],
         double: typing.Union[Schema_.Properties.Double, decimal.Decimal, int, float, ],
         number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float, ],
@@ -335,7 +335,7 @@ class ApplicationXWwwFormUrlencoded(
     ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             byte=byte,
             double=double,
             number=number,

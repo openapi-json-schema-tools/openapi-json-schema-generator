@@ -152,7 +152,7 @@ class Order(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         quantity: typing.Union[Schema_.Properties.Quantity, decimal.Decimal, int, schemas.Unset] = schemas.unset,
@@ -164,7 +164,7 @@ class Order(
     ) -> 'Order':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             id=id,
             petId=petId,
             quantity=quantity,

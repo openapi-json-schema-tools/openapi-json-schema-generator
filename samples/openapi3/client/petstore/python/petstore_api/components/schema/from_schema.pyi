@@ -84,7 +84,7 @@ class FromSchema(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         data: typing.Union[Schema_.Properties.Data, str, schemas.Unset] = schemas.unset,
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -92,7 +92,7 @@ class FromSchema(
     ) -> 'FromSchema':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             data=data,
             id=id,
             configuration_=configuration_,

@@ -49,13 +49,13 @@ class RefInAdditionalproperties(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference',
     ) -> 'RefInAdditionalproperties':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             configuration_=configuration_,
             **kwargs,
         )

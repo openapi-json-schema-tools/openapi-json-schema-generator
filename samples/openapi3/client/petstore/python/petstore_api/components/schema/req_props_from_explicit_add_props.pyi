@@ -83,14 +83,14 @@ class ReqPropsFromExplicitAddProps(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         validName: typing.Union[Schema_.AdditionalProperties, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
     ) -> 'ReqPropsFromExplicitAddProps':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             validName=validName,
             configuration_=configuration_,
             **kwargs,

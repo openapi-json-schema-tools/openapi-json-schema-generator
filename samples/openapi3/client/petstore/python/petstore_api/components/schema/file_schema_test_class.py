@@ -114,7 +114,7 @@ class FileSchemaTestClass(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         file: typing.Union['file.File', schemas.Unset] = schemas.unset,
         files: typing.Union[Schema_.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -122,7 +122,7 @@ class FileSchemaTestClass(
     ) -> 'FileSchemaTestClass':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             file=file,
             files=files,
             configuration_=configuration_,

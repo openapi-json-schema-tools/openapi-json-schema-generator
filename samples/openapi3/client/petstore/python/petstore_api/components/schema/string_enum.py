@@ -82,11 +82,11 @@ class StringEnum(
 
     def __new__(
         cls,
-        *_args: typing.Union[None, str, ],
+        *args_: typing.Union[None, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'StringEnum':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             configuration_=configuration_,
         )

@@ -130,7 +130,7 @@ class ApplicationXWwwFormUrlencoded(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         enum_form_string_array: typing.Union[Schema_.Properties.EnumFormStringArray, list, tuple, schemas.Unset] = schemas.unset,
         enum_form_string: typing.Union[Schema_.Properties.EnumFormString, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -138,7 +138,7 @@ class ApplicationXWwwFormUrlencoded(
     ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             enum_form_string_array=enum_form_string_array,
             enum_form_string=enum_form_string,
             configuration_=configuration_,

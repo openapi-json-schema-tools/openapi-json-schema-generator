@@ -96,7 +96,7 @@ class AdditionOperator(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float, ],
         b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float, ],
         operator_id: typing.Union[Schema_.Properties.OperatorId, str, ],
@@ -104,7 +104,7 @@ class AdditionOperator(
     ) -> 'AdditionOperator':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             a=a,
             b=b,
             operator_id=operator_id,

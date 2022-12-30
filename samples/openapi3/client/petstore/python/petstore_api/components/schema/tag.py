@@ -85,7 +85,7 @@ class Tag(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -93,7 +93,7 @@ class Tag(
     ) -> 'Tag':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             id=id,
             name=name,
             configuration_=configuration_,

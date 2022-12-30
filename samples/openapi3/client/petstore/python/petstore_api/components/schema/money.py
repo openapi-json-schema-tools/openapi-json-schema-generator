@@ -95,7 +95,7 @@ class Money(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         amount: typing.Union[Schema_.Properties.Amount, str, ],
         currency: 'currency.Currency',
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -103,7 +103,7 @@ class Money(
     ) -> 'Money':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             amount=amount,
             currency=currency,
             configuration_=configuration_,

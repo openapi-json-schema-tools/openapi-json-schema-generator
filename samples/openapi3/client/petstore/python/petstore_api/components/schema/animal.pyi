@@ -98,7 +98,7 @@ class Animal(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         className: typing.Union[Schema_.Properties.ClassName, str, ],
         color: typing.Union[Schema_.Properties.Color, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -106,7 +106,7 @@ class Animal(
     ) -> 'Animal':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             className=className,
             color=color,
             configuration_=configuration_,

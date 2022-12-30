@@ -91,7 +91,7 @@ class RequiredValidation(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         foo: typing.Union[Schema_.Properties.Foo, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         bar: typing.Union[Schema_.Properties.Bar, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -99,7 +99,7 @@ class RequiredValidation(
     ) -> 'RequiredValidation':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             foo=foo,
             bar=bar,
             configuration_=configuration_,

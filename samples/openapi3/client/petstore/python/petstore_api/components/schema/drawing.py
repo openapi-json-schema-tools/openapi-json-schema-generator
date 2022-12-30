@@ -144,7 +144,7 @@ class Drawing(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         mainShape: typing.Union['shape.Shape', schemas.Unset] = schemas.unset,
         shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
@@ -154,7 +154,7 @@ class Drawing(
     ) -> 'Drawing':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             mainShape=mainShape,
             shapeOrNull=shapeOrNull,
             nullableShape=nullableShape,

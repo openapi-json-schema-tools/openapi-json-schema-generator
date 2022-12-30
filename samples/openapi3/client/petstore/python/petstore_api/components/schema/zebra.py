@@ -135,7 +135,7 @@ class Zebra(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         className: typing.Union[Schema_.Properties.ClassName, str, ],
         type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -143,7 +143,7 @@ class Zebra(
     ) -> 'Zebra':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             className=className,
             type=type,
             configuration_=configuration_,

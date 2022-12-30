@@ -95,7 +95,7 @@ class ApiResponse(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         code: typing.Union[Schema_.Properties.Code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
         message: typing.Union[Schema_.Properties.Message, str, schemas.Unset] = schemas.unset,
@@ -104,7 +104,7 @@ class ApiResponse(
     ) -> 'ApiResponse':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             code=code,
             type=type,
             message=message,

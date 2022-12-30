@@ -86,7 +86,7 @@ class ObjectPropertiesValidation(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         foo: typing.Union[Schema_.Properties.Foo, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         bar: typing.Union[Schema_.Properties.Bar, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -94,7 +94,7 @@ class ObjectPropertiesValidation(
     ) -> 'ObjectPropertiesValidation':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             foo=foo,
             bar=bar,
             configuration_=configuration_,

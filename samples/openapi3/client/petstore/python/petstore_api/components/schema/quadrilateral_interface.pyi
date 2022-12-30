@@ -101,7 +101,7 @@ class QuadrilateralInterface(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         quadrilateralType: typing.Union[Schema_.Properties.QuadrilateralType, str, ],
         shapeType: typing.Union[Schema_.Properties.ShapeType, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -109,7 +109,7 @@ class QuadrilateralInterface(
     ) -> 'QuadrilateralInterface':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             quadrilateralType=quadrilateralType,
             shapeType=shapeType,
             configuration_=configuration_,

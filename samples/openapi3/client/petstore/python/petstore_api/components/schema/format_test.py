@@ -434,7 +434,7 @@ class FormatTest(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         byte: typing.Union[Schema_.Properties.Byte, str, ],
         date: typing.Union[Schema_.Properties.Date, str, datetime.date, ],
         number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float, ],
@@ -460,7 +460,7 @@ class FormatTest(
     ) -> 'FormatTest':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             byte=byte,
             date=date,
             number=number,

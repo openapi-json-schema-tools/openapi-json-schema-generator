@@ -117,7 +117,7 @@ class Whale(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         className: typing.Union[Schema_.Properties.ClassName, str, ],
         hasBaleen: typing.Union[Schema_.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
         hasTeeth: typing.Union[Schema_.Properties.HasTeeth, bool, schemas.Unset] = schemas.unset,
@@ -126,7 +126,7 @@ class Whale(
     ) -> 'Whale':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             className=className,
             hasBaleen=hasBaleen,
             hasTeeth=hasTeeth,

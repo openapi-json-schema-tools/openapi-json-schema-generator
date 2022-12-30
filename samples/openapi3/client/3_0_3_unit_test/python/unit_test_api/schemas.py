@@ -1339,7 +1339,7 @@ class Schema:
 
     def __new__(
         cls,
-        *_args: typing.Union[
+        *args_: typing.Union[
             dict,
             frozendict.frozendict,
             list,
@@ -1382,7 +1382,7 @@ class Schema:
         Schema __new__
 
         Args:
-            _args (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
+            args_ (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
             kwargs (str, int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): dict values
             configuration_: contains the configuration_module.Configuration that enables json schema validation keywords
                 like minItems, minLength etc
@@ -1391,14 +1391,14 @@ class Schema:
         are instance properties if they are named normally :(
         """
         __kwargs = cls.__remove_unsets(kwargs)
-        if not _args and not __kwargs:
+        if not args_ and not __kwargs:
             raise TypeError(
                 'No input given. args or kwargs must be given.'
             )
-        if not __kwargs and _args and not isinstance(_args[0], dict):
-            __arg = _args[0]
+        if not __kwargs and args_ and not isinstance(args_[0], dict):
+            __arg = args_[0]
         else:
-            __arg = cls.__get_input_dict(*_args, **__kwargs)
+            __arg = cls.__get_input_dict(*args_, **__kwargs)
         __from_server = False
         __validated_path_to_schemas = {}
         __path_to_type = {}
@@ -1419,7 +1419,7 @@ class Schema:
 
     def __init__(
         self,
-        *_args: typing.Union[
+        *args_: typing.Union[
             dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema'],
         configuration_: typing.Optional[configuration_module.Configuration] = None,
         **kwargs: typing.Union[
@@ -2368,12 +2368,12 @@ class NotAnyTypeSchema(AnyTypeSchema):
 
     def __new__(
         cls,
-        *_args,
+        *args_,
         configuration_: typing.Optional[configuration_module.Configuration] = None,
     ) -> 'NotAnyTypeSchema':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             configuration_=configuration_,
         )
 
@@ -2390,8 +2390,8 @@ class DictSchema(
     def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, *_args: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]):
-        return super().__new__(cls, *_args, **kwargs)
+    def __new__(cls, *args_: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]):
+        return super().__new__(cls, *args_, **kwargs)
 
 
 schema_type_classes = {NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema}

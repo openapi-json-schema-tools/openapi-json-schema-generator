@@ -91,7 +91,7 @@ class ObjectModelWithArgAndArgsProperties(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict, ],
         arg: typing.Union[Schema_.Properties.Arg, str, ],
         args: typing.Union[Schema_.Properties.Args, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
@@ -99,7 +99,7 @@ class ObjectModelWithArgAndArgsProperties(
     ) -> 'ObjectModelWithArgAndArgsProperties':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             arg=arg,
             args=args,
             configuration_=configuration_,

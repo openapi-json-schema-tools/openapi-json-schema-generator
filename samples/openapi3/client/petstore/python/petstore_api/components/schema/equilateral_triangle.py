@@ -107,14 +107,14 @@ class EquilateralTriangle(
             
                 def __new__(
                     cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict, ],
                     triangleType: typing.Union[Schema_.Properties.TriangleType, str, schemas.Unset] = schemas.unset,
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AllOf1':
                     return super().__new__(
                         cls,
-                        *_args,
+                        *args_,
                         triangleType=triangleType,
                         configuration_=configuration_,
                         **kwargs,
@@ -127,13 +127,13 @@ class EquilateralTriangle(
 
     def __new__(
         cls,
-        *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'EquilateralTriangle':
         return super().__new__(
             cls,
-            *_args,
+            *args_,
             configuration_=configuration_,
             **kwargs,
         )
