@@ -1846,7 +1846,7 @@ class StrBase:
         return self
 
     @property
-    def as_date_oapg(self) -> datetime.date:
+    def as_date_(self) -> datetime.date:
         raise Exception('not implemented')
 
     @property
@@ -1872,7 +1872,7 @@ class UUIDBase:
 class DateBase:
     @property
     @functools.lru_cache()
-    def as_date_oapg(self) -> datetime.date:
+    def as_date_(self) -> datetime.date:
         return DEFAULT_ISOPARSER.parse_isodate(self)
 
 

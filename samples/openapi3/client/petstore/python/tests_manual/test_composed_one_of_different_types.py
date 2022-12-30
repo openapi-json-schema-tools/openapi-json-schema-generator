@@ -63,18 +63,18 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert isinstance(inst, DateSchema)
         assert isinstance(inst, str)
-        assert inst.as_date_oapg.year == 2019
-        assert inst.as_date_oapg.month == 1
-        assert inst.as_date_oapg.day == 10
+        assert inst.as_date_.year == 2019
+        assert inst.as_date_.month == 1
+        assert inst.as_date_.day == 10
 
         # date
         inst = ComposedOneOfDifferentTypes(date(2019, 1, 10))
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert isinstance(inst, DateSchema)
         assert isinstance(inst, str)
-        assert inst.as_date_oapg.year == 2019
-        assert inst.as_date_oapg.month == 1
-        assert inst.as_date_oapg.day == 10
+        assert inst.as_date_.year == 2019
+        assert inst.as_date_.month == 1
+        assert inst.as_date_.day == 10
 
         # date-time
         inst = ComposedOneOfDifferentTypes.from_openapi_data_('2020-01-02T03:04:05Z')
