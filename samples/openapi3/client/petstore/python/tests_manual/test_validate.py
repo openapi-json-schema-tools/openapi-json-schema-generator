@@ -99,7 +99,7 @@ class TestValidateResults(unittest.TestCase):
             frozendict.frozendict(className="Dog", color="black"), validation_metadata=vm
         )
         for schema_classes in path_to_schemas.values():
-            Animal._process_schema_classes_oapg(schema_classes)
+            Animal._process_schema_classes(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {Animal, Dog, Dog.MetaOapg.AllOf.classes[1], frozendict.frozendict},
             ("args[0]", "className"): {StrSchema, str},
@@ -117,7 +117,7 @@ class TestValidateResults(unittest.TestCase):
             frozendict.frozendict(className="DanishPig"), validation_metadata=vm
         )
         for schema_classes in path_to_schemas.values():
-            Pig._process_schema_classes_oapg(schema_classes)
+            Pig._process_schema_classes(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {Pig, DanishPig, frozendict.frozendict},
             ("args[0]", "className"): {DanishPig.MetaOapg.Properties.ClassName, str},
@@ -130,7 +130,7 @@ class TestValidateResults(unittest.TestCase):
             validation_metadata=vm,
         )
         for schema_classes in path_to_schemas.values():
-            GmFruit._process_schema_classes_oapg(schema_classes)
+            GmFruit._process_schema_classes(schema_classes)
         assert path_to_schemas == {
             ("args[0]",): {GmFruit, Apple, Banana, frozendict.frozendict},
             ("args[0]", "cultivar"): {Apple.MetaOapg.Properties.Cultivar, str},

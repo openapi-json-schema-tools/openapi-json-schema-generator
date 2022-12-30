@@ -1234,7 +1234,7 @@ class Schema:
         return path_to_schemas
 
     @staticmethod
-    def _process_schema_classes_oapg(
+    def _process_schema_classes(
         schema_classes: typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]
     ):
         """
@@ -1311,7 +1311,7 @@ class Schema:
                 Singleton already added
             3. N number of schema classes, classes in path_to_schemas: BoolClass/NoneClass/tuple/frozendict.frozendict/str/Decimal/bytes/FileIo
             """
-            cls._process_schema_classes_oapg(schema_classes)
+            cls._process_schema_classes(schema_classes)
             enum_schema = any(
                 issubclass(this_cls, Schema) and hasattr(this_cls.MetaOapg, "enum_value_to_name")
                 for this_cls in schema_classes
