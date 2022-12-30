@@ -60,7 +60,7 @@ class RequestQueryParameters:
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _case_sensitive_params_oapg(
+    def _case_sensitive_params(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _case_sensitive_params_oapg(
+    def _case_sensitive_params(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -80,7 +80,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _case_sensitive_params_oapg(
+    def _case_sensitive_params(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _case_sensitive_params_oapg(
+    def _case_sensitive_params(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -189,7 +189,7 @@ class CaseSensitiveParams(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._case_sensitive_params_oapg(
+        return self._case_sensitive_params(
             query_params=query_params,
             stream=stream,
             timeout=timeout,
@@ -239,7 +239,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._case_sensitive_params_oapg(
+        return self._case_sensitive_params(
             query_params=query_params,
             stream=stream,
             timeout=timeout,

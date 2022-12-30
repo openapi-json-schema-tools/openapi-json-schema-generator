@@ -96,7 +96,7 @@ class RequestHeaderParameters:
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _enum_parameters_oapg(
+    def _enum_parameters(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
         body: typing.Union[request_body.application_x_www_form_urlencoded.ApplicationXWwwFormUrlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -111,7 +111,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _enum_parameters_oapg(
+    def _enum_parameters(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.application_x_www_form_urlencoded.ApplicationXWwwFormUrlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -127,7 +127,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _enum_parameters_oapg(
+    def _enum_parameters(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -140,7 +140,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _enum_parameters_oapg(
+    def _enum_parameters(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.application_x_www_form_urlencoded.ApplicationXWwwFormUrlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -155,7 +155,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _enum_parameters_oapg(
+    def _enum_parameters(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
         body: typing.Union[request_body.application_x_www_form_urlencoded.ApplicationXWwwFormUrlencoded, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -315,7 +315,7 @@ class EnumParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._enum_parameters_oapg(
+        return self._enum_parameters(
             body=body,
             query_params=query_params,
             header_params=header_params,
@@ -401,7 +401,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._enum_parameters_oapg(
+        return self._enum_parameters(
             body=body,
             query_params=query_params,
             header_params=header_params,

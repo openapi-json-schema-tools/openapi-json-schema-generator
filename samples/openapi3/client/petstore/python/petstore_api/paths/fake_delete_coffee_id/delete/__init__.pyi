@@ -55,7 +55,7 @@ class RequestPathParameters:
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _delete_coffee_oapg(
+    def _delete_coffee(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -67,7 +67,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _delete_coffee_oapg(
+    def _delete_coffee(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _delete_coffee_oapg(
+    def _delete_coffee(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -88,7 +88,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _delete_coffee_oapg(
+    def _delete_coffee(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -189,7 +189,7 @@ class DeleteCoffee(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._delete_coffee_oapg(
+        return self._delete_coffee(
             path_params=path_params,
             stream=stream,
             timeout=timeout,
@@ -241,7 +241,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._delete_coffee_oapg(
+        return self._delete_coffee(
             path_params=path_params,
             stream=stream,
             timeout=timeout,

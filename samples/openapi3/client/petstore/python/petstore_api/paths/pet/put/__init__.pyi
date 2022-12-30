@@ -34,7 +34,7 @@ from . import response_for_405
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _update_pet_oapg(
+    def _update_pet(
         self,
         body: typing.Union[request_body.pet.Pet,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -44,7 +44,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def _update_pet_oapg(
+    def _update_pet(
         self,
         body: typing.Union[request_body.pet.Pet,],
         content_type: typing_extensions.Literal["application/xml"],
@@ -54,7 +54,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def _update_pet_oapg(
+    def _update_pet(
         self,
         body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
         content_type: str = ...,
@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _update_pet_oapg(
+    def _update_pet(
         self,
         body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _update_pet_oapg(
+    def _update_pet(
         self,
         body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
         content_type: str = ...,
@@ -88,7 +88,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _update_pet_oapg(
+    def _update_pet(
         self,
         body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
         content_type: str = 'application/json',
@@ -224,7 +224,7 @@ class UpdatePet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._update_pet_oapg(
+        return self._update_pet(
             body=body,
             content_type=content_type,
             host_index=host_index,
@@ -301,7 +301,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._update_pet_oapg(
+        return self._update_pet(
             body=body,
             content_type=content_type,
             host_index=host_index,

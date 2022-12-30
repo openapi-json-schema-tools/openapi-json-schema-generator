@@ -47,7 +47,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _object_model_with_ref_props_oapg(
+    def _object_model_with_ref_props(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
         body: typing.Union[request_body.object_model_with_ref_props.ObjectModelWithRefProps, schemas.Unset] = schemas.unset,
@@ -60,7 +60,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _object_model_with_ref_props_oapg(
+    def _object_model_with_ref_props(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.object_model_with_ref_props.ObjectModelWithRefProps, schemas.Unset] = schemas.unset,
@@ -74,7 +74,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _object_model_with_ref_props_oapg(
+    def _object_model_with_ref_props(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -85,7 +85,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _object_model_with_ref_props_oapg(
+    def _object_model_with_ref_props(
         self,
         content_type: str = ...,
         body: typing.Union[request_body.object_model_with_ref_props.ObjectModelWithRefProps, schemas.Unset] = schemas.unset,
@@ -98,7 +98,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _object_model_with_ref_props_oapg(
+    def _object_model_with_ref_props(
         self,
         content_type: str = 'application/json',
         body: typing.Union[request_body.object_model_with_ref_props.ObjectModelWithRefProps, schemas.Unset] = schemas.unset,
@@ -225,7 +225,7 @@ class ObjectModelWithRefProps(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._object_model_with_ref_props_oapg(
+        return self._object_model_with_ref_props(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
@@ -299,7 +299,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._object_model_with_ref_props_oapg(
+        return self._object_model_with_ref_props(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,

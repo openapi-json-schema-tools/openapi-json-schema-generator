@@ -70,7 +70,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _query_param_with_json_content_type_oapg(
+    def _query_param_with_json_content_type(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -82,7 +82,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _query_param_with_json_content_type_oapg(
+    def _query_param_with_json_content_type(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -92,7 +92,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _query_param_with_json_content_type_oapg(
+    def _query_param_with_json_content_type(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -104,7 +104,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _query_param_with_json_content_type_oapg(
+    def _query_param_with_json_content_type(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -214,7 +214,7 @@ class QueryParamWithJsonContentType(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._query_param_with_json_content_type_oapg(
+        return self._query_param_with_json_content_type(
             query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -269,7 +269,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._query_param_with_json_content_type_oapg(
+        return self._query_param_with_json_content_type(
             query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
