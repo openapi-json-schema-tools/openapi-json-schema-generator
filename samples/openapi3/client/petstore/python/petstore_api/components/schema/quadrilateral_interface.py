@@ -114,7 +114,7 @@ class QuadrilateralInterface(
         quadrilateralType: typing.Union[MetaOapg.Properties.QuadrilateralType, str, ],
         shapeType: typing.Union[MetaOapg.Properties.ShapeType, str, ],
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'QuadrilateralInterface':
         return super().__new__(
             cls,

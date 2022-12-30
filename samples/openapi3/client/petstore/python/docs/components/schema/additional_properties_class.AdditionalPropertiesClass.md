@@ -18,7 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_with_undeclared_properties_anytype_3** | [dict, frozendict.frozendict, ](#map_with_undeclared_properties_anytype_3) | [frozendict.frozendict, ](#map_with_undeclared_properties_anytype_3) |  | [optional]
 **empty_map** | [dict, frozendict.frozendict, ](#empty_map) | [frozendict.frozendict, ](#empty_map) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
 **map_with_undeclared_properties_string** | [dict, frozendict.frozendict, ](#map_with_undeclared_properties_string) | [frozendict.frozendict, ](#map_with_undeclared_properties_string) |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # map_property
 

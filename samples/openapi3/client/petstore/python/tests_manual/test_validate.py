@@ -178,15 +178,15 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate_oapg",
                 side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
-                configuration = configuration.Configuration()
-                ArrayWithValidationsInItems([7], _configuration=configuration)
+                used_configuration = configuration.Configuration()
+                ArrayWithValidationsInItems([7], _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=configuration)
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
                 )
                 mock_inner_validate.assert_called_once_with(
                     Decimal("7"),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0), configuration=configuration)
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0), configuration=used_configuration)
                 )
 
     def test_list_validate_direct_instantiation_cast_item(self):
@@ -202,13 +202,13 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate_oapg",
                 side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
-                configuration = configuration.Configuration()
-                ArrayWithValidationsInItems([item], _configuration=configuration)
+                used_configuration = configuration.Configuration()
+                ArrayWithValidationsInItems([item], _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     tuple([Decimal('7')]),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
-                        configuration=configuration,
+                        configuration=used_configuration,
                         validated_path_to_schemas={('args[0]', 0): {ArrayWithValidationsInItems.MetaOapg.Items, Decimal}}
                     )
                 )
@@ -225,15 +225,15 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate_oapg",
                 side_effect=ArrayWithValidationsInItems.MetaOapg.Items._validate_oapg,
             ) as mock_inner_validate:
-                configuration = configuration.Configuration()
-                ArrayWithValidationsInItems.from_openapi_data_oapg([7], _configuration=configuration)
+                used_configuration = configuration.Configuration()
+                ArrayWithValidationsInItems.from_openapi_data_oapg([7], _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=configuration)
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
                 )
                 mock_inner_validate.assert_called_once_with(
                     Decimal("7"),
-                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0), configuration=configuration)
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0), configuration=used_configuration)
                 )
 
     def test_dict_validate_direct_instantiation(self):
@@ -243,20 +243,20 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate_oapg",
                 side_effect=Bar._validate_oapg,
             ) as mock_inner_validate:
-                configuration = configuration.Configuration()
-                Foo(bar="a", _configuration=configuration)
+                used_configuration = configuration.Configuration()
+                Foo(bar="a", _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
-                        configuration=configuration
+                        configuration=used_configuration
                     )
                 )
                 mock_inner_validate.assert_called_once_with(
                     "a",
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]", "bar"),
-                        configuration=configuration
+                        configuration=used_configuration
                     ),
                 )
 
@@ -269,13 +269,13 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate_oapg",
                 side_effect=Bar._validate_oapg,
             ) as mock_inner_validate:
-                configuration = configuration.Configuration()
-                Foo(bar=bar, _configuration=configuration)
+                used_configuration = configuration.Configuration()
+                Foo(bar=bar, _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(
                         path_to_item=('args[0]',),
-                        configuration=configuration,
+                        configuration=used_configuration,
                         validated_path_to_schemas={('args[0]', 'bar'): {str, StrSchema}}
                     )
                 )
@@ -288,20 +288,20 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate_oapg",
                 side_effect=Bar._validate_oapg,
             ) as mock_inner_validate:
-                configuration = configuration.Configuration()
-                Foo.from_openapi_data_oapg({"bar": "a"}, _configuration=configuration)
+                used_configuration = configuration.Configuration()
+                Foo.from_openapi_data_oapg({"bar": "a"}, _configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
-                        configuration=configuration
+                        configuration=used_configuration
                     )
                 )
                 mock_inner_validate.assert_called_once_with(
                     "a",
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]", "bar"),
-                        configuration=configuration
+                        configuration=used_configuration
                     ),
                 )
 

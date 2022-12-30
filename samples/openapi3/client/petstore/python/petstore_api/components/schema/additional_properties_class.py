@@ -320,7 +320,7 @@ class AdditionalPropertiesClass(
         empty_map: typing.Union[MetaOapg.Properties.EmptyMap, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         map_with_undeclared_properties_string: typing.Union[MetaOapg.Properties.MapWithUndeclaredPropertiesString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'AdditionalPropertiesClass':
         return super().__new__(
             cls,

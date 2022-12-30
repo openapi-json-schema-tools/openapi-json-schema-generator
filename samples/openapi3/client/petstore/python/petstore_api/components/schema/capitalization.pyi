@@ -132,7 +132,7 @@ class Capitalization(
         SCA_ETH_Flow_Points: typing.Union[MetaOapg.Properties.SCAETHFlowPoints, str, schemas.Unset] = schemas.unset,
         ATT_NAME: typing.Union[MetaOapg.Properties.ATTNAME, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Capitalization':
         return super().__new__(
             cls,
