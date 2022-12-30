@@ -166,7 +166,7 @@ class TestAnyTypeSchema(unittest.TestCase):
                     ]
 
         m = Model(None)
-        self.assertTrue(m.is_none_oapg())
+        self.assertTrue(m.is_none_())
         assert isinstance(m, Model)
         assert isinstance(m, AnyTypeSchema)
         assert isinstance(m, NoneSchema)

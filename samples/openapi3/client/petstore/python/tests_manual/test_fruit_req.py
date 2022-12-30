@@ -103,7 +103,7 @@ class TestFruitReq(unittest.TestCase):
         assert isinstance(fruit, schemas.Singleton)
         assert isinstance(fruit, FruitReq)
         assert isinstance(fruit, schemas.NoneSchema)
-        assert fruit.is_none_oapg() is True
+        assert fruit.is_none_() is True
 
 
 if __name__ == '__main__':

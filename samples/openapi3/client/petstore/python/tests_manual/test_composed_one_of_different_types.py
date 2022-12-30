@@ -52,11 +52,11 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
 
         # None
         inst = ComposedOneOfDifferentTypes(None)
-        inst.is_none_oapg()
+        inst.is_none_()
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert isinstance(inst, Singleton)
         assert isinstance(inst, NoneClass)
-        assert inst.is_none_oapg() is True
+        assert inst.is_none_() is True
 
         # date
         inst = ComposedOneOfDifferentTypes.from_openapi_data_('2019-01-10')

@@ -32,11 +32,11 @@ class TestNullableString(unittest.TestCase):
         assert isinstance(inst, Singleton)
         assert isinstance(inst, NullableString)
         assert isinstance(inst, Schema)
-        assert inst.is_none_oapg() is True
+        assert inst.is_none_() is True
         assert repr(inst) == '<DynamicSchema: None>'
 
         inst = NullableString('approved')
-        assert inst.is_none_oapg() is False
+        assert inst.is_none_() is False
         assert isinstance(inst, NullableString)
         assert isinstance(inst, Schema)
         assert isinstance(inst, str)

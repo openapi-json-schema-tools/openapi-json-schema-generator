@@ -1828,7 +1828,7 @@ class BoolBase:
 
 
 class NoneBase:
-    def is_none_oapg(self) -> bool:
+    def is_none_(self) -> bool:
         """
         A replacement for x is None
         True if the instance is a NoneClass None Singleton
