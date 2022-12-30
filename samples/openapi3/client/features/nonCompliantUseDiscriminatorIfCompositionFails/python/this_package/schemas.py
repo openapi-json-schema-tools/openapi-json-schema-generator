@@ -1842,7 +1842,7 @@ class StrBase:
     MetaOapg: MetaOapgTyped
 
     @property
-    def as_str_oapg(self) -> str:
+    def as_str_(self) -> str:
         return self
 
     @property
