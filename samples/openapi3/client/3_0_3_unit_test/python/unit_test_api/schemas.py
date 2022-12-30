@@ -755,7 +755,7 @@ def validate_required(
     return None
 
 
-def _get_class_oapg(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
+def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
     if isinstance(item_cls, types.FunctionType):
         # referenced schema
         return item_cls()
@@ -773,7 +773,7 @@ def validate_items(
 ) -> PathToSchemasType:
     if not isinstance(arg, tuple):
         return None
-    item_cls = _get_class_oapg(item_cls)
+    item_cls = _get_class(item_cls)
     path_to_schemas = {}
     for i, value in enumerate(arg):
         item_validation_metadata = ValidationMetadata(
@@ -803,7 +803,7 @@ def validate_properties(
     for property_name, value in present_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
         schema = properties.__annotations__[property_name]
-        schema = _get_class_oapg(schema)
+        schema = _get_class(schema)
         arg_validation_metadata = ValidationMetadata(
             path_to_item=path_to_item,
             configuration=validation_metadata.configuration,
@@ -825,7 +825,7 @@ def validate_additional_properties(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
-    schema = _get_class_oapg(additional_properties_schema)
+    schema = _get_class(additional_properties_schema)
     path_to_schemas = {}
     properties_annotations = cls.MetaOapg.Properties.__annotations__ if hasattr(cls.MetaOapg, 'Properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
@@ -853,7 +853,7 @@ def validate_one_of(
     oneof_classes = []
     path_to_schemas = collections.defaultdict(set)
     for one_of_cls in one_of_container_cls.classes:
-        schema = _get_class_oapg(one_of_cls)
+        schema = _get_class(one_of_cls)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
             oneof_classes.append(schema)
             continue
@@ -897,7 +897,7 @@ def validate_any_of(
     anyof_classes = []
     path_to_schemas = collections.defaultdict(set)
     for any_of_cls in any_of_container_cls.classes:
-        schema = _get_class_oapg(any_of_cls)
+        schema = _get_class(any_of_cls)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -933,7 +933,7 @@ def validate_all_of(
 ) -> PathToSchemasType:
     path_to_schemas = collections.defaultdict(set)
     for allof_cls in all_of_cls.classes:
-        schema = _get_class_oapg(allof_cls)
+        schema = _get_class(allof_cls)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -954,7 +954,7 @@ def validate_not(
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> None:
-    not_schema = _get_class_oapg(not_cls)
+    not_schema = _get_class(not_cls)
     other_path_to_schemas = None
     not_exception = exceptions.ApiValueError(
         "Invalid value '{}' was passed in to {}. Value is invalid because it is disallowed by {}".format(
@@ -1009,21 +1009,21 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
     # TODO stop traveling if a cycle is hit
     if hasattr(cls.MetaOapg, 'AllOf'):
         for allof_cls in cls.MetaOapg.AllOf.classes:
-            allof_cls = _get_class_oapg(allof_cls)
+            allof_cls = _get_class(allof_cls)
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
     if hasattr(cls.MetaOapg, 'OneOf'):
         for oneof_cls in cls.MetaOapg.OneOf.classes:
-            oneof_cls = _get_class_oapg(oneof_cls)
+            oneof_cls = _get_class(oneof_cls)
             discriminated_cls = __get_discriminated_class(
                 oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
     if hasattr(cls.MetaOapg, 'AnyOf'):
         for anyof_cls in cls.MetaOapg.AnyOf.classes:
-            anyof_cls = _get_class_oapg(anyof_cls)
+            anyof_cls = _get_class(anyof_cls)
             discriminated_cls = __get_discriminated_class(
                 anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
