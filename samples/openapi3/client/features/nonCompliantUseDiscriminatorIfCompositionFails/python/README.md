@@ -61,19 +61,18 @@ Python &gt;&#x3D;3.7
     - Those apis will only load their needed models, which is less to load than all of the resources needed in a tag api
     - So you will need to update your import paths to the api classes
 
-### Why are Oapg and _oapg used in class and method names?
+### Why are Leading and Trailing Underscores in class and method names?
 Classes can have arbitrarily named properties set on them
 Endpoints can have arbitrary operationId method names set
-For those reasons, I use the prefix Oapg and _oapg to greatly reduce the likelihood of collisions
+For those reasons, I use the prefix and suffix _ to greatly reduce the likelihood of collisions
 on protected + public classes/methods.
-oapg stands for OpenApi Python Generator.
 
 ### Object property spec case
 This was done because when payloads are ingested, they can be validated against N number of schemas.
 If the input signature used a different property name then that has mutated the payload.
 So SchemaA and SchemaB must both see the camelCase spec named variable.
 Also it is possible to send in two properties, named camelCase and camel_case in the same payload.
-That use case should be support so spec case is used.
+That use case should work, so spec case is used.
 
 ### Parameter spec case
 Parameters can be included in different locations including:
