@@ -157,19 +157,19 @@ class BaseApi(api_client.Api):
 
 {{else}}
     @typing.overload
-    def _{{operationId}}_oapg(
+    def _{{operationId}}(
     {{> endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
-    def _{{operationId}}_oapg(
+    def _{{operationId}}(
     {{> endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
-    def _{{operationId}}_oapg(
+    def _{{operationId}}(
     {{> endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
 
-    def _{{operationId}}_oapg(
+    def _{{operationId}}(
     {{> endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
         """
     {{#if summary}}
@@ -340,7 +340,7 @@ class {{operationIdCamelCase}}(BaseApi):
 
     def {{operationId}}(
     {{> endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
-        return self._{{operationId}}_oapg(
+        return self._{{operationId}}(
             {{> endpoint_args_passed }}
         )
 
@@ -371,7 +371,7 @@ class ApiFor{{httpMethod}}(BaseApi):
 
     def {{httpMethod}}(
     {{> endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
-        return self._{{operationId}}_oapg(
+        return self._{{operationId}}(
             {{> endpoint_args_passed }}
         )
 
