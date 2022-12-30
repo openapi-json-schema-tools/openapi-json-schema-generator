@@ -81,27 +81,27 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert isinstance(inst, DateTimeSchema)
         assert isinstance(inst, str)
-        assert inst.as_datetime_oapg.year == 2020
-        assert inst.as_datetime_oapg.month == 1
-        assert inst.as_datetime_oapg.day == 2
-        assert inst.as_datetime_oapg.hour == 3
-        assert inst.as_datetime_oapg.minute == 4
-        assert inst.as_datetime_oapg.second == 5
+        assert inst.as_datetime_.year == 2020
+        assert inst.as_datetime_.month == 1
+        assert inst.as_datetime_.day == 2
+        assert inst.as_datetime_.hour == 3
+        assert inst.as_datetime_.minute == 4
+        assert inst.as_datetime_.second == 5
         utc_tz = tzutc()
-        assert inst.as_datetime_oapg.tzinfo == utc_tz
+        assert inst.as_datetime_.tzinfo == utc_tz
 
         # date-time
         inst = ComposedOneOfDifferentTypes(datetime(2020, 1, 2, 3, 4, 5, tzinfo=timezone.utc))
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert isinstance(inst, DateTimeSchema)
         assert isinstance(inst, str)
-        assert inst.as_datetime_oapg.year == 2020
-        assert inst.as_datetime_oapg.month == 1
-        assert inst.as_datetime_oapg.day == 2
-        assert inst.as_datetime_oapg.hour == 3
-        assert inst.as_datetime_oapg.minute == 4
-        assert inst.as_datetime_oapg.second == 5
-        assert inst.as_datetime_oapg.tzinfo == utc_tz
+        assert inst.as_datetime_.year == 2020
+        assert inst.as_datetime_.month == 1
+        assert inst.as_datetime_.day == 2
+        assert inst.as_datetime_.hour == 3
+        assert inst.as_datetime_.minute == 4
+        assert inst.as_datetime_.second == 5
+        assert inst.as_datetime_.tzinfo == utc_tz
 
 
 if __name__ == '__main__':

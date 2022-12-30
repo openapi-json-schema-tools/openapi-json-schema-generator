@@ -1774,7 +1774,7 @@ class StrBase:
         raise Exception('not implemented')
 
     @property
-    def as_datetime_oapg(self) -> datetime.datetime:
+    def as_datetime_(self) -> datetime.datetime:
         raise Exception('not implemented')
 
     @property
@@ -1803,7 +1803,7 @@ class DateBase:
 class DateTimeBase:
     @property
     @functools.lru_cache()
-    def as_datetime_oapg(self) -> datetime.datetime:
+    def as_datetime_(self) -> datetime.datetime:
         return DEFAULT_ISOPARSER.parse_isodatetime(self)
 
 
