@@ -51,12 +51,12 @@ class AdditionalPropertiesWithArrayOfEnums(
             def __new__(
                 cls,
                 _arg: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
-                _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
             ) -> 'AdditionalProperties':
                 return super().__new__(
                     cls,
                     _arg,
-                    _configuration=_configuration,
+                    configuration_=configuration_,
                 )
         
             def __getitem__(self, i: int) -> 'enum_class.EnumClass':
@@ -72,13 +72,13 @@ class AdditionalPropertiesWithArrayOfEnums(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, list, tuple, ],
     ) -> 'AdditionalPropertiesWithArrayOfEnums':
         return super().__new__(
             cls,
             *_args,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

@@ -85,12 +85,12 @@ class BananaReq(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         lengthCm: typing.Union[Schema_.Properties.LengthCm, decimal.Decimal, int, float, ],
         sweet: typing.Union[Schema_.Properties.Sweet, bool, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'BananaReq':
         return super().__new__(
             cls,
             *_args,
             lengthCm=lengthCm,
             sweet=sweet,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )

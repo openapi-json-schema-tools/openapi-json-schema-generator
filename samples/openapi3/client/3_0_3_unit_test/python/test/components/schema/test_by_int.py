@@ -18,28 +18,28 @@ from unit_test_api import configuration
 
 class TestByInt(unittest.TestCase):
     """ByInt unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_int_by_int_fail_fails(self):
         # int by int fail
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             ByInt.from_openapi_data_(
                 7,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_int_by_int_passes(self):
         # int by int
         ByInt.from_openapi_data_(
             10,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
         ByInt.from_openapi_data_(
             "foo",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

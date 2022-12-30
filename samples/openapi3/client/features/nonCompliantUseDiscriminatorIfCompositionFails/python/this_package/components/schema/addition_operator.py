@@ -101,7 +101,7 @@ class AdditionOperator(
         a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float, ],
         b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float, ],
         operator_id: typing.Union[Schema_.Properties.OperatorId, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'AdditionOperator':
         return super().__new__(
             cls,
@@ -109,5 +109,5 @@ class AdditionOperator(
             a=a,
             b=b,
             operator_id=operator_id,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )

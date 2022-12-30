@@ -113,7 +113,7 @@ class TriangleInterface(
         *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         shapeType: typing.Union[Schema_.Properties.ShapeType, str, ],
         triangleType: typing.Union[Schema_.Properties.TriangleType, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'TriangleInterface':
         return super().__new__(
@@ -121,6 +121,6 @@ class TriangleInterface(
             *_args,
             shapeType=shapeType,
             triangleType=triangleType,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestMaxitemsValidation(unittest.TestCase):
     """MaxitemsValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_too_long_is_invalid_fails(self):
         # too long is invalid
@@ -29,14 +29,14 @@ class TestMaxitemsValidation(unittest.TestCase):
                     2,
                     3,
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_ignores_non_arrays_passes(self):
         # ignores non-arrays
         MaxitemsValidation.from_openapi_data_(
             "foobar",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_shorter_is_valid_passes(self):
@@ -45,7 +45,7 @@ class TestMaxitemsValidation(unittest.TestCase):
             [
                 1,
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_exact_length_is_valid_passes(self):
@@ -55,7 +55,7 @@ class TestMaxitemsValidation(unittest.TestCase):
                 1,
                 2,
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

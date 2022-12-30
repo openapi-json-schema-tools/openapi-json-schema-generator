@@ -45,12 +45,12 @@ class MultipartFormData(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[Schema_.Items, bytes, io.FileIO, io.BufferedReader, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Files':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> Schema_.Items:
@@ -94,13 +94,13 @@ class MultipartFormData(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         files: typing.Union[Schema_.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'MultipartFormData':
         return super().__new__(
             cls,
             *_args,
             files=files,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

@@ -110,7 +110,7 @@ class ObjectModelWithRefProps(
         myNumber: typing.Union['number_with_validations.NumberWithValidations', schemas.Unset] = schemas.unset,
         myString: typing.Union['string.String', schemas.Unset] = schemas.unset,
         myBoolean: typing.Union['boolean.Boolean', schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ObjectModelWithRefProps':
         return super().__new__(
@@ -119,7 +119,7 @@ class ObjectModelWithRefProps(
             myNumber=myNumber,
             myString=myString,
             myBoolean=myBoolean,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

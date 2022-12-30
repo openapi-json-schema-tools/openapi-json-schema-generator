@@ -102,7 +102,7 @@ class Animal(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         className: typing.Union[Schema_.Properties.ClassName, str, ],
         color: typing.Union[Schema_.Properties.Color, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Animal':
         return super().__new__(
@@ -110,7 +110,7 @@ class Animal(
             *_args,
             className=className,
             color=color,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

@@ -61,13 +61,13 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: 'animal.Animal',
                 ) -> 'Map':
                     return super().__new__(
                         cls,
                         *_args,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                         **kwargs,
                     )
             __annotations__ = {
@@ -129,7 +129,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
         uuid: typing.Union[Schema_.Properties.Uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
         dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
         map: typing.Union[Schema_.Properties.Map, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'MixedPropertiesAndAdditionalPropertiesClass':
         return super().__new__(
@@ -138,7 +138,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
             uuid=uuid,
             dateTime=dateTime,
             map=map,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

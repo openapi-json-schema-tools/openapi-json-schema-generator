@@ -66,12 +66,12 @@ class Drawing(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple['shape.Shape'], typing.List['shape.Shape']],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Shapes':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> 'shape.Shape':
@@ -149,7 +149,7 @@ class Drawing(
         shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
         shapes: typing.Union[Schema_.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: 'fruit.Fruit',
     ) -> 'Drawing':
         return super().__new__(
@@ -159,7 +159,7 @@ class Drawing(
             shapeOrNull=shapeOrNull,
             nullableShape=nullableShape,
             shapes=shapes,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

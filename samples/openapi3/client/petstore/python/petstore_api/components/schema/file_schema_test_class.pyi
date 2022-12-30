@@ -57,12 +57,12 @@ class FileSchemaTestClass(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple['file.File'], typing.List['file.File']],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Files':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> 'file.File':
@@ -116,7 +116,7 @@ class FileSchemaTestClass(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         file: typing.Union['file.File', schemas.Unset] = schemas.unset,
         files: typing.Union[Schema_.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'FileSchemaTestClass':
         return super().__new__(
@@ -124,7 +124,7 @@ class FileSchemaTestClass(
             *_args,
             file=file,
             files=files,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

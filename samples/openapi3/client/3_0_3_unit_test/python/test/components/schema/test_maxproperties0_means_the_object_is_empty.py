@@ -18,14 +18,14 @@ from unit_test_api import configuration
 
 class TestMaxproperties0MeansTheObjectIsEmpty(unittest.TestCase):
     """Maxproperties0MeansTheObjectIsEmpty unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_no_properties_is_valid_passes(self):
         # no properties is valid
         Maxproperties0MeansTheObjectIsEmpty.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_one_property_is_invalid_fails(self):
@@ -36,7 +36,7 @@ class TestMaxproperties0MeansTheObjectIsEmpty(unittest.TestCase):
                     "foo":
                         1,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

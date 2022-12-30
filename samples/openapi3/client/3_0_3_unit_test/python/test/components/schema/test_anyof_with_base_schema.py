@@ -18,13 +18,13 @@ from unit_test_api import configuration
 
 class TestAnyofWithBaseSchema(unittest.TestCase):
     """AnyofWithBaseSchema unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_one_anyof_valid_passes(self):
         # one anyOf valid
         AnyofWithBaseSchema.from_openapi_data_(
             "foobar",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_both_anyof_invalid_fails(self):
@@ -32,7 +32,7 @@ class TestAnyofWithBaseSchema(unittest.TestCase):
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             AnyofWithBaseSchema.from_openapi_data_(
                 "foo",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_base_schema_fails(self):
@@ -40,7 +40,7 @@ class TestAnyofWithBaseSchema(unittest.TestCase):
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             AnyofWithBaseSchema.from_openapi_data_(
                 3,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

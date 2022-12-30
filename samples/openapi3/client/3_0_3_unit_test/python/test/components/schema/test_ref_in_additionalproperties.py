@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestRefInAdditionalproperties(unittest.TestCase):
     """RefInAdditionalproperties unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
@@ -30,7 +30,7 @@ class TestRefInAdditionalproperties(unittest.TestCase):
                             "a",
                     },
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_property_named_ref_invalid_fails(self):
@@ -44,7 +44,7 @@ class TestRefInAdditionalproperties(unittest.TestCase):
                                 2,
                         },
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

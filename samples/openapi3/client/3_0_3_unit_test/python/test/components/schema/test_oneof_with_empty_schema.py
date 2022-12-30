@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class TestOneofWithEmptySchema(unittest.TestCase):
     """OneofWithEmptySchema unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_both_valid_invalid_fails(self):
         # both valid - invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             OneofWithEmptySchema.from_openapi_data_(
                 123,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_one_valid_valid_passes(self):
         # one valid - valid
         OneofWithEmptySchema.from_openapi_data_(
             "foo",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

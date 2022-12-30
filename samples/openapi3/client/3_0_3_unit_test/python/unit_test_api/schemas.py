@@ -1301,7 +1301,7 @@ class Schema:
             io.BufferedReader,
             bytes
         ],
-        _configuration: typing.Optional[configuration_module.Configuration] = None
+        configuration_: typing.Optional[configuration_module.Configuration] = None
     ):
         """
         Schema from_openapi_data_
@@ -1312,7 +1312,7 @@ class Schema:
         arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
         validation_metadata = ValidationMetadata(
             path_to_item=('args[0]',),
-            configuration=_configuration or configuration_module.Configuration(),
+            configuration=configuration_ or configuration_module.Configuration(),
             validated_path_to_schemas=frozendict.frozendict(validated_path_to_schemas)
         )
         path_to_schemas = cls.__get_new_cls(arg, validation_metadata, path_to_type)
@@ -1357,7 +1357,7 @@ class Schema:
             io.FileIO,
             io.BufferedReader,
             'Schema',        ],
-        _configuration: typing.Optional[configuration_module.Configuration] = None,
+        configuration_: typing.Optional[configuration_module.Configuration] = None,
         **kwargs: typing.Union[
             dict,
             frozendict.frozendict,
@@ -1384,7 +1384,7 @@ class Schema:
         Args:
             _args (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
             kwargs (str, int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): dict values
-            _configuration: contains the configuration_module.Configuration that enables json schema validation keywords
+            configuration_: contains the configuration_module.Configuration that enables json schema validation keywords
                 like minItems, minLength etc
 
         Note: double underscores are used here because pycharm thinks that these variables
@@ -1406,7 +1406,7 @@ class Schema:
             __arg, __from_server, __validated_path_to_schemas, ('args[0]',), __path_to_type)
         __validation_metadata = ValidationMetadata(
             path_to_item=('args[0]',),
-            configuration=_configuration or configuration_module.Configuration(),
+            configuration=configuration_ or configuration_module.Configuration(),
             validated_path_to_schemas=frozendict.frozendict(__validated_path_to_schemas)
         )
         __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata, __path_to_type)
@@ -1421,7 +1421,7 @@ class Schema:
         self,
         *_args: typing.Union[
             dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema'],
-        _configuration: typing.Optional[configuration_module.Configuration] = None,
+        configuration_: typing.Optional[configuration_module.Configuration] = None,
         **kwargs: typing.Union[
             dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema', Unset
         ]
@@ -2089,8 +2089,8 @@ class ListSchema(
         types = {tuple}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.List[typing.Any], _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: typing.List[typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, _arg: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2105,8 +2105,8 @@ class NoneSchema(
         types = {NoneClass}
 
     @classmethod
-    def from_openapi_data_(cls, arg: None, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, _arg: None, **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2125,8 +2125,8 @@ class NumberSchema(
         types = {decimal.Decimal}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Union[int, float], _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, _arg: typing.Union[decimal.Decimal, int, float], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2148,8 +2148,8 @@ class IntSchema(IntBase, NumberSchema):
         format = 'int'
 
     @classmethod
-    def from_openapi_data_(cls, arg: int, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, _arg: typing.Union[decimal.Decimal, int], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2179,8 +2179,8 @@ class Float32Schema(
         format = 'float'
 
     @classmethod
-    def from_openapi_data_(cls, arg: float, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
 
 class Float64Schema(
@@ -2191,8 +2191,8 @@ class Float64Schema(
         format = 'double'
 
     @classmethod
-    def from_openapi_data_(cls, arg: float, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
 
 class StrSchema(
@@ -2210,8 +2210,8 @@ class StrSchema(
         types = {str}
 
     @classmethod
-    def from_openapi_data_(cls, arg: str, _configuration: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, _arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: configuration_module.Configuration):
         return super().__new__(cls, _arg, **kwargs)
@@ -2329,8 +2329,8 @@ class BoolSchema(
         types = {BoolClass}
 
     @classmethod
-    def from_openapi_data_(cls, arg: bool, _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, _arg: bool, **kwargs: ValidationMetadata):
         return super().__new__(cls, _arg, **kwargs)
@@ -2369,12 +2369,12 @@ class NotAnyTypeSchema(AnyTypeSchema):
     def __new__(
         cls,
         *_args,
-        _configuration: typing.Optional[configuration_module.Configuration] = None,
+        configuration_: typing.Optional[configuration_module.Configuration] = None,
     ) -> 'NotAnyTypeSchema':
         return super().__new__(
             cls,
             *_args,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )
 
 
@@ -2387,8 +2387,8 @@ class DictSchema(
         types = {frozendict.frozendict}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], _configuration: typing.Optional[configuration_module.Configuration] = None):
-        return super().from_openapi_data_(arg, _configuration=_configuration)
+    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, *_args: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]):
         return super().__new__(cls, *_args, **kwargs)

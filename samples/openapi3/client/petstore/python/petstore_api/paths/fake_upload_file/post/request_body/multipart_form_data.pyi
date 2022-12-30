@@ -87,7 +87,7 @@ class MultipartFormData(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         file: typing.Union[Schema_.Properties.File, bytes, io.FileIO, io.BufferedReader, ],
         additionalMetadata: typing.Union[Schema_.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'MultipartFormData':
         return super().__new__(
@@ -95,6 +95,6 @@ class MultipartFormData(
             *_args,
             file=file,
             additionalMetadata=additionalMetadata,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

@@ -60,13 +60,13 @@ class AdditionalPropertiesValidator(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'AllOf0':
                     return super().__new__(
                         cls,
                         *_args,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                         **kwargs,
                     )
             
@@ -93,13 +93,13 @@ class AdditionalPropertiesValidator(
                         def __new__(
                             cls,
                             *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                            _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                             **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *_args,
-                                _configuration=_configuration,
+                                configuration_=configuration_,
                                 **kwargs,
                             )
                 
@@ -113,13 +113,13 @@ class AdditionalPropertiesValidator(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'AllOf1':
                     return super().__new__(
                         cls,
                         *_args,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                         **kwargs,
                     )
             
@@ -146,13 +146,13 @@ class AdditionalPropertiesValidator(
                         def __new__(
                             cls,
                             *_args: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                            _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                             **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *_args,
-                                _configuration=_configuration,
+                                configuration_=configuration_,
                                 **kwargs,
                             )
                 
@@ -166,13 +166,13 @@ class AdditionalPropertiesValidator(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'AllOf2':
                     return super().__new__(
                         cls,
                         *_args,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                         **kwargs,
                     )
             classes = [
@@ -185,12 +185,12 @@ class AdditionalPropertiesValidator(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'AdditionalPropertiesValidator':
         return super().__new__(
             cls,
             *_args,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

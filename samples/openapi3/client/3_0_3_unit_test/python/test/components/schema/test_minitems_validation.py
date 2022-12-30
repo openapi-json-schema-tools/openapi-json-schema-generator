@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestMinitemsValidation(unittest.TestCase):
     """MinitemsValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_too_short_is_invalid_fails(self):
         # too short is invalid
@@ -26,14 +26,14 @@ class TestMinitemsValidation(unittest.TestCase):
             MinitemsValidation.from_openapi_data_(
                 [
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_ignores_non_arrays_passes(self):
         # ignores non-arrays
         MinitemsValidation.from_openapi_data_(
             "",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_longer_is_valid_passes(self):
@@ -43,7 +43,7 @@ class TestMinitemsValidation(unittest.TestCase):
                 1,
                 2,
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_exact_length_is_valid_passes(self):
@@ -52,7 +52,7 @@ class TestMinitemsValidation(unittest.TestCase):
             [
                 1,
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

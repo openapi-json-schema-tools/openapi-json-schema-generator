@@ -18,14 +18,14 @@ from unit_test_api import configuration
 
 class TestRequiredValidation(unittest.TestCase):
     """RequiredValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
         RequiredValidation.from_openapi_data_(
             [
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_present_required_property_is_valid_passes(self):
@@ -35,21 +35,21 @@ class TestRequiredValidation(unittest.TestCase):
                 "foo":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
         RequiredValidation.from_openapi_data_(
             12,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_strings_passes(self):
         # ignores strings
         RequiredValidation.from_openapi_data_(
             "",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_non_present_required_property_is_invalid_fails(self):
@@ -60,7 +60,7 @@ class TestRequiredValidation(unittest.TestCase):
                     "bar":
                         1,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

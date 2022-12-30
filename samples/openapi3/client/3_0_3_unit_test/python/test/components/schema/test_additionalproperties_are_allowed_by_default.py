@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestAdditionalpropertiesAreAllowedByDefault(unittest.TestCase):
     """AdditionalpropertiesAreAllowedByDefault unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_additional_properties_are_allowed_passes(self):
         # additional properties are allowed
@@ -31,7 +31,7 @@ class TestAdditionalpropertiesAreAllowedByDefault(unittest.TestCase):
                 "quux":
                     True,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

@@ -40,12 +40,12 @@ class ArrayTypeMatchesArrays(
     def __new__(
         cls,
         _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]], typing.List[typing.Union[Schema_.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ]]],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ArrayTypeMatchesArrays':
         return super().__new__(
             cls,
             _arg,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )
 
     def __getitem__(self, i: int) -> Schema_.Items:

@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestOneofWithRequired(unittest.TestCase):
     """OneofWithRequired unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_both_valid_invalid_fails(self):
         # both valid - invalid
@@ -32,7 +32,7 @@ class TestOneofWithRequired(unittest.TestCase):
                     "baz":
                         3,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_both_invalid_invalid_fails(self):
@@ -43,7 +43,7 @@ class TestOneofWithRequired(unittest.TestCase):
                     "bar":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_first_valid_valid_passes(self):
@@ -55,7 +55,7 @@ class TestOneofWithRequired(unittest.TestCase):
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_second_valid_valid_passes(self):
@@ -67,7 +67,7 @@ class TestOneofWithRequired(unittest.TestCase):
                 "baz":
                     3,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

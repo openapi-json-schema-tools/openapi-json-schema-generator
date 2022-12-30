@@ -22,10 +22,10 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
     """
     ResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -57,7 +57,7 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/responseBody/postRefInAdditionalpropertiesResponseBodyForContentTypes',
+                self.configuration_.host + '/responseBody/postRefInAdditionalpropertiesResponseBodyForContentTypes',
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -66,7 +66,7 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
 
@@ -94,7 +94,7 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/responseBody/postRefInAdditionalpropertiesResponseBodyForContentTypes',
+                self.configuration_.host + '/responseBody/postRefInAdditionalpropertiesResponseBodyForContentTypes',
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,

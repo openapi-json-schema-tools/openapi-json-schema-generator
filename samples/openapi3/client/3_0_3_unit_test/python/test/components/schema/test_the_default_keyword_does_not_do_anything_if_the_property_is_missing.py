@@ -18,14 +18,14 @@ from unit_test_api import configuration
 
 class TestTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(unittest.TestCase):
     """TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_missing_properties_are_not_filled_in_with_the_default_passes(self):
         # missing properties are not filled in with the default
         TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_an_explicit_property_value_is_checked_against_maximum_passing_passes(self):
@@ -35,7 +35,7 @@ class TestTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(unittest.Test
                 "alpha":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_an_explicit_property_value_is_checked_against_maximum_failing_fails(self):
@@ -46,7 +46,7 @@ class TestTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(unittest.Test
                     "alpha":
                         5,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

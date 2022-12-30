@@ -128,13 +128,13 @@ class Apple(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, None, ],
         origin: typing.Union[Schema_.Properties.Origin, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Apple':
         return super().__new__(
             cls,
             *_args,
             origin=origin,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

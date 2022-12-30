@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestAllof(unittest.TestCase):
     """Allof unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_allof_passes(self):
         # allOf
@@ -29,7 +29,7 @@ class TestAllof(unittest.TestCase):
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_mismatch_first_fails(self):
@@ -40,7 +40,7 @@ class TestAllof(unittest.TestCase):
                     "bar":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_second_fails(self):
@@ -51,7 +51,7 @@ class TestAllof(unittest.TestCase):
                     "foo":
                         "baz",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_wrong_type_fails(self):
@@ -64,7 +64,7 @@ class TestAllof(unittest.TestCase):
                     "bar":
                         "quux",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

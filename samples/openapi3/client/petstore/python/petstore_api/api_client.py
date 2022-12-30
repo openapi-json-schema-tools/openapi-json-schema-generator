@@ -928,7 +928,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
             deserialized_body = body_schema.from_openapi_data_(
-                body_data, _configuration=configuration)
+                body_data, configuration_=configuration)
         elif streamed:
             response.release_conn()
 

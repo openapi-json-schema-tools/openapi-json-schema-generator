@@ -90,7 +90,7 @@ class ApplicationXWwwFormUrlencoded(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         param: typing.Union[Schema_.Properties.Param, str, ],
         param2: typing.Union[Schema_.Properties.Param2, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
@@ -98,6 +98,6 @@ class ApplicationXWwwFormUrlencoded(
             *_args,
             param=param,
             param2=param2,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

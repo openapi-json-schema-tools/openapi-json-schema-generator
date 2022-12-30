@@ -89,7 +89,7 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         foo: typing.Union[Schema_.Properties.Foo, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         bar: typing.Union[Schema_.Properties.Bar, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, bool, ],
     ) -> 'AdditionalpropertiesAllowsASchemaWhichShouldValidate':
         return super().__new__(
@@ -97,6 +97,6 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
             *_args,
             foo=foo,
             bar=bar,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

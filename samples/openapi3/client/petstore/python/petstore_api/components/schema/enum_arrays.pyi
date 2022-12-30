@@ -75,12 +75,12 @@ class EnumArrays(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayEnum':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> Schema_.Items:
@@ -134,7 +134,7 @@ class EnumArrays(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         just_symbol: typing.Union[Schema_.Properties.JustSymbol, str, schemas.Unset] = schemas.unset,
         array_enum: typing.Union[Schema_.Properties.ArrayEnum, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'EnumArrays':
         return super().__new__(
@@ -142,6 +142,6 @@ class EnumArrays(
             *_args,
             just_symbol=just_symbol,
             array_enum=array_enum,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

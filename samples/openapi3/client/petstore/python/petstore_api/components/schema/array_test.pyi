@@ -50,12 +50,12 @@ class ArrayTest(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayOfString':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> Schema_.Items:
@@ -83,12 +83,12 @@ class ArrayTest(
                         def __new__(
                             cls,
                             _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, ]]],
-                            _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                         ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 _arg,
-                                _configuration=_configuration,
+                                configuration_=configuration_,
                             )
                     
                         def __getitem__(self, i: int) -> Schema_.Items:
@@ -97,12 +97,12 @@ class ArrayTest(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayArrayOfInteger':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> Schema_.Items:
@@ -133,12 +133,12 @@ class ArrayTest(
                         def __new__(
                             cls,
                             _arg: typing.Union[typing.Tuple['read_only_first.ReadOnlyFirst'], typing.List['read_only_first.ReadOnlyFirst']],
-                            _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                         ) -> 'Items':
                             return super().__new__(
                                 cls,
                                 _arg,
-                                _configuration=_configuration,
+                                configuration_=configuration_,
                             )
                     
                         def __getitem__(self, i: int) -> 'read_only_first.ReadOnlyFirst':
@@ -147,12 +147,12 @@ class ArrayTest(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayArrayOfModel':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> Schema_.Items:
@@ -216,7 +216,7 @@ class ArrayTest(
         array_of_string: typing.Union[Schema_.Properties.ArrayOfString, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_integer: typing.Union[Schema_.Properties.ArrayArrayOfInteger, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_model: typing.Union[Schema_.Properties.ArrayArrayOfModel, list, tuple, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ArrayTest':
         return super().__new__(
@@ -225,7 +225,7 @@ class ArrayTest(
             array_of_string=array_of_string,
             array_array_of_integer=array_array_of_integer,
             array_array_of_model=array_array_of_model,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

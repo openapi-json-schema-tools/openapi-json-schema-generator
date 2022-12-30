@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase):
     """AdditionalpropertiesAllowsASchemaWhichShouldValidate unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_no_additional_properties_is_valid_passes(self):
         # no additional properties is valid
@@ -27,7 +27,7 @@ class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase
                 "foo":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_an_additional_invalid_property_is_invalid_fails(self):
@@ -42,7 +42,7 @@ class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase
                     "quux":
                         12,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_an_additional_valid_property_is_valid_passes(self):
@@ -56,7 +56,7 @@ class TestAdditionalpropertiesAllowsASchemaWhichShouldValidate(unittest.TestCase
                 "quux":
                     True,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

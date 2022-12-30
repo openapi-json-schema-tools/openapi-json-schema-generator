@@ -47,12 +47,12 @@ class Address(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, decimal.Decimal, int, ],
     ) -> 'Address':
         return super().__new__(
             cls,
             *_args,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

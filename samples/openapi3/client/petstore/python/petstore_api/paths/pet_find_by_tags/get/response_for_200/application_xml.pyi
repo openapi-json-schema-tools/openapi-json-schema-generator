@@ -38,12 +38,12 @@ class ApplicationXml(
     def __new__(
         cls,
         _arg: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ApplicationXml':
         return super().__new__(
             cls,
             _arg,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )
 
     def __getitem__(self, i: int) -> 'pet.Pet':

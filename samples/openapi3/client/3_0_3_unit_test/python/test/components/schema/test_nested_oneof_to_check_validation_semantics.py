@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class TestNestedOneofToCheckValidationSemantics(unittest.TestCase):
     """NestedOneofToCheckValidationSemantics unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_anything_non_null_is_invalid_fails(self):
         # anything non-null is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             NestedOneofToCheckValidationSemantics.from_openapi_data_(
                 123,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_null_is_valid_passes(self):
         # null is valid
         NestedOneofToCheckValidationSemantics.from_openapi_data_(
             None,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

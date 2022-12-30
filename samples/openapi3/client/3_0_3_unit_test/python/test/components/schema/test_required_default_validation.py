@@ -18,14 +18,14 @@ from unit_test_api import configuration
 
 class TestRequiredDefaultValidation(unittest.TestCase):
     """RequiredDefaultValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_not_required_by_default_passes(self):
         # not required by default
         RequiredDefaultValidation.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

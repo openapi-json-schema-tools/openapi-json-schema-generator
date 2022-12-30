@@ -86,12 +86,12 @@ class NoAdditionalProperties(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, ],
         petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'NoAdditionalProperties':
         return super().__new__(
             cls,
             *_args,
             id=id,
             petId=petId,
-            _configuration=_configuration,
+            configuration_=configuration_,
         )

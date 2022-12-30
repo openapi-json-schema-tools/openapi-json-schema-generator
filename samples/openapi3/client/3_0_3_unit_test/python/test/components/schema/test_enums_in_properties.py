@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestEnumsInProperties(unittest.TestCase):
     """EnumsInProperties unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_missing_optional_property_is_valid_passes(self):
         # missing optional property is valid
@@ -27,7 +27,7 @@ class TestEnumsInProperties(unittest.TestCase):
                 "bar":
                     "bar",
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_wrong_foo_value_fails(self):
@@ -40,7 +40,7 @@ class TestEnumsInProperties(unittest.TestCase):
                     "bar":
                         "bar",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_both_properties_are_valid_passes(self):
@@ -52,7 +52,7 @@ class TestEnumsInProperties(unittest.TestCase):
                 "bar":
                     "bar",
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_wrong_bar_value_fails(self):
@@ -65,7 +65,7 @@ class TestEnumsInProperties(unittest.TestCase):
                     "bar":
                         "bart",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_missing_all_properties_is_invalid_fails(self):
@@ -74,7 +74,7 @@ class TestEnumsInProperties(unittest.TestCase):
             EnumsInProperties.from_openapi_data_(
                 {
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_missing_required_property_is_invalid_fails(self):
@@ -85,7 +85,7 @@ class TestEnumsInProperties(unittest.TestCase):
                     "foo":
                         "foo",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

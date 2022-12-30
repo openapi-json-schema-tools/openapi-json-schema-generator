@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestAllofWithBaseSchema(unittest.TestCase):
     """AllofWithBaseSchema unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_valid_passes(self):
         # valid
@@ -31,7 +31,7 @@ class TestAllofWithBaseSchema(unittest.TestCase):
                 "baz":
                     None,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_mismatch_first_allof_fails(self):
@@ -44,7 +44,7 @@ class TestAllofWithBaseSchema(unittest.TestCase):
                     "baz":
                         None,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_base_schema_fails(self):
@@ -57,7 +57,7 @@ class TestAllofWithBaseSchema(unittest.TestCase):
                     "baz":
                         None,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_both_fails(self):
@@ -68,7 +68,7 @@ class TestAllofWithBaseSchema(unittest.TestCase):
                     "bar":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_second_allof_fails(self):
@@ -81,7 +81,7 @@ class TestAllofWithBaseSchema(unittest.TestCase):
                     "bar":
                         2,
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

@@ -18,35 +18,35 @@ from unit_test_api import configuration
 
 class TestJsonPointerFormat(unittest.TestCase):
     """JsonPointerFormat unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
         JsonPointerFormat.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
         JsonPointerFormat.from_openapi_data_(
             False,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
         JsonPointerFormat.from_openapi_data_(
             12,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
         JsonPointerFormat.from_openapi_data_(
             13.7,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_arrays_passes(self):
@@ -54,14 +54,14 @@ class TestJsonPointerFormat(unittest.TestCase):
         JsonPointerFormat.from_openapi_data_(
             [
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
         JsonPointerFormat.from_openapi_data_(
             None,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

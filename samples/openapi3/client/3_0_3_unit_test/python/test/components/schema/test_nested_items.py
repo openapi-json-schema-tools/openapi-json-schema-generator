@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestNestedItems(unittest.TestCase):
     """NestedItems unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_valid_nested_array_passes(self):
         # valid nested array
@@ -53,7 +53,7 @@ class TestNestedItems(unittest.TestCase):
                     ],
                 ],
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_nested_array_with_invalid_type_fails(self):
@@ -90,7 +90,7 @@ class TestNestedItems(unittest.TestCase):
                         ],
                     ],
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_not_deep_enough_fails(self):
@@ -121,7 +121,7 @@ class TestNestedItems(unittest.TestCase):
                         ],
                     ],
                 ],
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

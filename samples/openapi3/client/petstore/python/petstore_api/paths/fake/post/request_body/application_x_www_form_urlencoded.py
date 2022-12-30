@@ -330,7 +330,7 @@ class ApplicationXWwwFormUrlencoded(
         dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
         password: typing.Union[Schema_.Properties.Password, str, schemas.Unset] = schemas.unset,
         callback: typing.Union[Schema_.Properties.Callback, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApplicationXWwwFormUrlencoded':
         return super().__new__(
@@ -349,6 +349,6 @@ class ApplicationXWwwFormUrlencoded(
             dateTime=dateTime,
             password=password,
             callback=callback,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

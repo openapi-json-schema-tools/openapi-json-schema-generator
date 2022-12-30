@@ -18,21 +18,21 @@ from unit_test_api import configuration
 
 class TestMinpropertiesValidation(unittest.TestCase):
     """MinpropertiesValidation unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
         MinpropertiesValidation.from_openapi_data_(
             [
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
         MinpropertiesValidation.from_openapi_data_(
             12,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_too_short_is_invalid_fails(self):
@@ -41,14 +41,14 @@ class TestMinpropertiesValidation(unittest.TestCase):
             MinpropertiesValidation.from_openapi_data_(
                 {
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_ignores_strings_passes(self):
         # ignores strings
         MinpropertiesValidation.from_openapi_data_(
             "",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_longer_is_valid_passes(self):
@@ -60,7 +60,7 @@ class TestMinpropertiesValidation(unittest.TestCase):
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_exact_length_is_valid_passes(self):
@@ -70,7 +70,7 @@ class TestMinpropertiesValidation(unittest.TestCase):
                 "foo":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

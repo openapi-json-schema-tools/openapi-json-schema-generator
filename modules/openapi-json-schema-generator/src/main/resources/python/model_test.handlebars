@@ -12,7 +12,7 @@ from {{packageName}} import configuration
 
 class Test{{name.getCamelCaseName}}(unittest.TestCase):
     """{{name.getCamelCaseName}} unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
 {{#each testCases}}
 {{#with this }}
@@ -23,7 +23,7 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
 {{#with data}}
             {{> model_templates/payload_renderer endChar=',' }}
 {{/with}}
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
@@ -31,7 +31,7 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
 {{#with data}}
                 {{> model_templates/payload_renderer endChar=','}}
 {{/with}}
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 {{/if}}
 {{/with}}

@@ -94,7 +94,7 @@ class ObjectModelWithArgAndArgsProperties(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         arg: typing.Union[Schema_.Properties.Arg, str, ],
         args: typing.Union[Schema_.Properties.Args, str, ],
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ObjectModelWithArgAndArgsProperties':
         return super().__new__(
@@ -102,6 +102,6 @@ class ObjectModelWithArgAndArgsProperties(
             *_args,
             arg=arg,
             args=args,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )

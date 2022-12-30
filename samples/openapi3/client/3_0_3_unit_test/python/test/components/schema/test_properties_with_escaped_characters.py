@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestPropertiesWithEscapedCharacters(unittest.TestCase):
     """PropertiesWithEscapedCharacters unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_object_with_all_numbers_is_valid_passes(self):
         # object with all numbers is valid
@@ -37,7 +37,7 @@ class TestPropertiesWithEscapedCharacters(unittest.TestCase):
                 "foo\fbar":
                     1,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_object_with_strings_is_invalid_fails(self):
@@ -58,7 +58,7 @@ class TestPropertiesWithEscapedCharacters(unittest.TestCase):
                     "foo\fbar":
                         "1",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
 

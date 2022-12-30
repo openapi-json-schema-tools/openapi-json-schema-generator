@@ -41,7 +41,7 @@ def __new__(
 {{/if}}
 {{/if}}
 {{/each}}
-    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
 {{#with additionalProperties}}
 {{#unless getIsBooleanSchemaFalse}}
 {{#if refClass}}
@@ -83,7 +83,7 @@ def __new__(
         {{@key.getName}}={{@key.getName}},
 {{/if}}
 {{/each}}
-        _configuration=_configuration,
+        configuration_=configuration_,
 {{#with additionalProperties}}
 {{#unless getIsBooleanSchemaFalse}}
         **kwargs,

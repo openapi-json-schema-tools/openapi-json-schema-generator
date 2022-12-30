@@ -18,35 +18,35 @@ from unit_test_api import configuration
 
 class TestUriTemplateFormat(unittest.TestCase):
     """UriTemplateFormat unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
         UriTemplateFormat.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
         UriTemplateFormat.from_openapi_data_(
             False,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
         UriTemplateFormat.from_openapi_data_(
             12,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
         UriTemplateFormat.from_openapi_data_(
             13.7,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_arrays_passes(self):
@@ -54,14 +54,14 @@ class TestUriTemplateFormat(unittest.TestCase):
         UriTemplateFormat.from_openapi_data_(
             [
             ],
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
         UriTemplateFormat.from_openapi_data_(
             None,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

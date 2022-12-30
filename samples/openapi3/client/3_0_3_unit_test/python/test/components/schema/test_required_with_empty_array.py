@@ -18,14 +18,14 @@ from unit_test_api import configuration
 
 class TestRequiredWithEmptyArray(unittest.TestCase):
     """RequiredWithEmptyArray unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_property_not_required_passes(self):
         # property not required
         RequiredWithEmptyArray.from_openapi_data_(
             {
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

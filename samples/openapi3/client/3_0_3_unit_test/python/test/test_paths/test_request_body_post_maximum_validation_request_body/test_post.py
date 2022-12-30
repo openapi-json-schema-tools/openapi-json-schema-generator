@@ -22,10 +22,10 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
     """
     RequestBodyPostMaximumValidationRequestBody unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -43,7 +43,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             )
             body = post.request_body.maximum_validation.MaximumValidation.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -55,7 +55,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postMaximumValidationRequestBody',
+                self.configuration_.host + '/requestBody/postMaximumValidationRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -73,7 +73,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             )
             body = post.request_body.maximum_validation.MaximumValidation.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -85,7 +85,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postMaximumValidationRequestBody',
+                self.configuration_.host + '/requestBody/postMaximumValidationRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -104,7 +104,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
                 body = post.request_body.maximum_validation.MaximumValidation.from_openapi_data_(
                     payload,
-                    _configuration=self._configuration
+                    configuration_=self.configuration_
                 )
                 self.api.post(body=body)
 
@@ -117,7 +117,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             )
             body = post.request_body.maximum_validation.MaximumValidation.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -129,7 +129,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postMaximumValidationRequestBody',
+                self.configuration_.host + '/requestBody/postMaximumValidationRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,

@@ -22,10 +22,10 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
     """
     RequestBodyPostHostnameFormatRequestBody unit test stubs
     """
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self._configuration)
+        used_api_client = api_client.ApiClient(configuration=self.configuration_)
         self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
@@ -44,7 +44,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             body = post.request_body.hostname_format.HostnameFormat.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -56,7 +56,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postHostnameFormatRequestBody',
+                self.configuration_.host + '/requestBody/postHostnameFormatRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -74,7 +74,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             body = post.request_body.hostname_format.HostnameFormat.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -86,7 +86,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postHostnameFormatRequestBody',
+                self.configuration_.host + '/requestBody/postHostnameFormatRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -104,7 +104,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             body = post.request_body.hostname_format.HostnameFormat.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -116,7 +116,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postHostnameFormatRequestBody',
+                self.configuration_.host + '/requestBody/postHostnameFormatRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -134,7 +134,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             body = post.request_body.hostname_format.HostnameFormat.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -146,7 +146,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postHostnameFormatRequestBody',
+                self.configuration_.host + '/requestBody/postHostnameFormatRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -165,7 +165,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             body = post.request_body.hostname_format.HostnameFormat.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -177,7 +177,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postHostnameFormatRequestBody',
+                self.configuration_.host + '/requestBody/postHostnameFormatRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -195,7 +195,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             body = post.request_body.hostname_format.HostnameFormat.from_openapi_data_(
                 payload,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -207,7 +207,7 @@ class TestRequestBodyPostHostnameFormatRequestBody(ApiTestMixin, unittest.TestCa
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self._configuration.host + '/requestBody/postHostnameFormatRequestBody',
+                self.configuration_.host + '/requestBody/postHostnameFormatRequestBody',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,

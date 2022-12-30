@@ -62,12 +62,12 @@ class Pet(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'PhotoUrls':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> Schema_.Items:
@@ -89,12 +89,12 @@ class Pet(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple['tag.Tag'], typing.List['tag.Tag']],
-                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Tags':
                     return super().__new__(
                         cls,
                         _arg,
-                        _configuration=_configuration,
+                        configuration_=configuration_,
                     )
             
                 def __getitem__(self, i: int) -> 'tag.Tag':
@@ -208,7 +208,7 @@ class Pet(
         category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
         tags: typing.Union[Schema_.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
         status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Pet':
         return super().__new__(
@@ -220,7 +220,7 @@ class Pet(
             category=category,
             tags=tags,
             status=status,
-            _configuration=_configuration,
+            configuration_=configuration_,
             **kwargs,
         )
 

@@ -18,28 +18,28 @@ from unit_test_api import configuration
 
 class TestEnumWith1DoesNotMatchTrue(unittest.TestCase):
     """EnumWith1DoesNotMatchTrue unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_true_is_invalid_fails(self):
         # true is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             EnumWith1DoesNotMatchTrue.from_openapi_data_(
                 True,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_integer_one_is_valid_passes(self):
         # integer one is valid
         EnumWith1DoesNotMatchTrue.from_openapi_data_(
             1,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_float_one_is_valid_passes(self):
         # float one is valid
         EnumWith1DoesNotMatchTrue.from_openapi_data_(
             1.0,
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

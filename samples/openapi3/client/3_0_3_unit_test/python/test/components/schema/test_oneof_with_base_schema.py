@@ -18,14 +18,14 @@ from unit_test_api import configuration
 
 class TestOneofWithBaseSchema(unittest.TestCase):
     """OneofWithBaseSchema unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_both_oneof_valid_fails(self):
         # both oneOf valid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             OneofWithBaseSchema.from_openapi_data_(
                 "foo",
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_mismatch_base_schema_fails(self):
@@ -33,14 +33,14 @@ class TestOneofWithBaseSchema(unittest.TestCase):
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
             OneofWithBaseSchema.from_openapi_data_(
                 3,
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_one_oneof_valid_passes(self):
         # one oneOf valid
         OneofWithBaseSchema.from_openapi_data_(
             "foobar",
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 

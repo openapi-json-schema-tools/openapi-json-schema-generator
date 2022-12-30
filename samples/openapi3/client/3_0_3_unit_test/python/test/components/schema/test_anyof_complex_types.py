@@ -18,7 +18,7 @@ from unit_test_api import configuration
 
 class TestAnyofComplexTypes(unittest.TestCase):
     """AnyofComplexTypes unit test stubs"""
-    _configuration = configuration.Configuration()
+    configuration_ = configuration.Configuration()
 
     def test_second_anyof_valid_complex_passes(self):
         # second anyOf valid (complex)
@@ -27,7 +27,7 @@ class TestAnyofComplexTypes(unittest.TestCase):
                 "foo":
                     "baz",
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_neither_anyof_valid_complex_fails(self):
@@ -40,7 +40,7 @@ class TestAnyofComplexTypes(unittest.TestCase):
                     "bar":
                         "quux",
                 },
-                _configuration=self._configuration
+                configuration_=self.configuration_
             )
 
     def test_both_anyof_valid_complex_passes(self):
@@ -52,7 +52,7 @@ class TestAnyofComplexTypes(unittest.TestCase):
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
     def test_first_anyof_valid_complex_passes(self):
@@ -62,7 +62,7 @@ class TestAnyofComplexTypes(unittest.TestCase):
                 "bar":
                     2,
             },
-            _configuration=self._configuration
+            configuration_=self.configuration_
         )
 
 
