@@ -34,8 +34,7 @@ import io.swagger.v3.parser.ObjectMapperFactory;
 import io.swagger.v3.parser.util.RemoteUrl;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.openapitools.codegen.CodegenSchema;
-import org.openapitools.codegen.JsonSchema;
+import org.openapitools.codegen.OpenApiSchema;
 import org.openapitools.codegen.config.GlobalSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -1463,8 +1462,8 @@ public class ModelUtils {
         return (schema.get$ref() == null && schema.getType() == null);
     }
 
-    public static void syncValidationProperties(Schema schema, JsonSchema target) {
-        // TODO move this method to JsonSchema
+    public static void syncValidationProperties(Schema schema, OpenApiSchema target) {
+        // TODO move this method to OpenApiSchema
         if (schema != null && target != null) {
             if (isNullType(schema) || schema.get$ref() != null || isBooleanSchema(schema)) {
                 return;
@@ -1508,24 +1507,24 @@ public class ModelUtils {
         }
     }
 
-    private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, JsonSchema target) {
+    private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, OpenApiSchema target) {
         if (minItems != null) target.setMinItems(minItems);
         if (maxItems != null) target.setMaxItems(maxItems);
         if (uniqueItems != null) target.setUniqueItems(uniqueItems);
     }
 
-    private static void setObjectValidations(Integer minProperties, Integer maxProperties, JsonSchema target) {
+    private static void setObjectValidations(Integer minProperties, Integer maxProperties, OpenApiSchema target) {
         if (minProperties != null) target.setMinProperties(minProperties);
         if (maxProperties != null) target.setMaxProperties(maxProperties);
     }
 
-    private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, JsonSchema target) {
+    private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, OpenApiSchema target) {
         if (minLength != null) target.setMinLength(minLength);
         if (maxLength != null) target.setMaxLength(maxLength);
         if (pattern != null) target.setPattern(pattern);
     }
 
-    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, JsonSchema target) {
+    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, OpenApiSchema target) {
         if (multipleOf != null) target.setMultipleOf(multipleOf);
         if (minimum != null) {
             if (isIntegerSchema(schema)) {

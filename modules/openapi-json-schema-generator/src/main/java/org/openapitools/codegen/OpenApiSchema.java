@@ -1,20 +1,13 @@
 package org.openapitools.codegen;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Stream;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.media.Schema;
-import org.openapitools.codegen.meta.FeatureSet;
-import org.openapitools.codegen.meta.features.SchemaSupportFeature;
 import org.openapitools.codegen.utils.ModelUtils;
 
-public interface JsonSchema {
+public interface OpenApiSchema {
     // 3.1.0
     CodegenSchema getContains();
 
@@ -221,7 +214,7 @@ public interface JsonSchema {
     void setExternalDocumentation(ExternalDocumentation externalDocumentation);
 
     /**
-     * Syncs all the schema's type properties into the JsonSchema instance
+     * Syncs all the schema's type properties into the OpenApiSchema instance
      * for now this only supports types without format information
      * TODO: in the future move the format handling in here too
      * @param p the schema which contains the type info
