@@ -1778,7 +1778,7 @@ class StrBase:
         raise Exception('not implemented')
 
     @property
-    def as_decimal_oapg(self) -> decimal.Decimal:
+    def as_decimal_(self) -> decimal.Decimal:
         raise Exception('not implemented')
 
     @property
@@ -1816,7 +1816,7 @@ class DecimalBase:
 
     @property
     @functools.lru_cache()
-    def as_decimal_oapg(self) -> decimal.Decimal:
+    def as_decimal_(self) -> decimal.Decimal:
         return decimal.Decimal(self)
 
 

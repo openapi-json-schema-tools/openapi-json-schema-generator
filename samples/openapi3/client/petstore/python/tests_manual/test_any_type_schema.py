@@ -218,7 +218,7 @@ class TestAnyTypeSchema(unittest.TestCase):
 
         m = Model('12.34')
         assert m == '12.34'
-        assert m.as_decimal_oapg == Decimal('12.34')
+        assert m.as_decimal_ == Decimal('12.34')
         assert isinstance(m, Model)
         assert isinstance(m, AnyTypeSchema)
         assert isinstance(m, DecimalSchema)
