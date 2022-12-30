@@ -1741,7 +1741,7 @@ class BoolBase:
             return False
         return bool(self)
 
-    def is_false_oapg(self) -> bool:
+    def is_false_(self) -> bool:
         """
         A replacement for x is False
         True if the instance is a BoolClass False Singleton
