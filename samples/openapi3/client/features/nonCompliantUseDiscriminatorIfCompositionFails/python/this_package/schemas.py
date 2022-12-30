@@ -1341,7 +1341,7 @@ class Schema:
         return path_to_schemas
 
     @classmethod
-    def _get_new_instance_without_conversion_oapg(
+    def _get_new_instance_without_conversion(
         cls,
         arg: typing.Any,
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
@@ -1393,7 +1393,7 @@ class Schema:
         )
         path_to_schemas = cls.__get_new_cls(arg, validation_metadata, path_to_type)
         new_cls = path_to_schemas[validation_metadata.path_to_item]
-        new_inst = new_cls._get_new_instance_without_conversion_oapg(
+        new_inst = new_cls._get_new_instance_without_conversion(
             arg,
             validation_metadata.path_to_item,
             path_to_schemas
@@ -1487,7 +1487,7 @@ class Schema:
         )
         __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata, __path_to_type)
         __new_cls = __path_to_schemas[__validation_metadata.path_to_item]
-        return __new_cls._get_new_instance_without_conversion_oapg(
+        return __new_cls._get_new_instance_without_conversion(
             __arg,
             __validation_metadata.path_to_item,
             __path_to_schemas
@@ -1948,7 +1948,7 @@ class ListBase:
         for i, value in enumerate(arg):
             item_path_to_item = path_to_item + (i,)
             item_cls = path_to_schemas[item_path_to_item]
-            new_value = item_cls._get_new_instance_without_conversion_oapg(
+            new_value = item_cls._get_new_instance_without_conversion(
                 value,
                 item_path_to_item,
                 path_to_schemas
@@ -1975,7 +1975,7 @@ class DictBase:
         for property_name_js, value in arg.items():
             property_path_to_item = path_to_item + (property_name_js,)
             property_cls = path_to_schemas[property_path_to_item]
-            new_value = property_cls._get_new_instance_without_conversion_oapg(
+            new_value = property_cls._get_new_instance_without_conversion(
                 value,
                 property_path_to_item,
                 path_to_schemas
