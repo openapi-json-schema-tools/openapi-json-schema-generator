@@ -85,7 +85,7 @@ class ReqPropsFromExplicitAddProps(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         validName: typing.Union[MetaOapg.AdditionalProperties, str, ],
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
     ) -> 'ReqPropsFromExplicitAddProps':
         return super().__new__(

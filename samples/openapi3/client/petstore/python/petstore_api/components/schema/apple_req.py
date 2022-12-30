@@ -86,7 +86,7 @@ class AppleReq(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         cultivar: typing.Union[MetaOapg.Properties.Cultivar, str, ],
         mealy: typing.Union[MetaOapg.Properties.Mealy, bool, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'AppleReq':
         return super().__new__(
             cls,

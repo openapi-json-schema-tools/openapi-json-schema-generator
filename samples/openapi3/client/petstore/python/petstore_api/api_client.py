@@ -22,13 +22,14 @@ import re
 import tempfile
 import typing
 import typing_extensions
+from urllib import parse
 import urllib3
 from urllib3 import _collections, fields
-import urllib3.parse as parse
 
 import frozendict
 
-from petstore_api import configuration, exceptions, rest, schemas
+from petstore_api import exceptions, rest, schemas
+from petstore_api import configuration as configuration_module
 
 
 class RequestField(fields.RequestField):
@@ -886,7 +887,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         }
 
     @classmethod
-    def deserialize(cls, response: urllib3.HTTPResponse, configuration: configuration.Configuration) -> T:
+    def deserialize(cls, response: urllib3.HTTPResponse, configuration: configuration_module.Configuration) -> T:
         content_type = response.getheader('content-type')
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
@@ -950,7 +951,7 @@ class ApiClient:
     Ref: https://openapi-generator.tech
     Do not edit the class manually.
 
-    :param configuration: configuration.Configuration object for this client
+    :param configuration: configuration_module.Configuration object for this client
     :param header_name: a header to pass when making calls to the API.
     :param header_value: a header value to pass when making calls to
         the API.
@@ -964,14 +965,14 @@ class ApiClient:
 
     def __init__(
         self,
-        configuration: typing.Optional[configuration.Configuration] = None,
+        configuration: typing.Optional[configuration_module.Configuration] = None,
         header_name: typing.Optional[str] = None,
         header_value: typing.Optional[str] = None,
         cookie: typing.Optional[str] = None,
         pool_threads: int = 1
     ):
         if configuration is None:
-            configuration = configuration.Configuration()
+            configuration = configuration_module.Configuration()
         self.configuration = configuration
         self.pool_threads = pool_threads
 

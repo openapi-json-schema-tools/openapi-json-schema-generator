@@ -285,7 +285,7 @@ class EnumTest(
         StringEnumWithDefaultValue: typing.Union['string_enum_with_default_value.StringEnumWithDefaultValue', schemas.Unset] = schemas.unset,
         IntegerEnumWithDefaultValue: typing.Union['integer_enum_with_default_value.IntegerEnumWithDefaultValue', schemas.Unset] = schemas.unset,
         IntegerEnumOneValue: typing.Union['integer_enum_one_value.IntegerEnumOneValue', schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'EnumTest':
         return super().__new__(

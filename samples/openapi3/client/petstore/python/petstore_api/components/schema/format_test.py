@@ -133,7 +133,7 @@ class FormatTest(
                 def __new__(
                     cls,
                     _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[MetaOapg.Items, decimal.Decimal, int, float, ]]],
-                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayWithUniqueItems':
                     return super().__new__(
                         cls,
@@ -455,7 +455,7 @@ class FormatTest(
         pattern_with_digits: typing.Union[MetaOapg.Properties.PatternWithDigits, str, schemas.Unset] = schemas.unset,
         pattern_with_digits_and_delimiter: typing.Union[MetaOapg.Properties.PatternWithDigitsAndDelimiter, str, schemas.Unset] = schemas.unset,
         noneProp: typing.Union[MetaOapg.Properties.NoneProp, None, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'FormatTest':
         return super().__new__(

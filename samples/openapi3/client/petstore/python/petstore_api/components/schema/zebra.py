@@ -138,7 +138,7 @@ class Zebra(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         className: typing.Union[MetaOapg.Properties.ClassName, str, ],
         type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
     ) -> 'Zebra':
         return super().__new__(

@@ -98,7 +98,7 @@ class ApiResponse(
         code: typing.Union[MetaOapg.Properties.Code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         type: typing.Union[MetaOapg.Properties.Type, str, schemas.Unset] = schemas.unset,
         message: typing.Union[MetaOapg.Properties.Message, str, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApiResponse':
         return super().__new__(

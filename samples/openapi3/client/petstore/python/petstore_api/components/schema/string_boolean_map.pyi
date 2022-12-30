@@ -46,7 +46,7 @@ class StringBooleanMap(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.AdditionalProperties, bool, ],
     ) -> 'StringBooleanMap':
         return super().__new__(

@@ -147,7 +147,7 @@ class Order(
         shipDate: typing.Union[MetaOapg.Properties.ShipDate, str, datetime.datetime, schemas.Unset] = schemas.unset,
         status: typing.Union[MetaOapg.Properties.Status, str, schemas.Unset] = schemas.unset,
         complete: typing.Union[MetaOapg.Properties.Complete, bool, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Order':
         return super().__new__(

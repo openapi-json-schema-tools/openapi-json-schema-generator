@@ -116,7 +116,7 @@ class JSONPatchRequestAddReplaceTest(
         op: typing.Union[MetaOapg.Properties.Op, str, ],
         path: typing.Union[MetaOapg.Properties.Path, str, ],
         value: typing.Union[MetaOapg.Properties.Value, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'JSONPatchRequestAddReplaceTest':
         return super().__new__(
             cls,

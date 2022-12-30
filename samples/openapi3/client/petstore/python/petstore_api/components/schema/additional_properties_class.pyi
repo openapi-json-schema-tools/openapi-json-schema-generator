@@ -56,7 +56,7 @@ class AdditionalPropertiesClass(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
                 ) -> 'MapProperty':
                     return super().__new__(
@@ -93,7 +93,7 @@ class AdditionalPropertiesClass(
                         def __new__(
                             cls,
                             *_args: typing.Union[dict, frozendict.frozendict, ],
-                            _configuration: typing.Optional[schemas.Configuration] = None,
+                            _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                             **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
@@ -113,7 +113,7 @@ class AdditionalPropertiesClass(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, ],
                 ) -> 'MapOfMapProperty':
                     return super().__new__(
@@ -145,7 +145,7 @@ class AdditionalPropertiesClass(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                 ) -> 'MapWithUndeclaredPropertiesAnytype3':
                     return super().__new__(
@@ -167,7 +167,7 @@ class AdditionalPropertiesClass(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'EmptyMap':
                     return super().__new__(
                         cls,
@@ -194,7 +194,7 @@ class AdditionalPropertiesClass(
                 def __new__(
                     cls,
                     *_args: typing.Union[dict, frozendict.frozendict, ],
-                    _configuration: typing.Optional[schemas.Configuration] = None,
+                    _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
                 ) -> 'MapWithUndeclaredPropertiesString':
                     return super().__new__(
@@ -312,7 +312,7 @@ class AdditionalPropertiesClass(
         map_with_undeclared_properties_anytype_3: typing.Union[MetaOapg.Properties.MapWithUndeclaredPropertiesAnytype3, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         empty_map: typing.Union[MetaOapg.Properties.EmptyMap, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         map_with_undeclared_properties_string: typing.Union[MetaOapg.Properties.MapWithUndeclaredPropertiesString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'AdditionalPropertiesClass':
         return super().__new__(

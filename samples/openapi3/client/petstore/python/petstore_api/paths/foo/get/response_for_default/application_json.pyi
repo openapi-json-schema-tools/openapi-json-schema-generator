@@ -74,7 +74,7 @@ class ApplicationJson(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         string: typing.Union['foo.Foo', schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApplicationJson':
         return super().__new__(

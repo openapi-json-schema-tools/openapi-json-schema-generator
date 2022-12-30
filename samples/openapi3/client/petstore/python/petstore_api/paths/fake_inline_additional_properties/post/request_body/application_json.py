@@ -42,7 +42,7 @@ class ApplicationJson(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.AdditionalProperties, str, ],
     ) -> 'ApplicationJson':
         return super().__new__(

@@ -51,7 +51,7 @@ class AdditionalPropertiesWithArrayOfEnums(
             def __new__(
                 cls,
                 _arg: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
-                _configuration: typing.Optional[schemas.Configuration] = None,
+                _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
             ) -> 'AdditionalProperties':
                 return super().__new__(
                     cls,
@@ -72,7 +72,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        _configuration: typing.Optional[schemas.Configuration] = None,
+        _configuration: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[MetaOapg.AdditionalProperties, list, tuple, ],
     ) -> 'AdditionalPropertiesWithArrayOfEnums':
         return super().__new__(
