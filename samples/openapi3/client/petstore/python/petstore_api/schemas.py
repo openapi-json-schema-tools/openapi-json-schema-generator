@@ -1732,7 +1732,7 @@ else:
 
 
 class BoolBase:
-    def is_true_oapg(self) -> bool:
+    def is_true_(self) -> bool:
         """
         A replacement for x is True
         True if the instance is a BoolClass True Singleton
