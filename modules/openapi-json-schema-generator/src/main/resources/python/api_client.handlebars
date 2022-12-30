@@ -1259,7 +1259,7 @@ class Api(TypedDictInputVerifier):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def _get_host_oapg(
+    def _get_host(
         self,
         operation_id: str,
         servers: typing.Tuple[typing.Dict[str, str], ...] = tuple(),

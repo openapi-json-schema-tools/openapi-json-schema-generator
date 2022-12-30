@@ -158,7 +158,7 @@ class BaseApi(api_client.Api):
             _fields = serialized_data['fields']
         elif 'body' in serialized_data:
             _body = serialized_data['body']
-        host = self._get_host_oapg('add_pet', _servers, host_index)
+        host = self._get_host('add_pet', _servers, host_index)
 
         response = self.api_client.call_api(
             resource_path=used_path,
