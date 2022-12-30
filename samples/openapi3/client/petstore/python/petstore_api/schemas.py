@@ -784,7 +784,7 @@ def validate_items(
         if item_validation_metadata.validation_ran_earlier(item_cls):
             add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = item_cls._validate_oapg(
+        other_path_to_schemas = item_cls._validate(
             value, validation_metadata=item_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
@@ -812,7 +812,7 @@ def validate_properties(
         if arg_validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema._validate_oapg(value, validation_metadata=arg_validation_metadata)
+        other_path_to_schemas = schema._validate(value, validation_metadata=arg_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -839,7 +839,7 @@ def validate_additional_properties(
         if arg_validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema._validate_oapg(value, validation_metadata=arg_validation_metadata)
+        other_path_to_schemas = schema._validate(value, validation_metadata=arg_validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -860,7 +860,7 @@ def validate_one_of(
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
-            do not invoke _validate_oapg on it because that is recursive
+            do not invoke _validate on it because that is recursive
             """
             oneof_classes.append(schema)
             continue
@@ -869,7 +869,7 @@ def validate_one_of(
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
             continue
         try:
-            path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
+            path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
         except (exceptions.ApiValueError, exceptions.ApiTypeError) as ex:
             # silence exceptions because the code needs to accumulate oneof_classes
             continue
@@ -901,7 +901,7 @@ def validate_any_of(
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
-            do not invoke _validate_oapg on it because that is recursive
+            do not invoke _validate on it because that is recursive
             """
             anyof_classes.append(schema)
             continue
@@ -911,7 +911,7 @@ def validate_any_of(
             continue
 
         try:
-            other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
+            other_path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
         except (exceptions.ApiValueError, exceptions.ApiTypeError) as ex:
             # silence exceptions because the code needs to accumulate anyof_classes
             continue
@@ -937,13 +937,13 @@ def validate_all_of(
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
-            do not invoke _validate_oapg on it because that is recursive
+            do not invoke _validate on it because that is recursive
             """
             continue
         if validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema._validate_oapg(arg, validation_metadata=validation_metadata)
+        other_path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 
@@ -967,7 +967,7 @@ def validate_not(
         raise not_exception
 
     try:
-        other_path_to_schemas = not_schema._validate_oapg(arg, validation_metadata=validation_metadata)
+        other_path_to_schemas = not_schema._validate(arg, validation_metadata=validation_metadata)
     except (exceptions.ApiValueError, exceptions.ApiTypeError):
         pass
     if other_path_to_schemas:
@@ -1057,7 +1057,7 @@ def validate_discriminator(
     if discriminated_cls is cls:
         """
         Optimistically assume that cls will pass validation
-        If the code invoked _validate_oapg on cls it would infinitely recurse
+        If the code invoked _validate on cls it would infinitely recurse
         """
         return None
     if validation_metadata.validation_ran_earlier(discriminated_cls):
@@ -1070,7 +1070,7 @@ def validate_discriminator(
         seen_classes=validation_metadata.seen_classes | frozenset({cls}),
         validated_path_to_schemas=validation_metadata.validated_path_to_schemas
     )
-    return discriminated_cls._validate_oapg(arg, validation_metadata=updated_vm)
+    return discriminated_cls._validate(arg, validation_metadata=updated_vm)
 
 
 json_schema_keyword_to_validator = {
@@ -1120,7 +1120,7 @@ class Schema:
     }
 
     @classmethod
-    def _validate_oapg(
+    def _validate(
         cls,
         arg,
         validation_metadata: ValidationMetadata,
@@ -1207,13 +1207,13 @@ class Schema:
 
         Dict property + List Item Assignment Use cases:
         1. value is NOT an instance of the required schema class
-            the value is validated by _validate_oapg
-            _validate_oapg returns a key value pair
+            the value is validated by _validate
+            _validate returns a key value pair
             where the key is the path to the item, and the value will be the required manufactured class
             made out of the matching schemas
         2. value is an instance of the correct schema type
-            the value is NOT validated by _validate_oapg, _validate_oapg only checks that the instance is of the correct schema type
-            for this value, _validate_oapg does NOT return an entry for it in _path_to_schemas
+            the value is NOT validated by _validate, _validate only checks that the instance is of the correct schema type
+            for this value, _validate does NOT return an entry for it in _path_to_schemas
             and in list/dict _get_items_oapg,_get_properties_oapg the value will be directly assigned
             because value is of the correct type, and validation was run earlier when the instance was created
         """
@@ -1221,7 +1221,7 @@ class Schema:
         if validation_metadata.validation_ran_earlier(cls):
             add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
         else:
-            other_path_to_schemas = cls._validate_oapg(arg, validation_metadata=validation_metadata)
+            other_path_to_schemas = cls._validate(arg, validation_metadata=validation_metadata)
             update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
