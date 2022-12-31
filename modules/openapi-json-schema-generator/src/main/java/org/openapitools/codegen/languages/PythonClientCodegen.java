@@ -402,7 +402,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("tox." + templateExtension, "", "tox.ini"));
             supportingFiles.add(new SupportingFile("test-requirements." + templateExtension, "", "test-requirements.txt"));
             supportingFiles.add(new SupportingFile("requirements." + templateExtension, "", "requirements.txt"));
-            supportingFiles.add(new SupportingFile("setup_cfg." + templateExtension, "", "setup.cfg"));
 
             supportingFiles.add(new SupportingFile("git_push.sh." + templateExtension, "", "git_push.sh"));
             supportingFiles.add(new SupportingFile("gitignore." + templateExtension, "", ".gitignore"));
