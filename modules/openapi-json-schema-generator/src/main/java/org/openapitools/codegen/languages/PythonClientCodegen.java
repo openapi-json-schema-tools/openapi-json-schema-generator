@@ -359,14 +359,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             generateSourceCodeOnly = Boolean.valueOf(additionalProperties.get(CodegenConstants.SOURCECODEONLY_GENERATION).toString());
         }
 
-        if (generateSourceCodeOnly) {
-            // tests in test
-            testFolder = packagePath() + File.separatorChar + testFolder;
-            // api docs in <package>/docs/apis/tags/
-            apiDocPath = packagePath() + File.separatorChar + apiDocPath;
-            // model docs in <package>/docs/models/
-            modelDocPath = packagePath() + File.separatorChar + modelDocPath;
-        }
         // make api and model doc path available in templates
         additionalProperties.put("apiDocPath", apiDocPath);
         additionalProperties.put("modelDocPath", modelDocPath);
@@ -1865,7 +1857,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String packagePath() {
-        return packageName.replace('.', File.separatorChar);
+        // src is needed for modern packaging per
+        // https://packaging.python.org/en/latest/tutorials/packaging-projects/
+        return "src" + File.separatorChar + packageName.replace('.', File.separatorChar);
     }
 
     /**
