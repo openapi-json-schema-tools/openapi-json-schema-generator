@@ -640,9 +640,9 @@ public class DefaultCodegen implements CodegenConfig {
     @SuppressWarnings("static-method")
     public void postProcess() {
         System.out.println("################################################################################");
-        System.out.println("# Thanks for using OpenAPI Generator.                                          #");
+        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                              #");
         System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
-        System.out.println("# https://opencollective.com/openapi_generator/donate                          #");
+        System.out.println("# https://github.com/sponsors/spacether                                        #");
         System.out.println("################################################################################");
     }
 
@@ -1387,7 +1387,7 @@ public class DefaultCodegen implements CodegenConfig {
         generatorMetadata = GeneratorMetadata.newBuilder()
                 .stability(Stability.STABLE)
                 .featureSet(DefaultFeatureSet)
-                .generationMessage(String.format(Locale.ROOT, "OpenAPI Generator: %s (%s)", getName(), codegenType.toValue()))
+                .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", getName(), codegenType.toValue()))
                 .build();
 
         defaultIncludes = new HashSet<>(
