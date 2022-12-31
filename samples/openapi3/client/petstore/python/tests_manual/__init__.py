@@ -13,7 +13,7 @@ ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serial
 
 class ApiTestMixin(unittest.TestCase):
     json_content_type = 'application/json'
-    user_agent = 'OpenAPI-Generator/1.0.0/python'
+    user_agent = 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
 
     @classmethod
     def assert_request_called_with(
