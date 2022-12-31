@@ -45,7 +45,7 @@ class ConfigurationTests(unittest.TestCase):
                 'https://path-server-test.petstore.local/v2/pet',
                 headers=HTTPHeaderDict({
                     'Content-Type': 'application/json',
-                    'User-Agent': 'OpenAPI-Generator/1.0.0/python'
+                    'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
                 }),
                 fields=None,
                 body=b'{"name":"pet","photoUrls":[]}',
@@ -59,7 +59,7 @@ class ConfigurationTests(unittest.TestCase):
             mock_request.assert_called_with(
                 'DELETE',
                 'https://localhost:8080/v1/pet/123456789',
-                headers={'User-Agent': 'OpenAPI-Generator/1.0.0/python'},
+                headers={'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python'},
                 fields=None,
                 body=None,
                 stream=False,

@@ -7,7 +7,7 @@ from urllib3._collections import HTTPHeaderDict
 
 class ApiTestMixin:
     json_content_type = 'application/json'
-    user_agent = 'OpenAPI-Generator/1.0.0/python'
+    user_agent = 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
 
     @classmethod
     def assert_pool_manager_request_called_with(

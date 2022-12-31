@@ -19,12 +19,8 @@ package org.openapitools.codegen;
 
 import org.openapitools.codegen.utils.ModelUtils;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * Describes a single operation parameter in the OAS specification.
