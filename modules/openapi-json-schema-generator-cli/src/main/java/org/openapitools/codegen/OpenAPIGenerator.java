@@ -30,7 +30,7 @@ import static org.openapitools.codegen.Constants.CLI_NAME;
 /**
  * User: lanwen Date: 24.03.15 Time: 17:56
  * <p>
- * Command line interface for OpenAPI Generator use `openapi-generator-cli.jar help` for more info
+ * Command line interface for OpenAPI JSON Schema Generator use `openapi-generator-cli.jar help` for more info
  */
 public class OpenAPIGenerator {
 
@@ -41,7 +41,7 @@ public class OpenAPIGenerator {
                         .withDescription(
                                 String.format(
                                         Locale.ROOT,
-                                        "OpenAPI Generator CLI %s (%s).",
+                                        "OpenAPI JSON Schema Generator CLI %s (%s).",
                                         buildInfo.getVersion(),
                                         buildInfo.getSha()))
                         .withDefaultCommand(HelpCommand.class)
