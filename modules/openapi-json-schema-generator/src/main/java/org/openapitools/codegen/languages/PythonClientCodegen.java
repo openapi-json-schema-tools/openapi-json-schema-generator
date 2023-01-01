@@ -407,7 +407,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("gitignore." + templateExtension, "", ".gitignore"));
             supportingFiles.add(new SupportingFile("travis." + templateExtension, "", ".travis.yml"));
             supportingFiles.add(new SupportingFile("gitlab-ci." + templateExtension, "", ".gitlab-ci.yml"));
-            supportingFiles.add(new SupportingFile("setup." + templateExtension, "", "setup.py"));
+            supportingFiles.add(new SupportingFile("pyproject." + templateExtension, "", "pyproject.toml"));
         }
         supportingFiles.add(new SupportingFile("configuration." + templateExtension, packagePath(), "configuration.py"));
         supportingFiles.add(new SupportingFile("__init__package." + templateExtension, packagePath(), "__init__.py"));

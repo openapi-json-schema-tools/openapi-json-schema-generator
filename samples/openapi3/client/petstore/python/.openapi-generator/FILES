@@ -209,9 +209,8 @@ docs/components/schema/uuid_string.UUIDString.md
 docs/components/schema/whale.Whale.md
 docs/components/schema/zebra.Zebra.md
 git_push.sh
+pyproject.toml
 requirements.txt
-setup.cfg
-setup.py
 src/petstore_api/__init__.py
 src/petstore_api/api_client.py
 src/petstore_api/apis/__init__.py
