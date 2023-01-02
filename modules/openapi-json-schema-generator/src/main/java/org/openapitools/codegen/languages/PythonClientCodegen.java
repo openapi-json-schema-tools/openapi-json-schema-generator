@@ -359,14 +359,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             generateSourceCodeOnly = Boolean.valueOf(additionalProperties.get(CodegenConstants.SOURCECODEONLY_GENERATION).toString());
         }
 
-        if (generateSourceCodeOnly) {
-            // tests in test
-            testFolder = packagePath() + File.separatorChar + testFolder;
-            // api docs in <package>/docs/apis/tags/
-            apiDocPath = packagePath() + File.separatorChar + apiDocPath;
-            // model docs in <package>/docs/models/
-            modelDocPath = packagePath() + File.separatorChar + modelDocPath;
-        }
         // make api and model doc path available in templates
         additionalProperties.put("apiDocPath", apiDocPath);
         additionalProperties.put("modelDocPath", modelDocPath);
@@ -410,13 +402,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("tox." + templateExtension, "", "tox.ini"));
             supportingFiles.add(new SupportingFile("test-requirements." + templateExtension, "", "test-requirements.txt"));
             supportingFiles.add(new SupportingFile("requirements." + templateExtension, "", "requirements.txt"));
-            supportingFiles.add(new SupportingFile("setup_cfg." + templateExtension, "", "setup.cfg"));
 
             supportingFiles.add(new SupportingFile("git_push.sh." + templateExtension, "", "git_push.sh"));
             supportingFiles.add(new SupportingFile("gitignore." + templateExtension, "", ".gitignore"));
             supportingFiles.add(new SupportingFile("travis." + templateExtension, "", ".travis.yml"));
             supportingFiles.add(new SupportingFile("gitlab-ci." + templateExtension, "", ".gitlab-ci.yml"));
-            supportingFiles.add(new SupportingFile("setup." + templateExtension, "", "setup.py"));
+            supportingFiles.add(new SupportingFile("pyproject." + templateExtension, "", "pyproject.toml"));
         }
         supportingFiles.add(new SupportingFile("configuration." + templateExtension, packagePath(), "configuration.py"));
         supportingFiles.add(new SupportingFile("__init__package." + templateExtension, packagePath(), "__init__.py"));
@@ -1865,8 +1856,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String packagePath() {
-        return packageName.replace('.', File.separatorChar);
-    }
+        // src is needed for modern packaging per
+        // https://packaging.python.org/en/latest/tutorials/packaging-projects/
+        return "src" + File.separatorChar + packageName.replace('.', File.separatorChar);    }
 
     /**
      * Generate Python package name from String `packageName`

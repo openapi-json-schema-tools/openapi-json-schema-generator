@@ -731,10 +731,10 @@ public class DefaultGeneratorTest {
             // Assert.assertTrue(new File(output, "sampleConfig.json").exists());
 
             // Generator should report api_client.py as a generated file
-            TestUtils.ensureContainsFile(files, output, "io/something/api_client.py");
+            TestUtils.ensureContainsFile(files, output, "src/io/something/api_client.py");
 
             // Generated file should exist on the filesystem after generation
-            File apiClient = new File(output, "io/something/api_client.py");
+            File apiClient = new File(output, "src/io/something/api_client.py");
             Assert.assertTrue(apiClient.exists());
 
             // Generated file should contain our custom packageName

@@ -1,4 +1,4 @@
-=#!/bin/bash
+#!/bin/bash
 
 REQUIREMENTS_FILE=dev-requirements.txt
 REQUIREMENTS_OUT=dev-requirements.txt.log
@@ -18,8 +18,8 @@ fi
 
 ### install dependencies
 pip install -r $REQUIREMENTS_FILE | tee -a $REQUIREMENTS_OUT
-### locally install the package, needed for pycharm problem checking
-pip install -e .
+### locally install the package
+python -m pip install .
 
 ### run tests
 tox || exit 1
