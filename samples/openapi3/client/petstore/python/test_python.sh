@@ -13,7 +13,6 @@ export LANG=en_US.UTF-8
 if [ -z "$VENVV" ]; then
 		python3 -m venv $VENV
 		source $VENV/bin/activate
-		python -m pip install --upgrade pip
     DEACTIVE=true
 fi
 

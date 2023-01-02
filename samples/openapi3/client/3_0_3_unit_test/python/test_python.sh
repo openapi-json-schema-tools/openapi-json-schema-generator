@@ -19,7 +19,7 @@ fi
 ### install dependencies
 pip install -r $REQUIREMENTS_FILE | tee -a $REQUIREMENTS_OUT
 ### locally install the package, needed for pycharm problem checking
-pip install -e .
+python -m pip install .
 
 ### run tests
 tox || exit 1
