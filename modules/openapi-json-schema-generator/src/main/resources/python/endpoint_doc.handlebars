@@ -174,15 +174,17 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
-{{#if defaultResponse.refModule}}
-default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{defaultResponse.message}}
+{{#with defaultResponse}}
+{{#if refModule}}
+default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
 {{else}}
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{defaultResponse.message}}
+default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
 {{/if}}
+{{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
 {{#if refModule}}
-{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{message}}
+{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
 {{else}}
 {{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/if}}

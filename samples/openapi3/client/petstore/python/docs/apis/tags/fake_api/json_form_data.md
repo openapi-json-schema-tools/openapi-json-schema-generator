@@ -65,7 +65,7 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | 
+200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
 
 ### Authorization
 

@@ -109,7 +109,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_with_json_api_response.ApiResponse](../../../components/responses/response_success_with_json_api_response.md) | 
+200 | [response_success_with_json_api_response.ApiResponse](../../../components/responses/response_success_with_json_api_response.md) | successful operation
 
 ### Authorization
 
