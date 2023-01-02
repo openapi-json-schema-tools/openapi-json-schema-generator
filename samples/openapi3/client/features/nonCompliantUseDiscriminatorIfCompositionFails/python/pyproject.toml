@@ -4,8 +4,6 @@
 requires = [
     "certifi >= 14.5.14",
     "frozendict ~= 2.3.4",
-    "pem >= 19.3.0",
-    "pycryptodome >= 3.9.0",
     "python-dateutil ~= 2.7.0",
     "setuptools >= 61.0",
     "typing_extensions ~= 4.3.0",
@@ -14,17 +12,17 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "petstore-api"
+name = "this-package"
 version = "1.0.0"
 authors = [
   { name="OpenAPI JSON Schema Generator community" },
 ]
-description = "OpenAPI Petstore"
+description = "discriminator-test"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: Apache-2.0",
+    
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Code Generators"
 ]

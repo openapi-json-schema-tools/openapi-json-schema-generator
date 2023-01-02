@@ -2,10 +2,7 @@
 
 [build-system]
 requires = [
-    "setuptools>=61.0",
-{{#with apiInfo}}
     {{> required_libraries quoted=true }}
-{{/with}}
 ]
 build-backend = "setuptools.build_meta"
 

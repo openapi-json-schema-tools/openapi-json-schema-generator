@@ -121,9 +121,9 @@ import unit_test_api
 Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 
 ```sh
-python setup.py install --user
+python -m pip install . --user
 ```
-(or `sudo python setup.py install` to install the package for all users)
+(or `python -m pip install .` to install the package for all users)
 
 Then import the package:
 ```python
