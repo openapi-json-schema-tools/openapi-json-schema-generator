@@ -10,7 +10,7 @@
 
 :star::star::star: If you would like to contribute, please refer to [guidelines](CONTRIBUTING.md) and a list of [open tasks](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).:star::star::star:
 
-:warning: If the OpenAPI spec, templates or any input (e.g. options, environment variables) is obtained from an untrusted source or environment, please make sure you've reviewed these inputs before using OpenAPI JSON Schema Generator to generate the API client, server stub or documentation to avoid potential security issues (e.g. [code injection](https://en.wikipedia.org/wiki/Code_injection)). For security vulnerabilities, please contact [team@openapitools.org](mailto:team@openapitools.org). :warning:
+:warning: If the OpenAPI spec, templates or any input (e.g. options, environment variables) is obtained from an untrusted source or environment, please make sure you've reviewed these inputs before using OpenAPI JSON Schema Generator to generate the API client, server stub or documentation to avoid potential security issues (e.g. [code injection](https://en.wikipedia.org/wiki/Code_injection)). For security vulnerabilities, please contact create an issue. :warning:
 
 :bangbang: Both "openapi-json-schema-tools" (the parent organization of OpenAPI JSON Schema Generator) and "OpenAPI JSON Schema Generator" are not affiliated with OpenAPI Initiative (OAI) :bangbang:
 
@@ -94,14 +94,14 @@ Definitely!
 
 The OpenAPI Specification has undergone 3 revisions since initial creation in 2010.  The openapi-json-schema-generator project has the following compatibilities with the OpenAPI Specification:
 
-| OpenAPI JSON Schema Generator Version | Release Date | Notes                                                                                                                                                                                                                            |
-|---------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.0.3                                 | 2022-11-14   | - Fixes multipart form content-disposition bug<br/>- Fixes addProps referenced when it doesn't exist<br/>- Allows arg + args properties                                                                                          |
-| 1.0.2                                 | 2022-10-20   | - Endpoint overload type hints improved<br/>- Fixes application/x-www-form-urlencoded body value<br/>- Fixes type hint for required property not defined in properties                                                           |
-| 1.0.1                                 | 2022-10-10   | - Endpoint overload type hints improved<br/>- Fixes query param content type json serialization<br/>- Applies default headers before header params                                                                               |
-| 1.0.0                                 | 2022-10-04   | - Endpoint overload type hints improved<br/>- Fixes Attribute error when using auth header<br/>- Fixes for refed properties with invalid names<br/>- Fixes regex patterns without trailing slashes break Python client generation |
+| OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility  |
+|---------------------------------------|-----------------------------|
+| 1.0.4                                 | 3.0.0 - 3.0.3               |
+| 1.0.3                                 | 3.0.0 - 3.0.3               |
+| 1.0.2                                 | 3.0.0 - 3.0.3               |
+| 1.0.1                                 | 3.0.0 - 3.0.3               |
+| 1.0.0                                 | 3.0.0 - 3.0.3               |
 
-OpenAPI Spec compatibility: 3.0.0 - 3.0.3
 
 ### [1.2 - Build Projects](#table-of-contents)
 
