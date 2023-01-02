@@ -27,7 +27,7 @@ public class CodegenResponse implements OpenApiComponent {
     public String jsonSchema;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     private LinkedHashMap<String, CodegenMediaType> content;
-    private String ref;
+    private CodegenResponse ref;
     public Set<String> imports = new TreeSet<>();
     private String refModule;
     private String refClass;
@@ -103,9 +103,9 @@ public class CodegenResponse implements OpenApiComponent {
         return sb.toString();
     }
 
-    public String getRef() { return ref; }
+    public CodegenResponse getRef() { return ref; }
 
-    public void setRef(String ref) { this.ref=ref; }
+    public void setRef(Object ref) { this.ref = (CodegenResponse) ref; }
 
     public String getRefModule() { return refModule; }
 

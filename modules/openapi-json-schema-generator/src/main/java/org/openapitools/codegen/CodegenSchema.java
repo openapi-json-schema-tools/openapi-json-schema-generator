@@ -584,8 +584,8 @@ public class CodegenSchema implements OpenApiSchema, OpenApiComponent {
     }
 
     @Override
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void setRef(Object ref) {
+        this.ref = (String) ref;
     }
 
     @Override

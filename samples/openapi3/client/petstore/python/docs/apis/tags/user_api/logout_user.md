@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [.ApiResponse](../../../components/responses/.md) | Success
+default | [.ApiResponse](../../../components/responses/.md) | 
 
 ### Authorization
 

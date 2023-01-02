@@ -2103,8 +2103,8 @@ public class DefaultCodegen implements CodegenConfig {
         return camelizedName;
     }
 
-    private static class NamedSchema {
-        private NamedSchema(Schema s, String sourceJsonPath, String currentJsonPath) {
+    private static class CodegenSchemaCacheKey {
+        private CodegenSchemaCacheKey(Schema s, String sourceJsonPath, String currentJsonPath) {
             this.schema = s;
             this.sourceJsonPath = sourceJsonPath;
             this.currentJsonPath = currentJsonPath;
@@ -2118,7 +2118,7 @@ public class DefaultCodegen implements CodegenConfig {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            NamedSchema that = (NamedSchema) o;
+            CodegenSchemaCacheKey that = (CodegenSchemaCacheKey) o;
             return Objects.equals(schema, that.schema) &&
                     Objects.equals(sourceJsonPath, that.sourceJsonPath) &&
                     Objects.equals(currentJsonPath, that.currentJsonPath);
@@ -2130,7 +2130,8 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    Map<NamedSchema, CodegenSchema> schemaCodegenPropertyCache = new HashMap<>();
+    Map<CodegenSchemaCacheKey, CodegenSchema> codegenSchemaCache = new HashMap<>();
+    Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -2883,8 +2884,8 @@ public class DefaultCodegen implements CodegenConfig {
         }
         LOGGER.debug("debugging fromSchema for {} {} : {}", sourceJsonPath, currentJsonPath, p);
         CodegenSchema property = new CodegenSchema();
-        NamedSchema ns = new NamedSchema(p, sourceJsonPath, currentJsonPath);
-        CodegenSchema cpc = schemaCodegenPropertyCache.get(ns);
+        CodegenSchemaCacheKey ns = new CodegenSchemaCacheKey(p, sourceJsonPath, currentJsonPath);
+        CodegenSchema cpc = codegenSchemaCache.get(ns);
         if (cpc != null) {
             LOGGER.debug("Cached fromSchema for {} {}: {}", sourceJsonPath, currentJsonPath, p);
             return cpc;
@@ -3099,7 +3100,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.imports = new TreeSet<>();
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }
-        schemaCodegenPropertyCache.put(ns, property);
+        codegenSchemaCache.put(ns, property);
 
         LOGGER.debug("debugging fromSchema return: {}", property);
         return property;
@@ -3406,42 +3407,39 @@ public class DefaultCodegen implements CodegenConfig {
      * @return Codegen Response object
      */
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
-        String responseRef = response.get$ref();
-        ApiResponse usedResponse = response;
-        String usedSourceJsonPath = sourceJsonPath;
-        if (responseRef != null) {
-            usedResponse = ModelUtils.getReferencedApiResponse(this.openAPI, response);
-            usedSourceJsonPath = responseRef;
-        }
-
-        if (usedResponse == null) {
+        if (response == null) {
             LOGGER.error("response in fromResponse cannot be null!");
             throw new RuntimeException("response in fromResponse cannot be null!");
         }
 
-        CodegenResponse r = new CodegenResponse();
+        CodegenResponse r = codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
+        String responseRef = response.get$ref();
         setLocationInfo(responseRef, r, sourceJsonPath, "responses");
-        r.message = escapeText(usedResponse.getDescription());
+
+        if (responseRef != null) {
+            return r;
+        }
+        r.message = escapeText(response.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment
-        r.jsonSchema = Json.pretty(usedResponse);
-        if (usedResponse.getExtensions() != null && !usedResponse.getExtensions().isEmpty()) {
-            r.vendorExtensions.putAll(usedResponse.getExtensions());
+        r.jsonSchema = Json.pretty(response);
+        if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
+            r.vendorExtensions.putAll(response.getExtensions());
         }
 
-        Map<String, Header> headers = usedResponse.getHeaders();
+        Map<String, Header> headers = response.getHeaders();
         if (headers != null && !headers.isEmpty()) {
             Map<String, CodegenHeader> responseHeaders = new HashMap<>();
             for (Entry<String, Header> entry : headers.entrySet()) {
                 String headerName = entry.getKey();
                 Header header = entry.getValue();
-                String headerSourceJsonPath = usedSourceJsonPath + "/headers/" + headerName;
+                String headerSourceJsonPath = sourceJsonPath + "/headers/" + headerName;
                 CodegenHeader responseHeader = fromHeader(header, headerSourceJsonPath);
                 responseHeaders.put(headerName, responseHeader);
             }
             r.setHeaders(responseHeaders);
         }
-        r.setContent(getContent(usedResponse.getContent(), r.imports, usedSourceJsonPath + "/content"));
+        r.setContent(getContent(response.getContent(), r.imports, sourceJsonPath + "/content"));
 
         return r;
     }
@@ -5061,9 +5059,26 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
+    private Object getRef(String sourceJsonPath, String expectedComponentType) {
+        switch (expectedComponentType) {
+            case "requestBodies":
+                return sourceJsonPath;
+            case "responses":
+                return codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
+            case "headers":
+                return sourceJsonPath;
+            case "parameters":
+                return sourceJsonPath;
+            case "schemas":
+                return sourceJsonPath;
+        }
+        return null;
+    }
+
     private void setLocationInfo(String ref, OpenApiComponent instance, String sourceJsonPath, String expectedComponentType) {
         if (ref != null) {
-            instance.setRef(ref);
+            Object objRef = getRef(ref, expectedComponentType);
+            instance.setRef(objRef);
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             instance.setRefModule(refModule);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);

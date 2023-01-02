@@ -161,7 +161,7 @@ public interface OpenApiSchema {
 
     String getRef();
 
-    void setRef(String ref);
+    void setRef(Object ref);
 
     String getRefModule();
 

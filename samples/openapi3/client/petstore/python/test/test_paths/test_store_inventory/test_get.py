@@ -33,7 +33,7 @@ class TestStoreInventory(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = get.response_for_200.application_json.ApplicationJson
+    response_body = ''
 
 if __name__ == '__main__':
     unittest.main()
