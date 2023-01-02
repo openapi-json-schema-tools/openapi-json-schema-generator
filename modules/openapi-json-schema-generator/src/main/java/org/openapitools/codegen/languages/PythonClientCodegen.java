@@ -1783,28 +1783,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toModuleFilename("response_" + componentName);
     }
 
-    @Override
-    public String responseFileFolder(String componentName) {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "responses" + File.separatorChar + toResponseModuleName(componentName);
-    }
-
-    @Override
-    public String responseFilename(String templateName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String writtenFilename = responseTemplateFiles.get(templateName);
-        if (jsonPath.startsWith("#/components/responses/")) {
-            // #/components/responses/someResponse -> length 4
-            String componentName = pathPieces[3];
-            return responseFileFolder(componentName) + File.separatorChar + writtenFilename;
-        } else if (jsonPath.startsWith("#/paths/")) {
-            // #/paths/somePath/get/responses/200 -> length 6
-            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
-            String httpVerb = pathPieces[3];
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for_" + pathPieces[5]  + File.separatorChar + writtenFilename;
-        }
-        return null;
-    }
-
     public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }
 
     public String responseDocFileFolder() {
