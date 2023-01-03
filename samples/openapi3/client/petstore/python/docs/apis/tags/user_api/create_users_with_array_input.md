@@ -21,7 +21,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
-    # example passing only optional values
+    # example passing only required values which don't have defaults set
     body = [
         user.User(
             id=1,

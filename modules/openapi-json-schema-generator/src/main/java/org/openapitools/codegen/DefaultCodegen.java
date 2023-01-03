@@ -3306,12 +3306,20 @@ public class DefaultCodegen implements CodegenConfig {
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
             op.requestBody = requestBody;
 
-            if (requestBody.required) {
-                requiredParams.add(requestBody);
+            CodegenRequestBody ref = (CodegenRequestBody) requestBody.getRef();
+            if (ref != null) {
+                if (ref.required) {
+                    requiredParams.add(requestBody);
+                } else {
+                    optionalParams.add(requestBody);
+                }
             } else {
-                optionalParams.add(requestBody);
+                if (requestBody.required) {
+                    requiredParams.add(requestBody);
+                } else {
+                    optionalParams.add(requestBody);
+                }
             }
-
 
             // add example
             if (schemas != null && !isSkipOperationExample() && opRequestBody.getContent() != null) {

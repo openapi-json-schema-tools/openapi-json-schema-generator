@@ -23,7 +23,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = another_fake_api.AnotherFakeApi(api_client)
 
-    # example passing only optional values
+    # example passing only required values which don't have defaults set
     body = client.Client(
         client="client_example",
     )
