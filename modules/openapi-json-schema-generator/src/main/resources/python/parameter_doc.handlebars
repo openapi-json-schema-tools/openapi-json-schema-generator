@@ -2,18 +2,34 @@
 <a name="top"></a>
 ## {{packageName}}.components.parameters.{{parameter.componentModule}}
 {{/if}}
-{{#if parameter.schema}}
-    {{#with parameter.schema}}
+{{#if parameter.ref}}
+    {{#if parameter.ref.schema}}
+        {{#with parameter.ref.schema}}
 {{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
-    {{/with}}
-{{else}}
-    {{#each parameter.getContent}}
-        {{#with this}}
-            {{#with schema}}
-{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
-            {{/with}}
         {{/with}}
-    {{/each}}
+    {{else}}
+        {{#each parameter.ref.getContent}}
+            {{#with this}}
+                {{#with schema}}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
+                {{/with}}
+            {{/with}}
+        {{/each}}
+    {{/if}}
+{{else}}
+    {{#if parameter.schema}}
+        {{#with parameter.schema}}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
+        {{/with}}
+    {{else}}
+        {{#each parameter.getContent}}
+            {{#with this}}
+                {{#with schema}}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
+                {{/with}}
+            {{/with}}
+        {{/each}}
+    {{/if}}
 {{/if}}
 {{#if parameter.componentModule}}
 

@@ -5,12 +5,22 @@ class {{xParamsName}}:
         'RequiredParams',
         {
 {{#each xParams}}
-{{#if required}}
-{{#if schema}}
-            '{{baseName}}': {{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{#if ref}}
+    {{#if ref.required}}
+        {{#if ref.schema}}
+            '{{ref.baseName}}': {{#with ref.schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+        {{else}}
+            '{{ref.baseName}}': {{#each ref.getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+        {{/if}}
+    {{/if}}
 {{else}}
+    {{#if required}}
+        {{#if schema}}
+            '{{baseName}}': {{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+        {{else}}
             '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
-{{/if}}
+        {{/if}}
+    {{/if}}
 {{/if}}
 {{/each}}
         }
@@ -19,13 +29,23 @@ class {{xParamsName}}:
         'OptionalParams',
         {
 {{#each xParams}}
-{{#unless required}}
-{{#if schema}}
-            '{{baseName}}': {{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+{{#if ref}}
+    {{#unless ref.required}}
+        {{#if ref.schema}}
+            '{{ref.baseName}}': {{#with ref.schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+        {{else}}
+            '{{ref.baseName}}': {{#each ref.getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+        {{/if}}
+    {{/unless}}
 {{else}}
+    {{#unless required}}
+        {{#if schema}}
+            '{{baseName}}': {{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+        {{else}}
             '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refModule}}{{../refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+        {{/if}}
+    {{/unless}}
 {{/if}}
-{{/unless}}
 {{/each}}
         },
         total=False

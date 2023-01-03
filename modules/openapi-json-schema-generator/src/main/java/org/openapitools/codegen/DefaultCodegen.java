@@ -3339,13 +3339,17 @@ public class DefaultCodegen implements CodegenConfig {
                 allParams.add(p);
                 i++;
 
-                if (p.isQueryParam) {
+                CodegenParameter paramOrRef = p;
+                if (p.getRef() != null) {
+                    paramOrRef = (CodegenParameter) p.getRef();
+                }
+                if (paramOrRef.isQueryParam) {
                     queryParams.add(p);
-                } else if (p.isPathParam) {
+                } else if (paramOrRef.isPathParam) {
                     pathParams.add(p);
-                } else if (p.isHeaderParam) {
+                } else if (paramOrRef.isHeaderParam) {
                     headerParams.add(p);
-                } else if (p.isCookieParam) {
+                } else if (paramOrRef.isCookieParam) {
                     cookieParams.add(p);
                 } else {
                     LOGGER.warn("Unknown parameter type for {}", p.baseName);
@@ -3356,10 +3360,19 @@ public class DefaultCodegen implements CodegenConfig {
 
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
-            if (cp.required) { //required parameters
-                requiredParams.add(cp);
-            } else { // optional parameters
-                optionalParams.add(cp);
+            CodegenParameter ref = (CodegenParameter) cp.getRef();
+            if (ref != null) {
+                if (ref.required) { //required parameters
+                    requiredParams.add(cp);
+                } else { // optional parameters
+                    optionalParams.add(cp);
+                }
+            } else {
+                if (cp.required) { //required parameters
+                    requiredParams.add(cp);
+                } else { // optional parameters
+                    optionalParams.add(cp);
+                }
             }
         }
 

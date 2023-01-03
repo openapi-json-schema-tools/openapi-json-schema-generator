@@ -32,36 +32,60 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if pathParams}}
     path_params = {
     {{#each pathParams}}
-    {{#if required}}
+        {{#if ref}}
+            {{#if ref.required}}
+        '{{ref.baseName}}': {{{ref.example}}},
+            {{/if}}
+        {{else}}
+            {{#if required}}
         '{{baseName}}': {{{example}}},
-    {{/if}}
+            {{/if}}
+        {{/if}}
     {{/each}}
     }
 {{/if}}
 {{#if queryParams}}
     query_params = {
     {{#each queryParams}}
-    {{#if required}}
+        {{#if ref}}
+            {{#if ref.required}}
+        '{{ref.baseName}}': {{{ref.example}}},
+            {{/if}}
+        {{else}}
+            {{#if required}}
         '{{baseName}}': {{{example}}},
-    {{/if}}
+            {{/if}}
+        {{/if}}
     {{/each}}
     }
 {{/if}}
 {{#if cookieParams}}
     cookie_params = {
     {{#each cookieParams}}
-    {{#if required}}
+        {{#if ref}}
+            {{#if ref.required}}
+        '{{ref.baseName}}': {{{ref.example}}},
+            {{/if}}
+        {{else}}
+            {{#if required}}
         '{{baseName}}': {{{example}}},
-    {{/if}}
+            {{/if}}
+        {{/if}}
     {{/each}}
     }
 {{/if}}
 {{#if headerParams}}
     header_params = {
     {{#each headerParams}}
-    {{#if required}}
+        {{#if ref}}
+            {{#if ref.required}}
+        '{{ref.baseName}}': {{{ref.example}}},
+            {{/if}}
+        {{else}}
+            {{#if required}}
         '{{baseName}}': {{{example}}},
-    {{/if}}
+            {{/if}}
+        {{/if}}
     {{/each}}
     }
 {{/if}}
@@ -123,28 +147,44 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if pathParams}}
     path_params = {
     {{#each pathParams}}
+        {{#if ref}}
+        '{{ref.baseName}}': {{{ref.example}}},
+        {{else}}
         '{{baseName}}': {{{example}}},
+        {{/if}}
     {{/each}}
     }
 {{/if}}
 {{#if queryParams}}
     query_params = {
     {{#each queryParams}}
+        {{#if ref}}
+        '{{ref.baseName}}': {{{ref.example}}},
+        {{else}}
         '{{baseName}}': {{{example}}},
+        {{/if}}
     {{/each}}
     }
 {{/if}}
 {{#if cookieParams}}
     cookie_params = {
     {{#each cookieParams}}
+        {{#if ref}}
+        '{{ref.baseName}}': {{{ref.example}}},
+        {{else}}
         '{{baseName}}': {{{example}}},
+        {{/if}}
     {{/each}}
     }
 {{/if}}
 {{#if headerParams}}
     header_params = {
     {{#each headerParams}}
+        {{#if ref}}
+        '{{ref.baseName}}': {{{ref.example}}},
+        {{else}}
         '{{baseName}}': {{{example}}},
+        {{/if}}
     {{/each}}
     }
 {{/if}}
