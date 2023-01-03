@@ -18,6 +18,7 @@
 package org.openapitools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.*;
 
@@ -168,6 +169,7 @@ public class CodegenOperation {
      * returns a map where the key is the request body content type and the value is the current CodegenOperation
      * this is needed by templates when a different signature is needed for each request body content type
      */
+    @JsonIgnore
     public Map<String, CodegenOperation> getContentTypeToOperation() {
         LinkedHashMap<String, CodegenOperation> contentTypeToOperation = new LinkedHashMap<>();
         if (requestBody == null) {
