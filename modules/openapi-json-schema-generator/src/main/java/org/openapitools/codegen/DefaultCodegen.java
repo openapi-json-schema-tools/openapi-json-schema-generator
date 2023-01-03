@@ -2136,6 +2136,8 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
     Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
 
+    Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
 
@@ -3613,50 +3615,47 @@ public class DefaultCodegen implements CodegenConfig {
      * @return Codegen Parameter object
      */
     public CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath) {
-        String parameterRef = parameter.get$ref();
-        Parameter usedParameter = parameter;
-        String usedSourceJsonPath = sourceJsonPath;
-        if (parameterRef != null) {
-            usedParameter = ModelUtils.getReferencedParameter(this.openAPI, parameter);
-            usedSourceJsonPath = parameterRef;
-        }
-
-        CodegenParameter codegenParameter = new CodegenParameter();
-
-        Header header = toHeader(usedParameter);
-        setHeaderInfo(header, codegenParameter, usedSourceJsonPath);
-        setLocationInfo(parameter.get$ref(), codegenParameter, sourceJsonPath, "parameters");
-
-        if (usedParameter.getStyle() != null) {
-            codegenParameter.style = usedParameter.getStyle().toString();
-        }
-        codegenParameter.baseName = usedParameter.getName();
-
         if (GlobalSettings.getProperty("debugParser") != null) {
             LOGGER.info("working on Parameter {}", parameter.getName());
-            LOGGER.info("JSON schema: {}", codegenParameter.jsonSchema);
+            LOGGER.info("jsonPath: {}", sourceJsonPath);
         }
 
-        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(usedParameter.getIn())) {
+        CodegenParameter codegenParameter = codegenParameterCache.computeIfAbsent(sourceJsonPath, s -> new CodegenParameter());
+
+        String parameterRef = parameter.get$ref();
+        setLocationInfo(parameterRef, codegenParameter, sourceJsonPath, "parameters");
+        if (parameterRef != null) {
+            return codegenParameter;
+        }
+
+        Header header = toHeader(parameter);
+        setHeaderInfo(header, codegenParameter, sourceJsonPath);
+
+        if (parameter.getStyle() != null) {
+            codegenParameter.style = parameter.getStyle().toString();
+        }
+        codegenParameter.baseName = parameter.getName();
+
+        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(parameter.getIn())) {
             codegenParameter.isQueryParam = true;
-            codegenParameter.isAllowEmptyValue = parameter.getAllowEmptyValue() != null && usedParameter.getAllowEmptyValue();
-        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(usedParameter.getIn())) {
+            codegenParameter.isAllowEmptyValue = parameter.getAllowEmptyValue() != null && parameter.getAllowEmptyValue();
+        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(parameter.getIn())) {
             codegenParameter.required = true;
             codegenParameter.isPathParam = true;
-        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(usedParameter.getIn())) {
+        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(parameter.getIn())) {
             codegenParameter.isHeaderParam = true;
-        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(usedParameter.getIn())) {
+        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(parameter.getIn())) {
             codegenParameter.isCookieParam = true;
         } else {
-            LOGGER.warn("Unknown parameter type: {}", usedParameter.getName());
+            LOGGER.warn("Unknown parameter type: {}", parameter.getName());
         }
         if (parameter.getStyle() != null) {
-            codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == usedParameter.getStyle();
+            codegenParameter.isDeepObject = Parameter.StyleEnum.DEEPOBJECT == parameter.getStyle();
         }
 
         // set the parameter example value
         // should be overridden by lang codegen
-        setParameterExampleValue(codegenParameter, usedParameter);
+        setParameterExampleValue(codegenParameter, parameter);
 
         postProcessParameter(codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
@@ -5073,7 +5072,7 @@ public class DefaultCodegen implements CodegenConfig {
             case "headers":
                 return codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader());
             case "parameters":
-                return sourceJsonPath;
+                return codegenParameterCache.computeIfAbsent(sourceJsonPath, s -> new CodegenParameter());
             case "schemas":
                 return sourceJsonPath;
         }
