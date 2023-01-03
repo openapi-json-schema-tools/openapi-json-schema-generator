@@ -26,7 +26,7 @@ public class CodegenRequestBody implements OpenApiComponent {
      */
     protected boolean required;
     protected LinkedHashMap<String, CodegenMediaType> content;
-    protected String ref;
+    protected Object ref;
     protected String refModule;
     protected Set<String> imports = new HashSet<String>();
     protected String componentModule;
@@ -111,7 +111,7 @@ public class CodegenRequestBody implements OpenApiComponent {
 
     public Object getRef() { return ref; }
 
-    public void setRef(Object ref) { this.ref= (String) ref; }
+    public void setRef(Object ref) { this.ref = ref; }
 
     public String getRefModule() { return refModule; }
 

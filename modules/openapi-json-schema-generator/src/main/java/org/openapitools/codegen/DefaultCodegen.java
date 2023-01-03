@@ -2131,7 +2131,9 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     Map<CodegenSchemaCacheKey, CodegenSchema> codegenSchemaCache = new HashMap<>();
+    // json path to instance
     Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
+    Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -3415,10 +3417,10 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenResponse r = codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
         String responseRef = response.get$ref();
         setLocationInfo(responseRef, r, sourceJsonPath, "responses");
-
         if (responseRef != null) {
             return r;
         }
+
         r.message = escapeText(response.getDescription());
         // TODO need to revise and test examples in responses
         // ApiResponse does not support examples at the moment
@@ -3509,22 +3511,18 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
+
+        CodegenHeader codegenHeader = codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader());
         String headerRef = header.get$ref();
-        Header usedHeader = header;
-        String usedSourceJsonPath = sourceJsonPath;
+        setLocationInfo(headerRef, codegenHeader, sourceJsonPath, "headers");
         if (headerRef != null) {
-            usedHeader = ModelUtils.getReferencedHeader(this.openAPI, header);
-            usedSourceJsonPath = headerRef;
+            return codegenHeader;
         }
 
-        CodegenHeader codegenHeader = new CodegenHeader();
-        setHeaderInfo(usedHeader, codegenHeader, usedSourceJsonPath);
-        setLocationInfo(header.get$ref(), codegenHeader, sourceJsonPath, "headers");
+        setHeaderInfo(header, codegenHeader, sourceJsonPath);
 
-        String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
-
-        if (usedHeader.getStyle() != null) {
-            codegenHeader.style = usedHeader.getStyle().toString();
+        if (header.getStyle() != null) {
+            codegenHeader.style = header.getStyle().toString();
         }
         return codegenHeader;
     }
@@ -3619,8 +3617,6 @@ public class DefaultCodegen implements CodegenConfig {
         Header header = toHeader(usedParameter);
         setHeaderInfo(header, codegenParameter, usedSourceJsonPath);
         setLocationInfo(parameter.get$ref(), codegenParameter, sourceJsonPath, "parameters");
-
-        String priorJsonPathFragment = usedSourceJsonPath.substring(usedSourceJsonPath.lastIndexOf("/") + 1);
 
         if (usedParameter.getStyle() != null) {
             codegenParameter.style = usedParameter.getStyle().toString();
@@ -5066,7 +5062,7 @@ public class DefaultCodegen implements CodegenConfig {
             case "responses":
                 return codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
             case "headers":
-                return sourceJsonPath;
+                return codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader());
             case "parameters":
                 return sourceJsonPath;
             case "schemas":

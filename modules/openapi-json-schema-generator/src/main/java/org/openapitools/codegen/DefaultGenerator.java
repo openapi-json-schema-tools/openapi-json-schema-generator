@@ -1409,11 +1409,11 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenSchema> schemas = generateSchemas(files);
         // components.requestBodies
         TreeMap<String, CodegenRequestBody> requestBodies = generateRequestBodies(files);
+        // components.headers, must be before generateResponses, because those can $ref these
+        TreeMap<String, CodegenHeader> headers = generateHeaders(files);
         // components.responses
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
-        // components.headers
-        TreeMap<String, CodegenHeader> headers = generateHeaders(files);
-        // components.parameters
+        // components.parameters, must be before processPaths, because those can $ref these
         TreeMap<String, CodegenParameter> parameters = generateParameters(files);
         // paths input
         Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
