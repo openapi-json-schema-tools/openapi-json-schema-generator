@@ -2104,13 +2104,11 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     private static class CodegenSchemaCacheKey {
-        private CodegenSchemaCacheKey(Schema s, String sourceJsonPath, String currentJsonPath) {
-            this.schema = s;
+        private CodegenSchemaCacheKey(String sourceJsonPath, String currentJsonPath) {
             this.sourceJsonPath = sourceJsonPath;
             this.currentJsonPath = currentJsonPath;
         }
 
-        private Schema schema;
         private String sourceJsonPath;
         private String currentJsonPath;
 
@@ -2119,14 +2117,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             CodegenSchemaCacheKey that = (CodegenSchemaCacheKey) o;
-            return Objects.equals(schema, that.schema) &&
-                    Objects.equals(sourceJsonPath, that.sourceJsonPath) &&
+            return Objects.equals(sourceJsonPath, that.sourceJsonPath) &&
                     Objects.equals(currentJsonPath, that.currentJsonPath);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(schema, sourceJsonPath);
+            return Objects.hash(sourceJsonPath, currentJsonPath);
         }
     }
 
@@ -2137,6 +2134,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    private CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -2889,7 +2887,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         LOGGER.debug("debugging fromSchema for {} {} : {}", sourceJsonPath, currentJsonPath, p);
         CodegenSchema property = new CodegenSchema();
-        CodegenSchemaCacheKey ns = new CodegenSchemaCacheKey(p, sourceJsonPath, currentJsonPath);
+        CodegenSchemaCacheKey ns = new CodegenSchemaCacheKey(sourceJsonPath, currentJsonPath);
         CodegenSchema cpc = codegenSchemaCache.get(ns);
         if (cpc != null) {
             LOGGER.debug("Cached fromSchema for {} {}: {}", sourceJsonPath, currentJsonPath, p);
@@ -5222,13 +5220,13 @@ public class DefaultCodegen implements CodegenConfig {
                     if (schema.getAdditionalProperties() == null) {
                         // additionalProperties is null
                         // there is NO schema definition for this so the json paths are null
-                        cp = fromSchema(new Schema(), null, null);
+                        cp = requiredAddPropUnsetSchema;
                     } else if (schema.getAdditionalProperties() instanceof Boolean && Boolean.TRUE.equals(schema.getAdditionalProperties())) {
                         // additionalProperties is True
-                        cp = fromSchema(new Schema(), sourceJsonPath, addPropsJsonPath);
+                        cp = property.getAdditionalProperties();
                     } else {
                         // additionalProperties is schema
-                        cp = fromSchema((Schema) schema.getAdditionalProperties(), sourceJsonPath, addPropsJsonPath);
+                        cp = property.getAdditionalProperties();
                     }
                     requiredProperties.put(ck, cp);
                 }
