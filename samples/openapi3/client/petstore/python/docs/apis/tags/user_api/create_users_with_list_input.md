@@ -22,7 +22,23 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = user_api.UserApi(api_client)
 
     # example passing only optional values
-    body = 
+    body = [
+        user.User(
+            id=1,
+            username="username_example",
+            first_name="first_name_example",
+            last_name="last_name_example",
+            email="email_example",
+            password="password_example",
+            phone="phone_example",
+            user_status=1,
+            object_with_no_declared_props=dict(),
+            object_with_no_declared_props_nullable=dict(),
+            any_type_prop=None,
+            any_type_except_null_prop=None,
+            any_type_prop_nullable=None,
+        )
+    ]
     try:
         # Creates list of users with given input array
         api_response = api_instance.create_users_with_list_input(

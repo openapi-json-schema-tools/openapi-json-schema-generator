@@ -66,8 +66,14 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     }
 {{/if}}
 {{#with requestBody}}
-    {{#if required}}
+    {{#if ref}}
+        {{#if ref.required}}
+    body = {{{ref.example}}}
+        {{/if}}
+    {{else}}
+        {{#if required}}
     body = {{{example}}}
+        {{/if}}
     {{/if}}
 {{/with}}
     try:
@@ -88,9 +94,15 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             cookie_params=cookie_params,
             {{/if}}
             {{#with requestBody}}
-            {{#if required}}
+                {{#if ref}}
+                    {{#if ref.required}}
             body=body,
-            {{/if}}
+                    {{/if}}
+                {{else}}
+                    {{#if required}}
+            body=body,
+                    {{/if}}
+                {{/if}}
             {{/with}}
         )
         pprint(api_response)
@@ -137,7 +149,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     }
 {{/if}}
 {{#with requestBody}}
+    {{#if ref}}
+    body = {{{ref.example}}}
+    {{else}}
     body = {{{example}}}
+    {{/if}}
 {{/with}}
     try:
 {{#if summary}}

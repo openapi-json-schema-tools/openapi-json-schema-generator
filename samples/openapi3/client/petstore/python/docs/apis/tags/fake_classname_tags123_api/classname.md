@@ -35,7 +35,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     api_instance = fake_classname_tags123_api.FakeClassnameTags123Api(api_client)
 
     # example passing only optional values
-    body = 
+    body = client.Client(
+        client="client_example",
+    )
     try:
         # To test class name in snake case
         api_response = api_instance.classname(
