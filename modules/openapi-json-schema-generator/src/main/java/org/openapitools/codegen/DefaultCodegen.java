@@ -2943,8 +2943,6 @@ public class DefaultCodegen implements CodegenConfig {
                     }
 
                 }
-                CodegenKey ck = getKey(usedName);
-                property.name = ck;
             }
         }
         property.description = escapeText(p.getDescription());
@@ -3090,15 +3088,7 @@ public class DefaultCodegen implements CodegenConfig {
             ;
         }
         String ref = p.get$ref();
-        if (ref != null) {
-            property.setRef(ref);
-            property.setRefClass(toRefClass(
-                    ref,
-                    sourceJsonPath,
-                    "schemas"
-            ));
-            property.setRefModule(toRefModule(ref, sourceJsonPath, "schemas"));
-        }
+        setLocationInfo(ref, property, currentJsonPath, "schemas", sourceJsonPath);
         String example = toExampleValue(p);
         property.setExample(example);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
@@ -3440,7 +3430,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenResponse r = codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
         String responseRef = response.get$ref();
-        setLocationInfo(responseRef, r, sourceJsonPath, "responses");
+        setLocationInfo(responseRef, r, sourceJsonPath, "responses", null);
         if (responseRef != null) {
             return r;
         }
@@ -3538,7 +3528,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenHeader codegenHeader = codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader());
         String headerRef = header.get$ref();
-        setLocationInfo(headerRef, codegenHeader, sourceJsonPath, "headers");
+        setLocationInfo(headerRef, codegenHeader, sourceJsonPath, "headers", null);
         if (headerRef != null) {
             return codegenHeader;
         }
@@ -3636,7 +3626,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenParameter codegenParameter = codegenParameterCache.computeIfAbsent(sourceJsonPath, s -> new CodegenParameter());
 
         String parameterRef = parameter.get$ref();
-        setLocationInfo(parameterRef, codegenParameter, sourceJsonPath, "parameters");
+        setLocationInfo(parameterRef, codegenParameter, sourceJsonPath, "parameters", null);
         if (parameterRef != null) {
             return codegenParameter;
         }
@@ -5092,7 +5082,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private void setLocationInfo(String ref, OpenApiComponent instance, String sourceJsonPath, String expectedComponentType) {
+    private void setLocationInfo(String ref, OpenApiComponent instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
         if (ref != null) {
             Object objRef = getRef(ref, expectedComponentType);
             instance.setRef(objRef);
@@ -5101,19 +5091,26 @@ public class DefaultCodegen implements CodegenConfig {
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
             instance.setRefClass(refClass);
         }
-        String[] refPieces = sourceJsonPath.split("/");
-        if (sourceJsonPath.startsWith("#/components/") && refPieces.length == 4) {
-            String componentName = refPieces[3];
-            instance.setComponentModule(toComponentModule(componentName, expectedComponentType));
+        if (currentJsonPath != null) {
+            String[] pathPieces = currentJsonPath.split("/");
+            if (currentJsonPath.startsWith("#/components/") && pathPieces.length == 4) {
+                String componentName = pathPieces[3];
+                instance.setComponentModule(toComponentModule(componentName, expectedComponentType));
+            }
+            // last fragment info
+            // requestBody -> requestBody
+            // headers -> headerName
+            // parameters/i -> i
+            // components/parameters/someParam -> someParam
+            String usedName;
+            if (expectedComponentType.equals("schemas")) {
+                usedName = getUsedName(currentJsonPath);
+            } else {
+                usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+            }
+            CodegenKey name = getKey(usedName, expectedComponentType);
+            instance.setName(name);
         }
-        // last fragment info
-        // requestBody -> requestBody
-        // headers -> headerName
-        // parameters/i -> i
-        // components/parameters/someParam -> someParam
-        String lastFragment = sourceJsonPath.substring(sourceJsonPath.lastIndexOf("/") + 1);
-        CodegenKey name = getKey(lastFragment, expectedComponentType);
-        instance.setName(name);
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
@@ -5125,7 +5122,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         CodegenRequestBody codegenRequestBody = codegenRequestBodyCache.computeIfAbsent(sourceJsonPath, s -> new CodegenRequestBody());
         String bodyRef = requestBody.get$ref();
-        setLocationInfo(bodyRef, codegenRequestBody, sourceJsonPath, "requestBodies");
+        setLocationInfo(bodyRef, codegenRequestBody, sourceJsonPath, "requestBodies", null);
         if (bodyRef != null) {
             return codegenRequestBody;
         }
