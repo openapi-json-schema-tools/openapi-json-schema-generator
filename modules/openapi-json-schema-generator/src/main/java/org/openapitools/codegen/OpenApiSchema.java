@@ -159,7 +159,7 @@ public interface OpenApiSchema {
 
     void setIsAnyType(boolean isAnyType);
 
-    String getRef();
+    Object getRef();
 
     void setRef(Object ref);
 

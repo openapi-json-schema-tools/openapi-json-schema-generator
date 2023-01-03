@@ -155,7 +155,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiComponent {
     private LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties;
     private LinkedHashMap<CodegenKey, CodegenSchema> properties;
     private LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
-    private String ref;
+    private CodegenSchema ref;
     private String refModule;
     private boolean schemaIsFromAdditionalProperties;
     private boolean isBooleanSchemaTrue;
@@ -585,11 +585,11 @@ public class CodegenSchema implements OpenApiSchema, OpenApiComponent {
 
     @Override
     public void setRef(Object ref) {
-        this.ref = (String) ref;
+        this.ref = (CodegenSchema) ref;
     }
 
     @Override
-    public String getRef() {
+    public CodegenSchema getRef() {
         return ref;
     }
 
@@ -942,7 +942,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiComponent {
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes,
-                ref, schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
+                schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
                 properties, optionalProperties, requiredProperties, externalDocumentation,
                 discriminator, imports, componentModule, testCases);

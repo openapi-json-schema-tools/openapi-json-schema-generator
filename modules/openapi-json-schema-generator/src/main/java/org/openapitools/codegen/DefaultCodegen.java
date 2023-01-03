@@ -2886,13 +2886,9 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         LOGGER.debug("debugging fromSchema for {} {} : {}", sourceJsonPath, currentJsonPath, p);
-        CodegenSchema property = new CodegenSchema();
-        CodegenSchemaCacheKey ns = new CodegenSchemaCacheKey(sourceJsonPath, currentJsonPath);
-        CodegenSchema cpc = codegenSchemaCache.get(ns);
-        if (cpc != null) {
-            LOGGER.debug("Cached fromSchema for {} {}: {}", sourceJsonPath, currentJsonPath, p);
-            return cpc;
-        }
+
+        CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(sourceJsonPath, currentJsonPath);
+        CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
 
         if (p.equals(trueSchema)) {
             property.setIsBooleanSchemaTrue(true);
@@ -3093,7 +3089,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.imports = new TreeSet<>();
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }
-        codegenSchemaCache.put(ns, property);
 
         LOGGER.debug("debugging fromSchema return: {}", property);
         return property;
@@ -5064,25 +5059,26 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private Object getRef(String sourceJsonPath, String expectedComponentType) {
+    private Object getRef(String ref, String sourceJsonPath, String expectedComponentType) {
         switch (expectedComponentType) {
             case "requestBodies":
-                return codegenRequestBodyCache.computeIfAbsent(sourceJsonPath, s -> new CodegenRequestBody());
+                return codegenRequestBodyCache.computeIfAbsent(ref, s -> new CodegenRequestBody());
             case "responses":
-                return codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
+                return codegenResponseCache.computeIfAbsent(ref, s -> new CodegenResponse());
             case "headers":
-                return codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader());
+                return codegenHeaderCache.computeIfAbsent(ref, s -> new CodegenHeader());
             case "parameters":
-                return codegenParameterCache.computeIfAbsent(sourceJsonPath, s -> new CodegenParameter());
+                return codegenParameterCache.computeIfAbsent(ref, s -> new CodegenParameter());
             case "schemas":
-                return sourceJsonPath;
+                CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(sourceJsonPath, ref);
+                return codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         }
         return null;
     }
 
     private void setLocationInfo(String ref, OpenApiComponent instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
         if (ref != null) {
-            Object objRef = getRef(ref, expectedComponentType);
+            Object objRef = getRef(ref, sourceJsonPath, expectedComponentType);
             instance.setRef(objRef);
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             instance.setRefModule(refModule);
