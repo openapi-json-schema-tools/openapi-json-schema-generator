@@ -23,10 +23,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    body = client.Client(
-        client="client_example",
-    )
+    # example passing only optional values
+    body = 
     try:
         # To test \"client\" model
         api_response = api_instance.client_model(

@@ -94,25 +94,8 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    body = pet.Pet(
-        id=1,
-        category=category.Category(
-            id=1,
-            name="default-name",
-        ),
-        name="doggie",
-        photo_urls=[
-            "photo_urls_example"
-        ],
-        tags=[
-            tag.Tag(
-                id=1,
-                name="name_example",
-            )
-        ],
-        status="available",
-    )
+    # example passing only optional values
+    body = 
     try:
         # Add a new pet to the store
         api_response = api_instance.add_pet(

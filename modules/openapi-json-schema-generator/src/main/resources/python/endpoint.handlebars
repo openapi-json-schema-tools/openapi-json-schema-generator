@@ -239,18 +239,35 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#with requestBody}}
 
-    {{#if required}}
+    {{#if ref}}
+        {{#if ref.required}}
         if body is schemas.unset:
             raise exceptions.ApiValueError(
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
+        {{/if}}
+    {{else}}
+        {{#if required}}
+        if body is schemas.unset:
+            raise exceptions.ApiValueError(
+                'The required body parameter has an invalid value of: unset. Set a valid value instead')
+        {{/if}}
     {{/if}}
         _fields = None
         _body = None
-    {{#if required}}
+    {{#if ref}}
+        {{#if ref.required}}
         {{> endpoint_body_serialization }}
-    {{else}}
+        {{else}}
         if body is not schemas.unset:
             {{> endpoint_body_serialization }}
+        {{/if}}
+    {{else}}
+        {{#if required}}
+        {{> endpoint_body_serialization }}
+        {{else}}
+        if body is not schemas.unset:
+            {{> endpoint_body_serialization }}
+        {{/if}}
     {{/if}}
     {{/with}}
     {{#if servers}}
