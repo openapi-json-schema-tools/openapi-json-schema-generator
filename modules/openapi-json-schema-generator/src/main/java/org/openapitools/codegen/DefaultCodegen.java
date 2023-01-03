@@ -2134,6 +2134,7 @@ public class DefaultCodegen implements CodegenConfig {
     // json path to instance
     Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
+    Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -5058,7 +5059,7 @@ public class DefaultCodegen implements CodegenConfig {
     private Object getRef(String sourceJsonPath, String expectedComponentType) {
         switch (expectedComponentType) {
             case "requestBodies":
-                return sourceJsonPath;
+                return codegenRequestBodyCache.computeIfAbsent(sourceJsonPath, s -> new CodegenRequestBody());
             case "responses":
                 return codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
             case "headers":
@@ -5097,25 +5098,23 @@ public class DefaultCodegen implements CodegenConfig {
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
         // process body parameter
-        RequestBody usedRequestBody = requestBody;
-        String usedSourceJsonPath = sourceJsonPath;
-        String bodyRef = requestBody.get$ref();
-        if (bodyRef != null) {
-            usedRequestBody = ModelUtils.getReferencedRequestBody(this.openAPI, requestBody);
-            usedSourceJsonPath = bodyRef;
-        }
-        if (usedRequestBody == null) {
+        if (requestBody == null) {
             LOGGER.error("body in fromRequestBody cannot be null!");
             throw new RuntimeException("body in fromRequestBody cannot be null!");
         }
 
-        CodegenRequestBody codegenRequestBody = new CodegenRequestBody();
-        setRequestBodyInfo(usedRequestBody, codegenRequestBody, usedSourceJsonPath);
+        CodegenRequestBody codegenRequestBody = codegenRequestBodyCache.computeIfAbsent(sourceJsonPath, s -> new CodegenRequestBody());
+        String bodyRef = requestBody.get$ref();
         setLocationInfo(bodyRef, codegenRequestBody, sourceJsonPath, "requestBodies");
+        if (bodyRef != null) {
+            return codegenRequestBody;
+        }
+
+        setRequestBodyInfo(requestBody, codegenRequestBody, sourceJsonPath);
 
         // set the parameter's example value
         // should be overridden by lang codegen
-        setRequestBodyExampleValue(codegenRequestBody, usedRequestBody);
+        setRequestBodyExampleValue(codegenRequestBody, requestBody);
 
         return codegenRequestBody;
     }
