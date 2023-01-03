@@ -2890,30 +2890,33 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(sourceJsonPath, currentJsonPath);
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
 
+        String ref = p.get$ref();
+        setLocationInfo(ref, property, currentJsonPath, "schemas", sourceJsonPath);
+        if (ref != null) {
+            return property;
+        }
+
         if (p.equals(trueSchema)) {
             property.setIsBooleanSchemaTrue(true);
         } else if (p.equals(falseSchema)) {
             property.setIsBooleanSchemaFalse(true);
         }
 
-        // unalias schema
-        p = unaliasSchema(p);
-
         ModelUtils.syncValidationProperties(p, property);
         property.setFormat(p.getFormat());
         property.setExternalDocumentation(p.getExternalDocs());
 
         if (currentJsonPath != null) {
-            String[] refPieces = currentJsonPath.split("/");
-            if (refPieces.length >= 4) {
+            String[] pathPieces = currentJsonPath.split("/");
+            if (pathPieces.length >= 4) {
                 // component schemas + proprties/items/additionalProperties use case
-                String lastPathFragment = refPieces[refPieces.length-1];
+                String lastPathFragment = pathPieces[pathPieces.length-1];
                 String usedName = getUsedName(currentJsonPath);
-                if (refPieces.length >= 5) {
+                if (pathPieces.length >= 5) {
                     // proprties/items/additionalProperties use case
                     // # components schemas someSchema additionalProperties/items
                     if (lastPathFragment.equals("additionalProperties")) {
-                        String priorFragment = refPieces[refPieces.length-2];
+                        String priorFragment = pathPieces[pathPieces.length-2];
                         if (!"properties".equals(priorFragment)) {
                             property.setSchemaIsFromAdditionalProperties(true);
                         }
@@ -2921,7 +2924,7 @@ public class DefaultCodegen implements CodegenConfig {
                 } else {
                     // component schema use case
                     // TODO set discriminator on any schema instances in the future not just these
-                    if (!currentJsonPath.startsWith("#/components/schemas/") || refPieces.length != 4) {
+                    if (!currentJsonPath.startsWith("#/components/schemas/") || pathPieces.length != 4) {
                         throw new RuntimeException("Invalid currentJsonPath "+ currentJsonPath);
                     }
 
@@ -2954,17 +2957,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (p.getDeprecated() != null) {
             property.deprecated = p.getDeprecated();
-        } else if (p.get$ref() != null) {
-            // Since $ref should be replaced with the model it refers
-            // to, $ref'ing a model with 'deprecated' set should cause
-            // the property to reflect the model's 'deprecated' value.
-            String ref = ModelUtils.getSimpleRef(p.get$ref());
-            if (ref != null) {
-                Schema referencedSchema = ModelUtils.getSchemas(this.openAPI).get(ref);
-                if (referencedSchema != null && referencedSchema.getDeprecated() != null) {
-                    property.deprecated = referencedSchema.getDeprecated();
-                }
-            }
         }
         if (p.getReadOnly() != null) {
             property.isReadOnly = p.getReadOnly();
@@ -2986,11 +2978,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (p.getExtensions() != null && !p.getExtensions().isEmpty()) {
             property.getVendorExtensions().putAll(p.getExtensions());
-        } else if (p.get$ref() != null) {
-            Schema referencedSchema = ModelUtils.getReferencedSchema(this.openAPI, p);
-            if (referencedSchema.getExtensions() != null && !referencedSchema.getExtensions().isEmpty()) {
-                property.getVendorExtensions().putAll(referencedSchema.getExtensions());
-            }
         }
 
         //Inline enum case:
@@ -3007,23 +2994,6 @@ public class DefaultCodegen implements CodegenConfig {
             if (allowableValues.size() > 0) {
                 property.allowableValues = allowableValues;
             }
-        }
-
-        Schema referencedSchema = ModelUtils.getReferencedSchema(this.openAPI, p);
-
-        //Referenced enum case:
-        if (referencedSchema.getEnum() != null && !referencedSchema.getEnum().isEmpty()) {
-            List<Object> _enum = referencedSchema.getEnum();
-
-            Map<String, Object> allowableValues = new HashMap<>();
-            allowableValues.put("values", _enum);
-            if (allowableValues.size() > 0) {
-                property.allowableValues = allowableValues;
-            }
-        }
-
-        if (referencedSchema.getNullable() != null) {
-            property.isNullable = referencedSchema.getNullable();
         }
 
         property.setTypeProperties(p);
@@ -3069,7 +3039,7 @@ public class DefaultCodegen implements CodegenConfig {
 
             // handle inner property
             ArraySchema arraySchema = (ArraySchema) p;
-            Schema innerSchema = unaliasSchema(arraySchema.getItems());
+            Schema innerSchema = arraySchema.getItems();
             CodegenSchema innerProperty = fromSchema(
                     innerSchema, sourceJsonPath, currentJsonPath + "/items");
             property.setItems(innerProperty);
@@ -3077,12 +3047,7 @@ public class DefaultCodegen implements CodegenConfig {
             updatePropertyForObject(property, p, sourceJsonPath, currentJsonPath);
         } else if (ModelUtils.isAnyType(p)) {
             updatePropertyForAnyType(property, p, sourceJsonPath, currentJsonPath);
-        } else if (!ModelUtils.isNullType(p)) {
-            // referenced model
-            ;
         }
-        String ref = p.get$ref();
-        setLocationInfo(ref, property, currentJsonPath, "schemas", sourceJsonPath);
         String example = toExampleValue(p);
         property.setExample(example);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
