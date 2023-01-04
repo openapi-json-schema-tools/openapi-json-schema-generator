@@ -5024,7 +5024,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private Object getRef(String ref, String sourceJsonPath, String expectedComponentType) {
+    private Object getRef(String ref, String expectedComponentType) {
         switch (expectedComponentType) {
             case "requestBodies":
                 return codegenRequestBodyCache.computeIfAbsent(ref, s -> new CodegenRequestBody());
@@ -5035,7 +5035,7 @@ public class DefaultCodegen implements CodegenConfig {
             case "parameters":
                 return codegenParameterCache.computeIfAbsent(ref, s -> new CodegenParameter());
             case "schemas":
-                CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(sourceJsonPath, ref);
+                CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(ref, ref);
                 return codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         }
         return null;
@@ -5043,7 +5043,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     private void setLocationInfo(String ref, OpenApiComponent instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
         if (ref != null) {
-            Object objRef = getRef(ref, sourceJsonPath, expectedComponentType);
+            Object objRef = getRef(ref, expectedComponentType);
             instance.setRef(objRef);
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             instance.setRefModule(refModule);

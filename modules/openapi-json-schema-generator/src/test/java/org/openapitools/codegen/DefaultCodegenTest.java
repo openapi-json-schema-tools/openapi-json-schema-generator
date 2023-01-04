@@ -1989,6 +1989,12 @@ public class DefaultCodegenTest {
                 .readLocation("src/test/resources/3_0/type-alias.yaml", null, new ParseOptions()).getOpenAPI();
         codegen.setOpenAPI(openAPI);
 
+
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("TypeAlias"),
+                "#/components/schemas/TypeAlias",
+                "#/components/schemas/TypeAlias"
+        );
         CodegenSchema codegenModel = codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("ParentType"),
                 "#/components/schemas/ParentType",
@@ -1997,7 +2003,7 @@ public class DefaultCodegenTest {
 
         Assert.assertEquals(codegenModel.getProperties().size(), 1);
         CodegenKey ck = codegen.getKey("typeAlias");
-        Assert.assertEquals(codegenModel.getOptionalProperties().get(ck).isString, true);
+        Assert.assertEquals(codegenModel.getOptionalProperties().get(ck).getRef().isString, true);
     }
 
     @Test
