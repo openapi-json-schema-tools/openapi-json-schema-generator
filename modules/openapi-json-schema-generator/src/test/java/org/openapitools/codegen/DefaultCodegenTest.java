@@ -2377,19 +2377,19 @@ public class DefaultCodegenTest {
         CodegenKey ck = codegen.getKey("map_with_additional_properties_unset");
         mapWithAddPropsUnset = cm.getProperties().get(ck);
         assertEquals(mapWithAddPropsUnset.getAdditionalProperties(), null);
-        assertNull(mapWithAddPropsUnset.getRefClass()); // because unaliased
+        assertEquals(mapWithAddPropsUnset.getRefClass(), "AdditionalPropertiesUnset");
 
         mapWithAddPropsTrue = cm.getProperties().get(codegen.getKey("map_with_additional_properties_true"));
         assertEquals(mapWithAddPropsTrue.getAdditionalProperties(), null);
-        assertNotNull(mapWithAddPropsTrue.getRefClass());
+        assertEquals(mapWithAddPropsTrue.getRefClass(), "AdditionalPropertiesTrue");
 
         mapWithAddPropsFalse = cm.getProperties().get(codegen.getKey("map_with_additional_properties_false"));
-        assertNotNull(mapWithAddPropsFalse.getAdditionalProperties());
-        assertNull(mapWithAddPropsFalse.getRefClass()); // because unaliased
+        assertEquals(mapWithAddPropsFalse.getAdditionalProperties(), null);
+        assertEquals(mapWithAddPropsFalse.getRefClass(), "AdditionalPropertiesFalse");
 
         mapWithAddPropsSchema = cm.getProperties().get(codegen.getKey("map_with_additional_properties_schema"));
         assertEquals(mapWithAddPropsSchema.getAdditionalProperties(), null);
-        assertNotNull(mapWithAddPropsSchema.getRefClass());
+        assertEquals(mapWithAddPropsSchema.getRefClass(), "AdditionalPropertiesSchema");
 
         modelName = "ObjectModelWithAddPropsInProps";
         sc = openAPI.getComponents().getSchemas().get(modelName);
