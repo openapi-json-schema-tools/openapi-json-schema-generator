@@ -33,11 +33,11 @@ class TestResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes(ApiTes
 
     response_status = 200
     response_body_schema = post.response_for_200.simple_enum_validation.SimpleEnumValidation
-
+    
     def test_something_else_is_invalid_fails(self):
         # something else is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 4
@@ -57,11 +57,11 @@ class TestResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes(ApiTes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_one_of_the_enum_is_valid_passes(self):
         # one of the enum is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1
@@ -79,7 +79,7 @@ class TestResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes(ApiTes
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

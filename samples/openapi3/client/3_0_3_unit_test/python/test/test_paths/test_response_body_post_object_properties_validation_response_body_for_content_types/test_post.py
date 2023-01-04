@@ -33,11 +33,11 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
 
     response_status = 200
     response_body_schema = post.response_for_200.object_properties_validation.ObjectPropertiesValidation
-
+    
     def test_ignores_arrays_passes(self):
         # ignores arrays
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -56,7 +56,7 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -64,11 +64,11 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 12
@@ -86,7 +86,7 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -94,11 +94,11 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_one_property_invalid_is_invalid_fails(self):
         # one property invalid is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -124,11 +124,11 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_both_properties_present_and_valid_is_valid_passes(self):
         # both properties present and valid is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -151,7 +151,7 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -159,11 +159,11 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_doesn_t_invalidate_other_properties_passes(self):
         # doesn&#x27;t invalidate other properties
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -185,7 +185,7 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -193,11 +193,11 @@ class TestResponseBodyPostObjectPropertiesValidationResponseBodyForContentTypes(
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_both_properties_invalid_is_invalid_fails(self):
         # both properties invalid is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {

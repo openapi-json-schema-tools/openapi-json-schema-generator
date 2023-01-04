@@ -33,11 +33,11 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
 
     response_status = 200
     response_body_schema = post.response_for_200.not_more_complex_schema.NotMoreComplexSchema
-
+    
     def test_other_match_passes(self):
         # other match
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -58,7 +58,7 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -66,11 +66,11 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_mismatch_fails(self):
         # mismatch
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -93,11 +93,11 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_match_passes(self):
         # match
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1
@@ -115,7 +115,7 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

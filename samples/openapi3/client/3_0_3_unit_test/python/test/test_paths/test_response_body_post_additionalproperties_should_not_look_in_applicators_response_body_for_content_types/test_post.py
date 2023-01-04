@@ -33,11 +33,11 @@ class TestResponseBodyPostAdditionalpropertiesShouldNotLookInApplicatorsResponse
 
     response_status = 200
     response_body_schema = post.response_for_200.additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators
-
+    
     def test_properties_defined_in_allof_are_not_examined_fails(self):
         # properties defined in allOf are not examined
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -62,11 +62,11 @@ class TestResponseBodyPostAdditionalpropertiesShouldNotLookInApplicatorsResponse
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_valid_test_case_passes(self):
         # valid test case
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -89,7 +89,7 @@ class TestResponseBodyPostAdditionalpropertiesShouldNotLookInApplicatorsResponse
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

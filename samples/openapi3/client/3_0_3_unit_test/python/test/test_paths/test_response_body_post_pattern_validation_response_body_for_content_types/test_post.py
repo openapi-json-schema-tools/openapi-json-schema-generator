@@ -33,11 +33,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
 
     response_status = 200
     response_body_schema = post.response_for_200.pattern_validation.PatternValidation
-
+    
     def test_ignores_arrays_passes(self):
         # ignores arrays
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -56,7 +56,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -64,11 +64,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_ignores_objects_passes(self):
         # ignores objects
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -87,7 +87,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -95,11 +95,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_ignores_null_passes(self):
         # ignores null
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 None
@@ -117,7 +117,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -125,11 +125,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_ignores_floats_passes(self):
         # ignores floats
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1.0
@@ -147,7 +147,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -155,11 +155,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_a_non_matching_pattern_is_invalid_fails(self):
         # a non-matching pattern is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "abc"
@@ -179,11 +179,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_ignores_booleans_passes(self):
         # ignores booleans
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 True
@@ -201,7 +201,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -209,11 +209,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_a_matching_pattern_is_valid_passes(self):
         # a matching pattern is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "aaa"
@@ -231,7 +231,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -239,11 +239,11 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_ignores_integers_passes(self):
         # ignores integers
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 123
@@ -261,7 +261,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

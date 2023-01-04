@@ -33,11 +33,11 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
 
     response_status = 200
     response_body_schema = post.response_for_200.by_number.ByNumber
-
+    
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 4.5
@@ -55,7 +55,7 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -63,11 +63,11 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_35_is_not_multiple_of15_fails(self):
         # 35 is not multiple of 1.5
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 35
@@ -87,11 +87,11 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_zero_is_multiple_of_anything_passes(self):
         # zero is multiple of anything
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 0
@@ -109,7 +109,7 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

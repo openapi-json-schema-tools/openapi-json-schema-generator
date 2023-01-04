@@ -33,11 +33,11 @@ class TestResponseBodyPostAdditionalpropertiesCanExistByItselfResponseBodyForCon
 
     response_status = 200
     response_body_schema = post.response_for_200.additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself
-
+    
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -60,11 +60,11 @@ class TestResponseBodyPostAdditionalpropertiesCanExistByItselfResponseBodyForCon
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -85,7 +85,7 @@ class TestResponseBodyPostAdditionalpropertiesCanExistByItselfResponseBodyForCon
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

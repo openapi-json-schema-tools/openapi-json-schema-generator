@@ -33,11 +33,11 @@ class TestResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes(Api
 
     response_status = 200
     response_body_schema = post.response_for_200.anyof_with_one_empty_schema.AnyofWithOneEmptySchema
-
+    
     def test_string_is_valid_passes(self):
         # string is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "foo"
@@ -55,7 +55,7 @@ class TestResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes(Api
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -63,11 +63,11 @@ class TestResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes(Api
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_number_is_valid_passes(self):
         # number is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 123
@@ -85,7 +85,7 @@ class TestResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes(Api
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

@@ -33,11 +33,11 @@ class TestResponseBodyPostRefInPropertyResponseBodyForContentTypes(ApiTestMixin,
 
     response_status = 200
     response_body_schema = post.response_for_200.ref_in_property.RefInProperty
-
+    
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -61,7 +61,7 @@ class TestResponseBodyPostRefInPropertyResponseBodyForContentTypes(ApiTestMixin,
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -69,11 +69,11 @@ class TestResponseBodyPostRefInPropertyResponseBodyForContentTypes(ApiTestMixin,
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {

@@ -33,11 +33,11 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
 
     response_status = 200
     response_body_schema = post.response_for_200.properties_with_escaped_characters.PropertiesWithEscapedCharacters
-
+    
     def test_object_with_all_numbers_is_valid_passes(self):
         # object with all numbers is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -68,7 +68,7 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -76,11 +76,11 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_object_with_strings_is_invalid_fails(self):
         # object with strings is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {

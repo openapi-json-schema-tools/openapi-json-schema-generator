@@ -33,11 +33,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
 
     response_status = 200
     response_body_schema = post.response_for_200.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof
-
+    
     def test_allof_true_anyof_false_oneof_false_fails(self):
         # allOf: true, anyOf: false, oneOf: false
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 2
@@ -57,11 +57,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_allof_false_anyof_false_oneof_true_fails(self):
         # allOf: false, anyOf: false, oneOf: true
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 5
@@ -81,11 +81,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_allof_false_anyof_true_oneof_true_fails(self):
         # allOf: false, anyOf: true, oneOf: true
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 15
@@ -105,11 +105,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_allof_true_anyof_true_oneof_false_fails(self):
         # allOf: true, anyOf: true, oneOf: false
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 6
@@ -129,11 +129,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_allof_true_anyof_true_oneof_true_passes(self):
         # allOf: true, anyOf: true, oneOf: true
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 30
@@ -151,7 +151,7 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -159,11 +159,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_allof_true_anyof_false_oneof_true_fails(self):
         # allOf: true, anyOf: false, oneOf: true
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 10
@@ -183,11 +183,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_allof_false_anyof_true_oneof_false_fails(self):
         # allOf: false, anyOf: true, oneOf: false
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 3
@@ -207,11 +207,11 @@ class TestResponseBodyPostAllofCombinedWithAnyofOneofResponseBodyForContentTypes
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_allof_false_anyof_false_oneof_false_fails(self):
         # allOf: false, anyOf: false, oneOf: false
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1
