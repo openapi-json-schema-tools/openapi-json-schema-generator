@@ -1667,15 +1667,20 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        final Map requestProperties = Collections.unmodifiableMap(openAPI.getComponents().getSchemas().get("complex").getProperties());
+        final Map<String, Schema> requestProperties = openAPI.getComponents().getSchemas().get("complex").getProperties();
 
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("deprecated"),
+                "#/components/schemas/deprecated",
+                "#/components/schemas/deprecated"
+        );
         Assert.assertTrue(codegen.fromSchema(
-                (Schema) requestProperties.get("deprecated"),
+                requestProperties.get("deprecated"),
                 "#/components/schemas/complex",
                 "#/components/schemas/complex/properties/deprecated"
-        ).deprecated);
+        ).getRef().deprecated);
         Assert.assertFalse(codegen.fromSchema(
-                (Schema) requestProperties.get("current"),
+                requestProperties.get("current"),
                 "#/components/schemas/complex",
                 "#/components/schemas/complex/properties/current"
         ).deprecated);
