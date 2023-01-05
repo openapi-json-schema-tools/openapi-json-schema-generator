@@ -1594,13 +1594,17 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("User_address"),
+                "#/components/schemas/User_address",
+                "#/components/schemas/User_address"
+        );
         CodegenSchema property = codegen.fromSchema(
                 (Schema) openAPI.getComponents().getSchemas().get("User").getProperties().get("address"),
                 "#/components/schemas/User",
                 "#/components/schemas/User/properties/address"
         );
-
-        Assert.assertTrue(property.isNullable);
+        Assert.assertTrue(property.getRef().isNullable);
     }
 
     @Test
