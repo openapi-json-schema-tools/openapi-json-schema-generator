@@ -1875,12 +1875,17 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("TypeAliasToString"),
+                "#/components/schemas/TypeAliasToString",
+                "#/components/schemas/TypeAliasToString"
+        );
         CodegenSchema typeAliasModel = codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("MyParameterTextField"),
                 "#/components/schemas/MyParameterTextField",
                 "#/components/schemas/MyParameterTextField"
         );
-        Assert.assertEquals(typeAliasModel.isString, true);
+        Assert.assertEquals(typeAliasModel.getRef().isString, true);
     }
 
     private void verifyPersonDiscriminator(CodegenDiscriminator discriminator) {
