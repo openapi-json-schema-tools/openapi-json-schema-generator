@@ -3949,27 +3949,32 @@ public class DefaultCodegenTest {
         assertEquals(cp.name.getName(), "application/json");
         assertEquals(cp.refClass, "Coordinates");
 
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("stringWithMinLength"),
+                "#/components/schemas/stringWithMinLength",
+                "#/components/schemas/stringWithMinLength"
+        );
+
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertEquals(cp.name.getName(), "text/plain");
-        assertTrue(cp.isString);
+        assertTrue(cp.getRef().isString);
 
-        path = "/requestBodyWithEncodingTypes";
-        co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
-        CodegenSchema formSchema = co.requestBody.getContent().get("application/x-www-form-urlencoded").getSchema();
-        assertEquals(formSchema.getRef(), "#/components/schemas/_requestBodyWithEncodingTypes_post_request");
-
-        LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.getContent().get("application/x-www-form-urlencoded").getEncoding();
-        assertEquals(encoding.get("int-param").getExplode(), true);
-        assertEquals(encoding.get("explode-false").getExplode(), false);
-
-        CodegenSchema cm = codegen.fromSchema(
+        codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("_requestBodyWithEncodingTypes_post_request"),
                 "#/components/schemas/_requestBodyWithEncodingTypes_post_request",
                 "#/components/schemas/_requestBodyWithEncodingTypes_post_request"
         );
-        assertEquals(cm.getProperties().size(), 6);
+
+        path = "/requestBodyWithEncodingTypes";
+        co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
+        CodegenSchema formSchema = co.requestBody.getContent().get("application/x-www-form-urlencoded").getSchema();
+        assertEquals(formSchema.getRef().getProperties().size(), 6);
+
+        LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.getContent().get("application/x-www-form-urlencoded").getEncoding();
+        assertEquals(encoding.get("int-param").getExplode(), true);
+        assertEquals(encoding.get("explode-false").getExplode(), false);
     }
 
     @Test
