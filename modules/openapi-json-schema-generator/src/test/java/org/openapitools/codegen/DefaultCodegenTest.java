@@ -2493,33 +2493,45 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenSchema anyTypeSchema = codegen.fromSchema(
-                new Schema(),
-                "#/components/schemas/A",
-                "#/components/schemas/A/additionalProperties"
-        );
-        CodegenSchema stringCp = codegen.fromSchema(
-                new Schema().type("string"),
-                "#/components/schemas/A",
-                "#/components/schemas/A/additionalProperties"
-        );
         CodegenResponse mapWithAddPropsUnset;
         CodegenResponse mapWithAddPropsTrue;
         CodegenResponse mapWithAddPropsFalse;
         CodegenResponse mapWithAddPropsSchema;
 
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesUnset"),
+                "#/components/schemas/AdditionalPropertiesUnset",
+                "#/components/schemas/AdditionalPropertiesUnset"
+        );
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesTrue"),
+                "#/components/schemas/AdditionalPropertiesTrue",
+                "#/components/schemas/AdditionalPropertiesTrue"
+        );
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesFalse"),
+                "#/components/schemas/AdditionalPropertiesFalse",
+                "#/components/schemas/AdditionalPropertiesFalse"
+        );
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesSchema"),
+                "#/components/schemas/AdditionalPropertiesSchema",
+                "#/components/schemas/AdditionalPropertiesSchema"
+        );
+
         path = "/ref_additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.responses.get("200");
-        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), null);
+        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getRef().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
-        assertNotNull(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getRefClass());
+        assertNotNull(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getRef().getAdditionalProperties());
+        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getRef().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.responses.get("202");
-        assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
-        assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
+        assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getRef().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getRef().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
-        assertNotNull(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getRefClass());
+        assertNotNull(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getRef());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2527,13 +2539,13 @@ public class DefaultCodegenTest {
         mapWithAddPropsUnset = co.responses.get("200");
         assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
-        assertEquals(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties(), anyTypeSchema);
+        assertNotNull(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties());
         assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.responses.get("202");
         assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
         assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
-        assertEquals(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties(), stringCp);
+        assertTrue(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties().isString);
     }
 
     @Test
@@ -4003,9 +4015,14 @@ public class DefaultCodegenTest {
         assertTrue(header1.getSchema().isUnboundedInteger);
         assertEquals(header1.getSchema().name.getName(), "schema");
 
+        codegen.fromHeader(
+                openAPI.getComponents().getHeaders().get("X-Rate-Limit"),
+                "#/components/headers/X-Rate-Limit"
+        );
+
         CodegenHeader header2 = responseHeaders.get("X-Rate-Limit-Ref");
-        assertTrue(header2.getSchema().isUnboundedInteger);
-        assertEquals(header2.getSchema().name.getName(), "schema");
+        assertTrue(header2.getRef().getSchema().isUnboundedInteger);
+        assertEquals(header2.getRef().getSchema().name.getName(), "schema");
 
         content = cr.getContent();
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json", "text/plain")));

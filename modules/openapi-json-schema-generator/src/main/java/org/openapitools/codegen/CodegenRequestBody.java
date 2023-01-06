@@ -109,7 +109,7 @@ public class CodegenRequestBody implements OpenApiComponent {
 
     public void setName(CodegenKey name) { this.name=name; }
 
-    public Object getRef() { return ref; }
+    public CodegenRequestBody getRef() { return (CodegenRequestBody) ref; }
 
     public void setRef(Object ref) { this.ref = ref; }
 
