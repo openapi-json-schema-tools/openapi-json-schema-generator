@@ -2439,15 +2439,25 @@ public class DefaultCodegenTest {
         Operation operation;
         CodegenOperation co;
 
-        CodegenSchema anyTypeSchema = codegen.fromSchema(
-                new Schema(),
-                "#/components/schemas/A",
-                "#/components/schemas/A/additionalProperties"
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesUnset"),
+                "#/components/schemas/AdditionalPropertiesUnset",
+                "#/components/schemas/AdditionalPropertiesUnset"
         );
-        CodegenSchema stringCp = codegen.fromSchema(
-                new Schema().type("string"),
-                "#/components/schemas/A",
-                "#/components/schemas/A/additionalProperties"
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesTrue"),
+                "#/components/schemas/AdditionalPropertiesTrue",
+                "#/components/schemas/AdditionalPropertiesTrue"
+        );
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesFalse"),
+                "#/components/schemas/AdditionalPropertiesFalse",
+                "#/components/schemas/AdditionalPropertiesFalse"
+        );
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("AdditionalPropertiesSchema"),
+                "#/components/schemas/AdditionalPropertiesSchema",
+                "#/components/schemas/AdditionalPropertiesSchema"
         );
         CodegenParameter mapWithAddPropsUnset;
         CodegenParameter mapWithAddPropsTrue;
@@ -2458,14 +2468,15 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.queryParams.get(0);
-        assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), null);
+        assertEquals(mapWithAddPropsUnset.getSchema().getRef().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.queryParams.get(1);
-        assertNotNull(mapWithAddPropsTrue.getSchema().getRefClass());
+        assertNotNull(mapWithAddPropsTrue.getSchema().getRef());
+        assertTrue(mapWithAddPropsTrue.getSchema().getRef().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.queryParams.get(2);
-        assertNotNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
-        assertTrue(mapWithAddPropsFalse.getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
+        assertNotNull(mapWithAddPropsFalse.getSchema().getRef().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getSchema().getRef().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.queryParams.get(3);
-        assertNotNull(mapWithAddPropsSchema.getSchema().getRefClass());
+        assertNotNull(mapWithAddPropsSchema.getSchema().getRef());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2473,13 +2484,11 @@ public class DefaultCodegenTest {
         mapWithAddPropsUnset = co.queryParams.get(0);
         assertEquals(mapWithAddPropsUnset.getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.queryParams.get(1);
-        assertEquals(mapWithAddPropsTrue.getSchema().getAdditionalProperties(), anyTypeSchema);
         assertTrue(mapWithAddPropsTrue.getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.queryParams.get(2);
-        assertNotNull(mapWithAddPropsFalse.getSchema().getAdditionalProperties());
         assertTrue(mapWithAddPropsFalse.getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.queryParams.get(3);
-        assertEquals(mapWithAddPropsSchema.getSchema().getAdditionalProperties(), stringCp);
+        assertTrue(mapWithAddPropsSchema.getSchema().getAdditionalProperties().isString);
     }
 
     @Test
