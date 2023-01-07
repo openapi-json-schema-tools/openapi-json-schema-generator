@@ -2931,7 +2931,6 @@ public class DefaultCodegen implements CodegenConfig {
                         updateModelForComposedSchema(property, p, currentJsonPath);
                     }
 
-                    property.setComponentModule(toComponentModule(usedName, "schemas"));
                     if (openAPI != null) {
                         HashMap<String, SchemaTestCase> schemaTestCases = extractSchemaTestCases(xSchemaTestExamplesRefPrefix + usedName);
                         property.testCases = schemaTestCases;
@@ -5055,6 +5054,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
         CodegenKey name = getName(expectedComponentType, currentJsonPath);
         instance.setName(name);
+        String[] pathPieces = currentJsonPath.split("/");
+        // #/components/requestBodies/A
+        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
+        }
     }
 
     private void setResponseLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenResponse> instance) {
@@ -5067,6 +5071,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
         CodegenKey name = getName(expectedComponentType, currentJsonPath);
         instance.setName(name);
+        String[] pathPieces = currentJsonPath.split("/");
+        // #/components/responses/A
+        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
+        }
     }
 
     private void setHeaderLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenHeader> instance) {
@@ -5079,6 +5088,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
         CodegenKey name = getName(expectedComponentType, currentJsonPath);
         instance.setName(name);
+        String[] pathPieces = currentJsonPath.split("/");
+        // #/components/headers/A
+        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
+        }
     }
 
     private void setParameterLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenParameter> instance) {
@@ -5091,6 +5105,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
         CodegenKey name = getName(expectedComponentType, currentJsonPath);
         instance.setName(name);
+        String[] pathPieces = currentJsonPath.split("/");
+        // #/components/parameters/A
+        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
+        }
     }
 
     private void setSchemaLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenSchema> instance) {
@@ -5107,6 +5126,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
         CodegenKey name = getName(expectedComponentType, currentJsonPath);
         instance.setName(name);
+        String[] pathPieces = currentJsonPath.split("/");
+        // #/components/schemas/A
+        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
+        }
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
