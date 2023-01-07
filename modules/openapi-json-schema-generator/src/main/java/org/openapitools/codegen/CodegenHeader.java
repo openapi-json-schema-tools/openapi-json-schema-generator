@@ -17,9 +17,6 @@
 
 package org.openapitools.codegen;
 
-import org.openapitools.codegen.utils.ModelUtils;
-
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -27,7 +24,7 @@ import java.util.Objects;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenHeader extends CodegenHeaderBase implements OpenApiRef<CodegenHeader> {
+public class CodegenHeader extends CodegenHeaderBase implements OpenApiLocation<CodegenHeader> {
     protected CodegenRefInfo<CodegenHeader> ref;
     @Override
     public int hashCode() {

@@ -7,7 +7,7 @@ import java.util.Objects;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenApiRef<CodegenRequestBody> {
+public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenApiLocation<CodegenRequestBody> {
     protected CodegenRefInfo<CodegenRequestBody> ref;
 
     @Override

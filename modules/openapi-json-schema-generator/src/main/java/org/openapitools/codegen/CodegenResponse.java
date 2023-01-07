@@ -19,7 +19,7 @@ package org.openapitools.codegen;
 
 import java.util.*;
 
-public class CodegenResponse implements OpenApiRef {
+public class CodegenResponse implements OpenApiLocation {
     private CodegenKey name;
     private Map<String, CodegenHeader> headers;
     public String message;

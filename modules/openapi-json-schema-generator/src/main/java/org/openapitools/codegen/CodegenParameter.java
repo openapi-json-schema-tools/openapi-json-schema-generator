@@ -24,7 +24,7 @@ import java.util.*;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenParameter extends CodegenHeaderBase implements OpenApiRef<CodegenParameter> {
+public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocation<CodegenParameter> {
     public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
             isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
     // stores the openapi name property

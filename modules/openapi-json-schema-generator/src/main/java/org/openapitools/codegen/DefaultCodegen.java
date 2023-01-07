@@ -5048,7 +5048,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private void setLocationInfo(String ref, OpenApiRef instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
+    private void setLocationInfo(String ref, OpenApiLocation instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
         if (ref != null) {
             CodegenRefInfo objRef = getRef(ref, sourceJsonPath, expectedComponentType);
             instance.setRef(objRef);
