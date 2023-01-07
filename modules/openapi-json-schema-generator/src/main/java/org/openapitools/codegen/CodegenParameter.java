@@ -29,15 +29,15 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
             isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
     // stores the openapi name property
     public String baseName;
-    protected CodegenRefInfo<CodegenParameter> ref;
+    protected CodegenRefInfo<CodegenParameter> refInfo;
 
-    public CodegenRefInfo<CodegenParameter> getRef() { return ref; }
+    public CodegenRefInfo<CodegenParameter> getRefInfo() { return refInfo; }
 
-    public void setRef(CodegenRefInfo<CodegenParameter> ref) { this.ref = ref; }
+    public void setRefInfo(CodegenRefInfo<CodegenParameter> refInfo) { this.refInfo = refInfo; }
 
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(refClass, name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, refModule, imports, componentModule);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
         sb.append(", deepObject='").append(isDeepObject).append('\'');
         sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
-        sb.append(", ref='").append(ref).append('\'');
+        sb.append(", refInfo='").append(refInfo).append('\'');
     }
 
     @Override

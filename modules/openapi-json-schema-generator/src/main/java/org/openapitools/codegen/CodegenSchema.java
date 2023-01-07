@@ -157,7 +157,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     private LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties;
     private LinkedHashMap<CodegenKey, CodegenSchema> properties;
     private LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
-    private CodegenRefInfo<CodegenSchema> ref;
+    private CodegenRefInfo<CodegenSchema> refInfo;
     private String refModule;
     private boolean schemaIsFromAdditionalProperties;
     private boolean isBooleanSchemaTrue;
@@ -586,13 +586,13 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     }
 
     @Override
-    public void setRef(CodegenRefInfo ref) {
-        this.ref = ref;
+    public void setRefInfo(CodegenRefInfo refInfo) {
+        this.refInfo = refInfo;
     }
 
     @Override
-    public CodegenRefInfo<CodegenSchema> getRef() {
-        return ref;
+    public CodegenRefInfo<CodegenSchema> getRefInfo() {
+        return refInfo;
     }
 
     @Override
@@ -813,7 +813,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
         sb.append(", requiredProperties=").append(requiredProperties);
         sb.append(", optionalProperties=").append(optionalProperties);
         sb.append(", properties=").append(properties);
-        sb.append(", ref=").append(ref);
+        sb.append(", refInfo=").append(refInfo);
         sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
         sb.append(", isBooleanSchemaTrue=").append(isBooleanSchemaTrue);
@@ -896,7 +896,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
-                Objects.equals(ref, that.getRef()) &&
+                Objects.equals(refInfo, that.getRefInfo()) &&
                 Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredProperties, that.getRequiredProperties()) &&
                 Objects.equals(optionalProperties, that.getOptionalProperties()) &&

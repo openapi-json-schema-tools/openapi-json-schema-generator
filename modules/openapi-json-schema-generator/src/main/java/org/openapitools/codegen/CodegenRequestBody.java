@@ -8,11 +8,11 @@ import java.util.Objects;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenApiLocation<CodegenRequestBody> {
-    protected CodegenRefInfo<CodegenRequestBody> ref;
+    protected CodegenRefInfo<CodegenRequestBody> refInfo;
 
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, ref, refModule, imports, componentModule);
+        return Objects.hash(refClass, description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, refInfo, refModule, imports, componentModule);
     }
 
     @Override
@@ -21,12 +21,12 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
         if (!(o instanceof CodegenRequestBody)) return false;
         if (! super.equals(o)) return false;
         CodegenRequestBody that = (CodegenRequestBody) o;
-        return Objects.equals(ref, that.getRef());
+        return Objects.equals(refInfo, that.getRefInfo());
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
-        sb.append(", ref=").append(ref);
+        sb.append(", refInfo=").append(refInfo);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
         return sb.toString();
     }
 
-    public CodegenRefInfo<CodegenRequestBody> getRef() { return ref; }
+    public CodegenRefInfo<CodegenRequestBody> getRefInfo() { return refInfo; }
 
-    public void setRef(CodegenRefInfo<CodegenRequestBody> ref) { this.ref = ref; }
+    public void setRefInfo(CodegenRefInfo<CodegenRequestBody> refInfo) { this.refInfo = refInfo; }
 }
 

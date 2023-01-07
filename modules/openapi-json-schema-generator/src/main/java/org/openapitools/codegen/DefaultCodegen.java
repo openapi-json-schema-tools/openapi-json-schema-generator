@@ -5024,7 +5024,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private CodegenRefInfo getRef(String ref, String sourceJsonPath, String expectedComponentType) {
+    private CodegenRefInfo getRefInfo(String ref, String sourceJsonPath, String expectedComponentType) {
         String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
         String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
         switch (expectedComponentType) {
@@ -5050,8 +5050,8 @@ public class DefaultCodegen implements CodegenConfig {
 
     private void setLocationInfo(String ref, OpenApiLocation instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
         if (ref != null) {
-            CodegenRefInfo objRef = getRef(ref, sourceJsonPath, expectedComponentType);
-            instance.setRef(objRef);
+            CodegenRefInfo objRef = getRefInfo(ref, sourceJsonPath, expectedComponentType);
+            instance.setRefInfo(objRef);
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             instance.setRefModule(refModule);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
