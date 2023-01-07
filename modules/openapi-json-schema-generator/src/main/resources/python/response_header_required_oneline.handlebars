@@ -3,11 +3,11 @@
         {{#if required}}
             {{#if schema}}
                 {{#with schema}}
-            '{{../@key}}': typing.Union[{{../../refModule}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../../refInfo.refModule}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],
                 {{/with}}
             {{else}}
                 {{#each getContent}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../refModule}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../refInfo.refModule}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -16,11 +16,11 @@
     {{#if required}}
         {{#if schema}}
             {{#with schema}}
-            '{{../@key}}': typing.Union[{{../name.getSnakeCaseName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../name.getSnakeCaseName}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],
             {{/with}}
         {{else}}
             {{#each getContent}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.getSnakeCaseName}}.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.getSnakeCaseName}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}
             {{/each}}
         {{/if}}
     {{/if}}

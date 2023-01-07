@@ -8,7 +8,7 @@ from {{packageName}} import api_client, exceptions
 {{#each content}}
 {{#with this}}
     {{#with schema}}
-        {{#unless getRefModule}}
+        {{#unless refInfo.getRefModule}}
 from . import {{name.getSnakeCaseName}}
         {{/unless}}
     {{/with}}
@@ -21,8 +21,8 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
         '{{{@key}}}': api_client.MediaType(
     {{#with this}}
         {{#with schema}}
-            {{#if getRefModule}}
-            schema={{getRefModule}}.{{getRefClass}},
+            {{#if refInfo.getRefModule}}
+            schema={{refInfo.getRefModule}}.{{getRefClass}},
             {{else}}
             schema={{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
             {{/if}}

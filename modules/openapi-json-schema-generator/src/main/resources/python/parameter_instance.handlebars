@@ -27,8 +27,8 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-        {{#if getRefModule}}
-    schema = {{getRefModule}}.{{getRefClass}}
+        {{#if refInfo.getRefModule}}
+    schema = {{refInfo.getRefModule}}.{{getRefClass}}
         {{else}}
     schema = {{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
         {{/if}}
@@ -37,7 +37,7 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
 {{#if getContent}}
     content = {
 {{#each getContent}}
-        "{{@key}}": {{#with this}}{{#with schema}}{{#if getRefModule}}{{getRefModule}}.{{getRefClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}{{/with}},
+        "{{@key}}": {{#with this}}{{#with schema}}{{#if refInfo.getRefModule}}{{refInfo.getRefModule}}.{{getRefClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}{{/with}},
 {{/each}}
     }
 {{/if}}

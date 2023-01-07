@@ -16,20 +16,20 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports }}
 {{#with operation}}
 {{#with requestBody}}
-{{#if refModule}}
-from {{packageName}}.components.request_bodies import {{refModule}} as request_body
+{{#if refInfo.refModule}}
+from {{packageName}}.components.request_bodies import {{refInfo.refModule}} as request_body
 {{/if}}
 {{/with}}
 {{#each responses}}
 {{#with this}}
-{{#if refModule}}
-from {{packageName}}.components.responses import {{refModule}} as response_for_{{@key}}
+{{#if refInfo.refModule}}
+from {{packageName}}.components.responses import {{refInfo.refModule}} as response_for_{{@key}}
 {{/if}}
 {{/with}}
 {{/each}}
 {{#each allParams}}
-{{#if refModule}}
-from {{packageName}}.components.parameters import {{refModule}}
+{{#if refInfo.refModule}}
+from {{packageName}}.components.parameters import {{refInfo.refModule}}
 {{/if}}
 {{/each}}
 
@@ -37,17 +37,17 @@ from {{packageName}}.components.parameters import {{refModule}}
 from .. import path
 {{/unless}}
 {{#each responses}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 from . import response_for_{{@key}}
 {{/unless}}
 {{/each}}
 {{#with requestBody}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 from . import request_body
 {{/unless}}
 {{/with}}
 {{#each allParams}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 from . import {{name.getSnakeCaseName}}
 {{/unless}}
 {{/each}}
