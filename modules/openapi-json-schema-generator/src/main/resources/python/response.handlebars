@@ -43,7 +43,7 @@ class ApiResponse(api_client.ApiResponse):
 {{#if this.schema}}
     {{#with this.schema}}
         {{#if refInfo.refModule}}
-        {{refInfo.refModule}}.{{refClass}},
+        {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
         {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
@@ -65,7 +65,7 @@ class ApiResponse(api_client.ApiResponse):
 {{#if this.schema}}
     {{#with this.schema}}
         {{#if refInfo.refModule}}
-        {{refInfo.refModule}}.{{refClass}},
+        {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
         {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
@@ -97,7 +97,7 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
         {{#if this.schema}}
             {{#with this.schema}}
                 {{#if refInfo.refModule}}
-            {{refInfo.refModule}}.{{refClass}},
+            {{refInfo.refModule}}.{{refInfo.refClass}},
                 {{else}}
             {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
                 {{/if}}

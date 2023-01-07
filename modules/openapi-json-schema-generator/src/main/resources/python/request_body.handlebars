@@ -22,7 +22,7 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
     {{#with this}}
         {{#with schema}}
             {{#if refInfo.getRefModule}}
-            schema={{refInfo.getRefModule}}.{{getRefClass}},
+            schema={{refInfo.getRefModule}}.{{refInfo.getRefClass}},
             {{else}}
             schema={{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
             {{/if}}

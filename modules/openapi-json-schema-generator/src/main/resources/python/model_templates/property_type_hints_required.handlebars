@@ -1,7 +1,7 @@
 {{#each getRequiredProperties}}
 {{#if @key.nameIsValid}}
 {{#with this}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 {{@key.getName}}: '{{> refclass_with_module }}'
 {{else}}
     {{#if name}}

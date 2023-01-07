@@ -2,7 +2,7 @@
 
 class AllOf:
 {{#each allOf}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 
     {{> model_templates/refClassStaticmethod }}
 {{else}}
@@ -11,7 +11,7 @@ class AllOf:
 {{/each}}
     classes = [
 {{#each allOf}}
-    {{#if refClass}}
+    {{#if refInfo.refClass}}
         {{name.getSnakeCaseName}},
     {{else}}
         {{name.getCamelCaseName}},
@@ -23,7 +23,7 @@ class AllOf:
 
 class OneOf:
 {{#each oneOf}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 
     {{> model_templates/refClassStaticmethod }}
 {{else}}
@@ -32,7 +32,7 @@ class OneOf:
 {{/each}}
     classes = [
 {{#each oneOf}}
-    {{#if refClass}}
+    {{#if refInfo.refClass}}
         {{name.getSnakeCaseName}},
     {{else}}
         {{name.getCamelCaseName}},
@@ -44,7 +44,7 @@ class OneOf:
 
 class AnyOf:
 {{#each anyOf}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 
     {{> model_templates/refClassStaticmethod }}
 {{else}}
@@ -53,7 +53,7 @@ class AnyOf:
 {{/each}}
     classes = [
 {{#each anyOf}}
-    {{#if refClass}}
+    {{#if refInfo.refClass}}
         {{name.getSnakeCaseName}},
     {{else}}
         {{name.getCamelCaseName}},
@@ -63,7 +63,7 @@ class AnyOf:
 {{/if}}
 {{#if not}}
 {{#with not}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 
 {{> model_templates/refClassStaticmethod }}
 {{else}}

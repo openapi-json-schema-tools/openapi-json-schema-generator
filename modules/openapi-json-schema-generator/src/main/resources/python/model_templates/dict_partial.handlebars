@@ -27,7 +27,7 @@ def discriminator():
 
 class Properties:
 {{#each properties}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 
     {{> model_templates/refClassStaticmethod }}
 {{else}}
@@ -36,7 +36,7 @@ class Properties:
 {{/each}}
     __annotations__ = {
 {{#each properties}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
         "{{{@key.getName}}}": {{name.getSnakeCaseName}},
 {{else}}
         "{{{@key.getName}}}": {{name.getCamelCaseName}},
@@ -45,7 +45,7 @@ class Properties:
     }
 {{/if}}
 {{#with additionalProperties}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 
 {{> model_templates/refClassStaticmethod }}
 {{else}}

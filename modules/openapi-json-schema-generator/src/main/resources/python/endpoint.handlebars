@@ -117,7 +117,7 @@ _servers = (
 
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-default_response = response_for_default.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}
+default_response = response_for_default.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}
 {{/with}}
 {{/if}}
 {{#if nonDefaultResponses}}
@@ -125,13 +125,13 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_for_{{@key}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+        '{{@key}}': response_for_{{@key}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
 {{/each}}
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
 {{#each nonDefaultResponses}}
-    '{{@key}}': response_for_{{@key}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+    '{{@key}}': response_for_{{@key}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
 {{/each}}
 })
 {{/if}}

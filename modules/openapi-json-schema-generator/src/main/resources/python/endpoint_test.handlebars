@@ -61,7 +61,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{/with}}
             )
 {{#if valid}}
-            body = {{httpMethod}}.request_body.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}.from_openapi_data_(
+            body = {{httpMethod}}.request_body.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -75,7 +75,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 {{else}}
             with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-                body = {{httpMethod}}.request_body.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}.from_openapi_data_(
+                body = {{httpMethod}}.request_body.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

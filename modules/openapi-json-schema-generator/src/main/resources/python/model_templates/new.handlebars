@@ -4,7 +4,7 @@ def __new__(
     *args_: typing.Union[{{> model_templates/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *args_: typing.Union[{{> model_templates/schema_python_types }}],
 {{/if}}
@@ -14,7 +14,7 @@ def __new__(
 {{#each getRequiredProperties}}
 {{#if @key.getNameIsValid}}
 {{#with this}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
     {{@key.getName}}: '{{> refclass_with_module }}',
 {{else}}
     {{#if name}}
@@ -34,7 +34,7 @@ def __new__(
 {{/unless}}
 {{#each optionalProperties}}
 {{#if @key.getNameIsValid}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
     {{@key.getName}}: typing.Union['{{> refclass_with_module }}', schemas.Unset] = schemas.unset,
 {{else}}
     {{@key.getName}}: typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
@@ -44,7 +44,7 @@ def __new__(
     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
 {{#with additionalProperties}}
 {{#unless getIsBooleanSchemaFalse}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
     **kwargs: '{{> refclass_with_module }}',
 {{else}}
     **kwargs: typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],

@@ -27,5 +27,5 @@ class {{name.getCamelCaseName}}(
 
     {{> model_templates/new }}
 
-    def __getitem__(self, i: int) -> {{#with items}}{{#if refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}{{/with}}:
+    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}{{/with}}:
         return super().__getitem__(i)

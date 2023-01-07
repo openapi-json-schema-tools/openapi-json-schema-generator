@@ -1,8 +1,8 @@
 # {{#if schemaNamePrefix1}}{{#if anchorContainsPeriod}}<a id="{{> api_doc_schema_fancy_schema_name }}" >{{/if}}{{> api_doc_schema_fancy_schema_name }}{{#if anchorContainsPeriod}}</a>{{/if}}{{else}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}{{/if}}
-{{#if refClass}}
+{{#if refInfo.refClass}}
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**{{refClass}}**]({{complexTypePrefix}}{{> refclass_with_module }}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
+[**{{refInfo.refClass}}**]({{complexTypePrefix}}{{> refclass_with_module }}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
 
 {{else}}
 {{> schema_doc }}
