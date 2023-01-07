@@ -1642,7 +1642,7 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param codegenParameter Codegen parameter
      */
-    public void setParameterExampleValue(CodegenRequestBody codegenParameter) {
+    public void setParameterExampleValue(CodegenRequestBodyBase codegenParameter) {
 
         // set the example value
         // if not specified in x-example, generate a default value
@@ -3246,8 +3246,8 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenParameter> queryParams = new ArrayList<>();
         List<CodegenParameter> headerParams = new ArrayList<>();
         List<CodegenParameter> cookieParams = new ArrayList<>();
-        List<CodegenRequestBody> requiredParams = new ArrayList<>();
-        List<CodegenRequestBody> optionalParams = new ArrayList<>();
+        List<CodegenRequestBodyBase> requiredParams = new ArrayList<>();
+        List<CodegenRequestBodyBase> optionalParams = new ArrayList<>();
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody;
@@ -3256,9 +3256,9 @@ public class DefaultCodegen implements CodegenConfig {
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
             op.requestBody = requestBody;
 
-            CodegenRequestBody ref = (CodegenRequestBody) requestBody.getRef();
+            CodegenRefInfo<CodegenRequestBody> ref = requestBody.getRef();
             if (ref != null) {
-                if (ref.required) {
+                if (ref.getRef().required) {
                     requiredParams.add(requestBody);
                 } else {
                     optionalParams.add(requestBody);
@@ -3289,7 +3289,7 @@ public class DefaultCodegen implements CodegenConfig {
 
                 CodegenParameter paramOrRef = p;
                 if (p.getRef() != null) {
-                    paramOrRef = (CodegenParameter) p.getRef();
+                    paramOrRef = p.getRef().getRef();
                 }
                 if (paramOrRef.isQueryParam) {
                     queryParams.add(p);
@@ -3308,9 +3308,9 @@ public class DefaultCodegen implements CodegenConfig {
 
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
-            CodegenParameter ref = (CodegenParameter) cp.getRef();
+            CodegenRefInfo<CodegenParameter> ref = cp.getRef();
             if (ref != null) {
-                if (ref.required) { //required parameters
+                if (ref.getRef().required) { //required parameters
                     requiredParams.add(cp);
                 } else { // optional parameters
                     optionalParams.add(cp);
@@ -3499,7 +3499,7 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenHeader;
     }
 
-    private void setRequestBodyInfo(RequestBody requestBody, CodegenRequestBody codegenRequestBody, String sourceJsonPath) {
+    private void setRequestBodyInfo(RequestBody requestBody, CodegenRequestBodyBase codegenRequestBody, String sourceJsonPath) {
         codegenRequestBody.description = escapeText(requestBody.getDescription());
         codegenRequestBody.unescapedDescription = requestBody.getDescription();
         codegenRequestBody.jsonSchema = Json.pretty(requestBody);
@@ -5024,26 +5024,33 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private Object getRef(String ref, String expectedComponentType) {
+    private CodegenRefInfo getRef(String ref, String sourceJsonPath, String expectedComponentType) {
+        String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
+        String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
         switch (expectedComponentType) {
             case "requestBodies":
-                return codegenRequestBodyCache.computeIfAbsent(ref, s -> new CodegenRequestBody());
+                CodegenRequestBody rb = codegenRequestBodyCache.computeIfAbsent(ref, s -> new CodegenRequestBody());
+                return new CodegenRefInfo<>(rb, refClass, refModule);
             case "responses":
-                return codegenResponseCache.computeIfAbsent(ref, s -> new CodegenResponse());
+                CodegenResponse cr = codegenResponseCache.computeIfAbsent(ref, s -> new CodegenResponse());
+                return new CodegenRefInfo<>(cr, refClass, refModule);
             case "headers":
-                return codegenHeaderCache.computeIfAbsent(ref, s -> new CodegenHeader());
+                CodegenHeader ch = codegenHeaderCache.computeIfAbsent(ref, s -> new CodegenHeader());
+                return new CodegenRefInfo<>(ch, refClass, refModule);
             case "parameters":
-                return codegenParameterCache.computeIfAbsent(ref, s -> new CodegenParameter());
+                CodegenParameter cp = codegenParameterCache.computeIfAbsent(ref, s -> new CodegenParameter());
+                return new CodegenRefInfo<>(cp, refClass, refModule);
             case "schemas":
                 CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(ref, ref);
-                return codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
+                CodegenSchema cs = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
+                return new CodegenRefInfo<>(cs, refClass, refModule);
         }
         return null;
     }
 
-    private void setLocationInfo(String ref, OpenApiComponent instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
+    private void setLocationInfo(String ref, OpenApiRef instance, String currentJsonPath, String expectedComponentType, String sourceJsonPath) {
         if (ref != null) {
-            Object objRef = getRef(ref, expectedComponentType);
+            CodegenRefInfo objRef = getRef(ref, sourceJsonPath, expectedComponentType);
             instance.setRef(objRef);
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             instance.setRefModule(refModule);

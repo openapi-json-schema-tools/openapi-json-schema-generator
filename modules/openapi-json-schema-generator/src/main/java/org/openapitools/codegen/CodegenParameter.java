@@ -24,13 +24,16 @@ import java.util.*;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenParameter extends CodegenHeader {
+public class CodegenParameter extends CodegenHeaderBase implements OpenApiRef<CodegenParameter> {
     public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
             isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
     // stores the openapi name property
     public String baseName;
+    protected CodegenRefInfo<CodegenParameter> ref;
 
-    public CodegenParameter getRef() { return (CodegenParameter) ref; }
+    public CodegenRefInfo<CodegenParameter> getRef() { return ref; }
+
+    public void setRef(CodegenRefInfo<CodegenParameter> ref) { this.ref = ref; }
 
     @Override
     public int hashCode() {
@@ -64,6 +67,7 @@ public class CodegenParameter extends CodegenHeader {
         sb.append(", deepObject='").append(isDeepObject).append('\'');
         sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
+        sb.append(", ref='").append(ref).append('\'');
     }
 
     @Override
