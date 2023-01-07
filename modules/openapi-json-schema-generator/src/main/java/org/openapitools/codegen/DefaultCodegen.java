@@ -3256,9 +3256,9 @@ public class DefaultCodegen implements CodegenConfig {
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
             op.requestBody = requestBody;
 
-            CodegenRefInfo<CodegenRequestBody> ref = requestBody.getRef();
-            if (ref != null) {
-                if (ref.getRef().required) {
+            CodegenRefInfo<CodegenRequestBody> refInfo = requestBody.getRefInfo();
+            if (refInfo != null) {
+                if (refInfo.getRef().required) {
                     requiredParams.add(requestBody);
                 } else {
                     optionalParams.add(requestBody);
@@ -3288,8 +3288,9 @@ public class DefaultCodegen implements CodegenConfig {
                 i++;
 
                 CodegenParameter paramOrRef = p;
-                if (p.getRef() != null) {
-                    paramOrRef = p.getRef().getRef();
+                CodegenRefInfo<CodegenParameter> refInfo = p.getRefInfo();
+                if (refInfo != null) {
+                    paramOrRef = refInfo.getRef();
                 }
                 if (paramOrRef.isQueryParam) {
                     queryParams.add(p);
@@ -3308,9 +3309,9 @@ public class DefaultCodegen implements CodegenConfig {
 
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
-            CodegenRefInfo<CodegenParameter> ref = cp.getRef();
-            if (ref != null) {
-                if (ref.getRef().required) { //required parameters
+            CodegenRefInfo<CodegenParameter> refInfo = cp.getRefInfo();
+            if (refInfo != null) {
+                if (refInfo.getRef().required) { //required parameters
                     requiredParams.add(cp);
                 } else { // optional parameters
                     optionalParams.add(cp);
