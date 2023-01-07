@@ -33,11 +33,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
 
     response_status = 200
     response_body_schema = post.response_for_200.array_type_matches_arrays.ArrayTypeMatchesArrays
-
+    
     def test_a_float_is_not_an_array_fails(self):
         # a float is not an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1.1
@@ -57,11 +57,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_a_boolean_is_not_an_array_fails(self):
         # a boolean is not an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 True
@@ -81,11 +81,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_null_is_not_an_array_fails(self):
         # null is not an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 None
@@ -105,11 +105,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_an_object_is_not_an_array_fails(self):
         # an object is not an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -130,11 +130,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_a_string_is_not_an_array_fails(self):
         # a string is not an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "foo"
@@ -154,11 +154,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_an_array_is_an_array_passes(self):
         # an array is an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -177,7 +177,7 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -185,11 +185,11 @@ class TestResponseBodyPostArrayTypeMatchesArraysResponseBodyForContentTypes(ApiT
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_an_integer_is_not_an_array_fails(self):
         # an integer is not an array
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1

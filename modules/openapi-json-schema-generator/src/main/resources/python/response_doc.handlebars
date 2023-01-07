@@ -37,61 +37,42 @@ headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#respo
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-{{#if componentModule}}
-    {{#each headers}}
-        {{#with this}}
+{{#each headers}}
+    {{#with this}}
+        {{#if ref}}
+            {{#with ref}}
+                {{#if schema}}
+                    {{#with schema}}
+{{../@key}} | [{{../../refModule}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+                    {{/with}}
+                {{else}}
+                    {{#each getContent}}
+                        {{#with this}}
+                            {{#with schema}}
+{{../../@key}} | [{{../../../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+                            {{/with}}
+                        {{/with}}
+                    {{/each}}
+                {{/if}}
+            {{/with}}
+        {{else}}
             {{#if schema}}
                 {{#with schema}}
-                {{#if ../refModule}}
-{{../@key}} | [{{../refModule}}.schema](../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
-                {{else}}
-{{../@key}} | [{{../name.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
-                {{/if}}
+{{../@key}} | [{{#if ../../@key}}response_for_{{../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.schema](#{{#if ../../@key}}response_for_{{../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
-                        {{#if ../refModule}}
-{{../../@key}} | [{{../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../components/headers/{{../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                        {{else}}
-{{../../@key}} | [{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                        {{/if}}
+{{../../@key}} | [{{#if ../../../@key}}response_for_{{../../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if ../../../@key}}response_for_{{../../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
             {{/if}}
-        {{/with}}
-    {{/each}}
+        {{/if}}
+    {{/with}}
+{{/each}}
 {{> header_doc }}
-{{else}}
-    {{#each headers}}
-        {{#with this}}
-            {{#if schema}}
-                {{#with schema}}
-                {{#if ../refModule}}
-{{../@key}} | [{{../refModule}}.schema](../../../components/headers/{{../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
-                {{else}}
-{{../@key}} | [response_for_{{../../@key}}.{{../name.getSnakeCaseName}}.schema](#response_for_{{../../@key}}.{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
-                {{/if}}
-                {{/with}}
-            {{else}}
-                {{#each getContent}}
-                    {{#with this}}
-                        {{#with schema}}
-                        {{#if ../refModule}}
-{{../../@key}} | [{{../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/headers/{{../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                        {{else}}
-{{../../@key}} | [response_for_{{../../../@key}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#response_for_{{../../../@key}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
-                        {{/if}}
-                        {{/with}}
-                    {{/with}}
-                {{/each}}
-            {{/if}}
-        {{/with}}
-    {{/each}}
-{{> header_doc }}
-{{/if}}
 {{/if}}
 {{#if componentModule}}
 

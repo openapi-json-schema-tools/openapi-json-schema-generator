@@ -33,11 +33,11 @@ class TestResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes(
 
     response_status = 200
     response_body_schema = post.response_for_200.enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0
-
+    
     def test_false_is_valid_passes(self):
         # false is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 False
@@ -55,7 +55,7 @@ class TestResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes(
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -63,11 +63,11 @@ class TestResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes(
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_float_zero_is_invalid_fails(self):
         # float zero is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 0.0
@@ -87,11 +87,11 @@ class TestResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes(
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_integer_zero_is_invalid_fails(self):
         # integer zero is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 0

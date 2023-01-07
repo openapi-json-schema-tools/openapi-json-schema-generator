@@ -33,11 +33,11 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
 
     response_status = 200
     response_body_schema = post.response_for_200.ipv6_format.Ipv6Format
-
+    
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -56,7 +56,7 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -64,11 +64,11 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 False
@@ -86,7 +86,7 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -94,11 +94,11 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 12
@@ -116,7 +116,7 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -124,11 +124,11 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 13.7
@@ -146,7 +146,7 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -154,11 +154,11 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_all_string_formats_ignore_arrays_passes(self):
         # all string formats ignore arrays
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -177,7 +177,7 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -185,11 +185,11 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 None
@@ -207,7 +207,7 @@ class TestResponseBodyPostIpv6FormatResponseBodyForContentTypes(ApiTestMixin, un
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

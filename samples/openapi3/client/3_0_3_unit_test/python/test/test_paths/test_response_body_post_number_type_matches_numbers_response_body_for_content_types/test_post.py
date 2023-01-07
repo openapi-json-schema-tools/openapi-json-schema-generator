@@ -33,11 +33,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
 
     response_status = 200
     response_body_schema = post.response_for_200.number_type_matches_numbers.NumberTypeMatchesNumbers
-
+    
     def test_an_array_is_not_a_number_fails(self):
         # an array is not a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -58,11 +58,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_null_is_not_a_number_fails(self):
         # null is not a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 None
@@ -82,11 +82,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_an_object_is_not_a_number_fails(self):
         # an object is not a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -107,11 +107,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_a_boolean_is_not_a_number_fails(self):
         # a boolean is not a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 True
@@ -131,11 +131,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_a_float_is_a_number_passes(self):
         # a float is a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1.1
@@ -153,7 +153,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -161,11 +161,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_a_string_is_still_not_a_number_even_if_it_looks_like_one_fails(self):
         # a string is still not a number, even if it looks like one
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "1"
@@ -185,11 +185,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_a_string_is_not_a_number_fails(self):
         # a string is not a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "foo"
@@ -209,11 +209,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_an_integer_is_a_number_passes(self):
         # an integer is a number
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1
@@ -231,7 +231,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -239,11 +239,11 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_a_float_with_zero_fractional_part_is_a_number_and_an_integer_passes(self):
         # a float with zero fractional part is a number (and an integer)
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1.0
@@ -261,7 +261,7 @@ class TestResponseBodyPostNumberTypeMatchesNumbersResponseBodyForContentTypes(Ap
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

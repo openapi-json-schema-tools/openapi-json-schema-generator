@@ -33,11 +33,11 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
 
     response_status = 200
     response_body_schema = post.response_for_200.enum_with_escaped_characters.EnumWithEscapedCharacters
-
+    
     def test_member2_is_valid_passes(self):
         # member 2 is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "foo\rbar"
@@ -55,7 +55,7 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -63,11 +63,11 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_member1_is_valid_passes(self):
         # member 1 is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "foo\nbar"
@@ -85,7 +85,7 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -93,11 +93,11 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_another_string_is_invalid_fails(self):
         # another string is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "abc"

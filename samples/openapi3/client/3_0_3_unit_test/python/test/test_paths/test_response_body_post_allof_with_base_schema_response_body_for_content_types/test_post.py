@@ -33,11 +33,11 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
 
     response_status = 200
     response_body_schema = post.response_for_200.allof_with_base_schema.AllofWithBaseSchema
-
+    
     def test_valid_passes(self):
         # valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -62,7 +62,7 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -70,11 +70,11 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_mismatch_first_allof_fails(self):
         # mismatch first allOf
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -99,11 +99,11 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_mismatch_base_schema_fails(self):
         # mismatch base schema
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -128,11 +128,11 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_mismatch_both_fails(self):
         # mismatch both
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -155,11 +155,11 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_mismatch_second_allof_fails(self):
         # mismatch second allOf
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {

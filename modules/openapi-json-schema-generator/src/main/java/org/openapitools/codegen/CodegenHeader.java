@@ -93,6 +93,9 @@ public class CodegenHeader extends CodegenRequestBody {
         return sb.toString();
     }
 
+    @Override
+    public CodegenHeader getRef() { return (CodegenHeader) ref; }
+
     public CodegenSchema getSchema() {
         return schema;
     }

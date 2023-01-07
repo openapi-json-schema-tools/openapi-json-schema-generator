@@ -33,11 +33,11 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
 
     response_status = 200
     response_body_schema = post.response_for_200.maximum_validation.MaximumValidation
-
+    
     def test_below_the_maximum_is_valid_passes(self):
         # below the maximum is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 2.6
@@ -55,7 +55,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -63,11 +63,11 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 3.0
@@ -85,7 +85,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -93,11 +93,11 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_above_the_maximum_is_invalid_fails(self):
         # above the maximum is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 3.5
@@ -117,11 +117,11 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 "x"
@@ -139,7 +139,7 @@ class TestResponseBodyPostMaximumValidationResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

@@ -33,11 +33,11 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
 
     response_status = 200
     response_body_schema = post.response_for_200.anyof_complex_types.AnyofComplexTypes
-
+    
     def test_second_anyof_valid_complex_passes(self):
         # second anyOf valid (complex)
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -58,7 +58,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -66,11 +66,11 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_neither_anyof_valid_complex_fails(self):
         # neither anyOf valid (complex)
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -95,11 +95,11 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_both_anyof_valid_complex_passes(self):
         # both anyOf valid (complex)
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -122,7 +122,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -130,11 +130,11 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_first_anyof_valid_complex_passes(self):
         # first anyOf valid (complex)
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -155,7 +155,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

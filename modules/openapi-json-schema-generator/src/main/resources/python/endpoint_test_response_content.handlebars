@@ -1,0 +1,53 @@
+{{#if content}}
+{{#each content}}
+    {{#if schema}}
+response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#with schema}}{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}
+    {{/if}}
+{{#if this.testCases}}
+{{#each testCases}}
+{{#with this }}
+
+def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
+    # {{description}}
+    accept_content_type = '{{{../@key}}}'
+
+    with patch.object(urllib3.PoolManager, 'request') as mock_request:
+        payload = (
+    {{#with data}}
+            {{> model_templates/payload_renderer endChar='' }}
+    {{/with}}
+        )
+        mock_request.return_value = self.response(
+            self.json_bytes(payload),
+            status=self.response_status
+        )
+    {{#if valid}}
+        {{> endpoint_test_partial }}
+
+        assert isinstance(api_response.response, urllib3.HTTPResponse)
+        assert isinstance(api_response.body, self.response_body_schema)
+        deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            payload,
+            configuration_=self.configuration_
+        )
+        assert api_response.body == deserialized_response_body
+    {{else}}
+        with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
+            self.api.{{httpMethod}}(
+                accept_content_types=(accept_content_type,)
+            )
+        self.assert_pool_manager_request_called_with(
+            mock_request,
+            self.configuration_.host + '{{{path}}}',
+            method='{{httpMethod}}'.upper(),
+            content_type=None,
+            accept_content_type=accept_content_type,
+        )
+    {{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
+{{/each}}
+{{else}}
+response_body = ''
+{{/if}}

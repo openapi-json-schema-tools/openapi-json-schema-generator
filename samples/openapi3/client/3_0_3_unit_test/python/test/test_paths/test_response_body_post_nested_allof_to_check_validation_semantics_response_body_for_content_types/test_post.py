@@ -33,11 +33,11 @@ class TestResponseBodyPostNestedAllofToCheckValidationSemanticsResponseBodyForCo
 
     response_status = 200
     response_body_schema = post.response_for_200.nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics
-
+    
     def test_anything_non_null_is_invalid_fails(self):
         # anything non-null is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 123
@@ -57,11 +57,11 @@ class TestResponseBodyPostNestedAllofToCheckValidationSemanticsResponseBodyForCo
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_null_is_valid_passes(self):
         # null is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 None
@@ -79,7 +79,7 @@ class TestResponseBodyPostNestedAllofToCheckValidationSemanticsResponseBodyForCo
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

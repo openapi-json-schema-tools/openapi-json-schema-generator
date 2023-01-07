@@ -33,11 +33,11 @@ class TestResponseBodyPostRequiredWithEmptyArrayResponseBodyForContentTypes(ApiT
 
     response_status = 200
     response_body_schema = post.response_for_200.required_with_empty_array.RequiredWithEmptyArray
-
+    
     def test_property_not_required_passes(self):
         # property not required
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -56,7 +56,7 @@ class TestResponseBodyPostRequiredWithEmptyArrayResponseBodyForContentTypes(ApiT
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

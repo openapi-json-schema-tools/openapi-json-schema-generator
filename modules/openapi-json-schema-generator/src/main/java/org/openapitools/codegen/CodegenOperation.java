@@ -18,9 +18,9 @@
 package org.openapitools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CodegenOperation {
     public boolean hasAuthMethods, hasConsumes, hasProduces, hasParams,
@@ -169,12 +169,19 @@ public class CodegenOperation {
      * returns a map where the key is the request body content type and the value is the current CodegenOperation
      * this is needed by templates when a different signature is needed for each request body content type
      */
+    @JsonIgnore
     public Map<String, CodegenOperation> getContentTypeToOperation() {
         LinkedHashMap<String, CodegenOperation> contentTypeToOperation = new LinkedHashMap<>();
         if (requestBody == null) {
             return null;
         }
-        LinkedHashMap<String, CodegenMediaType> content = requestBody.getContent();
+        LinkedHashMap<String, CodegenMediaType> content;
+        CodegenRequestBody ref = (CodegenRequestBody) requestBody.getRef();
+        if (ref != null) {
+            content = ref.getContent();
+        } else {
+            content = requestBody.getContent();
+        }
         for (String contentType: content.keySet()) {
             contentTypeToOperation.put(contentType, this);
         }

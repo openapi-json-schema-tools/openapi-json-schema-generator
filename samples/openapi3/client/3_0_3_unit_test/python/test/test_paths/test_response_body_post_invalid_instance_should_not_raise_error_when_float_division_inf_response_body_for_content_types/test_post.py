@@ -33,11 +33,11 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 
     response_status = 200
     response_body_schema = post.response_for_200.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
-
+    
     def test_always_invalid_but_naive_implementations_may_raise_an_overflow_error_fails(self):
         # always invalid, but naive implementations may raise an overflow error
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 1.0E308
@@ -57,11 +57,11 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_valid_integer_with_multipleof_float_passes(self):
         # valid integer with multipleOf float
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 123456789
@@ -79,7 +79,7 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
     {{#if refModule}}
-[**body**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[**body**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each ref.content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless ref.required}}, Unset]{{else}}]{{/unless}} | {{#if ref.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
 [body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
@@ -57,11 +57,19 @@ Name | Type | Description  | Notes
 [cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParameters.Params) | |
     {{/if}}
     {{#with requestBody}}
-        {{#each content}}
-        {{#if @first}}
+        {{#if ref}}
+            {{#each ref.content}}
+            {{#if @first}}
 content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
+            {{/if}}
+            {{/each}}
+        {{else}}
+            {{#each content}}
+            {{#if @first}}
+content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
+            {{/if}}
+            {{/each}}
         {{/if}}
-        {{/each}}
     {{/with}}
     {{#if produces}}
 accept_content_types | typing.Tuple[str] | default is ({{#each produces}}'{{this.mediaType}}', {{/each}}) | Tells the server the content type(s) that are accepted by the client
@@ -88,7 +96,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
         {{#if refModule}}
-{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -110,7 +118,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
         {{#if refModule}}
-{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -131,7 +139,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
         {{#if refModule}}
-{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -152,7 +160,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
         {{#if refModule}}
-{{baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless required}}optional{{/unless}}
+{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -174,15 +182,17 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
-{{#if defaultResponse.refModule}}
-default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{defaultResponse.message}}
+{{#with defaultResponse}}
+{{#if refModule}}
+default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
 {{else}}
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{defaultResponse.message}}
+default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
 {{/if}}
+{{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
 {{#if refModule}}
-{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{message}}
+{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
 {{else}}
 {{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/if}}

@@ -33,11 +33,11 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
 
     response_status = 200
     response_body_schema = post.response_for_200.minitems_validation.MinitemsValidation
-
+    
     def test_too_short_is_invalid_fails(self):
         # too short is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -58,11 +58,11 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_ignores_non_arrays_passes(self):
         # ignores non-arrays
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 ""
@@ -80,7 +80,7 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -88,11 +88,11 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_longer_is_valid_passes(self):
         # longer is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -113,7 +113,7 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -121,11 +121,11 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 [
@@ -145,7 +145,7 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(

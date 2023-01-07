@@ -33,11 +33,11 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
 
     response_status = 200
     response_body_schema = post.response_for_200.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
-
+    
     def test_no_additional_properties_is_valid_passes(self):
         # no additional properties is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -58,7 +58,7 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
@@ -66,11 +66,11 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 configuration_=self.configuration_
             )
             assert api_response.body == deserialized_response_body
-
+    
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -97,11 +97,11 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 content_type=None,
                 accept_content_type=accept_content_type,
             )
-
+    
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
         accept_content_type = 'application/json'
-
+    
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
                 {
@@ -126,7 +126,7 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
-
+    
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
