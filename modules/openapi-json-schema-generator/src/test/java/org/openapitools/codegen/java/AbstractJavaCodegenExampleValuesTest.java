@@ -105,15 +105,15 @@ public class AbstractJavaCodegenExampleValuesTest {
 
     @Test
     void dateTimeDefault() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("date-time");
         CodegenSchema cp = fakeJavaCodegen.fromSchema(
                 sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
+                "#/components/parameters/dateTimeDefault/schema",
+                "#/components/parameters/dateTimeDefault/schema"
         );
+        final CodegenParameter p = new CodegenParameter();
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
         Assert.assertEquals(p.getExample(), "LocalDate.now()");
@@ -121,16 +121,16 @@ public class AbstractJavaCodegenExampleValuesTest {
 
     @Test
     void dateTimeGivenExample() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("date-time");
         sc.setExample("2007-12-03T10:15:30+01:00");
         CodegenSchema cp = fakeJavaCodegen.fromSchema(
                 sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
+                "#/components/parameters/dateTimeGivenExample/schema",
+                "#/components/parameters/dateTimeGivenExample/schema"
         );
+        final CodegenParameter p = new CodegenParameter();
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
         Assert.assertEquals(p.getExample(), "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
@@ -138,15 +138,15 @@ public class AbstractJavaCodegenExampleValuesTest {
 
     @Test
     void uuidDefault() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("uuid");
         CodegenSchema cp = fakeJavaCodegen.fromSchema(
                 sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
+                "#/components/parameters/uuidDefault/schema",
+                "#/components/parameters/uuidDefault/schema"
         );
+        final CodegenParameter p = new CodegenParameter();
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
         Assert.assertEquals(p.getExample(), "UUID.randomUUID()");
@@ -154,16 +154,16 @@ public class AbstractJavaCodegenExampleValuesTest {
 
     @Test
     void uuidGivenExample() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("uuid");
         sc.setExample("13b48713-b931-45ea-bd60-b07491245960");
         CodegenSchema cp = fakeJavaCodegen.fromSchema(
                 sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
+                "#/components/parameters/uuidGivenExample/schema",
+                "#/components/parameters/uuidGivenExample/schema"
         );
+        final CodegenParameter p = new CodegenParameter();
         p.setSchema(cp);
         fakeJavaCodegen.setParameterExampleValue(p);
         Assert.assertEquals(p.getExample(), "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
