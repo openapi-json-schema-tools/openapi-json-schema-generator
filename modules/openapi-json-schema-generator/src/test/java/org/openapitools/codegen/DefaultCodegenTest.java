@@ -4042,11 +4042,23 @@ public class DefaultCodegenTest {
         assertEquals(cp.refClass, "Coordinates");
         assertEquals(cp.name.getName(), "application/json");
 
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("stringWithMinLength"),
+                "#/components/schemas/stringWithMinLength",
+                "#/components/schemas/stringWithMinLength"
+        );
+
         mt = content.get("text/plain");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertEquals(cp.name.getName(), "text/plain");
-        assertTrue(cp.isString);
+        assertTrue(cp.getRef().isString);
+
+        codegen.fromSchema(
+                openAPI.getComponents().getSchemas().get("coordinates"),
+                "#/components/schemas/coordinates",
+                "#/components/schemas/coordinates"
+        );
 
         cr = co.responses.get("201");
         content = cr.getContent();
@@ -4054,7 +4066,7 @@ public class DefaultCodegenTest {
         mt = content.get("application/json");
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertFalse(cp.isMap); // because it is a referenced schema
+        assertTrue(cp.getRef().isMap);
         assertEquals(cp.refClass, "Coordinates");
         assertEquals(cp.name.getName(), "application/json");
 
@@ -4062,7 +4074,7 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertEquals(cp.name.getName(), "text/plain");
-        assertTrue(cp.isString);
+        assertTrue(cp.getRef().isString);
     }
 
     @Test
