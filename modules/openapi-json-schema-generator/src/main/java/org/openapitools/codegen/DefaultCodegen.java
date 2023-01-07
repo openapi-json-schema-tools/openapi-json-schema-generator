@@ -3525,7 +3525,7 @@ public class DefaultCodegen implements CodegenConfig {
         return body;
     }
 
-    private void setHeaderInfo(Header header, CodegenHeader codegenHeader, String sourceJsonPath) {
+    private void setHeaderInfo(Header header, CodegenHeaderBase codegenHeader, String sourceJsonPath) {
         RequestBody requestBody = toRequestBody(header);
         setRequestBodyInfo(requestBody, codegenHeader, sourceJsonPath);
         if (header.getDeprecated() != null) {

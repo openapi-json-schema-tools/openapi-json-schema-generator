@@ -19,4 +19,14 @@ public interface OpenApiLocation<T> {
     String getRefClass();
 
     void setRefClass(String refClass);
+
+    // always set
+    // used for spec name (name.getName)
+    // module name (name.getSnakeCaseName)
+    // class name (name.getCamelCaseName)
+    // used when instances are defined inline and do not $ref another location
+    CodegenKey getName();
+
+    void setName(CodegenKey name);
+
 }
