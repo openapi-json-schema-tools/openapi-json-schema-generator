@@ -2658,12 +2658,12 @@ public class DefaultCodegenTest {
         path = "/ref_date_with_validation/{date}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertFalse(co.pathParams.get(0).getSchema().isString);
-        assertTrue(co.pathParams.get(0).getSchema().isDate);
-        assertFalse(co.requestBody.getContent().get("application/json").getSchema().isString);
-        assertTrue(co.requestBody.getContent().get("application/json").getSchema().isDate);
-        assertFalse(co.responses.get("200").getContent().get("application/json").getSchema().isString);
-        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().isDate);
+        assertFalse(co.pathParams.get(0).getSchema().getRef().isString);
+        assertTrue(co.pathParams.get(0).getSchema().getRef().isDate);
+        assertFalse(co.requestBody.getContent().get("application/json").getSchema().getRef().isString);
+        assertTrue(co.requestBody.getContent().get("application/json").getSchema().getRef().isDate);
+        assertFalse(co.responses.get("200").getContent().get("application/json").getSchema().getRef().isString);
+        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().getRef().isDate);
 
         path = "/date_with_validation/{date}";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2699,12 +2699,12 @@ public class DefaultCodegenTest {
         path = "/ref_date_time_with_validation/{dateTime}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertFalse(co.pathParams.get(0).getSchema().isString);
-        assertTrue(co.pathParams.get(0).getSchema().isDateTime);
-        assertFalse(co.requestBody.getContent().get("application/json").getSchema().isString);
-        assertTrue(co.requestBody.getContent().get("application/json").getSchema().isDateTime);
-        assertFalse(co.responses.get("200").getContent().get("application/json").getSchema().isString);
-        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().isDateTime);
+        assertFalse(co.pathParams.get(0).getSchema().getRef().isString);
+        assertTrue(co.pathParams.get(0).getSchema().getRef().isDateTime);
+        assertFalse(co.requestBody.getContent().get("application/json").getSchema().getRef().isString);
+        assertTrue(co.requestBody.getContent().get("application/json").getSchema().getRef().isDateTime);
+        assertFalse(co.responses.get("200").getContent().get("application/json").getSchema().getRef().isString);
+        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().getRef().isDateTime);
 
         path = "/date_time_with_validation/{dateTime}";
         operation = openAPI.getPaths().get(path).getPost();
@@ -2726,9 +2726,9 @@ public class DefaultCodegenTest {
         path = "/ref_null/{param}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertTrue(co.pathParams.get(0).getSchema().isNull);
-        assertTrue(co.requestBody.getContent().get("application/json").getSchema().isNull);
-        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().isNull);
+        assertTrue(co.pathParams.get(0).getSchema().getRef().isNull);
+        assertTrue(co.requestBody.getContent().get("application/json").getSchema().getRef().isNull);
+        assertTrue(co.responses.get("200").getContent().get("application/json").getSchema().getRef().isNull);
     }
 
     @Test
