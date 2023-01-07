@@ -2,13 +2,13 @@
 <a name="top"></a>
 ## {{packageName}}.components.parameters.{{parameter.componentModule}}
 {{/if}}
-{{#if parameter.ref}}
-    {{#if parameter.ref.getRef.schema}}
-        {{#with parameter.ref.getRef.schema}}
+{{#if parameter.refInfo}}
+    {{#if parameter.refInfo.getRef.schema}}
+        {{#with parameter.refInfo.getRef.schema}}
 {{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
         {{/with}}
     {{else}}
-        {{#each parameter.ref.getRef.getContent}}
+        {{#each parameter.refInfo.getRef.getContent}}
             {{#with this}}
                 {{#with schema}}
 {{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}

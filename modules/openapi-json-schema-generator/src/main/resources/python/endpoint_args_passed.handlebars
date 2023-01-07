@@ -16,8 +16,8 @@ path_params=path_params,
 cookie_params=cookie_params,
 {{/if}}
 {{#with requestBody}}
-    {{#if ref}}
-        {{#each ref.getRef.content}}
+    {{#if refInfo}}
+        {{#each refInfo.getRef.content}}
         {{#if @first}}
 content_type=content_type,
         {{/if}}

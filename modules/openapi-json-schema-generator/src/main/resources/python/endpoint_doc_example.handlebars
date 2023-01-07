@@ -32,9 +32,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if pathParams}}
     path_params = {
     {{#each pathParams}}
-        {{#if ref}}
-            {{#if ref.getRef.required}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+            {{#if refInfo.getRef.required}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -47,9 +47,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if queryParams}}
     query_params = {
     {{#each queryParams}}
-        {{#if ref}}
-            {{#if ref.getRef.required}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+            {{#if refInfo.getRef.required}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -62,9 +62,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if cookieParams}}
     cookie_params = {
     {{#each cookieParams}}
-        {{#if ref}}
-            {{#if ref.getRef.required}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+            {{#if refInfo.getRef.required}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -77,9 +77,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if headerParams}}
     header_params = {
     {{#each headerParams}}
-        {{#if ref}}
-            {{#if ref.getRef.required}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+            {{#if refInfo.getRef.required}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -90,9 +90,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     }
 {{/if}}
 {{#with requestBody}}
-    {{#if ref}}
-        {{#if ref.getRef.required}}
-    body = {{{ref.getRef.example}}}
+    {{#if refInfo}}
+        {{#if refInfo.getRef.required}}
+    body = {{{refInfo.getRef.example}}}
         {{/if}}
     {{else}}
         {{#if required}}
@@ -118,8 +118,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             cookie_params=cookie_params,
             {{/if}}
             {{#with requestBody}}
-                {{#if ref}}
-                    {{#if ref.getRef.required}}
+                {{#if refInfo}}
+                    {{#if refInfo.getRef.required}}
             body=body,
                     {{/if}}
                 {{else}}
@@ -147,8 +147,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if pathParams}}
     path_params = {
     {{#each pathParams}}
-        {{#if ref}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -158,8 +158,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if queryParams}}
     query_params = {
     {{#each queryParams}}
-        {{#if ref}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -169,8 +169,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if cookieParams}}
     cookie_params = {
     {{#each cookieParams}}
-        {{#if ref}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -180,8 +180,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#if headerParams}}
     header_params = {
     {{#each headerParams}}
-        {{#if ref}}
-        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
+        {{#if refInfo}}
+        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -189,8 +189,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     }
 {{/if}}
 {{#with requestBody}}
-    {{#if ref}}
-    body = {{{ref.getRef.example}}}
+    {{#if refInfo}}
+    body = {{{refInfo.getRef.example}}}
     {{else}}
     body = {{{example}}}
     {{/if}}
