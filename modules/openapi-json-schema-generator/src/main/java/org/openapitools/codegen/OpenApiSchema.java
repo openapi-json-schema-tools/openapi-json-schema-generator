@@ -163,10 +163,6 @@ public interface OpenApiSchema {
 
     void setRefInfo(CodegenRefInfo refInfo);
 
-    String getRefModule();
-
-    void setRefModule(String ref);
-
     List<CodegenSchema> getAllOf();
 
     void setAllOf(List<CodegenSchema> allOf);
@@ -273,7 +269,4 @@ public interface OpenApiSchema {
             setIsAnyType(true);
         }
     }
-
-
-   String getRefClass();
 }

@@ -29,7 +29,6 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     private String componentModule;
     public TreeSet<String> imports;
     private ExternalDocumentation externalDocumentation;
-    public String refClass;
     /**
      * The value of the 'description' attribute in the OpenAPI schema.
      */
@@ -158,7 +157,6 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     private LinkedHashMap<CodegenKey, CodegenSchema> properties;
     private LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     private CodegenRefInfo<CodegenSchema> refInfo;
-    private String refModule;
     private boolean schemaIsFromAdditionalProperties;
     private boolean isBooleanSchemaTrue;
     private boolean isBooleanSchemaFalse;
@@ -246,14 +244,6 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     @Override
     public void setIsBooleanSchemaFalse(boolean isBooleanSchemaFalse) {
         this.isBooleanSchemaFalse = isBooleanSchemaFalse;
-    }
-
-    public String getRefClass() {
-        return refClass;
-    }
-
-    public void setRefClass(String refClass) {
-        this.refClass = refClass;
     }
 
     public String getDescription() {
@@ -741,12 +731,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     @Override
     public void setOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties) { this.optionalProperties = optionalProperties; }
 
-    public String getRefModule() { return refModule; }
-
-    public void setRefModule(String refModule) { this.refModule=refModule; }
-
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append(", refClass='").append(refClass).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
@@ -814,7 +799,6 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
         sb.append(", optionalProperties=").append(optionalProperties);
         sb.append(", properties=").append(properties);
         sb.append(", refInfo=").append(refInfo);
-        sb.append(", refModule=").append(refModule);
         sb.append(", schemaIsFromAdditionalProperties=").append(schemaIsFromAdditionalProperties);
         sb.append(", isBooleanSchemaTrue=").append(isBooleanSchemaTrue);
         sb.append(", isBooleanSchemaFalse=").append(isBooleanSchemaFalse);
@@ -897,11 +881,9 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
                 Objects.equals(refInfo, that.getRefInfo()) &&
-                Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(requiredProperties, that.getRequiredProperties()) &&
                 Objects.equals(optionalProperties, that.getOptionalProperties()) &&
                 Objects.equals(properties, that.getProperties()) &&
-                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
@@ -929,7 +911,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
 
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, description,
+        return Objects.hash(description,
                 name, defaultValue,
                 title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
@@ -945,7 +927,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
                 xmlNamespace, isXmlWrapped, isNull,
                 hasDiscriminatorWithNonEmptyMapping, hasMultipleTypes,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
-                format, dependentRequired, contains, refModule, allOf, anyOf, oneOf, not,
+                format, dependentRequired, contains, allOf, anyOf, oneOf, not,
                 properties, optionalProperties, requiredProperties, externalDocumentation,
                 discriminator, imports, componentModule, testCases);
     }

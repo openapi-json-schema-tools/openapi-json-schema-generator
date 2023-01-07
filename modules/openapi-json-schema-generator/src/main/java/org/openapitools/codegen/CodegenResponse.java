@@ -29,16 +29,14 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
     private LinkedHashMap<String, CodegenMediaType> content;
     private CodegenRefInfo<CodegenResponse> refInfo;
     public Set<String> imports = new TreeSet<>();
-    private String refModule;
-    private String refClass;
     private String componentModule;
 
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, name, message, examples,
+        return Objects.hash(name, message, examples,
                 jsonSchema, vendorExtensions,
                 headers, content,
-                refInfo, imports, refModule, componentModule);
+                refInfo, imports, componentModule);
     }
 
     @Override
@@ -47,7 +45,6 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         if (!(o instanceof CodegenResponse)) return false;
         CodegenResponse that = (CodegenResponse) o;
         return Objects.equals(name, that.name) &&
-                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(refInfo, that.getRefInfo()) &&
                 Objects.equals(content, that.getContent()) &&
@@ -56,7 +53,6 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
                 Objects.equals(examples, that.examples) &&
                 Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(componentModule, that.componentModule);
     }
 
@@ -95,8 +91,6 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         sb.append(", headers=").append(headers);
         sb.append(", content=").append(content);
         sb.append(", refInfo=").append(refInfo);
-        sb.append(", refModule=").append(refModule);
-        sb.append(", refClass=").append(refClass);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
         sb.append('}');
@@ -106,18 +100,6 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
     public CodegenRefInfo<CodegenResponse> getRefInfo() { return refInfo; }
 
     public void setRefInfo(CodegenRefInfo refInfo) { this.refInfo = refInfo; }
-
-    public String getRefModule() { return refModule; }
-
-    public void setRefModule(String refModule) { this.refModule=refModule; }
-
-    public String getRefClass() {
-        return refClass;
-    }
-
-    public void setRefClass(String refClass) {
-        this.refClass = refClass;
-    }
 
     public CodegenKey getName() { return name; }
 

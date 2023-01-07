@@ -521,7 +521,7 @@ public class DefaultGenerator implements Generator {
 
                 if (shouldGenerateApis) {
                     // paths.some_path.post.request_body.py, only written if there is no refModule
-                    if (co.requestBody != null && co.requestBody.getRefModule() == null) {
+                    if (co.requestBody != null && co.requestBody.getRefInfo() == null) {
                         String requestBodyJsonPath = operationJsonPath + "/requestBody";
                         generateRequestBody(files, co.requestBody, requestBodyJsonPath);
                     }
@@ -529,7 +529,7 @@ public class DefaultGenerator implements Generator {
                     // paths.some_path.post.parameter_0.py
                     Integer i = 0;
                     for (CodegenParameter cp: co.allParams) {
-                        if (cp.refModule != null) {
+                        if (cp.getRefInfo() != null) {
                             // skip generation of parameter if it refs another location
                             continue;
                         }
@@ -544,7 +544,7 @@ public class DefaultGenerator implements Generator {
                         // so each inline header should be a module in the response package
                         String code = responseEntry.getKey();
                         CodegenResponse response = responseEntry.getValue();
-                        if (response.getRefModule() == null) {
+                        if (response.getRefInfo() == null) {
                             String responseJsonPath = operationJsonPath + "/responses/" + code;
                             generateResponse(files, response, responseJsonPath);
                         }
@@ -685,7 +685,7 @@ public class DefaultGenerator implements Generator {
                 for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
                     String headerName = headerInfo.getKey();
                     CodegenHeader header = headerInfo.getValue();
-                    if (header.refModule == null) {
+                    if (header.getRefInfo() == null) {
                         String headerJsonPath = jsonPath + "/headers/" + headerName;
                         generateHeader(files, header, headerJsonPath);
                     }
@@ -696,7 +696,7 @@ public class DefaultGenerator implements Generator {
                     String contentType = contentInfo.getKey();
                     CodegenMediaType codegenMediaType = contentInfo.getValue();
                     CodegenSchema schema = codegenMediaType.getSchema();
-                    if (schema != null && schema.getRefModule() == null) {
+                    if (schema != null && schema.getRefInfo() == null) {
                         String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                         generateSchema(files, schema, schemaJsonPath);
                     }
@@ -775,7 +775,7 @@ public class DefaultGenerator implements Generator {
                 CodegenMediaType mt = contentInfo.getValue();
                 CodegenSchema schema = mt.getSchema();
                 String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                if (schema != null && schema.getRefModule() == null) {
+                if (schema != null && schema.getRefInfo() == null) {
                     generateSchema(files, schema, schemaJsonPath);
                 }
             }
@@ -850,7 +850,7 @@ public class DefaultGenerator implements Generator {
         }
         // schema
         CodegenSchema schema = parameter.getSetSchema();
-        if (schema != null && schema.getRefModule() == null) {
+        if (schema != null && schema.getRefInfo() == null) {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
@@ -921,7 +921,7 @@ public class DefaultGenerator implements Generator {
         }
         // schema
         CodegenSchema schema = header.getSetSchema();
-        if (schema != null && schema.getRefModule() == null) {
+        if (schema != null && schema.getRefInfo() == null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }

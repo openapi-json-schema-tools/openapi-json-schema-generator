@@ -25,10 +25,8 @@ abstract class CodegenRequestBodyBase {
      */
     protected boolean required;
     protected LinkedHashMap<String, CodegenMediaType> content;
-    protected String refModule;
     protected Set<String> imports = new HashSet<String>();
     protected String componentModule;
-    protected String refClass;
     protected CodegenKey name;
 
     public String getComponentModule() {
@@ -37,14 +35,6 @@ abstract class CodegenRequestBodyBase {
 
     public void setComponentModule(String componentModule) {
         this.componentModule = componentModule;
-    }
-
-    public String getRefClass() {
-        return refClass;
-    }
-
-    public void setRefClass(String refClass) {
-        this.refClass = refClass;
     }
 
     // always set
@@ -63,10 +53,8 @@ abstract class CodegenRequestBodyBase {
         CodegenRequestBodyBase that = (CodegenRequestBodyBase) o;
         return required == that.required &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(refClass, that.refClass) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(imports, that.imports) &&
-                Objects.equals(refModule, that.getRefModule()) &&
                 Objects.equals(content, that.getContent()) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
@@ -84,8 +72,6 @@ abstract class CodegenRequestBodyBase {
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);
-        sb.append(", refModule=").append(refModule);
-        sb.append(", refClass=").append(refClass);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
     }
@@ -97,10 +83,6 @@ abstract class CodegenRequestBodyBase {
     public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
         this.content = content;
     }
-
-    public String getRefModule() { return refModule; }
-
-    public void setRefModule(String refModule) { this.refModule=refModule; }
 
     public String getDescription() { return description; }
 

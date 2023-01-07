@@ -12,7 +12,7 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
 
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, refInfo, refModule, imports, componentModule);
+        return Objects.hash(description, unescapedDescription, name, example, jsonSchema, vendorExtensions, required, content, refInfo, imports, componentModule);
     }
 
     @Override

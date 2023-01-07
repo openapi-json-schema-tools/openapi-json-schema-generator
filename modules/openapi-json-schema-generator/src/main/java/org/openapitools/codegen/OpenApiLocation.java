@@ -12,14 +12,6 @@ public interface OpenApiLocation<T> {
 
     void setRefInfo(CodegenRefInfo<T> refInfo);
 
-    String getRefModule();
-
-    void setRefModule(String refModule);
-
-    String getRefClass();
-
-    void setRefClass(String refClass);
-
     // always set
     // used for spec name (name.getName)
     // module name (name.getSnakeCaseName)

@@ -28,7 +28,7 @@ public class CodegenHeader extends CodegenHeaderBase implements OpenApiLocation<
     protected CodegenRefInfo<CodegenHeader> refInfo;
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, refModule, imports, componentModule);
+        return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
