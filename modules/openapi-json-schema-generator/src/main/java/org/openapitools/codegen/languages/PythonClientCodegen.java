@@ -2126,6 +2126,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+        if (ref == null) {
+            return null;
+        }
         switch (expectedComponentType) {
             case "schemas":
                 return toSchemaRefClass(ref, sourceJsonPath);
