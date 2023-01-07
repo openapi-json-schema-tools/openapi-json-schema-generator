@@ -35,7 +35,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     {{#if @first}}
     response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
         {{#if ref}}
-            {{#with ref}}
+            {{#with ref.getRef}}
     {{> endpoint_test_response_content }}
             {{/with}}
         {{else}}

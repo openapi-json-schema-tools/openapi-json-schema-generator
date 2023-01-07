@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
     {{#if refModule}}
-[**body**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each ref.content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless ref.required}}, Unset]{{else}}]{{/unless}} | {{#if ref.required}}required{{else}}optional, default is unset{{/if}} |
+[**body**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each ref.getRef.content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless ref.getRef.required}}, Unset]{{else}}]{{/unless}} | {{#if ref.getRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
 [body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
     {{/if}}
     {{#with requestBody}}
         {{#if ref}}
-            {{#each ref.content}}
+            {{#each ref.getRef.content}}
             {{#if @first}}
 content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
             {{/if}}
@@ -96,7 +96,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
         {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+{{ref.getRef.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -118,7 +118,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
         {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+{{ref.getRef.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -139,7 +139,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
         {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+{{ref.getRef.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -160,7 +160,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
         {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+{{ref.getRef.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
@@ -184,7 +184,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 {{#if defaultResponse}}
 {{#with defaultResponse}}
 {{#if refModule}}
-default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
+default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref.getRef}}{{message}}{{/with}}
 {{else}}
 default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
 {{/if}}
@@ -192,7 +192,7 @@ default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) 
 {{/if}}
 {{#each nonDefaultResponses}}
 {{#if refModule}}
-{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
+{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref.getRef}}{{message}}{{/with}}
 {{else}}
 {{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/if}}

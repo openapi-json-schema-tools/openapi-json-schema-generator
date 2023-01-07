@@ -1,6 +1,6 @@
 {{#if requestBody.ref}}
-    {{#if requestBody.ref.required}}
-        {{#with requestBody.ref}}
+    {{#if requestBody.ref.getRef.required}}
+        {{#with requestBody.ref.getRef}}
         {{#eq ../contentType "null"}}
     body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
@@ -12,7 +12,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with requestBody.ref}}
+                {{#with requestBody.ref.getRef}}
                     {{#each content}}
                         {{#eq @key ../../contentType}}
                             {{#if @first}}
@@ -27,7 +27,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with requestBody.ref}}
+            {{#with requestBody.ref.getRef}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key}}}',
@@ -41,7 +41,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with requestBody.ref}}
+                {{#with requestBody.ref.getRef}}
                     {{#each getContent}}
                         {{#eq @key ../../contentType}}
                             {{#if @first}}
@@ -56,7 +56,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with requestBody.ref}}
+            {{#with requestBody.ref.getRef}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key}}}',
@@ -64,7 +64,7 @@
                 {{/each}}
             {{/with}}
         {{/if}}
-        {{#with requestBody.ref}}
+        {{#with requestBody.ref.retRef}}
         {{#eq ../contentType "null"}}
     body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}

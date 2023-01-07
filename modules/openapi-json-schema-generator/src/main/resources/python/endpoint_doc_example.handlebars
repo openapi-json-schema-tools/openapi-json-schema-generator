@@ -33,8 +33,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     path_params = {
     {{#each pathParams}}
         {{#if ref}}
-            {{#if ref.required}}
-        '{{ref.baseName}}': {{{ref.example}}},
+            {{#if ref.getRef.required}}
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -48,8 +48,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     query_params = {
     {{#each queryParams}}
         {{#if ref}}
-            {{#if ref.required}}
-        '{{ref.baseName}}': {{{ref.example}}},
+            {{#if ref.getRef.required}}
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -63,8 +63,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     cookie_params = {
     {{#each cookieParams}}
         {{#if ref}}
-            {{#if ref.required}}
-        '{{ref.baseName}}': {{{ref.example}}},
+            {{#if ref.getRef.required}}
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -78,8 +78,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     header_params = {
     {{#each headerParams}}
         {{#if ref}}
-            {{#if ref.required}}
-        '{{ref.baseName}}': {{{ref.example}}},
+            {{#if ref.getRef.required}}
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -91,8 +91,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{/if}}
 {{#with requestBody}}
     {{#if ref}}
-        {{#if ref.required}}
-    body = {{{ref.example}}}
+        {{#if ref.getRef.required}}
+    body = {{{ref.getRef.example}}}
         {{/if}}
     {{else}}
         {{#if required}}
@@ -119,7 +119,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             {{/if}}
             {{#with requestBody}}
                 {{#if ref}}
-                    {{#if ref.required}}
+                    {{#if ref.getRef.required}}
             body=body,
                     {{/if}}
                 {{else}}
@@ -148,7 +148,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     path_params = {
     {{#each pathParams}}
         {{#if ref}}
-        '{{ref.baseName}}': {{{ref.example}}},
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -159,7 +159,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     query_params = {
     {{#each queryParams}}
         {{#if ref}}
-        '{{ref.baseName}}': {{{ref.example}}},
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -170,7 +170,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     cookie_params = {
     {{#each cookieParams}}
         {{#if ref}}
-        '{{ref.baseName}}': {{{ref.example}}},
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -181,7 +181,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     header_params = {
     {{#each headerParams}}
         {{#if ref}}
-        '{{ref.baseName}}': {{{ref.example}}},
+        '{{ref.getRef.baseName}}': {{{ref.getRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -190,7 +190,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{/if}}
 {{#with requestBody}}
     {{#if ref}}
-    body = {{{ref.example}}}
+    body = {{{ref.getRef.example}}}
     {{else}}
     body = {{{example}}}
     {{/if}}

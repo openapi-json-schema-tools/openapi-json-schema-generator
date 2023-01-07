@@ -40,7 +40,7 @@ Key | Accessed Type | Description  | Notes
 {{#each headers}}
     {{#with this}}
         {{#if ref}}
-            {{#with ref}}
+            {{#with ref.getRef}}
                 {{#if schema}}
                     {{#with schema}}
 {{../@key}} | [{{../../refModule}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
