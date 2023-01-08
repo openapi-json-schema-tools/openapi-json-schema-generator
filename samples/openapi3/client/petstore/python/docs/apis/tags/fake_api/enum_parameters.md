@@ -59,7 +59,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[request_body.content.schema](#request_body.content.schema), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[request_body.content.application_x_www_form_urlencoded.schema](#request_body.content.application_x_www_form_urlencoded.schema), Unset] | optional, default is unset |
 [query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 [header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
@@ -69,7 +69,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# <a id="request_body.content.schema" >request_body.content.schema</a>
+# <a id="request_body.content.application_x_www_form_urlencoded.schema" >request_body.content.application_x_www_form_urlencoded.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

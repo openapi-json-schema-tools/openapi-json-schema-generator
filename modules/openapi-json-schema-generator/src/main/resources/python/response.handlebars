@@ -93,7 +93,7 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
 {{#if @first}}
     content = {
 {{/if}}
-        '{{{@key}}}': api_client.MediaType(
+        '{{{@key.getName}}}': api_client.MediaType(
         {{#if this.schema}}
             {{#with this.schema}}
                 {{#if refInfo.refModule}}

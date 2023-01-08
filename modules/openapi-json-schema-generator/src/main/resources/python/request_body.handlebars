@@ -18,7 +18,7 @@ from . import {{name.getSnakeCaseName}}
 class {{name.getCamelCaseName}}(api_client.RequestBody):
     content = {
 {{#each content}}
-        '{{{@key}}}': api_client.MediaType(
+        '{{{@key.getName}}}': api_client.MediaType(
     {{#with this}}
         {{#with schema}}
             {{#if refInfo.getRefModule}}

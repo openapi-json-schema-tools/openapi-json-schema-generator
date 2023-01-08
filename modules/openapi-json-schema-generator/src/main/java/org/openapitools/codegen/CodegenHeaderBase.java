@@ -50,9 +50,9 @@ abstract class CodegenHeaderBase extends CodegenRequestBodyBase {
             return jsonPath + "/schema";
         }
         if (content != null) {
-            for (Map.Entry<String, CodegenMediaType> entry: content.entrySet()) {
+            for (Map.Entry<CodegenKey, CodegenMediaType> entry: content.entrySet()) {
                 if (entry.getValue().getSchema() != null) {
-                    String contentType = entry.getKey();
+                    String contentType = entry.getKey().getName();
                     return jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
             }

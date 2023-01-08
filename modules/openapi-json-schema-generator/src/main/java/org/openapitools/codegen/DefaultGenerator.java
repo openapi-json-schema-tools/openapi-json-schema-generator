@@ -692,8 +692,8 @@ public class DefaultGenerator implements Generator {
                 }
             }
             if (response.getContent() != null) {
-                for (Map.Entry<String, CodegenMediaType> contentInfo: response.getContent().entrySet()) {
-                    String contentType = contentInfo.getKey();
+                for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: response.getContent().entrySet()) {
+                    String contentType = contentInfo.getKey().getName();
                     CodegenMediaType codegenMediaType = contentInfo.getValue();
                     CodegenSchema schema = codegenMediaType.getSchema();
                     if (schema != null && schema.getRefInfo() == null) {
@@ -770,8 +770,8 @@ public class DefaultGenerator implements Generator {
         }
         // schemas
         if (requestBody.getContent()!= null && !requestBody.getContent().isEmpty()) {
-            for (Map.Entry<String, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
-                String contentType = contentInfo.getKey();
+            for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
+                String contentType = contentInfo.getKey().getName();
                 CodegenMediaType mt = contentInfo.getValue();
                 CodegenSchema schema = mt.getSchema();
                 String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
