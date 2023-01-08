@@ -2147,7 +2147,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public void postProcess() {
         System.out.println("################################################################################");
-        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                                          #");
+        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                              #");
         System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
         System.out.println("# https://github.com/sponsors/spacether                                        #");
         System.out.println("#                                                                              #");

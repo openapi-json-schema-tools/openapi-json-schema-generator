@@ -25,7 +25,8 @@ public class CodegenRefInfo<T> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(ref, refClass, refModule);
+        // ref must be omitted here for generation to work
+        return Objects.hash(refClass, refModule);
     }
 
     @Override
