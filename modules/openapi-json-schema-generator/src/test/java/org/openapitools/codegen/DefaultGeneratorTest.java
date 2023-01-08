@@ -438,13 +438,13 @@ public class DefaultGeneratorTest {
         CodegenRequestBody codegenParameter = config.fromRequestBody(
                 body, "#/paths/~1fake~1StringRegex/post/requestBody");
 
-        Assert.assertEquals(codegenParameter.getContent().get("*/*").getSchema().getRef().pattern, escapedPattern);
+        Assert.assertEquals(codegenParameter.getContent().get("*/*").getSchema().getRefInfo().getRef().pattern, escapedPattern);
 
         // Validate when converting to response
         ApiResponse response = operation.getResponses().get("200");
         CodegenResponse codegenResponse = config.fromResponse(response, "#/paths/~1fake~1StringRegex/post/responses/200");
 
-        Assert.assertEquals(codegenResponse.getContent().get("*/*").getSchema().getRef().getPattern(), escapedPattern);
+        Assert.assertEquals(codegenResponse.getContent().get("*/*").getSchema().getRefInfo().getRef().getPattern(), escapedPattern);
     }
 
     @Test

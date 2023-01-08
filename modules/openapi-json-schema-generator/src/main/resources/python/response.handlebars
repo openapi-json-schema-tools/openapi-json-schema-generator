@@ -16,15 +16,15 @@ from {{packageName}} import schemas
 {{#if getContent}}
 {{#each content}}
     {{#with this.schema}}
-        {{#unless refModule}}
+        {{#unless refInfo.refModule}}
 from . import {{name.getSnakeCaseName}}
         {{/unless}}
     {{/with}}
 {{/each}}
 {{/if}}
 {{#each headers}}
-{{#if refModule}}
-from {{packageName}}.components.headers import {{refModule}}
+{{#if refInfo.refModule}}
+from {{packageName}}.components.headers import {{refInfo.refModule}}
 {{else}}
 from . import {{name.getSnakeCaseName}}
 {{/if}}
@@ -42,8 +42,8 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        {{#if refModule}}
-        {{refModule}}.{{refClass}},
+        {{#if refInfo.refModule}}
+        {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
         {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
@@ -64,8 +64,8 @@ class ApiResponse(api_client.ApiResponse):
 {{#each content}}
 {{#if this.schema}}
     {{#with this.schema}}
-        {{#if refModule}}
-        {{refModule}}.{{refClass}},
+        {{#if refInfo.refModule}}
+        {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
         {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
@@ -96,8 +96,8 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
         '{{{@key}}}': api_client.MediaType(
         {{#if this.schema}}
             {{#with this.schema}}
-                {{#if refModule}}
-            {{refModule}}.{{refClass}},
+                {{#if refInfo.refModule}}
+            {{refInfo.refModule}}.{{refInfo.refClass}},
                 {{else}}
             {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
                 {{/if}}

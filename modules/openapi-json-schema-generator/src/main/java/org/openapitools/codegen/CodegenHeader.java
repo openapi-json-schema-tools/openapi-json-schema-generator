@@ -17,9 +17,6 @@
 
 package org.openapitools.codegen;
 
-import org.openapitools.codegen.utils.ModelUtils;
-
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -27,42 +24,11 @@ import java.util.Objects;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenHeader extends CodegenRequestBody {
-    public boolean isExplode;
-    public String style;
-
-    public boolean isDeprecated;
-    protected CodegenSchema schema;
-
-    public CodegenSchema getSetSchema() {
-        if (schema != null) {
-            return schema;
-        }
-        if (content != null) {
-            for (CodegenMediaType codegenMediaType: content.values()) {
-                return codegenMediaType.getSchema();
-            }
-        }
-        return null;
-    }
-
-    public String getSetSchemaJsonPath(String jsonPath) {
-        if (schema != null) {
-            return jsonPath + "/schema";
-        }
-        if (content != null) {
-            for (Map.Entry<String, CodegenMediaType> entry: content.entrySet()) {
-                if (entry.getValue().getSchema() != null) {
-                    String contentType = entry.getKey();
-                    return jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                }
-            }
-        }
-        return null;
-    }
+public class CodegenHeader extends CodegenHeaderBase implements OpenApiLocation<CodegenHeader> {
+    protected CodegenRefInfo<CodegenHeader> refInfo;
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -71,18 +37,12 @@ public class CodegenHeader extends CodegenRequestBody {
         if (!(o instanceof CodegenHeader)) return false;
         if (! super.equals(o)) return false;
         CodegenHeader that = (CodegenHeader) o;
-        return isExplode == that.isExplode &&
-                isDeprecated == that.isDeprecated &&
-                Objects.equals(schema, that.getSchema()) &&
-                Objects.equals(style, that.style);
+        return Objects.equals(refInfo, that.refInfo);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
         super.addInstanceInfo(sb);
-        sb.append(", isExplode=").append(isExplode);
-        sb.append(", style='").append(style).append('\'');
-        sb.append(", isDeprecated=").append(isDeprecated);
-        sb.append(", schema=").append(schema);
+        sb.append(", refInfo=").append(refInfo);
     }
 
     @Override
@@ -93,15 +53,8 @@ public class CodegenHeader extends CodegenRequestBody {
         return sb.toString();
     }
 
-    @Override
-    public CodegenHeader getRef() { return (CodegenHeader) ref; }
+    public CodegenRefInfo<CodegenHeader> getRefInfo() { return refInfo; }
 
-    public CodegenSchema getSchema() {
-        return schema;
-    }
-
-    public void setSchema(CodegenSchema schema) {
-        this.schema = schema;
-    }
+    public void setRefInfo(CodegenRefInfo<CodegenHeader> refInfo) { this.refInfo = refInfo; }
 }
 

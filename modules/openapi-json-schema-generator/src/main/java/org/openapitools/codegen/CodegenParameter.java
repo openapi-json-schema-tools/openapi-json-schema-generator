@@ -24,17 +24,20 @@ import java.util.*;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenParameter extends CodegenHeader {
+public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocation<CodegenParameter> {
     public boolean isFormParam, isQueryParam, isPathParam, isHeaderParam,
             isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
     // stores the openapi name property
     public String baseName;
+    protected CodegenRefInfo<CodegenParameter> refInfo;
 
-    public CodegenParameter getRef() { return (CodegenParameter) ref; }
+    public CodegenRefInfo<CodegenParameter> getRefInfo() { return refInfo; }
+
+    public void setRefInfo(CodegenRefInfo<CodegenParameter> refInfo) { this.refInfo = refInfo; }
 
     @Override
     public int hashCode() {
-        return Objects.hash(refClass, name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, ref, refModule, imports, componentModule);
+        return Objects.hash(name, isFormParam, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isBodyParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -49,6 +52,7 @@ public class CodegenParameter extends CodegenHeader {
                 isHeaderParam == that.isHeaderParam &&
                 isCookieParam == that.isCookieParam &&
                 isBodyParam == that.isBodyParam &&
+                Objects.equals(refInfo, that.refInfo) &&
                 Objects.equals(baseName, that.baseName) &&
                 Objects.equals(isDeepObject, that.isDeepObject);
     }
@@ -64,6 +68,7 @@ public class CodegenParameter extends CodegenHeader {
         sb.append(", deepObject='").append(isDeepObject).append('\'');
         sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
+        sb.append(", refInfo='").append(refInfo).append('\'');
     }
 
     @Override

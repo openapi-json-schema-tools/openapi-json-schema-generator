@@ -39,8 +39,8 @@ public class CodegenOperation {
     public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
-    public List<CodegenRequestBody> requiredParams = new ArrayList<CodegenRequestBody>();
-    public List<CodegenRequestBody> optionalParams = new ArrayList<CodegenRequestBody>();
+    public List<CodegenRequestBodyBase> requiredParams = new ArrayList<CodegenRequestBodyBase>();
+    public List<CodegenRequestBodyBase> optionalParams = new ArrayList<CodegenRequestBodyBase>();
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
     public TreeMap<String, CodegenResponse> responses = null;
@@ -176,9 +176,9 @@ public class CodegenOperation {
             return null;
         }
         LinkedHashMap<String, CodegenMediaType> content;
-        CodegenRequestBody ref = (CodegenRequestBody) requestBody.getRef();
-        if (ref != null) {
-            content = ref.getContent();
+        CodegenRefInfo<CodegenRequestBody> refInfo = requestBody.getRefInfo();
+        if (refInfo != null) {
+            content = refInfo.getRef().getContent();
         } else {
             content = requestBody.getContent();
         }

@@ -1,10 +1,10 @@
-{{#if requestBody.ref}}
-    {{#if requestBody.ref.required}}
-        {{#with requestBody.ref}}
+{{#if requestBody.refInfo}}
+    {{#if requestBody.refInfo.getRef.required}}
+        {{#with requestBody.refInfo.getRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -12,7 +12,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with requestBody.ref}}
+                {{#with requestBody.refInfo.getRef}}
                     {{#each content}}
                         {{#eq @key ../../contentType}}
                             {{#if @first}}
@@ -27,7 +27,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with requestBody.ref}}
+            {{#with requestBody.refInfo.getRef}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key}}}',
@@ -41,7 +41,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with requestBody.ref}}
+                {{#with requestBody.refInfo.getRef}}
                     {{#each getContent}}
                         {{#eq @key ../../contentType}}
                             {{#if @first}}
@@ -56,7 +56,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with requestBody.ref}}
+            {{#with requestBody.refInfo.getRef}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key}}}',
@@ -64,11 +64,11 @@
                 {{/each}}
             {{/with}}
         {{/if}}
-        {{#with requestBody.ref}}
+        {{#with requestBody.refInfo.retRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
@@ -76,9 +76,9 @@
     {{#if requestBody.required}}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}},{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -140,9 +140,9 @@
         {{/if}}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refModule}}{{refModule}}.{{refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key ../../contentType }}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}

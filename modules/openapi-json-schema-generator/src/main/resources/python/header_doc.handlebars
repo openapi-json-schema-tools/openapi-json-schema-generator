@@ -1,7 +1,7 @@
 {{#if componentModule}}
     {{#each headers}}
         {{#with this}}
-            {{#unless refModule}}
+            {{#unless refInfo.refModule}}
             {{#if schema}}
                 {{#with schema}}
 
@@ -42,7 +42,7 @@
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" headersLink=true }}
             {{else}}
-                {{#unless refModule}}
+                {{#unless refInfo.refModule}}
                 {{#if schema}}
                     {{#with schema}}
 

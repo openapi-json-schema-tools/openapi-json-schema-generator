@@ -11,7 +11,7 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports }}
 {{#if schema}}
     {{#with schema}}
-        {{#unless getRefModule}}
+        {{#unless refInfo.getRefModule}}
 from . import {{name.getSnakeCaseName}}
         {{/unless}}
     {{/with}}
@@ -20,7 +20,7 @@ from . import {{name.getSnakeCaseName}}
         {{#each getContent}}
             {{#with this}}
                 {{#with schema}}
-                    {{#unless getRefModule}}
+                    {{#unless refInfo.getRefModule}}
 from . import {{name.getSnakeCaseName}}
                     {{/unless}}
                 {{/with}}

@@ -16,20 +16,20 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports }}
 {{#with operation}}
 {{#with requestBody}}
-{{#if refModule}}
-from {{packageName}}.components.request_bodies import {{refModule}} as request_body
+{{#if refInfo.refModule}}
+from {{packageName}}.components.request_bodies import {{refInfo.refModule}} as request_body
 {{/if}}
 {{/with}}
 {{#each responses}}
 {{#with this}}
-{{#if refModule}}
-from {{packageName}}.components.responses import {{refModule}} as response_for_{{@key}}
+{{#if refInfo.refModule}}
+from {{packageName}}.components.responses import {{refInfo.refModule}} as response_for_{{@key}}
 {{/if}}
 {{/with}}
 {{/each}}
 {{#each allParams}}
-{{#if refModule}}
-from {{packageName}}.components.parameters import {{refModule}}
+{{#if refInfo.refModule}}
+from {{packageName}}.components.parameters import {{refInfo.refModule}}
 {{/if}}
 {{/each}}
 
@@ -37,17 +37,17 @@ from {{packageName}}.components.parameters import {{refModule}}
 from .. import path
 {{/unless}}
 {{#each responses}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 from . import response_for_{{@key}}
 {{/unless}}
 {{/each}}
 {{#with requestBody}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 from . import request_body
 {{/unless}}
 {{/with}}
 {{#each allParams}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 from . import {{name.getSnakeCaseName}}
 {{/unless}}
 {{/each}}
@@ -117,7 +117,7 @@ _servers = (
 
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-default_response = response_for_default.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}
+default_response = response_for_default.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}
 {{/with}}
 {{/if}}
 {{#if nonDefaultResponses}}
@@ -125,13 +125,13 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_for_{{@key}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+        '{{@key}}': response_for_{{@key}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
 {{/each}}
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
 {{#each nonDefaultResponses}}
-    '{{@key}}': response_for_{{@key}}.{{#if refClass}}{{refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+    '{{@key}}': response_for_{{@key}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
 {{/each}}
 })
 {{/if}}
@@ -239,8 +239,8 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#with requestBody}}
 
-    {{#if ref}}
-        {{#if ref.required}}
+    {{#if refInfo}}
+        {{#if refInfo.getRef.required}}
         if body is schemas.unset:
             raise exceptions.ApiValueError(
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
@@ -254,8 +254,8 @@ class BaseApi(api_client.Api):
     {{/if}}
         _fields = None
         _body = None
-    {{#if ref}}
-        {{#if ref.required}}
+    {{#if refInfo}}
+        {{#if refInfo.getRef.required}}
         {{> endpoint_body_serialization }}
         {{else}}
         if body is not schemas.unset:

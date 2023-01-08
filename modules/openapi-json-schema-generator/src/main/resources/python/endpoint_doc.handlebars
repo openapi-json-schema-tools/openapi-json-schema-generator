@@ -38,8 +38,8 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
-    {{#if refModule}}
-[**body**](../../../components/request_bodies/{{refModule}}.md) | typing.Union[{{#each ref.content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless ref.required}}, Unset]{{else}}]{{/unless}} | {{#if ref.required}}required{{else}}optional, default is unset{{/if}} |
+    {{#if refInfo.refModule}}
+[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#each refInfo.getRef.content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refInfo.refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless refInfo.getRef.required}}, Unset]{{else}}]{{/unless}} | {{#if refInfo.getRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
 [body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
@@ -57,8 +57,8 @@ Name | Type | Description  | Notes
 [cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParameters.Params) | |
     {{/if}}
     {{#with requestBody}}
-        {{#if ref}}
-            {{#each ref.content}}
+        {{#if refInfo}}
+            {{#each refInfo.getRef.content}}
             {{#if @first}}
 content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
             {{/if}}
@@ -81,7 +81,7 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
     {{#if requestBody}}
-    {{#unless requestBody.refModule}}
+    {{#unless requestBody.refInfo.refModule}}
 
 ### <a id="request_body" >body</a>
 {{> request_body_doc requestBody=requestBody schemaNamePrefix1="request_body" }}
@@ -95,15 +95,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
-        {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+        {{#if refInfo.refModule}}
+{{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
 
         {{#each queryParams as | parameter |}}
-        {{#unless parameter.refModule}}
+        {{#unless parameter.refInfo.refModule}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -117,14 +117,14 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
-        {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+        {{#if refInfo.refModule}}
+{{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each headerParams as | parameter |}}
-        {{#unless parameter.refModule}}
+        {{#unless parameter.refInfo.refModule}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -138,14 +138,14 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
-        {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+        {{#if refInfo.refModule}}
+{{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each pathParams as | parameter |}}
-        {{#unless parameter.refModule}}
+        {{#unless parameter.refInfo.refModule}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -159,14 +159,14 @@ Key | Input Type | Description  | Notes
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
-        {{#if refModule}}
-{{ref.baseName}} | [{{refModule}}.schema](../../../components/parameters/{{refModule}}.md) | | {{#unless ref.required}}optional{{/unless}}
+        {{#if refInfo.refModule}}
+{{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
 {{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each cookieParams as | parameter |}}
-        {{#unless parameter.refModule}}
+        {{#unless parameter.refInfo.refModule}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -183,22 +183,22 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-{{#if refModule}}
-default | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
+{{#if refInfo.refModule}}
+default | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
 default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
 {{/if}}
 {{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
-{{#if refModule}}
-{{@key}} | [{{refModule}}.ApiResponse](../../../components/responses/{{refModule}}.md) | {{#with ref}}{{message}}{{/with}}
+{{#if refInfo.refModule}}
+{{@key}} | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
 {{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
 {{/if}}
 {{/each}}
 {{#each responses}}
-{{#unless refModule}}
+{{#unless refInfo.refModule}}
 
 {{> response_doc response=this complexTypePrefix="../../../components/schema/" }}
 {{/unless}}

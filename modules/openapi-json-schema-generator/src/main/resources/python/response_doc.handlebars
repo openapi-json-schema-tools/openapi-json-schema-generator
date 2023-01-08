@@ -39,17 +39,17 @@ Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 {{#each headers}}
     {{#with this}}
-        {{#if ref}}
-            {{#with ref}}
+        {{#if refInfo}}
+            {{#with refInfo.getRef}}
                 {{#if schema}}
                     {{#with schema}}
-{{../@key}} | [{{../../refModule}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../refInfo.refModule}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
                     {{/with}}
                 {{else}}
                     {{#each getContent}}
                         {{#with this}}
                             {{#with schema}}
-{{../../@key}} | [{{../../../refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../refInfo.refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{/with}}
                     {{/each}}

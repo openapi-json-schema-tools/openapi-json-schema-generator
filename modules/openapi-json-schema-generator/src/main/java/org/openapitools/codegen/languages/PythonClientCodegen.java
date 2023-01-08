@@ -751,7 +751,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cp.isAnyType && cp.isNullable) {
             cp.isNullable = false;
         }
-        if (cp.isNullable && cp.refClass == null) {
+        if (cp.isNullable && cp.getRefInfo() == null) {
             cp.setIsNull(true);
             cp.isNullable = false;
             cp.setHasMultipleTypes(true);
@@ -1997,7 +1997,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return "from " + packageName() + ".components.schema import " + schema.getRefModule();
+            return "from " + packageName() + ".components.schema import " + schema.getRefInfo().getRefModule();
         }
         String[] classPieces = className.split("\\.");
         return "from " + packageName() + ".components.schema import " + classPieces[0];
@@ -2126,6 +2126,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+        if (ref == null) {
+            return null;
+        }
         switch (expectedComponentType) {
             case "schemas":
                 return toSchemaRefClass(ref, sourceJsonPath);
@@ -2144,7 +2147,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public void postProcess() {
         System.out.println("################################################################################");
-        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                                          #");
+        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                              #");
         System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
         System.out.println("# https://github.com/sponsors/spacether                                        #");
         System.out.println("#                                                                              #");

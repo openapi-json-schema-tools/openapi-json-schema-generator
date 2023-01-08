@@ -1,10 +1,16 @@
 package org.openapitools.codegen;
 
-public interface OpenApiComponent {
+public interface OpenApiLocation<T> {
+    // stores location info about a jsonPath location
+
     // set only if the instance is at the json path of a component
     String getComponentModule();
 
     void setComponentModule(String componentModule);
+
+    CodegenRefInfo<T> getRefInfo();
+
+    void setRefInfo(CodegenRefInfo<T> refInfo);
 
     // always set
     // used for spec name (name.getName)
@@ -15,15 +21,4 @@ public interface OpenApiComponent {
 
     void setName(CodegenKey name);
 
-    Object getRef();
-
-    void setRef(Object ref);
-
-    String getRefModule();
-
-    void setRefModule(String refModule);
-
-    String getRefClass();
-
-    void setRefClass(String refClass);
 }
