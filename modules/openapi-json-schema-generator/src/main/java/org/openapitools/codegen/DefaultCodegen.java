@@ -4105,7 +4105,9 @@ public class DefaultCodegen implements CodegenConfig {
             }
             // #/components/headers/someHeader/content/application-json/schema -> length 7
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-            return headerFileFolder(componentName) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+            CodegenKey contentTypeKey = getKey(contentType);
+            CodegenKey schemaKey = getKey(pathPieces[6]);
+            return headerFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/components/parameters/")) {
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
@@ -4137,7 +4139,9 @@ public class DefaultCodegen implements CodegenConfig {
             }
             // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema -> length 9
             String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+            CodegenKey contentTypeKey = getKey(contentType);
+            CodegenKey schemaKey = getKey(pathPieces[8]);
+            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/paths/")) {
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
             String httpVerb = pathPieces[3];
@@ -4175,7 +4179,9 @@ public class DefaultCodegen implements CodegenConfig {
                 String code = pathPieces[5];
                 String headerModule = toHeaderFilename(pathPieces[7]);
                 String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for_" + code + File.separatorChar + headerModule + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+                CodegenKey contentTypeKey = getKey(contentType);
+                CodegenKey schemaKey = getKey(pathPieces[10]);
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "response_for_" + code + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
             }
         }
         return null;

@@ -276,8 +276,8 @@ src/petstore_api/apis/tags/user_api.py
 src/petstore_api/components/__init__.py
 src/petstore_api/components/headers/__init__.py
 src/petstore_api/components/headers/header_int32_json_content_type_header/__init__.py
-src/petstore_api/components/headers/header_int32_json_content_type_header/application_json.py
-src/petstore_api/components/headers/header_int32_json_content_type_header/application_json.pyi
+src/petstore_api/components/headers/header_int32_json_content_type_header/content/application_json/schema.py
+src/petstore_api/components/headers/header_int32_json_content_type_header/content/application_json/schema.pyi
 src/petstore_api/components/headers/header_number_header/__init__.py
 src/petstore_api/components/headers/header_number_header/schema.py
 src/petstore_api/components/headers/header_number_header/schema.pyi
@@ -1032,8 +1032,8 @@ src/petstore_api/paths/user_login/get/response_for_200/header_x_expires_after/__
 src/petstore_api/paths/user_login/get/response_for_200/header_x_expires_after/schema.py
 src/petstore_api/paths/user_login/get/response_for_200/header_x_expires_after/schema.pyi
 src/petstore_api/paths/user_login/get/response_for_200/header_x_rate_limit/__init__.py
-src/petstore_api/paths/user_login/get/response_for_200/header_x_rate_limit/application_json.py
-src/petstore_api/paths/user_login/get/response_for_200/header_x_rate_limit/application_json.pyi
+src/petstore_api/paths/user_login/get/response_for_200/header_x_rate_limit/content/application_json/schema.py
+src/petstore_api/paths/user_login/get/response_for_200/header_x_rate_limit/content/application_json/schema.pyi
 src/petstore_api/paths/user_login/get/response_for_400/__init__.py
 src/petstore_api/paths/user_logout/__init__.py
 src/petstore_api/paths/user_logout/get/__init__.py
