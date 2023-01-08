@@ -1,6 +1,6 @@
 # petstore_api.components.headers.header_int32_json_content_type_header
 
-# application_json
+# schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

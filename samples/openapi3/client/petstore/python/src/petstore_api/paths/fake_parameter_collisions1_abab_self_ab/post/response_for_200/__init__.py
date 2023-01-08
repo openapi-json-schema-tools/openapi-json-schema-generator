@@ -11,14 +11,14 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from . import application_json
+from . import schema
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json.ApplicationJson,
+        schema.Schema,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -27,6 +27,6 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
     content = {
         'application/json': api_client.MediaType(
-            application_json.ApplicationJson,
+            schema.Schema,
         ),
     }

@@ -25,7 +25,7 @@ class Header:
         'RequiredParams',
         {
             'ref-schema-header': typing.Union[header_ref_schema_header.string_with_validation.StringWithValidation, ],
-            'int32': typing.Union[header_int32_json_content_type_header.application_json.ApplicationJson, decimal.Decimal, int, ],
+            'int32': typing.Union[header_int32_json_content_type_header.schema.Schema, decimal.Decimal, int, ],
             'ref-content-schema-header': typing.Union[header_ref_content_schema_header.string_with_validation.StringWithValidation, ],
             'stringHeader': typing.Union[header_string_header.schema.Schema, str, ],
         }

@@ -1,5 +1,5 @@
 # petstore_api.components.request_bodies.request_body_client
-# application_json
+# <a id="content.schema" >content.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../components/schema/client.Client.md) |  | 

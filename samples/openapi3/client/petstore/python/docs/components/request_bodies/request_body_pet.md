@@ -1,10 +1,10 @@
 # petstore_api.components.request_bodies.request_body_pet
-# application_json
+# <a id="content.schema" >content.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) |  | 
 
-# application_xml
+# <a id="content.schema" >content.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) |  | 

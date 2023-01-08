@@ -93,7 +93,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[request_body.application_json](#request_body.application_json), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[request_body.content.schema](#request_body.content.schema), Unset] | optional, default is unset |
 [query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 [header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
 [path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
@@ -105,7 +105,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# <a id="request_body.application_json" >request_body.application_json</a>
+# <a id="request_body.content.schema" >request_body.content.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -300,10 +300,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_json](#response_for_200.application_json), ] |  |
+body | typing.Union[[response_for_200.content.schema](#response_for_200.content.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_for_200.content.schema" >response_for_200.content.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

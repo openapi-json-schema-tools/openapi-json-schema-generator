@@ -2828,18 +2828,9 @@ public class DefaultCodegen implements CodegenConfig {
             String lastPathFragment = refPieces[refPieces.length-1];
             String usedName = lastPathFragment;
             if (refPieces.length >= 5) {
-                // proprties/items/additionalProperties use case
+                // properties/items/additionalProperties use case
                 // # components schemas someSchema additionalProperties/items
-                if (lastPathFragment.equals("schema")) {
-                    String priorFragment = refPieces[refPieces.length-2];
-                    if (!"parameters".equals(priorFragment)) {
-                        String evenDeeperFragment = refPieces[refPieces.length-3];
-                        if ("content".equals(evenDeeperFragment)) {
-                            // body or parameter content type schemas, in which case 1 deeper is content
-                            usedName = ModelUtils.decodeSlashes(priorFragment);
-                        }
-                    }
-                } else {
+                if (!lastPathFragment.equals("schema")) {
                     try {
                         Integer.parseInt(usedName);
                         // for oneOf/anyOf/allOf
@@ -4940,11 +4931,11 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    protected LinkedHashMap<String, CodegenMediaType> getContent(Content content, Set<String> imports, String sourceJsonPath) {
+    protected LinkedHashMap<CodegenKey, CodegenMediaType> getContent(Content content, Set<String> imports, String sourceJsonPath) {
         if (content == null) {
             return null;
         }
-        LinkedHashMap<String, CodegenMediaType> cmtContent = new LinkedHashMap<>();
+        LinkedHashMap<CodegenKey, CodegenMediaType> cmtContent = new LinkedHashMap<>();
         for (Entry<String, MediaType> contentEntry : content.entrySet()) {
             String contentType = contentEntry.getKey();
             MediaType mt = contentEntry.getValue();
@@ -4995,7 +4986,8 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             CodegenMediaType codegenMt = new CodegenMediaType(schemaProp, ceMap, schemaTestCases);
-            cmtContent.put(contentType, codegenMt);
+            CodegenKey ck = getKey(contentType);
+            cmtContent.put(ck, codegenMt);
             if (schemaProp != null && schemaProp.getRefInfo() != null && schemaProp.getRefInfo().getRefModule() != null) {
                 imports.add(getImport(null, schemaProp));
             }

@@ -4,10 +4,10 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[application_json](#application_json), ] |  |
+body | typing.Union[[content.schema](#content.schema), ] |  |
 headers | [Headers](#Headers) |  |
 
-# application_json
+# content..schema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

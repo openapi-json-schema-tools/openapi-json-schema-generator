@@ -7,12 +7,12 @@
 """
 
 from petstore_api import api_client, exceptions
-from . import application_json
+from . import schema
 
 class UserArray(api_client.RequestBody):
     content = {
         'application/json': api_client.MediaType(
-            schema=application_json.ApplicationJson,
+            schema=schema.Schema,
         ),
     }
     required = True

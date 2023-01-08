@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class ApplicationJson(
+class Schema(
     schemas.ListSchema
 ):
 
@@ -39,7 +39,7 @@ class ApplicationJson(
         cls,
         arg_: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-    ) -> 'ApplicationJson':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             arg_,
