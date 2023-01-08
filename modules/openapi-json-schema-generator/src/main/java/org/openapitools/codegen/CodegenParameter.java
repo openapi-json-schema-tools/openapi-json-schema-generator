@@ -52,6 +52,7 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
                 isHeaderParam == that.isHeaderParam &&
                 isCookieParam == that.isCookieParam &&
                 isBodyParam == that.isBodyParam &&
+                Objects.equals(refInfo, that.refInfo) &&
                 Objects.equals(baseName, that.baseName) &&
                 Objects.equals(isDeepObject, that.isDeepObject);
     }
