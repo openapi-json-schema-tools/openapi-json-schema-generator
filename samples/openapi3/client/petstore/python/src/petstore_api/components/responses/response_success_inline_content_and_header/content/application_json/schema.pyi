@@ -29,8 +29,7 @@ class ApplicationJson(
 
 
     class Schema_:
-        types = {frozendict.frozendict}
-        AdditionalProperties = schemas.StrSchema
+        AdditionalProperties = schemas.Int32Schema
     
     def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
         # dict_instance[name] accessor
@@ -43,7 +42,7 @@ class ApplicationJson(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+        **kwargs: typing.Union[Schema_.AdditionalProperties, decimal.Decimal, int, ],
     ) -> 'ApplicationJson':
         return super().__new__(
             cls,
