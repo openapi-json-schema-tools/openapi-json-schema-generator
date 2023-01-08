@@ -4098,28 +4098,30 @@ public class DefaultCodegen implements CodegenConfig {
         if (jsonPath.startsWith("#/components/schemas/") && pathPieces.length == 4) {
             return modelFileFolder() + File.separatorChar + getKey(pathPieces[3]).getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/components/headers/")) {
-            // #/components/headers/someHeader/schema -> length 5
-            // #/components/headers/someHeader/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
+                // #/components/headers/someHeader/schema -> length 5
                 return headerFileFolder(componentName) + File.separatorChar + getKey(pathPieces[4]).getSnakeCaseName() + suffix;
             }
+            // #/components/headers/someHeader/content/application-json/schema -> length 7
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
             return headerFileFolder(componentName) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/components/parameters/")) {
-            // #/components/parameters/someParam/schema -> length 5
-            // #/components/parameters/someParam/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
+                // #/components/parameters/someParam/schema -> length 5
                 return parameterFileFolder(componentName) + File.separatorChar + getKey(pathPieces[4]).getSnakeCaseName() + suffix;
             }
+            // #/components/parameters/someParam/content/application-json/schema -> length 7
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
             return parameterFileFolder(componentName) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/components/requestBodies/")) {
             // #/components/requestBodies/someBody/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-            return requestBodyFileFolder(componentName) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+            CodegenKey contentTypeKey = getKey(contentType);
+            CodegenKey schemaKey = getKey(pathPieces[6]);
+            return requestBodyFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/components/responses/")) {
 
             String componentName = pathPieces[3];
@@ -4146,7 +4148,9 @@ public class DefaultCodegen implements CodegenConfig {
             } else if (pathPieces.length == 8) {
                 // #/paths/somePath/get/requestBody/content/application-json/schema -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "request_body" + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+                CodegenKey contentTypeKey = getKey(contentType);
+                CodegenKey schemaKey = getKey(pathPieces[7]);
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "request_body" + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
             } else if (pathPieces.length == 9) {
                 String parametersOrResponses = pathPieces[4];
                 if (parametersOrResponses.equals("parameters")) {
