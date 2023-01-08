@@ -2,6 +2,8 @@ package org.openapitools.codegen;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Objects;
+
 @JsonIgnoreProperties({"ref"})
 public class CodegenRefInfo<T> {
     private T ref;
@@ -19,6 +21,21 @@ public class CodegenRefInfo<T> {
         addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ref, refClass, refModule);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CodegenRefInfo)) return false;
+        CodegenRefInfo that = (CodegenRefInfo) o;
+        return Objects.equals(refModule, that.refModule) &&
+                Objects.equals(refClass, that.refClass) &&
+                Objects.equals(ref, that.ref);
     }
 
     public CodegenRefInfo(T ref, String refClass, String refModule) {
