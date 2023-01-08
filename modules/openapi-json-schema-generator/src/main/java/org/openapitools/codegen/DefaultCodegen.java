@@ -4116,7 +4116,9 @@ public class DefaultCodegen implements CodegenConfig {
             }
             // #/components/parameters/someParam/content/application-json/schema -> length 7
             String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-            return parameterFileFolder(componentName) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+            CodegenKey contentTypeKey = getKey(contentType);
+            CodegenKey schemaKey = getKey(pathPieces[6]);
+            return parameterFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/components/requestBodies/")) {
             // #/components/requestBodies/someBody/content/application-json/schema -> length 7
             String componentName = pathPieces[3];
@@ -4162,7 +4164,9 @@ public class DefaultCodegen implements CodegenConfig {
                     // #/paths/somePath/get/parameters/1/content/application-json/schema -> length 9
                     String i = pathPieces[5];
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + getKey(contentType).getSnakeCaseName() + suffix;
+                    CodegenKey contentTypeKey = getKey(contentType);
+                    CodegenKey schemaKey = getKey(pathPieces[8]);
+                    return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
                 } else if (parametersOrResponses.equals("responses")) {
                     String contentOrHeaders = pathPieces[6];
                     String code = pathPieces[5];

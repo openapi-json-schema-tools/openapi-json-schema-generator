@@ -801,8 +801,8 @@ src/petstore_api/paths/fake_query_param_with_json_content_type/__init__.py
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/__init__.py
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/__init__.pyi
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/parameter_0/__init__.py
-src/petstore_api/paths/fake_query_param_with_json_content_type/get/parameter_0/application_json.py
-src/petstore_api/paths/fake_query_param_with_json_content_type/get/parameter_0/application_json.pyi
+src/petstore_api/paths/fake_query_param_with_json_content_type/get/parameter_0/content/application_json/schema.py
+src/petstore_api/paths/fake_query_param_with_json_content_type/get/parameter_0/content/application_json/schema.pyi
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/response_for_200/__init__.py
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/response_for_200/content/application_json/schema.py
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/response_for_200/content/application_json/schema.pyi
