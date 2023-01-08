@@ -3917,7 +3917,7 @@ public class DefaultCodegenTest {
         assertNull(mt.getEncoding());
         CodegenSchema cp = mt.getSchema();
         assertTrue(cp.isMap);
-        assertEquals(cp.getRefInfo().getRefClass(), null);
+        assertEquals(cp.getRefInfo(), null);
         assertEquals(cp.name.getName(), "application/json");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
