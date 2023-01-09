@@ -44,7 +44,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_default.content.application_json.schema](#response_for_default.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_default.content.application_json.schema" >response_default.content.application_json.schema</a>
+# <a id="response_defaultcontentapplication_jsonschema" >response_default.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

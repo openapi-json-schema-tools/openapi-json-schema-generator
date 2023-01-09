@@ -43,7 +43,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[request_body.content.application_json.schema](#request_body.content.application_json.schema), [request_body.content.multipart_form_data.schema](#request_body.content.multipart_form_data.schema), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[request_body.content.application_json.schema](#request_bodycontentapplication_jsonschema), [request_body.content.multipart_form_data.schema](#request_bodycontentmultipart_form_dataschema), Unset] | optional, default is unset |
 [query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', 'multipart/form-data', ) | Tells the server the content type(s) that are accepted by the client
@@ -52,7 +52,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# <a id="request_body_request_body.content.application_json.schema" >request_body_request_body.content.application_json.schema</a>
+# <a id="request_body_request_bodycontentapplication_jsonschema" >request_body_request_body.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -71,7 +71,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-# <a id="request_body_request_body.content.multipart_form_data.schema" >request_body_request_body.content.multipart_form_data.schema</a>
+# <a id="request_body_request_bodycontentmultipart_form_dataschema" >request_body_request_body.content.multipart_form_data.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -180,7 +180,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), [response_for_200.content.multipart_form_data.schema](#response_for_200.content.multipart_form_data.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200.content.application_json.schema" >response_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >response_200.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -200,7 +200,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="response_200.content.multipart_form_data.schema" >response_200.content.multipart_form_data.schema</a>
+# <a id="response_200contentmultipart_form_dataschema" >response_200.content.multipart_form_data.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

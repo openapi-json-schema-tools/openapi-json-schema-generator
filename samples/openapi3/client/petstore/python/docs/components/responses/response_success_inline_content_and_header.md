@@ -4,7 +4,7 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[content.application_json.schema](#content.application_json.schema), ] |  |
+body | typing.Union[[content.application_json.schema](#contentapplication_jsonschema), ] |  |
 headers | [Headers](#Headers) |  |
 
 # content.application_json.schema
@@ -24,7 +24,7 @@ Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 someHeader | [header_some_header.schema](#header_some_header.schema) | | optional
 
-# <a id="response_for_someHeader.header_some_header.schema" >response_for_someHeader.header_some_header.schema</a>
+# <a id="response_for_someHeaderheader_some_headerschema" >response_for_.someHeader.header_some_header.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -4,7 +4,7 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[content.application_json.schema](#content.application_json.schema), ] |  |
+body | typing.Union[[content.application_json.schema](#contentapplication_jsonschema), ] |  |
 headers | [Headers](#Headers) |  |
 
 # content.application_json.schema

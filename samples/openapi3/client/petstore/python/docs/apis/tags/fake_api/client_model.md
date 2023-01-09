@@ -40,7 +40,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../../components/request_bodies/request_body_client.md#request_body_client.content.application_json.schema)] | required |
+[**body**](../../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../../components/request_bodies/request_body_client.md#request_body_clientcontentapplication_jsonschema)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -61,7 +61,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200.content.application_json.schema" >response_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >response_200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../../components/schema/client.Client.md) |  | 

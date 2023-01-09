@@ -76,13 +76,13 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.content.application_xml.schema](#response_for_200.content.application_xml.schema), [response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200.content.application_xml.schema" >response_200.content.application_xml.schema</a>
+# <a id="response_200contentapplication_xmlschema" >response_200.content.application_xml.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-# <a id="response_200.content.application_json.schema" >response_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >response_200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 

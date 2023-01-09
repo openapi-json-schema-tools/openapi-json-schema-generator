@@ -43,7 +43,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[request_body.content.application_json.schema](#request_body.content.application_json.schema)] | required |
+[body](#request_body) | typing.Union[[request_body.content.application_json.schema](#request_bodycontentapplication_jsonschema)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -51,7 +51,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# <a id="request_body_request_body.content.application_json.schema" >request_body_request_body.content.application_json.schema</a>
+# <a id="request_body_request_bodycontentapplication_jsonschema" >request_body_request_body.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
@@ -72,13 +72,13 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.content.application_xml.schema](#response_for_200.content.application_xml.schema), [response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200.content.application_xml.schema" >response_200.content.application_xml.schema</a>
+# <a id="response_200contentapplication_xmlschema" >response_200.content.application_xml.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-# <a id="response_200.content.application_json.schema" >response_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >response_200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
