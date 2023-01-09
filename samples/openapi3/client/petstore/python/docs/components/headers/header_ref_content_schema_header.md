@@ -1,6 +1,6 @@
 # petstore_api.components.headers.header_ref_content_schema_header
 
-# RefContentSchemaHeader.content.application_json.schema
+# header_ref_content_schema_header.content.application_json.schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 

@@ -124,7 +124,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#Pet.content.application_json.schema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#Pet.content.application_xml.schema)] | required |
+[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#request_body_pet.content.application_json.schema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#request_body_pet.content.application_xml.schema)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
