@@ -4,10 +4,10 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[content.application_json.schema](#contentapplication_jsonschema), ] |  |
+body | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
 headers | [Headers](#Headers) |  |
 
-# content.application_json.schema
+# <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 

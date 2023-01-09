@@ -10,23 +10,23 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if componentModule}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#content{{@key.getSnakeCaseName}}{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-{{#each content}}
-    {{#with this.schema}}
+    {{#each content}}
+        {{#with this.schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1="content" schemaNamePrefix2=../@key.getSnakeCaseName }}
-    {{/with}}
-{{/each}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+        {{/with}}
+    {{/each}}
 {{else}}
 body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.getSnakeCaseName}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[{{name.getSnakeCaseName}}.Headers](#{{name.getSnakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-{{#each content}}
-    {{#with this.schema}}
+    {{#each content}}
+        {{#with this.schema}}
 
 {{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name.getSnakeCaseName schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
-    {{/with}}
-{{/each}}
+        {{/with}}
+    {{/each}}
 {{/if}}
 {{#if headers}}
 {{#if componentModule}}
