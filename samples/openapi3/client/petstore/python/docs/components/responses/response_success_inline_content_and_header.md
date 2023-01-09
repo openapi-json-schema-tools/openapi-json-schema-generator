@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [response_success_inline_content_and_header.header_some_header.schema](#response_success_inline_content_and_headerheader_some_headerschema) | | optional
+someHeader | [SuccessInlineContentAndHeader.header_some_header.schema](#response_success_inline_content_and_headerheader_some_headerschema) | | optional
 
 # <a id="response_success_inline_content_and_headerheader_some_headerschema" >SuccessInlineContentAndHeader.header_some_header.schema</a>
 

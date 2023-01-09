@@ -100,13 +100,13 @@ str,  | str,  |  |
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [header_ref_schema_header.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
-X-Rate-Limit | [header_x_rate_limit.header_x_rate_limit.schema](#header_x_rate_limitheader_x_rate_limitschema) | | 
-int32 | [header_int32_json_content_type_header.schema](../../../components/headers/header_int32_json_content_type_header.md#schema) | | 
-X-Expires-After | [response_200.header_x_expires_after.schema](#response_200header_x_expires_afterschema) | | optional
-ref-content-schema-header | [header_ref_content_schema_header.schema](../../../components/headers/header_ref_content_schema_header.md#schema) | | 
-stringHeader | [header_string_header.schema](../../../components/headers/header_string_header.md#schema) | | 
-numberHeader | [header_number_header.schema](../../../components/headers/header_number_header.md#schema) | | optional
+ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
+X-Rate-Limit | [XRateLimit.header_x_rate_limit.schema](#header_x_rate_limitheader_x_rate_limitschema) | | 
+int32 | [Int32JsonContentTypeHeader..schema](../../../components/headers/header_int32_json_content_type_header.md#schema) | | 
+X-Expires-After | [_200.header_x_expires_after.schema](#response_200header_x_expires_afterschema) | | optional
+ref-content-schema-header | [RefContentSchemaHeader..schema](../../../components/headers/header_ref_content_schema_header.md#schema) | | 
+stringHeader | [StringHeader.schema](../../../components/headers/header_string_header.md#header_string_headerschema) | | 
+numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
 # <a id="response_200header_x_rate_limitcontentapplication_jsonschema" >_200.header_x_rate_limit.content.application_json.schema</a>
 

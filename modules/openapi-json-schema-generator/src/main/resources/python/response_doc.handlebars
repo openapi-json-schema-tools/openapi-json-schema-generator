@@ -43,13 +43,13 @@ Key | Accessed Type | Description  | Notes
             {{#with refInfo.getRef}}
                 {{#if schema}}
                     {{#with schema}}
-{{../@key}} | [{{../../refInfo.refModule}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../name.getCamelCaseName}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                     {{/with}}
                 {{else}}
                     {{#each getContent}}
                         {{#with this}}
                             {{#with schema}}
-{{../../@key}} | [{{../../../refInfo.refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../name.getCamelCaseName}}.{{../../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{/with}}
                     {{/each}}
@@ -58,13 +58,13 @@ Key | Accessed Type | Description  | Notes
         {{else}}
             {{#if schema}}
                 {{#with schema}}
-{{../@key}} | [{{../../name.getSnakeCaseName}}.{{../name.getSnakeCaseName}}.schema](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../name.getCamelCaseName}}.{{../name.getSnakeCaseName}}.schema](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
-{{../../@key}} | [{{../../name.getSnakeCaseName}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../name.getCamelCaseName}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
