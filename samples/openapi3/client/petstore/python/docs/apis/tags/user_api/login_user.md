@@ -80,8 +80,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.content.application_xml.schema](#response_for_200.content.application_xml.schema), [response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
-headers | [response_for_200.Headers](#response_for_200.Headers) |  |
+body | typing.Union[[response_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [response_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+headers | [response_200.Headers](#response_200Headers) |  |
 
 # <a id="response_200contentapplication_xmlschema" >response_200.content.application_xml.schema</a>
 
@@ -101,9 +101,9 @@ str,  | str,  |  |
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [header_ref_schema_header.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
-X-Rate-Limit | [response_for_200.header_x_rate_limit.schema](#response_for_200.header_x_rate_limit.schema) | | 
+X-Rate-Limit | [header_x_rate_limit.header_x_rate_limit.schema](#header_x_rate_limitheader_x_rate_limitschema) | | 
 int32 | [header_int32_json_content_type_header.schema](../../../components/headers/header_int32_json_content_type_header.md#schema) | | 
-X-Expires-After | [response_for_200.header_x_expires_after.schema](#response_for_200.header_x_expires_after.schema) | | optional
+X-Expires-After | [response_200.header_x_expires_after.schema](#response_200header_x_expires_afterschema) | | optional
 ref-content-schema-header | [header_ref_content_schema_header.schema](../../../components/headers/header_ref_content_schema_header.md#schema) | | 
 stringHeader | [header_string_header.schema](../../../components/headers/header_string_header.md#schema) | | 
 numberHeader | [header_number_header.schema](../../../components/headers/header_number_header.md#schema) | | optional

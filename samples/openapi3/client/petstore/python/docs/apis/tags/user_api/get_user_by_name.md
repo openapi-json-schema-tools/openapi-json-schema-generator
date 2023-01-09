@@ -64,7 +64,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.content.application_xml.schema](#response_for_200.content.application_xml.schema), [response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
+body | typing.Union[[response_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [response_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
 # <a id="response_200contentapplication_xmlschema" >response_200.content.application_xml.schema</a>

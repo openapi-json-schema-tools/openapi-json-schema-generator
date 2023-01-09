@@ -19,8 +19,8 @@ headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#un
     {{/with}}
 {{/each}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{../@key}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#response_for_{{../@key}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#response_for_{{@key}}.Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.getSnakeCaseName}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{name.getSnakeCaseName}}.Headers](#{{name.getSnakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
 {{#each content}}
     {{#with this.schema}}
 
@@ -58,13 +58,13 @@ Key | Accessed Type | Description  | Notes
         {{else}}
             {{#if schema}}
                 {{#with schema}}
-{{../@key}} | [{{#if ../../@key}}response_for_{{../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.schema](#{{#if ../../@key}}response_for_{{../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../name.getSnakeCaseName}}.{{../name.getSnakeCaseName}}.schema](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
-{{../../@key}} | [{{#if ../../../@key}}response_for_{{../../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if ../../../@key}}response_for_{{../../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../name.getSnakeCaseName}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
