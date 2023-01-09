@@ -151,10 +151,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [response_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+body | typing.Union[[_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_xmlschema" >response_200.content.application_xml.schema</a>
+# <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -166,7 +166,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  |
 
-# <a id="response_200contentapplication_jsonschema" >response_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

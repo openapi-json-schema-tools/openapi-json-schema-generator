@@ -177,10 +177,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_200.content.application_json.schema](#response_200contentapplication_jsonschema), [response_200.content.multipart_form_data.schema](#response_200contentmultipart_form_dataschema), ] |  |
+body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), [_200.content.multipart_form_data.schema](#response_200contentmultipart_form_dataschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_jsonschema" >response_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -200,7 +200,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="response_200contentmultipart_form_dataschema" >response_200.content.multipart_form_data.schema</a>
+# <a id="response_200contentmultipart_form_dataschema" >_200.content.multipart_form_data.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
