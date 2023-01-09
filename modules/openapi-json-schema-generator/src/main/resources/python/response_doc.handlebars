@@ -64,7 +64,7 @@ Key | Accessed Type | Description  | Notes
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
-{{../../@key}} | [{{../../name.getCamelCaseName}}.{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../name.getCamelCaseName}}.{{../../name.getSnakeCaseName}}.content.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../../../name.getSnakeCaseName}}{{../../name.getSnakeCaseName}}content{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
