@@ -1780,7 +1780,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String toResponseModuleName(String componentName) {
-        return toModuleFilename("response_" + componentName);
+        String suffix = toModuleFilename(componentName);
+        String spacer = "";
+        if (!suffix.startsWith("_")) {
+            spacer = "_";
+        }
+        return "response" + spacer + suffix;
+
     }
 
     public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }

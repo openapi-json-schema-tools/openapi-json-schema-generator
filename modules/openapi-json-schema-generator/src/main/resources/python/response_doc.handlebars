@@ -4,7 +4,7 @@
 ## {{packageName}}.components.responses.{{componentModule}}
 # <a id="ApiResponse" >ApiResponse</a>
 {{else}}
-#### <a id="response_for_{{@key}}ApiResponse" >response_for_{{@key}}.ApiResponse</a>
+#### <a id="{{name.getSnakeCaseName}}ApiResponse" >{{name.getSnakeCaseName}}.ApiResponse</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -24,7 +24,7 @@ headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#respo
 {{#each content}}
     {{#with this.schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3=".content." schemaNamePrefix4=../@key.getSnakeCaseName schemaNamePrefix5="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name.getSnakeCaseName schemaNamePrefix2=".content." schemaNamePrefix3=../@key.getSnakeCaseName schemaNamePrefix5="." }}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -32,7 +32,7 @@ headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#respo
 {{#if componentModule}}
 ## Headers
 {{else}}
-#### <a id="response_for_{{@key}}.Headers" >response_for_{{@key}}.Headers</a>
+#### <a id="{{name.getSnakeCaseName}}Headers" >{{name.getSnakeCaseName}}.Headers</a>
 {{/if}}
 
 Key | Accessed Type | Description  | Notes

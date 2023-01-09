@@ -174,16 +174,16 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
-404 | [response_for_404.ApiResponse](#response_for_404ApiResponse) | Not found
+404 | [response_404.ApiResponse](#response_404ApiResponse) | Not found
 
-#### <a id="response_for_404ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_404ApiResponse" >response_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_404.content.application_json.schema](#response_for_404.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_404.content.application_json.schema" >response_for_404.content.application_json.schema</a>
+# <a id="response_404.content.application_json.schema" >response_404.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

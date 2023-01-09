@@ -73,30 +73,30 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid username/password supplied
+200 | [response_200.ApiResponse](#response_200ApiResponse) | successful operation
+400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid username/password supplied
 
-#### <a id="response_for_200ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.content.application_xml.schema](#response_for_200.content.application_xml.schema), [response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
 headers | [response_for_200.Headers](#response_for_200.Headers) |  |
 
-# <a id="response_for_200.content.application_xml.schema" >response_for_200.content.application_xml.schema</a>
+# <a id="response_200.content.application_xml.schema" >response_200.content.application_xml.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="response_for_200.content.application_json.schema" >response_for_200.content.application_json.schema</a>
+# <a id="response_200.content.application_json.schema" >response_200.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### <a id="response_for_200.Headers" >response_for_200.Headers</a>
+#### <a id="response_200Headers" >response_200.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -122,7 +122,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

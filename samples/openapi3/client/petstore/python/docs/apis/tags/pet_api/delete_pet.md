@@ -108,9 +108,9 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid pet value
+400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid pet value
 
-#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

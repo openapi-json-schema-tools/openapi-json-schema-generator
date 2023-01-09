@@ -35,16 +35,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_defaultApiResponse) | response
+default | [response_default.ApiResponse](#response_defaultApiResponse) | response
 
-#### <a id="response_for_defaultApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_defaultApiResponse" >response_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_default.content.application_json.schema](#response_for_default.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_default.content.application_json.schema" >response_for_default.content.application_json.schema</a>
+# <a id="response_default.content.application_json.schema" >response_default.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

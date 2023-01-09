@@ -136,25 +136,25 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid ID supplied
-404 | [response_for_404.ApiResponse](#response_for_404ApiResponse) | Pet not found
-405 | [response_for_405.ApiResponse](#response_for_405ApiResponse) | Validation exception
+400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid ID supplied
+404 | [response_404.ApiResponse](#response_404ApiResponse) | Pet not found
+405 | [response_405.ApiResponse](#response_405ApiResponse) | Validation exception
 
-#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_404ApiResponse" >response_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_405ApiResponse" >response_for_405.ApiResponse</a>
+#### <a id="response_405ApiResponse" >response_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

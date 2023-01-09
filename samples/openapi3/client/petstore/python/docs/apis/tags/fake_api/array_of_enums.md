@@ -57,16 +57,16 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200ApiResponse) | Got named array of enums
+200 | [response_200.ApiResponse](#response_200ApiResponse) | Got named array of enums
 
-#### <a id="response_for_200ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_200.content.application_json.schema" >response_for_200.content.application_json.schema</a>
+# <a id="response_200.content.application_json.schema" >response_200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayOfEnums**](../../../components/schema/array_of_enums.ArrayOfEnums.md) |  | 
