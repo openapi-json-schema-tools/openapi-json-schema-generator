@@ -144,10 +144,10 @@ items | str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid tag value
+200 | [response_for_200.ApiResponse](#response_for_200ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid tag value
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -178,7 +178,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  |
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

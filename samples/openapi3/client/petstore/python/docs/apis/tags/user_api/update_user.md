@@ -82,17 +82,17 @@ username | [parameter_path_user_name.schema](../../../components/parameters/para
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid user supplied
-404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | User not found
+400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid user supplied
+404 | [response_for_404.ApiResponse](#response_for_404ApiResponse) | User not found
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_404ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -63,9 +63,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | successful operation
+default | [response_for_default.ApiResponse](#response_for_defaultApiResponse) | successful operation
 
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_for_defaultApiResponse" >response_for_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

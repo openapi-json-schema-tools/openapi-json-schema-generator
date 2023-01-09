@@ -73,10 +73,10 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid username/password supplied
+200 | [response_for_200.ApiResponse](#response_for_200ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid username/password supplied
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -122,7 +122,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

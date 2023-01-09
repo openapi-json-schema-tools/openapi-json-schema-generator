@@ -139,9 +139,9 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
-405 | [response_for_405.ApiResponse](#response_for_405.ApiResponse) | Invalid input
+405 | [response_for_405.ApiResponse](#response_for_405ApiResponse) | Invalid input
 
-#### <a id="response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
+#### <a id="response_for_405ApiResponse" >response_for_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

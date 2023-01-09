@@ -65,11 +65,11 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid ID supplied
-404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | Order not found
+200 | [response_for_200.ApiResponse](#response_for_200ApiResponse) | successful operation
+400 | [response_for_400.ApiResponse](#response_for_400ApiResponse) | Invalid ID supplied
+404 | [response_for_404.ApiResponse](#response_for_404ApiResponse) | Order not found
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_for_200ApiResponse" >response_for_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -88,14 +88,14 @@ Type | Description  | Notes
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_for_400ApiResponse" >response_for_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_for_404ApiResponse" >response_for_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
