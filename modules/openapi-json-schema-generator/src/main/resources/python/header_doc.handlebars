@@ -3,14 +3,14 @@
 # {{packageName}}.components.headers.{{componentModule}}
         {{#if schema}}
             {{#with schema}}
-{{> api_doc_schema_type_hint }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name }}
             {{/with}}
         {{else}}
             {{#each getContent}}
                 {{#with this}}
                     {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName}}
                     {{/with}}
                 {{/with}}
             {{/each}}
@@ -19,21 +19,21 @@
 [[Back to top]](#top) {{> footer_links readmePath="../../../" headersLink=true }}
     {{else}}
         {{#unless refInfo}}
-        {{#if schema}}
-            {{#with schema}}
+            {{#if schema}}
+                {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3=../name.getSnakeCaseName }}
-            {{/with}}
-        {{else}}
-            {{#each getContent}}
-                {{#with this}}
-                    {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="content" schemaNamePrefix4=../@key.getSnakeCaseName}}
-                    {{/with}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2=../name.getSnakeCaseName }}
                 {{/with}}
-            {{/each}}
-        {{/if}}
+            {{else}}
+                {{#each getContent}}
+                    {{#with this}}
+                        {{#with schema}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2=../../name.getSnakeCaseName schemaNamePrefix3="content" schemaNamePrefix4=../@key.getSnakeCaseName}}
+                        {{/with}}
+                    {{/with}}
+                {{/each}}
+            {{/if}}
         {{/unless}}
     {{/if}}
 {{/with}}
