@@ -72,7 +72,9 @@ Key | Accessed Type | Description  | Notes
         {{/if}}
     {{/with}}
 {{/each}}
-{{> header_doc }}
+{{#each headers}}
+{{> header_doc header=this }}
+{{/each}}
 {{/if}}
 {{#if componentModule}}
 

@@ -24,7 +24,7 @@ Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 someHeader | [header_some_header.schema](#header_some_header.schema) | | optional
 
-# <a id="header_some_header.schema" >header_some_header.schema</a>
+# <a id="response_for_someHeader.header_some_header.schema" >response_for_someHeader.header_some_header.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

@@ -951,7 +951,7 @@ public class DefaultGenerator implements Generator {
                 String filename = fileFolder + File.separatorChar + config.toHeaderDocFilename(componentName) + suffix;
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
-                templateData.put("headers", Collections.singletonMap("unsetHeaderName", header));
+                templateData.put("header", header);
                 templateData.put("complexTypePrefix", "../../components/schema/");
 
                 try {

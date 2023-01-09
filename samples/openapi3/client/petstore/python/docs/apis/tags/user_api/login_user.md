@@ -108,14 +108,14 @@ ref-content-schema-header | [header_ref_content_schema_header.schema](../../../c
 stringHeader | [header_string_header.schema](../../../components/headers/header_string_header.md#schema) | | 
 numberHeader | [header_number_header.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
-# <a id="response_for_200.header_x_rate_limit.schema" >response_for_200.header_x_rate_limit.schema</a>
+# <a id="response_for_X-Rate-Limit.content.application_json.schema" >response_for_X-Rate-Limit.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# <a id="response_for_200.header_x_expires_after.schema" >response_for_200.header_x_expires_after.schema</a>
+# <a id="response_for_X-Expires-After.header_x_expires_after.schema" >response_for_X-Expires-After.header_x_expires_after.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
