@@ -1,5 +1,5 @@
 # petstore_api.components.request_bodies.request_body_user_array
-# <a id="content.application_json.schema" >content.application_json.schema</a>
+# <a id="UserArray.content.application_json.schema" >UserArray.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

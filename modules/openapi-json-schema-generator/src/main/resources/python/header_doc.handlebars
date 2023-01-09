@@ -10,7 +10,7 @@
                 {{#with this}}
                     {{#with schema}}
 
-{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName schemaNamePrefix2=".content." schemaNamePrefix3=../@key.getSnakeCaseName schemaNamePrefix4="."}}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name.getCamelCaseName schemaNamePrefix2=".content." schemaNamePrefix3=../@key.getSnakeCaseName schemaNamePrefix4="."}}
                     {{/with}}
                 {{/with}}
             {{/each}}
