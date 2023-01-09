@@ -180,10 +180,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_404.content.schema](#response_for_404.content.schema), ] |  |
+body | typing.Union[[response_for_404.content.application_json.schema](#response_for_404.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_404.content.schema" >response_for_404.content.schema</a>
+# <a id="response_for_404.content.application_json.schema" >response_for_404.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

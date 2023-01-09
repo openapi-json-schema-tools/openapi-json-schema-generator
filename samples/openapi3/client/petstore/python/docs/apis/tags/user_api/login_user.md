@@ -80,17 +80,17 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.content.schema](#response_for_200.content.schema), [response_for_200.content.schema](#response_for_200.content.schema), ] |  |
+body | typing.Union[[response_for_200.content.application_xml.schema](#response_for_200.content.application_xml.schema), [response_for_200.content.application_json.schema](#response_for_200.content.application_json.schema), ] |  |
 headers | [response_for_200.Headers](#response_for_200.Headers) |  |
 
-# <a id="response_for_200.content.schema" >response_for_200.content.schema</a>
+# <a id="response_for_200.content.application_xml.schema" >response_for_200.content.application_xml.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="response_for_200.content.schema" >response_for_200.content.schema</a>
+# <a id="response_for_200.content.application_json.schema" >response_for_200.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

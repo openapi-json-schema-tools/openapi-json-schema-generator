@@ -41,10 +41,10 @@ default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_default.content.schema](#response_for_default.content.schema), ] |  |
+body | typing.Union[[response_for_default.content.application_json.schema](#response_for_default.content.application_json.schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_default.content.schema" >response_for_default.content.schema</a>
+# <a id="response_for_default.content.application_json.schema" >response_for_default.content.application_json.schema</a>
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
