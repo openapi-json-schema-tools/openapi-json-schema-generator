@@ -184,7 +184,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 {{#if defaultResponse}}
 {{#with defaultResponse}}
 {{#if refInfo.refModule}}
-default | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md) | {{#with refInfo.getRef}}{{message}}{{/with}}
+default | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md#ApiResponse) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
 default | [response_for_default.ApiResponse](#response_for_defaultApiResponse) | {{message}}
 {{/if}}
