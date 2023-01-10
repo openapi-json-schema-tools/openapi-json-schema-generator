@@ -17,7 +17,7 @@ from {{packageName}} import schemas
 {{#each content}}
     {{#with this.schema}}
         {{#unless refInfo.refModule}}
-from . import {{name.getSnakeCaseName}}
+from .content import {{../@key.getSnakeCaseName}}
         {{/unless}}
     {{/with}}
 {{/each}}
@@ -45,7 +45,7 @@ class ApiResponse(api_client.ApiResponse):
         {{#if refInfo.refModule}}
         {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
-        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
     {{/with}}
 {{else}}
@@ -67,7 +67,7 @@ class ApiResponse(api_client.ApiResponse):
         {{#if refInfo.refModule}}
         {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
-        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
     {{/with}}
 {{else}}
@@ -99,7 +99,7 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
                 {{#if refInfo.refModule}}
             {{refInfo.refModule}}.{{refInfo.refClass}},
                 {{else}}
-            {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+            {{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
                 {{/if}}
             {{/with}}
         {{/if}}

@@ -11,14 +11,14 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from . import schema
+from .content import application_json_charsetutf8
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema.Schema,
+        application_json_charsetutf8.schema.Schema,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -27,6 +27,6 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
     content = {
         'application/json; charset=utf-8': api_client.MediaType(
-            schema.Schema,
+            application_json_charsetutf8.schema.Schema,
         ),
     }

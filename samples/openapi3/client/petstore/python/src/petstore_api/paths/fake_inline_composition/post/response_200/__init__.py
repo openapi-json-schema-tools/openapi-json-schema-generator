@@ -11,16 +11,16 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from . import schema
-from . import schema
+from .content import application_json
+from .content import multipart_form_data
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema.Schema,
-        schema.Schema,
+        application_json.schema.Schema,
+        multipart_form_data.schema.Schema,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -29,9 +29,9 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
     content = {
         'application/json': api_client.MediaType(
-            schema.Schema,
+            application_json.schema.Schema,
         ),
         'multipart/form-data': api_client.MediaType(
-            schema.Schema,
+            multipart_form_data.schema.Schema,
         ),
     }

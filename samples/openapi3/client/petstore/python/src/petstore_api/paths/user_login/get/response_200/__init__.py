@@ -11,8 +11,8 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from . import schema
-from . import schema
+from .content import application_xml
+from .content import application_json
 from petstore_api.components.headers import header_ref_schema_header
 from . import header_x_rate_limit
 from petstore_api.components.headers import header_int32_json_content_type_header
@@ -61,8 +61,8 @@ class Header:
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        schema.Schema,
-        schema.Schema,
+        application_xml.schema.Schema,
+        application_json.schema.Schema,
     ]
     headers: Header.Params
 
@@ -71,10 +71,10 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
     content = {
         'application/xml': api_client.MediaType(
-            schema.Schema,
+            application_xml.schema.Schema,
         ),
         'application/json': api_client.MediaType(
-            schema.Schema,
+            application_json.schema.Schema,
         ),
     }
     headers=Header.parameters
