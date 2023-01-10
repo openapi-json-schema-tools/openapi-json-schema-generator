@@ -24,7 +24,7 @@ abstract class CodegenRequestBodyBase {
      * MAY be included and its default value is false.
      */
     protected boolean required;
-    protected LinkedHashMap<String, CodegenMediaType> content;
+    protected LinkedHashMap<CodegenKey, CodegenMediaType> content;
     protected Set<String> imports = new HashSet<String>();
     protected String componentModule;
     protected CodegenKey name;
@@ -76,11 +76,11 @@ abstract class CodegenRequestBodyBase {
         sb.append(", componentModule=").append(componentModule);
     }
 
-    public LinkedHashMap<String, CodegenMediaType> getContent() {
+    public LinkedHashMap<CodegenKey, CodegenMediaType> getContent() {
         return content;
     }
 
-    public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
+    public void setContent(LinkedHashMap<CodegenKey, CodegenMediaType> content) {
         this.content = content;
     }
 

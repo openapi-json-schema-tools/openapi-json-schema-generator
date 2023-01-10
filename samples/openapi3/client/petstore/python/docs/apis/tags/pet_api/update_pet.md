@@ -124,7 +124,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[request_body.application_json](../../../components/request_bodies/request_body_pet.md#petstore_api.components.request_bodies.application_json), [request_body.application_xml](../../../components/request_bodies/request_body_pet.md#petstore_api.components.request_bodies.application_xml)] | required |
+[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#request_body_petcontentapplication_jsonschema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#request_body_petcontentapplication_xmlschema)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 host_index | typing.Optional[int] | default is None | Allows one to select a different host
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -136,25 +136,25 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid ID supplied
-404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | Pet not found
-405 | [response_for_405.ApiResponse](#response_for_405.ApiResponse) | Validation exception
+400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid ID supplied
+404 | [response_404.ApiResponse](#response_404ApiResponse) | Pet not found
+405 | [response_405.ApiResponse](#response_405ApiResponse) | Validation exception
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_404ApiResponse" >response_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_405.ApiResponse" >response_for_405.ApiResponse</a>
+#### <a id="response_405ApiResponse" >response_405.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

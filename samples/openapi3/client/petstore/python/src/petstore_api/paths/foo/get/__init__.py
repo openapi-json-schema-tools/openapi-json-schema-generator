@@ -26,11 +26,11 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .. import path
-from . import response_for_default
+from . import response_default
 
 
 
-default_response = response_for_default.Default
+default_response = response_default.Default
 _all_accept_content_types = (
     'application/json',
 )
@@ -45,7 +45,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -123,7 +123,7 @@ class FooGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -143,7 +143,7 @@ class FooGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -173,7 +173,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
     @typing.overload
@@ -193,7 +193,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

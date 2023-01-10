@@ -661,6 +661,20 @@ public class DefaultGenerator implements Generator {
         generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);
     }
 
+    private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
+        // todo generate content init file
+        for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
+            String contentType = contentInfo.getKey().getName();
+            CodegenMediaType codegenMediaType = contentInfo.getValue();
+            CodegenSchema schema = codegenMediaType.getSchema();
+            if (schema != null && schema.getRefInfo() == null) {
+                String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                generateSchema(files, schema, schemaJsonPath);
+            }
+            // todo generate init file in schema location
+        }
+    }
+
     private void generateResponse(List<File> files, CodegenResponse response, String jsonPath) {
         Boolean generateResponses = Boolean.TRUE;
         Map<String, Object> templateData = new HashMap<>();
@@ -691,16 +705,9 @@ public class DefaultGenerator implements Generator {
                     }
                 }
             }
-            if (response.getContent() != null) {
-                for (Map.Entry<String, CodegenMediaType> contentInfo: response.getContent().entrySet()) {
-                    String contentType = contentInfo.getKey();
-                    CodegenMediaType codegenMediaType = contentInfo.getValue();
-                    CodegenSchema schema = codegenMediaType.getSchema();
-                    if (schema != null && schema.getRefInfo() == null) {
-                        String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                        generateSchema(files, schema, schemaJsonPath);
-                    }
-                }
+            LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
+            if (content != null && !content.isEmpty()) {
+                generateContent(files, content, jsonPath);
             }
         }
     }
@@ -769,16 +776,9 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schemas
-        if (requestBody.getContent()!= null && !requestBody.getContent().isEmpty()) {
-            for (Map.Entry<String, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
-                String contentType = contentInfo.getKey();
-                CodegenMediaType mt = contentInfo.getValue();
-                CodegenSchema schema = mt.getSchema();
-                String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                if (schema != null && schema.getRefInfo() == null) {
-                    generateSchema(files, schema, schemaJsonPath);
-                }
-            }
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.getContent();
+        if (content != null && !content.isEmpty()) {
+            generateContent(files, content, jsonPath);
         }
         if (requestBody.getComponentModule() == null) {
             return;
@@ -849,10 +849,14 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schema
-        CodegenSchema schema = parameter.getSetSchema();
+        CodegenSchema schema = parameter.getSchema();
         if (schema != null && schema.getRefInfo() == null) {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
+        }
+        if (schema == null) {
+            LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.getContent();
+            generateContent(files, content, jsonPath);
         }
     }
 
@@ -920,10 +924,14 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schema
-        CodegenSchema schema = header.getSetSchema();
+        CodegenSchema schema = header.getSchema();
         if (schema != null && schema.getRefInfo() == null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
+        }
+        if (schema == null) {
+            LinkedHashMap<CodegenKey, CodegenMediaType> content = header.getContent();
+            generateContent(files, content, jsonPath);
         }
     }
 
@@ -951,7 +959,7 @@ public class DefaultGenerator implements Generator {
                 String filename = fileFolder + File.separatorChar + config.toHeaderDocFilename(componentName) + suffix;
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
-                templateData.put("headers", Collections.singletonMap("unsetHeaderName", header));
+                templateData.put("header", header);
                 templateData.put("complexTypePrefix", "../../components/schema/");
 
                 try {

@@ -27,9 +27,9 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.request_bodies import request_body_pet as request_body
 
 from .. import path
-from . import response_for_400
-from . import response_for_404
-from . import response_for_405
+from . import response_400
+from . import response_404
+from . import response_405
 
 
 _auth = [
@@ -52,15 +52,15 @@ _servers = (
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '400': response_for_400._400,
-        '404': response_for_404._404,
-        '405': response_for_405._405,
+        '400': response_400._400,
+        '404': response_404._404,
+        '405': response_405._405,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '400': response_for_400._400,
-    '404': response_for_404._404,
-    '405': response_for_405._405,
+    '400': response_400._400,
+    '404': response_404._404,
+    '405': response_405._405,
 })
 
 

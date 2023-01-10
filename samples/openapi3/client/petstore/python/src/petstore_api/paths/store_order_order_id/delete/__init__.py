@@ -25,8 +25,8 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .. import path
-from . import response_for_400
-from . import response_for_404
+from . import response_400
+from . import response_404
 from . import parameter_0
 
 
@@ -57,13 +57,13 @@ class RequestPathParameters:
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '400': response_for_400._400,
-        '404': response_for_404._404,
+        '400': response_400._400,
+        '404': response_404._404,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '400': response_for_400._400,
-    '404': response_for_404._404,
+    '400': response_400._400,
+    '404': response_404._404,
 })
 
 

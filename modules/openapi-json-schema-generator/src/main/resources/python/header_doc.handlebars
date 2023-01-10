@@ -1,65 +1,39 @@
-{{#if componentModule}}
-    {{#each headers}}
-        {{#with this}}
-            {{#unless refInfo.refModule}}
+{{#with header}}
+    {{#if componentModule}}
+# {{packageName}}.components.headers.{{componentModule}}
+        {{#if schema}}
+            {{#with schema}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name }}
+            {{/with}}
+        {{else}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName}}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+
+[[Back to top]](#top) {{> footer_links readmePath="../../../" headersLink=true }}
+    {{else}}
+        {{#unless refInfo}}
             {{#if schema}}
                 {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name.getSnakeCaseName schemaNamePrefix2="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2=../name.getSnakeCaseName }}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name.getSnakeCaseName schemaNamePrefix2="." }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2=../../name.getSnakeCaseName schemaNamePrefix3="content" schemaNamePrefix4=../@key.getSnakeCaseName}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
             {{/if}}
-            {{/unless}}
-        {{/with}}
-    {{/each}}
-{{else}}
-    {{#each headers}}
-        {{#with this}}
-            {{#if componentModule}}
-# {{packageName}}.components.headers.{{componentModule}}
-                {{#if schema}}
-                    {{#with schema}}
-{{> api_doc_schema_type_hint }}
-                    {{/with}}
-                {{else}}
-                    {{#each getContent}}
-                        {{#with this}}
-                            {{#with schema}}
-
-{{> api_doc_schema_type_hint }}
-                            {{/with}}
-                        {{/with}}
-                    {{/each}}
-                {{/if}}
-
-[[Back to top]](#top) {{> footer_links readmePath="../../../" headersLink=true }}
-            {{else}}
-                {{#unless refInfo.refModule}}
-                {{#if schema}}
-                    {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." schemaNamePrefix4=../name.getSnakeCaseName schemaNamePrefix5="." }}
-                    {{/with}}
-                {{else}}
-                    {{#each getContent}}
-                        {{#with this}}
-                            {{#with schema}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../../@key schemaNamePrefix3="." schemaNamePrefix4=../name.getSnakeCaseName schemaNamePrefix5="." }}
-                            {{/with}}
-                        {{/with}}
-                    {{/each}}
-                {{/if}}
-                {{/unless}}
-            {{/if}}
-        {{/with}}
-    {{/each}}
-{{/if}}
+        {{/unless}}
+    {{/if}}
+{{/with}}

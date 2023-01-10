@@ -32,7 +32,7 @@ class TestFakeRefsArraymodel(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.animal_farm.AnimalFarm
+    response_body_schema = post.response_200.animal_farm.AnimalFarm
 
 if __name__ == '__main__':
     unittest.main()

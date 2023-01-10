@@ -11,12 +11,12 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
-from . import application_json
+from .content.application_json import schema
 
 
 class _0(api_client.QueryParameter):
     name = "someParam"
     content = {
-        "application/json": application_json.ApplicationJson,
+        "application/json": schema.Schema,
     }
     required = True

@@ -33,7 +33,7 @@ class TestAnotherFakeDummy(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = patch.response_for_200.client.Client
+    response_body_schema = patch.response_200.client.Client
 
 if __name__ == '__main__':
     unittest.main()
