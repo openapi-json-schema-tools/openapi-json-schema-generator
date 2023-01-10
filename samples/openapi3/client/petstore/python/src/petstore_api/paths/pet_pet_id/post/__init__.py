@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .. import path
-from . import response_for_405
+from . import response_405
 from . import request_body
 from . import parameter_0
 
@@ -62,11 +62,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '405': response_for_405._405,
+        '405': response_405._405,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '405': response_for_405._405,
+    '405': response_405._405,
 })
 
 

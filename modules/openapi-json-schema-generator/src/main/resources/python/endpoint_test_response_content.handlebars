@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}
+response_body_schema = {{httpMethod}}.response_{{../@key}}.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}

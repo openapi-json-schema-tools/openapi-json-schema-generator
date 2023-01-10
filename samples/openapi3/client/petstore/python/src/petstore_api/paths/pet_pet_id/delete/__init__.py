@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .. import path
-from . import response_for_400
+from . import response_400
 from . import parameter_0
 from . import parameter_1
 
@@ -85,11 +85,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '400': response_for_400._400,
+        '400': response_400._400,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '400': response_for_400._400,
+    '400': response_400._400,
 })
 
 

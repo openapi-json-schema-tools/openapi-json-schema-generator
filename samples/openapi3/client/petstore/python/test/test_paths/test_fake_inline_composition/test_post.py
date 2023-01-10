@@ -33,8 +33,8 @@ class TestFakeInlineComposition(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.schema.Schema
-    response_body_schema = post.response_for_200.schema.Schema
+    response_body_schema = post.response_200.schema.Schema
+    response_body_schema = post.response_200.schema.Schema
 
 if __name__ == '__main__':
     unittest.main()
