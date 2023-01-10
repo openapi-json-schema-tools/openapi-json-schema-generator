@@ -769,7 +769,8 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schemas
-        if (requestBody.getContent()!= null && !requestBody.getContent().isEmpty()) {
+        if (requestBody.getContent() != null && !requestBody.getContent().isEmpty()) {
+            // TODO add content init here
             for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: requestBody.getContent().entrySet()) {
                 String contentType = contentInfo.getKey().getName();
                 CodegenMediaType mt = contentInfo.getValue();
@@ -777,6 +778,7 @@ public class DefaultGenerator implements Generator {
                 String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 if (schema != null && schema.getRefInfo() == null) {
                     generateSchema(files, schema, schemaJsonPath);
+                    // TODO add schema init here
                 }
             }
         }
