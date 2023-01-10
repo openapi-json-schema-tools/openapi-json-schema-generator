@@ -11,7 +11,7 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
-from . import schema
+from .content.application_json import schema
 
 
 class XRateLimit(api_client.HeaderParameterWithoutName):
