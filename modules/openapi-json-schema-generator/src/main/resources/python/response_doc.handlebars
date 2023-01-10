@@ -49,7 +49,7 @@ Key | Accessed Type | Description  | Notes
                     {{#each getContent}}
                         {{#with this}}
                             {{#with schema}}
-{{../../@key}} | [{{../../name.getCamelCaseName}}.{{../../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{/with}}
                     {{/each}}
