@@ -9,7 +9,7 @@ from {{packageName}} import api_client, exceptions
 {{#with this}}
     {{#with schema}}
         {{#unless refInfo.getRefModule}}
-from . import {{name.getSnakeCaseName}}
+from .content import {{../@key.getSnakeCaseName}}
         {{/unless}}
     {{/with}}
 {{/with}}
@@ -24,7 +24,7 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
             {{#if refInfo.getRefModule}}
             schema={{refInfo.getRefModule}}.{{refInfo.getRefClass}},
             {{else}}
-            schema={{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+            schema={{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
             {{/if}}
         {{/with}}
     {{/with}}
