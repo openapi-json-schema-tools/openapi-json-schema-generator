@@ -686,7 +686,7 @@ public class DefaultGenerator implements Generator {
                     String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
                     for (Map.Entry<String, String> contentTypeEntry: config.contentTypeTemplateFiles().entrySet()) {
                         String templateName = contentTypeEntry.getKey();
-                        String filename = config.contentTypeFilename(templateName, contentJsonPath);
+                        String filename = config.contentTypeFilename(templateName, contentTypeJsonPath);
                         try {
                             File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.CONTENT);
                             if (written != null) {
