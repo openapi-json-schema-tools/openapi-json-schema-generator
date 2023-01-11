@@ -27,11 +27,22 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/xml': api_client.MediaType(
-            user.User,
-        ),
-        'application/json': api_client.MediaType(
-            user.User,
-        ),
+
+
+    class __ApplicationXmlMediaType(api_client.MediaType):
+        schema: typing.Type[user.User] = user.User
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[user.User] = user.User
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/xml': __ApplicationXmlMediaType,
+            'application/json': __ApplicationJsonMediaType,
+        }
+    )
+    content: __Content = {
+        'application/xml': __ApplicationXmlMediaType,
+        'application/json': __ApplicationJsonMediaType,
     }

@@ -90,24 +90,32 @@ class ApiResponse(api_client.ApiResponse):
 class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
 {{#each content}}
-{{#if @first}}
-    content = {
-{{/if}}
-        '{{{@key.getName}}}': api_client.MediaType(
-        {{#if this.schema}}
-            {{#with this.schema}}
-                {{#if refInfo.refModule}}
-            {{refInfo.refModule}}.{{refInfo.refClass}},
-                {{else}}
-            {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
-                {{/if}}
-            {{/with}}
-        {{/if}}
-        ),
-{{#if @last}}
-    }
-{{/if}}
+
+
+    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
+    {{#with this}}
+        {{#with schema}}
+            {{#if refInfo.getRefModule}}
+        schema: typing.Type[{{refInfo.getRefModule}}.{{refInfo.getRefClass}}] = {{refInfo.getRefModule}}.{{refInfo.getRefClass}}
+            {{else}}
+        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+            {{/if}}
+        {{/with}}
+    {{/with}}
 {{/each}}
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+{{#each content}}
+            '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+{{/each}}
+        }
+    )
+    content: __Content = {
+{{#each content}}
+        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+{{/each}}
+    }
 {{#if headers}}
     headers=Header.parameters
 {{/if}}

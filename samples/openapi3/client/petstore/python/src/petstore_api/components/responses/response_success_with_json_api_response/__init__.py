@@ -62,9 +62,17 @@ class ApiResponse(api_client.ApiResponse):
 
 class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/json': api_client.MediaType(
-            api_response.ApiResponse,
-        ),
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[api_response.ApiResponse] = api_response.ApiResponse
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/json': __ApplicationJsonMediaType,
+        }
+    )
+    content: __Content = {
+        'application/json': __ApplicationJsonMediaType,
     }
     headers=Header.parameters

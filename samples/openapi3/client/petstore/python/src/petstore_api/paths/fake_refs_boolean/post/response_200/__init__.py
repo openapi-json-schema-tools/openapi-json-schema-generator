@@ -26,8 +26,16 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/json': api_client.MediaType(
-            boolean.Boolean,
-        ),
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[boolean.Boolean] = boolean.Boolean
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/json': __ApplicationJsonMediaType,
+        }
+    )
+    content: __Content = {
+        'application/json': __ApplicationJsonMediaType,
     }

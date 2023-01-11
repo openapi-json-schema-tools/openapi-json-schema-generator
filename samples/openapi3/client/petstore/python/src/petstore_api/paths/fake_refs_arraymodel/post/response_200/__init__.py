@@ -26,8 +26,16 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/json': api_client.MediaType(
-            animal_farm.AnimalFarm,
-        ),
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[animal_farm.AnimalFarm] = animal_farm.AnimalFarm
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/json': __ApplicationJsonMediaType,
+        }
+    )
+    content: __Content = {
+        'application/json': __ApplicationJsonMediaType,
     }

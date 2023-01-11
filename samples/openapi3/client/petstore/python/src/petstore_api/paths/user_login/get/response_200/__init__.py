@@ -69,12 +69,23 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/xml': api_client.MediaType(
-            application_xml_schema.Schema,
-        ),
-        'application/json': api_client.MediaType(
-            application_json_schema.Schema,
-        ),
+
+
+    class __ApplicationXmlMediaType(api_client.MediaType):
+        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/xml': __ApplicationXmlMediaType,
+            'application/json': __ApplicationJsonMediaType,
+        }
+    )
+    content: __Content = {
+        'application/xml': __ApplicationXmlMediaType,
+        'application/json': __ApplicationJsonMediaType,
     }
     headers=Header.parameters

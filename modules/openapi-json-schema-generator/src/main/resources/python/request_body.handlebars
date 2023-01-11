@@ -2,6 +2,8 @@
 
 {{>partial_header}}
 
+import typing
+
 from {{packageName}} import api_client, exceptions
 {{#with requestBody}}
 {{> model_templates/imports }}
@@ -16,19 +18,31 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
 {{/each}}
 
 class {{name.getCamelCaseName}}(api_client.RequestBody):
-    content = {
 {{#each content}}
-        '{{{@key.getName}}}': api_client.MediaType(
+
+
+    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
             {{#if refInfo.getRefModule}}
-            schema={{refInfo.getRefModule}}.{{refInfo.getRefClass}},
+        schema: typing.Type[{{refInfo.getRefModule}}.{{refInfo.getRefClass}}] = {{refInfo.getRefModule}}.{{refInfo.getRefClass}}
             {{else}}
-            schema={{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
             {{/if}}
         {{/with}}
     {{/with}}
-        ),
+{{/each}}
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+{{#each content}}
+            '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+{{/each}}
+        }
+    )
+    content: __Content = {
+{{#each content}}
+        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
 {{/each}}
     }
 {{#if required}}

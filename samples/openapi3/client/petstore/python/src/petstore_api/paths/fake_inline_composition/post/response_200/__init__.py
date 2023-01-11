@@ -27,11 +27,22 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/json': api_client.MediaType(
-            application_json_schema.Schema,
-        ),
-        'multipart/form-data': api_client.MediaType(
-            multipart_form_data_schema.Schema,
-        ),
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+
+
+    class __MultipartFormDataMediaType(api_client.MediaType):
+        schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/json': __ApplicationJsonMediaType,
+            'multipart/form-data': __MultipartFormDataMediaType,
+        }
+    )
+    content: __Content = {
+        'application/json': __ApplicationJsonMediaType,
+        'multipart/form-data': __MultipartFormDataMediaType,
     }

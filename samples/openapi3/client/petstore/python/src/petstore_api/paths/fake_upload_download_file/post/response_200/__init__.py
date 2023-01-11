@@ -25,8 +25,16 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    content = {
-        'application/octet-stream': api_client.MediaType(
-            application_octet_stream_schema.Schema,
-        ),
+
+
+    class __ApplicationOctetStreamMediaType(api_client.MediaType):
+        schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
+    __Content = typing.TypedDict(
+        '__Content',
+        {
+            'application/octet-stream': __ApplicationOctetStreamMediaType,
+        }
+    )
+    content: __Content = {
+        'application/octet-stream': __ApplicationOctetStreamMediaType,
     }
