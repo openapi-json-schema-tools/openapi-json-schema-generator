@@ -181,6 +181,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
     protected Map<String, String> responseTemplateFiles = new HashMap<>();
     protected Map<String, String> contentTemplateFiles = new HashMap<>();
+    protected Map<String, String> contentTypeTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
     protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
@@ -906,6 +907,11 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public Map<String, String> contentTemplateFiles() {
         return contentTemplateFiles;
+    }
+
+    @Override
+    public Map<String, String> contentTypeTemplateFiles() {
+        return contentTypeTemplateFiles;
     }
 
 
@@ -4139,6 +4145,79 @@ public class DefaultCodegen implements CodegenConfig {
                 String headerModule = toHeaderFilename(pathPieces[7]);
                 String responseModule = toResponseModuleName(code);
                 return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + fileName;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String contentTypeFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        String suffix = contentTypeTemplateFiles.get(templateName);
+        if (jsonPath.startsWith("#/components/headers/")) {
+            String componentName = pathPieces[3];
+            // #/components/headers/someHeader/content/application-json -> length 6
+            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+            CodegenKey contentTypeKey = getKey(contentType);
+            return headerFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+        } else if (jsonPath.startsWith("#/components/parameters/")) {
+            String componentName = pathPieces[3];
+            // #/components/parameters/someParam/content/application-json -> length 6
+            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+            CodegenKey contentTypeKey = getKey(contentType);
+            return parameterFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+        } else if (jsonPath.startsWith("#/components/requestBodies/")) {
+            // #/components/requestBodies/someBody/content/application-json -> length 6
+            String componentName = pathPieces[3];
+            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+            CodegenKey contentTypeKey = getKey(contentType);
+            return requestBodyFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+        } else if (jsonPath.startsWith("#/components/responses/")) {
+            String componentName = pathPieces[3];
+            if (pathPieces.length == 6) {
+                String contentOrHeaders = pathPieces[4];
+                // #/components/responses/someResponse/content/application-json -> length 6
+                String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                CodegenKey contentTypeKey = getKey(contentType);
+                return responseFileFolder(componentName) + File.separatorChar  + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+            }
+            // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
+            String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+            CodegenKey contentTypeKey = getKey(contentType);
+            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+        } else if (jsonPath.startsWith("#/paths/")) {
+            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            String httpVerb = pathPieces[3];
+            if (pathPieces.length == 7) {
+                // #/paths/somePath/get/requestBody/content/application-json -> length 7
+                String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
+                CodegenKey contentTypeKey = getKey(contentType);
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "request_body" + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+            } else if (pathPieces.length == 8) {
+                String parametersOrResponses = pathPieces[4];
+                if (parametersOrResponses.equals("parameters")) {
+                    // #/paths/somePath/get/parameters/1/content/application-json -> length 8
+                    String i = pathPieces[5];
+                    String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                    CodegenKey contentTypeKey = getKey(contentType);
+                    return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+                } else if (parametersOrResponses.equals("responses")) {
+                    String contentOrHeaders = pathPieces[6];
+                    String code = pathPieces[5];
+                    String responseModule = toResponseModuleName(code);
+                    // #/paths/somePath/get/responses/200/content/application-json -> length 8
+                    String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                    CodegenKey contentTypeKey = getKey(contentType);
+                    return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+                }
+            } else if (pathPieces.length == 10) {
+                // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
+                String code = pathPieces[5];
+                String headerModule = toHeaderFilename(pathPieces[7]);
+                String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
+                CodegenKey contentTypeKey = getKey(contentType);
+                String responseModule = toResponseModuleName(code);
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
             }
         }
         return null;

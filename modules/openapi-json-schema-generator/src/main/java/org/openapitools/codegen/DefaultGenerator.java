@@ -664,10 +664,10 @@ public class DefaultGenerator implements Generator {
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
         for (Map.Entry<String, String> contentEntry: config.contentTemplateFiles().entrySet()) {
             String contentJsonPath = jsonPath + "/content";
-            String templateName = contentEntry.getKey();
-            String filename = config.contentFilename(templateName, contentJsonPath);
+            String contentTemplateName = contentEntry.getKey();
+            String contentFilename = config.contentFilename(contentTemplateName, contentJsonPath);
             try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.CONTENT);
+                File written = processTemplateToFile(new HashMap<>(), contentTemplateName, contentFilename, true, CodegenConstants.CONTENT);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -679,13 +679,29 @@ public class DefaultGenerator implements Generator {
             }
             for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
                 String contentType = contentInfo.getKey().getName();
+                // todo generate init file in contentType location
                 CodegenMediaType codegenMediaType = contentInfo.getValue();
                 CodegenSchema schema = codegenMediaType.getSchema();
                 if (schema != null && schema.getRefInfo() == null) {
-                    String schemaJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                    String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
+                    for (Map.Entry<String, String> contentTypeEntry: config.contentTypeTemplateFiles().entrySet()) {
+                        String templateName = contentTypeEntry.getKey();
+                        String filename = config.contentTypeFilename(templateName, contentJsonPath);
+                        try {
+                            File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.CONTENT);
+                            if (written != null) {
+                                files.add(written);
+                                if (config.isEnablePostProcessFile() && !dryRun) {
+                                    config.postProcessFile(written, "content");
+                                }
+                            }
+                        } catch (IOException e) {
+                            throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
+                        }
+                    }
+                    String schemaJsonPath = contentTypeJsonPath + "/schema";
                     generateSchema(files, schema, schemaJsonPath);
                 }
-                // todo generate init file in contentType location
             }
         }
     }
