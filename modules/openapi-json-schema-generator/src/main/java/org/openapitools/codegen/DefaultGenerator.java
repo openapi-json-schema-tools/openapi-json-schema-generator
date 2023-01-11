@@ -662,16 +662,31 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
-        // todo generate content init file
-        for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
-            String contentType = contentInfo.getKey().getName();
-            CodegenMediaType codegenMediaType = contentInfo.getValue();
-            CodegenSchema schema = codegenMediaType.getSchema();
-            if (schema != null && schema.getRefInfo() == null) {
-                String schemaJsonPath = jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
-                generateSchema(files, schema, schemaJsonPath);
+        for (Map.Entry<String, String> contentEntry: config.contentTemplateFiles().entrySet()) {
+            String contentJsonPath = jsonPath + "/content";
+            String templateName = contentEntry.getKey();
+            String filename = config.contentFilename(templateName, contentJsonPath);
+            try {
+                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.CONTENT);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "content");
+                    }
+                }
+            } catch (IOException e) {
+                throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
             }
-            // todo generate init file in schema location
+            for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
+                String contentType = contentInfo.getKey().getName();
+                CodegenMediaType codegenMediaType = contentInfo.getValue();
+                CodegenSchema schema = codegenMediaType.getSchema();
+                if (schema != null && schema.getRefInfo() == null) {
+                    String schemaJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType) + "/schema";
+                    generateSchema(files, schema, schemaJsonPath);
+                }
+                // todo generate init file in contentType location
+            }
         }
     }
 

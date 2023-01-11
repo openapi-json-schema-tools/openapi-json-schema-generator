@@ -26,6 +26,7 @@ public class CodegenConstants {
     public static final String APIS = "apis";
     public static final String MODELS = "models";
 
+    public static final String CONTENT = "content";
     public static final String REQUEST_BODIES = "requestBodies";
     public static final String REQUEST_BODY_DOCS = "requestBodyDocs";
 

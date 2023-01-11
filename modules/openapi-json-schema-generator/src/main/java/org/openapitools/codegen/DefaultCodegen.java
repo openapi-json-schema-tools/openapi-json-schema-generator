@@ -180,7 +180,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> headerTemplateFiles = new HashMap<>();
     protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
     protected Map<String, String> responseTemplateFiles = new HashMap<>();
-    protected Map<String, String> initTemplateFiles = new HashMap<>();
+    protected Map<String, String> contentTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Map<String, String> pathEndpointTemplateFiles = new HashMap();
     protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
@@ -902,6 +902,12 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> modelTemplateFiles() {
         return modelTemplateFiles;
     }
+
+    @Override
+    public Map<String, String> contentTemplateFiles() {
+        return contentTemplateFiles;
+    }
+
 
     @Override
     public Map<String, String> requestBodyTemplateFiles() { return requestBodyTemplateFiles; }
@@ -4081,6 +4087,59 @@ public class DefaultCodegen implements CodegenConfig {
             String responseModule = toResponseModuleName(code);
             String headerModule = toHeaderFilename(pathPieces[7]);
             return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + writtenFilename;
+        }
+        return null;
+    }
+
+    @Override
+    public String contentFilename(String templateName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        String fileName = contentTemplateFiles.get(templateName);
+        if (jsonPath.startsWith("#/components/headers/")) {
+            String componentName = pathPieces[3];
+            // #/components/headers/someHeader/content -> length 5
+            return headerFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + fileName;
+        } else if (jsonPath.startsWith("#/components/parameters/")) {
+            String componentName = pathPieces[3];
+            // #/components/parameters/someParam/content -> length 5
+            return parameterFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + fileName;
+        } else if (jsonPath.startsWith("#/components/requestBodies/")) {
+            // #/components/requestBodies/someBody/content -> length 5
+            String componentName = pathPieces[3];
+            return requestBodyFileFolder(componentName) + File.separatorChar + "content" + File.separatorChar + fileName;
+        } else if (jsonPath.startsWith("#/components/responses/")) {
+            String componentName = pathPieces[3];
+            if (pathPieces.length == 5) {
+                // #/components/responses/someResponse/content -> length 5
+                return responseFileFolder(componentName) + File.separatorChar  + "content" + File.separatorChar + fileName;
+            }
+            // #/components/responses/someResponse/headers/SomeHeader/content -> length 7
+            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + fileName;
+        } else if (jsonPath.startsWith("#/paths/")) {
+            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            String httpVerb = pathPieces[3];
+            if (pathPieces.length == 6) {
+                // #/paths/somePath/get/requestBody/content -> length 6
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "request_body" + File.separatorChar + "content" + File.separatorChar + fileName;
+            } else if (pathPieces.length == 7) {
+                String parametersOrResponses = pathPieces[4];
+                if (parametersOrResponses.equals("parameters")) {
+                    // #/paths/somePath/get/parameters/1/content -> length 7
+                    String i = pathPieces[5];
+                    return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + toParameterFilename(i) + File.separatorChar + "content" + File.separatorChar + fileName;
+                } else if (parametersOrResponses.equals("responses")) {
+                    String code = pathPieces[5];
+                    String responseModule = toResponseModuleName(code);
+                    // #/paths/somePath/get/responses/200/content -> length 7
+                    return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "content" + File.separatorChar + fileName;
+                }
+            } else if (pathPieces.length == 9) {
+                // #/paths/somePath/get/responses/200/headers/someHeader/content -> length 9
+                String code = pathPieces[5];
+                String headerModule = toHeaderFilename(pathPieces[7]);
+                String responseModule = toResponseModuleName(code);
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + fileName;
+            }
         }
         return null;
     }
