@@ -7,11 +7,11 @@
 """
 
 from petstore_api import api_client, exceptions
-from .content import multipart_form_data
+from .content.multipart_form_data import schema as multipart_form_data_schema
 
 class RequestBody(api_client.RequestBody):
     content = {
         'multipart/form-data': api_client.MediaType(
-            schema=multipart_form_data.schema.Schema,
+            schema=multipart_form_data_schema.Schema,
         ),
     }

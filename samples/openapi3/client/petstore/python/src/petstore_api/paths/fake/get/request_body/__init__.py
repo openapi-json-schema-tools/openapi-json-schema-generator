@@ -7,11 +7,11 @@
 """
 
 from petstore_api import api_client, exceptions
-from .content import application_x_www_form_urlencoded
+from .content.application_x_www_form_urlencoded import schema as application_x_www_form_urlencoded_schema
 
 class RequestBody(api_client.RequestBody):
     content = {
         'application/x-www-form-urlencoded': api_client.MediaType(
-            schema=application_x_www_form_urlencoded.schema.Schema,
+            schema=application_x_www_form_urlencoded_schema.Schema,
         ),
     }

@@ -7,11 +7,11 @@
 """
 
 from petstore_api import api_client, exceptions
-from .content import application_json_charsetutf8
+from .content.application_json_charsetutf8 import schema as application_json_charsetutf8_schema
 
 class RequestBody(api_client.RequestBody):
     content = {
         'application/json; charset=utf-8': api_client.MediaType(
-            schema=application_json_charsetutf8.schema.Schema,
+            schema=application_json_charsetutf8_schema.Schema,
         ),
     }

@@ -7,12 +7,12 @@
 """
 
 from petstore_api import api_client, exceptions
-from .content import application_octet_stream
+from .content.application_octet_stream import schema as application_octet_stream_schema
 
 class RequestBody(api_client.RequestBody):
     content = {
         'application/octet-stream': api_client.MediaType(
-            schema=application_octet_stream.schema.Schema,
+            schema=application_octet_stream_schema.Schema,
         ),
     }
     required = True

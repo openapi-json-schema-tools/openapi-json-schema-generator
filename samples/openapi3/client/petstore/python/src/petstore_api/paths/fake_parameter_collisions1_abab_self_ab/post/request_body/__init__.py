@@ -7,11 +7,11 @@
 """
 
 from petstore_api import api_client, exceptions
-from .content import application_json
+from .content.application_json import schema as application_json_schema
 
 class RequestBody(api_client.RequestBody):
     content = {
         'application/json': api_client.MediaType(
-            schema=application_json.schema.Schema,
+            schema=application_json_schema.Schema,
         ),
     }

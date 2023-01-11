@@ -664,25 +664,13 @@ public class DefaultGenerator implements Generator {
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
         for (Map.Entry<String, String> contentEntry: config.contentTemplateFiles().entrySet()) {
             String contentJsonPath = jsonPath + "/content";
-            String contentTemplateName = contentEntry.getKey();
-            String contentFilename = config.contentFilename(contentTemplateName, contentJsonPath);
-            try {
-                File written = processTemplateToFile(new HashMap<>(), contentTemplateName, contentFilename, true, CodegenConstants.CONTENT);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "content");
-                    }
-                }
-            } catch (IOException e) {
-                throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
-            }
+            boolean nonRefSchema = false;
             for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
                 String contentType = contentInfo.getKey().getName();
-                // todo generate init file in contentType location
                 CodegenMediaType codegenMediaType = contentInfo.getValue();
                 CodegenSchema schema = codegenMediaType.getSchema();
                 if (schema != null && schema.getRefInfo() == null) {
+                    nonRefSchema = true;
                     String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
                     for (Map.Entry<String, String> contentTypeEntry: config.contentTypeTemplateFiles().entrySet()) {
                         String templateName = contentTypeEntry.getKey();
@@ -701,6 +689,21 @@ public class DefaultGenerator implements Generator {
                     }
                     String schemaJsonPath = contentTypeJsonPath + "/schema";
                     generateSchema(files, schema, schemaJsonPath);
+                }
+            }
+            if (nonRefSchema) {
+                String contentTemplateName = contentEntry.getKey();
+                String contentFilename = config.contentFilename(contentTemplateName, contentJsonPath);
+                try {
+                    File written = processTemplateToFile(new HashMap<>(), contentTemplateName, contentFilename, true, CodegenConstants.CONTENT);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "content");
+                        }
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                 }
             }
         }
