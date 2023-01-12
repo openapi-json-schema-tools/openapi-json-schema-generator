@@ -27,7 +27,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.responses import response_success_with_json_api_response as response_200
 
 from . import request_body
-from . import parameter_0
+from .parameters import parameter_0
 
 
 

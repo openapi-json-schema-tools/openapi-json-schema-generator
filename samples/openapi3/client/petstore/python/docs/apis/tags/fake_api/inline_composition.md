@@ -44,7 +44,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema), [RequestBody.content.multipart_form_data.schema](#request_bodycontentmultipart_form_dataschema), Unset] | optional, default is unset |
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', 'multipart/form-data', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -104,13 +104,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [parameter_0.schema](#parameter_0.schema) | | optional
-compositionInProperty | [parameter_1.schema](#parameter_1.schema) | | optional
+compositionAtRoot | [parameter_0.schema](#parameter_0schema) | | optional
+compositionInProperty | [parameter_1.schema](#parameter_1schema) | | optional
 
 
 # parameter_0.schema

@@ -94,10 +94,10 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema), Unset] | optional, default is unset |
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
-[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
-[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
-[cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParameters.Params) | |
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
+[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[cookie_params](#requestcookieparameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -112,16 +112,16 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
-### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_0.schema](#parameter_0.schema) | | optional
-aB | [parameter_1.schema](#parameter_1.schema) | | optional
-Ab | [parameter_2.schema](#parameter_2.schema) | | optional
-self | [parameter_3.schema](#parameter_3.schema) | | optional
-A-B | [parameter_4.schema](#parameter_4.schema) | | optional
+1 | [parameter_0.schema](#parameter_0schema) | | optional
+aB | [parameter_1.schema](#parameter_1schema) | | optional
+Ab | [parameter_2.schema](#parameter_2schema) | | optional
+self | [parameter_3.schema](#parameter_3schema) | | optional
+A-B | [parameter_4.schema](#parameter_4schema) | | optional
 
 
 # parameter_0.schema
@@ -159,15 +159,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="RequestHeaderParameters" >header_params</a>
-#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+### <a id="requestheaderparameters" >header_params</a>
+#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_5.schema](#parameter_5.schema) | | optional
-aB | [parameter_6.schema](#parameter_6.schema) | | optional
-self | [parameter_7.schema](#parameter_7.schema) | | optional
-A-B | [parameter_8.schema](#parameter_8.schema) | | optional
+1 | [parameter_5.schema](#parameter_5schema) | | optional
+aB | [parameter_6.schema](#parameter_6schema) | | optional
+self | [parameter_7.schema](#parameter_7schema) | | optional
+A-B | [parameter_8.schema](#parameter_8schema) | | optional
 
 # parameter_5.schema
 
@@ -197,16 +197,16 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="RequestPathParameters" >path_params</a>
-#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="requestpathparameters" >path_params</a>
+#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_9.schema](#parameter_9.schema) | | 
-aB | [parameter_10.schema](#parameter_10.schema) | | 
-Ab | [parameter_11.schema](#parameter_11.schema) | | 
-self | [parameter_12.schema](#parameter_12.schema) | | 
-A-B | [parameter_13.schema](#parameter_13.schema) | | 
+1 | [parameter_9.schema](#parameter_9schema) | | 
+aB | [parameter_10.schema](#parameter_10schema) | | 
+Ab | [parameter_11.schema](#parameter_11schema) | | 
+self | [parameter_12.schema](#parameter_12schema) | | 
+A-B | [parameter_13.schema](#parameter_13schema) | | 
 
 # parameter_9.schema
 
@@ -243,16 +243,16 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="RequestCookieParameters" >cookie_params</a>
-#### <a id="RequestCookieParameters.Params" >RequestCookieParameters.Params</a>
+### <a id="requestcookieparameters" >cookie_params</a>
+#### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_14.schema](#parameter_14.schema) | | optional
-aB | [parameter_15.schema](#parameter_15.schema) | | optional
-Ab | [parameter_16.schema](#parameter_16.schema) | | optional
-self | [parameter_17.schema](#parameter_17.schema) | | optional
-A-B | [parameter_18.schema](#parameter_18.schema) | | optional
+1 | [parameter_14.schema](#parameter_14schema) | | optional
+aB | [parameter_15.schema](#parameter_15schema) | | optional
+Ab | [parameter_16.schema](#parameter_16schema) | | optional
+self | [parameter_17.schema](#parameter_17schema) | | optional
+A-B | [parameter_18.schema](#parameter_18schema) | | optional
 
 # parameter_14.schema
 

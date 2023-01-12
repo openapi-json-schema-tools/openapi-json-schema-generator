@@ -57,7 +57,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema)] | required |
-[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
+[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -70,8 +70,8 @@ Type | Description  | Notes
 [**User**](../../../components/schema/user.User.md) |  | 
 
 
-### <a id="RequestPathParameters" >path_params</a>
-#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
+### <a id="requestpathparameters" >path_params</a>
+#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

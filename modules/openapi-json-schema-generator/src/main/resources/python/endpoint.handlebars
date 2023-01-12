@@ -48,7 +48,7 @@ from . import request_body
 {{/with}}
 {{#each allParams}}
 {{#unless refInfo.refModule}}
-from . import {{name.getSnakeCaseName}}
+from .parameters import {{name.getSnakeCaseName}}
 {{/unless}}
 {{/each}}
 

@@ -40,19 +40,19 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someVar | [parameter_0.schema](#parameter_0.schema) | | 
-SomeVar | [parameter_1.schema](#parameter_1.schema) | | 
-some_var | [parameter_2.schema](#parameter_2.schema) | | 
+someVar | [parameter_0.schema](#parameter_0schema) | | 
+SomeVar | [parameter_1.schema](#parameter_1schema) | | 
+some_var | [parameter_2.schema](#parameter_2schema) | | 
 
 
 # parameter_0.schema

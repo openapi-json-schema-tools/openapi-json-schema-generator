@@ -60,8 +60,8 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#request_body) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
-[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -97,15 +97,15 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [parameter_2.schema](#parameter_2.schema) | | optional
-enum_query_string | [parameter_3.schema](#parameter_3.schema) | | optional
-enum_query_integer | [parameter_4.schema](#parameter_4.schema) | | optional
-enum_query_double | [parameter_5.schema](#parameter_5.schema) | | optional
+enum_query_string_array | [parameter_2.schema](#parameter_2schema) | | optional
+enum_query_string | [parameter_3.schema](#parameter_3schema) | | optional
+enum_query_integer | [parameter_4.schema](#parameter_4schema) | | optional
+enum_query_double | [parameter_5.schema](#parameter_5schema) | | optional
 
 
 # parameter_2.schema
@@ -141,13 +141,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2, ] value must be a 64 bit float
 
-### <a id="RequestHeaderParameters" >header_params</a>
-#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+### <a id="requestheaderparameters" >header_params</a>
+#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [parameter_0.schema](#parameter_0.schema) | | optional
-enum_header_string | [parameter_1.schema](#parameter_1.schema) | | optional
+enum_header_string_array | [parameter_0.schema](#parameter_0schema) | | optional
+enum_header_string | [parameter_1.schema](#parameter_1schema) | | optional
 
 # parameter_0.schema
 

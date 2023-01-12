@@ -76,21 +76,21 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
-[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [parameter_0.schema](#parameter_0.schema) | | 
-required_int64_group | [parameter_2.schema](#parameter_2.schema) | | 
-string_group | [parameter_3.schema](#parameter_3.schema) | | optional
-int64_group | [parameter_5.schema](#parameter_5.schema) | | optional
+required_string_group | [parameter_0.schema](#parameter_0schema) | | 
+required_int64_group | [parameter_2.schema](#parameter_2schema) | | 
+string_group | [parameter_3.schema](#parameter_3schema) | | optional
+int64_group | [parameter_5.schema](#parameter_5schema) | | optional
 
 
 # parameter_0.schema
@@ -121,13 +121,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-### <a id="RequestHeaderParameters" >header_params</a>
-#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+### <a id="requestheaderparameters" >header_params</a>
+#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [parameter_1.schema](#parameter_1.schema) | | 
-boolean_group | [parameter_4.schema](#parameter_4.schema) | | optional
+required_boolean_group | [parameter_1.schema](#parameter_1schema) | | 
+boolean_group | [parameter_4.schema](#parameter_4schema) | | optional
 
 # parameter_1.schema
 
