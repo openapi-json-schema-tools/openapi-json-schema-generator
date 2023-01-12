@@ -32,7 +32,7 @@ class TestResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.enums_in_properties.EnumsInProperties
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_missing_optional_property_is_valid_passes(self):
         # missing optional property is valid

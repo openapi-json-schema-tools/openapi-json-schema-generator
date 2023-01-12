@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[ipv6_format.Ipv6Format] = ipv6_format.Ipv6Format
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

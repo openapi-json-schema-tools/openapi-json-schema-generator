@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[required_default_validation.RequiredDefaultValidation] = required_default_validation.RequiredDefaultValidation
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

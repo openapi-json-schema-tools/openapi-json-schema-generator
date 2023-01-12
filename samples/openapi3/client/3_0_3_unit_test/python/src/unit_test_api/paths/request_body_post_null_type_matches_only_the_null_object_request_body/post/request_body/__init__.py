@@ -7,6 +7,7 @@
 """
 
 import typing
+import typing_extensions
 
 from unit_test_api import api_client, exceptions
 
@@ -17,7 +18,7 @@ class RequestBody(api_client.RequestBody):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject] = null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

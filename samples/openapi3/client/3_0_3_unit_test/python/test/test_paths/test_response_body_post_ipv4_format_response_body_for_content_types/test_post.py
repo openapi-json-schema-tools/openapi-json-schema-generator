@@ -32,7 +32,7 @@ class TestResponseBodyPostIpv4FormatResponseBodyForContentTypes(ApiTestMixin, un
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.ipv4_format.Ipv4Format
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects

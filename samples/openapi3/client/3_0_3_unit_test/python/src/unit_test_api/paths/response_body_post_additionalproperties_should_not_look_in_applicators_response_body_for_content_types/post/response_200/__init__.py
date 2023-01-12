@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators] = additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

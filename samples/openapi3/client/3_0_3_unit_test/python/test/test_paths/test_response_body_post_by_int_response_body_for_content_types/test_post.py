@@ -32,7 +32,7 @@ class TestResponseBodyPostByIntResponseBodyForContentTypes(ApiTestMixin, unittes
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.by_int.ByInt
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_int_by_int_fail_fails(self):
         # int by int fail

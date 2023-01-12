@@ -22,10 +22,3 @@ class ApiResponse(api_client.ApiResponse):
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    __Content = typing.TypedDict(
-        '__Content',
-        {
-        }
-    )
-    content: __Content = {
-    }

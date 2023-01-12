@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty] = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

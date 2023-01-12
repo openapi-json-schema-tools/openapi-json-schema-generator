@@ -32,7 +32,7 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.not_more_complex_schema.NotMoreComplexSchema
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_other_match_passes(self):
         # other match

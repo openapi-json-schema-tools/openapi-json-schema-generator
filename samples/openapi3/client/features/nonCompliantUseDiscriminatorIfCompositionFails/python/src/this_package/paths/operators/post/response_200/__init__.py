@@ -9,8 +9,8 @@ import frozendict
 import typing_extensions
 import urllib3
 
-from unit_test_api import api_client
-from unit_test_api import schemas
+from this_package import api_client
+from this_package import schemas
 
 
 @dataclasses.dataclass

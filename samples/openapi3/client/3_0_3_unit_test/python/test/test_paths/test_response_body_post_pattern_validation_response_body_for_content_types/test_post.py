@@ -32,7 +32,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.pattern_validation.PatternValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_ignores_arrays_passes(self):
         # ignores arrays

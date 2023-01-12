@@ -32,7 +32,7 @@ class TestResponseBodyPostOneofWithBaseSchemaResponseBodyForContentTypes(ApiTest
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.oneof_with_base_schema.OneofWithBaseSchema
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_both_oneof_valid_fails(self):
         # both oneOf valid

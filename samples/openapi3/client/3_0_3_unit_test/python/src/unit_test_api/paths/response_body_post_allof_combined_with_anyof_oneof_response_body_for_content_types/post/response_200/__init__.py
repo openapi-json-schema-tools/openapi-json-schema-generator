@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof] = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

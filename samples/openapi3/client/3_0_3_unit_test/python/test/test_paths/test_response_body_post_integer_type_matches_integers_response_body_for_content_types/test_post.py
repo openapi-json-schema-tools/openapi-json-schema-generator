@@ -32,7 +32,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.integer_type_matches_integers.IntegerTypeMatchesIntegers
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_an_object_is_not_an_integer_fails(self):
         # an object is not an integer

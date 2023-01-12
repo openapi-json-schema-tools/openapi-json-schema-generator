@@ -32,7 +32,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid

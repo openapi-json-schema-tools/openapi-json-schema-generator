@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics] = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

@@ -32,7 +32,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.minimum_validation.MinimumValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid

@@ -32,7 +32,7 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_no_additional_properties_is_valid_passes(self):
         # no additional properties is valid

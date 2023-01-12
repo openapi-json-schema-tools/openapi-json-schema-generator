@@ -32,7 +32,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.object_type_matches_objects.ObjectTypeMatchesObjects
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_a_float_is_not_an_object_fails(self):
         # a float is not an object

@@ -32,7 +32,7 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.nested_items.NestedItems
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_valid_nested_array_passes(self):
         # valid nested array

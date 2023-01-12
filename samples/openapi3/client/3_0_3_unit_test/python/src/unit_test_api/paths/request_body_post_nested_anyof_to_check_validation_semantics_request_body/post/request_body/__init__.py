@@ -7,6 +7,7 @@
 """
 
 import typing
+import typing_extensions
 
 from unit_test_api import api_client, exceptions
 
@@ -17,7 +18,7 @@ class RequestBody(api_client.RequestBody):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics] = nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

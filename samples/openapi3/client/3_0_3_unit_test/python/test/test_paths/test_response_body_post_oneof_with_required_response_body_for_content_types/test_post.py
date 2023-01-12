@@ -32,7 +32,7 @@ class TestResponseBodyPostOneofWithRequiredResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.oneof_with_required.OneofWithRequired
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_both_valid_invalid_fails(self):
         # both valid - invalid

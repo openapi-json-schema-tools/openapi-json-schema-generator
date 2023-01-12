@@ -32,7 +32,7 @@ class TestResponseBodyPostPropertyNamedRefThatIsNotAReferenceResponseBodyForCont
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid

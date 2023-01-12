@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse] = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

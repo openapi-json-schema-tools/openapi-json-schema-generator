@@ -32,7 +32,7 @@ class TestResponseBodyPostRefInOneofResponseBodyForContentTypes(ApiTestMixin, un
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.ref_in_oneof.RefInOneof
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
