@@ -36,7 +36,7 @@ class TestResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes(ApiTes
     
     def test_something_else_is_invalid_fails(self):
         # something else is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes(ApiTes
     
     def test_one_of_the_enum_is_valid_passes(self):
         # one of the enum is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

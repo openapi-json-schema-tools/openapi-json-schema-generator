@@ -35,7 +35,7 @@ class TestRequestBodyPostNestedAllofToCheckValidationSemanticsRequestBody(ApiTes
     response_body = ''
 
     def test_anything_non_null_is_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # anything non-null is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostNestedAllofToCheckValidationSemanticsRequestBody(ApiTes
                 self.api.post(body=body)
 
     def test_null_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # null is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

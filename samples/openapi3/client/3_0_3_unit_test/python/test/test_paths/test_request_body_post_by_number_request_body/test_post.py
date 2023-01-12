@@ -35,7 +35,7 @@ class TestRequestBodyPostByNumberRequestBody(ApiTestMixin, unittest.TestCase):
     response_body = ''
 
     def test_45_is_multiple_of15_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # 4.5 is multiple of 1.5
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostByNumberRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_35_is_not_multiple_of15_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # 35 is not multiple of 1.5
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostByNumberRequestBody(ApiTestMixin, unittest.TestCase):
                 self.api.post(body=body)
 
     def test_zero_is_multiple_of_anything_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # zero is multiple of anything
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

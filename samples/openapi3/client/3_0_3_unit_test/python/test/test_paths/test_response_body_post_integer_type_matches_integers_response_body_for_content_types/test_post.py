@@ -36,7 +36,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_an_object_is_not_an_integer_fails(self):
         # an object is not an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -61,7 +61,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_a_string_is_not_an_integer_fails(self):
         # a string is not an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -85,7 +85,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_null_is_not_an_integer_fails(self):
         # null is not an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_a_float_with_zero_fractional_part_is_an_integer_passes(self):
         # a float with zero fractional part is an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -139,7 +139,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_a_float_is_not_an_integer_fails(self):
         # a float is not an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -163,7 +163,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_a_boolean_is_not_an_integer_fails(self):
         # a boolean is not an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -187,7 +187,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_an_integer_is_an_integer_passes(self):
         # an integer is an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -217,7 +217,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_a_string_is_still_not_an_integer_even_if_it_looks_like_one_fails(self):
         # a string is still not an integer, even if it looks like one
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -241,7 +241,7 @@ class TestResponseBodyPostIntegerTypeMatchesIntegersResponseBodyForContentTypes(
     
     def test_an_array_is_not_an_integer_fails(self):
         # an array is not an integer
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

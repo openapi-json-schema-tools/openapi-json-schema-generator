@@ -36,7 +36,7 @@ class TestResponseBodyPostNotResponseBodyForContentTypes(ApiTestMixin, unittest.
     
     def test_allowed_passes(self):
         # allowed
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostNotResponseBodyForContentTypes(ApiTestMixin, unittest.
     
     def test_disallowed_fails(self):
         # disallowed
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

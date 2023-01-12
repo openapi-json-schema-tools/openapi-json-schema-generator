@@ -35,7 +35,7 @@ class TestRequestBodyPostByIntRequestBody(ApiTestMixin, unittest.TestCase):
     response_body = ''
 
     def test_int_by_int_fail_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # int by int fail
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostByIntRequestBody(ApiTestMixin, unittest.TestCase):
                 self.api.post(body=body)
 
     def test_int_by_int_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # int by int
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostByIntRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_non_numbers_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # ignores non-numbers
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

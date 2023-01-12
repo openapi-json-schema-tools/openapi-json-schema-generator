@@ -36,7 +36,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -67,7 +67,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_objects_passes(self):
         # ignores objects
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -98,7 +98,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_null_passes(self):
         # ignores null
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -128,7 +128,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_floats_passes(self):
         # ignores floats
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -158,7 +158,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_a_non_matching_pattern_is_invalid_fails(self):
         # a non-matching pattern is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -182,7 +182,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_booleans_passes(self):
         # ignores booleans
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -212,7 +212,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_a_matching_pattern_is_valid_passes(self):
         # a matching pattern is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -242,7 +242,7 @@ class TestResponseBodyPostPatternValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_integers_passes(self):
         # ignores integers
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

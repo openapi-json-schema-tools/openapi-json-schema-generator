@@ -36,7 +36,7 @@ class TestResponseBodyPostRequiredDefaultValidationResponseBodyForContentTypes(A
     
     def test_not_required_by_default_passes(self):
         # not required by default
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
     response_body = ''
 
     def test_boundary_point_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # boundary point is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_positive_above_the_minimum_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # positive above the minimum is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -95,7 +95,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_int_below_the_minimum_is_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # int below the minimum is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
                 self.api.post(body=body)
 
     def test_float_below_the_minimum_is_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # float below the minimum is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -123,7 +123,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
                 self.api.post(body=body)
 
     def test_boundary_point_with_float_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # boundary point with float is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -153,7 +153,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_negative_above_the_minimum_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # negative above the minimum is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -183,7 +183,7 @@ class TestRequestBodyPostMinimumValidationWithSignedIntegerRequestBody(ApiTestMi
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_non_numbers_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # ignores non-numbers
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

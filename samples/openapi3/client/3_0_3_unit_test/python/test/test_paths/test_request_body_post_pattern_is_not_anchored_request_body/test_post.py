@@ -35,7 +35,7 @@ class TestRequestBodyPostPatternIsNotAnchoredRequestBody(ApiTestMixin, unittest.
     response_body = ''
 
     def test_matches_a_substring_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # matches a substring
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

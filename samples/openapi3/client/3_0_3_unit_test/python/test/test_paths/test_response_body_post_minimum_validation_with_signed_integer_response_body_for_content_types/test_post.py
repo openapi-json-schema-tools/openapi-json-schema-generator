@@ -36,7 +36,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_positive_above_the_minimum_is_valid_passes(self):
         # positive above the minimum is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_int_below_the_minimum_is_invalid_fails(self):
         # int below the minimum is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_float_below_the_minimum_is_invalid_fails(self):
         # float below the minimum is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -144,7 +144,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_boundary_point_with_float_is_valid_passes(self):
         # boundary point with float is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -174,7 +174,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_negative_above_the_minimum_is_valid_passes(self):
         # negative above the minimum is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -204,7 +204,7 @@ class TestResponseBodyPostMinimumValidationWithSignedIntegerResponseBodyForConte
     
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

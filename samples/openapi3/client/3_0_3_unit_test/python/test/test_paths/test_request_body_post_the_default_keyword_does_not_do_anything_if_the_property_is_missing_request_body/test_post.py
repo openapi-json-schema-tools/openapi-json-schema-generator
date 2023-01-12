@@ -35,7 +35,7 @@ class TestRequestBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissin
     response_body = ''
 
     def test_missing_properties_are_not_filled_in_with_the_default_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # missing properties are not filled in with the default
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestRequestBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissin
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_an_explicit_property_value_is_checked_against_maximum_passing_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # an explicit property value is checked against maximum (passing)
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -99,7 +99,7 @@ class TestRequestBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissin
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_an_explicit_property_value_is_checked_against_maximum_failing_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # an explicit property value is checked against maximum (failing)
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

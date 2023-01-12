@@ -36,7 +36,7 @@ class TestResponseBodyPostMinlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_too_short_is_invalid_fails(self):
         # too short is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostMinlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_one_supplementary_unicode_code_point_is_not_long_enough_fails(self):
         # one supplementary Unicode code point is not long enough
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -84,7 +84,7 @@ class TestResponseBodyPostMinlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_longer_is_valid_passes(self):
         # longer is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -114,7 +114,7 @@ class TestResponseBodyPostMinlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_ignores_non_strings_passes(self):
         # ignores non-strings
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -144,7 +144,7 @@ class TestResponseBodyPostMinlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

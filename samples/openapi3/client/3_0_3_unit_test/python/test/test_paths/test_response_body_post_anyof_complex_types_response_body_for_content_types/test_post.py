@@ -36,7 +36,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
     
     def test_second_anyof_valid_complex_passes(self):
         # second anyOf valid (complex)
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -69,7 +69,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
     
     def test_neither_anyof_valid_complex_fails(self):
         # neither anyOf valid (complex)
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -98,7 +98,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
     
     def test_both_anyof_valid_complex_passes(self):
         # both anyOf valid (complex)
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -133,7 +133,7 @@ class TestResponseBodyPostAnyofComplexTypesResponseBodyForContentTypes(ApiTestMi
     
     def test_first_anyof_valid_complex_passes(self):
         # first anyOf valid (complex)
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

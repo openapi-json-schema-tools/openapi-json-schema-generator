@@ -35,7 +35,7 @@ class TestRequestBodyPostAdditionalpropertiesShouldNotLookInApplicatorsRequestBo
     response_body = ''
 
     def test_properties_defined_in_allof_are_not_examined_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # properties defined in allOf are not examined
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -54,7 +54,7 @@ class TestRequestBodyPostAdditionalpropertiesShouldNotLookInApplicatorsRequestBo
                 self.api.post(body=body)
 
     def test_valid_test_case_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # valid test case
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

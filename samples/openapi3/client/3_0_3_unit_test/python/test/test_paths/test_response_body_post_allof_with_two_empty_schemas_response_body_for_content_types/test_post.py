@@ -36,7 +36,7 @@ class TestResponseBodyPostAllofWithTwoEmptySchemasResponseBodyForContentTypes(Ap
     
     def test_any_data_is_valid_passes(self):
         # any data is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostEnumWith1DoesNotMatchTrueRequestBody(ApiTestMixin, unit
     response_body = ''
 
     def test_true_is_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # true is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostEnumWith1DoesNotMatchTrueRequestBody(ApiTestMixin, unit
                 self.api.post(body=body)
 
     def test_integer_one_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # integer one is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostEnumWith1DoesNotMatchTrueRequestBody(ApiTestMixin, unit
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_float_one_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # float one is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

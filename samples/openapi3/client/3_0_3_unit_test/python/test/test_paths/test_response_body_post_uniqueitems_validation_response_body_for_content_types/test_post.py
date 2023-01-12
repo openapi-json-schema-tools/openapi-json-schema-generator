@@ -36,7 +36,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_unique_array_of_objects_is_valid_passes(self):
         # unique array of objects is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -75,7 +75,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_a_true_and_a1_are_unique_passes(self):
         # {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -114,7 +114,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_heterogeneous_types_are_invalid_fails(self):
         # non-unique heterogeneous types are invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -149,7 +149,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_nested0_and_false_are_unique_passes(self):
         # nested [0] and [false] are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -192,7 +192,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_a_false_and_a0_are_unique_passes(self):
         # {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -231,7 +231,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_numbers_are_unique_if_mathematically_unequal_fails(self):
         # numbers are unique if mathematically unequal
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -259,7 +259,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_false_is_not_equal_to_zero_passes(self):
         # false is not equal to zero
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -292,7 +292,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_0_and_false_are_unique_passes(self):
         # [0] and [false] are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -329,7 +329,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_unique_array_of_arrays_is_valid_passes(self):
         # unique array of arrays is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -366,7 +366,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_nested_objects_is_invalid_fails(self):
         # non-unique array of nested objects is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -411,7 +411,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_more_than_two_integers_is_invalid_fails(self):
         # non-unique array of more than two integers is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -439,7 +439,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_true_is_not_equal_to_one_passes(self):
         # true is not equal to one
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -472,7 +472,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_objects_are_non_unique_despite_key_order_fails(self):
         # objects are non-unique despite key order
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -509,7 +509,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_unique_array_of_strings_is_valid_passes(self):
         # unique array of strings is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -543,7 +543,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_1_and_true_are_unique_passes(self):
         # [1] and [true] are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -580,7 +580,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_different_objects_are_unique_passes(self):
         # different objects are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -623,7 +623,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_unique_array_of_integers_is_valid_passes(self):
         # unique array of integers is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -656,7 +656,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_more_than_two_arrays_is_invalid_fails(self):
         # non-unique array of more than two arrays is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -690,7 +690,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_objects_is_invalid_fails(self):
         # non-unique array of objects is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -723,7 +723,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_unique_array_of_nested_objects_is_valid_passes(self):
         # unique array of nested objects is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -774,7 +774,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_arrays_is_invalid_fails(self):
         # non-unique array of arrays is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -805,7 +805,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_strings_is_invalid_fails(self):
         # non-unique array of strings is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -833,7 +833,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_nested1_and_true_are_unique_passes(self):
         # nested [1] and [true] are unique
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -876,7 +876,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_unique_heterogeneous_types_are_valid_passes(self):
         # unique heterogeneous types are valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -916,7 +916,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
     
     def test_non_unique_array_of_integers_is_invalid_fails(self):
         # non-unique array of integers is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

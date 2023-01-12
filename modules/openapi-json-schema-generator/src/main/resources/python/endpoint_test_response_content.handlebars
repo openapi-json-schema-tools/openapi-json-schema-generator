@@ -9,7 +9,7 @@ response_body_schema = {{httpMethod}}.response_{{../@key}}.{{../name.getCamelCas
 
 def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
     # {{description}}
-    accept_content_type = '{{{../@key}}}'
+    accept_content_type = '{{{../@key.getName}}}'
 
     with patch.object(urllib3.PoolManager, 'request') as mock_request:
         payload = (

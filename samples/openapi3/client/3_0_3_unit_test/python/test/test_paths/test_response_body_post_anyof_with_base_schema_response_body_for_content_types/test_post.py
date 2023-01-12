@@ -36,7 +36,7 @@ class TestResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_one_anyof_valid_passes(self):
         # one anyOf valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_both_anyof_invalid_fails(self):
         # both anyOf invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_mismatch_base_schema_fails(self):
         # mismatch base schema
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

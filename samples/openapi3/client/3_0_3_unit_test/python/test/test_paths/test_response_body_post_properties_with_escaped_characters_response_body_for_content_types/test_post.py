@@ -36,7 +36,7 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
     
     def test_object_with_all_numbers_is_valid_passes(self):
         # object with all numbers is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
     
     def test_object_with_strings_is_invalid_fails(self):
         # object with strings is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -36,7 +36,7 @@ class TestResponseBodyPostAdditionalpropertiesCanExistByItselfResponseBodyForCon
     
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -63,7 +63,7 @@ class TestResponseBodyPostAdditionalpropertiesCanExistByItselfResponseBodyForCon
     
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

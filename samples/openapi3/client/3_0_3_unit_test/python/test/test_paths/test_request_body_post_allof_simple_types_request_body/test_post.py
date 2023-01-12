@@ -35,7 +35,7 @@ class TestRequestBodyPostAllofSimpleTypesRequestBody(ApiTestMixin, unittest.Test
     response_body = ''
 
     def test_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostAllofSimpleTypesRequestBody(ApiTestMixin, unittest.Test
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_mismatch_one_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # mismatch one
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

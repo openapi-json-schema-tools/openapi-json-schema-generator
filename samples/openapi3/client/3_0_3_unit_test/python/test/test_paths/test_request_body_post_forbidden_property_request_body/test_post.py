@@ -35,7 +35,7 @@ class TestRequestBodyPostForbiddenPropertyRequestBody(ApiTestMixin, unittest.Tes
     response_body = ''
 
     def test_property_present_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # property present
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -54,7 +54,7 @@ class TestRequestBodyPostForbiddenPropertyRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_property_absent_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # property absent
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

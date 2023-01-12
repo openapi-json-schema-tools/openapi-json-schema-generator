@@ -35,7 +35,7 @@ class TestRequestBodyPostRequiredWithEmptyArrayRequestBody(ApiTestMixin, unittes
     response_body = ''
 
     def test_property_not_required_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # property not required
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

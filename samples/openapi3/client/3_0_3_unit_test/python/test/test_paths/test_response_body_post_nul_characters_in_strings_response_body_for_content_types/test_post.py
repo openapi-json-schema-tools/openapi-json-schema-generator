@@ -36,7 +36,7 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
     
     def test_match_string_with_nul_passes(self):
         # match string with nul
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
     
     def test_do_not_match_string_lacking_nul_fails(self):
         # do not match string lacking nul
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

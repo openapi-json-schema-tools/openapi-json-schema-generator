@@ -35,7 +35,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
     response_body = ''
 
     def test_allof_true_anyof_false_oneof_false_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: true, anyOf: false, oneOf: false
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_allof_false_anyof_false_oneof_true_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: false, anyOf: false, oneOf: true
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -63,7 +63,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_allof_false_anyof_true_oneof_true_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: false, anyOf: true, oneOf: true
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -77,7 +77,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_allof_true_anyof_true_oneof_false_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: true, anyOf: true, oneOf: false
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -91,7 +91,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_allof_true_anyof_true_oneof_true_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: true, anyOf: true, oneOf: true
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -121,7 +121,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_allof_true_anyof_false_oneof_true_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: true, anyOf: false, oneOf: true
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -135,7 +135,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_allof_false_anyof_true_oneof_false_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: false, anyOf: true, oneOf: false
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -149,7 +149,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_allof_false_anyof_false_oneof_false_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allOf: false, anyOf: false, oneOf: false
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

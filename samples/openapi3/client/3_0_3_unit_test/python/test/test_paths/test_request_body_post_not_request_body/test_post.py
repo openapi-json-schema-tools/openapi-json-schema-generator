@@ -35,7 +35,7 @@ class TestRequestBodyPostNotRequestBody(ApiTestMixin, unittest.TestCase):
     response_body = ''
 
     def test_allowed_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # allowed
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostNotRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_disallowed_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # disallowed
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

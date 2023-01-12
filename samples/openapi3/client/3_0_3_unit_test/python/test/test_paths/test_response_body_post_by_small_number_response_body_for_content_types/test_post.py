@@ -36,7 +36,7 @@ class TestResponseBodyPostBySmallNumberResponseBodyForContentTypes(ApiTestMixin,
     
     def test_000751_is_not_multiple_of00001_fails(self):
         # 0.00751 is not multiple of 0.0001
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostBySmallNumberResponseBodyForContentTypes(ApiTestMixin,
     
     def test_00075_is_multiple_of00001_passes(self):
         # 0.0075 is multiple of 0.0001
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

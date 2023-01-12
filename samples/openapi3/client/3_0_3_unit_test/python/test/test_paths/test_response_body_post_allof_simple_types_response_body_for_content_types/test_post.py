@@ -36,7 +36,7 @@ class TestResponseBodyPostAllofSimpleTypesResponseBodyForContentTypes(ApiTestMix
     
     def test_valid_passes(self):
         # valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostAllofSimpleTypesResponseBodyForContentTypes(ApiTestMix
     
     def test_mismatch_one_fails(self):
         # mismatch one
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

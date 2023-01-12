@@ -36,7 +36,7 @@ class TestResponseBodyPostRefInItemsResponseBodyForContentTypes(ApiTestMixin, un
     
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -71,7 +71,7 @@ class TestResponseBodyPostRefInItemsResponseBodyForContentTypes(ApiTestMixin, un
     
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

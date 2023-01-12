@@ -35,7 +35,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
     response_body = ''
 
     def test_ignores_arrays_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # ignores arrays
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_other_non_objects_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # ignores other non-objects
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_too_short_is_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # too short is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -111,7 +111,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                 self.api.post(body=body)
 
     def test_ignores_strings_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # ignores strings
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -141,7 +141,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_longer_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # longer is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -176,7 +176,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_exact_length_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # exact length is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

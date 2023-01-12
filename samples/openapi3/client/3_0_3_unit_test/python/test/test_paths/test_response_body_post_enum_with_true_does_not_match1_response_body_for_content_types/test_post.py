@@ -36,7 +36,7 @@ class TestResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes(A
     
     def test_float_one_is_invalid_fails(self):
         # float one is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes(A
     
     def test_true_is_valid_passes(self):
         # true is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes(A
     
     def test_integer_one_is_invalid_fails(self):
         # integer one is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

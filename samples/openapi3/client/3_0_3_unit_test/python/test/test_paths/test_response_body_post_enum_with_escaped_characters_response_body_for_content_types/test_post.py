@@ -36,7 +36,7 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
     
     def test_member2_is_valid_passes(self):
         # member 2 is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
     
     def test_member1_is_valid_passes(self):
         # member 1 is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(A
     
     def test_another_string_is_invalid_fails(self):
         # another string is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

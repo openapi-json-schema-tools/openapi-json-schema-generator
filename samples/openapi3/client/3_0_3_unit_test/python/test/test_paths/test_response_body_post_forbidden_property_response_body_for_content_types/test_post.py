@@ -36,7 +36,7 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
     
     def test_property_present_fails(self):
         # property present
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
     
     def test_property_absent_passes(self):
         # property absent
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

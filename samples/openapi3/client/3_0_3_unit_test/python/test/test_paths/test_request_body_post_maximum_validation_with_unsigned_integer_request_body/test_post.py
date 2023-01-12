@@ -35,7 +35,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
     response_body = ''
 
     def test_below_the_maximum_is_invalid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # below the maximum is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_above_the_maximum_is_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # above the maximum is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
                 self.api.post(body=body)
 
     def test_boundary_point_integer_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # boundary point integer is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_boundary_point_float_is_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # boundary point float is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

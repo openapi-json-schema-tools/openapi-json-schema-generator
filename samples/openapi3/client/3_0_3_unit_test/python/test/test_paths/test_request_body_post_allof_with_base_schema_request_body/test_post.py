@@ -35,7 +35,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
     response_body = ''
 
     def test_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -72,7 +72,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_mismatch_first_allof_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # mismatch first allOf
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -91,7 +91,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 self.api.post(body=body)
 
     def test_mismatch_base_schema_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # mismatch base schema
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -110,7 +110,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 self.api.post(body=body)
 
     def test_mismatch_both_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # mismatch both
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -127,7 +127,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 self.api.post(body=body)
 
     def test_mismatch_second_allof_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # mismatch second allOf
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

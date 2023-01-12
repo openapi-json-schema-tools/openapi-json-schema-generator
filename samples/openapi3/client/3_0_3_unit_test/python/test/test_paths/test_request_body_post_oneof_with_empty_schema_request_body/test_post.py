@@ -35,7 +35,7 @@ class TestRequestBodyPostOneofWithEmptySchemaRequestBody(ApiTestMixin, unittest.
     response_body = ''
 
     def test_both_valid_invalid_fails(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # both valid - invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostOneofWithEmptySchemaRequestBody(ApiTestMixin, unittest.
                 self.api.post(body=body)
 
     def test_one_valid_valid_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # one valid - valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

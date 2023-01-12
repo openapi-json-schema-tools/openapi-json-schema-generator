@@ -36,7 +36,7 @@ class TestResponseBodyPostMaxitemsValidationResponseBodyForContentTypes(ApiTestM
     
     def test_too_long_is_invalid_fails(self):
         # too long is invalid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -64,7 +64,7 @@ class TestResponseBodyPostMaxitemsValidationResponseBodyForContentTypes(ApiTestM
     
     def test_ignores_non_arrays_passes(self):
         # ignores non-arrays
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -94,7 +94,7 @@ class TestResponseBodyPostMaxitemsValidationResponseBodyForContentTypes(ApiTestM
     
     def test_shorter_is_valid_passes(self):
         # shorter is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -126,7 +126,7 @@ class TestResponseBodyPostMaxitemsValidationResponseBodyForContentTypes(ApiTestM
     
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

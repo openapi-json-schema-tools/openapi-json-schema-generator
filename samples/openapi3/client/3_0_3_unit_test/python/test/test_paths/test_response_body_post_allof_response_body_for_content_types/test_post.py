@@ -36,7 +36,7 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_allof_passes(self):
         # allOf
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -71,7 +71,7 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_mismatch_first_fails(self):
         # mismatch first
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -98,7 +98,7 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_mismatch_second_fails(self):
         # mismatch second
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -125,7 +125,7 @@ class TestResponseBodyPostAllofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_wrong_type_fails(self):
         # wrong type
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

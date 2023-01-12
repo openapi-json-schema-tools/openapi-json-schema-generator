@@ -36,7 +36,7 @@ class TestResponseBodyPostPatternIsNotAnchoredResponseBodyForContentTypes(ApiTes
     
     def test_matches_a_substring_passes(self):
         # matches a substring
-        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        accept_content_type = 'application/json'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

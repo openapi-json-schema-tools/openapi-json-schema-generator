@@ -35,7 +35,7 @@ class TestRequestBodyPostInvalidStringValueForDefaultRequestBody(ApiTestMixin, u
     response_body = ''
 
     def test_valid_when_property_is_specified_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # valid when property is specified
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -68,7 +68,7 @@ class TestRequestBodyPostInvalidStringValueForDefaultRequestBody(ApiTestMixin, u
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_still_valid_when_the_invalid_default_is_used_passes(self):
-        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
+        content_type = 'application/json'
         # still valid when the invalid default is used
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
