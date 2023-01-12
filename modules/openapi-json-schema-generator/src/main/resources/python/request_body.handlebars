@@ -3,6 +3,7 @@
 {{>partial_header}}
 
 import typing
+import typing_extensions
 
 from {{packageName}} import api_client, exceptions
 {{#with requestBody}}
@@ -32,7 +33,7 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
         {{/with}}
     {{/with}}
 {{/each}}
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
 {{#each content}}

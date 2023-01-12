@@ -7,6 +7,7 @@
 """
 
 import typing
+import typing_extensions
 
 from petstore_api import api_client, exceptions
 
@@ -17,7 +18,7 @@ class RequestBody(api_client.RequestBody):
 
     class __ApplicationJsonPatchjsonMediaType(api_client.MediaType):
         schema: typing.Type[json_patch_request.JSONPatchRequest] = json_patch_request.JSONPatchRequest
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json-patch+json': __ApplicationJsonPatchjsonMediaType,

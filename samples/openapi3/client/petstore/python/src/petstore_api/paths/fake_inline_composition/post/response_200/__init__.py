@@ -35,7 +35,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __MultipartFormDataMediaType(api_client.MediaType):
         schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

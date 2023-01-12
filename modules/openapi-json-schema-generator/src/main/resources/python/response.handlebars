@@ -103,7 +103,7 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
         {{/with}}
     {{/with}}
 {{/each}}
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
 {{#each content}}

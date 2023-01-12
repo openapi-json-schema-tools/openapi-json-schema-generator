@@ -7,6 +7,7 @@
 """
 
 import typing
+import typing_extensions
 
 from petstore_api import api_client, exceptions
 from .content.application_octet_stream import schema as application_octet_stream_schema
@@ -16,7 +17,7 @@ class RequestBody(api_client.RequestBody):
 
     class __ApplicationOctetStreamMediaType(api_client.MediaType):
         schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/octet-stream': __ApplicationOctetStreamMediaType,

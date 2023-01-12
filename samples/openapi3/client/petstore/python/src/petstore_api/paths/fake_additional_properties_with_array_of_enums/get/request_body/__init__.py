@@ -7,6 +7,7 @@
 """
 
 import typing
+import typing_extensions
 
 from petstore_api import api_client, exceptions
 
@@ -17,7 +18,7 @@ class RequestBody(api_client.RequestBody):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums] = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

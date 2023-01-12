@@ -29,7 +29,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationOctetStreamMediaType(api_client.MediaType):
         schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/octet-stream': __ApplicationOctetStreamMediaType,

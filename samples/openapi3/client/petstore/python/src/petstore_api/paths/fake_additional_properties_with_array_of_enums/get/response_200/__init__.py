@@ -30,7 +30,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
     class __ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums] = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/json': __ApplicationJsonMediaType,

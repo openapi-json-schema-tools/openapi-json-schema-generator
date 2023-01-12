@@ -7,6 +7,7 @@
 """
 
 import typing
+import typing_extensions
 
 from petstore_api import api_client, exceptions
 from .content.application_x_www_form_urlencoded import schema as application_x_www_form_urlencoded_schema
@@ -16,7 +17,7 @@ class RequestBody(api_client.RequestBody):
 
     class __ApplicationXWwwFormUrlencodedMediaType(api_client.MediaType):
         schema: typing.Type[application_x_www_form_urlencoded_schema.Schema] = application_x_www_form_urlencoded_schema.Schema
-    __Content = typing.TypedDict(
+    __Content = typing_extensions.TypedDict(
         '__Content',
         {
             'application/x-www-form-urlencoded': __ApplicationXWwwFormUrlencodedMediaType,
