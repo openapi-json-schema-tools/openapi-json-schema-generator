@@ -32,11 +32,11 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ref_in_additionalproperties.RefInAdditionalproperties
+    response_body_schema = post.response_200.ref_in_additionalproperties.RefInAdditionalproperties
     
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -72,7 +72,7 @@ class TestResponseBodyPostRefInAdditionalpropertiesResponseBodyForContentTypes(A
     
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

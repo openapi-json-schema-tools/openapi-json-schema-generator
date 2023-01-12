@@ -32,11 +32,11 @@ class TestResponseBodyPostNestedAnyofToCheckValidationSemanticsResponseBodyForCo
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics
+    response_body_schema = post.response_200.nested_anyof_to_check_validation_semantics.NestedAnyofToCheckValidationSemantics
     
     def test_anything_non_null_is_invalid_fails(self):
         # anything non-null is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostNestedAnyofToCheckValidationSemanticsResponseBodyForCo
     
     def test_null_is_valid_passes(self):
         # null is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

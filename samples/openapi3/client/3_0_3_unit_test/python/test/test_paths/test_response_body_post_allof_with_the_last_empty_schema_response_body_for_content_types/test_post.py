@@ -32,11 +32,11 @@ class TestResponseBodyPostAllofWithTheLastEmptySchemaResponseBodyForContentTypes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema
+    response_body_schema = post.response_200.allof_with_the_last_empty_schema.AllofWithTheLastEmptySchema
     
     def test_string_is_invalid_fails(self):
         # string is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostAllofWithTheLastEmptySchemaResponseBodyForContentTypes
     
     def test_number_is_valid_passes(self):
         # number is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

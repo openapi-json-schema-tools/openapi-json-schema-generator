@@ -32,11 +32,11 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.required_validation.RequiredValidation
+    response_body_schema = post.response_200.required_validation.RequiredValidation
     
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -67,7 +67,7 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
     
     def test_present_required_property_is_valid_passes(self):
         # present required property is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -100,7 +100,7 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
     
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -130,7 +130,7 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
     
     def test_ignores_strings_passes(self):
         # ignores strings
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -160,7 +160,7 @@ class TestResponseBodyPostRequiredValidationResponseBodyForContentTypes(ApiTestM
     
     def test_non_present_required_property_is_invalid_fails(self):
         # non-present required property is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

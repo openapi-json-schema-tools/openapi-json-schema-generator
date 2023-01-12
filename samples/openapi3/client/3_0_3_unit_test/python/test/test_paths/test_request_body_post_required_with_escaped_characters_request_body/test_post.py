@@ -35,7 +35,7 @@ class TestRequestBodyPostRequiredWithEscapedCharactersRequestBody(ApiTestMixin, 
     response_body = ''
 
     def test_object_with_some_properties_missing_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # object with some properties missing is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -54,7 +54,7 @@ class TestRequestBodyPostRequiredWithEscapedCharactersRequestBody(ApiTestMixin, 
                 self.api.post(body=body)
 
     def test_object_with_all_properties_present_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # object with all properties present is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

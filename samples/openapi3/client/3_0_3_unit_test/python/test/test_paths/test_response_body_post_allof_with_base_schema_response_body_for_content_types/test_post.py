@@ -32,11 +32,11 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.allof_with_base_schema.AllofWithBaseSchema
+    response_body_schema = post.response_200.allof_with_base_schema.AllofWithBaseSchema
     
     def test_valid_passes(self):
         # valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -73,7 +73,7 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_mismatch_first_allof_fails(self):
         # mismatch first allOf
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -102,7 +102,7 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_mismatch_base_schema_fails(self):
         # mismatch base schema
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -131,7 +131,7 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_mismatch_both_fails(self):
         # mismatch both
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -158,7 +158,7 @@ class TestResponseBodyPostAllofWithBaseSchemaResponseBodyForContentTypes(ApiTest
     
     def test_mismatch_second_allof_fails(self):
         # mismatch second allOf
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -32,11 +32,11 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+    response_body_schema = post.response_200.invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
     
     def test_always_invalid_but_naive_implementations_may_raise_an_overflow_error_fails(self):
         # always invalid, but naive implementations may raise an overflow error
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
     
     def test_valid_integer_with_multipleof_float_passes(self):
         # valid integer with multipleOf float
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

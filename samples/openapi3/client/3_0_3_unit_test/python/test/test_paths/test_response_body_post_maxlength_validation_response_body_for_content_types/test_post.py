@@ -32,11 +32,11 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.maxlength_validation.MaxlengthValidation
+    response_body_schema = post.response_200.maxlength_validation.MaxlengthValidation
     
     def test_too_long_is_invalid_fails(self):
         # too long is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_ignores_non_strings_passes(self):
         # ignores non-strings
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_shorter_is_valid_passes(self):
         # shorter is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_two_supplementary_unicode_code_points_is_long_enough_passes(self):
         # two supplementary Unicode code points is long enough
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -150,7 +150,7 @@ class TestResponseBodyPostMaxlengthValidationResponseBodyForContentTypes(ApiTest
     
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

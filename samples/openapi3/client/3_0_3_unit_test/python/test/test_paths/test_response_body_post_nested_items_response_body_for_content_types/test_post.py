@@ -32,11 +32,11 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.nested_items.NestedItems
+    response_body_schema = post.response_200.nested_items.NestedItems
     
     def test_valid_nested_array_passes(self):
         # valid nested array
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -95,7 +95,7 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
     
     def test_nested_array_with_invalid_type_fails(self):
         # nested array with invalid type
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -148,7 +148,7 @@ class TestResponseBodyPostNestedItemsResponseBodyForContentTypes(ApiTestMixin, u
     
     def test_not_deep_enough_fails(self):
         # not deep enough
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

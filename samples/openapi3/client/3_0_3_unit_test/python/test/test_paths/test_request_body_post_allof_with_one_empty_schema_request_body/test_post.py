@@ -35,7 +35,7 @@ class TestRequestBodyPostAllofWithOneEmptySchemaRequestBody(ApiTestMixin, unitte
     response_body = ''
 
     def test_any_data_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # any data is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

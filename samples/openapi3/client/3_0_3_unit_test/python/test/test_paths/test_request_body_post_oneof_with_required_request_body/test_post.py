@@ -35,7 +35,7 @@ class TestRequestBodyPostOneofWithRequiredRequestBody(ApiTestMixin, unittest.Tes
     response_body = ''
 
     def test_both_valid_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both valid - invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -56,7 +56,7 @@ class TestRequestBodyPostOneofWithRequiredRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_both_invalid_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both invalid - invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -73,7 +73,7 @@ class TestRequestBodyPostOneofWithRequiredRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_first_valid_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # first valid - valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -108,7 +108,7 @@ class TestRequestBodyPostOneofWithRequiredRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_second_valid_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # second valid - valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

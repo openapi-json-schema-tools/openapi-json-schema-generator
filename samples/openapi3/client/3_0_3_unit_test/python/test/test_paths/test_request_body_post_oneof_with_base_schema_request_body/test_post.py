@@ -35,7 +35,7 @@ class TestRequestBodyPostOneofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
     response_body = ''
 
     def test_both_oneof_valid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both oneOf valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostOneofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 self.api.post(body=body)
 
     def test_mismatch_base_schema_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # mismatch base schema
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -63,7 +63,7 @@ class TestRequestBodyPostOneofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 self.api.post(body=body)
 
     def test_one_oneof_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # one oneOf valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

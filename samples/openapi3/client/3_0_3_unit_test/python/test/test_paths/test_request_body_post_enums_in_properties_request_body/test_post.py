@@ -35,7 +35,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
     response_body = ''
 
     def test_missing_optional_property_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # missing optional property is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -68,7 +68,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_wrong_foo_value_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # wrong foo value
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -87,7 +87,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_both_properties_are_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both properties are valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -122,7 +122,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_wrong_bar_value_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # wrong bar value
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -141,7 +141,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_missing_all_properties_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # missing all properties is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -156,7 +156,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_missing_required_property_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # missing required property is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

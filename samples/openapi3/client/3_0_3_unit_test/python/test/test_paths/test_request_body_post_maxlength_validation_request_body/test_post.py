@@ -35,7 +35,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
     response_body = ''
 
     def test_too_long_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # too long is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
                 self.api.post(body=body)
 
     def test_ignores_non_strings_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores non-strings
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_shorter_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # shorter is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_two_supplementary_unicode_code_points_is_long_enough_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # two supplementary Unicode code points is long enough
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -139,7 +139,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_exact_length_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # exact length is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

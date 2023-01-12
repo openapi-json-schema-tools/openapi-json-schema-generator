@@ -35,7 +35,7 @@ class TestRequestBodyPostEnumWithFalseDoesNotMatch0RequestBody(ApiTestMixin, uni
     response_body = ''
 
     def test_false_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # false is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostEnumWithFalseDoesNotMatch0RequestBody(ApiTestMixin, uni
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_float_zero_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # float zero is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostEnumWithFalseDoesNotMatch0RequestBody(ApiTestMixin, uni
                 self.api.post(body=body)
 
     def test_integer_zero_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # integer zero is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

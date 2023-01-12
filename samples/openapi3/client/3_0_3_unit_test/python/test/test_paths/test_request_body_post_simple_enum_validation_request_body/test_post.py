@@ -35,7 +35,7 @@ class TestRequestBodyPostSimpleEnumValidationRequestBody(ApiTestMixin, unittest.
     response_body = ''
 
     def test_something_else_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # something else is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostSimpleEnumValidationRequestBody(ApiTestMixin, unittest.
                 self.api.post(body=body)
 
     def test_one_of_the_enum_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # one of the enum is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

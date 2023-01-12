@@ -32,11 +32,11 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.by_number.ByNumber
+    response_body_schema = post.response_200.by_number.ByNumber
     
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
     
     def test_35_is_not_multiple_of15_fails(self):
         # 35 is not multiple of 1.5
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
     
     def test_zero_is_multiple_of_anything_passes(self):
         # zero is multiple of anything
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

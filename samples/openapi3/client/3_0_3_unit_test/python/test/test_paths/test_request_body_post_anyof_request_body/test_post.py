@@ -35,7 +35,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
     response_body = ''
 
     def test_second_anyof_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # second anyOf valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_neither_anyof_valid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # neither anyOf valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
                 self.api.post(body=body)
 
     def test_both_anyof_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both anyOf valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_first_anyof_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # first anyOf valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

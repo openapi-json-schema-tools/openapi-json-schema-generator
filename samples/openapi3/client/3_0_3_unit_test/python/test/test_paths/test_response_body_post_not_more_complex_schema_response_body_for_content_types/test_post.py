@@ -32,11 +32,11 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.not_more_complex_schema.NotMoreComplexSchema
+    response_body_schema = post.response_200.not_more_complex_schema.NotMoreComplexSchema
     
     def test_other_match_passes(self):
         # other match
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -69,7 +69,7 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
     
     def test_mismatch_fails(self):
         # mismatch
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes(ApiTes
     
     def test_match_passes(self):
         # match
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

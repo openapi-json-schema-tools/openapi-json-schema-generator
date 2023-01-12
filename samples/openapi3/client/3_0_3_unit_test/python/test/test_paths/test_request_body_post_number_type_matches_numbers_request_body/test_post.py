@@ -35,7 +35,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
     response_body = ''
 
     def test_an_array_is_not_a_number_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an array is not a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -50,7 +50,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_null_is_not_a_number_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # null is not a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -64,7 +64,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_object_is_not_a_number_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an object is not a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_boolean_is_not_a_number_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a boolean is not a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -93,7 +93,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_float_is_a_number_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a float is a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -123,7 +123,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_string_is_still_not_a_number_even_if_it_looks_like_one_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is still not a number, even if it looks like one
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -137,7 +137,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_string_is_not_a_number_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is not a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -151,7 +151,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_integer_is_a_number_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an integer is a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -181,7 +181,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_float_with_zero_fractional_part_is_a_number_and_an_integer_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a float with zero fractional part is a number (and an integer)
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostObjectPropertiesValidationRequestBody(ApiTestMixin, uni
     response_body = ''
 
     def test_ignores_arrays_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores arrays
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestRequestBodyPostObjectPropertiesValidationRequestBody(ApiTestMixin, uni
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_other_non_objects_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores other non-objects
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestRequestBodyPostObjectPropertiesValidationRequestBody(ApiTestMixin, uni
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_one_property_invalid_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # one property invalid is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -116,7 +116,7 @@ class TestRequestBodyPostObjectPropertiesValidationRequestBody(ApiTestMixin, uni
                 self.api.post(body=body)
 
     def test_both_properties_present_and_valid_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both properties present and valid is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -151,7 +151,7 @@ class TestRequestBodyPostObjectPropertiesValidationRequestBody(ApiTestMixin, uni
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_doesn_t_invalidate_other_properties_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # doesn&#x27;t invalidate other properties
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -185,7 +185,7 @@ class TestRequestBodyPostObjectPropertiesValidationRequestBody(ApiTestMixin, uni
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_both_properties_invalid_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # both properties invalid is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

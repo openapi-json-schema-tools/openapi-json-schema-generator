@@ -35,7 +35,7 @@ class TestRequestBodyPostAdditionalpropertiesAreAllowedByDefaultRequestBody(ApiT
     response_body = ''
 
     def test_additional_properties_are_allowed_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # additional properties are allowed
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -32,11 +32,11 @@ class TestResponseBodyPostRequiredWithEscapedCharactersResponseBodyForContentTyp
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.required_with_escaped_characters.RequiredWithEscapedCharacters
+    response_body_schema = post.response_200.required_with_escaped_characters.RequiredWithEscapedCharacters
     
     def test_object_with_some_properties_missing_is_invalid_fails(self):
         # object with some properties missing is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestResponseBodyPostRequiredWithEscapedCharactersResponseBodyForContentTyp
     
     def test_object_with_all_properties_present_is_valid_passes(self):
         # object with all properties present is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

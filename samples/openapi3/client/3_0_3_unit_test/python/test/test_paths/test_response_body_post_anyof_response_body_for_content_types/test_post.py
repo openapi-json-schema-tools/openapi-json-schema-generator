@@ -32,11 +32,11 @@ class TestResponseBodyPostAnyofResponseBodyForContentTypes(ApiTestMixin, unittes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.anyof.Anyof
+    response_body_schema = post.response_200.anyof.Anyof
     
     def test_second_anyof_valid_passes(self):
         # second anyOf valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostAnyofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_neither_anyof_valid_fails(self):
         # neither anyOf valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostAnyofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_both_anyof_valid_passes(self):
         # both anyOf valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestResponseBodyPostAnyofResponseBodyForContentTypes(ApiTestMixin, unittes
     
     def test_first_anyof_valid_passes(self):
         # first anyOf valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

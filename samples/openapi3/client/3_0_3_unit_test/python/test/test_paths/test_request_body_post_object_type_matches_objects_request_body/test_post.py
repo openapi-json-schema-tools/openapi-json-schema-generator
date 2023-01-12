@@ -35,7 +35,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
     response_body = ''
 
     def test_a_float_is_not_an_object_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a float is not an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_null_is_not_an_object_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # null is not an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -63,7 +63,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_array_is_not_an_object_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an array is not an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -78,7 +78,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_object_is_an_object_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an object is an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_string_is_not_an_object_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is not an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -123,7 +123,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_integer_is_not_an_object_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an integer is not an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -137,7 +137,7 @@ class TestRequestBodyPostObjectTypeMatchesObjectsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_boolean_is_not_an_object_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a boolean is not an object
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

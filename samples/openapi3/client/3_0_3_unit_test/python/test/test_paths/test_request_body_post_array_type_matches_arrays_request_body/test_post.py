@@ -35,7 +35,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
     response_body = ''
 
     def test_a_float_is_not_an_array_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a float is not an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
                 self.api.post(body=body)
 
     def test_a_boolean_is_not_an_array_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a boolean is not an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -63,7 +63,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
                 self.api.post(body=body)
 
     def test_null_is_not_an_array_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # null is not an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -77,7 +77,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
                 self.api.post(body=body)
 
     def test_an_object_is_not_an_array_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an object is not an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -92,7 +92,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
                 self.api.post(body=body)
 
     def test_a_string_is_not_an_array_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is not an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -106,7 +106,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
                 self.api.post(body=body)
 
     def test_an_array_is_an_array_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an array is an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -137,7 +137,7 @@ class TestRequestBodyPostArrayTypeMatchesArraysRequestBody(ApiTestMixin, unittes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_an_integer_is_not_an_array_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an integer is not an array
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

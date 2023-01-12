@@ -32,11 +32,11 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.forbidden_property.ForbiddenProperty
+    response_body_schema = post.response_200.forbidden_property.ForbiddenProperty
     
     def test_property_present_fails(self):
         # property present
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
     
     def test_property_absent_passes(self):
         # property absent
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

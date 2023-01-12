@@ -32,11 +32,11 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.nul_characters_in_strings.NulCharactersInStrings
+    response_body_schema = post.response_200.nul_characters_in_strings.NulCharactersInStrings
     
     def test_match_string_with_nul_passes(self):
         # match string with nul
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes(ApiT
     
     def test_do_not_match_string_lacking_nul_fails(self):
         # do not match string lacking nul
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

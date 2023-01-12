@@ -32,11 +32,11 @@ class TestResponseBodyPostMaxproperties0MeansTheObjectIsEmptyResponseBodyForCont
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty
+    response_body_schema = post.response_200.maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty
     
     def test_no_properties_is_valid_passes(self):
         # no properties is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -67,7 +67,7 @@ class TestResponseBodyPostMaxproperties0MeansTheObjectIsEmptyResponseBodyForCont
     
     def test_one_property_is_invalid_fails(self):
         # one property is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

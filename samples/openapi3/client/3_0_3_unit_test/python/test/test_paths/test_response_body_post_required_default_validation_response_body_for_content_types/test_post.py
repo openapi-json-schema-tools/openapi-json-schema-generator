@@ -32,11 +32,11 @@ class TestResponseBodyPostRequiredDefaultValidationResponseBodyForContentTypes(A
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.required_default_validation.RequiredDefaultValidation
+    response_body_schema = post.response_200.required_default_validation.RequiredDefaultValidation
     
     def test_not_required_by_default_passes(self):
         # not required by default
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -32,11 +32,11 @@ class TestResponseBodyPostRefInNotResponseBodyForContentTypes(ApiTestMixin, unit
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.ref_in_not.RefInNot
+    response_body_schema = post.response_200.ref_in_not.RefInNot
     
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -69,7 +69,7 @@ class TestResponseBodyPostRefInNotResponseBodyForContentTypes(ApiTestMixin, unit
     
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

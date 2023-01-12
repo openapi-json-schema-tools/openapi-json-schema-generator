@@ -35,7 +35,7 @@ class TestRequestBodyPostRequiredDefaultValidationRequestBody(ApiTestMixin, unit
     response_body = ''
 
     def test_not_required_by_default_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # not required by default
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
     response_body = ''
 
     def test_member2_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # member 2 is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_member1_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # member 1 is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -95,7 +95,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_another_string_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # another string is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

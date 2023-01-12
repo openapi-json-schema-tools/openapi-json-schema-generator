@@ -35,7 +35,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
     response_body = ''
 
     def test_1_is_not_a_string_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # 1 is not a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_string_is_still_a_string_even_if_it_looks_like_a_number_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is still a string, even if it looks like a number
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -79,7 +79,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_an_empty_string_is_still_a_string_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an empty string is still a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_float_is_not_a_string_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a float is not a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -123,7 +123,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_object_is_not_a_string_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an object is not a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -138,7 +138,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_an_array_is_not_a_string_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an array is not a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -153,7 +153,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_boolean_is_not_a_string_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a boolean is not a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -167,7 +167,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_null_is_not_a_string_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # null is not a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -181,7 +181,7 @@ class TestRequestBodyPostStringTypeMatchesStringsRequestBody(ApiTestMixin, unitt
                 self.api.post(body=body)
 
     def test_a_string_is_a_string_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is a string
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

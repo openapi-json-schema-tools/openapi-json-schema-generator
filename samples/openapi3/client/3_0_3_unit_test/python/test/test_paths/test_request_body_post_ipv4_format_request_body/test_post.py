@@ -35,7 +35,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
     response_body = ''
 
     def test_all_string_formats_ignore_objects_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # all string formats ignore objects
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_all_string_formats_ignore_booleans_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # all string formats ignore booleans
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_all_string_formats_ignore_integers_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # all string formats ignore integers
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -126,7 +126,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_all_string_formats_ignore_floats_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # all string formats ignore floats
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -156,7 +156,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_all_string_formats_ignore_arrays_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # all string formats ignore arrays
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -187,7 +187,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_all_string_formats_ignore_nulls_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # all string formats ignore nulls
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

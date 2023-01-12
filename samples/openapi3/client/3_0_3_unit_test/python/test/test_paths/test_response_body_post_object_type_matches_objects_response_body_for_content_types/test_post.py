@@ -32,11 +32,11 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.object_type_matches_objects.ObjectTypeMatchesObjects
+    response_body_schema = post.response_200.object_type_matches_objects.ObjectTypeMatchesObjects
     
     def test_a_float_is_not_an_object_fails(self):
         # a float is not an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
     
     def test_null_is_not_an_object_fails(self):
         # null is not an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -84,7 +84,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
     
     def test_an_array_is_not_an_object_fails(self):
         # an array is not an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
     
     def test_an_object_is_an_object_passes(self):
         # an object is an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -140,7 +140,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
     
     def test_a_string_is_not_an_object_fails(self):
         # a string is not an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -164,7 +164,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
     
     def test_an_integer_is_not_an_object_fails(self):
         # an integer is not an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -188,7 +188,7 @@ class TestResponseBodyPostObjectTypeMatchesObjectsResponseBodyForContentTypes(Ap
     
     def test_a_boolean_is_not_an_object_fails(self):
         # a boolean is not an object
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

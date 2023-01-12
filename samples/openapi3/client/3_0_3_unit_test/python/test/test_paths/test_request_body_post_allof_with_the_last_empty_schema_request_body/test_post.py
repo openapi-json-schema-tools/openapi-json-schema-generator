@@ -35,7 +35,7 @@ class TestRequestBodyPostAllofWithTheLastEmptySchemaRequestBody(ApiTestMixin, un
     response_body = ''
 
     def test_string_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # string is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostAllofWithTheLastEmptySchemaRequestBody(ApiTestMixin, un
                 self.api.post(body=body)
 
     def test_number_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # number is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -32,11 +32,11 @@ class TestResponseBodyPostEnumWith0DoesNotMatchFalseResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse
+    response_body_schema = post.response_200.enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse
     
     def test_integer_zero_is_valid_passes(self):
         # integer zero is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostEnumWith0DoesNotMatchFalseResponseBodyForContentTypes(
     
     def test_float_zero_is_valid_passes(self):
         # float zero is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -96,7 +96,7 @@ class TestResponseBodyPostEnumWith0DoesNotMatchFalseResponseBodyForContentTypes(
     
     def test_false_is_invalid_fails(self):
         # false is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

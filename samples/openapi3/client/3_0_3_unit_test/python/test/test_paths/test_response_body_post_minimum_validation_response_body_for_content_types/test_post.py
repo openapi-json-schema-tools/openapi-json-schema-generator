@@ -32,11 +32,11 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.minimum_validation.MinimumValidation
+    response_body_schema = post.response_200.minimum_validation.MinimumValidation
     
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_below_the_minimum_is_invalid_fails(self):
         # below the minimum is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_above_the_minimum_is_valid_passes(self):
         # above the minimum is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestResponseBodyPostMinimumValidationResponseBodyForContentTypes(ApiTestMi
     
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

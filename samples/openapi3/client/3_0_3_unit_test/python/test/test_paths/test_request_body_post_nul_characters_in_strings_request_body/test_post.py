@@ -35,7 +35,7 @@ class TestRequestBodyPostNulCharactersInStringsRequestBody(ApiTestMixin, unittes
     response_body = ''
 
     def test_match_string_with_nul_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # match string with nul
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostNulCharactersInStringsRequestBody(ApiTestMixin, unittes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_do_not_match_string_lacking_nul_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # do not match string lacking nul
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

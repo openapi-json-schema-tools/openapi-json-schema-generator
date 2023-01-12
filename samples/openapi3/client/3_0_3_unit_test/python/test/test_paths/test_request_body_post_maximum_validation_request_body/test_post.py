@@ -35,7 +35,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
     response_body = ''
 
     def test_below_the_maximum_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # below the maximum is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -65,7 +65,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_boundary_point_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # boundary point is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -95,7 +95,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_above_the_maximum_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # above the maximum is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -109,7 +109,7 @@ class TestRequestBodyPostMaximumValidationRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_ignores_non_numbers_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores non-numbers
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

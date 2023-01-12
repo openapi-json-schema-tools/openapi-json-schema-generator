@@ -32,11 +32,11 @@ class TestResponseBodyPostMaximumValidationWithUnsignedIntegerResponseBodyForCon
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger
+    response_body_schema = post.response_200.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger
     
     def test_below_the_maximum_is_invalid_passes(self):
         # below the maximum is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostMaximumValidationWithUnsignedIntegerResponseBodyForCon
     
     def test_above_the_maximum_is_invalid_fails(self):
         # above the maximum is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostMaximumValidationWithUnsignedIntegerResponseBodyForCon
     
     def test_boundary_point_integer_is_valid_passes(self):
         # boundary point integer is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestResponseBodyPostMaximumValidationWithUnsignedIntegerResponseBodyForCon
     
     def test_boundary_point_float_is_valid_passes(self):
         # boundary point float is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

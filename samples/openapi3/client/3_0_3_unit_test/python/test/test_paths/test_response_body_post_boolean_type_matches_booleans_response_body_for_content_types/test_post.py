@@ -32,11 +32,11 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.boolean_type_matches_booleans.BooleanTypeMatchesBooleans
+    response_body_schema = post.response_200.boolean_type_matches_booleans.BooleanTypeMatchesBooleans
     
     def test_an_empty_string_is_not_a_boolean_fails(self):
         # an empty string is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_a_float_is_not_a_boolean_fails(self):
         # a float is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -84,7 +84,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_null_is_not_a_boolean_fails(self):
         # null is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -108,7 +108,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_zero_is_not_a_boolean_fails(self):
         # zero is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -132,7 +132,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_an_array_is_not_a_boolean_fails(self):
         # an array is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -157,7 +157,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_a_string_is_not_a_boolean_fails(self):
         # a string is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -181,7 +181,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_false_is_a_boolean_passes(self):
         # false is a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -211,7 +211,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_an_integer_is_not_a_boolean_fails(self):
         # an integer is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -235,7 +235,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_true_is_a_boolean_passes(self):
         # true is a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -265,7 +265,7 @@ class TestResponseBodyPostBooleanTypeMatchesBooleansResponseBodyForContentTypes(
     
     def test_an_object_is_not_a_boolean_fails(self):
         # an object is not a boolean
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostRefInOneofRequestBody(ApiTestMixin, unittest.TestCase):
     response_body = ''
 
     def test_property_named_ref_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # property named $ref valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -68,7 +68,7 @@ class TestRequestBodyPostRefInOneofRequestBody(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_property_named_ref_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # property named $ref invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

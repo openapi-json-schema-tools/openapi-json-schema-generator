@@ -32,11 +32,11 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.date_time_format.DateTimeFormat
+    response_body_schema = post.response_200.date_time_format.DateTimeFormat
     
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -67,7 +67,7 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
     
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -97,7 +97,7 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
     
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -127,7 +127,7 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
     
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -157,7 +157,7 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
     
     def test_all_string_formats_ignore_arrays_passes(self):
         # all string formats ignore arrays
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -188,7 +188,7 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
     
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

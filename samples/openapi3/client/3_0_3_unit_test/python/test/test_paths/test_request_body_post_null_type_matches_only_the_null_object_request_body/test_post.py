@@ -35,7 +35,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
     response_body = ''
 
     def test_a_float_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a float is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -49,7 +49,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_an_object_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an object is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -64,7 +64,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_false_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # false is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -78,7 +78,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_an_integer_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an integer is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -92,7 +92,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_true_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # true is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -106,7 +106,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_zero_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # zero is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_an_empty_string_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an empty string is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -134,7 +134,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_null_is_null_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # null is null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -164,7 +164,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_an_array_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # an array is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -179,7 +179,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 self.api.post(body=body)
 
     def test_a_string_is_not_null_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a string is not null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

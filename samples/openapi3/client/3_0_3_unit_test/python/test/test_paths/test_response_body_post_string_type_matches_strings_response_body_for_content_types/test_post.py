@@ -32,11 +32,11 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.string_type_matches_strings.StringTypeMatchesStrings
+    response_body_schema = post.response_200.string_type_matches_strings.StringTypeMatchesStrings
     
     def test_1_is_not_a_string_fails(self):
         # 1 is not a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -60,7 +60,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_a_string_is_still_a_string_even_if_it_looks_like_a_number_passes(self):
         # a string is still a string, even if it looks like a number
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -90,7 +90,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_an_empty_string_is_still_a_string_passes(self):
         # an empty string is still a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -120,7 +120,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_a_float_is_not_a_string_fails(self):
         # a float is not a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -144,7 +144,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_an_object_is_not_a_string_fails(self):
         # an object is not a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -169,7 +169,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_an_array_is_not_a_string_fails(self):
         # an array is not a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -194,7 +194,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_a_boolean_is_not_a_string_fails(self):
         # a boolean is not a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -218,7 +218,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_null_is_not_a_string_fails(self):
         # null is not a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -242,7 +242,7 @@ class TestResponseBodyPostStringTypeMatchesStringsResponseBodyForContentTypes(Ap
     
     def test_a_string_is_a_string_passes(self):
         # a string is a string
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

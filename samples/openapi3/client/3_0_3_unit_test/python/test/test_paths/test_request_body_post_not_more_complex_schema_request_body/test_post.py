@@ -35,7 +35,7 @@ class TestRequestBodyPostNotMoreComplexSchemaRequestBody(ApiTestMixin, unittest.
     response_body = ''
 
     def test_other_match_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # other match
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -68,7 +68,7 @@ class TestRequestBodyPostNotMoreComplexSchemaRequestBody(ApiTestMixin, unittest.
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_mismatch_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # mismatch
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -85,7 +85,7 @@ class TestRequestBodyPostNotMoreComplexSchemaRequestBody(ApiTestMixin, unittest.
                 self.api.post(body=body)
 
     def test_match_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # match
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

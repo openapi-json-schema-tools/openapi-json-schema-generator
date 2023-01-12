@@ -32,11 +32,11 @@ class TestResponseBodyPostAllofSimpleTypesResponseBodyForContentTypes(ApiTestMix
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.allof_simple_types.AllofSimpleTypes
+    response_body_schema = post.response_200.allof_simple_types.AllofSimpleTypes
     
     def test_valid_passes(self):
         # valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestResponseBodyPostAllofSimpleTypesResponseBodyForContentTypes(ApiTestMix
     
     def test_mismatch_one_fails(self):
         # mismatch one
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

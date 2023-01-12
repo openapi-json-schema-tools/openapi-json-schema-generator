@@ -32,11 +32,11 @@ class TestResponseBodyPostRequiredWithEmptyArrayResponseBodyForContentTypes(ApiT
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.required_with_empty_array.RequiredWithEmptyArray
+    response_body_schema = post.response_200.required_with_empty_array.RequiredWithEmptyArray
     
     def test_property_not_required_passes(self):
         # property not required
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

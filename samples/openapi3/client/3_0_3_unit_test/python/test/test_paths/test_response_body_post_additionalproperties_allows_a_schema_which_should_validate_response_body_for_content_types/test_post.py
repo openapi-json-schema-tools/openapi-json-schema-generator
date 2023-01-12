@@ -32,11 +32,11 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
+    response_body_schema = post.response_200.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate
     
     def test_no_additional_properties_is_valid_passes(self):
         # no additional properties is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -69,7 +69,7 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
     
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -100,7 +100,7 @@ class TestResponseBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRe
     
     def test_an_additional_valid_property_is_valid_passes(self):
         # an additional valid property is valid
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -32,11 +32,11 @@ class TestResponseBodyPostAdditionalpropertiesAreAllowedByDefaultResponseBodyFor
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault
+    response_body_schema = post.response_200.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault
     
     def test_additional_properties_are_allowed_passes(self):
         # additional properties are allowed
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
     response_body = ''
 
     def test_ignores_arrays_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores arrays
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -66,7 +66,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_objects_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores objects
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -97,7 +97,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_null_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores null
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -127,7 +127,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_floats_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores floats
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -157,7 +157,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_non_matching_pattern_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a non-matching pattern is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -171,7 +171,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 self.api.post(body=body)
 
     def test_ignores_booleans_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores booleans
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -201,7 +201,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_matching_pattern_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # a matching pattern is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -231,7 +231,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_ignores_integers_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # ignores integers
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

@@ -35,7 +35,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
     response_body = ''
 
     def test_unique_array_of_objects_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # unique array of objects is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -74,7 +74,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_true_and_a1_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -113,7 +113,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_non_unique_heterogeneous_types_are_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique heterogeneous types are invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -138,7 +138,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_nested0_and_false_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # nested [0] and [false] are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -181,7 +181,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_a_false_and_a0_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -220,7 +220,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_numbers_are_unique_if_mathematically_unequal_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # numbers are unique if mathematically unequal
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -238,7 +238,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_false_is_not_equal_to_zero_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # false is not equal to zero
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -271,7 +271,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_0_and_false_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # [0] and [false] are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -308,7 +308,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_unique_array_of_arrays_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # unique array of arrays is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -345,7 +345,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_non_unique_array_of_nested_objects_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of nested objects is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -380,7 +380,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_non_unique_array_of_more_than_two_integers_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of more than two integers is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -398,7 +398,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_true_is_not_equal_to_one_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # true is not equal to one
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -431,7 +431,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_objects_are_non_unique_despite_key_order_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # objects are non-unique despite key order
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -458,7 +458,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_unique_array_of_strings_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # unique array of strings is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -492,7 +492,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_1_and_true_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # [1] and [true] are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -529,7 +529,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_different_objects_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # different objects are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -572,7 +572,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_unique_array_of_integers_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # unique array of integers is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -605,7 +605,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_non_unique_array_of_more_than_two_arrays_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of more than two arrays is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -629,7 +629,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_non_unique_array_of_objects_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of objects is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -652,7 +652,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_unique_array_of_nested_objects_is_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # unique array of nested objects is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -703,7 +703,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_non_unique_array_of_arrays_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of arrays is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -724,7 +724,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_non_unique_array_of_strings_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of strings is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -742,7 +742,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
                 self.api.post(body=body)
 
     def test_nested1_and_true_are_unique_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # nested [1] and [true] are unique
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -785,7 +785,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_unique_heterogeneous_types_are_valid_passes(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # unique heterogeneous types are valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -825,7 +825,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             assert isinstance(api_response.body, schemas.Unset)
 
     def test_non_unique_array_of_integers_is_invalid_fails(self):
-        content_type = 'application/json'
+        content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
         # non-unique array of integers is invalid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

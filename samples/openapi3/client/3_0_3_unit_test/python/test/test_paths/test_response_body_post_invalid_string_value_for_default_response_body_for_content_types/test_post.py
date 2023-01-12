@@ -32,11 +32,11 @@ class TestResponseBodyPostInvalidStringValueForDefaultResponseBodyForContentType
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.invalid_string_value_for_default.InvalidStringValueForDefault
+    response_body_schema = post.response_200.invalid_string_value_for_default.InvalidStringValueForDefault
     
     def test_valid_when_property_is_specified_passes(self):
         # valid when property is specified
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -69,7 +69,7 @@ class TestResponseBodyPostInvalidStringValueForDefaultResponseBodyForContentType
     
     def test_still_valid_when_the_invalid_default_is_used_passes(self):
         # still valid when the invalid default is used
-        accept_content_type = 'application/json'
+        accept_content_type = 'org.openapitools.codegen.CodegenKey@63a70a10'
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
