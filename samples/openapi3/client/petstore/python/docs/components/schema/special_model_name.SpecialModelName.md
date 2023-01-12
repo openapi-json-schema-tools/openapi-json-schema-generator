@@ -4,7 +4,7 @@
 
 model with an invalid class name for python
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | model with an invalid class name for python |

@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.string_with_validation
 # StringWithValidation
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

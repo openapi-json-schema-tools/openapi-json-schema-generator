@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.additionalproperties_are_allowed_by_default
 # AdditionalpropertiesAreAllowedByDefault
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |

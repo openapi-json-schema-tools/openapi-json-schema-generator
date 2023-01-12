@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.object_with_inline_composition_property
 # ObjectWithInlineCompositionProperty
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -15,7 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # someProp
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
@@ -28,7 +28,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # allOf_0
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

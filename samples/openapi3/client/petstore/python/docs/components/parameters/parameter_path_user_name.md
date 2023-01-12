@@ -2,7 +2,7 @@
 ## petstore_api.components.parameters.parameter_path_user_name
 # schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

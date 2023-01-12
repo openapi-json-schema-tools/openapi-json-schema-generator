@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.animal_farm
 # AnimalFarm
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

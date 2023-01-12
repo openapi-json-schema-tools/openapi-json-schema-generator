@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.object_type_matches_objects
 # ObjectTypeMatchesObjects
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

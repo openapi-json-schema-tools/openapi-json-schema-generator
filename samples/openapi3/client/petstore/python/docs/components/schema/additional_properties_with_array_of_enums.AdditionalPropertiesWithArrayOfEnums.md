@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.additional_properties_with_array_of_enums
 # AdditionalPropertiesWithArrayOfEnums
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -14,7 +14,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

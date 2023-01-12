@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate
 # AdditionalpropertiesAllowsASchemaWhichShouldValidate
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

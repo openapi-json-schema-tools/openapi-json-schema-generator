@@ -55,7 +55,7 @@ order_id | [parameter_0.schema](#parameter_0.schema) | |
 
 # parameter_0.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

@@ -129,7 +129,7 @@ status | [parameter_0.schema](#parameter_0.schema) | |
 
 # parameter_0.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -156,7 +156,7 @@ headers | Unset | headers were not defined |
 
 # <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -168,7 +168,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

@@ -36,7 +36,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[request_body.content.application_octet_stream.schema](#request_bodycontentapplication_octet_streamschema)] | required |
+[body](#request_body) | typing.Union[[RequestBody.content.application_octet_stream.schema](#request_bodycontentapplication_octet_streamschema)] | required |
 content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/octet-stream', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -44,11 +44,11 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# <a id="request_body_request_bodycontentapplication_octet_streamschema" >request_body_request_body.content.application_octet_stream.schema</a>
+# <a id="request_body_request_bodycontentapplication_octet_streamschema" >RequestBody.content.application_octet_stream.schema</a>
 
 file to upload
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to upload |
@@ -71,7 +71,7 @@ headers | Unset | headers were not defined |
 
 file to download
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | file to download |

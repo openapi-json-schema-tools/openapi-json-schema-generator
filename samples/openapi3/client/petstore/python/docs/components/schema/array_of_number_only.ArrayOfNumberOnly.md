@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.array_of_number_only
 # ArrayOfNumberOnly
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -15,7 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # ArrayNumber
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

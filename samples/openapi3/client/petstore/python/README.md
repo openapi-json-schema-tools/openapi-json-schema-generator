@@ -21,7 +21,7 @@ Python &gt;&#x3D;3.7
     - So you will need to update how you pass data in to endpoints
 3. Endpoint responses now include the original response, the deserialized response body, and (todo)the deserialized headers
     - So you will need to update your code to use response.body to access deserialized data
-4. All validated data is instantiated in an instance that subclasses all validated Schema classes and Decimal/str/list/tuple/frozendict/NoneClass/BoolClass/bytes/io.FileIO
+4. All validated data is instantiated in an instance that subclasses all validated Schema classes and Decimal/str/tuple/frozendict/NoneClass/BoolClass/bytes/io.FileIO
     - This means that you can use isinstance to check if a payload validated against a schema class
     - This means that no data will be of type None/True/False
         - ingested None will subclass NoneClass
@@ -360,29 +360,29 @@ HTTP request | Method | Description
 
 ## Component RequestBodies
 
-- [request_body_client](docs/components/request_bodies/request_body_client.md)
-- [request_body_pet](docs/components/request_bodies/request_body_pet.md)
-- [request_body_user_array](docs/components/request_bodies/request_body_user_array.md)
+- [Client](docs/components/request_bodies/request_body_client.md)
+- [Pet](docs/components/request_bodies/request_body_pet.md)
+- [UserArray](docs/components/request_bodies/request_body_user_array.md)
 
 ## Component Responses
 
-- [response_success_description_only](docs/components/responses/response_success_description_only.md)
-- [response_success_inline_content_and_header](docs/components/responses/response_success_inline_content_and_header.md)
-- [response_success_with_json_api_response](docs/components/responses/response_success_with_json_api_response.md)
+- [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md)
+- [SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md)
+- [SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md)
 
 ## Component Headers
 
-- [header_int32_json_content_type_header](docs/components/headers/header_int32_json_content_type_header.md)
-- [header_number_header](docs/components/headers/header_number_header.md)
-- [header_ref_content_schema_header](docs/components/headers/header_ref_content_schema_header.md)
-- [header_ref_schema_header](docs/components/headers/header_ref_schema_header.md)
-- [header_string_header](docs/components/headers/header_string_header.md)
+- [Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md)
+- [NumberHeader](docs/components/headers/header_number_header.md)
+- [RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md)
+- [RefSchemaHeader](docs/components/headers/header_ref_schema_header.md)
+- [StringHeader](docs/components/headers/header_string_header.md)
 
 ## Component Parameters
 
-- [parameter_component_ref_schema_string_with_validation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
-- [parameter_path_user_name](docs/components/parameters/parameter_path_user_name.md)
-- [parameter_ref_schema_string_with_validation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
+- [ComponentRefSchemaStringWithValidation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
+- [PathUserName](docs/components/parameters/parameter_path_user_name.md)
+- [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
 
 ## Documentation For Authorization
 

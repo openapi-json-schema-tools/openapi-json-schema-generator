@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.additional_properties_validator
 # AdditionalPropertiesValidator
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -17,7 +17,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # allOf_0
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -29,7 +29,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # allOf_1
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -41,7 +41,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # allOf_2
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

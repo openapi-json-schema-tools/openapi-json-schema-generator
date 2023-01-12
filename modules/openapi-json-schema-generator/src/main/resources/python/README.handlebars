@@ -29,7 +29,7 @@ Python {{generatorLanguageVersion}}
     - So you will need to update how you pass data in to endpoints
 3. Endpoint responses now include the original response, the deserialized response body, and (todo)the deserialized headers
     - So you will need to update your code to use response.body to access deserialized data
-4. All validated data is instantiated in an instance that subclasses all validated Schema classes and Decimal/str/list/tuple/frozendict/NoneClass/BoolClass/bytes/io.FileIO
+4. All validated data is instantiated in an instance that subclasses all validated Schema classes and Decimal/str/tuple/frozendict/NoneClass/BoolClass/bytes/io.FileIO
     - This means that you can use isinstance to check if a payload validated against a schema class
     - This means that no data will be of type None/True/False
         - ingested None will subclass NoneClass

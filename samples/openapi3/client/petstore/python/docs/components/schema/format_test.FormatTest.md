@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.format_test
 # FormatTest
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -35,7 +35,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # arrayWithUniqueItems
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.nullable_class
 # NullableClass
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -26,7 +26,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # array_nullable_prop
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple, None,  | tuple, NoneClass,  |  |
@@ -38,14 +38,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # array_and_items_nullable_prop
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple, None,  | tuple, NoneClass,  |  |
@@ -57,14 +57,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
 # array_items_nullable
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -76,14 +76,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
 # object_nullable_prop
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
@@ -95,14 +95,14 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # object_and_items_nullable_prop
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
@@ -114,14 +114,14 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
 # object_items_nullable
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -133,14 +133,14 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |

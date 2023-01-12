@@ -2,7 +2,7 @@
 ## this_package.components.schema.addition_operator
 # AdditionOperator
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.bar
 # Bar
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | if omitted the server will use the default value of "bar"

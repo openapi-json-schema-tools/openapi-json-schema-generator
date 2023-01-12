@@ -4,7 +4,7 @@
 
 Must be named `File` for test.
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Must be named &#x60;File&#x60; for test. |

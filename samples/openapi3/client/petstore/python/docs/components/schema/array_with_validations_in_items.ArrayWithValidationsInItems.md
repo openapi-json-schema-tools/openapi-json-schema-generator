@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.array_with_validations_in_items
 # ArrayWithValidationsInItems
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

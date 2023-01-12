@@ -56,14 +56,14 @@ password | [parameter_1.schema](#parameter_1.schema) | |
 
 # parameter_0.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
 # parameter_1.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -85,14 +85,14 @@ headers | [response_200.Headers](#response_200Headers) |  |
 
 # <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
 # <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -110,14 +110,14 @@ numberHeader | [NumberHeader.schema](../../../components/headers/header_number_h
 
 # <a id="response_200header_x_rate_limitcontentapplication_jsonschema" >_200.header_x_rate_limit.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # <a id="response_200header_x_expires_afterschema" >_200.header_x_expires_after.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time

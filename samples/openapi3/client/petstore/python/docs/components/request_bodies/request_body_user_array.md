@@ -1,7 +1,7 @@
 # petstore_api.components.request_bodies.request_body_user_array
-# <a id="request_body_user_arraycontentapplication_jsonschema" >request_body_user_array.content.application_json.schema</a>
+# <a id="request_body_user_arraycontentapplication_jsonschema" >UserArray.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

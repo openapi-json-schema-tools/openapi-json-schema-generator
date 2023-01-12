@@ -9,7 +9,7 @@ headers | [Headers](#Headers) |  |
 
 # <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -26,7 +26,7 @@ someHeader | [SuccessInlineContentAndHeader.header_some_header.schema](#response
 
 # <a id="response_success_inline_content_and_headerheader_some_headerschema" >SuccessInlineContentAndHeader.header_some_header.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

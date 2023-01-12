@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.number
 # Number
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |

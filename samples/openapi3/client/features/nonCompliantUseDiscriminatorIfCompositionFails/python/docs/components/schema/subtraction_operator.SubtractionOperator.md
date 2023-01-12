@@ -2,7 +2,7 @@
 ## this_package.components.schema.subtraction_operator
 # SubtractionOperator
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

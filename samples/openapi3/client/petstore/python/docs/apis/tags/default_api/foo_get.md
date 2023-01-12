@@ -46,7 +46,7 @@ headers | Unset | headers were not defined |
 
 # <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

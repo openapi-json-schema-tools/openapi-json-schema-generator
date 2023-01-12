@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.drawing
 # Drawing
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -18,7 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # shapes
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
