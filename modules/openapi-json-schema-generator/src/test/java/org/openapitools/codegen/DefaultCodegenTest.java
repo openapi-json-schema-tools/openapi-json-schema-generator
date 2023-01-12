@@ -1487,7 +1487,7 @@ public class DefaultCodegenTest {
     @Test
     public void testCallbacks() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/callbacks.yaml");
-        final CodegenConfig codegen = new DefaultCodegen();
+        final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
         final String path = "/streams";
@@ -1520,14 +1520,15 @@ public class DefaultCodegenTest {
             Assert.assertNotNull(req.requestBody);
             Assert.assertEquals(req.responses.size(), 2);
 
+            CodegenKey ck = codegen.getKey("application/json");
             switch (req.httpMethod.toLowerCase(Locale.getDefault())) {
                 case "post":
                     Assert.assertEquals(req.operationId, "onDataDataPost");
-                    Assert.assertEquals(req.requestBody.getContent().get("application/json").getSchema().getRefInfo().getRefClass(), "NewNotificationData");
+                    Assert.assertEquals(req.requestBody.getContent().get(ck).getSchema().getRefInfo().getRefClass(), "NewNotificationData");
                     break;
                 case "delete":
                     Assert.assertEquals(req.operationId, "onDataDataDelete");
-                    Assert.assertEquals(req.requestBody.getContent().get("application/json").getSchema().getRefInfo().getRefClass(), "DeleteNotificationData");
+                    Assert.assertEquals(req.requestBody.getContent().get(ck).getSchema().getRefInfo().getRefClass(), "DeleteNotificationData");
                     break;
                 default:
                     Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod));
@@ -3753,42 +3754,43 @@ public class DefaultCodegenTest {
         path = "/ComposedObject";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsMap());
+        CodegenKey ck = codegen.getKey("application/json");
+        assertTrue(crb.getContent().get(ck).getSchema().getIsMap());
 
         path = "/ComposedNumber";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsNumber());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsNumber());
 
         path = "/ComposedInteger";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsUnboundedInteger());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsUnboundedInteger());
 
         path = "/ComposedString";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsString());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsString());
 
         path = "/ComposedBool";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsBoolean());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsBoolean());
 
         path = "/ComposedArray";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsArray());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsArray());
 
         path = "/ComposedNone";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsNull());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsNull());
 
         path = "/ComposedAnyType";
         co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().getIsAnyType());
+        assertTrue(crb.getContent().get(ck).getSchema().getIsAnyType());
     }
 
     @Test
