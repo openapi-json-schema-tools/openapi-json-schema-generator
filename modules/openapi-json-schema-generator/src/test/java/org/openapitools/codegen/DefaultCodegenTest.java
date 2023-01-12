@@ -2534,29 +2534,37 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.responses.get("200");
-        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getRefInfo().getRef().getAdditionalProperties(), null);
+        CodegenKey ck = codegen.getKey("application/json");
+        assertEquals(mapWithAddPropsUnset.getContent().get(ck).getSchema().getRefInfo().getRef().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
-        assertNotNull(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getRefInfo().getRef().getAdditionalProperties());
-        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getRefInfo().getRef().getAdditionalProperties().getIsBooleanSchemaTrue());
+        ck = codegen.getKey("application/xml");
+        assertNotNull(mapWithAddPropsTrue.getContent().get(ck).getSchema().getRefInfo().getRef().getAdditionalProperties());
+        assertTrue(mapWithAddPropsTrue.getContent().get(ck).getSchema().getRefInfo().getRef().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.responses.get("202");
-        assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getRefInfo().getRef().getAdditionalProperties());
-        assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getRefInfo().getRef().getAdditionalProperties().getIsBooleanSchemaFalse());
+        ck = codegen.getKey("application/x-www-form-urlencoded");
+        assertNotNull(mapWithAddPropsFalse.getContent().get(ck).getSchema().getRefInfo().getRef().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getContent().get(ck).getSchema().getRefInfo().getRef().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
-        assertNotNull(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getRefInfo());
+        ck = codegen.getKey("application/*");
+        assertNotNull(mapWithAddPropsSchema.getContent().get(ck).getSchema().getRefInfo());
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
         mapWithAddPropsUnset = co.responses.get("200");
-        assertEquals(mapWithAddPropsUnset.getContent().get("application/json").getSchema().getAdditionalProperties(), null);
+        ck = codegen.getKey("application/json");
+        assertEquals(mapWithAddPropsUnset.getContent().get(ck).getSchema().getAdditionalProperties(), null);
         mapWithAddPropsTrue = co.responses.get("201");
-        assertNotNull(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties());
-        assertTrue(mapWithAddPropsTrue.getContent().get("application/xml").getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
+        ck = codegen.getKey("application/xml");
+        assertNotNull(mapWithAddPropsTrue.getContent().get(ck).getSchema().getAdditionalProperties());
+        assertTrue(mapWithAddPropsTrue.getContent().get(ck).getSchema().getAdditionalProperties().getIsBooleanSchemaTrue());
         mapWithAddPropsFalse = co.responses.get("202");
-        assertNotNull(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties());
-        assertTrue(mapWithAddPropsFalse.getContent().get("application/x-www-form-urlencoded").getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
+        ck = codegen.getKey("application/x-www-form-urlencoded");
+        assertNotNull(mapWithAddPropsFalse.getContent().get(ck).getSchema().getAdditionalProperties());
+        assertTrue(mapWithAddPropsFalse.getContent().get(ck).getSchema().getAdditionalProperties().getIsBooleanSchemaFalse());
         mapWithAddPropsSchema = co.responses.get("203");
-        assertTrue(mapWithAddPropsSchema.getContent().get("application/*").getSchema().getAdditionalProperties().isString);
+        ck = codegen.getKey("application/*");
+        assertTrue(mapWithAddPropsSchema.getContent().get(ck).getSchema().getAdditionalProperties().isString);
     }
 
     @Test
@@ -3845,11 +3853,12 @@ public class DefaultCodegenTest {
         path = "/TxRxByteArray";
         co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
         crb = co.requestBody;
-        assertTrue(crb.getContent().get("application/json").getSchema().isByteArray);
-        assertFalse(crb.getContent().get("application/json").getSchema().getIsString());
+        CodegenKey ck = codegen.getKey("application/json");
+        assertTrue(crb.getContent().get(ck).getSchema().isByteArray);
+        assertFalse(crb.getContent().get(ck).getSchema().getIsString());
         CodegenResponse cr = co.responses.get("200");
-        assertTrue(cr.getContent().get("application/json").getSchema().isByteArray);
-        assertFalse(cr.getContent().get("application/json").getSchema().getIsString());
+        assertTrue(cr.getContent().get(ck).getSchema().isByteArray);
+        assertFalse(cr.getContent().get(ck).getSchema().getIsString());
 
         String modelName = "ObjectContainingByteArray";
         CodegenSchema m = codegen.fromSchema(
@@ -3857,7 +3866,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("byteArray");
+        ck = codegen.getKey("byteArray");
         CodegenSchema pr = m.getProperties().get(ck);
         assertTrue(pr.isByteArray);
         assertFalse(pr.getIsString());
