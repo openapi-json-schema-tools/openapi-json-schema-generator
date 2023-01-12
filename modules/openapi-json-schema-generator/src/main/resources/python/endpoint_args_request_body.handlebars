@@ -66,9 +66,9 @@
         {{/if}}
         {{#with requestBody.refInfo.retRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}{{#with this.schema}}request_body.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
