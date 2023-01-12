@@ -326,6 +326,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         contentTypeTemplateFiles.put("__init__.handlebars", "__init__.py");
         headersTemplateFiles.put("__init__.handlebars", "__init__.py");
         parametersTemplateFiles.put("__init__.handlebars", "__init__.py");
+        responsesTemplateFiles.put("__init__.handlebars", "__init__.py");
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -438,9 +439,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (components != null) {
             if (components.getRequestBodies() != null) {
                 supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
-            }
-            if (components.getResponses() != null) {
-                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "responses", "__init__.py"));
             }
         }
 
