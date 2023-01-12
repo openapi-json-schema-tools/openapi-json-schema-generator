@@ -973,7 +973,7 @@ public class DefaultGenerator implements Generator {
 
     private void generateHeaders(List<File> files, String jsonPath) {
         for (String templateName : config.headersTemplateFiles().keySet()) {
-            String filename = config.headerFilename(templateName, jsonPath);
+            String filename = config.headersFilename(templateName, jsonPath);
             try {
                 File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.HEADERS);
                 if (written != null) {

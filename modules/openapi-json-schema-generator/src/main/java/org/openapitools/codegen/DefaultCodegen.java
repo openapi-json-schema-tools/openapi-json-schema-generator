@@ -4088,7 +4088,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (jsonPath.startsWith("#/components/responses/")) {
             // #/components/responses/someResponse/headers/SomeHeader-> length 6
             String componentName = pathPieces[3];
-            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
+            return responseFileFolder(componentName) + File.separatorChar + "headers" + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
         } else if (jsonPath.startsWith("#/paths/")) {
             // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
@@ -4096,7 +4096,7 @@ public class DefaultCodegen implements CodegenConfig {
             String code = pathPieces[5];
             String responseModule = toResponseModuleName(code);
             String headerModule = toHeaderFilename(pathPieces[7]);
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + writtenFilename;
+            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar  + headerModule + File.separatorChar + writtenFilename;
         }
         return null;
     }
@@ -4107,7 +4107,6 @@ public class DefaultCodegen implements CodegenConfig {
         String writtenFilename = headersTemplateFiles().get(templateName);
         if (jsonPath.startsWith("#/components/headers")) {
             // #/components/headers/someHeader -> length 3
-            String componentName = pathPieces[3];
             return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers" + File.separatorChar + writtenFilename;
         } else if (jsonPath.startsWith("#/components/responses/")) {
             // #/components/responses/someResponse/headers-> length 5
@@ -4119,7 +4118,6 @@ public class DefaultCodegen implements CodegenConfig {
             String httpVerb = pathPieces[3];
             String code = pathPieces[5];
             String responseModule = toResponseModuleName(code);
-            String headerModule = toHeaderFilename(pathPieces[7]);
             return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar + writtenFilename;
         }
         return null;
@@ -4292,7 +4290,7 @@ public class DefaultCodegen implements CodegenConfig {
                 String contentOrHeaders = pathPieces[4];
                 if (contentOrHeaders.equals("headers")) {
                     // #/components/responses/someResponse/headers/SomeHeader/schema -> length 7
-                    return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + getKey(pathPieces[6]).getSnakeCaseName() + suffix;
+                    return responseFileFolder(componentName) + File.separatorChar + "headers" + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + getKey(pathPieces[6]).getSnakeCaseName() + suffix;
                 }
                 // #/components/responses/someResponse/content/application-json/schema -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
@@ -4304,7 +4302,7 @@ public class DefaultCodegen implements CodegenConfig {
             String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
             CodegenKey contentTypeKey = getKey(contentType);
             CodegenKey schemaKey = getKey(pathPieces[8]);
-            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
+            return responseFileFolder(componentName) + File.separatorChar + "headers" + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
         } else if (jsonPath.startsWith("#/paths/")) {
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
             String httpVerb = pathPieces[3];
@@ -4350,7 +4348,7 @@ public class DefaultCodegen implements CodegenConfig {
                 CodegenKey contentTypeKey = getKey(contentType);
                 CodegenKey schemaKey = getKey(pathPieces[10]);
                 String responseModule = toResponseModuleName(code);
-                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + schemaKey.getSnakeCaseName() + suffix;
             }
         }
         return null;
