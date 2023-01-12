@@ -527,15 +527,19 @@ public class DefaultGenerator implements Generator {
                     }
 
                     // paths.some_path.post.parameter_0.py
-                    Integer i = 0;
-                    for (CodegenParameter cp: co.allParams) {
-                        if (cp.getRefInfo() != null) {
-                            // skip generation of parameter if it refs another location
-                            continue;
+                    if (co.allParams != null && !co.allParams.isEmpty()) {
+                        String parametersJsonPath = operationJsonPath + "/parameters";
+                        generateParameters(files, parametersJsonPath);
+                        Integer i = 0;
+                        for (CodegenParameter cp: co.allParams) {
+                            if (cp.getRefInfo() != null) {
+                                // skip generation of parameter if it refs another location
+                                continue;
+                            }
+                            String parameterJsonPath = parametersJsonPath + "/" + i.toString();
+                            generateParameter(files, cp, parameterJsonPath);
+                            i++;
                         }
-                        String parameterJsonPath = operationJsonPath + "/parameters/" + i.toString();
-                        generateParameter(files, cp, parameterJsonPath);
-                        i++;
                     }
 
                     for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
@@ -896,6 +900,23 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+    private void generateParameters(List<File> files, String jsonPath) {
+        for (String templateName : config.parametersTemplateFiles().keySet()) {
+            String filename = config.parametersFilename(templateName, jsonPath);
+            try {
+                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.PARAMETERS);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "parameters");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
+
     private TreeMap<String, CodegenParameter> generateParameters(List<File> files) {
         final Map<String, Parameter> specParameters = this.openAPI.getComponents().getParameters();
         if (specParameters == null || specParameters.isEmpty()) {
@@ -903,10 +924,12 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
+        String parametersJsonPath = "#/components/parameters";
+        generateParameters(files, parametersJsonPath);
         for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
             String componentName = entry.getKey();
             Parameter specParameter = entry.getValue();
-            String sourceJsonPath = "#/components/parameters/" + componentName;
+            String sourceJsonPath = parametersJsonPath + "/" + componentName;
             CodegenParameter parameter = config.fromParameter(specParameter, sourceJsonPath);
             parameters.put(componentName, parameter);
             generateParameter(files, parameter, sourceJsonPath);

@@ -190,6 +190,8 @@ public interface CodegenConfig {
 
     Map<String, String> parameterDocTemplateFiles();
 
+    Map<String, String> parametersTemplateFiles();
+
     Map<String, String> pathEndpointTemplateFiles();
 
     Set<String> pathEndpointTestTemplateFiles();
@@ -287,6 +289,8 @@ public interface CodegenConfig {
     String headersFilename(String templateName, String jsonPath);
 
     String parameterFilename(String templateName, String jsonPath);
+
+    String parametersFilename(String templateName, String jsonPath);
 
     String requestBodyFilename(String templateName, String jsonPath);
 
