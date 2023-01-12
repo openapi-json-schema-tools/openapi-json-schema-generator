@@ -32,7 +32,7 @@ class TestResponseBodyPostRequiredWithEmptyArrayResponseBodyForContentTypes(ApiT
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.required_with_empty_array.RequiredWithEmptyArray
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_property_not_required_passes(self):
         # property not required

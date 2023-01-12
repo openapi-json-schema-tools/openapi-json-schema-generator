@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.number_type_matches_numbers
 # NumberTypeMatchesNumbers
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |

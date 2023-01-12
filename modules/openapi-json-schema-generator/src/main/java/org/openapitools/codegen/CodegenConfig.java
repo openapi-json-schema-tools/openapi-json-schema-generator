@@ -172,6 +172,10 @@ public interface CodegenConfig {
 
     Map<String, String> modelTemplateFiles();
 
+    Map<String, String> contentTemplateFiles();
+
+    Map<String, String> contentTypeTemplateFiles();
+
     Map<String, String> requestBodyTemplateFiles();
 
     Map<String, String> requestBodyDocTemplateFiles();
@@ -271,6 +275,10 @@ public interface CodegenConfig {
     void postProcessParameter(CodegenParameter parameter);
 
     String schemaFilename(String templateName, String jsonPath);
+
+    String contentFilename(String templateName, String jsonPath);
+
+    String contentTypeFilename(String templateName, String jsonPath);
 
     String headerFilename(String templateName, String jsonPath);
 

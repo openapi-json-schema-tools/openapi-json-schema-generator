@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.nullable_string
 # NullableString
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, str,  | NoneClass, str,  |  |

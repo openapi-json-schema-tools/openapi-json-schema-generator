@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.array_test
 # ArrayTest
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # array_of_string
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -29,7 +29,7 @@ items | str,  | str,  |  |
 
 # array_array_of_integer
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -41,7 +41,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -53,7 +53,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 
 # array_array_of_model
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -65,7 +65,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

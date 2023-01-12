@@ -25,10 +25,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 from petstore_api.components.request_bodies import request_body_pet as request_body
-from petstore_api.components.responses import response_success_description_only as response_for_200
+from petstore_api.components.responses import response_success_description_only as response_200
 
 from .. import path
-from . import response_for_405
+from . import response_405
 
 
 _auth = [
@@ -51,13 +51,13 @@ _servers = (
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_for_200.SuccessDescriptionOnly,
-        '405': response_for_405._405,
+        '200': response_200.SuccessDescriptionOnly,
+        '405': response_405._405,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.SuccessDescriptionOnly,
-    '405': response_for_405._405,
+    '200': response_200.SuccessDescriptionOnly,
+    '405': response_405._405,
 })
 
 
@@ -65,47 +65,47 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/xml"].schema, ],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -116,20 +116,20 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -201,47 +201,47 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/xml"].schema, ],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -252,20 +252,20 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def add_pet(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -288,47 +288,47 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/xml"].schema, ],
         content_type: typing_extensions.Literal["application/xml"],
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
@@ -339,20 +339,20 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = ...,
         host_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def post(
         self,
-        body: typing.Union[request_body.pet.Pet,request_body.pet.Pet,],
+        body: typing.Union[request_body.Pet.content["application/json"].schema, request_body.Pet.content["application/xml"].schema, ],
         content_type: str = 'application/json',
         host_index: typing.Optional[int] = None,
         stream: bool = False,

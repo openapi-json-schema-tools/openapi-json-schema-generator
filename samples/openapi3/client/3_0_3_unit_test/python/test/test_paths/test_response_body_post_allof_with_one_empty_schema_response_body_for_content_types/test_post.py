@@ -32,7 +32,7 @@ class TestResponseBodyPostAllofWithOneEmptySchemaResponseBodyForContentTypes(Api
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.allof_with_one_empty_schema.AllofWithOneEmptySchema
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_any_data_is_valid_passes(self):
         # any data is valid

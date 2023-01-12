@@ -56,7 +56,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[request_body.application_json](#request_body.application_json)] | required |
+[body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema)] | required |
 [path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -64,7 +64,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-# <a id="request_body.application_json" >request_body.application_json</a>
+# <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../../components/schema/user.User.md) |  | 
@@ -82,17 +82,17 @@ username | [parameter_path_user_name.schema](../../../components/parameters/para
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid user supplied
-404 | [response_for_404.ApiResponse](#response_for_404.ApiResponse) | User not found
+400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid user supplied
+404 | [response_404.ApiResponse](#response_404ApiResponse) | User not found
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_for_404.ApiResponse" >response_for_404.ApiResponse</a>
+#### <a id="response_404ApiResponse" >response_404.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

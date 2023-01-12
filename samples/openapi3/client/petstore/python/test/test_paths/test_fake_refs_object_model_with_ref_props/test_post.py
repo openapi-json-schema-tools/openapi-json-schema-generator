@@ -32,7 +32,7 @@ class TestFakeRefsObjectModelWithRefProps(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.object_model_with_ref_props.ObjectModelWithRefProps
+    response_body_schema = post.response_200._200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

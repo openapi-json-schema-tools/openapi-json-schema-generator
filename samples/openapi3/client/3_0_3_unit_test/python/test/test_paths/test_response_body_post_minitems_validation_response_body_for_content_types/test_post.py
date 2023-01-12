@@ -32,7 +32,7 @@ class TestResponseBodyPostMinitemsValidationResponseBodyForContentTypes(ApiTestM
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.minitems_validation.MinitemsValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_too_short_is_invalid_fails(self):
         # too short is invalid

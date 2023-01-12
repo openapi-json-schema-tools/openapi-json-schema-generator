@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.has_only_read_only
 # HasOnlyReadOnly
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

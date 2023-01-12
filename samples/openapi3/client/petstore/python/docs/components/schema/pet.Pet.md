@@ -4,7 +4,7 @@
 
 Pet object that needs to be added to the store
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Pet object that needs to be added to the store |
@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # photoUrls
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -34,7 +34,7 @@ items | str,  | str,  |  |
 
 # tags
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

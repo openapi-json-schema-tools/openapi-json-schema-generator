@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.self_referencing_array_model
 # SelfReferencingArrayModel
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

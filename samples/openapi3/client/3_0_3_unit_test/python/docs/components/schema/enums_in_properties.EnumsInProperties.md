@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.enums_in_properties
 # EnumsInProperties
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

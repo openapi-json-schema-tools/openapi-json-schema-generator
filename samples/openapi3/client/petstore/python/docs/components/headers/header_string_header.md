@@ -1,7 +1,7 @@
 # petstore_api.components.headers.header_string_header
-# schema
+# <a id="header_string_headerschema" >StringHeader.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

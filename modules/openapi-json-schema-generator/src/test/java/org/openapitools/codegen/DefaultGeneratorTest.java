@@ -65,7 +65,7 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 61);
+            Assert.assertEquals(files.size(), 60);
 
             // Check expected generated files
             // api sanity check
@@ -150,7 +150,7 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 35);
+            Assert.assertEquals(files.size(), 34);
 
             // Check API is written and Test is not
             TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/PetApi.java");
@@ -438,13 +438,14 @@ public class DefaultGeneratorTest {
         CodegenRequestBody codegenParameter = config.fromRequestBody(
                 body, "#/paths/~1fake~1StringRegex/post/requestBody");
 
-        Assert.assertEquals(codegenParameter.getContent().get("*/*").getSchema().getRefInfo().getRef().pattern, escapedPattern);
+        CodegenKey ck = config.getKey("*/*");
+        Assert.assertEquals(codegenParameter.getContent().get(ck).getSchema().getRefInfo().getRef().pattern, escapedPattern);
 
         // Validate when converting to response
         ApiResponse response = operation.getResponses().get("200");
         CodegenResponse codegenResponse = config.fromResponse(response, "#/paths/~1fake~1StringRegex/post/responses/200");
 
-        Assert.assertEquals(codegenResponse.getContent().get("*/*").getSchema().getRefInfo().getRef().getPattern(), escapedPattern);
+        Assert.assertEquals(codegenResponse.getContent().get(ck).getSchema().getRefInfo().getRef().getPattern(), escapedPattern);
     }
 
     @Test

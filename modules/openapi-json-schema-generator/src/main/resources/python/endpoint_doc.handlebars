@@ -38,10 +38,10 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
-    {{#if refInfo.refModule}}
-[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#each refInfo.getRef.content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../refInfo.refModule}}.md#{{packageName}}.components.request_bodies.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless refInfo.getRef.required}}, Unset]{{else}}]{{/unless}} | {{#if refInfo.getRef.required}}required{{else}}optional, default is unset{{/if}} |
+    {{#if refInfo}}
+[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with refInfo.getRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{/with}}{{#unless refInfo.getRef.required}}, Unset]{{else}}]{{/unless}} | {{#if refInfo.getRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
-[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_body.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_bodycontent{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
     {{/with}}
     {{#if queryParams}}
@@ -60,13 +60,13 @@ Name | Type | Description  | Notes
         {{#if refInfo}}
             {{#each refInfo.getRef.content}}
             {{#if @first}}
-content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
+content_type | str | optional, default is '{{@key.getName}}' | Selects the schema and serialization of the request body
             {{/if}}
             {{/each}}
         {{else}}
             {{#each content}}
             {{#if @first}}
-content_type | str | optional, default is '{{@key}}' | Selects the schema and serialization of the request body
+content_type | str | optional, default is '{{@key.getName}}' | Selects the schema and serialization of the request body
             {{/if}}
             {{/each}}
         {{/if}}
@@ -84,7 +84,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{#unless requestBody.refInfo.refModule}}
 
 ### <a id="request_body" >body</a>
-{{> request_body_doc requestBody=requestBody schemaNamePrefix1="request_body" }}
+{{> request_body_doc requestBody=requestBody }}
     {{/unless}}
     {{/if}}
     {{#if queryParams}}
@@ -184,9 +184,9 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 {{#if defaultResponse}}
 {{#with defaultResponse}}
 {{#if refInfo.refModule}}
-default | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md) | {{#with refInfo.getRef}}{{message}}{{/with}}
+default | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md#ApiResponse) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | {{message}}
+default | [{{name.getSnakeCaseName}}.ApiResponse](#{{name.getSnakeCaseName}}ApiResponse) | {{message}}
 {{/if}}
 {{/with}}
 {{/if}}
@@ -194,7 +194,7 @@ default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) 
 {{#if refInfo.refModule}}
 {{@key}} | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
-{{@key}} | [response_for_{{@key}}.ApiResponse](#response_for_{{@key}}.ApiResponse) | {{message}}
+{{@key}} | [{{name.getSnakeCaseName}}.ApiResponse](#{{name.getSnakeCaseName}}ApiResponse) | {{message}}
 {{/if}}
 {{/each}}
 {{#each responses}}

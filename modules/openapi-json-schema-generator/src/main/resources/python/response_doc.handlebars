@@ -2,37 +2,37 @@
 {{#if componentModule}}
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
-# ApiResponse
+# <a id="ApiResponse" >ApiResponse</a>
 {{else}}
-#### <a id="response_for_{{@key}}.ApiResponse" >response_for_{{@key}}.ApiResponse</a>
+#### <a id="{{name.getSnakeCaseName}}ApiResponse" >{{name.getSnakeCaseName}}.ApiResponse</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if componentModule}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[Headers](#Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-{{#each content}}
-    {{#with this.schema}}
+    {{#each content}}
+        {{#with this.schema}}
 
-{{> api_doc_schema_type_hint }}
-    {{/with}}
-{{/each}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+        {{/with}}
+    {{/each}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[response_for_{{../@key}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#response_for_{{../@key}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[response_for_{{@key}}.Headers](#response_for_{{@key}}.Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-{{#each content}}
-    {{#with this.schema}}
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}{{#if schema.name.getNameIsValid}}{{schema.name.getName}}{{else}}{{schema.name.getSnakeCaseName}}{{/if}}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{name.getSnakeCaseName}}.Headers](#{{name.getSnakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{#each content}}
+        {{#with this.schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1="response_for_" schemaNamePrefix2=../../@key schemaNamePrefix3="." }}
-    {{/with}}
-{{/each}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+        {{/with}}
+    {{/each}}
 {{/if}}
 {{#if headers}}
 {{#if componentModule}}
 ## Headers
 {{else}}
-#### <a id="response_for_{{@key}}.Headers" >response_for_{{@key}}.Headers</a>
+#### <a id="{{name.getSnakeCaseName}}Headers" >{{name.getSnakeCaseName}}.Headers</a>
 {{/if}}
 
 Key | Accessed Type | Description  | Notes
@@ -43,13 +43,13 @@ Key | Accessed Type | Description  | Notes
             {{#with refInfo.getRef}}
                 {{#if schema}}
                     {{#with schema}}
-{{../@key}} | [{{../../refInfo.refModule}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../name.getCamelCaseName}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                     {{/with}}
                 {{else}}
                     {{#each getContent}}
                         {{#with this}}
                             {{#with schema}}
-{{../../@key}} | [{{../../../refInfo.refModule}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{/with}}
                     {{/each}}
@@ -58,13 +58,13 @@ Key | Accessed Type | Description  | Notes
         {{else}}
             {{#if schema}}
                 {{#with schema}}
-{{../@key}} | [{{#if ../../@key}}response_for_{{../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.schema](#{{#if ../../@key}}response_for_{{../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../name.getCamelCaseName}}.{{../name.getSnakeCaseName}}.schema](#{{../../name.getSnakeCaseName}}{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
-{{../../@key}} | [{{#if ../../../@key}}response_for_{{../../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if ../../../@key}}response_for_{{../../../@key}}.{{/if}}{{../name.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../name.getCamelCaseName}}.{{../../name.getSnakeCaseName}}.content.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{../../../name.getSnakeCaseName}}{{../../name.getSnakeCaseName}}content{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{/with}}
                 {{/each}}
@@ -72,7 +72,9 @@ Key | Accessed Type | Description  | Notes
         {{/if}}
     {{/with}}
 {{/each}}
-{{> header_doc }}
+{{#each headers}}
+{{> header_doc header=this }}
+{{/each}}
 {{/if}}
 {{#if componentModule}}
 

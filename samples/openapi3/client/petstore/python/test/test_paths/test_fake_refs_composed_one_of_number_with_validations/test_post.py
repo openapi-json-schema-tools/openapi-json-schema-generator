@@ -32,7 +32,7 @@ class TestFakeRefsComposedOneOfNumberWithValidations(ApiTestMixin, unittest.Test
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.composed_one_of_different_types.ComposedOneOfDifferentTypes
+    response_body_schema = post.response_200._200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

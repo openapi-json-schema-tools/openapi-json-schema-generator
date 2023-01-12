@@ -24,7 +24,7 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_for_200
+from petstore_api.components.responses import response_success_description_only as response_200
 
 from . import request_body
 
@@ -35,24 +35,24 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def _json_patch(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
@@ -61,7 +61,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -70,19 +70,19 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _json_patch(
         self,
         content_type: str = 'application/json-patch+json',
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -146,24 +146,24 @@ class JsonPatch(BaseApi):
     def json_patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def json_patch(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
@@ -172,7 +172,7 @@ class JsonPatch(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -181,19 +181,19 @@ class JsonPatch(BaseApi):
     def json_patch(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def json_patch(
         self,
         content_type: str = 'application/json-patch+json',
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -214,24 +214,24 @@ class ApiForpatch(BaseApi):
     def patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def patch(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
@@ -240,7 +240,7 @@ class ApiForpatch(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -249,19 +249,19 @@ class ApiForpatch(BaseApi):
     def patch(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def patch(
         self,
         content_type: str = 'application/json-patch+json',
-        body: typing.Union[request_body.json_patch_request.JSONPatchRequest, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, schemas.Unset] = schemas.unset,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

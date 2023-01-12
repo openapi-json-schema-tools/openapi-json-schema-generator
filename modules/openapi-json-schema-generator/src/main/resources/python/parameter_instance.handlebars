@@ -37,7 +37,7 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
 {{#if getContent}}
     content = {
 {{#each getContent}}
-        "{{@key}}": {{#with this}}{{#with schema}}{{#if refInfo.getRefModule}}{{refInfo.getRefModule}}.{{refInfo.getRefClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}{{/with}},
+        "{{@key.getName}}": {{#with this}}{{#with schema}}{{#if refInfo.getRefModule}}{{refInfo.getRefModule}}.{{refInfo.getRefClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}{{/with}},
 {{/each}}
     }
 {{/if}}

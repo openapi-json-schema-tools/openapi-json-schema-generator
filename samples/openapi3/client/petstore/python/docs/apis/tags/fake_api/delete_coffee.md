@@ -54,7 +54,7 @@ id | [parameter_0.schema](#parameter_0.schema) | |
 
 # parameter_0.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -64,10 +64,10 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | Unexpected error
+default | [response_default.ApiResponse](#response_defaultApiResponse) | Unexpected error
 200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
 
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_defaultApiResponse" >response_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

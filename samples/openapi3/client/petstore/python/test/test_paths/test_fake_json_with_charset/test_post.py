@@ -33,7 +33,7 @@ class TestFakeJsonWithCharset(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.application_json_charsetutf8.ApplicationJsonCharsetutf8
+    response_body_schema = post.response_200._200.content["application/json; charset=utf-8"].schema
 
 if __name__ == '__main__':
     unittest.main()

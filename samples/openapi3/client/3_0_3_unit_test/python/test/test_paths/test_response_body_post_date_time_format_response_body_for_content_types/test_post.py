@@ -32,7 +32,7 @@ class TestResponseBodyPostDateTimeFormatResponseBodyForContentTypes(ApiTestMixin
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.date_time_format.DateTimeFormat
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects

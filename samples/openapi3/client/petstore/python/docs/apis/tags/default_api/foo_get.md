@@ -35,18 +35,18 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [response_for_default.ApiResponse](#response_for_default.ApiResponse) | response
+default | [response_default.ApiResponse](#response_defaultApiResponse) | response
 
-#### <a id="response_for_default.ApiResponse" >response_for_default.ApiResponse</a>
+#### <a id="response_defaultApiResponse" >response_default.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_default.application_json](#response_for_default.application_json), ] |  |
+body | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_for_default.application_json" >response_for_default.application_json</a>
+# <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

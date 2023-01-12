@@ -1,15 +1,15 @@
 <a name="top"></a>
 ## petstore_api.components.responses.response_success_inline_content_and_header
-# ApiResponse
+# <a id="ApiResponse" >ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[application_json](#application_json), ] |  |
+body | typing.Union[[SuccessInlineContentAndHeader.content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
 headers | [Headers](#Headers) |  |
 
-# application_json
+# <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -22,11 +22,11 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [header_some_header.schema](#header_some_header.schema) | | optional
+someHeader | [SuccessInlineContentAndHeader.header_some_header.schema](#response_success_inline_content_and_headerheader_some_headerschema) | | optional
 
-# <a id="header_some_header.schema" >header_some_header.schema</a>
+# <a id="response_success_inline_content_and_headerheader_some_headerschema" >SuccessInlineContentAndHeader.header_some_header.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

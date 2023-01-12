@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
-# application_json
+# schema
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 

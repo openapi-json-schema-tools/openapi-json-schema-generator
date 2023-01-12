@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.integer_enum_big
 # IntegerEnumBig
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [10, 11, 12, ]

@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.string_enum
 # StringEnum
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, str,  | NoneClass, str,  |  | must be one of ["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline", None, ]

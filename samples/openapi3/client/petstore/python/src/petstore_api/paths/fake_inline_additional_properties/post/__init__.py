@@ -24,7 +24,7 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_for_200
+from petstore_api.components.responses import response_success_description_only as response_200
 
 from .. import path
 from . import request_body
@@ -34,11 +34,11 @@ from . import request_body
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_for_200.SuccessDescriptionOnly,
+        '200': response_200.SuccessDescriptionOnly,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_for_200.SuccessDescriptionOnly,
+    '200': response_200.SuccessDescriptionOnly,
 })
 
 
@@ -46,32 +46,32 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def _inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def _inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -81,19 +81,19 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -159,32 +159,32 @@ class InlineAdditionalProperties(BaseApi):
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -194,19 +194,19 @@ class InlineAdditionalProperties(BaseApi):
     @typing.overload
     def inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def inline_additional_properties(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -227,32 +227,32 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -262,19 +262,19 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_200.ApiResponse,
+        response_200.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.array_holding_any_type
 # ArrayHoldingAnyType
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

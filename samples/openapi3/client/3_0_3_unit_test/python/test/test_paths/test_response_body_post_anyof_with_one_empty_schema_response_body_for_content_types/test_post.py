@@ -32,7 +32,7 @@ class TestResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes(Api
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.anyof_with_one_empty_schema.AnyofWithOneEmptySchema
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_string_is_valid_passes(self):
         # string is valid

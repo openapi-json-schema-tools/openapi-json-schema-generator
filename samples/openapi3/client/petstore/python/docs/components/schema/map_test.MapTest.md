@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.map_test
 # MapTest
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -18,7 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map_map_of_string
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -30,7 +30,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -42,7 +42,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map_of_enum_string
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -54,7 +54,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # direct_map
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

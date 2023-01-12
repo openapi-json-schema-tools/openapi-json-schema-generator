@@ -32,7 +32,7 @@ class TestResponseBodyPostAdditionalpropertiesCanExistByItselfResponseBodyForCon
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_an_additional_invalid_property_is_invalid_fails(self):
         # an additional invalid property is invalid

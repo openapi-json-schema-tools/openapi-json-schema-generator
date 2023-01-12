@@ -56,14 +56,14 @@ password | [parameter_1.schema](#parameter_1.schema) | |
 
 # parameter_0.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
 # parameter_1.schema
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -73,56 +73,56 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_for_200.ApiResponse](#response_for_200.ApiResponse) | successful operation
-400 | [response_for_400.ApiResponse](#response_for_400.ApiResponse) | Invalid username/password supplied
+200 | [response_200.ApiResponse](#response_200ApiResponse) | successful operation
+400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid username/password supplied
 
-#### <a id="response_for_200.ApiResponse" >response_for_200.ApiResponse</a>
+#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[response_for_200.application_xml](#response_for_200.application_xml), [response_for_200.application_json](#response_for_200.application_json), ] |  |
-headers | [response_for_200.Headers](#response_for_200.Headers) |  |
+body | typing.Union[[_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+headers | [response_200.Headers](#response_200Headers) |  |
 
-# <a id="response_for_200.application_xml" >response_for_200.application_xml</a>
+# <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="response_for_200.application_json" >response_for_200.application_json</a>
+# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### <a id="response_for_200.Headers" >response_for_200.Headers</a>
+#### <a id="response_200Headers" >response_200.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [header_ref_schema_header.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
-X-Rate-Limit | [response_for_200.header_x_rate_limit.application_json](#response_for_200.header_x_rate_limit.application_json) | | 
-int32 | [header_int32_json_content_type_header.application_json](../../../components/headers/header_int32_json_content_type_header.md#application_json) | | 
-X-Expires-After | [response_for_200.header_x_expires_after.schema](#response_for_200.header_x_expires_after.schema) | | optional
-ref-content-schema-header | [header_ref_content_schema_header.application_json](../../../components/headers/header_ref_content_schema_header.md#application_json) | | 
-stringHeader | [header_string_header.schema](../../../components/headers/header_string_header.md#schema) | | 
-numberHeader | [header_number_header.schema](../../../components/headers/header_number_header.md#schema) | | optional
+ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
+X-Rate-Limit | [_200.header_x_rate_limit.content.schema](#response_200header_x_rate_limitcontentschema) | | 
+int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
+X-Expires-After | [_200.header_x_expires_after.schema](#response_200header_x_expires_afterschema) | | optional
+ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
+stringHeader | [StringHeader.schema](../../../components/headers/header_string_header.md#header_string_headerschema) | | 
+numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
-# <a id="response_for_200.header_x_rate_limit.application_json" >response_for_200.header_x_rate_limit.application_json</a>
+# <a id="response_200header_x_rate_limitcontentapplication_jsonschema" >_200.header_x_rate_limit.content.application_json.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# <a id="response_for_200.header_x_expires_after.schema" >response_for_200.header_x_expires_after.schema</a>
+# <a id="response_200header_x_expires_afterschema" >_200.header_x_expires_after.schema</a>
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-#### <a id="response_for_400.ApiResponse" >response_for_400.ApiResponse</a>
+#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

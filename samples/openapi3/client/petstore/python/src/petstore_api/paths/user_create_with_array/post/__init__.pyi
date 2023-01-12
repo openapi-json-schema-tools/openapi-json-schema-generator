@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 from petstore_api.components.request_bodies import request_body_user_array as request_body
 
-from . import response_for_default
+from . import response_default
 
 
 
@@ -34,32 +34,32 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
     @typing.overload
     def _create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def _create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -69,19 +69,19 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -140,32 +140,32 @@ class CreateUsersWithArrayInput(BaseApi):
     @typing.overload
     def create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
     @typing.overload
     def create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -175,19 +175,19 @@ class CreateUsersWithArrayInput(BaseApi):
     @typing.overload
     def create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def create_users_with_array_input(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -208,32 +208,32 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
     ]: ...
 
 
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -243,19 +243,19 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_for_default.ApiResponse,
+        response_default.ApiResponse,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def post(
         self,
-        body: typing.Union[request_body.application_json.ApplicationJson,list, tuple, ],
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

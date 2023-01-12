@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#with schema}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}{{/with}}
+response_body_schema = {{httpMethod}}.response_{{../@key}}.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}
@@ -9,7 +9,7 @@ response_body_schema = {{httpMethod}}.response_for_{{../@key}}.{{#with schema}}{
 
 def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
     # {{description}}
-    accept_content_type = '{{{../@key}}}'
+    accept_content_type = '{{{../@key.getName}}}'
 
     with patch.object(urllib3.PoolManager, 'request') as mock_request:
         payload = (

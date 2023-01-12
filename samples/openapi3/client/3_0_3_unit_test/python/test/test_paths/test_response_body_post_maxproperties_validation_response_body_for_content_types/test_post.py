@@ -32,7 +32,7 @@ class TestResponseBodyPostMaxpropertiesValidationResponseBodyForContentTypes(Api
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.maxproperties_validation.MaxpropertiesValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_too_long_is_invalid_fails(self):
         # too long is invalid

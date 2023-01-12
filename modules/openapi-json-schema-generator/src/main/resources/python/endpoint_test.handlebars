@@ -52,7 +52,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
 {{#with this }}
 
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
-        content_type = '{{{../@key}}}'
+        content_type = '{{{../@key.getName}}}'
         # {{description}}
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (

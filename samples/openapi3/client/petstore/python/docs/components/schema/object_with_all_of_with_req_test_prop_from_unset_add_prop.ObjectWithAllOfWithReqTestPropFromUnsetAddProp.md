@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
@@ -16,7 +16,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # allOf_1
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

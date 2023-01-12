@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.apple
 # Apple
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |

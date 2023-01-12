@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.req_props_from_explicit_add_props
 # ReqPropsFromExplicitAddProps
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

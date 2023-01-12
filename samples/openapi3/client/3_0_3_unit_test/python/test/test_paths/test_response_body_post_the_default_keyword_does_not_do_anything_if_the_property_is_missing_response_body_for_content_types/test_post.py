@@ -32,7 +32,7 @@ class TestResponseBodyPostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissi
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_missing_properties_are_not_filled_in_with_the_default_passes(self):
         # missing properties are not filled in with the default

@@ -32,7 +32,7 @@ class TestResponseBodyPostForbiddenPropertyResponseBodyForContentTypes(ApiTestMi
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.forbidden_property.ForbiddenProperty
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_property_present_fails(self):
         # property present

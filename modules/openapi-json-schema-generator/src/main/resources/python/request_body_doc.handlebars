@@ -5,9 +5,9 @@
     {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
-{{> api_doc_schema_type_hint complexTypePrefix="../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=@key.getSnakeCaseName anchorContainsPeriod=true complexTypePrefix="../../components/schema/" }}
     {{else}}
-{{> api_doc_schema_type_hint anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
+{{> api_doc_schema_type_hint schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=@key.getSnakeCaseName anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}

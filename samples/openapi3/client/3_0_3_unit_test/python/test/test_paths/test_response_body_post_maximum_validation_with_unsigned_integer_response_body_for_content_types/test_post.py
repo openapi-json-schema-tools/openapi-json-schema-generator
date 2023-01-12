@@ -32,7 +32,7 @@ class TestResponseBodyPostMaximumValidationWithUnsignedIntegerResponseBodyForCon
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_below_the_maximum_is_invalid_passes(self):
         # below the maximum is invalid

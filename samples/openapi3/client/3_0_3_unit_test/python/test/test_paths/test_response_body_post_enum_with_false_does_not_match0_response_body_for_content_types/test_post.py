@@ -32,7 +32,7 @@ class TestResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes(
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_false_is_valid_passes(self):
         # false is valid

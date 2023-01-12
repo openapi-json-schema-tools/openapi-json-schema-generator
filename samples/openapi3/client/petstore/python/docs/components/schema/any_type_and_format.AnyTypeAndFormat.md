@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.any_type_and_format
 # AnyTypeAndFormat
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.ref_in_items
 # RefInItems
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

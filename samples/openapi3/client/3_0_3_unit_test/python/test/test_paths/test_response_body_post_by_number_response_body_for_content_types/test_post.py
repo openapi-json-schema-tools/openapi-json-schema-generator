@@ -32,7 +32,7 @@ class TestResponseBodyPostByNumberResponseBodyForContentTypes(ApiTestMixin, unit
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.by_number.ByNumber
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5

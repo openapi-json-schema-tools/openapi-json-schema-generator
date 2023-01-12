@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.enum_with_escaped_characters
 # EnumWithEscapedCharacters
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["foo\nbar", "foo\rbar", ]

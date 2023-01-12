@@ -32,7 +32,7 @@ class TestResponseBodyPostUniqueitemsValidationResponseBodyForContentTypes(ApiTe
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.uniqueitems_validation.UniqueitemsValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_unique_array_of_objects_is_valid_passes(self):
         # unique array of objects is valid

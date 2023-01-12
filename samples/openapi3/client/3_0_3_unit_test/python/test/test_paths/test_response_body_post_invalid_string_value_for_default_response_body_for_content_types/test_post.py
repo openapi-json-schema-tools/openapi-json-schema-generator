@@ -32,7 +32,7 @@ class TestResponseBodyPostInvalidStringValueForDefaultResponseBodyForContentType
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.invalid_string_value_for_default.InvalidStringValueForDefault
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_valid_when_property_is_specified_passes(self):
         # valid when property is specified

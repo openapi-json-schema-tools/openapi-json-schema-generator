@@ -32,7 +32,7 @@ class TestResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes(ApiTes
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.simple_enum_validation.SimpleEnumValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_something_else_is_invalid_fails(self):
         # something else is invalid

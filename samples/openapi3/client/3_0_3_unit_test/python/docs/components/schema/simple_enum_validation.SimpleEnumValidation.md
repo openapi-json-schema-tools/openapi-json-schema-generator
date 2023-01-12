@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.simple_enum_validation
 # SimpleEnumValidation
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1, 2, 3, ]

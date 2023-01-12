@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.enum_with0_does_not_match_false
 # EnumWith0DoesNotMatchFalse
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [0, ]

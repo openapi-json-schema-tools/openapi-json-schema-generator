@@ -2,7 +2,7 @@
 ## unit_test_api.components.schema.nested_items
 # NestedItems
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -14,7 +14,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -26,7 +26,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
@@ -38,7 +38,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # items
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |

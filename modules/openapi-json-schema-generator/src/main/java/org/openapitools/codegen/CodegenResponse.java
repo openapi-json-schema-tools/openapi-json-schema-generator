@@ -26,7 +26,7 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
     public List<Map<String, Object>> examples;
     public String jsonSchema;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
-    private LinkedHashMap<String, CodegenMediaType> content;
+    private LinkedHashMap<CodegenKey, CodegenMediaType> content;
     private CodegenRefInfo<CodegenResponse> refInfo;
     public Set<String> imports = new TreeSet<>();
     private String componentModule;
@@ -64,11 +64,11 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         this.componentModule = componentModule;
     }
 
-    public LinkedHashMap<String, CodegenMediaType> getContent() {
+    public LinkedHashMap<CodegenKey, CodegenMediaType> getContent() {
         return content;
     }
 
-    public void setContent(LinkedHashMap<String, CodegenMediaType> content) {
+    public void setContent(LinkedHashMap<CodegenKey, CodegenMediaType> content) {
         this.content = content;
     }
 

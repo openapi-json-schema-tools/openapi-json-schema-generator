@@ -32,7 +32,7 @@ class TestResponseBodyPostRequiredDefaultValidationResponseBodyForContentTypes(A
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.required_default_validation.RequiredDefaultValidation
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_not_required_by_default_passes(self):
         # not required by default

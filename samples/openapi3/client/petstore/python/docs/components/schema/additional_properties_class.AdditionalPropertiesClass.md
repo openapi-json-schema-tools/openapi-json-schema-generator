@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.additional_properties_class
 # AdditionalPropertiesClass
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map_property
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -34,7 +34,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map_of_map_property
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -46,7 +46,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # any_string_name
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -58,21 +58,21 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map_with_undeclared_properties_anytype_1
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # map_with_undeclared_properties_anytype_2
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # map_with_undeclared_properties_anytype_3
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -86,7 +86,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 an object with no declared properties and no undeclared properties, hence it's an empty map.
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
@@ -97,7 +97,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map_with_undeclared_properties_string
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

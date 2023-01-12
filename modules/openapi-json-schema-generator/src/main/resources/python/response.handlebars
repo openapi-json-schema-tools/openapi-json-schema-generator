@@ -17,7 +17,7 @@ from {{packageName}} import schemas
 {{#each content}}
     {{#with this.schema}}
         {{#unless refInfo.refModule}}
-from . import {{name.getSnakeCaseName}}
+from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
         {{/unless}}
     {{/with}}
 {{/each}}
@@ -45,7 +45,7 @@ class ApiResponse(api_client.ApiResponse):
         {{#if refInfo.refModule}}
         {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
-        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
     {{/with}}
 {{else}}
@@ -67,7 +67,7 @@ class ApiResponse(api_client.ApiResponse):
         {{#if refInfo.refModule}}
         {{refInfo.refModule}}.{{refInfo.refClass}},
         {{else}}
-        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
         {{/if}}
     {{/with}}
 {{else}}
@@ -90,24 +90,36 @@ class ApiResponse(api_client.ApiResponse):
 class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
 {{#each content}}
-{{#if @first}}
-    content = {
-{{/if}}
-        '{{{@key}}}': api_client.MediaType(
-        {{#if this.schema}}
-            {{#with this.schema}}
-                {{#if refInfo.refModule}}
-            {{refInfo.refModule}}.{{refInfo.refClass}},
-                {{else}}
-            {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
-                {{/if}}
-            {{/with}}
-        {{/if}}
-        ),
-{{#if @last}}
+
+
+    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
+    {{#with this}}
+        {{#with schema}}
+            {{#if refInfo.getRefModule}}
+        schema: typing.Type[{{refInfo.getRefModule}}.{{refInfo.getRefClass}}] = {{refInfo.getRefModule}}.{{refInfo.getRefClass}}
+            {{else}}
+        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+            {{/if}}
+        {{else}}
+        pass
+        {{/with}}
+    {{/with}}
+{{/each}}
+{{#if content}}
+    __Content = typing_extensions.TypedDict(
+        '__Content',
+        {
+    {{#each content}}
+            '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+    {{/each}}
+        }
+    )
+    content: __Content = {
+    {{#each content}}
+        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+    {{/each}}
     }
 {{/if}}
-{{/each}}
 {{#if headers}}
     headers=Header.parameters
 {{/if}}

@@ -32,7 +32,7 @@ class TestResponseBodyPostPropertiesWithEscapedCharactersResponseBodyForContentT
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.properties_with_escaped_characters.PropertiesWithEscapedCharacters
+    response_body_schema = post.response_200._200.content["application/json"].schema
     
     def test_object_with_all_numbers_is_valid_passes(self):
         # object with all numbers is valid

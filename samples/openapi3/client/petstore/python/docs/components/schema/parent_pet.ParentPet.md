@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.parent_pet
 # ParentPet
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

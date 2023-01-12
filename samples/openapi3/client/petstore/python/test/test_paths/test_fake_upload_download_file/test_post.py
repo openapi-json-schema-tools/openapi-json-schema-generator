@@ -33,7 +33,7 @@ class TestFakeUploadDownloadFile(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_for_200.application_octet_stream.ApplicationOctetStream
+    response_body_schema = post.response_200._200.content["application/octet-stream"].schema
 
 if __name__ == '__main__':
     unittest.main()

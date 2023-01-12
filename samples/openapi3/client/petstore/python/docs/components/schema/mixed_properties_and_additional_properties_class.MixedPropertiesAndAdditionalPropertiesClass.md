@@ -2,7 +2,7 @@
 ## petstore_api.components.schema.mixed_properties_and_additional_properties_class
 # MixedPropertiesAndAdditionalPropertiesClass
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # map
 
-## Model Type Info
+## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

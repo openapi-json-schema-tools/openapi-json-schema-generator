@@ -21,7 +21,7 @@ from . import {{name.getSnakeCaseName}}
             {{#with this}}
                 {{#with schema}}
                     {{#unless refInfo.getRefModule}}
-from . import {{name.getSnakeCaseName}}
+from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}}
                     {{/unless}}
                 {{/with}}
             {{/with}}
