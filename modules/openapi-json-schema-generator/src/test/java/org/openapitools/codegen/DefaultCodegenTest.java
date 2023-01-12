@@ -3005,11 +3005,12 @@ public class DefaultCodegenTest {
         // null because they are refs
         assertEquals(co.pathParams.get(0).getSchema().getProperties(), null);
         assertEquals(co.pathParams.get(0).getSchema().getRequiredProperties(), null);
-        assertEquals(co.requestBody.getContent().get("application/json").getSchema().getProperties(), null);
-        assertEquals(co.requestBody.getContent().get("application/json").getSchema().getRequiredProperties(), null);
+        CodegenKey applicationJson = codegen.getKey("application/json");
+        assertEquals(co.requestBody.getContent().get(applicationJson).getSchema().getProperties(), null);
+        assertEquals(co.requestBody.getContent().get(applicationJson).getSchema().getRequiredProperties(), null);
 
         // CodegenOperation puts the inline schema into schemas and refs it
-        assertEquals(co.responses.get("200").getContent().get("application/json").getSchema().getRefInfo().getRefClass(), "ObjectWithOptionalAndRequiredPropsRequest");
+        assertEquals(co.responses.get("200").getContent().get(applicationJson).getSchema().getRefInfo().getRefClass(), "ObjectWithOptionalAndRequiredPropsRequest");
         modelName = "objectWithOptionalAndRequiredProps_request";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         cm = codegen.fromSchema(
@@ -3898,9 +3899,11 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(path, "GET", operation, null);
         //assertTrue(co.hasErrorResponseObject);
         cr = co.responses.get("200");
-        assertTrue(cr.getContent().get("application/json").getSchema().getRefInfo().getRefClass() != null);
+        CodegenKey applicationJson = codegen.getKey("application/json");
+        assertTrue(cr.getContent().get(applicationJson).getSchema().getRefInfo().getRefClass() != null);
         cr = co.responses.get("500");
-        assertTrue(cr.getContent().get("application/application").getSchema().getRefInfo().getRefClass() != null);
+        CodegenKey applicationApplication = codegen.getKey("application/application");
+        assertTrue(cr.getContent().get(applicationApplication).getSchema().getRefInfo().getRefClass() != null);
 
         path = "/pet";
         operation = openAPI.getPaths().get(path).getPut();
@@ -3908,17 +3911,17 @@ public class DefaultCodegenTest {
         assertTrue(co.hasErrorResponseObject);
 
         cr = co.responses.get("200");
-        assertTrue(cr.getContent().get("application/json").getSchema().getRefInfo().getRefClass() != null);
+        assertTrue(cr.getContent().get(applicationJson).getSchema().getRefInfo().getRefClass() != null);
 
         cr = co.responses.get("400");
-        assertTrue(cr.getContent().get("application/json").getSchema().getRefInfo().getRefClass() != null);
+        assertTrue(cr.getContent().get(applicationJson).getSchema().getRefInfo().getRefClass() != null);
 
         path = "/pet/findByTags";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
         assertFalse(co.hasErrorResponseObject);
         cr = co.responses.get("200");
-        assertNotNull(cr.getContent().get("application/json").getSchema().getItems().getRefInfo().getRefClass());
+        assertNotNull(cr.getContent().get(applicationJson).getSchema().getItems().getRefInfo().getRefClass());
     }
 
     @Test
@@ -3941,16 +3944,16 @@ public class DefaultCodegenTest {
         CodegenSchema cp = mt.getSchema();
         assertTrue(cp.isMap);
         assertEquals(cp.getRefInfo(), null);
-        assertEquals(cp.name.getName(), "application/json");
+        assertEquals(cp.name.getName(), "schema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
         content = coordinatesReferencedSchema.getContent();
-        mt = content.get("application/json");
+        mt = content.get(ck);
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.getRefInfo().getRefClass(), "Coordinates");
-        assertEquals(cp.name.getName(), "application/json");
+        assertEquals(cp.name.getName(), "schema");
     }
 
     @Test
@@ -4063,13 +4066,15 @@ public class DefaultCodegenTest {
         assertEquals(header2.getRefInfo().getRef().getSchema().name.getName(), "schema");
 
         content = cr.getContent();
-        assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json", "text/plain")));
-        CodegenMediaType mt = content.get("application/json");
+        CodegenKey applicationJson = codegen.getKey("application/json");
+        CodegenKey textPlain = codegen.getKey("text/plain");
+        assertEquals(content.keySet(), new HashSet<>(Arrays.asList(applicationJson, textPlain)));
+        CodegenMediaType mt = content.get(applicationJson);
         assertNull(mt.getEncoding());
         CodegenSchema cp = mt.getSchema();
         assertFalse(cp.isMap); // because it is a referenced schema
         assertEquals(cp.getRefInfo().getRefClass(), "Coordinates");
-        assertEquals(cp.name.getName(), "application/json");
+        assertEquals(cp.name.getName(), "schema");
 
         codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("stringWithMinLength"),
@@ -4077,10 +4082,10 @@ public class DefaultCodegenTest {
                 "#/components/schemas/stringWithMinLength"
         );
 
-        mt = content.get("text/plain");
+        mt = content.get(textPlain);
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.name.getName(), "text/plain");
+        assertEquals(cp.name.getName(), "schema");
         assertTrue(cp.getRefInfo().getRef().isString);
 
         codegen.fromSchema(
@@ -4091,18 +4096,18 @@ public class DefaultCodegenTest {
 
         cr = co.responses.get("201");
         content = cr.getContent();
-        assertEquals(content.keySet(), new HashSet<>(Arrays.asList("application/json", "text/plain")));
-        mt = content.get("application/json");
+        assertEquals(content.keySet(), new HashSet<>(Arrays.asList(applicationJson, textPlain)));
+        mt = content.get(applicationJson);
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
         assertTrue(cp.getRefInfo().getRef().isMap);
         assertEquals(cp.getRefInfo().getRefClass(), "Coordinates");
-        assertEquals(cp.name.getName(), "application/json");
+        assertEquals(cp.name.getName(), "schema");
 
-        mt = content.get("text/plain");
+        mt = content.get(textPlain);
         assertNull(mt.getEncoding());
         cp = mt.getSchema();
-        assertEquals(cp.name.getName(), "text/plain");
+        assertEquals(cp.name.getName(), "schema");
         assertTrue(cp.getRefInfo().getRef().isString);
     }
 
@@ -4126,7 +4131,8 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
-        Assert.assertNotNull(codegenParameter.getContent().get("application/x-www-form-urlencoded").getSchema().getRefInfo());
+        CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
+        Assert.assertNotNull(codegenParameter.getContent().get(ck).getSchema().getRefInfo());
     }
 
     @Test
