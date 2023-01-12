@@ -94,10 +94,10 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema), Unset] | optional, default is unset |
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
-[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
-[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
-[cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParameters.Params) | |
+[query_params](#RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -113,7 +113,7 @@ Input Type | Accessed Type | Description | Notes
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
 ### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -160,7 +160,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 ### <a id="RequestHeaderParameters" >header_params</a>
-#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -198,7 +198,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 ### <a id="RequestPathParameters" >path_params</a>
-#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
+#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -244,7 +244,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 ### <a id="RequestCookieParameters" >cookie_params</a>
-#### <a id="RequestCookieParameters.Params" >RequestCookieParameters.Params</a>
+#### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

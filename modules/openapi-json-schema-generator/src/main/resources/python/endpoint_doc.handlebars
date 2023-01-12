@@ -45,16 +45,16 @@ Name | Type | Description  | Notes
     {{/if}}
     {{/with}}
     {{#if queryParams}}
-[query_params](#.RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParameters.Params) | |
+[query_params](#RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
     {{/if}}
     {{#if headerParams}}
-[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParameters.Params) | |
+[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
     {{/if}}
     {{#if pathParams}}
-[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParameters.Params) | |
+[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
     {{/if}}
     {{#if cookieParams}}
-[cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParameters.Params) | |
+[cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
     {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
@@ -90,7 +90,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{#if queryParams}}
 
 ### <a id="RequestQueryParameters" >query_params</a>
-#### <a id="RequestQueryParameters.Params" >RequestQueryParameters.Params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -112,7 +112,7 @@ Key | Input Type | Description  | Notes
     {{#if headerParams}}
 
 ### <a id="RequestHeaderParameters" >header_params</a>
-#### <a id="RequestHeaderParameters.Params" >RequestHeaderParameters.Params</a>
+#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -133,7 +133,7 @@ Key | Input Type | Description  | Notes
     {{#if pathParams}}
 
 ### <a id="RequestPathParameters" >path_params</a>
-#### <a id="RequestPathParameters.Params" >RequestPathParameters.Params</a>
+#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -154,7 +154,7 @@ Key | Input Type | Description  | Notes
     {{#if cookieParams}}
 
 ### <a id="RequestCookieParameters" >cookie_params</a>
-#### <a id="RequestCookieParameters.Params" >RequestCookieParameters.Params</a>
+#### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
