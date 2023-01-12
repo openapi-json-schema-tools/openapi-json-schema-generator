@@ -45,16 +45,16 @@ Name | Type | Description  | Notes
     {{/if}}
     {{/with}}
     {{#if queryParams}}
-[query_params](#RequestQueryParameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
     {{/if}}
     {{#if headerParams}}
-[header_params](#RequestHeaderParameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
+[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
     {{/if}}
     {{#if pathParams}}
-[path_params](#RequestPathParameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
     {{/if}}
     {{#if cookieParams}}
-[cookie_params](#RequestCookieParameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
+[cookie_params](#requestcookieparameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
     {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
@@ -89,7 +89,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{/if}}
     {{#if queryParams}}
 
-### <a id="RequestQueryParameters" >query_params</a>
+### <a id="requestqueryparameters" >query_params</a>
 #### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
@@ -98,7 +98,7 @@ Key | Input Type | Description  | Notes
         {{#if refInfo.refModule}}
 {{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
 
@@ -111,7 +111,7 @@ Key | Input Type | Description  | Notes
     {{/if}}
     {{#if headerParams}}
 
-### <a id="RequestHeaderParameters" >header_params</a>
+### <a id="requestheaderparameters" >header_params</a>
 #### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
@@ -120,7 +120,7 @@ Key | Input Type | Description  | Notes
         {{#if refInfo.refModule}}
 {{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each headerParams as | parameter |}}
@@ -132,7 +132,7 @@ Key | Input Type | Description  | Notes
     {{/if}}
     {{#if pathParams}}
 
-### <a id="RequestPathParameters" >path_params</a>
+### <a id="requestpathparameters" >path_params</a>
 #### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
@@ -141,7 +141,7 @@ Key | Input Type | Description  | Notes
         {{#if refInfo.refModule}}
 {{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each pathParams as | parameter |}}
@@ -153,7 +153,7 @@ Key | Input Type | Description  | Notes
     {{/if}}
     {{#if cookieParams}}
 
-### <a id="RequestCookieParameters" >cookie_params</a>
+### <a id="requestcookieparameters" >cookie_params</a>
 #### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
 
 Key | Input Type | Description  | Notes
@@ -162,7 +162,7 @@ Key | Input Type | Description  | Notes
         {{#if refInfo.refModule}}
 {{refInfo.getRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless refInfo.getRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}.schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each cookieParams as | parameter |}}
