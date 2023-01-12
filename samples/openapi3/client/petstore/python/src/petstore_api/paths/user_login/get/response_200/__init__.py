@@ -14,9 +14,9 @@ from petstore_api import schemas
 from .content.application_xml import schema as application_xml_schema
 from .content.application_json import schema as application_json_schema
 from petstore_api.components.headers import header_ref_schema_header
-from . import header_x_rate_limit
+from .headers import header_x_rate_limit
 from petstore_api.components.headers import header_int32_json_content_type_header
-from . import header_x_expires_after
+from .headers import header_x_expires_after
 from petstore_api.components.headers import header_ref_content_schema_header
 from petstore_api.components.headers import header_string_header
 from petstore_api.components.headers import header_number_header

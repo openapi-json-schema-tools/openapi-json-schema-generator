@@ -1089,13 +1089,13 @@ src/petstore_api/paths/user_login/get/response_200/content/application_json/sche
 src/petstore_api/paths/user_login/get/response_200/content/application_xml/__init__.py
 src/petstore_api/paths/user_login/get/response_200/content/application_xml/schema.py
 src/petstore_api/paths/user_login/get/response_200/content/application_xml/schema.pyi
-src/petstore_api/paths/user_login/get/response_200/header_x_expires_after/schema.py
-src/petstore_api/paths/user_login/get/response_200/header_x_expires_after/schema.pyi
-src/petstore_api/paths/user_login/get/response_200/header_x_rate_limit/content/__init__.py
-src/petstore_api/paths/user_login/get/response_200/header_x_rate_limit/content/application_json/__init__.py
 src/petstore_api/paths/user_login/get/response_200/headers/__init__.py
 src/petstore_api/paths/user_login/get/response_200/headers/header_x_expires_after/__init__.py
+src/petstore_api/paths/user_login/get/response_200/headers/header_x_expires_after/schema.py
+src/petstore_api/paths/user_login/get/response_200/headers/header_x_expires_after/schema.pyi
 src/petstore_api/paths/user_login/get/response_200/headers/header_x_rate_limit/__init__.py
+src/petstore_api/paths/user_login/get/response_200/headers/header_x_rate_limit/content/__init__.py
+src/petstore_api/paths/user_login/get/response_200/headers/header_x_rate_limit/content/application_json/__init__.py
 src/petstore_api/paths/user_login/get/response_200/headers/header_x_rate_limit/content/application_json/schema.py
 src/petstore_api/paths/user_login/get/response_200/headers/header_x_rate_limit/content/application_json/schema.pyi
 src/petstore_api/paths/user_login/get/response_400/__init__.py

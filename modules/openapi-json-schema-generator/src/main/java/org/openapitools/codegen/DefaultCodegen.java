@@ -4146,7 +4146,7 @@ public class DefaultCodegen implements CodegenConfig {
                 return responseFileFolder(componentName) + File.separatorChar  + "content" + File.separatorChar + fileName;
             }
             // #/components/responses/someResponse/headers/SomeHeader/content -> length 7
-            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + fileName;
+            return responseFileFolder(componentName) + File.separatorChar + "headers" + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + fileName;
         } else if (jsonPath.startsWith("#/paths/")) {
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
             String httpVerb = pathPieces[3];
@@ -4170,7 +4170,7 @@ public class DefaultCodegen implements CodegenConfig {
                 String code = pathPieces[5];
                 String headerModule = toHeaderFilename(pathPieces[7]);
                 String responseModule = toResponseModuleName(code);
-                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + fileName;
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + fileName;
             }
         }
         return null;
@@ -4210,7 +4210,7 @@ public class DefaultCodegen implements CodegenConfig {
             // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
             String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
             CodegenKey contentTypeKey = getKey(contentType);
-            return responseFileFolder(componentName) + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+            return responseFileFolder(componentName) + File.separatorChar + "headers" + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
         } else if (jsonPath.startsWith("#/paths/")) {
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
             String httpVerb = pathPieces[3];
@@ -4243,7 +4243,7 @@ public class DefaultCodegen implements CodegenConfig {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
                 CodegenKey contentTypeKey = getKey(contentType);
                 String responseModule = toResponseModuleName(code);
-                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
+                return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar + headerModule + File.separatorChar + "content" + File.separatorChar + contentTypeKey.getSnakeCaseName() + File.separatorChar + suffix;
             }
         }
         return null;
@@ -4332,7 +4332,7 @@ public class DefaultCodegen implements CodegenConfig {
                     if (contentOrHeaders.equals("headers")) {
                         // #/paths/somePath/get/responses/200/headers/someHeader/schema -> length 9
                         String headerModule = toHeaderFilename(pathPieces[7]);
-                        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + headerModule + File.separatorChar + getKey(pathPieces[8]).getSnakeCaseName() + suffix;
+                        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar + headerModule + File.separatorChar + getKey(pathPieces[8]).getSnakeCaseName() + suffix;
                     }
                     // #/paths/somePath/get/responses/200/content/application-json/schema -> length 9
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
