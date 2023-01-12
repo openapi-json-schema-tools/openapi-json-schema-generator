@@ -526,7 +526,7 @@ public class DefaultGenerator implements Generator {
                         generateRequestBody(files, co.requestBody, requestBodyJsonPath);
                     }
 
-                    // paths.some_path.post.parameter_0.py
+                    // paths.some_path.post.parameters.parameter_0.py
                     if (co.allParams != null && !co.allParams.isEmpty()) {
                         String parametersJsonPath = operationJsonPath + "/parameters";
                         generateParameters(files, parametersJsonPath);
@@ -542,15 +542,19 @@ public class DefaultGenerator implements Generator {
                         }
                     }
 
-                    for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
-                        // paths.some_path.post.response_for_200.__init__.py (file per response)
-                        // response is a package because responses have Headers which can be refed
-                        // so each inline header should be a module in the response package
-                        String code = responseEntry.getKey();
-                        CodegenResponse response = responseEntry.getValue();
-                        if (response.getRefInfo() == null) {
-                            String responseJsonPath = operationJsonPath + "/responses/" + code;
-                            generateResponse(files, response, responseJsonPath);
+                    if (co.responses != null && !co.responses.isEmpty()) {
+                        String responsesJsonPath = operationJsonPath + "/responses";
+                        generateResponses(files, responsesJsonPath);
+                        for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
+                            // paths.some_path.post.responses.response_200.__init__.py (file per response)
+                            // response is a package because responses have Headers which can be refed
+                            // so each inline header should be a module in the response package
+                            String code = responseEntry.getKey();
+                            CodegenResponse response = responseEntry.getValue();
+                            if (response.getRefInfo() == null) {
+                                String responseJsonPath = responsesJsonPath + "/" + code;
+                                generateResponse(files, response, responseJsonPath);
+                            }
                         }
                     }
                     for (String templateFile: config.pathEndpointTestTemplateFiles()) {
@@ -752,6 +756,22 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+    private void generateResponses(List<File> files, String jsonPath) {
+        for (String templateName : config.responsesTemplateFiles().keySet()) {
+            String filename = config.responsesFilename(templateName, jsonPath);
+            try {
+                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.RESPONSES);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "responses");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
     private TreeMap<String, CodegenResponse> generateResponses(List<File> files) {
         final Map<String, ApiResponse> specResponses = this.openAPI.getComponents().getResponses();
         if (specResponses == null) {
@@ -759,10 +779,12 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
+        String responsesJsonPath = "#/components/responses";
+        generateResponses(files, responsesJsonPath);
         for (Map.Entry<String, ApiResponse> responseEntry: specResponses.entrySet()) {
             String componentName = responseEntry.getKey();
             ApiResponse apiResponse = responseEntry.getValue();
-            String sourceJsonPath = "#/components/responses/" + componentName;
+            String sourceJsonPath = responsesJsonPath + "/" + componentName;
             CodegenResponse response = config.fromResponse(apiResponse, sourceJsonPath);
             responses.put(componentName, response);
             generateResponse(files, response, sourceJsonPath);

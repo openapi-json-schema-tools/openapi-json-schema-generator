@@ -202,6 +202,8 @@ public interface CodegenConfig {
 
     Map<String, String> responseDocTemplateFiles();
 
+    Map<String, String> responsesTemplateFiles();
+
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
@@ -295,6 +297,8 @@ public interface CodegenConfig {
     String requestBodyFilename(String templateName, String jsonPath);
 
     String responseFilename(String templateName, String jsonPath);
+
+    String responsesFilename(String templateName, String jsonPath);
 
     String apiFilename(String templateName, String tag);
 
