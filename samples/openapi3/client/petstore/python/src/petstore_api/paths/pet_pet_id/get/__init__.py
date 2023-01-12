@@ -29,7 +29,7 @@ from .. import path
 from . import response_200
 from . import response_400
 from . import response_404
-from . import parameter_0
+from .parameters import parameter_0
 
 
 

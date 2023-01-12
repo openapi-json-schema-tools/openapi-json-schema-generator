@@ -28,12 +28,12 @@ from petstore_api.components.responses import response_success_description_only 
 
 from . import response_404
 from . import request_body
-from . import parameter_0
-from . import parameter_1
-from . import parameter_2
-from . import parameter_3
-from . import parameter_4
-from . import parameter_5
+from .parameters import parameter_0
+from .parameters import parameter_1
+from .parameters import parameter_2
+from .parameters import parameter_3
+from .parameters import parameter_4
+from .parameters import parameter_5
 
 
 

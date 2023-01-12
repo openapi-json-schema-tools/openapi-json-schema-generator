@@ -27,25 +27,25 @@ from petstore_api import schemas  # noqa: F401
 
 from . import response_200
 from . import request_body
-from . import parameter_0
-from . import parameter_1
-from . import parameter_2
-from . import parameter_3
-from . import parameter_4
-from . import parameter_5
-from . import parameter_6
-from . import parameter_7
-from . import parameter_8
-from . import parameter_9
-from . import parameter_10
-from . import parameter_11
-from . import parameter_12
-from . import parameter_13
-from . import parameter_14
-from . import parameter_15
-from . import parameter_16
-from . import parameter_17
-from . import parameter_18
+from .parameters import parameter_0
+from .parameters import parameter_1
+from .parameters import parameter_2
+from .parameters import parameter_3
+from .parameters import parameter_4
+from .parameters import parameter_5
+from .parameters import parameter_6
+from .parameters import parameter_7
+from .parameters import parameter_8
+from .parameters import parameter_9
+from .parameters import parameter_10
+from .parameters import parameter_11
+from .parameters import parameter_12
+from .parameters import parameter_13
+from .parameters import parameter_14
+from .parameters import parameter_15
+from .parameters import parameter_16
+from .parameters import parameter_17
+from .parameters import parameter_18
 
 
 

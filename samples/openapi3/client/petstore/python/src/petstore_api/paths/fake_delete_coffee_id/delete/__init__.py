@@ -27,7 +27,7 @@ from petstore_api.components.responses import response_success_description_only 
 
 from .. import path
 from . import response_default
-from . import parameter_0
+from .parameters import parameter_0
 
 
 
