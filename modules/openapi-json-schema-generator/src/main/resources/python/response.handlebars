@@ -26,7 +26,7 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
 {{#if refInfo.refModule}}
 from {{packageName}}.components.headers import {{refInfo.refModule}}
 {{else}}
-from . import {{name.getSnakeCaseName}}
+from .headers import {{name.getSnakeCaseName}}
 {{/if}}
 {{/each}}
 {{#if headers}}

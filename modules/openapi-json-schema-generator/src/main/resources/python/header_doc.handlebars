@@ -22,14 +22,14 @@
             {{#if schema}}
                 {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2=../name.getSnakeCaseName }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../name.getSnakeCaseName }}
                 {{/with}}
             {{else}}
                 {{#each getContent}}
                     {{#with this}}
                         {{#with schema}}
 
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2=../../name.getSnakeCaseName schemaNamePrefix3="content" schemaNamePrefix4=../@key.getSnakeCaseName}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.getSnakeCaseName schemaNamePrefix4="content" schemaNamePrefix5=../@key.getSnakeCaseName}}
                         {{/with}}
                     {{/with}}
                 {{/each}}

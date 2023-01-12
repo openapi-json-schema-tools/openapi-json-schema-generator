@@ -101,21 +101,21 @@ str,  | str,  |  |
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
-X-Rate-Limit | [_200.header_x_rate_limit.content.schema](#response_200header_x_rate_limitcontentschema) | | 
+X-Rate-Limit | [_200.headers.header_x_rate_limit.content.application_json.schema](#response_200headersheader_x_rate_limitcontentapplication_jsonschema) | | 
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
-X-Expires-After | [_200.header_x_expires_after.schema](#response_200header_x_expires_afterschema) | | optional
+X-Expires-After | [_200.headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
 stringHeader | [StringHeader.schema](../../../components/headers/header_string_header.md#header_string_headerschema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
-# <a id="response_200header_x_rate_limitcontentapplication_jsonschema" >_200.header_x_rate_limit.content.application_json.schema</a>
+# <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >_200.headers.header_x_rate_limit.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# <a id="response_200header_x_expires_afterschema" >_200.header_x_expires_after.schema</a>
+# <a id="response_200headersheader_x_expires_afterschema" >_200.headers.header_x_expires_after.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

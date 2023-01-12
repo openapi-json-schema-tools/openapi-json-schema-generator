@@ -12,7 +12,7 @@ import urllib3
 from petstore_api import api_client
 from petstore_api import schemas
 from .content.application_json import schema as application_json_schema
-from . import header_some_header
+from .headers import header_some_header
 
 
 class Header:

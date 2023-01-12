@@ -729,12 +729,14 @@ public class DefaultGenerator implements Generator {
                 throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
             }
             // headers
-            if (response.getHeaders() != null) {
+            if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
+                String headersJsonPath = jsonPath + "/headers";
+                generateHeaders(files, headersJsonPath);
                 for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
                     String headerName = headerInfo.getKey();
                     CodegenHeader header = headerInfo.getValue();
                     if (header.getRefInfo() == null) {
-                        String headerJsonPath = jsonPath + "/headers/" + headerName;
+                        String headerJsonPath = headersJsonPath + "/" + headerName;
                         generateHeader(files, header, headerJsonPath);
                     }
                 }
@@ -969,6 +971,23 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+    private void generateHeaders(List<File> files, String jsonPath) {
+        for (String templateName : config.headersTemplateFiles().keySet()) {
+            String filename = config.headersFilename(templateName, jsonPath);
+            try {
+                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.HEADERS);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, "headers");
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
+
     private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
         final Map<String, Header> specHeaders = this.openAPI.getComponents().getHeaders();
         if (specHeaders == null || specHeaders.isEmpty()) {
@@ -976,10 +995,12 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         TreeMap<String, CodegenHeader> headers = new TreeMap<>();
+        String headersJsonPath = "#/components/headers";
+        generateHeaders(files, headersJsonPath);
         for (Map.Entry<String, Header> entry: specHeaders.entrySet()) {
             String componentName = entry.getKey();
             Header specHeader = entry.getValue();
-            String sourceJsonPath = "#/components/headers/" + componentName;
+            String sourceJsonPath = headersJsonPath + "/" + componentName;
             CodegenHeader header = config.fromHeader(specHeader, sourceJsonPath);
             headers.put(componentName, header);
 
