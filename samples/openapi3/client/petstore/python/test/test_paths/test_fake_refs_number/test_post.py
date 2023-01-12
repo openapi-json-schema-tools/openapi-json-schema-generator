@@ -32,7 +32,7 @@ class TestFakeRefsNumber(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.number_with_validations.NumberWithValidations
+    response_body_schema = post.response_200._200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

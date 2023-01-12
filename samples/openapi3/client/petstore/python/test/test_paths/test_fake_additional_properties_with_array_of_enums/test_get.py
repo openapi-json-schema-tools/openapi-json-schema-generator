@@ -33,7 +33,7 @@ class TestFakeAdditionalPropertiesWithArrayOfEnums(ApiTestMixin, unittest.TestCa
         pass
 
     response_status = 200
-    response_body_schema = get.response_200.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
+    response_body_schema = get.response_200._200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

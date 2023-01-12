@@ -22,10 +22,3 @@ class ApiResponse(api_client.ApiResponse):
 
 class _404(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-    __Content = typing_extensions.TypedDict(
-        '__Content',
-        {
-        }
-    )
-    content: __Content = {
-    }

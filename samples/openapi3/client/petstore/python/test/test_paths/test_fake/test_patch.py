@@ -33,7 +33,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = patch.response_200.client.Client
+    response_body_schema = patch.response_200._200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

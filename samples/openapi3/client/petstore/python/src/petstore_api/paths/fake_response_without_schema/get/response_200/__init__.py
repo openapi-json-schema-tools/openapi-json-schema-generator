@@ -28,9 +28,11 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
+        pass
 
 
     class __ApplicationXmlMediaType(api_client.MediaType):
+        pass
     __Content = typing_extensions.TypedDict(
         '__Content',
         {

@@ -100,22 +100,26 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
             {{else}}
         schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
             {{/if}}
+        {{else}}
+        pass
         {{/with}}
     {{/with}}
 {{/each}}
+{{#if content}}
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-{{#each content}}
+    {{#each content}}
             '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
-{{/each}}
+    {{/each}}
         }
     )
     content: __Content = {
-{{#each content}}
+    {{#each content}}
         '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
-{{/each}}
+    {{/each}}
     }
+{{/if}}
 {{#if headers}}
     headers=Header.parameters
 {{/if}}
