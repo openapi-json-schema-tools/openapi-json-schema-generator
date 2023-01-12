@@ -59,7 +59,7 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -69,7 +69,7 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -81,7 +81,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -103,7 +103,7 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -181,7 +181,7 @@ class UpdatePetWithForm(BaseApi):
     def update_pet_with_form(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -191,7 +191,7 @@ class UpdatePetWithForm(BaseApi):
     def update_pet_with_form(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -203,7 +203,7 @@ class UpdatePetWithForm(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -213,7 +213,7 @@ class UpdatePetWithForm(BaseApi):
     def update_pet_with_form(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -225,7 +225,7 @@ class UpdatePetWithForm(BaseApi):
     def update_pet_with_form(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -248,7 +248,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -258,7 +258,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -270,7 +270,7 @@ class ApiForpost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -280,7 +280,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -292,7 +292,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.schema.Schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
