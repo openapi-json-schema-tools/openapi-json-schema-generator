@@ -400,10 +400,13 @@ public class DefaultGenerator implements Generator {
         schemaData.put("packageName", config.packageName());
         schemaData.put("schema", schema);
         schemaData.putAll(config.additionalProperties());
-        for (String templateName : config.modelTemplateFiles().keySet()) {
-            String filename = config.schemaFilename(templateName, jsonPath);
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA);
+        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFile = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFile);
             try {
-                File written = processTemplateToFile(schemaData, templateName, filename, generateModels, CodegenConstants.MODELS);
+                File written = processTemplateToFile(schemaData, templateFile, filename, generateModels, CodegenConstants.MODELS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -1635,7 +1638,7 @@ public class DefaultGenerator implements Generator {
                                 config.apiTemplateFiles().put(templateFile, templateExt);
                                 break;
                             case Model:
-                                config.modelTemplateFiles().put(templateFile, templateExt);
+                                config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(templateFile, templateExt);
                                 break;
                             case APIDocs:
                                 config.apiDocTemplateFiles().put(templateFile, templateExt);

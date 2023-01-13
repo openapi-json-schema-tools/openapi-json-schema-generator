@@ -315,18 +315,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
 
 
-        modelTemplateFiles.put("model.handlebars", "__init__.py");
-        modelTemplateFiles.put("model_stub.handlebars", "__init__.pyi");
         contentTemplateFiles.put("__init__.handlebars", "__init__.py");
         contentTypeTemplateFiles.put("__init__.handlebars", "__init__.py");
 
-//        HashMap schemaTemplates = new HashMap<>();
-//        schemaTemplates.put("model.handlebars", "__init__.py");
-//        schemaTemplates.put("model_stub.handlebars", "__init__.pyi");
-//        jsonPathTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-//                schemaTemplates
-//        );
+        HashMap<String, String> schemaTemplates = new HashMap<>();
+        schemaTemplates.put("model.handlebars", "__init__.py");
+        schemaTemplates.put("model_stub.handlebars", "__init__.pyi");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                schemaTemplates
+        );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
                 Collections.singletonMap("__init__.handlebars", "__init__.py")

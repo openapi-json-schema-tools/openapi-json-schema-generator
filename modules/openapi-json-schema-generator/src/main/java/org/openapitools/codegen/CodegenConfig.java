@@ -172,8 +172,6 @@ public interface CodegenConfig {
 
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
 
-    Map<String, String> modelTemplateFiles();
-
     Map<String, String> contentTemplateFiles();
 
     Map<String, String> contentTypeTemplateFiles();
@@ -270,8 +268,6 @@ public interface CodegenConfig {
 
     // handles almost all files to be written
     String getFilepath(String jsonPath, String outputFile);
-
-    String schemaFilename(String templateName, String jsonPath);
 
     String contentFilename(String templateName, String jsonPath);
 
