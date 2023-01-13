@@ -352,6 +352,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
+                Collections.singletonMap("__init__schema.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
+                Collections.singletonMap("__init__paths.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
                 Collections.singletonMap("__init__.handlebars", "__init__.py")
         );
 
@@ -479,7 +487,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
-        supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separatorChar + "components" , "__init__.py"));
         boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
         if (generateModels) {
             supportingFiles.add(new SupportingFile("__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));

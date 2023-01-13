@@ -31,6 +31,8 @@ public class CodegenConstants {
 
     public static final String RESPONSES = "responses";
 
+    public static final String COMPONENTS = "components";
+
     public static final String HEADERS = "headers";
     public static final String HEADER_DOCS = "headerDocs";
 
@@ -236,7 +238,7 @@ public class CodegenConstants {
 
     public static enum PARAM_NAMING_TYPE {camelCase, PascalCase, snake_case, original}
 
-    public static enum JSON_PATH_LOCATION_TYPE {SCHEMA, REQUEST_BODY, PARAMETER, RESPONSE, HEADER, CONTENT, CONTENT_TYPE, HEADERS, PARAMETERS, RESPONSES, REQUEST_BODIES, SCHEMAS}
+    public static enum JSON_PATH_LOCATION_TYPE {SCHEMA, REQUEST_BODY, PARAMETER, RESPONSE, HEADER, CONTENT, CONTENT_TYPE, HEADERS, PARAMETERS, RESPONSES, REQUEST_BODIES, SCHEMAS, PATHS, COMPONENTS}
 
     public static enum MODEL_PROPERTY_NAMING_TYPE {camelCase, PascalCase, snake_case, original}
 

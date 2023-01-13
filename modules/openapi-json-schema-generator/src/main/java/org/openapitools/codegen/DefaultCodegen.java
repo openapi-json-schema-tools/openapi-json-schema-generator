@@ -4298,7 +4298,7 @@ public class DefaultCodegen implements CodegenConfig {
     public String getFilepath(String jsonPath, String outputFile) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
-        if (jsonPath.startsWith("#/components/")) {
+        if (jsonPath.startsWith("#/components")) {
             if (pathPieces.length >= 3) {
                 if (pathPieces[2].equals("schemas")) {
                     pathPieces[2] = "schema";
@@ -4312,13 +4312,9 @@ public class DefaultCodegen implements CodegenConfig {
                 pathPieces[3] = toResponseModuleName(pathPieces[3]);
             }
 
-            if (pathPieces.length == 3) {
-                // #/components/schemas
-                return String.join(File.separator, pathPieces) + File.separator + outputFile;
-            } else if (pathPieces.length == 5) {
-                // #/components/responses/SuccessWithJsonApiResponse/headers
-                return String.join(File.separator, pathPieces) + File.separator + outputFile;
-            }
+            // #/components/schemas
+            // #/components/responses/SuccessWithJsonApiResponse/headers
+            return String.join(File.separator, pathPieces) + File.separator + outputFile;
         } else if (jsonPath.startsWith("#/paths")) {
             if (pathPieces.length >= 3) {
                 pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));

@@ -593,9 +593,7 @@ public class DefaultGenerator implements Generator {
             pathModuleToApiClassname.put(config.toPathFilename(path), apiClassName);
         }
         if (!config.pathEndpointTemplateFiles().isEmpty()) {
-            // paths.__init__.py
-            outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
-            pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
+            generateXs(files, "#/paths", CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS);
 
             // paths.some_path.__init__.py
             for (Map.Entry<String, String> entry: pathToPathModule.entrySet()) {
@@ -991,8 +989,12 @@ public class DefaultGenerator implements Generator {
             String templateFile = entry.getKey();
             String outputFile = entry.getValue();
             String filename = config.getFilepath(jsonPath, outputFile);
+
+            HashMap<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("modelPackage", config.modelPackage());
             try {
-                File written = processTemplateToFile(new HashMap<>(), templateFile, filename, true, skippedByOption);
+                File written = processTemplateToFile(templateData, templateFile, filename, true, skippedByOption);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -1497,6 +1499,16 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
         // components.parameters, must be before processPaths, because those can $ref these
         TreeMap<String, CodegenParameter> parameters = generateParameters(files);
+
+        boolean schemasExist = (schemas != null && !schemas.isEmpty());
+        boolean requestBodiesExist = (requestBodies != null && !requestBodies.isEmpty());
+        boolean headersExist = (headers != null && !headers.isEmpty());
+        boolean responsesExist = (responses != null && !responses.isEmpty());
+        boolean parametersExist = (parameters != null && !parameters.isEmpty());
+        if (schemasExist || requestBodiesExist || headersExist || responsesExist || parametersExist) {
+            generateXs(files, "#/components", CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS, CodegenConstants.COMPONENTS);
+        }
+
         // paths input
         Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         // apis

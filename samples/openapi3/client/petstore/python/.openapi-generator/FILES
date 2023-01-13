@@ -318,7 +318,6 @@ src/petstore_api/components/responses/response_success_with_json_api_response/he
 src/petstore_api/components/schema/_200_response/__init__.py
 src/petstore_api/components/schema/_200_response/__init__.pyi
 src/petstore_api/components/schema/__init__.py
-src/petstore_api/components/schema/__init__.py
 src/petstore_api/components/schema/_return/__init__.py
 src/petstore_api/components/schema/_return/__init__.pyi
 src/petstore_api/components/schema/abstract_step_message/__init__.py
