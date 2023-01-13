@@ -882,14 +882,18 @@ public class DefaultGenerator implements Generator {
 
     private void generateParameter(List<File> files, CodegenParameter parameter, String jsonPath) {
         Boolean generateParameters = Boolean.TRUE;
-        for (String templateName : config.parameterTemplateFiles().keySet()) {
-            String filename = config.parameterFilename(templateName, jsonPath);
+
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER);
+        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFilename = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFilename);
             Map<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", config.packageName());
             templateData.put("parameter", parameter);
 
             try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateParameters, CodegenConstants.PARAMETERS);
+                File written = processTemplateToFile(templateData, templateFile, filename, generateParameters, CodegenConstants.PARAMETERS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {

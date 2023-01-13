@@ -188,7 +188,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
     protected Map<String, String> modelDocTemplateFiles = new HashMap<>();
-    protected Map<String, String> parameterTemplateFiles = new HashMap<>();
     protected Map<String, String> parameterDocTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
@@ -925,9 +924,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
-
-    @Override
-    public Map<String, String> parameterTemplateFiles() { return parameterTemplateFiles; }
 
     @Override
     public Map<String, String> parameterDocTemplateFiles() { return parameterDocTemplateFiles; }
@@ -4014,23 +4010,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String parameterFilename(String templateName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String writtenFilename = parameterTemplateFiles.get(templateName);
-        if (jsonPath.startsWith("#/components/parameters/")) {
-            // #/components/parameters/someParam -> length 4
-            return getFilepath(jsonPath, writtenFilename);
-        } else if (jsonPath.startsWith("#/paths/")) {
-            // #/paths/somePath/get/parameters/0 -> length 6
-            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
-            String httpVerb = pathPieces[3];
-            String i = pathPieces[5];
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "parameters" + File.separatorChar + toParameterFilename(i) + File.separatorChar + writtenFilename;
-        }
-        return null;
-    }
-
-    @Override
     public String contentFilename(String templateName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String fileName = contentTemplateFiles.get(templateName);
@@ -4202,13 +4181,18 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length == 5 && pathPieces[4].equals("requestBody")) {
                     // #/paths/somePath/get/requestBody
                     pathPieces[4] = "request_body";
-                } else if (pathPieces.length >= 6 && pathPieces[4].equals("responses")) {
-                    // #/paths/user_login/get/responses/200 -> 200 -> response_200
-                    pathPieces[5] = toResponseModuleName(pathPieces[5]);
+                } else if (pathPieces.length >= 6) {
+                    if (pathPieces[4].equals("responses")) {
+                        // #/paths/user_login/get/responses/200 -> 200 -> response_200
+                        pathPieces[5] = toResponseModuleName(pathPieces[5]);
 
-                    if (pathPieces.length >= 8 && pathPieces[6].equals("headers")) {
-                        // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-                        pathPieces[7] = toHeaderFilename(pathPieces[7]);
+                        if (pathPieces.length >= 8 && pathPieces[6].equals("headers")) {
+                            // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
+                            pathPieces[7] = toHeaderFilename(pathPieces[7]);
+                        }
+                    } else if (pathPieces[4].equals("parameters")) {
+                        // #/paths/somePath/get/parameters/0 -> length 6
+                        pathPieces[5] = toParameterFilename(pathPieces[5]);
                     }
                 }
             }
