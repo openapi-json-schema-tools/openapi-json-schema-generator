@@ -170,6 +170,8 @@ public interface CodegenConfig {
 
     Map<String, String> apiXToApiTemplateFiles();
 
+    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
+
     Map<String, String> modelTemplateFiles();
 
     Map<String, String> contentTemplateFiles();
@@ -279,6 +281,9 @@ public interface CodegenConfig {
     void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
 
     void postProcessParameter(CodegenParameter parameter);
+
+    // handles almost all files to be written
+    String getFilepath(String jsonPath, String outputFile);
 
     String schemaFilename(String templateName, String jsonPath);
 

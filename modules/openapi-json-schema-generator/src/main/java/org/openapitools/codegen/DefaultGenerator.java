@@ -757,10 +757,13 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateResponses(List<File> files, String jsonPath) {
-        for (String templateName : config.responsesTemplateFiles().keySet()) {
-            String filename = config.responsesFilename(templateName, jsonPath);
+        Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES);
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFile = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFile);
             try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.RESPONSES);
+                File written = processTemplateToFile(new HashMap<>(), templateFile, filename, true, CodegenConstants.RESPONSES);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -923,10 +926,13 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateParameters(List<File> files, String jsonPath) {
-        for (String templateName : config.parametersTemplateFiles().keySet()) {
-            String filename = config.parametersFilename(templateName, jsonPath);
+        Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS);
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFile = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFile);
             try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.PARAMETERS);
+                File written = processTemplateToFile(new HashMap<>(), templateFile, filename, true, CodegenConstants.PARAMETERS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -1017,10 +1023,13 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateHeaders(List<File> files, String jsonPath) {
-        for (String templateName : config.headersTemplateFiles().keySet()) {
-            String filename = config.headersFilename(templateName, jsonPath);
+        Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS);
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFile = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFile);
             try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.HEADERS);
+                File written = processTemplateToFile(new HashMap<>(), templateFile, filename, true, CodegenConstants.HEADERS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {

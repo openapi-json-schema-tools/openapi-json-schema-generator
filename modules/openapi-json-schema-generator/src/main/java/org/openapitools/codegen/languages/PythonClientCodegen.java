@@ -306,27 +306,54 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
 
-        modelTemplateFiles.put("model.handlebars", ".py");
-        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
+
         modelDocTemplateFiles.put("model_doc.handlebars", ".md");
         modelTestTemplateFiles.put("model_test.handlebars", ".py");
-
-        requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
         requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
-
-        parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
-
-        responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-
-        headerTemplateFiles.put("header.handlebars", "__init__.py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
+
+
+        modelTemplateFiles.put("model.handlebars", "__init__.py");
+        modelTemplateFiles.put("model_stub.handlebars", "__init__.pyi");
+        requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
+        parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
+        responseTemplateFiles.put("response.handlebars", "__init__.py");
+        headerTemplateFiles.put("header.handlebars", "__init__.py");
         contentTemplateFiles.put("__init__.handlebars", "__init__.py");
         contentTypeTemplateFiles.put("__init__.handlebars", "__init__.py");
         headersTemplateFiles.put("__init__.handlebars", "__init__.py");
         parametersTemplateFiles.put("__init__.handlebars", "__init__.py");
         responsesTemplateFiles.put("__init__.handlebars", "__init__.py");
+
+//        HashMap schemaTemplates = new HashMap<>();
+//        schemaTemplates.put("model.handlebars", "__init__.py");
+//        schemaTemplates.put("model_stub.handlebars", "__init__.pyi");
+//        jsonPathTemplateFiles.put(
+//                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+//                schemaTemplates
+//        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
