@@ -194,8 +194,6 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointDocTemplateFiles();
 
-    Map<String, String> responseTemplateFiles();
-
     Map<String, String> responseDocTemplateFiles();
 
     Map<String, String> apiTestTemplateFiles();
@@ -286,8 +284,6 @@ public interface CodegenConfig {
     String headerFilename(String templateName, String jsonPath);
 
     String parameterFilename(String templateName, String jsonPath);
-
-    String responseFilename(String templateName, String jsonPath);
 
     String apiFilename(String templateName, String tag);
 

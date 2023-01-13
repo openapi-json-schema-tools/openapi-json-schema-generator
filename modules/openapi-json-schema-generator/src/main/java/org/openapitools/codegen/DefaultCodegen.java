@@ -179,7 +179,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
     protected Map<String, String> headerTemplateFiles = new HashMap<>();
     protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
-    protected Map<String, String> responseTemplateFiles = new HashMap<>();
     protected Map<String, String> contentTemplateFiles = new HashMap<>();
     protected Map<String, String> contentTypeTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
@@ -927,9 +926,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public Map<String, String> headerDocTemplateFiles() { return headerDocTemplateFiles; }
-
-    @Override
-    public Map<String, String> responseTemplateFiles() { return responseTemplateFiles; }
 
     @Override
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
@@ -4019,20 +4015,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String apiFilename(String templateName, String tag) {
         String suffix = apiTemplateFiles().get(templateName);
         return apiFileFolder() + File.separatorChar + toApiFilename(tag) + suffix;
-    }
-
-    @Override
-    public String responseFilename(String templateName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String writtenFilename = responseTemplateFiles.get(templateName);
-        if (jsonPath.startsWith("#/components/responses/")) {
-            // #/components/responses/someResponse -> length 4
-            return getFilepath(jsonPath, writtenFilename);
-        } else if (jsonPath.startsWith("#/paths/")) {
-            // #/paths/somePath/get/responses/200 -> length 6
-            return getFilepath(jsonPath, writtenFilename);
-        }
-        return null;
     }
 
     @Override

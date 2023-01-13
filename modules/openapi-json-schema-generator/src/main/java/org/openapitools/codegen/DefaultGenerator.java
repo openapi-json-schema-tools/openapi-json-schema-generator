@@ -720,11 +720,14 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", config.packageName());
         templateData.put("response", response);
-        for (String templateName: config.responseTemplateFiles().keySet()) {
-            String responseFilename = config.responseFilename(templateName, jsonPath);
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE);
+        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFile = entry.getValue();
+            String responseFile = config.getFilepath(jsonPath, outputFile);
 
             try {
-                File written = processTemplateToFile(templateData, templateName, responseFilename, generateResponses, CodegenConstants.RESPONSES);
+                File written = processTemplateToFile(templateData, templateFile, responseFile, generateResponses, CodegenConstants.RESPONSES);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -732,7 +735,7 @@ public class DefaultGenerator implements Generator {
                     }
                 }
             } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
+                throw new RuntimeException("Could not generate file '" + responseFile + "'", e);
             }
             // headers
             if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
