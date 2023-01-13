@@ -176,7 +176,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTemplateFiles = new HashMap<>();
-    protected Map<String, String> requestBodyTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
     protected Map<String, String> headerTemplateFiles = new HashMap<>();
     protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
@@ -922,10 +921,6 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> contentTypeTemplateFiles() {
         return contentTypeTemplateFiles;
     }
-
-
-    @Override
-    public Map<String, String> requestBodyTemplateFiles() { return requestBodyTemplateFiles; }
 
     @Override
     public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
@@ -4072,22 +4067,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String requestBodyFilename(String templateName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String writtenFilename = requestBodyTemplateFiles.get(templateName);
-        if (jsonPath.startsWith("#/components/requestBodies/")) {
-            // #/components/parameters/someParam -> length 4
-            return getFilepath(jsonPath, writtenFilename);
-        } else if (jsonPath.startsWith("#/paths/")) {
-            // #/paths/somePath/get/requestBody -> length 5
-            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
-            String httpVerb = pathPieces[3];
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "request_body" + File.separatorChar + writtenFilename;
-        }
-        return null;
-    }
-
-    @Override
     public String parametersFilename(String templateName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String writtenFilename = parametersTemplateFiles.get(templateName);
@@ -4328,10 +4307,15 @@ public class DefaultCodegen implements CodegenConfig {
                 pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
             }
             Set<String> httpVerbs = new HashSet<>(Arrays.asList("get", "put", "post", "delete", "options", "head", "patch", "trace"));
-            if (pathPieces.length >= 6 && httpVerbs.contains(pathPieces[3]) && pathPieces[4].equals("responses")) {
-                pathPieces[5] = toResponseModuleName(pathPieces[5]);
+            if (pathPieces.length >= 4 && httpVerbs.contains(pathPieces[3])) {
+                if (pathPieces.length == 5 && pathPieces[4].equals("requestBody")) {
+                    // #/paths/somePath/get/requestBody
+                    pathPieces[4] = "request_body";
+                } else if (pathPieces.length >= 6 && pathPieces[4].equals("responses")) {
+                    // #/paths/user_login/get/responses/200 -> 200 -> response_200
+                    pathPieces[5] = toResponseModuleName(pathPieces[5]);
+                }
             }
-            // #/paths/user_login/get/responses/200/headers
             return String.join(File.separator, pathPieces) + File.separator + outputFile;
         }
         return null;

@@ -317,7 +317,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         modelTemplateFiles.put("model.handlebars", "__init__.py");
         modelTemplateFiles.put("model_stub.handlebars", "__init__.pyi");
-        requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
         parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
         responseTemplateFiles.put("response.handlebars", "__init__.py");
         headerTemplateFiles.put("header.handlebars", "__init__.py");
@@ -346,6 +345,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
                 Collections.singletonMap("__init__.handlebars", "__init__.py")
         );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
+                Collections.singletonMap("request_body.handlebars", "__init__.py")
+        );
+
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
                 Collections.singletonMap("__init__.handlebars", "__init__.py")

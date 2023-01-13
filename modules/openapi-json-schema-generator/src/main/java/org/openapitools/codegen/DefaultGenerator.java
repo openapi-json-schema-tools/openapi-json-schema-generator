@@ -804,11 +804,14 @@ public class DefaultGenerator implements Generator {
         templateData.put("packageName", config.packageName());
         templateData.put("requestBody", requestBody);
         Boolean generateRequestBodies = Boolean.TRUE;
-        for (String templateName : config.requestBodyTemplateFiles().keySet()) {
-            String filename = config.requestBodyFilename(templateName, jsonPath);
+        Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY);
+        for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFilename = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFilename);
 
             try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
+                File written = processTemplateToFile(templateData, templateFile, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
