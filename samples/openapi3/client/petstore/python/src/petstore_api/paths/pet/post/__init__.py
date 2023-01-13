@@ -28,7 +28,7 @@ from petstore_api.components.request_bodies import request_body_pet as request_b
 from petstore_api.components.responses import response_success_description_only as response_200
 
 from .. import path
-from . import response_405
+from .responses import response_405
 
 
 _auth = [

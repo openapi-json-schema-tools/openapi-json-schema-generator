@@ -26,7 +26,7 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.responses import response_success_description_only as response_200
 from petstore_api.components.parameters import parameter_path_user_name
 
-from . import response_404
+from .responses import response_404
 
 
 

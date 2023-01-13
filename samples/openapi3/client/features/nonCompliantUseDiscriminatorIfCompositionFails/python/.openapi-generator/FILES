@@ -35,7 +35,8 @@ src/this_package/paths/operators/__init__.py
 src/this_package/paths/operators/post/__init__.py
 src/this_package/paths/operators/post/__init__.pyi
 src/this_package/paths/operators/post/request_body/__init__.py
-src/this_package/paths/operators/post/response_200/__init__.py
+src/this_package/paths/operators/post/responses/__init__.py
+src/this_package/paths/operators/post/responses/response_200/__init__.py
 src/this_package/rest.py
 src/this_package/schemas.py
 test-requirements.txt

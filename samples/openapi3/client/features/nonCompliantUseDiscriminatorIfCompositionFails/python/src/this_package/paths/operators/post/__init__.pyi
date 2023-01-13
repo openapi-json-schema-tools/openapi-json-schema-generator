@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from this_package import schemas  # noqa: F401
 
-from . import response_200
+from .responses import response_200
 from . import request_body
 
 

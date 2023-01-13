@@ -27,7 +27,7 @@ from petstore_api.components.responses import response_success_description_only 
 from petstore_api.components.parameters import parameter_path_user_name
 
 from .. import path
-from . import response_404
+from .responses import response_404
 
 
 

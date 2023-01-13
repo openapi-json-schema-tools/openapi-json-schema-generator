@@ -27,8 +27,8 @@ from petstore_api import schemas  # noqa: F401
 from petstore_api.components.parameters import parameter_path_user_name
 
 from .. import path
-from . import response_400
-from . import response_404
+from .responses import response_400
+from .responses import response_404
 from . import request_body
 
 
