@@ -4306,9 +4306,28 @@ public class DefaultCodegen implements CodegenConfig {
                     pathPieces[2] = "request_bodies";
                 }
             }
-            if (pathPieces.length == 4) {
+            if (pathPieces.length >= 4 && pathPieces[2].equals("responses")) {
+                // #/components/responses/SuccessWithJsonApiResponse/headers
+                pathPieces[3] = toResponseModuleName(pathPieces[3]);
+            }
+
+            if (pathPieces.length == 3) {
+                // #/components/schemas
+                return String.join(File.separator, pathPieces) + File.separator + outputFile;
+            } else if (pathPieces.length == 5) {
+                // #/components/responses/SuccessWithJsonApiResponse/headers
                 return String.join(File.separator, pathPieces) + File.separator + outputFile;
             }
+        } else if (jsonPath.startsWith("#/paths")) {
+            if (pathPieces.length >= 3) {
+                pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+            }
+            Set<String> httpVerbs = new HashSet<>(Arrays.asList("get", "put", "post", "delete", "options", "head", "patch", "trace"));
+            if (pathPieces.length >= 6 && httpVerbs.contains(pathPieces[3]) && pathPieces[4].equals("responses")) {
+                pathPieces[5] = toResponseModuleName(pathPieces[5]);
+            }
+            // #/paths/user_login/get/responses/200/headers
+            return String.join(File.separator, pathPieces) + File.separator + outputFile;
         }
         return null;
     }
