@@ -4302,6 +4302,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 3) {
                 if (pathPieces[2].equals("schemas")) {
                     pathPieces[2] = "schema";
+                    // TODO if modelPackage is set, replace components.schemas with it
                 } else if (pathPieces[2].equals("requestBodies")) {
                     pathPieces[2] = "request_bodies";
                 }

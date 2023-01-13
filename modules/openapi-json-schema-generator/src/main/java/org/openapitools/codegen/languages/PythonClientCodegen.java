@@ -483,7 +483,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
         if (generateModels) {
             supportingFiles.add(new SupportingFile("__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__schema." + templateExtension, packagePath() + File.separatorChar + modelPackage.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         if (generateApis) {
