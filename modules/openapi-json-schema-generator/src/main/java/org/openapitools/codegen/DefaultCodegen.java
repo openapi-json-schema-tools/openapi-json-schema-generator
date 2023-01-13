@@ -4136,7 +4136,7 @@ public class DefaultCodegen implements CodegenConfig {
             String code = pathPieces[5];
             String responseModule = toResponseModuleName(code);
             String headerModule = toHeaderFilename(pathPieces[7]);
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar  + headerModule + File.separatorChar + writtenFilename;
+            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "responses" + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar  + headerModule + File.separatorChar + writtenFilename;
         }
         return null;
     }

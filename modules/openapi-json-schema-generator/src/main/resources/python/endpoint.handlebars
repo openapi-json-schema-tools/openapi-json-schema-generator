@@ -38,7 +38,7 @@ from .. import path
 {{/unless}}
 {{#each responses}}
 {{#unless refInfo.refModule}}
-from . import response_{{@key}}
+from .responses import response_{{@key}}
 {{/unless}}
 {{/each}}
 {{#with requestBody}}
