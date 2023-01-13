@@ -4298,20 +4298,24 @@ public class DefaultCodegen implements CodegenConfig {
     public String getFilepath(String jsonPath, String outputFile) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
+        String schemasIdentifier = "schema";
         if (jsonPath.startsWith("#/components")) {
             if (pathPieces.length >= 3) {
                 if (pathPieces[2].equals("schemas")) {
-                    pathPieces[2] = "schema";
+                    pathPieces[2] = schemasIdentifier;
                     // TODO if modelPackage is set, replace components.schemas with it
                 } else if (pathPieces[2].equals("requestBodies")) {
                     pathPieces[2] = "request_bodies";
                 }
             }
-            if (pathPieces.length >= 4 && pathPieces[2].equals("responses")) {
-                // #/components/responses/SuccessWithJsonApiResponse/headers
-                pathPieces[3] = toResponseModuleName(pathPieces[3]);
+            if (pathPieces.length >= 4){
+                if (pathPieces[2].equals("responses")) {
+                    // #/components/responses/SuccessWithJsonApiResponse/headers
+                    pathPieces[3] = toResponseModuleName(pathPieces[3]);
+                } else if (pathPieces[2].equals(schemasIdentifier)) {
+                    pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
+                }
             }
-
             // #/components/schemas
             // #/components/responses/SuccessWithJsonApiResponse/headers
             return String.join(File.separator, pathPieces) + File.separator + outputFile;
@@ -4334,7 +4338,7 @@ public class DefaultCodegen implements CodegenConfig {
         String[] pathPieces = jsonPath.split("/");
         String suffix = modelTemplateFiles().get(templateName);
         if (jsonPath.startsWith("#/components/schemas/") && pathPieces.length == 4) {
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "schema" + File.separatorChar + getKey(pathPieces[3]).getSnakeCaseName() + File.separatorChar + suffix;
+            return getFilepath(jsonPath, suffix);
         } else if (jsonPath.startsWith("#/components/headers/")) {
             String componentName = pathPieces[3];
             if (pathPieces.length == 5) {
