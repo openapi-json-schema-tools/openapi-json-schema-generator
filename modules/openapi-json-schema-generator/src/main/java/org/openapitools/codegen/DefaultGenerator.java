@@ -401,6 +401,9 @@ public class DefaultGenerator implements Generator {
         schemaData.put("schema", schema);
         schemaData.putAll(config.additionalProperties());
         Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA);
+        if (templateInfo == null || templateInfo.isEmpty()) {
+            return;
+        }
         for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
             String templateFile = entry.getKey();
             String outputFile = entry.getValue();
@@ -671,39 +674,49 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
-        Map<String, String> contentTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT);
-        for (Map.Entry<String, String> contentEntry: contentTemplateInfo.entrySet()) {
-            String contentJsonPath = jsonPath + "/content";
-            boolean nonRefSchema = false;
-            for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
-                String contentType = contentInfo.getKey().getName();
-                CodegenMediaType codegenMediaType = contentInfo.getValue();
-                CodegenSchema schema = codegenMediaType.getSchema();
-                if (schema != null && schema.getRefInfo() == null) {
-                    nonRefSchema = true;
-                    String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
-                    Map<String, String> contentTypeTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
-                    for (Map.Entry<String, String> contentTypeEntry: contentTypeTemplateInfo.entrySet()) {
-                        String templateFile = contentTypeEntry.getKey();
-                        String outputFile = contentTypeEntry.getValue();
-                        String outputFilepath = config.getFilepath(contentTypeJsonPath, outputFile);
-                        try {
-                            File written = processTemplateToFile(new HashMap<>(), templateFile, outputFilepath, true, CodegenConstants.CONTENT);
-                            if (written != null) {
-                                files.add(written);
-                                if (config.isEnablePostProcessFile() && !dryRun) {
-                                    config.postProcessFile(written, "content");
-                                }
+        String contentJsonPath = jsonPath + "/content";
+        boolean nonRefSchemaExists = false;
+
+        // content-type + schema generation
+        for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
+            String contentType = contentInfo.getKey().getName();
+            CodegenMediaType codegenMediaType = contentInfo.getValue();
+            CodegenSchema schema = codegenMediaType.getSchema();
+            if (schema != null && schema.getRefInfo() == null) {
+                nonRefSchemaExists = true;
+                String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
+
+                // schema
+                String schemaJsonPath = contentTypeJsonPath + "/schema";
+                generateSchema(files, schema, schemaJsonPath);
+
+                Map<String, String> contentTypeTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
+                if (contentTypeTemplateInfo == null || contentTypeTemplateInfo.isEmpty()) {
+                    continue;
+                }
+                // content-type
+                for (Map.Entry<String, String> contentTypeEntry: contentTypeTemplateInfo.entrySet()) {
+                    String templateFile = contentTypeEntry.getKey();
+                    String outputFile = contentTypeEntry.getValue();
+                    String outputFilepath = config.getFilepath(contentTypeJsonPath, outputFile);
+                    try {
+                        File written = processTemplateToFile(new HashMap<>(), templateFile, outputFilepath, true, CodegenConstants.CONTENT);
+                        if (written != null) {
+                            files.add(written);
+                            if (config.isEnablePostProcessFile() && !dryRun) {
+                                config.postProcessFile(written, "content");
                             }
-                        } catch (IOException e) {
-                            throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                         }
+                    } catch (IOException e) {
+                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                     }
-                    String schemaJsonPath = contentTypeJsonPath + "/schema";
-                    generateSchema(files, schema, schemaJsonPath);
                 }
             }
-            if (nonRefSchema) {
+        }
+
+        Map<String, String> contentTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT);
+        if (nonRefSchemaExists && contentTemplateInfo != null && !contentTemplateInfo.isEmpty()) {
+            for (Map.Entry<String, String> contentEntry: contentTemplateInfo.entrySet()) {
                 String contentTemplateFile = contentEntry.getKey();
                 String outputFile = contentEntry.getValue();
                 String outputFilepath = config.getFilepath(contentJsonPath, outputFile);
@@ -728,39 +741,41 @@ public class DefaultGenerator implements Generator {
         templateData.put("packageName", config.packageName());
         templateData.put("response", response);
         Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE);
-        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
-            String templateFile = entry.getKey();
-            String outputFile = entry.getValue();
-            String responseFile = config.getFilepath(jsonPath, outputFile);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFile = entry.getValue();
+                String responseFile = config.getFilepath(jsonPath, outputFile);
 
-            try {
-                File written = processTemplateToFile(templateData, templateFile, responseFile, generateResponses, CodegenConstants.RESPONSES);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "response");
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, responseFile, generateResponses, CodegenConstants.RESPONSES);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "response");
+                        }
                     }
-                }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + responseFile + "'", e);
-            }
-            // headers
-            if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
-                String headersJsonPath = jsonPath + "/headers";
-                generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS);
-                for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
-                    String headerName = headerInfo.getKey();
-                    CodegenHeader header = headerInfo.getValue();
-                    if (header.getRefInfo() == null) {
-                        String headerJsonPath = headersJsonPath + "/" + headerName;
-                        generateHeader(files, header, headerJsonPath);
-                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + responseFile + "'", e);
                 }
             }
-            LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
-            if (content != null && !content.isEmpty()) {
-                generateContent(files, content, jsonPath);
+        }
+        // headers
+        if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
+            String headersJsonPath = jsonPath + "/headers";
+            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS);
+            for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
+                String headerName = headerInfo.getKey();
+                CodegenHeader header = headerInfo.getValue();
+                if (header.getRefInfo() == null) {
+                    String headerJsonPath = headersJsonPath + "/" + headerName;
+                    generateHeader(files, header, headerJsonPath);
+                }
             }
+        }
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
+        if (content != null && !content.isEmpty()) {
+            generateContent(files, content, jsonPath);
         }
     }
 
@@ -815,21 +830,23 @@ public class DefaultGenerator implements Generator {
         templateData.put("requestBody", requestBody);
         Boolean generateRequestBodies = Boolean.TRUE;
         Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY);
-        for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
-            String templateFile = entry.getKey();
-            String outputFilename = entry.getValue();
-            String filename = config.getFilepath(jsonPath, outputFilename);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath, outputFilename);
 
-            try {
-                File written = processTemplateToFile(templateData, templateFile, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "requestBody");
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "requestBody");
+                        }
                     }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
         // schemas
@@ -891,24 +908,26 @@ public class DefaultGenerator implements Generator {
         Boolean generateParameters = Boolean.TRUE;
 
         Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER);
-        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
-            String templateFile = entry.getKey();
-            String outputFilename = entry.getValue();
-            String filename = config.getFilepath(jsonPath, outputFilename);
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", config.packageName());
-            templateData.put("parameter", parameter);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath, outputFilename);
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("parameter", parameter);
 
-            try {
-                File written = processTemplateToFile(templateData, templateFile, filename, generateParameters, CodegenConstants.PARAMETERS);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "parameter");
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, filename, generateParameters, CodegenConstants.PARAMETERS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "parameter");
+                        }
                     }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
         // schema
@@ -975,20 +994,22 @@ public class DefaultGenerator implements Generator {
         // header
         Boolean generateHeaders = Boolean.TRUE;
         Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER);
-        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
-            String templateFile = entry.getKey();
-            String outputFilename = entry.getValue();
-            String filename = config.getFilepath(jsonPath, outputFilename);
-            try {
-                File written = processTemplateToFile(headertTemplateData, templateFile, filename, generateHeaders, CodegenConstants.HEADERS);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "header");
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath, outputFilename);
+                try {
+                    File written = processTemplateToFile(headertTemplateData, templateFile, filename, generateHeaders, CodegenConstants.HEADERS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "header");
+                        }
                     }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
         // schema
@@ -1005,6 +1026,9 @@ public class DefaultGenerator implements Generator {
 
     private void generateXs(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption) {
         Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(type);
+        if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
+            return;
+        }
         for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
             String templateFile = entry.getKey();
             String outputFile = entry.getValue();
