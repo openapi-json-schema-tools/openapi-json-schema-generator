@@ -306,17 +306,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
 
-
         modelDocTemplateFiles.put("model_doc.handlebars", ".md");
         modelTestTemplateFiles.put("model_test.handlebars", ".py");
         requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
-
-
-        contentTemplateFiles.put("__init__.handlebars", "__init__.py");
-        contentTypeTemplateFiles.put("__init__.handlebars", "__init__.py");
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("model.handlebars", "__init__.py");
@@ -367,6 +362,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
                 Collections.singletonMap("__init__.handlebars", "__init__.py")
         );
 

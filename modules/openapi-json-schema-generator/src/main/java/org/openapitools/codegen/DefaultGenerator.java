@@ -671,7 +671,8 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
-        for (Map.Entry<String, String> contentEntry: config.contentTemplateFiles().entrySet()) {
+        Map<String, String> contentTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT);
+        for (Map.Entry<String, String> contentEntry: contentTemplateInfo.entrySet()) {
             String contentJsonPath = jsonPath + "/content";
             boolean nonRefSchema = false;
             for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
@@ -681,11 +682,13 @@ public class DefaultGenerator implements Generator {
                 if (schema != null && schema.getRefInfo() == null) {
                     nonRefSchema = true;
                     String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
-                    for (Map.Entry<String, String> contentTypeEntry: config.contentTypeTemplateFiles().entrySet()) {
-                        String templateName = contentTypeEntry.getKey();
-                        String filename = config.contentTypeFilename(templateName, contentTypeJsonPath);
+                    Map<String, String> contentTypeTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
+                    for (Map.Entry<String, String> contentTypeEntry: contentTypeTemplateInfo.entrySet()) {
+                        String templateFile = contentTypeEntry.getKey();
+                        String outputFile = contentTypeEntry.getValue();
+                        String outputFilepath = config.getFilepath(contentTypeJsonPath, outputFile);
                         try {
-                            File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.CONTENT);
+                            File written = processTemplateToFile(new HashMap<>(), templateFile, outputFilepath, true, CodegenConstants.CONTENT);
                             if (written != null) {
                                 files.add(written);
                                 if (config.isEnablePostProcessFile() && !dryRun) {
@@ -701,10 +704,11 @@ public class DefaultGenerator implements Generator {
                 }
             }
             if (nonRefSchema) {
-                String contentTemplateName = contentEntry.getKey();
-                String contentFilename = config.contentFilename(contentTemplateName, contentJsonPath);
+                String contentTemplateFile = contentEntry.getKey();
+                String outputFile = contentEntry.getValue();
+                String outputFilepath = config.getFilepath(contentJsonPath, outputFile);
                 try {
-                    File written = processTemplateToFile(new HashMap<>(), contentTemplateName, contentFilename, true, CodegenConstants.CONTENT);
+                    File written = processTemplateToFile(new HashMap<>(), contentTemplateFile, outputFilepath, true, CodegenConstants.CONTENT);
                     if (written != null) {
                         files.add(written);
                         if (config.isEnablePostProcessFile() && !dryRun) {
