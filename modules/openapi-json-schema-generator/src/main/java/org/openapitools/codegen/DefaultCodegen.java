@@ -4060,8 +4060,7 @@ public class DefaultCodegen implements CodegenConfig {
         String writtenFilename = responseTemplateFiles.get(templateName);
         if (jsonPath.startsWith("#/components/responses/")) {
             // #/components/responses/someResponse -> length 4
-            String componentName = pathPieces[3];
-            return responseFileFolder(componentName) + File.separatorChar + writtenFilename;
+            return getFilepath(jsonPath, writtenFilename);
         } else if (jsonPath.startsWith("#/paths/")) {
             // #/paths/somePath/get/responses/200 -> length 6
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
@@ -4078,8 +4077,7 @@ public class DefaultCodegen implements CodegenConfig {
         String writtenFilename = requestBodyTemplateFiles.get(templateName);
         if (jsonPath.startsWith("#/components/requestBodies/")) {
             // #/components/parameters/someParam -> length 4
-            String componentName = pathPieces[3];
-            return requestBodyFileFolder(componentName) + File.separatorChar + writtenFilename;
+            return getFilepath(jsonPath, writtenFilename);
         } else if (jsonPath.startsWith("#/paths/")) {
             // #/paths/somePath/get/requestBody -> length 5
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
@@ -4111,8 +4109,7 @@ public class DefaultCodegen implements CodegenConfig {
         String writtenFilename = parameterTemplateFiles.get(templateName);
         if (jsonPath.startsWith("#/components/parameters/")) {
             // #/components/parameters/someParam -> length 4
-            String componentName = pathPieces[3];
-            return parameterFileFolder(componentName) + File.separatorChar + writtenFilename;
+            return getFilepath(jsonPath, writtenFilename);
         } else if (jsonPath.startsWith("#/paths/")) {
             // #/paths/somePath/get/parameters/0 -> length 6
             String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
@@ -4129,8 +4126,7 @@ public class DefaultCodegen implements CodegenConfig {
         String writtenFilename = headerTemplateFiles().get(templateName);
         if (jsonPath.startsWith("#/components/headers/")) {
             // #/components/headers/someHeader -> length 4
-            String componentName = pathPieces[3];
-            return headerFileFolder(componentName) + File.separatorChar + writtenFilename;
+            return getFilepath(jsonPath, writtenFilename);
         } else if (jsonPath.startsWith("#/components/responses/")) {
             // #/components/responses/someResponse/headers/SomeHeader-> length 6
             String componentName = pathPieces[3];
@@ -4299,20 +4295,28 @@ public class DefaultCodegen implements CodegenConfig {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
         String schemasIdentifier = "schema";
+        String requestBodiesIdentifier = "request_bodies";
         if (jsonPath.startsWith("#/components")) {
             if (pathPieces.length >= 3) {
                 if (pathPieces[2].equals("schemas")) {
                     pathPieces[2] = schemasIdentifier;
                     // TODO if modelPackage is set, replace components.schemas with it
                 } else if (pathPieces[2].equals("requestBodies")) {
-                    pathPieces[2] = "request_bodies";
+                    pathPieces[2] = requestBodiesIdentifier;
                 }
             }
-            if (pathPieces.length >= 4){
-                if (pathPieces[2].equals("responses")) {
+            if (pathPieces.length >= 4) {
+                if (pathPieces[2].equals("headers")) {
+                    pathPieces[3] = toHeaderFilename(pathPieces[3]);
+                } else if (pathPieces[2].equals("parameters")) {
+                    pathPieces[3] = toParameterFilename(pathPieces[3]);
+                } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
+                    pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
+                } else if (pathPieces[2].equals("responses")) {
                     // #/components/responses/SuccessWithJsonApiResponse/headers
                     pathPieces[3] = toResponseModuleName(pathPieces[3]);
                 } else if (pathPieces[2].equals(schemasIdentifier)) {
+                    // #/components/schemas/SomeSchema
                     pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
                 }
             }
