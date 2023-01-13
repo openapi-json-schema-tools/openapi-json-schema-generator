@@ -963,10 +963,13 @@ public class DefaultGenerator implements Generator {
 
         // header
         Boolean generateHeaders = Boolean.TRUE;
-        for (String templateName: config.headerTemplateFiles().keySet()) {
-            String filename = config.headerFilename(templateName, jsonPath);
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER);
+        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFilename = entry.getValue();
+            String filename = config.getFilepath(jsonPath, outputFilename);
             try {
-                File written = processTemplateToFile(headertTemplateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS);
+                File written = processTemplateToFile(headertTemplateData, templateFile, filename, generateHeaders, CodegenConstants.HEADERS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {

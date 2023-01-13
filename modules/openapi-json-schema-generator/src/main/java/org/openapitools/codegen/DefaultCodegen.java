@@ -177,7 +177,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap();
-    protected Map<String, String> headerTemplateFiles = new HashMap<>();
     protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
     protected Map<String, String> contentTemplateFiles = new HashMap<>();
     protected Map<String, String> contentTypeTemplateFiles = new HashMap<>();
@@ -920,9 +919,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
-
-    @Override
-    public Map<String, String> headerTemplateFiles() { return headerTemplateFiles; }
 
     @Override
     public Map<String, String> headerDocTemplateFiles() { return headerDocTemplateFiles; }
@@ -4035,29 +4031,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String headerFilename(String templateName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String writtenFilename = headerTemplateFiles().get(templateName);
-        if (jsonPath.startsWith("#/components/headers/")) {
-            // #/components/headers/someHeader -> length 4
-            return getFilepath(jsonPath, writtenFilename);
-        } else if (jsonPath.startsWith("#/components/responses/")) {
-            // #/components/responses/someResponse/headers/SomeHeader-> length 6
-            String componentName = pathPieces[3];
-            return responseFileFolder(componentName) + File.separatorChar + "headers" + File.separatorChar + toHeaderFilename(pathPieces[5]) + File.separatorChar + writtenFilename;
-        } else if (jsonPath.startsWith("#/paths/")) {
-            // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-            String pathModuleName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
-            String httpVerb = pathPieces[3];
-            String code = pathPieces[5];
-            String responseModule = toResponseModuleName(code);
-            String headerModule = toHeaderFilename(pathPieces[7]);
-            return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "paths" + File.separatorChar + pathModuleName + File.separatorChar + httpVerb + File.separatorChar + "responses" + File.separatorChar + responseModule + File.separatorChar + "headers" + File.separatorChar  + headerModule + File.separatorChar + writtenFilename;
-        }
-        return null;
-    }
-
-    @Override
     public String contentFilename(String templateName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String fileName = contentTemplateFiles.get(templateName);
@@ -4207,6 +4180,11 @@ public class DefaultCodegen implements CodegenConfig {
                 } else if (pathPieces[2].equals("responses")) {
                     // #/components/responses/SuccessWithJsonApiResponse/headers
                     pathPieces[3] = toResponseModuleName(pathPieces[3]);
+
+                    if (pathPieces.length >= 6 && pathPieces[4].equals("headers")) {
+                        // #/components/responses/someResponse/headers/SomeHeader-> length 6
+                        pathPieces[5] = toHeaderFilename(pathPieces[5]);
+                    }
                 } else if (pathPieces[2].equals(schemasIdentifier)) {
                     // #/components/schemas/SomeSchema
                     pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
@@ -4227,6 +4205,11 @@ public class DefaultCodegen implements CodegenConfig {
                 } else if (pathPieces.length >= 6 && pathPieces[4].equals("responses")) {
                     // #/paths/user_login/get/responses/200 -> 200 -> response_200
                     pathPieces[5] = toResponseModuleName(pathPieces[5]);
+
+                    if (pathPieces.length >= 8 && pathPieces[6].equals("headers")) {
+                        // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
+                        pathPieces[7] = toHeaderFilename(pathPieces[7]);
+                    }
                 }
             }
             return String.join(File.separator, pathPieces) + File.separator + outputFile;
