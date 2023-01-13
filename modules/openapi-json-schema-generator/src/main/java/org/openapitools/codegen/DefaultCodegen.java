@@ -4152,29 +4152,49 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 4) {
                 if (pathPieces[2].equals("headers")) {
                     pathPieces[3] = toHeaderFilename(pathPieces[3]);
+                    if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+                        // #/components/headers/someHeader/content/application-json -> length 6
+                        String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                        pathPieces[5] = getKey(contentType).getSnakeCaseName();
+                    }
                 } else if (pathPieces[2].equals("parameters")) {
                     pathPieces[3] = toParameterFilename(pathPieces[3]);
+                    if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+                        // #/components/parameters/someParam/content/application-json -> length 6
+                        String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                        pathPieces[5] = getKey(contentType).getSnakeCaseName();
+                    }
                 } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
                     pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
+                    if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+                        // #/components/requestBodies/someBody/content/application-json -> length 6
+                        String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                        pathPieces[5] = getKey(contentType).getSnakeCaseName();
+                    }
                 } else if (pathPieces[2].equals("responses")) {
                     // #/components/responses/SuccessWithJsonApiResponse/headers
                     pathPieces[3] = toResponseModuleName(pathPieces[3]);
 
-                    if (pathPieces.length >= 6 && pathPieces[4].equals("headers")) {
-                        // #/components/responses/someResponse/headers/SomeHeader-> length 6
-                        pathPieces[5] = toHeaderFilename(pathPieces[5]);
+                    if (pathPieces.length >= 6) {
+                        if (pathPieces[4].equals("headers")) {
+                            // #/components/responses/someResponse/headers/SomeHeader-> length 6
+                            pathPieces[5] = toHeaderFilename(pathPieces[5]);
+                            if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
+                                // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
+                                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                                pathPieces[7] = getKey(contentType).getSnakeCaseName();
+                            }
+                        } else if (pathPieces[4].equals("content")) {
+                            // #/components/responses/someResponse/content/application-json -> length 6
+                            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                            pathPieces[5] = getKey(contentType).getSnakeCaseName();
+                        }
                     }
                 } else if (pathPieces[2].equals(schemasIdentifier)) {
                     // #/components/schemas/SomeSchema
                     pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
                 }
             }
-            // TODO handle these content-types
-            // #/components/headers/someHeader/content/application-json/schema -> length 7
-            // #/components/parameters/someParam/content/application-json/schema -> length 7
-            // #/components/requestBodies/someBody/content/application-json/schema -> length 7
-            // #/components/responses/someResponse/content/application-json/schema -> length 7
-            // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema -> length 9
             return String.join(File.separator, pathPieces) + File.separator + outputFile;
         } else if (jsonPath.startsWith("#/paths")) {
             if (pathPieces.length >= 3) {
