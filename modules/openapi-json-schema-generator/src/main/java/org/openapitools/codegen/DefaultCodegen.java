@@ -4169,8 +4169,12 @@ public class DefaultCodegen implements CodegenConfig {
                     pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
                 }
             }
-            // #/components/schemas
-            // #/components/responses/SuccessWithJsonApiResponse/headers
+            // TODO handle these content-types
+            // #/components/headers/someHeader/content/application-json/schema -> length 7
+            // #/components/parameters/someParam/content/application-json/schema -> length 7
+            // #/components/requestBodies/someBody/content/application-json/schema -> length 7
+            // #/components/responses/someResponse/content/application-json/schema -> length 7
+            // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema -> length 9
             return String.join(File.separator, pathPieces) + File.separator + outputFile;
         } else if (jsonPath.startsWith("#/paths")) {
             if (pathPieces.length >= 3) {
@@ -4186,13 +4190,37 @@ public class DefaultCodegen implements CodegenConfig {
                         // #/paths/user_login/get/responses/200 -> 200 -> response_200
                         pathPieces[5] = toResponseModuleName(pathPieces[5]);
 
-                        if (pathPieces.length >= 8 && pathPieces[6].equals("headers")) {
-                            // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-                            pathPieces[7] = toHeaderFilename(pathPieces[7]);
+                        if (pathPieces.length >= 8) {
+                            if (pathPieces[6] == "content") {
+                                // #/paths/somePath/get/responses/200/content/application-json -> length 8
+                                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                                pathPieces[7] = getKey(contentType).getSnakeCaseName();
+                            } else if (pathPieces[6].equals("headers")) {
+                                // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
+                                pathPieces[7] = toHeaderFilename(pathPieces[7]);
+
+                                if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
+                                    // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
+                                    String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
+                                    pathPieces[9] = getKey(contentType).getSnakeCaseName();
+                                }
+                            }
                         }
                     } else if (pathPieces[4].equals("parameters")) {
                         // #/paths/somePath/get/parameters/0 -> length 6
                         pathPieces[5] = toParameterFilename(pathPieces[5]);
+
+                        if (pathPieces.length >= 8 && pathPieces[6] == "content") {
+                            // #/paths/somePath/get/parameters/1/content/application-json -> length 8
+                            String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                            pathPieces[7] = getKey(contentType).getSnakeCaseName();
+                        }
+                    } else if (pathPieces[4].equals("requestBody")) {
+                        if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
+                            // #/paths/somePath/get/requestBody/content/application-json -> length 7
+                            String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
+                            pathPieces[6] = getKey(contentType).getSnakeCaseName();
+                        }
                     }
                 }
             }
