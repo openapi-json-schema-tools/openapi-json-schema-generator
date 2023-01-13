@@ -3991,121 +3991,142 @@ public class DefaultCodegen implements CodegenConfig {
         return apiFileFolder() + File.separatorChar + toApiFilename(tag) + suffix;
     }
 
+    private void updateComponentsFilepath(String[] pathPieces) {
+        if (pathPieces.length < 3) {
+            return;
+        }
+        String schemasIdentifier = "schema";
+        String requestBodiesIdentifier = "request_bodies";
+        // rename schemas + requestBodies
+        if (pathPieces[2].equals("schemas")) {
+            pathPieces[2] = schemasIdentifier;
+            // TODO if modelPackage is set, replace components.schemas with it
+        } else if (pathPieces[2].equals("requestBodies")) {
+            pathPieces[2] = requestBodiesIdentifier;
+        }
+        if (pathPieces.length < 4) {
+            return;
+        }
+        if (pathPieces[2].equals("headers")) {
+            pathPieces[3] = toHeaderFilename(pathPieces[3]);
+            if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+                // #/components/headers/someHeader/content/application-json -> length 6
+                String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                pathPieces[5] = getKey(contentType).getSnakeCaseName();
+            }
+        } else if (pathPieces[2].equals("parameters")) {
+            pathPieces[3] = toParameterFilename(pathPieces[3]);
+            if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+                // #/components/parameters/someParam/content/application-json -> length 6
+                String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                pathPieces[5] = getKey(contentType).getSnakeCaseName();
+            }
+        } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
+            pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
+            if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+                // #/components/requestBodies/someBody/content/application-json -> length 6
+                String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                pathPieces[5] = getKey(contentType).getSnakeCaseName();
+            }
+        } else if (pathPieces[2].equals("responses")) {
+            // #/components/responses/SuccessWithJsonApiResponse/headers
+            pathPieces[3] = toResponseModuleName(pathPieces[3]);
+
+            if (pathPieces.length < 6) {
+                return;
+            }
+            if (pathPieces[4].equals("headers")) {
+                // #/components/responses/someResponse/headers/SomeHeader-> length 6
+                pathPieces[5] = toHeaderFilename(pathPieces[5]);
+                if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
+                    // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
+                    String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                    pathPieces[7] = getKey(contentType).getSnakeCaseName();
+                }
+            } else if (pathPieces[4].equals("content")) {
+                // #/components/responses/someResponse/content/application-json -> length 6
+                String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
+                pathPieces[5] = getKey(contentType).getSnakeCaseName();
+            }
+        } else if (pathPieces[2].equals(schemasIdentifier)) {
+            // #/components/schemas/SomeSchema
+            pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
+        }
+    }
+
+    private void updatePathsFilepath(String[] pathPieces) {
+        if (pathPieces.length < 3) {
+            return;
+        }
+        // #/paths/somePath
+        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+        if (pathPieces.length < 4) {
+            return;
+        }
+        Set<String> httpVerbs = new HashSet<>(Arrays.asList("get", "put", "post", "delete", "options", "head", "patch", "trace"));
+        String requestBodyIdentifier = "request_body";
+        if (!httpVerbs.contains(pathPieces[3])) {
+            return;
+        }
+        if (pathPieces.length < 5) {
+            return;
+        }
+        if (pathPieces[4].equals("requestBody")) {
+            // #/paths/somePath/get/requestBody
+            pathPieces[4] = requestBodyIdentifier;
+        }
+        if (pathPieces.length < 6) {
+            return;
+        }
+        if (pathPieces[4].equals("responses")) {
+            // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
+            pathPieces[5] = toResponseModuleName(pathPieces[5]);
+
+            if (pathPieces.length < 8) {
+                return;
+            }
+            if (pathPieces[6].equals("content")) {
+                // #/paths/somePath/get/responses/200/content/application-json -> length 8
+                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                pathPieces[7] = getKey(contentType).getSnakeCaseName();
+            } else if (pathPieces[6].equals("headers")) {
+                // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
+                pathPieces[7] = toHeaderFilename(pathPieces[7]);
+
+                if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
+                    // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
+                    String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
+                    pathPieces[9] = getKey(contentType).getSnakeCaseName();
+                }
+            }
+        } else if (pathPieces[4].equals("parameters")) {
+            // #/paths/somePath/get/parameters/0 -> length 6
+            pathPieces[5] = toParameterFilename(pathPieces[5]);
+
+            if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
+                // #/paths/somePath/get/parameters/1/content/application-json -> length 8
+                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
+                pathPieces[7] = getKey(contentType).getSnakeCaseName();
+            }
+        } else if (pathPieces[4].equals(requestBodyIdentifier)) {
+            if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
+                // #/paths/somePath/get/requestBody/content/application-json -> length 7
+                String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
+                pathPieces[6] = getKey(contentType).getSnakeCaseName();
+            }
+        }
+    }
+
     @Override
     public String getFilepath(String jsonPath, String outputFile) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
-        String schemasIdentifier = "schema";
-        String requestBodiesIdentifier = "request_bodies";
-        String requestBodyIdentifier = "request_body";
         if (jsonPath.startsWith("#/components")) {
-            if (pathPieces.length >= 3) {
-                if (pathPieces[2].equals("schemas")) {
-                    pathPieces[2] = schemasIdentifier;
-                    // TODO if modelPackage is set, replace components.schemas with it
-                } else if (pathPieces[2].equals("requestBodies")) {
-                    pathPieces[2] = requestBodiesIdentifier;
-                }
-            }
-            if (pathPieces.length >= 4) {
-                if (pathPieces[2].equals("headers")) {
-                    pathPieces[3] = toHeaderFilename(pathPieces[3]);
-                    if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
-                        // #/components/headers/someHeader/content/application-json -> length 6
-                        String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                        pathPieces[5] = getKey(contentType).getSnakeCaseName();
-                    }
-                } else if (pathPieces[2].equals("parameters")) {
-                    pathPieces[3] = toParameterFilename(pathPieces[3]);
-                    if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
-                        // #/components/parameters/someParam/content/application-json -> length 6
-                        String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                        pathPieces[5] = getKey(contentType).getSnakeCaseName();
-                    }
-                } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
-                    pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
-                    if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
-                        // #/components/requestBodies/someBody/content/application-json -> length 6
-                        String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                        pathPieces[5] = getKey(contentType).getSnakeCaseName();
-                    }
-                } else if (pathPieces[2].equals("responses")) {
-                    // #/components/responses/SuccessWithJsonApiResponse/headers
-                    pathPieces[3] = toResponseModuleName(pathPieces[3]);
-
-                    if (pathPieces.length >= 6) {
-                        if (pathPieces[4].equals("headers")) {
-                            // #/components/responses/someResponse/headers/SomeHeader-> length 6
-                            pathPieces[5] = toHeaderFilename(pathPieces[5]);
-                            if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
-                                // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
-                                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                                pathPieces[7] = getKey(contentType).getSnakeCaseName();
-                            }
-                        } else if (pathPieces[4].equals("content")) {
-                            // #/components/responses/someResponse/content/application-json -> length 6
-                            String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                            pathPieces[5] = getKey(contentType).getSnakeCaseName();
-                        }
-                    }
-                } else if (pathPieces[2].equals(schemasIdentifier)) {
-                    // #/components/schemas/SomeSchema
-                    pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
-                }
-            }
-            return String.join(File.separator, pathPieces) + File.separator + outputFile;
+            updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
-            if (pathPieces.length >= 3) {
-                pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
-            }
-            Set<String> httpVerbs = new HashSet<>(Arrays.asList("get", "put", "post", "delete", "options", "head", "patch", "trace"));
-            if (pathPieces.length >= 4 && httpVerbs.contains(pathPieces[3])) {
-                if (pathPieces.length >= 5 && pathPieces[4].equals("requestBody")) {
-                    // #/paths/somePath/get/requestBody
-                    pathPieces[4] = requestBodyIdentifier;
-                }
-                if (pathPieces.length >= 6) {
-                    if (pathPieces[4].equals("responses")) {
-                        // #/paths/user_login/get/responses/200 -> 200 -> response_200
-                        pathPieces[5] = toResponseModuleName(pathPieces[5]);
-
-                        if (pathPieces.length >= 8) {
-                            if (pathPieces[6].equals("content")) {
-                                // #/paths/somePath/get/responses/200/content/application-json -> length 8
-                                String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                                pathPieces[7] = getKey(contentType).getSnakeCaseName();
-                            } else if (pathPieces[6].equals("headers")) {
-                                // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-                                pathPieces[7] = toHeaderFilename(pathPieces[7]);
-
-                                if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
-                                    // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
-                                    String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                                    pathPieces[9] = getKey(contentType).getSnakeCaseName();
-                                }
-                            }
-                        }
-                    } else if (pathPieces[4].equals("parameters")) {
-                        // #/paths/somePath/get/parameters/0 -> length 6
-                        pathPieces[5] = toParameterFilename(pathPieces[5]);
-
-                        if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
-                            // #/paths/somePath/get/parameters/1/content/application-json -> length 8
-                            String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                            pathPieces[7] = getKey(contentType).getSnakeCaseName();
-                        }
-                    } else if (pathPieces[4].equals(requestBodyIdentifier)) {
-                        if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
-                            // #/paths/somePath/get/requestBody/content/application-json -> length 7
-                            String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                            pathPieces[6] = getKey(contentType).getSnakeCaseName();
-                        }
-                    }
-                }
-            }
-            return String.join(File.separator, pathPieces) + File.separator + outputFile;
+            updatePathsFilepath(pathPieces);
         }
-        return null;
+        return String.join(File.separator, pathPieces) + File.separator + outputFile;
     }
 
     /**
