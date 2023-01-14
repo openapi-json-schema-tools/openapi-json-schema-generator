@@ -400,10 +400,16 @@ public class DefaultGenerator implements Generator {
         schemaData.put("packageName", config.packageName());
         schemaData.put("schema", schema);
         schemaData.putAll(config.additionalProperties());
-        for (String templateName : config.modelTemplateFiles().keySet()) {
-            String filename = config.schemaFilename(templateName, jsonPath);
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA);
+        if (templateInfo == null || templateInfo.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+            String templateFile = entry.getKey();
+            String suffix = entry.getValue();
+            String filename = config.getFilepath(jsonPath) + suffix;
             try {
-                File written = processTemplateToFile(schemaData, templateName, filename, generateModels, CodegenConstants.MODELS);
+                File written = processTemplateToFile(schemaData, templateFile, filename, generateModels, CodegenConstants.MODELS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -529,7 +535,7 @@ public class DefaultGenerator implements Generator {
                     // paths.some_path.post.parameters.parameter_0.py
                     if (co.allParams != null && !co.allParams.isEmpty()) {
                         String parametersJsonPath = operationJsonPath + "/parameters";
-                        generateParameters(files, parametersJsonPath);
+                        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS);
                         Integer i = 0;
                         for (CodegenParameter cp: co.allParams) {
                             if (cp.getRefInfo() != null) {
@@ -544,7 +550,7 @@ public class DefaultGenerator implements Generator {
 
                     if (co.responses != null && !co.responses.isEmpty()) {
                         String responsesJsonPath = operationJsonPath + "/responses";
-                        generateResponses(files, responsesJsonPath);
+                        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES);
                         for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
                             // paths.some_path.post.responses.response_200.__init__.py (file per response)
                             // response is a package because responses have Headers which can be refed
@@ -593,9 +599,7 @@ public class DefaultGenerator implements Generator {
             pathModuleToApiClassname.put(config.toPathFilename(path), apiClassName);
         }
         if (!config.pathEndpointTemplateFiles().isEmpty()) {
-            // paths.__init__.py
-            outputFilename = packageFilename(Arrays.asList("paths", "__init__.py"));
-            pathsFiles.add(Arrays.asList(initOperationMap, "__init__paths.handlebars", outputFilename));
+            generateXs(files, "#/paths", CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS);
 
             // paths.some_path.__init__.py
             for (Map.Entry<String, String> entry: pathToPathModule.entrySet()) {
@@ -670,40 +674,54 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
-        for (Map.Entry<String, String> contentEntry: config.contentTemplateFiles().entrySet()) {
-            String contentJsonPath = jsonPath + "/content";
-            boolean nonRefSchema = false;
-            for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
-                String contentType = contentInfo.getKey().getName();
-                CodegenMediaType codegenMediaType = contentInfo.getValue();
-                CodegenSchema schema = codegenMediaType.getSchema();
-                if (schema != null && schema.getRefInfo() == null) {
-                    nonRefSchema = true;
-                    String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
-                    for (Map.Entry<String, String> contentTypeEntry: config.contentTypeTemplateFiles().entrySet()) {
-                        String templateName = contentTypeEntry.getKey();
-                        String filename = config.contentTypeFilename(templateName, contentTypeJsonPath);
-                        try {
-                            File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.CONTENT);
-                            if (written != null) {
-                                files.add(written);
-                                if (config.isEnablePostProcessFile() && !dryRun) {
-                                    config.postProcessFile(written, "content");
-                                }
+        String contentJsonPath = jsonPath + "/content";
+        boolean nonRefSchemaExists = false;
+
+        // content-type + schema generation
+        for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
+            String contentType = contentInfo.getKey().getName();
+            CodegenMediaType codegenMediaType = contentInfo.getValue();
+            CodegenSchema schema = codegenMediaType.getSchema();
+            if (schema != null && schema.getRefInfo() == null) {
+                nonRefSchemaExists = true;
+                String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
+
+                // schema
+                String schemaJsonPath = contentTypeJsonPath + "/schema";
+                generateSchema(files, schema, schemaJsonPath);
+
+                Map<String, String> contentTypeTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
+                if (contentTypeTemplateInfo == null || contentTypeTemplateInfo.isEmpty()) {
+                    continue;
+                }
+                // content-type
+                for (Map.Entry<String, String> contentTypeEntry: contentTypeTemplateInfo.entrySet()) {
+                    String templateFile = contentTypeEntry.getKey();
+                    String outputFile = contentTypeEntry.getValue();
+                    String outputFilepath = config.getFilepath(contentTypeJsonPath) + File.separatorChar + outputFile;
+                    try {
+                        File written = processTemplateToFile(new HashMap<>(), templateFile, outputFilepath, true, CodegenConstants.CONTENT);
+                        if (written != null) {
+                            files.add(written);
+                            if (config.isEnablePostProcessFile() && !dryRun) {
+                                config.postProcessFile(written, "content");
                             }
-                        } catch (IOException e) {
-                            throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                         }
+                    } catch (IOException e) {
+                        throw new RuntimeException("Could not generate schema for jsonPath '" + jsonPath + "'", e);
                     }
-                    String schemaJsonPath = contentTypeJsonPath + "/schema";
-                    generateSchema(files, schema, schemaJsonPath);
                 }
             }
-            if (nonRefSchema) {
-                String contentTemplateName = contentEntry.getKey();
-                String contentFilename = config.contentFilename(contentTemplateName, contentJsonPath);
+        }
+
+        Map<String, String> contentTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT);
+        if (nonRefSchemaExists && contentTemplateInfo != null && !contentTemplateInfo.isEmpty()) {
+            for (Map.Entry<String, String> contentEntry: contentTemplateInfo.entrySet()) {
+                String contentTemplateFile = contentEntry.getKey();
+                String outputFile = contentEntry.getValue();
+                String outputFilepath = config.getFilepath(contentJsonPath) + File.separatorChar + outputFile;
                 try {
-                    File written = processTemplateToFile(new HashMap<>(), contentTemplateName, contentFilename, true, CodegenConstants.CONTENT);
+                    File written = processTemplateToFile(new HashMap<>(), contentTemplateFile, outputFilepath, true, CodegenConstants.CONTENT);
                     if (written != null) {
                         files.add(written);
                         if (config.isEnablePostProcessFile() && !dryRun) {
@@ -722,56 +740,45 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", config.packageName());
         templateData.put("response", response);
-        for (String templateName: config.responseTemplateFiles().keySet()) {
-            String responseFilename = config.responseFilename(templateName, jsonPath);
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFile = entry.getValue();
+                String responseFile = config.getFilepath(jsonPath) + File.separatorChar + outputFile;
 
-            try {
-                File written = processTemplateToFile(templateData, templateName, responseFilename, generateResponses, CodegenConstants.RESPONSES);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "response");
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, responseFile, generateResponses, CodegenConstants.RESPONSES);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "response");
+                        }
                     }
-                }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + responseFilename + "'", e);
-            }
-            // headers
-            if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
-                String headersJsonPath = jsonPath + "/headers";
-                generateHeaders(files, headersJsonPath);
-                for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
-                    String headerName = headerInfo.getKey();
-                    CodegenHeader header = headerInfo.getValue();
-                    if (header.getRefInfo() == null) {
-                        String headerJsonPath = headersJsonPath + "/" + headerName;
-                        generateHeader(files, header, headerJsonPath);
-                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + responseFile + "'", e);
                 }
             }
-            LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
-            if (content != null && !content.isEmpty()) {
-                generateContent(files, content, jsonPath);
+        }
+        // headers
+        if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
+            String headersJsonPath = jsonPath + "/headers";
+            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS);
+            for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
+                String headerName = headerInfo.getKey();
+                CodegenHeader header = headerInfo.getValue();
+                if (header.getRefInfo() == null) {
+                    String headerJsonPath = headersJsonPath + "/" + headerName;
+                    generateHeader(files, header, headerJsonPath);
+                }
             }
+        }
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
+        if (content != null && !content.isEmpty()) {
+            generateContent(files, content, jsonPath);
         }
     }
 
-    private void generateResponses(List<File> files, String jsonPath) {
-        for (String templateName : config.responsesTemplateFiles().keySet()) {
-            String filename = config.responsesFilename(templateName, jsonPath);
-            try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.RESPONSES);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "responses");
-                    }
-                }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
-            }
-        }
-    }
     private TreeMap<String, CodegenResponse> generateResponses(List<File> files) {
         final Map<String, ApiResponse> specResponses = this.openAPI.getComponents().getResponses();
         if (specResponses == null) {
@@ -780,7 +787,7 @@ public class DefaultGenerator implements Generator {
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
         String responsesJsonPath = "#/components/responses";
-        generateResponses(files, responsesJsonPath);
+        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES);
         for (Map.Entry<String, ApiResponse> responseEntry: specResponses.entrySet()) {
             String componentName = responseEntry.getKey();
             ApiResponse apiResponse = responseEntry.getValue();
@@ -822,19 +829,24 @@ public class DefaultGenerator implements Generator {
         templateData.put("packageName", config.packageName());
         templateData.put("requestBody", requestBody);
         Boolean generateRequestBodies = Boolean.TRUE;
-        for (String templateName : config.requestBodyTemplateFiles().keySet()) {
-            String filename = config.requestBodyFilename(templateName, jsonPath);
+        Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
 
-            try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "requestBody");
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "requestBody");
+                        }
                     }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
         // schemas
@@ -876,10 +888,12 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         TreeMap<String, CodegenRequestBody> requestBodies = new TreeMap<>();
+        String requestBodiesJsonPath = "#/components/requestBodies";
+        generateXs(files, requestBodiesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES, CodegenConstants.REQUEST_BODIES);
         for (Map.Entry<String, RequestBody> entry: specRequestBodies.entrySet()) {
             String componentName = entry.getKey();
             RequestBody specRequestBody = entry.getValue();
-            String sourceJsonPath = "#/components/requestBodies/" + componentName;
+            String sourceJsonPath = requestBodiesJsonPath + "/" + componentName;
             CodegenRequestBody requestBody = config.fromRequestBody(specRequestBody, sourceJsonPath);
             requestBodies.put(componentName, requestBody);
 
@@ -892,22 +906,28 @@ public class DefaultGenerator implements Generator {
 
     private void generateParameter(List<File> files, CodegenParameter parameter, String jsonPath) {
         Boolean generateParameters = Boolean.TRUE;
-        for (String templateName : config.parameterTemplateFiles().keySet()) {
-            String filename = config.parameterFilename(templateName, jsonPath);
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", config.packageName());
-            templateData.put("parameter", parameter);
 
-            try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateParameters, CodegenConstants.PARAMETERS);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "parameter");
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+                Map<String, Object> templateData = new HashMap<>();
+                templateData.put("packageName", config.packageName());
+                templateData.put("parameter", parameter);
+
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, filename, generateParameters, CodegenConstants.PARAMETERS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "parameter");
+                        }
                     }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
         // schema
@@ -922,23 +942,6 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateParameters(List<File> files, String jsonPath) {
-        for (String templateName : config.parametersTemplateFiles().keySet()) {
-            String filename = config.parametersFilename(templateName, jsonPath);
-            try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.PARAMETERS);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "parameters");
-                    }
-                }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
-            }
-        }
-    }
-
     private TreeMap<String, CodegenParameter> generateParameters(List<File> files) {
         final Map<String, Parameter> specParameters = this.openAPI.getComponents().getParameters();
         if (specParameters == null || specParameters.isEmpty()) {
@@ -947,7 +950,7 @@ public class DefaultGenerator implements Generator {
         }
         TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
         String parametersJsonPath = "#/components/parameters";
-        generateParameters(files, parametersJsonPath);
+        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS);
         for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
             String componentName = entry.getKey();
             Parameter specParameter = entry.getValue();
@@ -990,18 +993,23 @@ public class DefaultGenerator implements Generator {
 
         // header
         Boolean generateHeaders = Boolean.TRUE;
-        for (String templateName: config.headerTemplateFiles().keySet()) {
-            String filename = config.headerFilename(templateName, jsonPath);
-            try {
-                File written = processTemplateToFile(headertTemplateData, templateName, filename, generateHeaders, CodegenConstants.HEADERS);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "header");
+        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+                try {
+                    File written = processTemplateToFile(headertTemplateData, templateFile, filename, generateHeaders, CodegenConstants.HEADERS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "header");
+                        }
                     }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
             }
         }
         // schema
@@ -1016,15 +1024,25 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateHeaders(List<File> files, String jsonPath) {
-        for (String templateName : config.headersTemplateFiles().keySet()) {
-            String filename = config.headersFilename(templateName, jsonPath);
+    private void generateXs(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption) {
+        Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(type);
+        if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String outputFile = entry.getValue();
+            String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFile;
+
+            HashMap<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("modelPackage", config.modelPackage());
             try {
-                File written = processTemplateToFile(new HashMap<>(), templateName, filename, true, CodegenConstants.HEADERS);
+                File written = processTemplateToFile(templateData, templateFile, filename, true, skippedByOption);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "headers");
+                        config.postProcessFile(written, skippedByOption);
                     }
                 }
             } catch (Exception e) {
@@ -1041,7 +1059,7 @@ public class DefaultGenerator implements Generator {
         }
         TreeMap<String, CodegenHeader> headers = new TreeMap<>();
         String headersJsonPath = "#/components/headers";
-        generateHeaders(files, headersJsonPath);
+        generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS);
         for (Map.Entry<String, Header> entry: specHeaders.entrySet()) {
             String componentName = entry.getKey();
             Header specHeader = entry.getValue();
@@ -1125,13 +1143,15 @@ public class DefaultGenerator implements Generator {
             }
         }
 
+        String schemasJsonPath = "#/components/schemas";
+        generateXs(files, schemasJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS, CodegenConstants.MODELS);
         // generate files based on processed models
         for (Map.Entry<String, CodegenSchema> entry: schemas.entrySet()) {
             String componentName = entry.getKey();
             CodegenSchema schema = entry.getValue();
             try {
                 // to generate model files
-                String jsonPath = "#/components/schemas/" + componentName;
+                String jsonPath = schemasJsonPath + "/" + componentName;
                 generateSchema(files, schema, jsonPath);
 
                 // to generate model test files
@@ -1523,6 +1543,16 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
         // components.parameters, must be before processPaths, because those can $ref these
         TreeMap<String, CodegenParameter> parameters = generateParameters(files);
+
+        boolean schemasExist = (schemas != null && !schemas.isEmpty());
+        boolean requestBodiesExist = (requestBodies != null && !requestBodies.isEmpty());
+        boolean headersExist = (headers != null && !headers.isEmpty());
+        boolean responsesExist = (responses != null && !responses.isEmpty());
+        boolean parametersExist = (parameters != null && !parameters.isEmpty());
+        if (schemasExist || requestBodiesExist || headersExist || responsesExist || parametersExist) {
+            generateXs(files, "#/components", CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS, CodegenConstants.COMPONENTS);
+        }
+
         // paths input
         Map<String, List<CodegenOperation>> paths = processPaths(this.openAPI.getPaths());
         // apis
@@ -1636,7 +1666,7 @@ public class DefaultGenerator implements Generator {
                                 config.apiTemplateFiles().put(templateFile, templateExt);
                                 break;
                             case Model:
-                                config.modelTemplateFiles().put(templateFile, templateExt);
+                                config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(templateFile, templateExt);
                                 break;
                             case APIDocs:
                                 config.apiDocTemplateFiles().put(templateFile, templateExt);

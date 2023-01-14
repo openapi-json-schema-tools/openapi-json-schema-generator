@@ -18,6 +18,7 @@
 package org.openapitools.codegen.languages;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -177,9 +178,14 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         updateOption(CodegenConstants.PACKAGE_NAME, this.packageName);
 
         outputFolder = "generated-code" + File.separator + "kotlin-client";
-        modelTemplateFiles.put("model.mustache", ".kt");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                Collections.singletonMap("model.mustache", ".kt")
+        );
         if (generateRoomModels) {
-            modelTemplateFiles.put("model_room.mustache", ".kt");
+            jsonPathTemplateFiles.get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(
+                "model_room.mustache", ".kt"
+            );
         }
         apiTemplateFiles.put("api.mustache", ".kt");
         modelDocTemplateFiles.put("model_doc.mustache", ".md");
@@ -328,17 +334,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
     public void setRoomModelPackage(String roomModelPackage) {
         this.roomModelPackage = roomModelPackage;
-    }
-
-    @Override
-    public String schemaFilename(String templateName, String jsonPath) {
-        String suffix = modelTemplateFiles().get(templateName);
-        // If this was a proper template method, i wouldn't have to make myself throw up by doing this....
-        if (getGenerateRoomModels() && suffix.startsWith("RoomModel")) {
-            return roomModelFileFolder() + File.separator + toModelFilename(jsonPath) + suffix;
-        } else {
-            return modelFileFolder() + File.separator + toModelFilename(jsonPath) + suffix;
-        }
     }
 
     public String roomModelFileFolder() {
@@ -560,7 +555,9 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
             this.setGenerateRoomModels(convertPropertyToBooleanAndWriteBack(GENERATE_ROOM_MODELS));
             // Hide this option behind a property getter and setter in case we need to check it elsewhere
             if (getGenerateRoomModels()) {
-                modelTemplateFiles.put("model_room.mustache", "RoomModel.kt");
+                jsonPathTemplateFiles.get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(
+                    "model_room.mustache", "RoomModel.kt"
+                );
                 supportingFiles.add(new SupportingFile("infrastructure/ITransformForStorage.mustache", infrastructureFolder, "ITransformForStorage.kt"));
 
             }

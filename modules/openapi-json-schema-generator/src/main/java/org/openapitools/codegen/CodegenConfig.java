@@ -94,6 +94,8 @@ public interface CodegenConfig {
 
     String modelPackage();
 
+    String modelPackagePathFragment();
+
     String packageName();
 
     String requestBodyFileFolder(String componentName);
@@ -170,27 +172,13 @@ public interface CodegenConfig {
 
     Map<String, String> apiXToApiTemplateFiles();
 
-    Map<String, String> modelTemplateFiles();
-
-    Map<String, String> contentTemplateFiles();
-
-    Map<String, String> contentTypeTemplateFiles();
-
-    Map<String, String> requestBodyTemplateFiles();
+    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
 
     Map<String, String> requestBodyDocTemplateFiles();
 
-    Map<String, String> headerTemplateFiles();
-
     Map<String, String> headerDocTemplateFiles();
 
-    Map<String, String> headersTemplateFiles();
-
-    Map<String, String> parameterTemplateFiles();
-
     Map<String, String> parameterDocTemplateFiles();
-
-    Map<String, String> parametersTemplateFiles();
 
     Map<String, String> pathEndpointTemplateFiles();
 
@@ -198,11 +186,7 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointDocTemplateFiles();
 
-    Map<String, String> responseTemplateFiles();
-
     Map<String, String> responseDocTemplateFiles();
-
-    Map<String, String> responsesTemplateFiles();
 
     Map<String, String> apiTestTemplateFiles();
 
@@ -280,25 +264,8 @@ public interface CodegenConfig {
 
     void postProcessParameter(CodegenParameter parameter);
 
-    String schemaFilename(String templateName, String jsonPath);
-
-    String contentFilename(String templateName, String jsonPath);
-
-    String contentTypeFilename(String templateName, String jsonPath);
-
-    String headerFilename(String templateName, String jsonPath);
-
-    String headersFilename(String templateName, String jsonPath);
-
-    String parameterFilename(String templateName, String jsonPath);
-
-    String parametersFilename(String templateName, String jsonPath);
-
-    String requestBodyFilename(String templateName, String jsonPath);
-
-    String responseFilename(String templateName, String jsonPath);
-
-    String responsesFilename(String templateName, String jsonPath);
+    // handles almost all files to be written
+    String getFilepath(String jsonPath);
 
     String apiFilename(String templateName, String tag);
 

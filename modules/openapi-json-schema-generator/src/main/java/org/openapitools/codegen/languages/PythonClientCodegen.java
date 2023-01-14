@@ -306,27 +306,72 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
 
-        modelTemplateFiles.put("model.handlebars", ".py");
-        modelTemplateFiles.put("model_stub.handlebars", ".pyi");
         modelDocTemplateFiles.put("model_doc.handlebars", ".md");
         modelTestTemplateFiles.put("model_test.handlebars", ".py");
-
-        requestBodyTemplateFiles.put("request_body.handlebars", "__init__.py");
         requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
-
-        parameterTemplateFiles.put("parameter.handlebars", "__init__.py");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
-
-        responseTemplateFiles.put("response.handlebars", "__init__.py");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-
-        headerTemplateFiles.put("header.handlebars", "__init__.py");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
-        contentTemplateFiles.put("__init__.handlebars", "__init__.py");
-        contentTypeTemplateFiles.put("__init__.handlebars", "__init__.py");
-        headersTemplateFiles.put("__init__.handlebars", "__init__.py");
-        parametersTemplateFiles.put("__init__.handlebars", "__init__.py");
-        responsesTemplateFiles.put("__init__.handlebars", "__init__.py");
+
+        HashMap<String, String> schemaTemplates = new HashMap<>();
+        schemaTemplates.put("model.handlebars", ".py");
+        schemaTemplates.put("model_stub.handlebars", ".pyi");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                schemaTemplates
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
+                Collections.singletonMap("header.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
+                Collections.singletonMap("parameter.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
+                Collections.singletonMap("request_body.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
+                Collections.singletonMap("response.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
+                Collections.singletonMap("__init__schema.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
+                Collections.singletonMap("__init__paths.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
+                Collections.singletonMap("__init__.handlebars", "__init__.py")
+        );
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
             LOGGER.info("Environment variable PYTHON_POST_PROCESS_FILE not defined so the Python code may not be properly formatted. To define it, try 'export PYTHON_POST_PROCESS_FILE=\"/usr/local/bin/yapf -i\"' (Linux/Mac)");
@@ -435,12 +480,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
         }
-        Components components = openAPI.getComponents();
-        if (components != null) {
-            if (components.getRequestBodies() != null) {
-                supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separator + "components" + File.separator + "request_bodies", "__init__.py"));
-            }
-        }
 
         supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
 
@@ -458,11 +497,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
-        supportingFiles.add(new SupportingFile("__init__." + templateExtension, packagePath() + File.separatorChar + "components" , "__init__.py"));
         boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
         if (generateModels) {
             supportingFiles.add(new SupportingFile("__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__schema." + templateExtension, packagePath() + File.separatorChar + modelPackage.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         if (generateApis) {
