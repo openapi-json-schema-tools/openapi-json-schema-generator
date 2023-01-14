@@ -10,14 +10,13 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import client
+from .content.application_json import schema as application_json_schema
 
 class Client(api_client.RequestBody):
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[client.Client] = client.Client
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {

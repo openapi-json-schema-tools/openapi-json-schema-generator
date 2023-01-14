@@ -10,18 +10,18 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import pet
+from .content.application_json import schema as application_json_schema
+from .content.application_xml import schema as application_xml_schema
 
 class Pet(api_client.RequestBody):
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[pet.Pet] = pet.Pet
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
 
 
     class __ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing.Type[pet.Pet] = pet.Pet
+        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {

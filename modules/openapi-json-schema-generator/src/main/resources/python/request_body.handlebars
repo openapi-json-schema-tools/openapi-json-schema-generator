@@ -11,9 +11,7 @@ from {{packageName}} import api_client, exceptions
 {{#each content}}
 {{#with this}}
     {{#with schema}}
-        {{#unless refInfo.getRefModule}}
 from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
-        {{/unless}}
     {{/with}}
 {{/with}}
 {{/each}}
@@ -25,11 +23,7 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
     class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-            {{#if refInfo.getRefModule}}
-        schema: typing.Type[{{refInfo.getRefModule}}.{{refInfo.getRefClass}}] = {{refInfo.getRefModule}}.{{refInfo.getRefClass}}
-            {{else}}
         schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
-            {{/if}}
         {{/with}}
     {{/with}}
 {{/each}}

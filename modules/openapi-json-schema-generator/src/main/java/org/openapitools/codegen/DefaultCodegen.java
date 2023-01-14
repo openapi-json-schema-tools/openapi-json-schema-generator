@@ -3394,7 +3394,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
             r.setHeaders(responseHeaders);
         }
-        r.setContent(getContent(response.getContent(), r.imports, sourceJsonPath + "/content"));
+        r.setContent(getContent(response.getContent(), sourceJsonPath + "/content"));
 
         return r;
     }
@@ -3492,7 +3492,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (requestBody.getContent() != null) {
             Content content = requestBody.getContent();
-            codegenRequestBody.setContent(getContent(content, codegenRequestBody.imports, sourceJsonPath + "/content"));
+            codegenRequestBody.setContent(getContent(content, sourceJsonPath + "/content"));
         }
     }
 
@@ -4890,7 +4890,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    protected LinkedHashMap<CodegenKey, CodegenMediaType> getContent(Content content, Set<String> imports, String sourceJsonPath) {
+    protected LinkedHashMap<CodegenKey, CodegenMediaType> getContent(Content content, String sourceJsonPath) {
         if (content == null) {
             return null;
         }
@@ -4947,9 +4947,6 @@ public class DefaultCodegen implements CodegenConfig {
             CodegenMediaType codegenMt = new CodegenMediaType(schemaProp, ceMap, schemaTestCases);
             CodegenKey ck = getKey(contentType);
             cmtContent.put(ck, codegenMt);
-            if (schemaProp != null && schemaProp.getRefInfo() != null && schemaProp.getRefInfo().getRefModule() != null) {
-                imports.add(getImport(null, schemaProp));
-            }
         }
         return cmtContent;
     }

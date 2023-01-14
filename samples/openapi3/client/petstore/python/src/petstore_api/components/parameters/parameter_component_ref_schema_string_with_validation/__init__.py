@@ -12,8 +12,6 @@ import urllib3
 
 from petstore_api import api_client, exceptions
 
-from petstore_api.components.schema import string_with_validation
-
 
 class ComponentRefSchemaStringWithValidation(api_client.PathParameter):
     name = "CRSstringWithValidation"

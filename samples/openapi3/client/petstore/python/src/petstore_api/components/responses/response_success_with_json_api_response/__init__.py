@@ -11,8 +11,6 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-
-from petstore_api.components.schema import api_response
 from petstore_api.components.headers import header_ref_schema_header
 from petstore_api.components.headers import header_int32_json_content_type_header
 from petstore_api.components.headers import header_ref_content_schema_header
