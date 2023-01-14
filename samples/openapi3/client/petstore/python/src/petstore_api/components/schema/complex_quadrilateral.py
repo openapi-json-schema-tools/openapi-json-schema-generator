@@ -137,5 +137,3 @@ class ComplexQuadrilateral(
             configuration_=configuration_,
             **kwargs,
         )
-
-from petstore_api.components.schema import quadrilateral_interface

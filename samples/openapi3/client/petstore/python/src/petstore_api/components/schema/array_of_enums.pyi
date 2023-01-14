@@ -53,5 +53,3 @@ class ArrayOfEnums(
 
     def __getitem__(self, i: int) -> 'string_enum.StringEnum':
         return super().__getitem__(i)
-
-from petstore_api.components.schema import string_enum

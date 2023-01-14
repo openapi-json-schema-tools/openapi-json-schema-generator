@@ -65,6 +65,3 @@ class FruitReq(
             configuration_=configuration_,
             **kwargs,
         )
-
-from petstore_api.components.schema import apple_req
-from petstore_api.components.schema import banana_req

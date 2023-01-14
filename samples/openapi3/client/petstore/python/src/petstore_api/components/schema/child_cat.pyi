@@ -119,5 +119,3 @@ class ChildCat(
             configuration_=configuration_,
             **kwargs,
         )
-
-from petstore_api.components.schema import parent_pet

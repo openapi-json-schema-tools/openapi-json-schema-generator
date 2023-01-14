@@ -2865,7 +2865,12 @@ public class DefaultCodegen implements CodegenConfig {
 
         String ref = p.get$ref();
         setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
+        if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+            property.imports = new TreeSet<>();
+            addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
+        }
         if (ref != null) {
+            // TODO with 3.1.0 schemas continue processing
             return property;
         }
 
@@ -3022,10 +3027,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String example = toExampleValue(p);
         property.setExample(example);
-        if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
-            property.imports = new TreeSet<>();
-            addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
-        }
 
         LOGGER.debug("debugging fromSchema return: {}", property);
         return property;

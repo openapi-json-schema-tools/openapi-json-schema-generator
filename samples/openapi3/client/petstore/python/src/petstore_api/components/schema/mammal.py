@@ -78,7 +78,3 @@ class Mammal(
             configuration_=configuration_,
             **kwargs,
         )
-
-from petstore_api.components.schema import pig
-from petstore_api.components.schema import whale
-from petstore_api.components.schema import zebra
