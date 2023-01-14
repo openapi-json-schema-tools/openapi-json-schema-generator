@@ -675,15 +675,15 @@ public class DefaultGenerator implements Generator {
 
     private void generateContent(List<File> files, LinkedHashMap<CodegenKey, CodegenMediaType> content, String jsonPath) {
         String contentJsonPath = jsonPath + "/content";
-        boolean nonRefSchemaExists = false;
+        boolean schemaExists = false;
 
         // content-type + schema generation
         for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
             String contentType = contentInfo.getKey().getName();
             CodegenMediaType codegenMediaType = contentInfo.getValue();
             CodegenSchema schema = codegenMediaType.getSchema();
-            if (schema != null && schema.getRefInfo() == null) {
-                nonRefSchemaExists = true;
+            if (schema != null) {
+                schemaExists = true;
                 String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);
 
                 // schema
@@ -715,7 +715,7 @@ public class DefaultGenerator implements Generator {
         }
 
         Map<String, String> contentTemplateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT);
-        if (nonRefSchemaExists && contentTemplateInfo != null && !contentTemplateInfo.isEmpty()) {
+        if (schemaExists && contentTemplateInfo != null && !contentTemplateInfo.isEmpty()) {
             for (Map.Entry<String, String> contentEntry: contentTemplateInfo.entrySet()) {
                 String contentTemplateFile = contentEntry.getKey();
                 String outputFile = contentEntry.getValue();
@@ -932,7 +932,7 @@ public class DefaultGenerator implements Generator {
         }
         // schema
         CodegenSchema schema = parameter.getSchema();
-        if (schema != null && schema.getRefInfo() == null) {
+        if (schema != null) {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
@@ -1014,7 +1014,7 @@ public class DefaultGenerator implements Generator {
         }
         // schema
         CodegenSchema schema = header.getSchema();
-        if (schema != null && schema.getRefInfo() == null) {
+        if (schema != null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
