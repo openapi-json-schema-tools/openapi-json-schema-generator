@@ -11,6 +11,7 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
+from .content.application_json import schema as application_json_schema
 from petstore_api.components.headers import header_ref_schema_header
 from petstore_api.components.headers import header_int32_json_content_type_header
 from petstore_api.components.headers import header_ref_content_schema_header
@@ -53,7 +54,7 @@ class Header:
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        api_response.ApiResponse,
+        application_json_schema.Schema,
     ]
     headers: Header.Params
 
@@ -63,7 +64,7 @@ class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[api_response.ApiResponse] = api_response.ApiResponse
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {

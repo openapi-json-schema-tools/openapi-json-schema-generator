@@ -11,13 +11,14 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
+from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        object_model_with_ref_props.ObjectModelWithRefProps,
+        application_json_schema.Schema,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -27,7 +28,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[object_model_with_ref_props.ObjectModelWithRefProps] = object_model_with_ref_props.ObjectModelWithRefProps
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
