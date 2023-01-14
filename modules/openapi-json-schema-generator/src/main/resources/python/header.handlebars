@@ -11,18 +11,14 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports }}
 {{#if schema}}
     {{#with schema}}
-        {{#unless refInfo.getRefModule}}
 from . import {{name.getSnakeCaseName}}
-        {{/unless}}
     {{/with}}
 {{else}}
     {{#if getContent}}
         {{#each getContent}}
             {{#with this}}
                 {{#with schema}}
-                    {{#unless refInfo.getRefModule}}
 from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}}
-                    {{/unless}}
                 {{/with}}
             {{/with}}
         {{/each}}

@@ -11,6 +11,7 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
+from .content.application_json import schema
 
 
 class RefContentSchemaHeader(api_client.HeaderParameterWithoutName):
