@@ -16,6 +16,6 @@ from petstore_api import api_client, exceptions
 class RefContentSchemaHeader(api_client.HeaderParameterWithoutName):
     style = api_client.ParameterStyle.SIMPLE
     content = {
-        "application/json": string_with_validation.StringWithValidation,
+        "application/json": schema.Schema,
     }
     required = True

@@ -3524,9 +3524,6 @@ public class DefaultCodegen implements CodegenConfig {
                     usedSourceJsonPath
             );
             codegenHeader.setSchema(prop);
-            if (prop.getRefInfo() != null && prop.getRefInfo().getRefModule() != null) {
-                codegenHeader.imports.add(getImport(null, prop));
-            }
         }
 
         // the default value is false

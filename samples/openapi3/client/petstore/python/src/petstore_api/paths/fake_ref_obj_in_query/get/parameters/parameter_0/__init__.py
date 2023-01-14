@@ -11,12 +11,11 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import foo
+from . import schema
 
 
 class _0(api_client.QueryParameter):
     name = "mapBean"
     style=api_client.ParameterStyle.DEEP_OBJECT
-    schema = foo.Foo
+    schema = schema.Schema
     explode = True

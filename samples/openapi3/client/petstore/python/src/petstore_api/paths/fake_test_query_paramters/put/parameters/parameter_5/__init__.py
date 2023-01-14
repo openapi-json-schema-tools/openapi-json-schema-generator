@@ -11,13 +11,12 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import string_with_validation
+from . import schema
 
 
 class _5(api_client.QueryParameter):
     name = "refParam"
     style = api_client.ParameterStyle.FORM
-    schema = string_with_validation.StringWithValidation
+    schema = schema.Schema
     required = True
     explode = True

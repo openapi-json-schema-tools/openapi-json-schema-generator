@@ -11,11 +11,12 @@ import typing_extensions
 import urllib3
 
 from petstore_api import api_client, exceptions
+from .content.application_json import schema
 
 
 class ComponentRefSchemaStringWithValidation(api_client.PathParameter):
     name = "CRSstringWithValidation"
     content = {
-        "application/json": string_with_validation.StringWithValidation,
+        "application/json": schema.Schema,
     }
     required = True
