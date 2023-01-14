@@ -314,8 +314,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
-        schemaTemplates.put("model.handlebars", "__init__.py");
-        schemaTemplates.put("model_stub.handlebars", "__init__.pyi");
+        schemaTemplates.put("model.handlebars", ".py");
+        schemaTemplates.put("model_stub.handlebars", ".pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates

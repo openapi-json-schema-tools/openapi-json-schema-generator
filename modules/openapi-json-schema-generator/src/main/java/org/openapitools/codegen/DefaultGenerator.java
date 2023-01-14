@@ -406,8 +406,8 @@ public class DefaultGenerator implements Generator {
         }
         for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
             String templateFile = entry.getKey();
-            String outputFile = entry.getValue();
-            String filename = config.getFilepath(jsonPath, outputFile);
+            String suffix = entry.getValue();
+            String filename = config.getFilepath(jsonPath) + suffix;
             try {
                 File written = processTemplateToFile(schemaData, templateFile, filename, generateModels, CodegenConstants.MODELS);
                 if (written != null) {
@@ -698,7 +698,7 @@ public class DefaultGenerator implements Generator {
                 for (Map.Entry<String, String> contentTypeEntry: contentTypeTemplateInfo.entrySet()) {
                     String templateFile = contentTypeEntry.getKey();
                     String outputFile = contentTypeEntry.getValue();
-                    String outputFilepath = config.getFilepath(contentTypeJsonPath, outputFile);
+                    String outputFilepath = config.getFilepath(contentTypeJsonPath) + File.separatorChar + outputFile;
                     try {
                         File written = processTemplateToFile(new HashMap<>(), templateFile, outputFilepath, true, CodegenConstants.CONTENT);
                         if (written != null) {
@@ -719,7 +719,7 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, String> contentEntry: contentTemplateInfo.entrySet()) {
                 String contentTemplateFile = contentEntry.getKey();
                 String outputFile = contentEntry.getValue();
-                String outputFilepath = config.getFilepath(contentJsonPath, outputFile);
+                String outputFilepath = config.getFilepath(contentJsonPath) + File.separatorChar + outputFile;
                 try {
                     File written = processTemplateToFile(new HashMap<>(), contentTemplateFile, outputFilepath, true, CodegenConstants.CONTENT);
                     if (written != null) {
@@ -745,7 +745,7 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
                 String outputFile = entry.getValue();
-                String responseFile = config.getFilepath(jsonPath, outputFile);
+                String responseFile = config.getFilepath(jsonPath) + File.separatorChar + outputFile;
 
                 try {
                     File written = processTemplateToFile(templateData, templateFile, responseFile, generateResponses, CodegenConstants.RESPONSES);
@@ -834,7 +834,7 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
                 String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath, outputFilename);
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
 
                 try {
                     File written = processTemplateToFile(templateData, templateFile, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
@@ -912,7 +912,7 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
                 String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath, outputFilename);
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
@@ -998,7 +998,7 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
                 String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath, outputFilename);
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
                 try {
                     File written = processTemplateToFile(headertTemplateData, templateFile, filename, generateHeaders, CodegenConstants.HEADERS);
                     if (written != null) {
@@ -1032,7 +1032,7 @@ public class DefaultGenerator implements Generator {
         for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
             String templateFile = entry.getKey();
             String outputFile = entry.getValue();
-            String filename = config.getFilepath(jsonPath, outputFile);
+            String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFile;
 
             HashMap<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", config.packageName());

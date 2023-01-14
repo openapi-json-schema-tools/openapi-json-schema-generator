@@ -94,6 +94,8 @@ public interface CodegenConfig {
 
     String modelPackage();
 
+    String modelPackagePathFragment();
+
     String packageName();
 
     String requestBodyFileFolder(String componentName);
@@ -263,7 +265,7 @@ public interface CodegenConfig {
     void postProcessParameter(CodegenParameter parameter);
 
     // handles almost all files to be written
-    String getFilepath(String jsonPath, String outputFile);
+    String getFilepath(String jsonPath);
 
     String apiFilename(String templateName, String tag);
 

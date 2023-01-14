@@ -167,7 +167,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected String filesMetadataFilename = "FILES";
     protected String versionMetadataFilename = "VERSION";
 
-    protected String packageName = "openapi_client";
+    protected String packageName = "src.main.java";
     /*
     apiTemplateFiles are for API outputs only (controllers/handlers).
     API templates may be written multiple times; APIs are grouped by tag and the file is written once per tag group.
@@ -3991,16 +3991,26 @@ public class DefaultCodegen implements CodegenConfig {
         return apiFileFolder() + File.separatorChar + toApiFilename(tag) + suffix;
     }
 
+    @Override
+    public String modelPackagePathFragment() {
+        return modelPackage.replace('.', File.separatorChar);
+    }
+
     private void updateComponentsFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
         }
-        String schemasIdentifier = "schema";
         String requestBodiesIdentifier = "request_bodies";
         // rename schemas + requestBodies
         if (pathPieces[2].equals("schemas")) {
-            pathPieces[2] = schemasIdentifier;
-            // TODO if modelPackage is set, replace components.schemas with it
+            // modelPackage replaces pathPieces[1] + pathPieces[2]
+            pathPieces[1] = modelPackagePathFragment();
+            pathPieces[2] = null;
+            if (pathPieces.length == 4) {
+                // #/components/schemas/SomeSchema
+                pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
+            }
+            return;
         } else if (pathPieces[2].equals("requestBodies")) {
             pathPieces[2] = requestBodiesIdentifier;
         }
@@ -4048,9 +4058,6 @@ public class DefaultCodegen implements CodegenConfig {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getKey(contentType).getSnakeCaseName();
             }
-        } else if (pathPieces[2].equals(schemasIdentifier)) {
-            // #/components/schemas/SomeSchema
-            pathPieces[3] = getKey(pathPieces[3]).getSnakeCaseName();
         }
     }
 
@@ -4118,7 +4125,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String getFilepath(String jsonPath, String outputFile) {
+    public String getFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
         if (jsonPath.startsWith("#/components")) {
@@ -4126,7 +4133,10 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
         }
-        return String.join(File.separator, pathPieces) + File.separator + outputFile;
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(p -> Objects.nonNull(p))
+                .collect(Collectors.toList());
+        return String.join(File.separator, finalPathPieces);
     }
 
     /**
