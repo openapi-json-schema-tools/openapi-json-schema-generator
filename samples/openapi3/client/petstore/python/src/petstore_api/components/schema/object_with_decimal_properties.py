@@ -117,3 +117,6 @@ class ObjectWithDecimalProperties(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import decimal_payload
+from petstore_api.components.schema import money

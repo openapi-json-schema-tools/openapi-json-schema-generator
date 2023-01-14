@@ -72,3 +72,6 @@ class Shape(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import quadrilateral
+from petstore_api.components.schema import triangle

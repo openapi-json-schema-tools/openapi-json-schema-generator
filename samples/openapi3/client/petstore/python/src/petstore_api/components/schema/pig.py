@@ -72,3 +72,6 @@ class Pig(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import basque_pig
+from petstore_api.components.schema import danish_pig

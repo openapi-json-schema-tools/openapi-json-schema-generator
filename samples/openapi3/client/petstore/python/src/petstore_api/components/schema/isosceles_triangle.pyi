@@ -127,3 +127,5 @@ class IsoscelesTriangle(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import triangle_interface

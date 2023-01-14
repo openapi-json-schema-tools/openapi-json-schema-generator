@@ -81,3 +81,5 @@ class AdditionalPropertiesWithArrayOfEnums(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import enum_class

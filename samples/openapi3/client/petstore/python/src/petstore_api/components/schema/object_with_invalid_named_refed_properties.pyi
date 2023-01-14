@@ -105,3 +105,6 @@ class ObjectWithInvalidNamedRefedProperties(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import array_with_validations_in_items
+from petstore_api.components.schema import from_schema

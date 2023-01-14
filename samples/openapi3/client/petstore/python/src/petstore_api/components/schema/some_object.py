@@ -58,3 +58,5 @@ class SomeObject(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import object_interface

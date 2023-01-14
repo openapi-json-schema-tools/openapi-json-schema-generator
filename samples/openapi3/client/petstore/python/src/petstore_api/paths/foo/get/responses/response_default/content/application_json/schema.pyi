@@ -84,3 +84,5 @@ class Schema(
             configuration_=configuration_,
             **kwargs,
         )
+
+from petstore_api.components.schema import foo
