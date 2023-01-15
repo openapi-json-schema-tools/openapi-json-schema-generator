@@ -7,5 +7,5 @@
 """
 
 
-from petstore_api.components.request_bodies import request_body_user_array
-RequestBody = request_body_user_array.UserArray
+from petstore_api.components.request_bodies import request_body_ref_user_array
+RequestBody = request_body_ref_user_array.RefUserArray

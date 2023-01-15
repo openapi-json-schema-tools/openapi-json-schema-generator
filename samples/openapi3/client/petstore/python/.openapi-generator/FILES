@@ -76,6 +76,7 @@ docs/components/parameters/parameter_path_user_name.md
 docs/components/parameters/parameter_ref_schema_string_with_validation.md
 docs/components/request_bodies/request_body_client.md
 docs/components/request_bodies/request_body_pet.md
+docs/components/request_bodies/request_body_ref_user_array.md
 docs/components/request_bodies/request_body_user_array.md
 docs/components/responses/response_success_description_only.md
 docs/components/responses/response_success_inline_content_and_header.md
@@ -320,6 +321,7 @@ src/petstore_api/components/request_bodies/request_body_pet/content/application_
 src/petstore_api/components/request_bodies/request_body_pet/content/application_xml/__init__.py
 src/petstore_api/components/request_bodies/request_body_pet/content/application_xml/schema.py
 src/petstore_api/components/request_bodies/request_body_pet/content/application_xml/schema.pyi
+src/petstore_api/components/request_bodies/request_body_ref_user_array/__init__.py
 src/petstore_api/components/request_bodies/request_body_user_array/__init__.py
 src/petstore_api/components/request_bodies/request_body_user_array/content/__init__.py
 src/petstore_api/components/request_bodies/request_body_user_array/content/application_json/__init__.py

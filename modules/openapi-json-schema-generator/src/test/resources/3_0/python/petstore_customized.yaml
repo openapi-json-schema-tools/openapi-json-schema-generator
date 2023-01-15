@@ -413,7 +413,7 @@ paths:
         default:
           description: successful operation
       requestBody:
-        $ref: '#/components/requestBodies/UserArray'
+        $ref: '#/components/requestBodies/RefUserArray'
   /user/login:
     get:
       tags:
@@ -1700,6 +1700,8 @@ components:
               $ref: '#/components/schemas/User'
       description: List of user object
       required: true
+    RefUserArray:
+      $ref: '#/components/requestBodies/UserArray'
     Client:
       content:
         application/json:
