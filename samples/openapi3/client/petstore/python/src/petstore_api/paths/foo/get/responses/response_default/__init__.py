@@ -32,7 +32,7 @@ class Default(api_client.OpenApiResponse[ApiResponse]):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': __ApplicationJsonMediaType,
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {

@@ -20,7 +20,7 @@ class RequestBody(api_client.RequestBody):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json-patch+json': __ApplicationJsonPatchjsonMediaType,
+            'application/json-patch+json': typing.Type[__ApplicationJsonPatchjsonMediaType],
         }
     )
     content: __Content = {

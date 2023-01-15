@@ -24,7 +24,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[header_some_header.schema.Schema, str, ],
+            'someHeader': typing.Union[header_some_header.SomeHeader.schema, str, ],
         },
         total=False
     )
@@ -56,7 +56,7 @@ class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiResponse]):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': __ApplicationJsonMediaType,
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {

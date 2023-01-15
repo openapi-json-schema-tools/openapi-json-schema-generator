@@ -20,7 +20,7 @@ class RequestBody(api_client.RequestBody):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'multipart/form-data': __MultipartFormDataMediaType,
+            'multipart/form-data': typing.Type[__MultipartFormDataMediaType],
         }
     )
     content: __Content = {

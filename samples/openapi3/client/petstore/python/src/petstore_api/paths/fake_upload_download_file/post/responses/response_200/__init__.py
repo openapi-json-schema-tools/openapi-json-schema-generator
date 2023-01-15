@@ -32,7 +32,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/octet-stream': __ApplicationOctetStreamMediaType,
+            'application/octet-stream': typing.Type[__ApplicationOctetStreamMediaType],
         }
     )
     content: __Content = {

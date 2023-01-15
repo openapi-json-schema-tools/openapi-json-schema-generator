@@ -31,7 +31,7 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
         '__Content',
         {
 {{#each content}}
-            '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+            '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
 {{/each}}
         }
     )

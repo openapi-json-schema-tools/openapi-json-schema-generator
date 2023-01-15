@@ -22,7 +22,7 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
 {{/if}}
 {{#each headers}}
 {{#if refInfo.refModule}}
-from {{packageName}}.components.headers import {{refInfo.refModule}}
+from {{packageName}}.components.headers import {{refInfo.refModule}} as {{name.getSnakeCaseName}}
 {{else}}
 from .headers import {{name.getSnakeCaseName}}
 {{/if}}
@@ -96,7 +96,7 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
         '__Content',
         {
     {{#each content}}
-            '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+            '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
     {{/each}}
         }
     )

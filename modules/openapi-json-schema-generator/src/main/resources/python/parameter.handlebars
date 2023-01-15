@@ -2,11 +2,10 @@
 
 {{>partial_header}}
 
-from dataclasses import dataclass
+import typing
 import typing_extensions
-import urllib3
 
-from {{packageName}} import api_client, exceptions
+from {{packageName}} import api_client
 {{#with parameter}}
 {{> model_templates/imports }}
 {{#if schema}}
@@ -18,7 +17,7 @@ from . import {{name.getSnakeCaseName}}
         {{#each getContent}}
             {{#with this}}
                 {{#with schema}}
-from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}}
+from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
                 {{/with}}
             {{/with}}
         {{/each}}

@@ -32,7 +32,7 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json; charset=utf-8': __ApplicationJsonCharsetutf8MediaType,
+            'application/json; charset=utf-8': typing.Type[__ApplicationJsonCharsetutf8MediaType],
         }
     )
     content: __Content = {

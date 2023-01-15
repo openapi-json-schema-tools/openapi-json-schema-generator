@@ -20,7 +20,7 @@ class RequestBody(api_client.RequestBody):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/x-www-form-urlencoded': __ApplicationXWwwFormUrlencodedMediaType,
+            'application/x-www-form-urlencoded': typing.Type[__ApplicationXWwwFormUrlencodedMediaType],
         }
     )
     content: __Content = {

@@ -25,8 +25,8 @@ class Pet(api_client.RequestBody):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': __ApplicationJsonMediaType,
-            'application/xml': __ApplicationXmlMediaType,
+            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'application/xml': typing.Type[__ApplicationXmlMediaType],
         }
     )
     content: __Content = {

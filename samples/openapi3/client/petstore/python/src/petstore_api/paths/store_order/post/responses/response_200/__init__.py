@@ -38,8 +38,8 @@ class _200(api_client.OpenApiResponse[ApiResponse]):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/xml': __ApplicationXmlMediaType,
-            'application/json': __ApplicationJsonMediaType,
+            'application/xml': typing.Type[__ApplicationXmlMediaType],
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {

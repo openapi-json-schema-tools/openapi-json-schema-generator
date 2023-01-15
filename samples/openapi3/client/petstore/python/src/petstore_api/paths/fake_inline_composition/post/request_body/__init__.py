@@ -25,8 +25,8 @@ class RequestBody(api_client.RequestBody):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': __ApplicationJsonMediaType,
-            'multipart/form-data': __MultipartFormDataMediaType,
+            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'multipart/form-data': typing.Type[__MultipartFormDataMediaType],
         }
     )
     content: __Content = {
