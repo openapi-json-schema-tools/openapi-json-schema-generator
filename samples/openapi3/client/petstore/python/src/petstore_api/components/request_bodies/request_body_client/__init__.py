@@ -9,7 +9,7 @@
 import typing
 import typing_extensions
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client
 from .content.application_json import schema as application_json_schema
 
 class Client(api_client.RequestBody):

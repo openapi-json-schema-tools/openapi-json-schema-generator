@@ -9,7 +9,7 @@
 import typing
 import typing_extensions
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client
 from .content.application_x_www_form_urlencoded import schema as application_x_www_form_urlencoded_schema
 
 class RequestBody(api_client.RequestBody):

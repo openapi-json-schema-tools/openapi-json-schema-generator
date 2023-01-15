@@ -527,7 +527,7 @@ public class DefaultGenerator implements Generator {
 
                 if (shouldGenerateApis) {
                     // paths.some_path.post.request_body.py, only written if there is no refModule
-                    if (co.requestBody != null && co.requestBody.getRefInfo() == null) {
+                    if (co.requestBody != null) {
                         String requestBodyJsonPath = operationJsonPath + "/requestBody";
                         generateRequestBody(files, co.requestBody, requestBodyJsonPath);
                     }

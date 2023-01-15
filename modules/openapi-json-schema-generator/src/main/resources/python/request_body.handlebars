@@ -2,45 +2,49 @@
 
 {{>partial_header}}
 
+{{#with requestBody}}
+{{> model_templates/imports }}
+{{#if refInfo}}
+{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
 import typing
 import typing_extensions
 
-from {{packageName}} import api_client, exceptions
-{{#with requestBody}}
-{{> model_templates/imports }}
-{{#each content}}
-{{#with this}}
-    {{#with schema}}
+from {{packageName}} import api_client
+    {{#each content}}
+    {{#with this}}
+        {{#with schema}}
 from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
+        {{/with}}
     {{/with}}
-{{/with}}
-{{/each}}
+    {{/each}}
 
 class {{name.getCamelCaseName}}(api_client.RequestBody):
-{{#each content}}
+    {{#each content}}
 
 
     class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
-    {{#with this}}
-        {{#with schema}}
+        {{#with this}}
+            {{#with schema}}
         schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+            {{/with}}
         {{/with}}
-    {{/with}}
-{{/each}}
+    {{/each}}
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-{{#each content}}
+    {{#each content}}
             '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
-{{/each}}
+    {{/each}}
         }
     )
     content: __Content = {
-{{#each content}}
+    {{#each content}}
         '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
-{{/each}}
+    {{/each}}
     }
-{{#if required}}
+    {{#if required}}
     required = True
+    {{/if}}
 {{/if}}
 {{/with}}

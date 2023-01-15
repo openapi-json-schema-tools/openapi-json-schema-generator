@@ -20,7 +20,6 @@ import com.github.curiousoddman.rgxgen.RgxGen;
 import com.github.curiousoddman.rgxgen.config.RgxGenOption;
 import com.github.curiousoddman.rgxgen.config.RgxGenProperties;
 import com.google.common.base.CaseFormat;
-import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.servers.Server;

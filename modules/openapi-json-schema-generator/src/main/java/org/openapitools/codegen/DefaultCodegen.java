@@ -2734,6 +2734,14 @@ public class DefaultCodegen implements CodegenConfig {
         return !isReservedWord(name);
     }
 
+    protected String getImport(CodegenRefInfo refInfo) {
+        String prefix = "from " + packageName + ".components.";
+        if (refInfo.getRef() instanceof CodegenRequestBody) {
+            return prefix + "request_bodies import " + refInfo.getRefModule();
+        }
+        return null;
+    }
+
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
             return schema.getRefInfo().getRefClass();
@@ -5106,6 +5114,7 @@ public class DefaultCodegen implements CodegenConfig {
         String bodyRef = requestBody.get$ref();
         setRequestBodyLocationInfo(bodyRef, sourceJsonPath, sourceJsonPath, codegenRequestBody);
         if (bodyRef != null) {
+            codegenRequestBody.imports.add(getImport(codegenRequestBody.getRefInfo()));
             return codegenRequestBody;
         }
 
