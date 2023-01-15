@@ -8,9 +8,9 @@ class {{xParamsName}}:
 {{#if refInfo}}
     {{#if refInfo.getRef.required}}
         {{#if refInfo.getRef.schema}}
-            '{{refInfo.getRef.baseName}}': {{#with refInfo.getRef.schema}}typing.Union[{{#if ../refInfo.refModule}}{{../refInfo.refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{refInfo.getRef.baseName}}': {{#with refInfo.getRef.schema}}typing.Union[{{../refInfo.refModule}}.{{../refInfo.refClass}}.schema, {{> model_templates/schema_python_types }}],{{/with}}
         {{else}}
-            '{{refInfo.getRef.baseName}}': {{#each refInfo.getRef.getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refInfo.refModule}}{{../refInfo.refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{refInfo.getRef.baseName}}': {{#each refInfo.getRef.getContent}}{{#with this}}{{#with schema}}typing.Union[{{../../../refInfo.refModule}}.{{../../../refInfo.refClass}}.content["{{{../@key.getName}}}"].schema, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
         {{/if}}
     {{/if}}
 {{else}}
@@ -32,9 +32,9 @@ class {{xParamsName}}:
 {{#if refInfo}}
     {{#unless refInfo.getRef.required}}
         {{#if refInfo.getRef.schema}}
-            '{{refInfo.getRef.baseName}}': {{#with refInfo.getRef.schema}}typing.Union[{{#if ../refInfo.refModule}}{{../refInfo.refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{refInfo.getRef.baseName}}': {{#with refInfo.getRef.schema}}typing.Union[{{../refInfo.refModule}}.{{../refInfo.refClass}}.schema, {{> model_templates/schema_python_types }}],{{/with}}
         {{else}}
-            '{{refInfo.getRef.baseName}}': {{#each refInfo.getRef.getContent}}{{#with this}}{{#with schema}}typing.Union[{{#if ../refInfo.refModule}}{{../refInfo.refModule}}{{else}}{{../name.getSnakeCaseName}}{{/if}}.{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/if}}, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{refInfo.getRef.baseName}}': {{#each refInfo.getRef.getContent}}{{#with this}}{{#with schema}}typing.Union[{{../../../refInfo.refModule}}.{{../../../refInfo.refClass}}.content["{{{../@key.getName}}}"].schema, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
         {{/if}}
     {{/unless}}
 {{else}}
