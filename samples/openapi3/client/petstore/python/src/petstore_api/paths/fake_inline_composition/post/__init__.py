@@ -42,8 +42,8 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'compositionAtRoot': typing.Union[parameter_0.schema.Schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'compositionInProperty': typing.Union[parameter_1.schema.Schema, dict, frozendict.frozendict, ],
+            'compositionAtRoot': typing.Union[parameter_0._0.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+            'compositionInProperty': typing.Union[parameter_1._1.schema, dict, frozendict.frozendict, ],
         },
         total=False
     )

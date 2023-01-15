@@ -26,6 +26,6 @@ class {{xParamsName}}:
 
     parameters = [
     {{#each xParams}}
-        {{#if refInfo.refModule}}{{refInfo.refModule}}{{else}}{{name.getSnakeCaseName}}{{/if}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+        {{name.getSnakeCaseName}}.{{#if refInfo}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
     {{/each}}
     ]

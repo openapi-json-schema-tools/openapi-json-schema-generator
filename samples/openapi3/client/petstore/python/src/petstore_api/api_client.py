@@ -335,6 +335,36 @@ class JSONDetector:
         return False
 
 
+class Encoding:
+    def __init__(
+        self,
+        content_type: str,
+        headers: typing.Optional[typing.Dict[str, 'HeaderParameter']] = None,
+        style: typing.Optional[ParameterStyle] = None,
+        explode: bool = False,
+        allow_reserved: bool = False,
+    ):
+        self.content_type = content_type
+        self.headers = headers
+        self.style = style
+        self.explode = explode
+        self.allow_reserved = allow_reserved
+
+
+@dataclasses.dataclass
+class MediaType:
+    """
+    Used to store request and response body schema information
+    encoding:
+        A map between a property name and its encoding information.
+        The key, being the property name, MUST exist in the schema as a property.
+        The encoding object SHALL only apply to requestBody objects when the media type is
+        multipart or application/x-www-form-urlencoded.
+    """
+    schema: typing.Optional[typing.Type[schemas.Schema]] = None
+    encoding: typing.Optional[typing.Dict[str, Encoding]] = None
+
+
 @dataclasses.dataclass
 class ParameterBase(JSONDetector):
     in_type: ParameterInType
@@ -343,7 +373,7 @@ class ParameterBase(JSONDetector):
     explode: typing.Optional[bool]
     allow_reserved: typing.Optional[bool]
     schema: typing.Optional[typing.Type[schemas.Schema]]
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]]
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]]
 
     _json_encoder = JSONEncoder()
 
@@ -557,8 +587,8 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         # cls.content will be length one
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
-        for content_type, schema in cls.content.items():
-            cast_in_data = schema(in_data)
+        for content_type, media_type in cls.content.items():
+            cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
@@ -606,8 +636,8 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
                 )
                 return cls._to_dict(cls.name, value)
         # cls.content will be length one
-        for content_type, schema in cls.content.items():
-            cast_in_data = schema(in_data)
+        for content_type, media_type in cls.content.items():
+            cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -652,8 +682,8 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
                 value = cls._serialize_simple(cast_in_data, name, cls.explode, False)
                 return cls.__to_headers(((name, value),))
         # cls.content will be length one
-        for content_type, schema in cls.content.items():
-            cast_in_data = schema(in_data)
+        for content_type, media_type in cls.content.items():
+            cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -676,10 +706,10 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
                 return schema.from_openapi_data_(extracted_data)
         # cls.content will be length one
-        for content_type, schema in cls.content.items():
+        for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data = json.loads(in_data)
-                return schema.from_openapi_data_(cast_in_data)
+                return media_type.schema.from_openapi_data_(cast_in_data)
             raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
 
 
@@ -696,36 +726,6 @@ class HeaderParameter(HeaderParameterWithoutName):
             in_data,
             cls.name
         )
-
-
-class Encoding:
-    def __init__(
-        self,
-        content_type: str,
-        headers: typing.Optional[typing.Dict[str, HeaderParameter]] = None,
-        style: typing.Optional[ParameterStyle] = None,
-        explode: bool = False,
-        allow_reserved: bool = False,
-    ):
-        self.content_type = content_type
-        self.headers = headers
-        self.style = style
-        self.explode = explode
-        self.allow_reserved = allow_reserved
-
-
-@dataclasses.dataclass
-class MediaType:
-    """
-    Used to store request and response body schema information
-    encoding:
-        A map between a property name and its encoding information.
-        The key, being the property name, MUST exist in the schema as a property.
-        The encoding object SHALL only apply to requestBody objects when the media type is
-        multipart or application/x-www-form-urlencoded.
-    """
-    schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    encoding: typing.Optional[typing.Dict[str, Encoding]] = None
 
 
 @dataclasses.dataclass

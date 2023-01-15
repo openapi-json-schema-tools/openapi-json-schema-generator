@@ -47,10 +47,10 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_query_string_array': typing.Union[parameter_2.schema.Schema, list, tuple, ],
-            'enum_query_string': typing.Union[parameter_3.schema.Schema, str, ],
-            'enum_query_integer': typing.Union[parameter_4.schema.Schema, decimal.Decimal, int, ],
-            'enum_query_double': typing.Union[parameter_5.schema.Schema, decimal.Decimal, int, float, ],
+            'enum_query_string_array': typing.Union[parameter_2._2.schema, list, tuple, ],
+            'enum_query_string': typing.Union[parameter_3._3.schema, str, ],
+            'enum_query_integer': typing.Union[parameter_4._4.schema, decimal.Decimal, int, ],
+            'enum_query_double': typing.Union[parameter_5._5.schema, decimal.Decimal, int, float, ],
         },
         total=False
     )
@@ -76,8 +76,8 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_header_string_array': typing.Union[parameter_0.schema.Schema, list, tuple, ],
-            'enum_header_string': typing.Union[parameter_1.schema.Schema, str, ],
+            'enum_header_string_array': typing.Union[parameter_0._0.schema, list, tuple, ],
+            'enum_header_string': typing.Union[parameter_1._1.schema, str, ],
         },
         total=False
     )
