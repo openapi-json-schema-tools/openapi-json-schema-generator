@@ -16,7 +16,17 @@ from .content.application_json import schema
 
 class ComponentRefSchemaStringWithValidation(api_client.PathParameter):
     name = "CRSstringWithValidation"
-    content = {
-        "application/json": schema.Schema,
+
+
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+    __Content = typing_extensions.TypedDict(
+        '__Content',
+        {
+            'application/json': typing.Type[__ApplicationJsonMediaType],
+        }
+    )
+    content: __Content = {
+        'application/json': __ApplicationJsonMediaType,
     }
     required = True

@@ -31,9 +31,27 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
     {{/with}}
 {{/if}}
 {{#if getContent}}
-    content = {
-{{#each getContent}}
-        "{{@key.getName}}": {{#with this}}{{#with schema}}{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}{{/with}}{{/with}},
+{{#each content}}
+
+
+    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
+    {{#with this}}
+        {{#with schema}}
+        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+        {{/with}}
+    {{/with}}
+{{/each}}
+    __Content = typing_extensions.TypedDict(
+        '__Content',
+        {
+{{#each content}}
+            '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
+{{/each}}
+        }
+    )
+    content: __Content = {
+{{#each content}}
+        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
 {{/each}}
     }
 {{/if}}
