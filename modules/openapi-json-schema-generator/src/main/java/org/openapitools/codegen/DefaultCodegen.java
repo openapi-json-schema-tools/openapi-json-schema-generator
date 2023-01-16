@@ -2738,6 +2738,8 @@ public class DefaultCodegen implements CodegenConfig {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.getRef() instanceof CodegenRequestBody) {
             return prefix + "request_bodies import " + refInfo.getRefModule();
+        } else if (refInfo.getRef() instanceof CodegenRequestBody) {
+            return prefix + "headers import " + refInfo.getRefModule();
         }
         return null;
     }
@@ -3477,6 +3479,7 @@ public class DefaultCodegen implements CodegenConfig {
         String headerRef = header.get$ref();
         setHeaderLocationInfo(headerRef, sourceJsonPath, sourceJsonPath, codegenHeader);
         if (headerRef != null) {
+            codegenHeader.imports.add(getImport(codegenHeader.getRefInfo()));
             return codegenHeader;
         }
 

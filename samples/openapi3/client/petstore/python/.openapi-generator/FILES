@@ -344,6 +344,11 @@ src/petstore_api/components/responses/response_success_with_json_api_response/co
 src/petstore_api/components/responses/response_success_with_json_api_response/content/application_json/schema.py
 src/petstore_api/components/responses/response_success_with_json_api_response/content/application_json/schema.pyi
 src/petstore_api/components/responses/response_success_with_json_api_response/headers/__init__.py
+src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_int32/__init__.py
+src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_number_header/__init__.py
+src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_ref_content_schema_header/__init__.py
+src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_ref_schema_header/__init__.py
+src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_string_header/__init__.py
 src/petstore_api/components/schema/_200_response.py
 src/petstore_api/components/schema/_200_response.pyi
 src/petstore_api/components/schema/__init__.py
@@ -1353,6 +1358,11 @@ src/petstore_api/paths/user_login/get/responses/response_200/content/application
 src/petstore_api/paths/user_login/get/responses/response_200/content/application_xml/schema.py
 src/petstore_api/paths/user_login/get/responses/response_200/content/application_xml/schema.pyi
 src/petstore_api/paths/user_login/get/responses/response_200/headers/__init__.py
+src/petstore_api/paths/user_login/get/responses/response_200/headers/header_int32/__init__.py
+src/petstore_api/paths/user_login/get/responses/response_200/headers/header_number_header/__init__.py
+src/petstore_api/paths/user_login/get/responses/response_200/headers/header_ref_content_schema_header/__init__.py
+src/petstore_api/paths/user_login/get/responses/response_200/headers/header_ref_schema_header/__init__.py
+src/petstore_api/paths/user_login/get/responses/response_200/headers/header_string_header/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_x_expires_after/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_x_expires_after/schema.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_x_expires_after/schema.pyi

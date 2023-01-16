@@ -767,10 +767,8 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
                 String headerName = headerInfo.getKey();
                 CodegenHeader header = headerInfo.getValue();
-                if (header.getRefInfo() == null) {
-                    String headerJsonPath = headersJsonPath + "/" + headerName;
-                    generateHeader(files, header, headerJsonPath);
-                }
+                String headerJsonPath = headersJsonPath + "/" + headerName;
+                generateHeader(files, header, headerJsonPath);
             }
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
@@ -936,8 +934,8 @@ public class DefaultGenerator implements Generator {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
-        if (schema == null) {
-            LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.getContent();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.getContent();
+        if (schema == null && content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
     }
@@ -1018,8 +1016,8 @@ public class DefaultGenerator implements Generator {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
-        if (schema == null) {
-            LinkedHashMap<CodegenKey, CodegenMediaType> content = header.getContent();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = header.getContent();
+        if (schema == null && content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
     }
