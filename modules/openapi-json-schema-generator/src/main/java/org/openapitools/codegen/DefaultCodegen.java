@@ -2738,7 +2738,7 @@ public class DefaultCodegen implements CodegenConfig {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.getRef() instanceof CodegenRequestBody) {
             return prefix + "request_bodies import " + refInfo.getRefModule();
-        } else if (refInfo.getRef() instanceof CodegenRequestBody) {
+        } else if (refInfo.getRef() instanceof CodegenHeader) {
             return prefix + "headers import " + refInfo.getRefModule();
         }
         return null;

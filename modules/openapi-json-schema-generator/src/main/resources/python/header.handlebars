@@ -2,15 +2,15 @@
 
 {{>partial_header}}
 
+{{#with header}}
+{{#if refInfo}}
+{{> model_templates/imports }}
+{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
 import typing
 import typing_extensions
 
 from {{packageName}} import api_client
-{{#with header}}
-{{> model_templates/imports }}
-{{#if refInfo}}
-{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
-{{else}}
     {{#if schema}}
         {{#with schema}}
 from . import {{name.getSnakeCaseName}}

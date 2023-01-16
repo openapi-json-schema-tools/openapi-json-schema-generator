@@ -3,8 +3,8 @@
 {{>partial_header}}
 
 {{#with requestBody}}
-{{> model_templates/imports }}
 {{#if refInfo}}
+{{> model_templates/imports }}
 {{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing
