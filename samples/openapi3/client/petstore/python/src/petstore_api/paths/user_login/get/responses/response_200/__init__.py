@@ -13,13 +13,13 @@ from petstore_api import api_client
 from petstore_api import schemas
 from .content.application_xml import schema as application_xml_schema
 from .content.application_json import schema as application_json_schema
-from petstore_api.components.headers import header_ref_schema_header as header_ref_schema_header
+from .headers import header_ref_schema_header
 from .headers import header_x_rate_limit
-from petstore_api.components.headers import header_int32_json_content_type_header as header_int32
+from .headers import header_int32
 from .headers import header_x_expires_after
-from petstore_api.components.headers import header_ref_content_schema_header as header_ref_content_schema_header
-from petstore_api.components.headers import header_ref_string_header as header_string_header
-from petstore_api.components.headers import header_number_header as header_number_header
+from .headers import header_ref_content_schema_header
+from .headers import header_string_header
+from .headers import header_number_header
 
 
 class Header:
@@ -28,9 +28,9 @@ class Header:
         {
             'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, ],
             'X-Rate-Limit': typing.Union[header_x_rate_limit.XRateLimit.content["application/json"].schema, decimal.Decimal, int, ],
-            'int32': typing.Union[header_int32.Int32JsonContentTypeHeader.content["application/json"].schema, decimal.Decimal, int, ],
+            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int, ],
             'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, ],
-            'stringHeader': typing.Union[header_string_header.RefStringHeader.schema, str, ],
+            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -50,10 +50,10 @@ class Header:
     parameters = [
         header_ref_schema_header.RefSchemaHeader,
         header_x_rate_limit.XRateLimit,
-        header_int32.Int32JsonContentTypeHeader,
+        header_int32.Int32,
         header_x_expires_after.XExpiresAfter,
         header_ref_content_schema_header.RefContentSchemaHeader,
-        header_string_header.RefStringHeader,
+        header_string_header.StringHeader,
         header_number_header.NumberHeader,
     ]
 

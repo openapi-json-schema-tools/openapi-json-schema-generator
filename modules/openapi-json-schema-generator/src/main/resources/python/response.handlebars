@@ -21,11 +21,7 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
 {{/each}}
 {{/if}}
 {{#each headers}}
-{{#if refInfo}}
-from {{packageName}}.components.headers import {{refInfo.refModule}} as {{name.getSnakeCaseName}}
-{{else}}
 from .headers import {{name.getSnakeCaseName}}
-{{/if}}
 {{/each}}
 {{#if headers}}
 {{> response_header_schema_and_def xParams=headers xParamsName="Header" }}
