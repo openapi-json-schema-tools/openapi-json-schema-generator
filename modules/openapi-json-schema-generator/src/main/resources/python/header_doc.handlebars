@@ -3,10 +3,32 @@
 # {{packageName}}.components.headers.{{componentModule}}
     {{/if}}
     {{#if refInfo}}
-## Reference
-Type | Description  |
-------------- | ------------- |
-[**{{refInfo.refClass}}**]({{docRoot}}components/headers/{{refInfo.refModule}}.md) | {{#if description}}{{description}}{{/if}} |
+        {{#with getDeepestRef}}
+            {{#if schema}}
+                {{#with schema}}
+                    {{#if ../../componentModule}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name }}
+                    {{else}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.getSnakeCaseName }}
+                    {{/if}}
+                {{/with}}
+            {{else}}
+                {{#each getContent}}
+                    {{#with this}}
+                        {{#with schema}}
+                            {{#if ../../componentModule}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName}}
+                            {{else}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.getSnakeCaseName schemaNamePrefix4="content" schemaNamePrefix5=../@key.getSnakeCaseName}}
+                            {{/if}}
+                        {{/with}}
+                    {{/with}}
+                {{/each}}
+            {{/if}}
+        {{/with}}
     {{else}}
         {{#if schema}}
             {{#with schema}}

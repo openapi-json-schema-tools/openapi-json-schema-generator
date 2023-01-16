@@ -43,13 +43,13 @@ Key | Accessed Type | Description  | Notes
             {{#with getDeepestRef}}
                 {{#if schema}}
                     {{#with schema}}
-{{../@key}} | [{{../name.getCamelCaseName}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../refInfo.refClass}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | | {{#unless required}}optional{{/unless}}
                     {{/with}}
                 {{else}}
                     {{#each getContent}}
                         {{#with this}}
                             {{#with schema}}
-{{../../@key}} | [{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{name.getSnakeCaseName}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{name.getSnakeCaseName}}) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{/with}}
                     {{/each}}
