@@ -2,4 +2,4 @@
 ## Reference
 Type | Description  |
 ------------- | ------------- |
-[**UserArray**](../../components/request_bodies/request_body_user_array.UserArray.md) |  |
+[**UserArray**](../../components/request_bodies/request_body_user_array.md) |  |
