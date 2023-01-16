@@ -557,10 +557,8 @@ public class DefaultGenerator implements Generator {
                             // so each inline header should be a module in the response package
                             String code = responseEntry.getKey();
                             CodegenResponse response = responseEntry.getValue();
-                            if (response.getRefInfo() == null) {
-                                String responseJsonPath = responsesJsonPath + "/" + code;
-                                generateResponse(files, response, responseJsonPath);
-                            }
+                            String responseJsonPath = responsesJsonPath + "/" + code;
+                            generateResponse(files, response, responseJsonPath);
                         }
                     }
                     for (String templateFile: config.pathEndpointTestTemplateFiles()) {
