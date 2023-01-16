@@ -70,6 +70,7 @@ docs/components/headers/header_int32_json_content_type_header.md
 docs/components/headers/header_number_header.md
 docs/components/headers/header_ref_content_schema_header.md
 docs/components/headers/header_ref_schema_header.md
+docs/components/headers/header_ref_string_header.md
 docs/components/headers/header_string_header.md
 docs/components/parameters/parameter_component_ref_schema_string_with_validation.md
 docs/components/parameters/parameter_path_user_name.md
@@ -292,6 +293,7 @@ src/petstore_api/components/headers/header_ref_content_schema_header/content/app
 src/petstore_api/components/headers/header_ref_schema_header/__init__.py
 src/petstore_api/components/headers/header_ref_schema_header/schema.py
 src/petstore_api/components/headers/header_ref_schema_header/schema.pyi
+src/petstore_api/components/headers/header_ref_string_header/__init__.py
 src/petstore_api/components/headers/header_string_header/__init__.py
 src/petstore_api/components/headers/header_string_header/schema.py
 src/petstore_api/components/headers/header_string_header/schema.pyi

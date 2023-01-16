@@ -377,6 +377,7 @@ HTTP request | Method | Description
 - [NumberHeader](docs/components/headers/header_number_header.md)
 - [RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md)
 - [RefSchemaHeader](docs/components/headers/header_ref_schema_header.md)
+- [RefStringHeader](docs/components/headers/header_ref_string_header.md)
 - [StringHeader](docs/components/headers/header_string_header.md)
 
 ## Component Parameters

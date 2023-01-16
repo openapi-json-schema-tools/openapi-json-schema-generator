@@ -1664,7 +1664,7 @@ components:
       description: successful operation
       headers:
         stringHeader:
-          $ref: '#/components/headers/StringHeader'
+          $ref: '#/components/headers/RefStringHeader'
         numberHeader:
           $ref: '#/components/headers/NumberHeader'
         int32:
@@ -1725,6 +1725,8 @@ components:
       required: true
       schema:
         type: string
+    RefStringHeader:
+      $ref: '#/components/headers/StringHeader'
     NumberHeader:
       description: number header description
       schema:
