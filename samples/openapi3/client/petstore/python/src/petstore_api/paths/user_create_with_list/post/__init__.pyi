@@ -195,6 +195,7 @@ class CreateUsersWithListInput(BaseApi):
     ):
         return self._create_users_with_list_input(
             body=body,
+            content_type=content_type,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -262,6 +263,7 @@ class ApiForpost(BaseApi):
     ):
         return self._create_users_with_list_input(
             body=body,
+            content_type=content_type,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
