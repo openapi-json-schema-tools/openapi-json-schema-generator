@@ -1,3 +1,12 @@
+# coding: utf-8
+
+{{>partial_header}}
+
+{{#with response}}
+{{#if refInfo}}
+{{> model_templates/imports }}
+{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
 import dataclasses
 import datetime
 import decimal
@@ -11,98 +20,97 @@ import urllib3
 
 from {{packageName}} import api_client
 from {{packageName}} import schemas
-{{#with response}}
-{{> model_templates/imports }}
-{{#if getContent}}
-{{#each content}}
-    {{#with this.schema}}
+    {{#if getContent}}
+    {{#each content}}
+        {{#with this.schema}}
 from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
-    {{/with}}
-{{/each}}
-{{/if}}
-{{#each headers}}
+        {{/with}}
+    {{/each}}
+    {{/if}}
+    {{#each headers}}
 from .headers import {{name.getSnakeCaseName}}
-{{/each}}
-{{#if headers}}
+    {{/each}}
+    {{#if headers}}
 {{> response_header_schema_and_def xParams=headers xParamsName="Header" }}
-{{/if}}
+    {{/if}}
 
 
 @dataclasses.dataclass
 class ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-{{#and headers content}}
+    {{#and headers content}}
     body: typing.Union[
-{{#each content}}
-{{#if this.schema}}
-    {{#with this.schema}}
+    {{#each content}}
+    {{#if this.schema}}
+        {{#with this.schema}}
         {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
-    {{/with}}
-{{else}}
+        {{/with}}
+    {{else}}
         schemas.Unset,
-{{/if}}
-{{/each}}
+    {{/if}}
+    {{/each}}
     ]
     headers: Header.Params
-{{else}}
-{{#or headers content}}
-{{#if headers}}
+    {{else}}
+    {{#or headers content}}
+    {{#if headers}}
     headers: Header.Params
     body: schemas.Unset = schemas.unset
-{{else}}
+    {{else}}
     body: typing.Union[
-{{#each content}}
-{{#if this.schema}}
-    {{#with this.schema}}
+    {{#each content}}
+    {{#if this.schema}}
+        {{#with this.schema}}
         {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
-    {{/with}}
-{{else}}
+        {{/with}}
+    {{else}}
         schemas.Unset,
-{{/if}}
-{{/each}}
+    {{/if}}
+    {{/each}}
     ]
     headers: schemas.Unset = schemas.unset
-{{/if}}
-{{/or}}
-{{/and}}
-{{#unless headers}}
-{{#unless content}}
+    {{/if}}
+    {{/or}}
+    {{/and}}
+    {{#unless headers}}
+    {{#unless content}}
     body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
-{{/unless}}
-{{/unless}}
+    {{/unless}}
+    {{/unless}}
 
 
 class {{name.getCamelCaseName}}(api_client.OpenApiResponse[ApiResponse]):
     response_cls = ApiResponse
-{{#each content}}
+    {{#each content}}
 
 
     class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
-    {{#with this}}
-        {{#with schema}}
+        {{#with this}}
+            {{#with schema}}
         schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
-        {{else}}
+            {{else}}
         pass
+            {{/with}}
         {{/with}}
-    {{/with}}
-{{/each}}
-{{#if content}}
+    {{/each}}
+    {{#if content}}
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-    {{#each content}}
+        {{#each content}}
             '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
-    {{/each}}
+        {{/each}}
         }
     )
     content: __Content = {
-    {{#each content}}
+        {{#each content}}
         '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
-    {{/each}}
+        {{/each}}
     }
-{{/if}}
-{{#if headers}}
+    {{/if}}
+    {{#if headers}}
     headers=Header.parameters
+    {{/if}}
 {{/if}}
 {{/with}}
