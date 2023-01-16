@@ -34,7 +34,7 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class _200(api_client.OpenApiResponse[ApiResponse]):
-    response_cls = ApiResponse
+    response_cls: typing.Type[ApiResponse] = ApiResponse
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):

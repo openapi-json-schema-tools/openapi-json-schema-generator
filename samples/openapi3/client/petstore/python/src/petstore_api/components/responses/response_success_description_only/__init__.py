@@ -29,4 +29,4 @@ class ApiResponse(api_client.ApiResponse):
 
 
 class SuccessDescriptionOnly(api_client.OpenApiResponse[ApiResponse]):
-    response_cls = ApiResponse
+    response_cls: typing.Type[ApiResponse] = ApiResponse

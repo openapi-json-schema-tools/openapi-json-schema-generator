@@ -57,11 +57,11 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
         '405': response_405._405,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
+_status_code_to_response: __StatusCodeToResponse = {
     '400': response_400._400,
     '404': response_404._404,
     '405': response_405._405,
-})
+}
 
 
 class BaseApi(api_client.Api):

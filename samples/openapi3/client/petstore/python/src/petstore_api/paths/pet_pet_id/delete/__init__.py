@@ -88,9 +88,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
         '400': response_400._400,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
+_status_code_to_response: __StatusCodeToResponse = {
     '400': response_400._400,
-})
+}
 
 
 class BaseApi(api_client.Api):

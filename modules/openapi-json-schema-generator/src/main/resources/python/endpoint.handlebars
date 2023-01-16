@@ -113,11 +113,11 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 {{/each}}
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
+_status_code_to_response: __StatusCodeToResponse = {
 {{#each nonDefaultResponses}}
     '{{@key}}': response_{{@key}}.{{name.getCamelCaseName}},
 {{/each}}
-})
+}
 {{/if}}
 {{/unless}}
 {{#each produces}}

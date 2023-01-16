@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod}}.response_{{../@key}}.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema
+response_body_schema = {{httpMethod}}.response_{{../@key}}.{{responseClassName}}.content["{{{@key.getName}}}"].schema
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}

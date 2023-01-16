@@ -35,11 +35,11 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     {{#if @first}}
     response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
         {{#if refInfo}}
-            {{#with refInfo.getRef}}
-    {{> endpoint_test_response_content }}
+            {{#with getDeepestRef}}
+    {{> endpoint_test_response_content responseClassName=../name.getCamelCaseName }}
             {{/with}}
         {{else}}
-    {{> endpoint_test_response_content }}
+    {{> endpoint_test_response_content responseClassName=name.getCamelCaseName }}
         {{/if}}
     {{/if}}
 {{/each}}
