@@ -15,13 +15,6 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schema_types }}
 {{> model_templates/imports }}
 {{#with operation}}
-{{#each responses}}
-{{#with this}}
-{{#if refInfo.refModule}}
-from {{packageName}}.components.responses import {{refInfo.refModule}} as response_{{@key}}
-{{/if}}
-{{/with}}
-{{/each}}
 {{#each allParams}}
 {{#if refInfo.refModule}}
 from {{packageName}}.components.parameters import {{refInfo.refModule}}
@@ -32,9 +25,7 @@ from {{packageName}}.components.parameters import {{refInfo.refModule}}
 from .. import path
 {{/unless}}
 {{#each responses}}
-{{#unless refInfo.refModule}}
 from .responses import response_{{@key}}
-{{/unless}}
 {{/each}}
 {{#with requestBody}}
 from . import request_body
@@ -110,7 +101,7 @@ _servers = (
 
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-default_response = response_default.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}
+default_response = response_default.{{name.getCamelCaseName}}
 {{/with}}
 {{/if}}
 {{#if nonDefaultResponses}}
@@ -118,13 +109,13 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_{{@key}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+        '{{@key}}': response_{{@key}}.{{name.getCamelCaseName}},
 {{/each}}
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
 {{#each nonDefaultResponses}}
-    '{{@key}}': response_{{@key}}.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}},
+    '{{@key}}': response_{{@key}}.{{name.getCamelCaseName}},
 {{/each}}
 })
 {{/if}}

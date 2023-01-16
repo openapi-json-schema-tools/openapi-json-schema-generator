@@ -23,13 +23,13 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_default
 
 from .. import path
+from .responses import response_default
 
 
 
-default_response = response_default.SuccessDescriptionOnly
+default_response = response_default.Default
 
 
 class BaseApi(api_client.Api):

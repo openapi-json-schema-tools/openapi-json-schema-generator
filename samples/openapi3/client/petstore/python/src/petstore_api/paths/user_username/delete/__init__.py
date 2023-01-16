@@ -23,10 +23,10 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
 from petstore_api.components.parameters import parameter_path_user_name
 
 from .. import path
+from .responses import response_200
 from .responses import response_404
 
 
@@ -57,12 +57,12 @@ class RequestPathParameters:
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.SuccessDescriptionOnly,
+        '200': response_200._200,
         '404': response_404._404,
     }
 )
 _status_code_to_response = __StatusCodeToResponse({
-    '200': response_200.SuccessDescriptionOnly,
+    '200': response_200._200,
     '404': response_404._404,
 })
 
