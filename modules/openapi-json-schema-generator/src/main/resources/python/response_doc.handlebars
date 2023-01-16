@@ -73,7 +73,9 @@ Key | Accessed Type | Description  | Notes
     {{/with}}
 {{/each}}
 {{#each headers}}
+    {{#unless refInfo}}
 {{> header_doc header=this }}
+    {{/unless}}
 {{/each}}
 {{/if}}
 {{#if componentModule}}

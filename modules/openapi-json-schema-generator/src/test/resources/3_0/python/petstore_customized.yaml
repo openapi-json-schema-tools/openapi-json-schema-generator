@@ -452,7 +452,7 @@ paths:
                 type: string
                 format: date-time
             stringHeader:
-              $ref: '#/components/headers/StringHeader'
+              $ref: '#/components/headers/RefStringHeader'
             numberHeader:
               $ref: '#/components/headers/NumberHeader'
             int32:

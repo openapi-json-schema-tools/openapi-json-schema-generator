@@ -1078,6 +1078,7 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("header", header);
                 templateData.put("complexTypePrefix", "../../components/schema/");
+                templateData.put("docRoot", "../../");
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);

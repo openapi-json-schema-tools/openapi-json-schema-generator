@@ -7,5 +7,5 @@
 """
 
 
-from petstore_api.components.headers import header_string_header
-StringHeader = header_string_header.StringHeader
+from petstore_api.components.headers import header_ref_string_header
+StringHeader = header_ref_string_header.RefStringHeader
