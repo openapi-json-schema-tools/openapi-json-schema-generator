@@ -1,4 +1,4 @@
-serialized_data = request_body.{{#if refInfo.refClass}}{{refInfo.refClass}}{{else}}{{name.getCamelCaseName}}{{/if}}.serialize(body, content_type)
+serialized_data = request_body.{{name.getCamelCaseName}}.serialize(body, content_type)
 _headers.add('Content-Type', content_type)
 if 'fields' in serialized_data:
     _fields = serialized_data['fields']

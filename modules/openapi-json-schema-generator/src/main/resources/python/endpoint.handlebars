@@ -15,11 +15,6 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schema_types }}
 {{> model_templates/imports }}
 {{#with operation}}
-{{#with requestBody}}
-{{#if refInfo.refModule}}
-from {{packageName}}.components.request_bodies import {{refInfo.refModule}} as request_body
-{{/if}}
-{{/with}}
 {{#each responses}}
 {{#with this}}
 {{#if refInfo.refModule}}
@@ -42,9 +37,7 @@ from .responses import response_{{@key}}
 {{/unless}}
 {{/each}}
 {{#with requestBody}}
-{{#unless refInfo.refModule}}
 from . import request_body
-{{/unless}}
 {{/with}}
 {{#each allParams}}
 {{#unless refInfo.refModule}}
