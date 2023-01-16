@@ -40,7 +40,7 @@ Key | Accessed Type | Description  | Notes
 {{#each headers}}
     {{#with this}}
         {{#if refInfo}}
-            {{#with refInfo.getRef}}
+            {{#with getDeepestRef}}
                 {{#if schema}}
                     {{#with schema}}
 {{../@key}} | [{{../name.getCamelCaseName}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
