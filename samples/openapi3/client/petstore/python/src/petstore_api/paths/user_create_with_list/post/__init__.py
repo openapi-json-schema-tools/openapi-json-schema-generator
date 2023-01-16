@@ -38,6 +38,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -48,6 +50,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -60,6 +63,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -69,6 +73,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -80,6 +85,8 @@ class BaseApi(api_client.Api):
 
     def _create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
+        content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -135,6 +142,8 @@ class CreateUsersWithListInput(BaseApi):
     @typing.overload
     def create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -145,6 +154,7 @@ class CreateUsersWithListInput(BaseApi):
     @typing.overload
     def create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -157,6 +167,7 @@ class CreateUsersWithListInput(BaseApi):
     @typing.overload
     def create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -166,6 +177,7 @@ class CreateUsersWithListInput(BaseApi):
     @typing.overload
     def create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -177,6 +189,8 @@ class CreateUsersWithListInput(BaseApi):
 
     def create_users_with_list_input(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
+        content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -195,6 +209,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -205,6 +221,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -217,6 +234,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -226,6 +244,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -237,6 +256,8 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
+        body: typing.Union[request_body.UserArray.content["application/json"].schema, list, tuple, ],
+        content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
