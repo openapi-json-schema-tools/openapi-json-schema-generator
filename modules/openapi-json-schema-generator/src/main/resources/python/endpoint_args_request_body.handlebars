@@ -2,9 +2,9 @@
     {{#if requestBody.getDeepestRef.required}}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each getContent}}request_body.{{../../requestBody.refInfo.refClass}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../../requestBody.refInfo.refClass}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -66,9 +66,9 @@
         {{/if}}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}request_body.{{../../requestBody.refInfo.refClass}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../../requestBody.refInfo.refClass}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
