@@ -105,7 +105,7 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         }
         CodegenResponse refObject = refInfo.getRef();
         while (refObject.refInfo != null) {
-            refObject = refInfo.getRef();
+            refObject = refObject.refInfo.getRef();
         }
         return refObject;
     }

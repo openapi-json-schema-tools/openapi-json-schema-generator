@@ -61,7 +61,7 @@ public class CodegenHeader extends CodegenHeaderBase implements OpenApiLocation<
         }
         CodegenHeader refObject = refInfo.getRef();
         while (refObject.refInfo != null) {
-            refObject = refInfo.getRef();
+            refObject = refObject.refInfo.getRef();
         }
         return refObject;
     }

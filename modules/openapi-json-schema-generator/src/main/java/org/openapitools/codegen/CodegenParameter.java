@@ -39,7 +39,7 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
         }
         CodegenParameter refObject = refInfo.getRef();
         while (refObject.refInfo != null) {
-            refObject = refInfo.getRef();
+            refObject = refObject.refInfo.getRef();
         }
         return refObject;
     }
