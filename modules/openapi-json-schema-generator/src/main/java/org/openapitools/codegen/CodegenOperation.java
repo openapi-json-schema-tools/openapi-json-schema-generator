@@ -176,13 +176,8 @@ public class CodegenOperation {
             return null;
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
-        CodegenRefInfo<CodegenRequestBody> refInfo = requestBody.getRefInfo();
-        if (refInfo != null) {
-            while (content == null) {
-                CodegenRequestBody refRequestBody = refInfo.getRef();
-                content = refRequestBody.getContent();
-                refInfo = refRequestBody.getRefInfo();
-            }
+        if (requestBody.getRefInfo() != null) {
+            content = requestBody.getDeepestRef().getContent();
         } else {
             content = requestBody.getContent();
         }

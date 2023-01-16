@@ -99,6 +99,17 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
 
     public CodegenRefInfo<CodegenResponse> getRefInfo() { return refInfo; }
 
+    public CodegenResponse getDeepestRef() {
+        if (refInfo == null) {
+            return null;
+        }
+        CodegenResponse refObject = refInfo.getRef();
+        while (refObject.refInfo != null) {
+            refObject = refInfo.getRef();
+        }
+        return refObject;
+    }
+
     public void setRefInfo(CodegenRefInfo refInfo) { this.refInfo = refInfo; }
 
     public CodegenKey getName() { return name; }

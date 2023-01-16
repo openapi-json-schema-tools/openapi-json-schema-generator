@@ -33,6 +33,17 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
 
     public CodegenRefInfo<CodegenParameter> getRefInfo() { return refInfo; }
 
+    public CodegenParameter getDeepestRef() {
+        if (refInfo == null) {
+            return null;
+        }
+        CodegenParameter refObject = refInfo.getRef();
+        while (refObject.refInfo != null) {
+            refObject = refInfo.getRef();
+        }
+        return refObject;
+    }
+
     public void setRefInfo(CodegenRefInfo<CodegenParameter> refInfo) { this.refInfo = refInfo; }
 
     @Override

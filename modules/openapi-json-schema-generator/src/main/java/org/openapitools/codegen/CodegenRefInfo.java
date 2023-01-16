@@ -46,6 +46,7 @@ public class CodegenRefInfo<T> {
     }
 
     public T getRef() { return ref; }
+
     public String getRefClass() { return refClass; }
     public String getRefModule() { return refModule; }
 }
