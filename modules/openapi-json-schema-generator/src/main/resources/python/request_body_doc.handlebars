@@ -2,6 +2,12 @@
 {{#if componentModule}}
 # {{packageName}}.components.request_bodies.{{componentModule}}
 {{/if}}
+{{#if refInfo}}
+## Reference
+Type | Description  |
+------------- | ------------- |
+[**{{refInfo.refClass}}**]({{docRoot}}components/request_bodies/{{refInfo.refModule}}.{{refInfo.refClass}}.md) | {{#if description}}{{description}}{{/if}} |
+{{else}}
     {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
@@ -14,5 +20,6 @@
 {{#if componentModule}}
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" requestBodiesLink=true}}
+{{/if}}
 {{/if}}
 {{/with}}

@@ -826,6 +826,7 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", config.packageName());
         templateData.put("requestBody", requestBody);
+        templateData.put("docRoot", "../../");
         Boolean generateRequestBodies = Boolean.TRUE;
         Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY);
         if (templateInfo != null && !templateInfo.isEmpty()) {
