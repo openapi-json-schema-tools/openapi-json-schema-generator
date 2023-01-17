@@ -7,5 +7,5 @@
 """
 
 
-from petstore_api.components.responses import response_success_description_only
-Default = response_success_description_only.SuccessDescriptionOnly
+from petstore_api.components.responses import response_ref_success_description_only
+Default = response_ref_success_description_only.RefSuccessDescriptionOnly

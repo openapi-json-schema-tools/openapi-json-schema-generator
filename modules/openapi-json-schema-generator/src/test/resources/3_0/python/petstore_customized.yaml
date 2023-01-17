@@ -479,7 +479,7 @@ paths:
       operationId: logoutUser
       responses:
         default:
-          $ref: '#/components/responses/SuccessDescriptionOnly'
+          $ref: '#/components/responses/RefSuccessDescriptionOnly'
   '/user/{username}':
     get:
       tags:
@@ -1660,6 +1660,8 @@ components:
   responses:
     SuccessDescriptionOnly:
       description: Success
+    RefSuccessDescriptionOnly:
+      $ref: '#/components/responses/SuccessDescriptionOnly'
     SuccessWithJsonApiResponse:
       description: successful operation
       headers:

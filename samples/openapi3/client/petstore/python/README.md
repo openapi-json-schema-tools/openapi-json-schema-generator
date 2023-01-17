@@ -367,6 +367,7 @@ HTTP request | Method | Description
 
 ## Component Responses
 
+- [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md)
 - [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md)
 - [SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md)
 - [SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md)
