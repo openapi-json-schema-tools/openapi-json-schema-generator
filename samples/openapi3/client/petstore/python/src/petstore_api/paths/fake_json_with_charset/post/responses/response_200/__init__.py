@@ -23,7 +23,7 @@ from .content.application_json_charsetutf8 import schema as application_json_cha
 
 
 @dataclasses.dataclass
-class ApiResponse(api_client.ApiResponse):
+class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         application_json_charsetutf8_schema.Schema,
@@ -31,8 +31,8 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class _200(api_client.OpenApiResponse[ApiResponse]):
-    response_cls: typing.Type[ApiResponse] = ApiResponse
+class _200(api_client.OpenApiResponse[_ApiResponse]):
+    response_cls = _ApiResponse
 
 
     class __ApplicationJsonCharsetutf8MediaType(api_client.MediaType):

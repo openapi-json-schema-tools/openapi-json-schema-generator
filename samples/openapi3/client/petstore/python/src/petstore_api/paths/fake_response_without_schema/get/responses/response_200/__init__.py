@@ -22,7 +22,7 @@ from petstore_api import schemas
 
 
 @dataclasses.dataclass
-class ApiResponse(api_client.ApiResponse):
+class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         schemas.Unset,
@@ -31,8 +31,8 @@ class ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class _200(api_client.OpenApiResponse[ApiResponse]):
-    response_cls: typing.Type[ApiResponse] = ApiResponse
+class _200(api_client.OpenApiResponse[_ApiResponse]):
+    response_cls = _ApiResponse
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):

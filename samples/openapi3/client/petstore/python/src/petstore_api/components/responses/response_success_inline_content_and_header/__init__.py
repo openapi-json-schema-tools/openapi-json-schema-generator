@@ -47,7 +47,7 @@ class Header:
     ]
 
 @dataclasses.dataclass
-class ApiResponse(api_client.ApiResponse):
+class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         application_json_schema.Schema,
@@ -55,8 +55,8 @@ class ApiResponse(api_client.ApiResponse):
     headers: Header.Params
 
 
-class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiResponse]):
-    response_cls: typing.Type[ApiResponse] = ApiResponse
+class SuccessInlineContentAndHeader(api_client.OpenApiResponse[_ApiResponse]):
+    response_cls = _ApiResponse
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
