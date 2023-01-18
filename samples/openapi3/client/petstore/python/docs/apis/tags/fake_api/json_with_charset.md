@@ -44,6 +44,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
+## RequestBody
 # <a id="request_body_request_bodycontentapplication_json_charsetutf8schema" >RequestBody.content.application_json_charsetutf8.schema</a>
 
 ## Schema Type Info

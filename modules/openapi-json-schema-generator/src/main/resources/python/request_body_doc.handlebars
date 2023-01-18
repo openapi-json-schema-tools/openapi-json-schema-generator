@@ -2,8 +2,8 @@
 {{#if componentModule}}
 # {{packageName}}.components.request_bodies.{{componentModule}}
 {{/if}}
+## {{name.getCamelCaseName}}
 {{#if refInfo}}
-## Reference
 Type | Description  |
 ------------- | ------------- |
 [**{{refInfo.refClass}}**]({{docRoot}}components/request_bodies/{{refInfo.refModule}}.md) | {{#if description}}{{description}}{{/if}} |
@@ -17,9 +17,9 @@ Type | Description  |
     {{/if}}
     {{/with}}
     {{/each}}
+{{/if}}
 {{#if componentModule}}
 
 [[Back to top]](#top) {{> footer_links readmePath="../../../" requestBodiesLink=true}}
-{{/if}}
 {{/if}}
 {{/with}}
