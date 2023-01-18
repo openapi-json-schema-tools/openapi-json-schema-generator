@@ -50,7 +50,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_ref_path_user_name.schema](../../../components/parameters/parameter_ref_path_user_name.md) | | 
+username | [RefPathUserName.schema](../../../components/parameters/parameter_ref_path_user_name.md) | | 
 
 ### Return Types, Responses
 

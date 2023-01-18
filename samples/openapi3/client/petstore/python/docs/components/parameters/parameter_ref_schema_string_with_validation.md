@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.parameters.parameter_ref_schema_string_with_validation
-# schema
+# <a id="parameter_ref_schema_string_with_validationschema" >RefSchemaStringWithValidation.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 

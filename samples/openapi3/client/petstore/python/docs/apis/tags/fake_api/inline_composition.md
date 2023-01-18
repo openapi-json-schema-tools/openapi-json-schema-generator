@@ -110,8 +110,8 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [parameter_0.schema](#parameter_0schema) | | optional
-compositionInProperty | [parameter_1.schema](#parameter_1schema) | | optional
+compositionAtRoot | [_0.schema](#parameter_0schema) | | optional
+compositionInProperty | [_1.schema](#parameter_1schema) | | optional
 
 
 # <a id="parameter_0schema" >_0.schema</a>

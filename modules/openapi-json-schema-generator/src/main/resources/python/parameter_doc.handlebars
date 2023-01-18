@@ -5,13 +5,13 @@
 {{#if parameter.refInfo}}
     {{#if parameter.getDeepestRef.schema}}
         {{#with parameter.getDeepestRef.schema}}
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../parameter.name }}
         {{/with}}
     {{else}}
         {{#each parameter.getDeepestRef.getContent}}
             {{#with this}}
                 {{#with schema}}
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../parameter.name }}
                 {{/with}}
             {{/with}}
         {{/each}}
@@ -19,13 +19,13 @@
 {{else}}
     {{#if parameter.schema}}
         {{#with parameter.schema}}
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../parameter.name }}
         {{/with}}
     {{else}}
         {{#each parameter.getContent}}
             {{#with this}}
                 {{#with schema}}
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name }}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../parameter.name }}
                 {{/with}}
             {{/with}}
         {{/each}}

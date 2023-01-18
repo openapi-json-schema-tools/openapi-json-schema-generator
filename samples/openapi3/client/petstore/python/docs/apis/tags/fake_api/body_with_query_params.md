@@ -72,7 +72,7 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [parameter_0.schema](#parameter_0schema) | | 
+query | [_0.schema](#parameter_0schema) | | 
 
 
 # <a id="parameter_0schema" >_0.schema</a>

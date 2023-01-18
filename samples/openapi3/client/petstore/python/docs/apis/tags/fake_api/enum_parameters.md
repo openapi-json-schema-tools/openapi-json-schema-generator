@@ -103,10 +103,10 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [parameter_2.schema](#parameter_2schema) | | optional
-enum_query_string | [parameter_3.schema](#parameter_3schema) | | optional
-enum_query_integer | [parameter_4.schema](#parameter_4schema) | | optional
-enum_query_double | [parameter_5.schema](#parameter_5schema) | | optional
+enum_query_string_array | [_2.schema](#parameter_2schema) | | optional
+enum_query_string | [_3.schema](#parameter_3schema) | | optional
+enum_query_integer | [_4.schema](#parameter_4schema) | | optional
+enum_query_double | [_5.schema](#parameter_5schema) | | optional
 
 
 # <a id="parameter_2schema" >_2.schema</a>
@@ -147,8 +147,8 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [parameter_0.schema](#parameter_0schema) | | optional
-enum_header_string | [parameter_1.schema](#parameter_1schema) | | optional
+enum_header_string_array | [_0.schema](#parameter_0schema) | | optional
+enum_header_string | [_1.schema](#parameter_1schema) | | optional
 
 # <a id="parameter_0schema" >_0.schema</a>
 

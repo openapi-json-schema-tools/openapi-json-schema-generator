@@ -118,11 +118,11 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_0.schema](#parameter_0schema) | | optional
-aB | [parameter_1.schema](#parameter_1schema) | | optional
-Ab | [parameter_2.schema](#parameter_2schema) | | optional
-self | [parameter_3.schema](#parameter_3schema) | | optional
-A-B | [parameter_4.schema](#parameter_4schema) | | optional
+1 | [_0.schema](#parameter_0schema) | | optional
+aB | [_1.schema](#parameter_1schema) | | optional
+Ab | [_2.schema](#parameter_2schema) | | optional
+self | [_3.schema](#parameter_3schema) | | optional
+A-B | [_4.schema](#parameter_4schema) | | optional
 
 
 # <a id="parameter_0schema" >_0.schema</a>
@@ -165,10 +165,10 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_5.schema](#parameter_5schema) | | optional
-aB | [parameter_6.schema](#parameter_6schema) | | optional
-self | [parameter_7.schema](#parameter_7schema) | | optional
-A-B | [parameter_8.schema](#parameter_8schema) | | optional
+1 | [_5.schema](#parameter_5schema) | | optional
+aB | [_6.schema](#parameter_6schema) | | optional
+self | [_7.schema](#parameter_7schema) | | optional
+A-B | [_8.schema](#parameter_8schema) | | optional
 
 # <a id="parameter_5schema" >_5.schema</a>
 
@@ -203,11 +203,11 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [parameter_9.schema](#parameter_9schema) | | 
-aB | [parameter_10.schema](#parameter_10schema) | | 
-Ab | [parameter_11.schema](#parameter_11schema) | | 
-self | [parameter_12.schema](#parameter_12schema) | | 
-A-B | [parameter_13.schema](#parameter_13schema) | | 
+1 | [_9.schema](#parameter_9schema) | | 
+aB | [_10.schema](#parameter_10schema) | | 
+Ab | [_11.schema](#parameter_11schema) | | 
+self | [_12.schema](#parameter_12schema) | | 
+A-B | [_13.schema](#parameter_13schema) | | 
 
 # <a id="parameter_9schema" >_9.schema</a>
 

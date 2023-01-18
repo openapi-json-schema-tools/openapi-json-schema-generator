@@ -96,7 +96,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [parameter_0.schema](#parameter_0schema) | | 
+petId | [_0.schema](#parameter_0schema) | | 
 
 # <a id="parameter_0schema" >_0.schema</a>
 

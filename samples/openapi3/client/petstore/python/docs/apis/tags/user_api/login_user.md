@@ -50,8 +50,8 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_0.schema](#parameter_0schema) | | 
-password | [parameter_1.schema](#parameter_1schema) | | 
+username | [_0.schema](#parameter_0schema) | | 
+password | [_1.schema](#parameter_1schema) | | 
 
 
 # <a id="parameter_0schema" >_0.schema</a>

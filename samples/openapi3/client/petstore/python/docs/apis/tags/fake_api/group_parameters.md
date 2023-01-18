@@ -87,10 +87,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [parameter_0.schema](#parameter_0schema) | | 
-required_int64_group | [parameter_2.schema](#parameter_2schema) | | 
-string_group | [parameter_3.schema](#parameter_3schema) | | optional
-int64_group | [parameter_5.schema](#parameter_5schema) | | optional
+required_string_group | [_0.schema](#parameter_0schema) | | 
+required_int64_group | [_2.schema](#parameter_2schema) | | 
+string_group | [_3.schema](#parameter_3schema) | | optional
+int64_group | [_5.schema](#parameter_5schema) | | optional
 
 
 # <a id="parameter_0schema" >_0.schema</a>
@@ -126,8 +126,8 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [parameter_1.schema](#parameter_1schema) | | 
-boolean_group | [parameter_4.schema](#parameter_4schema) | | optional
+required_boolean_group | [_1.schema](#parameter_1schema) | | 
+boolean_group | [_4.schema](#parameter_4schema) | | optional
 
 # <a id="parameter_1schema" >_1.schema</a>
 

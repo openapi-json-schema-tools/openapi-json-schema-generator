@@ -50,7 +50,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [parameter_0.schema](#parameter_0schema) | | optional
+mapBean | [_0.schema](#parameter_0schema) | | optional
 
 
 # <a id="parameter_0schema" >_0.schema</a>

@@ -50,9 +50,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someVar | [parameter_0.schema](#parameter_0schema) | | 
-SomeVar | [parameter_1.schema](#parameter_1schema) | | 
-some_var | [parameter_2.schema](#parameter_2schema) | | 
+someVar | [_0.schema](#parameter_0schema) | | 
+SomeVar | [_1.schema](#parameter_1schema) | | 
+some_var | [_2.schema](#parameter_2schema) | | 
 
 
 # <a id="parameter_0schema" >_0.schema</a>

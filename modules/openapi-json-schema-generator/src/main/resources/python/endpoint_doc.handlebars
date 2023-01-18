@@ -96,9 +96,9 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
 
@@ -118,9 +118,9 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each headerParams as | parameter |}}
@@ -139,9 +139,9 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
         {{/if}}
         {{/each}}
         {{#each pathParams as | parameter |}}
