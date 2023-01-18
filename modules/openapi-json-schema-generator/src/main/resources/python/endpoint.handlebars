@@ -15,11 +15,6 @@ from {{packageName}} import api_client, exceptions
 {{> model_templates/imports_schema_types }}
 {{> model_templates/imports }}
 {{#with operation}}
-{{#each allParams}}
-{{#if refInfo.refModule}}
-from {{packageName}}.components.parameters import {{refInfo.refModule}}
-{{/if}}
-{{/each}}
 
 {{#unless isStub}}
 from .. import path
@@ -31,9 +26,7 @@ from .responses import response_{{@key}}
 from . import request_body
 {{/with}}
 {{#each allParams}}
-{{#unless refInfo.refModule}}
 from .parameters import {{name.getSnakeCaseName}}
-{{/unless}}
 {{/each}}
 
 {{#or queryParams headerParams pathParams cookieParams}}

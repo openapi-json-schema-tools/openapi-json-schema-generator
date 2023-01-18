@@ -23,11 +23,11 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.parameters import parameter_ref_path_user_name
 
 from .. import path
 from .responses import response_200
 from .responses import response_404
+from .parameters import parameter_0
 
 
 
