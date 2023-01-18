@@ -25,6 +25,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
+        'username': "username_example",
     }
     try:
         # Delete user
@@ -49,7 +50,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- | [parameter_ref_path_user_name.schema](../../../components/parameters/parameter_ref_path_user_name.md) | | optional
+username | [parameter_ref_path_user_name.schema](../../../components/parameters/parameter_ref_path_user_name.md) | | 
 
 ### Return Types, Responses
 

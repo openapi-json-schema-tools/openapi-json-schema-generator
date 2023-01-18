@@ -33,8 +33,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     path_params = {
     {{#each pathParams}}
         {{#if refInfo}}
-            {{#if refInfo.getRef.required}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+            {{#if getDeepestRef.required}}
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -48,8 +48,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     query_params = {
     {{#each queryParams}}
         {{#if refInfo}}
-            {{#if refInfo.getRef.required}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+            {{#if getDeepestRef.required}}
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -63,8 +63,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     cookie_params = {
     {{#each cookieParams}}
         {{#if refInfo}}
-            {{#if refInfo.getRef.required}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+            {{#if getDeepestRef.required}}
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -78,8 +78,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     header_params = {
     {{#each headerParams}}
         {{#if refInfo}}
-            {{#if refInfo.getRef.required}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+            {{#if getDeepestRef.required}}
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
             {{/if}}
         {{else}}
             {{#if required}}
@@ -91,8 +91,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{/if}}
 {{#with requestBody}}
     {{#if refInfo}}
-        {{#if refInfo.getRef.required}}
-    body = {{{refInfo.getRef.example}}}
+        {{#if getDeepestRef.required}}
+    body = {{{getDeepestRef.example}}}
         {{/if}}
     {{else}}
         {{#if required}}
@@ -119,7 +119,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
             {{/if}}
             {{#with requestBody}}
                 {{#if refInfo}}
-                    {{#if refInfo.getRef.required}}
+                    {{#if getDeepestRef.required}}
             body=body,
                     {{/if}}
                 {{else}}
@@ -148,7 +148,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     path_params = {
     {{#each pathParams}}
         {{#if refInfo}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -159,7 +159,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     query_params = {
     {{#each queryParams}}
         {{#if refInfo}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -170,7 +170,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     cookie_params = {
     {{#each cookieParams}}
         {{#if refInfo}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -181,7 +181,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     header_params = {
     {{#each headerParams}}
         {{#if refInfo}}
-        '{{refInfo.getRef.baseName}}': {{{refInfo.getRef.example}}},
+        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
         {{else}}
         '{{baseName}}': {{{example}}},
         {{/if}}
@@ -190,7 +190,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{/if}}
 {{#with requestBody}}
     {{#if refInfo}}
-    body = {{{refInfo.getRef.example}}}
+    body = {{{getDeepestRef.example}}}
     {{else}}
     body = {{{example}}}
     {{/if}}

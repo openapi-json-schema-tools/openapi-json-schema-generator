@@ -3,12 +3,12 @@
 ## {{packageName}}.components.parameters.{{parameter.componentModule}}
 {{/if}}
 {{#if parameter.refInfo}}
-    {{#if parameter.refInfo.getRef.schema}}
-        {{#with parameter.refInfo.getRef.schema}}
+    {{#if parameter.getDeepestRef.schema}}
+        {{#with parameter.getDeepestRef.schema}}
 {{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
         {{/with}}
     {{else}}
-        {{#each parameter.refInfo.getRef.getContent}}
+        {{#each parameter.getDeepestRef.getContent}}
             {{#with this}}
                 {{#with schema}}
 {{> api_doc_schema_type_hint schemaNamePrefix1=../name.getSnakeCaseName }}
