@@ -93,28 +93,28 @@ string_group | [parameter_3.schema](#parameter_3schema) | | optional
 int64_group | [parameter_5.schema](#parameter_5schema) | | optional
 
 
-# parameter_0.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# parameter_2.schema
+# <a id="parameter_2schema" >_2.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# parameter_3.schema
+# <a id="parameter_3schema" >_3.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# parameter_5.schema
+# <a id="parameter_5schema" >_5.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -129,14 +129,14 @@ Key | Input Type | Description  | Notes
 required_boolean_group | [parameter_1.schema](#parameter_1schema) | | 
 boolean_group | [parameter_4.schema](#parameter_4schema) | | optional
 
-# parameter_1.schema
+# <a id="parameter_1schema" >_1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ]
 
-# parameter_4.schema
+# <a id="parameter_4schema" >_4.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

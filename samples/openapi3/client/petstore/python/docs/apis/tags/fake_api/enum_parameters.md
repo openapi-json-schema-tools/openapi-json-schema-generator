@@ -109,7 +109,7 @@ enum_query_integer | [parameter_4.schema](#parameter_4schema) | | optional
 enum_query_double | [parameter_5.schema](#parameter_5schema) | | optional
 
 
-# parameter_2.schema
+# <a id="parameter_2schema" >_2.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -121,21 +121,21 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# parameter_3.schema
+# <a id="parameter_3schema" >_3.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
-# parameter_4.schema
+# <a id="parameter_4schema" >_4.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-# parameter_5.schema
+# <a id="parameter_5schema" >_5.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -150,7 +150,7 @@ Key | Input Type | Description  | Notes
 enum_header_string_array | [parameter_0.schema](#parameter_0schema) | | optional
 enum_header_string | [parameter_1.schema](#parameter_1schema) | | optional
 
-# parameter_0.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -162,7 +162,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# parameter_1.schema
+# <a id="parameter_1schema" >_1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
