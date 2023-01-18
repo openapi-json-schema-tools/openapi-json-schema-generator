@@ -102,7 +102,7 @@ Key | Input Type | Description  | Notes
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -130,7 +130,7 @@ Key | Input Type | Description  | Notes
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -157,7 +157,7 @@ Key | Input Type | Description  | Notes
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -184,7 +184,7 @@ Key | Input Type | Description  | Notes
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{{@key.getName}}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
