@@ -49,7 +49,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someParam | [_0.schema](#parameter_0schema) | | 
+someParam | [_0.content["application/json"].schema](#parameter_0contentapplication_jsonschema) | | 
 
 
 # <a id="parameter_0contentapplication_jsonschema" >_0.content.application_json.schema</a>

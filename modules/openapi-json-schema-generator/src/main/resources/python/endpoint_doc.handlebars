@@ -96,9 +96,15 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
+            {{#if schema}}
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+            {{else}}
+                {{#each content}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+                {{/each}}
+            {{/if}}
         {{/if}}
         {{/each}}
 
@@ -118,9 +124,15 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
+            {{#if schema}}
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+            {{else}}
+                {{#each content}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+                {{/each}}
+            {{/if}}
         {{/if}}
         {{/each}}
         {{#each headerParams as | parameter |}}
@@ -139,9 +151,15 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
+            {{#if schema}}
 {{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+            {{else}}
+                {{#each content}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+                {{/each}}
+            {{/if}}
         {{/if}}
         {{/each}}
         {{#each pathParams as | parameter |}}
@@ -160,9 +178,15 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refModule}}.schema](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
-{{baseName}} | [{{name.getSnakeCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+            {{#if schema}}
+{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+            {{else}}
+                {{#each content}}
+{{../baseName}} | [{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+                {{/each}}
+            {{/if}}
         {{/if}}
         {{/each}}
         {{#each cookieParams as | parameter |}}
