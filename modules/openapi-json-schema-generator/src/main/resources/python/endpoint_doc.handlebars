@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
     {{#if refInfo}}
-[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refModule}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{/with}}{{#unless refInfo.getRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
+[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{name.getSnakeCaseName}}){{/with}}{{/each}}{{/with}}{{#unless refInfo.getRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
 [body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_bodycontent{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
@@ -81,7 +81,7 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
     {{#if requestBody}}
-    {{#unless requestBody.refInfo.refModule}}
+    {{#unless requestBody.refInfo}}
 
 ### <a id="request_body" >body</a>
 {{> request_body_doc requestBody=requestBody }}
@@ -103,7 +103,7 @@ Key | Input Type | Description  | Notes
         {{/each}}
 
         {{#each queryParams as | parameter |}}
-        {{#unless parameter.refInfo.refModule}}
+        {{#unless parameter.refInfo}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -124,7 +124,7 @@ Key | Input Type | Description  | Notes
         {{/if}}
         {{/each}}
         {{#each headerParams as | parameter |}}
-        {{#unless parameter.refInfo.refModule}}
+        {{#unless parameter.refInfo}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -145,7 +145,7 @@ Key | Input Type | Description  | Notes
         {{/if}}
         {{/each}}
         {{#each pathParams as | parameter |}}
-        {{#unless parameter.refInfo.refModule}}
+        {{#unless parameter.refInfo}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
@@ -166,7 +166,7 @@ Key | Input Type | Description  | Notes
         {{/if}}
         {{/each}}
         {{#each cookieParams as | parameter |}}
-        {{#unless parameter.refInfo.refModule}}
+        {{#unless parameter.refInfo}}
 
 {{> parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
