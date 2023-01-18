@@ -1401,12 +1401,14 @@ src/petstore_api/paths/user_username/__init__.py
 src/petstore_api/paths/user_username/delete/__init__.py
 src/petstore_api/paths/user_username/delete/__init__.pyi
 src/petstore_api/paths/user_username/delete/parameters/__init__.py
+src/petstore_api/paths/user_username/delete/parameters/parameter_0/__init__.py
 src/petstore_api/paths/user_username/delete/responses/__init__.py
 src/petstore_api/paths/user_username/delete/responses/response_200/__init__.py
 src/petstore_api/paths/user_username/delete/responses/response_404/__init__.py
 src/petstore_api/paths/user_username/get/__init__.py
 src/petstore_api/paths/user_username/get/__init__.pyi
 src/petstore_api/paths/user_username/get/parameters/__init__.py
+src/petstore_api/paths/user_username/get/parameters/parameter_0/__init__.py
 src/petstore_api/paths/user_username/get/responses/__init__.py
 src/petstore_api/paths/user_username/get/responses/response_200/__init__.py
 src/petstore_api/paths/user_username/get/responses/response_200/content/__init__.py
@@ -1421,6 +1423,7 @@ src/petstore_api/paths/user_username/get/responses/response_404/__init__.py
 src/petstore_api/paths/user_username/put/__init__.py
 src/petstore_api/paths/user_username/put/__init__.pyi
 src/petstore_api/paths/user_username/put/parameters/__init__.py
+src/petstore_api/paths/user_username/put/parameters/parameter_0/__init__.py
 src/petstore_api/paths/user_username/put/request_body/__init__.py
 src/petstore_api/paths/user_username/put/request_body/content/__init__.py
 src/petstore_api/paths/user_username/put/request_body/content/application_json/__init__.py

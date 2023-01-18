@@ -538,10 +538,6 @@ public class DefaultGenerator implements Generator {
                         generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS);
                         Integer i = 0;
                         for (CodegenParameter cp: co.allParams) {
-                            if (cp.getRefInfo() != null) {
-                                // skip generation of parameter if it refs another location
-                                continue;
-                            }
                             String parameterJsonPath = parametersJsonPath + "/" + i.toString();
                             generateParameter(files, cp, parameterJsonPath);
                             i++;
