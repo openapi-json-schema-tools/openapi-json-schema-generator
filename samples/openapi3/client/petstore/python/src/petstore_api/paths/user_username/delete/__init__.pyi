@@ -23,41 +23,17 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.parameters import parameter_path_user_name
+from petstore_api.components.parameters import parameter_ref_path_user_name
 
 from .responses import response_200
 from .responses import response_404
 
 
 
-class RequestPathParameters:
-    RequiredParams = typing_extensions.TypedDict(
-        'RequiredParams',
-        {
-            'username': typing.Union[parameter_path_user_name.PathUserName.schema, str, ],
-        }
-    )
-    OptionalParams = typing_extensions.TypedDict(
-        'OptionalParams',
-        {
-        },
-        total=False
-    )
-
-
-    class Params(RequiredParams, OptionalParams):
-        pass
-
-
-    parameters = [
-        parameter_path_user_name.PathUserName,
-    ]
-
 class BaseApi(api_client.Api):
     @typing.overload
     def _delete_user(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -69,7 +45,6 @@ class BaseApi(api_client.Api):
     def _delete_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -77,7 +52,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _delete_user(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -88,7 +62,6 @@ class BaseApi(api_client.Api):
 
     def _delete_user(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -99,19 +72,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
         used_path = path
-
-        _path_params = {}
-        for parameter in RequestPathParameters.parameters:
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _path_params.update(serialized_data)
-
-        for k, v in _path_params.items():
-            used_path = used_path.replace('{%s}' % k, v)
         # TODO add cookie handling
 
         response = self.api_client.call_api(
@@ -150,7 +111,6 @@ class DeleteUser(BaseApi):
     @typing.overload
     def delete_user(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -162,7 +122,6 @@ class DeleteUser(BaseApi):
     def delete_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -170,7 +129,6 @@ class DeleteUser(BaseApi):
     @typing.overload
     def delete_user(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -181,13 +139,11 @@ class DeleteUser(BaseApi):
 
     def delete_user(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._delete_user(
-            path_params=path_params,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -200,7 +156,6 @@ class ApiFordelete(BaseApi):
     @typing.overload
     def delete(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -212,7 +167,6 @@ class ApiFordelete(BaseApi):
     def delete(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -220,7 +174,6 @@ class ApiFordelete(BaseApi):
     @typing.overload
     def delete(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -231,13 +184,11 @@ class ApiFordelete(BaseApi):
 
     def delete(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._delete_user(
-            path_params=path_params,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

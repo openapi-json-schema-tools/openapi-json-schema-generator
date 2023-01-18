@@ -385,6 +385,7 @@ HTTP request | Method | Description
 
 - [ComponentRefSchemaStringWithValidation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
 - [PathUserName](docs/components/parameters/parameter_path_user_name.md)
+- [RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md)
 - [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
 
 ## Documentation For Authorization

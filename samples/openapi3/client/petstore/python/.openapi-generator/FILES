@@ -74,6 +74,7 @@ docs/components/headers/header_ref_string_header.md
 docs/components/headers/header_string_header.md
 docs/components/parameters/parameter_component_ref_schema_string_with_validation.md
 docs/components/parameters/parameter_path_user_name.md
+docs/components/parameters/parameter_ref_path_user_name.md
 docs/components/parameters/parameter_ref_schema_string_with_validation.md
 docs/components/request_bodies/request_body_client.md
 docs/components/request_bodies/request_body_pet.md
@@ -307,6 +308,7 @@ src/petstore_api/components/parameters/parameter_component_ref_schema_string_wit
 src/petstore_api/components/parameters/parameter_path_user_name/__init__.py
 src/petstore_api/components/parameters/parameter_path_user_name/schema.py
 src/petstore_api/components/parameters/parameter_path_user_name/schema.pyi
+src/petstore_api/components/parameters/parameter_ref_path_user_name/__init__.py
 src/petstore_api/components/parameters/parameter_ref_schema_string_with_validation/__init__.py
 src/petstore_api/components/parameters/parameter_ref_schema_string_with_validation/schema.py
 src/petstore_api/components/parameters/parameter_ref_schema_string_with_validation/schema.pyi
