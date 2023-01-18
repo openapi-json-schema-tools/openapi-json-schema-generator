@@ -50,7 +50,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_inline_content_and_header.ApiResponse](../../../components/responses/response_success_inline_content_and_header.md) | successful operation
+200 | [SuccessInlineContentAndHeader.response_cls](../../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
 
 ### Authorization
 

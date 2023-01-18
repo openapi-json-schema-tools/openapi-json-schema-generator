@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.responses.response_success_with_json_api_response
-# <a id="ApiResponse" >ApiResponse</a>
+# <a id="response_success_with_json_api_responseresponse_cls" >SuccessWithJsonApiResponse.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

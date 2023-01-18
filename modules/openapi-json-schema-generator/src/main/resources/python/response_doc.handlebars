@@ -2,9 +2,9 @@
 {{#if componentModule}}
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
-# <a id="ApiResponse" >ApiResponse</a>
+# <a id="{{name.getSnakeCaseName}}response_cls" >{{name.getCamelCaseName}}.response_cls</a>
 {{else}}
-#### <a id="{{name.getSnakeCaseName}}ApiResponse" >{{name.getSnakeCaseName}}.ApiResponse</a>
+#### <a id="{{name.getSnakeCaseName}}response_cls" >{{name.getCamelCaseName}}.response_cls</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

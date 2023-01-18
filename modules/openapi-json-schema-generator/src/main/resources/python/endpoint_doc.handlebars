@@ -184,17 +184,17 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 {{#if defaultResponse}}
 {{#with defaultResponse}}
 {{#if refInfo.refModule}}
-default | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md#ApiResponse) | {{#with refInfo.getRef}}{{message}}{{/with}}
+default | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
-default | [{{name.getSnakeCaseName}}.ApiResponse](#{{name.getSnakeCaseName}}ApiResponse) | {{message}}
+default | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}response_cls) | {{message}}
 {{/if}}
 {{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
 {{#if refInfo.refModule}}
-{{@key}} | [{{refInfo.refModule}}.ApiResponse](../../../components/responses/{{refInfo.refModule}}.md) | {{#with refInfo.getRef}}{{message}}{{/with}}
+{{@key}} | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with refInfo.getRef}}{{message}}{{/with}}
 {{else}}
-{{@key}} | [{{name.getSnakeCaseName}}.ApiResponse](#{{name.getSnakeCaseName}}ApiResponse) | {{message}}
+{{@key}} | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}response_cls) | {{message}}
 {{/if}}
 {{/each}}
 {{#each responses}}

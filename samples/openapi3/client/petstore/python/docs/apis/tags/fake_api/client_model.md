@@ -52,9 +52,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_200.ApiResponse](#response_200ApiResponse) | successful operation
+200 | [_200.response_cls](#response_200response_cls) | successful operation
 
-#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
+#### <a id="response_200response_cls" >_200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

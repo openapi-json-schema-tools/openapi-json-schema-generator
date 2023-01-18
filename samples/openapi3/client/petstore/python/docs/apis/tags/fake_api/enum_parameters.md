@@ -173,10 +173,10 @@ str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the ser
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
-404 | [response_404.ApiResponse](#response_404ApiResponse) | Not found
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+404 | [_404.response_cls](#response_404response_cls) | Not found
 
-#### <a id="response_404ApiResponse" >response_404.ApiResponse</a>
+#### <a id="response_404response_cls" >_404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
