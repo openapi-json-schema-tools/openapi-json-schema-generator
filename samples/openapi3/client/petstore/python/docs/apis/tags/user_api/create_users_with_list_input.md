@@ -21,12 +21,10 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
-    # example passing only optional values
-    body = 
+    # example passing only required values which don't have defaults set
     try:
         # Creates list of users with given input array
         api_response = api_instance.create_users_with_list_input(
-            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

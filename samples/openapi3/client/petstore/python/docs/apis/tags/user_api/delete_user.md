@@ -23,17 +23,33 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
-    # example passing only optional values
+    # example passing only required values which don't have defaults set
+    path_params = {
+    }
     try:
         # Delete user
         api_response = api_instance.delete_user(
+            path_params=path_params,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->delete_user: %s\n" % e)
 ```
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### <a id="requestpathparameters" >path_params</a>
+#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ | [parameter_ref_path_user_name.schema](../../../components/parameters/parameter_ref_path_user_name.md) | | optional
 
 ### Return Types, Responses
 
