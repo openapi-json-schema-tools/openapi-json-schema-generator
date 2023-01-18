@@ -10,15 +10,15 @@ class {{xParamsName}}:
         {{#if getDeepestRef.schema}}
             '{{refInfo.getRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with getDeepestRef.schema}}{{> model_templates/schema_python_types }}{{/with}}],
         {{else}}
-            '{{refInfo.getRef.baseName}}': {{#each getDeepestRef.getContent}}{{#with this}}{{#with schema}}typing.Union[{{../../../name.getSnakeCaseName}}.{{../../../name.getCamelCaseName}}.content["{{{../@key.getName}}}"].schema, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{refInfo.getRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getDeepestRef.getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> model_templates/schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/if}}
 {{else}}
     {{#if required}}
         {{#if schema}}
-            '{{baseName}}': {{#with schema}}typing.Union[{{../name.getSnakeCaseName}}.{{../name.getCamelCaseName}}.schema, {{> model_templates/schema_python_types }}],{{/with}}
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with schema}}{{> model_templates/schema_python_types }}{{/with}}],
         {{else}}
-            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{../name.getSnakeCaseName}}.{{../name.getCamelCaseName}}.content["{{{../@key.getName}}}"].schema, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> model_templates/schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/if}}
 {{/if}}
@@ -34,7 +34,7 @@ class {{xParamsName}}:
         {{#if getDeepestRef.schema}}
             '{{refInfo.getRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with getDeepestRef.schema}}{{> model_templates/schema_python_types }}{{/with}}],
         {{else}}
-            '{{refInfo.getRef.baseName}}': {{#each getDeepestRef.getContent}}{{#with this}}{{#with schema}}typing.Union[{{../../../name.getSnakeCaseName}}.{{../../../name.getCamelCaseName}}.content["{{{../@key.getName}}}"].schema, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{refInfo.getRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getDeepestRef.getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> model_templates/schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/unless}}
 {{else}}
@@ -42,7 +42,7 @@ class {{xParamsName}}:
         {{#if schema}}
             '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with schema}}{{> model_templates/schema_python_types }}{{/with}}],
         {{else}}
-            '{{baseName}}': {{#each getContent}}{{#with this}}{{#with schema}}typing.Union[{{../name.getSnakeCaseName}}.{{../name.getCamelCaseName}}.content["{{{../@key.getName}}}"].schema, {{> model_templates/schema_python_types }}],{{/with}}{{/with}}{{/each}}
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> model_templates/schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/unless}}
 {{/if}}
