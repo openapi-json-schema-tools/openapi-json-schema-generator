@@ -3,31 +3,24 @@
 # {{packageName}}.components.headers.{{componentModule}}
     {{/if}}
     {{#if refInfo}}
+## {{name.getCamelCaseName}}
         {{#with getDeepestRef}}
             {{#if schema}}
                 {{#with schema}}
-                    {{#if ../../componentModule}}
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../name }}
-                    {{else}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.getSnakeCaseName }}
-                    {{/if}}
+### {{> anchor_fancy schemaNamePrefix1=../../name }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../refInfo.refClass}}.schema](../../components/headers/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | {{> model_templates/schema_python_types }} | {{> model_templates/schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
                 {{/with}}
-            {{else}}
-                {{#each getContent}}
-                    {{#with this}}
-                        {{#with schema}}
-                            {{#if ../../componentModule}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName}}
-                            {{else}}
-
-{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.getSnakeCaseName schemaNamePrefix4="content" schemaNamePrefix5=../@key.getSnakeCaseName}}
-                            {{/if}}
-                        {{/with}}
-                    {{/with}}
-                {{/each}}
             {{/if}}
+            {{#each content}}
+                {{#with this.schema}}
+### {{> anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> model_templates/schema_python_types }} | {{> model_templates/schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+                {{/with}}
+            {{/each}}
         {{/with}}
     {{else}}
         {{#if schema}}
