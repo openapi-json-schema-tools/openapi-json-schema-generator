@@ -4,9 +4,17 @@
 {{/if}}
 ## {{name.getCamelCaseName}}
 {{#if refInfo}}
-Type | Description  |
-------------- | ------------- |
-[**{{refInfo.refClass}}**]({{docRoot}}components/request_bodies/{{refInfo.refModule}}.md) | {{#if description}}{{description}}{{/if}} |
+    {{#with getDeepestRef}}
+        {{#each content}}
+            {{#with this.schema}}
+
+### {{> anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> model_templates/schema_python_types }} | {{> model_templates/schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+            {{/with}}
+        {{/each}}
+    {{/with}}
 {{else}}
     {{#each content}}
     {{#with this.schema}}
