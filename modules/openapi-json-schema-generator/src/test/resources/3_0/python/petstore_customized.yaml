@@ -1634,8 +1634,6 @@ servers:
         default: 'v2'
 components:
   parameters:
-    RefPathUserName:
-      $ref: '#/components/parameters/PathUserName'
     PathUserName:
       name: username
       in: path
@@ -1643,6 +1641,8 @@ components:
       required: true
       schema:
         type: string
+    RefPathUserName:
+      $ref: '#/components/parameters/PathUserName'
     RefSchemaStringWithValidation:
       name: RSstringWithValidation
       in: path
