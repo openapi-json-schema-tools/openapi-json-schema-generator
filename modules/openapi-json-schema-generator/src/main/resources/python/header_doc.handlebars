@@ -1,9 +1,9 @@
 {{#with header}}
     {{#if componentModule}}
 # {{packageName}}.components.headers.{{componentModule}}
+## {{name.getCamelCaseName}}
     {{/if}}
     {{#if refInfo}}
-## {{name.getCamelCaseName}}
         {{#with getDeepestRef}}
             {{#if schema}}
                 {{#with schema}}
