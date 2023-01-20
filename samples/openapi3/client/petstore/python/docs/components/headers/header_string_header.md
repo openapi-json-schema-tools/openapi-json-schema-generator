@@ -1,5 +1,5 @@
-# petstore_api.components.headers.header_string_header
-## StringHeader
+## petstore_api.components.headers.header_string_header
+# StringHeader
 # <a id="header_string_headerschema" >StringHeader.schema</a>
 
 ## Schema Type Info

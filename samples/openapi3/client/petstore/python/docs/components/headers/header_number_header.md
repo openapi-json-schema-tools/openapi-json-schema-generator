@@ -1,5 +1,5 @@
-# petstore_api.components.headers.header_number_header
-## NumberHeader
+## petstore_api.components.headers.header_number_header
+# NumberHeader
 # <a id="header_number_headerschema" >NumberHeader.schema</a>
 
 ## Schema Type Info

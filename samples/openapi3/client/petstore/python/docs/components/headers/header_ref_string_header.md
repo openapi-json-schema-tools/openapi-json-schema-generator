@@ -1,5 +1,5 @@
-# petstore_api.components.headers.header_ref_string_header
-## RefStringHeader
+## petstore_api.components.headers.header_ref_string_header
+# RefStringHeader
 ### <a id="header_ref_string_headerschema" >RefStringHeader.schema</a>
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
