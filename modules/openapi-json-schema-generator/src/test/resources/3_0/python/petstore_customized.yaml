@@ -96,18 +96,7 @@ paths:
               default: available
       responses:
         '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
+          $ref: '#/components/responses/SuccessfulXmlAndJsonArrayOfPet'
         '400':
           description: Invalid status value
       security:
@@ -137,18 +126,7 @@ paths:
               type: string
       responses:
         '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
+          $ref: '#/components/responses/RefSuccessfulXmlAndJsonArrayOfPet'
         '400':
           description: Invalid tag value
       security:
@@ -1660,6 +1638,21 @@ components:
           schema:
             $ref: '#/components/schemas/StringWithValidation'
   responses:
+    SuccessfulXmlAndJsonArrayOfPet:
+      description: successful operation
+      content:
+        application/xml:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Pet'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Pet'
+    RefSuccessfulXmlAndJsonArrayOfPet:
+      $ref: '#/components/responses/SuccessfulXmlAndJsonArrayOfPet'
     SuccessDescriptionOnly:
       description: Success
     RefSuccessDescriptionOnly:
