@@ -159,7 +159,7 @@ paths:
                 $ref: '#/components/schemas/Pet'
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/RefPet'
         '400':
           description: Invalid ID supplied
         '404':
@@ -1650,7 +1650,7 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/RefPet'
     RefSuccessfulXmlAndJsonArrayOfPet:
       $ref: '#/components/responses/SuccessfulXmlAndJsonArrayOfPet'
     SuccessDescriptionOnly:
@@ -1713,7 +1713,7 @@ components:
             $ref: '#/components/schemas/Pet'
         application/xml:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/RefPet'
       description: Pet object that needs to be added to the store
       required: true
   headers:
@@ -1933,6 +1933,8 @@ components:
             - sold
       xml:
         name: Pet
+    RefPet:
+      $ref: '#/components/schemas/Pet'
     ApiResponse:
       type: object
       properties:
