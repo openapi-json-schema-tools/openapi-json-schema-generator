@@ -2,16 +2,14 @@
 {{#if componentModule}}
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
+{{#if refInfo}}
+# {{name.getCamelCaseName}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.getSnakeCaseName}}" ></a>
+{{else}}
 # <a id="{{name.getSnakeCaseName}}" >{{name.getCamelCaseName}}</a>
+{{/if}}
 ## <a id="{{name.getSnakeCaseName}}response_cls" >{{name.getCamelCaseName}}.response_cls</a>
 {{else}}
 #### <a id="{{name.getSnakeCaseName}}response_cls" >{{name.getCamelCaseName}}.response_cls</a>
-{{/if}}
-{{#if refInfo}}
-Ref Class | Description
---------- | ------------
-[{{refInfo.refClass}}](../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}) |{{#if description}} {{description}}{{/if}}
-
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

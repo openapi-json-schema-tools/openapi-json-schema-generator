@@ -1,11 +1,7 @@
 <a name="top"></a>
 ## petstore_api.components.responses.response_ref_successful_xml_and_json_array_of_pet
-# <a id="response_ref_successful_xml_and_json_array_of_pet" >RefSuccessfulXmlAndJsonArrayOfPet</a>
+# RefSuccessfulXmlAndJsonArrayOfPet [ref](../../components/responses/response_successful_xml_and_json_array_of_pet)<a id="response_ref_successful_xml_and_json_array_of_pet" ></a>
 ## <a id="response_ref_successful_xml_and_json_array_of_petresponse_cls" >RefSuccessfulXmlAndJsonArrayOfPet.response_cls</a>
-Ref Class | Description
---------- | ------------
-[SuccessfulXmlAndJsonArrayOfPet](../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_pet) |
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
