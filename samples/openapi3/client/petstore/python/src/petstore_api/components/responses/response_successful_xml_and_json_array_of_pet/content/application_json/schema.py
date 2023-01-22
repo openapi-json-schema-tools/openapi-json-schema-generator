@@ -32,12 +32,12 @@ class Schema(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['pet.Pet']:
-            return pet.Pet
+        def items() -> typing.Type['ref_pet.RefPet']:
+            return ref_pet.RefPet
 
     def __new__(
         cls,
-        arg_: typing.Union[typing.Tuple['pet.Pet'], typing.List['pet.Pet']],
+        arg_: typing.Union[typing.Tuple['ref_pet.RefPet'], typing.List['ref_pet.RefPet']],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'Schema':
         return super().__new__(
@@ -46,7 +46,7 @@ class Schema(
             configuration_=configuration_,
         )
 
-    def __getitem__(self, i: int) -> 'pet.Pet':
+    def __getitem__(self, i: int) -> 'ref_pet.RefPet':
         return super().__getitem__(i)
 
-from petstore_api.components.schema import pet
+from petstore_api.components.schema import ref_pet

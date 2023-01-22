@@ -10,5 +10,5 @@
 """
 
 
-from petstore_api.components.schema import pet
-Schema = pet.Pet
+from petstore_api.components.schema import ref_pet
+Schema = ref_pet.RefPet

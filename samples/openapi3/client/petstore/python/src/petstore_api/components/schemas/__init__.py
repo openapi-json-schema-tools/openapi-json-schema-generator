@@ -106,6 +106,7 @@ from petstore_api.components.schema.player import Player
 from petstore_api.components.schema.quadrilateral import Quadrilateral
 from petstore_api.components.schema.quadrilateral_interface import QuadrilateralInterface
 from petstore_api.components.schema.read_only_first import ReadOnlyFirst
+from petstore_api.components.schema.ref_pet import RefPet
 from petstore_api.components.schema.req_props_from_explicit_add_props import ReqPropsFromExplicitAddProps
 from petstore_api.components.schema.req_props_from_true_add_props import ReqPropsFromTrueAddProps
 from petstore_api.components.schema.req_props_from_unset_add_props import ReqPropsFromUnsetAddProps

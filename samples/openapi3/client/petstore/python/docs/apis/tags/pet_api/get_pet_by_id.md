@@ -96,7 +96,7 @@ Type | Description  | Notes
 # <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) |  | 
+[**RefPet**](../../../components/schema/ref_pet.RefPet.md) |  | 
 
 
 #### <a id="response_400response_cls" >_400.response_cls</a>

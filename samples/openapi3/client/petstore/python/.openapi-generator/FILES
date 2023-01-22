@@ -191,6 +191,7 @@ docs/components/schema/player.Player.md
 docs/components/schema/quadrilateral.Quadrilateral.md
 docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md
 docs/components/schema/read_only_first.ReadOnlyFirst.md
+docs/components/schema/ref_pet.RefPet.md
 docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md
 docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md
 docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md
@@ -577,6 +578,8 @@ src/petstore_api/components/schema/quadrilateral_interface.py
 src/petstore_api/components/schema/quadrilateral_interface.pyi
 src/petstore_api/components/schema/read_only_first.py
 src/petstore_api/components/schema/read_only_first.pyi
+src/petstore_api/components/schema/ref_pet.py
+src/petstore_api/components/schema/ref_pet.pyi
 src/petstore_api/components/schema/req_props_from_explicit_add_props.py
 src/petstore_api/components/schema/req_props_from_explicit_add_props.pyi
 src/petstore_api/components/schema/req_props_from_true_add_props.py
@@ -1438,6 +1441,7 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
+test/components/schema/test_ref_pet.py
 test/test_paths/__init__.py
 test/test_paths/test_another_fake_dummy/__init__.py
 test/test_paths/test_another_fake_dummy/test_patch.py

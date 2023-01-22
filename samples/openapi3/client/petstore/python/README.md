@@ -324,6 +324,7 @@ HTTP request | Method | Description
  - [Quadrilateral](docs/components/schema/quadrilateral.Quadrilateral.md)
  - [QuadrilateralInterface](docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md)
  - [ReadOnlyFirst](docs/components/schema/read_only_first.ReadOnlyFirst.md)
+ - [RefPet](docs/components/schema/ref_pet.RefPet.md)
  - [ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md)
  - [ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md)
  - [ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md)
