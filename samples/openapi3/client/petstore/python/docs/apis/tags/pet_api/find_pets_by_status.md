@@ -144,39 +144,8 @@ items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | successful operation
+200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation
 400 | [_400.response_cls](#response_400response_cls) | Invalid status value
-
-#### <a id="response_200response_cls" >_200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  |
-
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  |
 
 #### <a id="response_400response_cls" >_400.response_cls</a>
 Name | Type | Description  | Notes

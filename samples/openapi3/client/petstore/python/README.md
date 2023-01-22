@@ -368,9 +368,11 @@ HTTP request | Method | Description
 ## Component Responses
 
 - [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md)
+- [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md)
 - [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md)
 - [SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md)
 - [SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md)
+- [SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_successful_xml_and_json_array_of_pet.md)
 
 ## Component Headers
 
