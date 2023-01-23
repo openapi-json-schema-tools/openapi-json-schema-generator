@@ -2742,6 +2742,8 @@ public class DefaultCodegen implements CodegenConfig {
             return prefix + "headers import " + refInfo.getRefModule();
         } else if (refInfo.getRef() instanceof CodegenResponse) {
             return prefix + "responses import " + refInfo.getRefModule();
+        } else if (refInfo.getRef() instanceof CodegenParameter) {
+            return prefix + "parameters import " + refInfo.getRefModule();
         }
         return null;
     }
@@ -3575,6 +3577,7 @@ public class DefaultCodegen implements CodegenConfig {
         String parameterRef = parameter.get$ref();
         setParameterLocationInfo(parameterRef, sourceJsonPath, sourceJsonPath, codegenParameter);
         if (parameterRef != null) {
+            codegenParameter.imports.add(getImport(codegenParameter.getRefInfo()));
             return codegenParameter;
         }
 
