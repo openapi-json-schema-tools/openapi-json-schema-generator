@@ -9,19 +9,18 @@
 import typing
 import typing_extensions
 
-from unit_test_api import api_client, exceptions
-
-from unit_test_api.components.schema import invalid_string_value_for_default
+from unit_test_api import api_client
+from .content.application_json import schema as application_json_schema
 
 class RequestBody(api_client.RequestBody):
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[invalid_string_value_for_default.InvalidStringValueForDefault] = invalid_string_value_for_default.InvalidStringValueForDefault
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': __ApplicationJsonMediaType,
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {
