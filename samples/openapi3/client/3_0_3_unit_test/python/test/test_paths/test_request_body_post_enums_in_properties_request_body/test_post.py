@@ -44,7 +44,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                         "bar",
                 }
             )
-            body = post.request_body.enums_in_properties.EnumsInProperties.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -80,7 +80,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.enums_in_properties.EnumsInProperties.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -98,7 +98,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                         "bar",
                 }
             )
-            body = post.request_body.enums_in_properties.EnumsInProperties.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -134,7 +134,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.enums_in_properties.EnumsInProperties.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -149,7 +149,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.enums_in_properties.EnumsInProperties.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -166,7 +166,7 @@ class TestRequestBodyPostEnumsInPropertiesRequestBody(ApiTestMixin, unittest.Tes
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.enums_in_properties.EnumsInProperties.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

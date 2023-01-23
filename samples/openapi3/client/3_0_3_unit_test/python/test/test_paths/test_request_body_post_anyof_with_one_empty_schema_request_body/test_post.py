@@ -41,7 +41,7 @@ class TestRequestBodyPostAnyofWithOneEmptySchemaRequestBody(ApiTestMixin, unitte
             payload = (
                 "foo"
             )
-            body = post.request_body.anyof_with_one_empty_schema.AnyofWithOneEmptySchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -71,7 +71,7 @@ class TestRequestBodyPostAnyofWithOneEmptySchemaRequestBody(ApiTestMixin, unitte
             payload = (
                 123
             )
-            body = post.request_body.anyof_with_one_empty_schema.AnyofWithOneEmptySchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

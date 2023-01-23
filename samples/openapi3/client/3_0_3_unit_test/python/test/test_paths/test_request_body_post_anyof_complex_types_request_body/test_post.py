@@ -44,7 +44,7 @@ class TestRequestBodyPostAnyofComplexTypesRequestBody(ApiTestMixin, unittest.Tes
                         "baz",
                 }
             )
-            body = post.request_body.anyof_complex_types.AnyofComplexTypes.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -80,7 +80,7 @@ class TestRequestBodyPostAnyofComplexTypesRequestBody(ApiTestMixin, unittest.Tes
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.anyof_complex_types.AnyofComplexTypes.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -98,7 +98,7 @@ class TestRequestBodyPostAnyofComplexTypesRequestBody(ApiTestMixin, unittest.Tes
                         2,
                 }
             )
-            body = post.request_body.anyof_complex_types.AnyofComplexTypes.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -131,7 +131,7 @@ class TestRequestBodyPostAnyofComplexTypesRequestBody(ApiTestMixin, unittest.Tes
                         2,
                 }
             )
-            body = post.request_body.anyof_complex_types.AnyofComplexTypes.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

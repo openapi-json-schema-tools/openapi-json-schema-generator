@@ -43,7 +43,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -57,7 +57,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 None
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -72,7 +72,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -86,7 +86,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 True
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -99,7 +99,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
             payload = (
                 1.1
             )
-            body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -130,7 +130,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 "1"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -144,7 +144,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -157,7 +157,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
             payload = (
                 1
             )
-            body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -187,7 +187,7 @@ class TestRequestBodyPostNumberTypeMatchesNumbersRequestBody(ApiTestMixin, unitt
             payload = (
                 1.0
             )
-            body = post.request_body.number_type_matches_numbers.NumberTypeMatchesNumbers.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

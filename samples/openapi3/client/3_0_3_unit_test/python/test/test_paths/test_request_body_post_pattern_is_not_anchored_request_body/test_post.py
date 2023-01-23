@@ -41,7 +41,7 @@ class TestRequestBodyPostPatternIsNotAnchoredRequestBody(ApiTestMixin, unittest.
             payload = (
                 "xxaayy"
             )
-            body = post.request_body.pattern_is_not_anchored.PatternIsNotAnchored.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -41,7 +41,7 @@ class TestRequestBodyPostAllofSimpleTypesRequestBody(ApiTestMixin, unittest.Test
             payload = (
                 25
             )
-            body = post.request_body.allof_simple_types.AllofSimpleTypes.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostAllofSimpleTypesRequestBody(ApiTestMixin, unittest.Test
                 35
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_simple_types.AllofSimpleTypes.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

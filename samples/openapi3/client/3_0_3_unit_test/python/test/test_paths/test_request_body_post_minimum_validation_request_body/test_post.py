@@ -41,7 +41,7 @@ class TestRequestBodyPostMinimumValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 1.1
             )
-            body = post.request_body.minimum_validation.MinimumValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostMinimumValidationRequestBody(ApiTestMixin, unittest.Tes
                 0.6
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.minimum_validation.MinimumValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -85,7 +85,7 @@ class TestRequestBodyPostMinimumValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 2.6
             )
-            body = post.request_body.minimum_validation.MinimumValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostMinimumValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 "x"
             )
-            body = post.request_body.minimum_validation.MinimumValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

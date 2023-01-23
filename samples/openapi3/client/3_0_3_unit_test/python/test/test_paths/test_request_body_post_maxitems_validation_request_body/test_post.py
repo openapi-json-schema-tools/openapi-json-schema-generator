@@ -46,7 +46,7 @@ class TestRequestBodyPostMaxitemsValidationRequestBody(ApiTestMixin, unittest.Te
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.maxitems_validation.MaxitemsValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -59,7 +59,7 @@ class TestRequestBodyPostMaxitemsValidationRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 "foobar"
             )
-            body = post.request_body.maxitems_validation.MaxitemsValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -91,7 +91,7 @@ class TestRequestBodyPostMaxitemsValidationRequestBody(ApiTestMixin, unittest.Te
                     1,
                 ]
             )
-            body = post.request_body.maxitems_validation.MaxitemsValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -124,7 +124,7 @@ class TestRequestBodyPostMaxitemsValidationRequestBody(ApiTestMixin, unittest.Te
                     2,
                 ]
             )
-            body = post.request_body.maxitems_validation.MaxitemsValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

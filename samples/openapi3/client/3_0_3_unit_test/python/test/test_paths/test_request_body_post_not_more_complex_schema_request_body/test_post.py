@@ -44,7 +44,7 @@ class TestRequestBodyPostNotMoreComplexSchemaRequestBody(ApiTestMixin, unittest.
                         1,
                 }
             )
-            body = post.request_body.not_more_complex_schema.NotMoreComplexSchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -78,7 +78,7 @@ class TestRequestBodyPostNotMoreComplexSchemaRequestBody(ApiTestMixin, unittest.
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.not_more_complex_schema.NotMoreComplexSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -91,7 +91,7 @@ class TestRequestBodyPostNotMoreComplexSchemaRequestBody(ApiTestMixin, unittest.
             payload = (
                 1
             )
-            body = post.request_body.not_more_complex_schema.NotMoreComplexSchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

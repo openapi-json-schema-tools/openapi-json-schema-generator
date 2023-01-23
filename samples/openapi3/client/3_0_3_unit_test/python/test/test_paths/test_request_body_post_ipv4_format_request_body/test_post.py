@@ -42,7 +42,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
                 {
                 }
             )
-            body = post.request_body.ipv4_format.Ipv4Format.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 False
             )
-            body = post.request_body.ipv4_format.Ipv4Format.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -102,7 +102,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 12
             )
-            body = post.request_body.ipv4_format.Ipv4Format.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -132,7 +132,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 13.7
             )
-            body = post.request_body.ipv4_format.Ipv4Format.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -163,7 +163,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
                 [
                 ]
             )
-            body = post.request_body.ipv4_format.Ipv4Format.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -193,7 +193,7 @@ class TestRequestBodyPostIpv4FormatRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 None
             )
-            body = post.request_body.ipv4_format.Ipv4Format.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -44,7 +44,7 @@ class TestRequestBodyPostInvalidStringValueForDefaultRequestBody(ApiTestMixin, u
                         "good",
                 }
             )
-            body = post.request_body.invalid_string_value_for_default.InvalidStringValueForDefault.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -75,7 +75,7 @@ class TestRequestBodyPostInvalidStringValueForDefaultRequestBody(ApiTestMixin, u
                 {
                 }
             )
-            body = post.request_body.invalid_string_value_for_default.InvalidStringValueForDefault.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -42,7 +42,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 ""
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -56,7 +56,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 1.1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -70,7 +70,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 None
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -84,7 +84,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 0
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -99,7 +99,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -113,7 +113,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -126,7 +126,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
             payload = (
                 False
             )
-            body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -157,7 +157,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -170,7 +170,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
             payload = (
                 True
             )
-            body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -202,7 +202,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.boolean_type_matches_booleans.BooleanTypeMatchesBooleans.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
