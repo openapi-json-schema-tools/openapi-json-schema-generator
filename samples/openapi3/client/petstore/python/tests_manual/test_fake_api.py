@@ -349,7 +349,6 @@ class TestFakeApi(ApiTestMixin):
             content_type='application/octet-stream',
             preload_content=False
         )
-        print('streamable_body.length ', streamable_body.length)
         with patch.object(RESTClientObject, 'request') as mock_request:
             mock_request.return_value = mock_response
             api_response = self.api.upload_download_file(body=file_bytes, stream=True)
