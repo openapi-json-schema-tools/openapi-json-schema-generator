@@ -1,3 +1,8 @@
+{{#if componentModule}}
+<a name="top"></a>
+## {{packageName}}.components.schema.{{componentModule}}
+# {{name.getCamelCaseName}}
+{{/if}}
 {{#if refInfo}}
 ## Schema Type Info
 Ref Class | Input Type | Accessed Type | Description
@@ -42,7 +47,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#if isComplicated}}
 
 # {{@key.getName}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/if}}
     {{/unless}}
     {{/if}}
@@ -52,7 +57,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#if isComplicated}}
 
 # {{@key.getName}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/if}}
     {{/unless}}
     {{/each}}
@@ -63,7 +68,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#if isComplicated}}
 
 # any_string_name
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/if}}
     {{/unless}}
     {{/unless}}
@@ -80,7 +85,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#if isComplicated}}
 
 # {{name.getName}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/if}}
     {{/unless}}
     {{/with}}
@@ -99,7 +104,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
 
 # {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/unless}}
     {{/each}}
     {{/if}}
@@ -114,7 +119,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
 
 # {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/unless}}
     {{/each}}
     {{/if}}
@@ -129,7 +134,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
 
 # {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/unless}}
     {{/each}}
     {{/if}}
@@ -142,9 +147,13 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
 
 # {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
-{{> schema_doc }}
+{{> schema/schema_doc }}
     {{/unless}}
     {{/with}}
     {{/if}}
     {{/or}}
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> footer_links readmePath="../../../" schemasLink=true}}
 {{/if}}
