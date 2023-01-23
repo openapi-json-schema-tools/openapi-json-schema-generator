@@ -305,7 +305,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
         pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
 
-        modelDocTemplateFiles.put("schema/model_doc.handlebars", ".md");
+        modelDocTemplateFiles.put("schema/schema_doc.handlebars", ".md");
         modelTestTemplateFiles.put("schema/schema_test.handlebars", ".py");
         requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");

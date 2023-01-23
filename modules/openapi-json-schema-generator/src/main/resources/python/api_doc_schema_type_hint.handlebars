@@ -5,5 +5,5 @@ Type | Description  | Notes
 [**{{refInfo.refClass}}**]({{complexTypePrefix}}{{> refclass_with_module }}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
 
 {{else}}
-{{> schema/schema_doc }}
+{{> schema/schema_doc schema=this }}
 {{/if}}

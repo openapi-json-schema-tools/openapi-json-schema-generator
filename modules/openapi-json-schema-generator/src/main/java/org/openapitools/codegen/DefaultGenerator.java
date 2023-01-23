@@ -1153,7 +1153,7 @@ public class DefaultGenerator implements Generator {
                 schemaData.put("packageName", config.packageName());
                 schemaData.put("schema", schema);
                 schemaData.putAll(config.additionalProperties());
-                schemaData.put("complexTypePrefix", "../../components/schema/");
+                schemaData.put("complexTypePrefix", "");
                 generateModelTests(files, schemaData, componentName);
 
                 // to generate model documentation files
