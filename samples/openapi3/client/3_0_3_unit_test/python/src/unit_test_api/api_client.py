@@ -888,7 +888,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
 
     @classmethod
     def deserialize(cls, response: urllib3.HTTPResponse, configuration: configuration_module.Configuration) -> T:
-        content_type = response.getheader('content-type')
+        content_type = response.headers.get('content-type')
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
 
@@ -897,7 +897,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
             cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
             deserialized_headers = {}
             for header_name, header_param in self.headers.items():
-                header_value = response.getheader(header_name)
+                header_value = response.headers.get(header_name)
                 if header_value is None:
                     continue
                 header_value = header_param.deserialize(header_value, header_name)
@@ -1095,7 +1095,7 @@ class ApiClient:
         :param stream: if True, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Also when True, if the openapi spec describes a file download,
-                                 the data will be written to a local filesystme file and the schemas.BinarySchema
+                                 the data will be written to a local filesystem file and the schemas.BinarySchema
                                  instance will also inherit from FileSchema and schemas.FileIO
                                  Default is False.
         :type stream: bool, optional
