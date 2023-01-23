@@ -10,6 +10,7 @@
 """
 from email.mime import multipart
 from email.mime import nonmultipart
+import http
 import io
 import sys
 import unittest
@@ -282,6 +283,7 @@ class TestFakeApi(ApiTestMixin):
             content_type='application/octet-stream'
         )
         try:
+            # sending file works
             with patch.object(RESTClientObject, 'request') as mock_request:
                 mock_request.return_value = mock_response
                 api_response = self.api.upload_download_file(body=file1)
@@ -301,7 +303,7 @@ class TestFakeApi(ApiTestMixin):
         finally:
             file1.close()
 
-        # sending just bytes works also
+        # sending bytes works
         with patch.object(RESTClientObject, 'request') as mock_request:
             mock_request.return_value = mock_response
             api_response = self.api.upload_download_file(body=file_bytes)
@@ -313,6 +315,20 @@ class TestFakeApi(ApiTestMixin):
                 accept_content_type='application/octet-stream'
             )
             self.assertEqual(api_response.body, file_bytes)
+
+    @staticmethod
+    def __get_streamable_body(file: io.FileIO):
+        class FileMaker:
+            @staticmethod
+            def makefile(mode: str):
+                return file
+        streamable_body = http.client.HTTPResponse(sock=FileMaker)
+        # todo in the future have tests of chunked encoding and this like
+        # https://github.com/urllib3/urllib3/blob/main/test/test_response.py
+        streamable_body.chunked = 0
+        streamable_body.length = 67  # length of file
+        return streamable_body
+
 
     def test_upload_download_file_rx_file(self):
         import os
@@ -326,27 +342,14 @@ class TestFakeApi(ApiTestMixin):
 
         # passing in file1 as the response body simulates a streamed response
         file1 = open(file_path1, "rb")
-
-        class StreamableBody:
-            """
-            This class simulates http.client.HTTPResponse for a streamable response
-            """
-            def __init__(self, file: io.BufferedReader):
-                self.fp = file
-
-            def read(self, *args, **kwargs):
-                return self.fp.read(*args, **kwargs)
-
-            def close(self):
-                self.fp.close()
-
-        streamable_body = StreamableBody(file1)
+        streamable_body = self.__get_streamable_body(file1)
 
         mock_response = self.response(
             streamable_body,
             content_type='application/octet-stream',
             preload_content=False
         )
+        print('streamable_body.length ', streamable_body.length)
         with patch.object(RESTClientObject, 'request') as mock_request:
             mock_request.return_value = mock_response
             api_response = self.api.upload_download_file(body=file_bytes, stream=True)
@@ -367,7 +370,7 @@ class TestFakeApi(ApiTestMixin):
         os.unlink(api_response.body.name)
 
         file1 = open(file_path1, "rb")
-        streamable_body = StreamableBody(file1)
+        streamable_body = self.__get_streamable_body(file1)
         saved_file_name = "fileName.abc"
 
         """
@@ -405,7 +408,7 @@ class TestFakeApi(ApiTestMixin):
         the url of response is used to extract the filename.
         """
         file1 = open(file_path1, "rb")
-        streamable_body = StreamableBody(file1)
+        streamable_body = self.__get_streamable_body(file1)
         expected_filename = "the_file.ext"
 
         no_filename_mock_response = self.response(
