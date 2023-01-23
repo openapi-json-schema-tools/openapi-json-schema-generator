@@ -583,6 +583,17 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
         return refInfo;
     }
 
+    public CodegenSchema getDeepestRef() {
+        if (refInfo == null) {
+            return null;
+        }
+        CodegenSchema refObject = refInfo.getRef();
+        while (refObject.refInfo != null) {
+            refObject = refObject.refInfo.getRef();
+        }
+        return refObject;
+    }
+
     @Override
     public Boolean getUniqueItems() {
         return uniqueItems;
