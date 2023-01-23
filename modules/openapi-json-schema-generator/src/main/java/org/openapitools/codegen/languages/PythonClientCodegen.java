@@ -307,7 +307,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         modelDocTemplateFiles.put("schema/schema_doc.handlebars", ".md");
         modelTestTemplateFiles.put("schema/schema_test.handlebars", ".py");
-        requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
+        requestBodyDocTemplateFiles.put("request_body/request_body_doc.handlebars", ".md");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
         headerDocTemplateFiles.put("header_doc.handlebars", ".md");
@@ -341,7 +341,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                Collections.singletonMap("request_body.handlebars", "__init__.py")
+                Collections.singletonMap("request_body/request_body.handlebars", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,

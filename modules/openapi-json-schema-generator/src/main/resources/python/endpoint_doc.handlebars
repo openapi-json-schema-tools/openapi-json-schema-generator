@@ -84,7 +84,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{#unless requestBody.refInfo}}
 
 ### <a id="request_body" >body</a>
-{{> request_body_doc requestBody=requestBody }}
+{{> request_body/request_body_doc requestBody=requestBody }}
     {{/unless}}
     {{/if}}
     {{#if queryParams}}
